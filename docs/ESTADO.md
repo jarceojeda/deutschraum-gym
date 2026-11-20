@@ -107,4 +107,5 @@ Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `doc
 - **Ideas pendientes (de la charla sobre Grammatik aktiv):** ciclo Verstehen→Üben→Sprechen por concepto, preguntas-respuesta en cadena (Wo?/Wohin?), «completar solo la terminación» (gut__), «Mis palabras», frases personalizadas, cruce del temario por capítulos A1–B1.
 - Pruebas: ver `npm test` (UI en `tests/ui-*.test.js`; `ui-variedad` con 2 `todo` a propósito).
 
-## Etapas 4–6 — PENDIENTES
+## Etapas — estado real (reordenado)
+Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 4 y 5 hechas en lo esencial; **4b Gramática B1 en curso**; 4c/5b pendientes; **6 (auditoría) al final**.
