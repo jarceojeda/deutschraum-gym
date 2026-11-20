@@ -42,6 +42,8 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 35 | Escalera de ayuda que se retira (opciones → bloques/terminación → letras) | Por intentos acumulados del `errorTag`: <5 ayuda (opciones, emparejado), 5–19 o <85 % media (bloques, terminación), ≥20 con ≥85 % dominado (letras sueltas). Se apaga en Ajustes («Ayuda que se retira») | HECHO |
 | 36 | Nivel A1 / A2 / **B1** / Auto | Cuatro botones; A1/A2/B1 = practicar ese nivel (`engine.setLevel` + tope), Auto = rampa por dominio y restaura el nivel ganado | HECHO |
 | 37 | Wortschatz y Satzbau (módulos 6 y 7) | Primera versión solo A1 generada desde la referencia 2.4.4 (2.316 y 421 ítems); los 7 módulos están activos | HECHO (A1) |
+| 38 | Errores comunes de las clases en las cápsulas | 81 viñetas «Atención» → `errores` (≤3 por concepto, 27 conceptos); cada tiempo verbal muestra su regla | HECHO |
+| 39 | Pistas de sufijo para el género (Artikel, SPEC §3) | `ui/sufijos.json` (26 terminaciones de las fuentes); tras fallar: «-ung suele ser die» o excepción | HECHO |
 | 31 | Pestaña de consulta separada de los ejercicios | «Consulta de reglas»: 62 temas de `reglas.json`, solo lectura | HECHO (parcial: faltan cheat sheets A2/B1) |
 
 Evaluación completa de la propuesta de la charla inicial: `docs/EVALUACION-propuesta.md`.

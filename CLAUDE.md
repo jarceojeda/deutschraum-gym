@@ -15,7 +15,7 @@ App de alemán A1→B1 (vanilla JS, sin frameworks ni backend, localStorage, IIF
 - **Stack:** HTML/CSS/JS vanilla, IIFE modules, sin dependencias nuevas en runtime (jsdom sólo para pruebas). Build final = un solo HTML + manifest + sw.js que incrusta el bundle.
 - **Texto alemán:** NFC siempre, NUNCA NFD (borraría diacríticos). Diéresis perdida = error; `ae/oe/ue/ss` sí valen.
 - **No tocar el motor (`src/`) sin motivo.** Si la interfaz necesita algo, primero comprueba la API en `docs/ESTADO.md`; si falta, propón el cambio y añade una prueba que falle antes y pase después.
-- **No tocar `data/`** salvo petición expresa. Los datos vienen de un pipeline externo. `wortschatz.json` y `satzbau.json` son una primera versión solo A1 generada con `tools/gen-wortschatz-satzbau.js` (no editar a mano; los definitivos del pipeline los sustituirán).
+- **No tocar `data/`** salvo petición expresa. Los datos vienen de un pipeline externo. `wortschatz.json` y `satzbau.json` son una primera versión generada con `tools/gen-wortschatz-satzbau.js` (fuentes: `docs/referencia/` y `docs/fuentes/aleman-markups/`) (no editar a mano; los definitivos del pipeline los sustituirán).
 - **Umbrales** (`sim/thresholds.js`): no se relajan para que pase un test. Si un cambio rompe un umbral por razones de diseño, parar y explicar.
 - **Pruebas:** todo cambio con una prueba; `npm test` en verde antes de cada commit. Pruebas e2e con jsdom inspeccionando localStorage tras errores deliberados.
 - **API del motor:** `view()` devuelve el mismo objeto en la misma posición (no mutarlo); `answer()/giveUp()/finish()` pueden devolver `saveError`; la entrada `letters` puede enviarse como array de letras (se unen sin espacios) o como texto.

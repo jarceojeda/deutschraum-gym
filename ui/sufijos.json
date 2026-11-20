@@ -1,0 +1,162 @@
+{
+ "version": 1,
+ "fuente": "reglas-articulos-aleman-der-die-das.md",
+ "sufijos": [
+  {
+   "fin": "-er",
+   "art": "der",
+   "ejemplos": "der Lehrer, der Computer, der Drucker",
+   "nota": "Frecuente en profesiones, personas, máquinas. No siempre."
+  },
+  {
+   "fin": "-ling",
+   "art": "der",
+   "ejemplos": "der Frühling, der Liebling",
+   "nota": "Bastante fiable."
+  },
+  {
+   "fin": "-ismus",
+   "art": "der",
+   "ejemplos": "der Kapitalismus, der Sozialismus",
+   "nota": "Muy fiable."
+  },
+  {
+   "fin": "-ist",
+   "art": "der",
+   "ejemplos": "der Tourist, der Polizist",
+   "nota": "Personas, profesiones o roles."
+  },
+  {
+   "fin": "-or",
+   "art": "der",
+   "ejemplos": "der Motor, der Autor, der Doktor",
+   "nota": "Muy frecuente."
+  },
+  {
+   "fin": "-ant",
+   "art": "der",
+   "ejemplos": "der Praktikant, der Diamant",
+   "nota": "Frecuente."
+  },
+  {
+   "fin": "-ent",
+   "art": "der",
+   "ejemplos": "der Student, der Präsident",
+   "nota": "Frecuente."
+  },
+  {
+   "fin": "-eur",
+   "art": "der",
+   "ejemplos": "der Ingenieur, der Friseur",
+   "nota": "Frecuente."
+  },
+  {
+   "fin": "-ung",
+   "art": "die",
+   "ejemplos": "die Wohnung, die Meinung, die Prüfung",
+   "nota": "vivienda, opinión, examen"
+  },
+  {
+   "fin": "-heit",
+   "art": "die",
+   "ejemplos": "die Freiheit, die Gesundheit",
+   "nota": "libertad, salud"
+  },
+  {
+   "fin": "-keit",
+   "art": "die",
+   "ejemplos": "die Möglichkeit, die Schwierigkeit",
+   "nota": "posibilidad, dificultad"
+  },
+  {
+   "fin": "-schaft",
+   "art": "die",
+   "ejemplos": "die Freundschaft, die Gesellschaft",
+   "nota": "amistad, sociedad"
+  },
+  {
+   "fin": "-ei",
+   "art": "die",
+   "ejemplos": "die Bäckerei, die Polizei",
+   "nota": "panadería, policía"
+  },
+  {
+   "fin": "-ion",
+   "art": "die",
+   "ejemplos": "die Information, die Situation",
+   "nota": "información, situación"
+  },
+  {
+   "fin": "-tät",
+   "art": "die",
+   "ejemplos": "die Universität, die Aktivität",
+   "nota": "universidad, actividad"
+  },
+  {
+   "fin": "-ik",
+   "art": "die",
+   "ejemplos": "die Musik, die Politik",
+   "nota": "música, política"
+  },
+  {
+   "fin": "-ur",
+   "art": "die",
+   "ejemplos": "die Kultur, die Natur",
+   "nota": "cultura, naturaleza"
+  },
+  {
+   "fin": "-enz",
+   "art": "die",
+   "ejemplos": "die Konferenz, die Existenz",
+   "nota": "conferencia, existencia"
+  },
+  {
+   "fin": "-anz",
+   "art": "die",
+   "ejemplos": "die Distanz, die Toleranz",
+   "nota": "distancia, tolerancia"
+  },
+  {
+   "fin": "-ie",
+   "art": "die",
+   "ejemplos": "die Familie, die Industrie",
+   "nota": "familia, industria"
+  },
+  {
+   "fin": "-ment",
+   "art": "das",
+   "ejemplos": "das Dokument, das Instrument, das Medikament",
+   "nota": "Bastante frecuente. Excepción: der Moment."
+  },
+  {
+   "fin": "-um",
+   "art": "das",
+   "ejemplos": "das Zentrum, das Museum, das Studium",
+   "nota": "Muy frecuente."
+  },
+  {
+   "fin": "-ma",
+   "art": "das",
+   "ejemplos": "das Thema, das Klima, das Drama",
+   "nota": "Frecuente."
+  },
+  {
+   "fin": "-o",
+   "art": "das",
+   "ejemplos": "das Auto, das Radio, das Kino, das Foto",
+   "nota": "Frecuente en palabras comunes."
+  },
+  {
+   "fin": "-chen",
+   "art": "das",
+   "ejemplos": "das Mädchen, das Brötchen, das Häuschen",
+   "nota": "Los diminutivos son siempre neutros (ganan sobre el significado: das Mädchen)."
+  },
+  {
+   "fin": "-lein",
+   "art": "das",
+   "ejemplos": "das Fräulein, das Büchlein",
+   "nota": "Los diminutivos son siempre neutros (ganan sobre el significado: das Mädchen)."
+  }
+ ]
+}

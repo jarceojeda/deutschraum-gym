@@ -118,7 +118,7 @@ test('el HTML es autocontenido (sin recursos externos), NFC y usa sólo IIFE van
     const t = fs.readFileSync(path.join(__dirname, '..', 'ui', f), 'utf8'); assert.equal(t, t.normalize('NFC'), f + ' no es NFC');
   });
   assert.ok(/prefers-reduced-motion:\s*reduce/.test(HTML) && /prefers-color-scheme:\s*dark/.test(HTML));
-  assert.ok(HTML.length < 4e6);
+  assert.ok(HTML.length < 6e6, 'el HTML pesa ' + HTML.length);   // guarda de tamaño: 10.600 ítems de 7 módulos ≈ 4,2 MB; sube si el contenido crece mucho
 });
 
 for (const mod of ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'wortschatz', 'satzbau']) {
@@ -936,9 +936,9 @@ test('S · Satzbau: ordenar la frase con fichas; al fallar sale la regla de V₂
   u.next(); u.answer(true); assert.ok(u.q('.fb.ok'));
 });
 
-test('W/S · Viaje combinado con los 7 módulos; B1 deja Wortschatz y Satzbau en A1 (sólo tienen A1)', () => {
+test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1) se queda en A1', () => {
   const u = boot(162); u.click(u.q('[data-level="B1"]')); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
-  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'wortschatz' || it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
+  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
   assert.ok(mods.size >= 4, [...mods].join());
   assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
 });
@@ -968,4 +968,19 @@ test('Consulta · grupo «Clases» lista los conceptos creados desde las clases 
   const u = boot(171); u.click(u.q('#consulta')); u.click(u.q('[data-group="md"]'));
   const ids = u.qa('.erow').map(r => r.dataset.concept); assert.ok(ids.length >= 8 && ids.every(k => /^(md|b1|a24):/.test(k)), ids.join());
   assert.ok(ids.includes('md:verben-praeteritum')); u.click(u.q('[data-concept="md:verben-praeteritum"]')); assert.ok(u.q('[role="dialog"] .capsule details[open]'));
+});
+
+/* ---------- Pistas de sufijo (Artikel) ---------- */
+test('Sufijo · tras fallar un sustantivo con terminación conocida sale la pista (o la excepción); sin terminación y al acertar no', () => {
+  const SUF = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'sufijos.json'), 'utf8')).sufijos;
+  const u = boot(180); const S = u.w.DGUI.sufijos; u.chooseModule('artikel', 30); u.start(); let con = null, sin = null, exc = null;
+  for (let i = 0; i < 80 && u.S().screen === 'session' && !(con && sin); i++) {
+    const it = u.S().cur.item, h = S.hint(it, SUF);
+    if (h && h.coincide && !con) { con = it; u.answer(false); const el = u.q('.fb.bad .fb-suf'); assert.ok(el, 'pista de sufijo'); assert.equal(el.dataset.suffix, h.fin); assert.match(el.textContent, /Pista de sufijo/); assert.match(el.textContent, /suele ser/); assert.ok(el.querySelector('.art'), 'artículo con color y forma'); u.next(); continue; }
+    if (h && !h.coincide && !exc) { exc = it; u.answer(false); assert.match(u.q('.fb.bad .fb-suf').textContent, /excepción/); u.next(); continue; }
+    if (!h && !sin) { sin = it; u.answer(false); assert.equal(u.q('.fb-suf'), null, 'sin terminación conocida no hay pista'); u.next(); continue; }
+    if (h && con && !u.q('.fb')) { u.answer(true); assert.equal(u.q('.fb-suf'), null, 'al acertar no hay pista'); u.next(); continue; }
+    u.answer(true); u.next();
+  }
+  assert.ok(con && sin, 'se probaron ambos casos');
 });

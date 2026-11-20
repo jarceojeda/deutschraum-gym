@@ -143,5 +143,17 @@ const reglas = require('../ui/reglas.json').reglas;
     await p.click('[aria-label="Ajustes"]'); await shot(p, '08-oscuro-ajustes-nivel');
     await ctx.close();
   }
+  if (block === 'K') {
+    let { p, ctx } = await page('light', { auto: false, size: 30 });
+    await p.click('.card[data-module="artikel"]');
+    if (await until(p, c => c.item.skill === 'genero' && /(ung|heit|keit|schaft|er)$/.test(c.item.lemma || ''))) { await solve(p, false); await shot(p, '01-artikel-pista-de-sufijo'); }
+    await home(p); await p.click('.card[data-module="verben"]');
+    if (await until(p, c => c.item.skill === 'praeteritum')) { await solve(p, false); await p.locator('details.cap-err summary').first().click(); await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await shot(p, '02-preteritum-errores-tipicos'); }
+    await home(p); await p.click('[data-level="B1"]'); await p.click('.card[data-module="wortschatz"]');
+    if (await until(p, c => c.item.level === 'B1' && c.item.skill === 'es-de')) await shot(p, '03-wortschatz-b1-de-las-clases');
+    await home(p); await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await p.click('#consulta'); await p.click('[data-group="md"]'); await shot(p, '04-consulta-clases');
+    await p.locator('.erow').nth(3).click(); await shot(p, '05-consulta-clases-errores-abiertos');
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

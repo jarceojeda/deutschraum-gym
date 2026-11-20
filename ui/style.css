@@ -158,3 +158,6 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .btn.opt.noun{font-size:19px}.btn.opt.noun .art{font-size:.9em}
 
 .cap-err{margin-top:8px}.cap-err summary{cursor:pointer;font-weight:800;font-size:13.5px;min-height:44px;display:flex;align-items:center}.cap-err ul{margin:4px 0 0;padding-left:18px}.cap-err li{margin:4px 0}.cap-err strong{color:var(--coral)}
+
+.fb-suf{margin-top:10px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--das) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--das) 30%,var(--line));font-size:14.5px}.fb-suf .art{font-size:.92em}
+.sheet-f .btn{width:100%}

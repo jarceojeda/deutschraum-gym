@@ -271,6 +271,15 @@
           h('span.pres', h('strong', r.ok ? r.expected : r.expected), r.ok ? null : h('s', r.given == null ? '—' : r.given), h('span.mark', { 'aria-hidden': 'true' }, r.ok ? '✓' : '✗')));
       }));
     }
+    // Pista de sufijo (Artikel) tras fallar: «-ung suele ser die» o, si el sustantivo es excepción, lo dice.
+    function fbSuffix(item) {
+      var hnt = D.sufijos.hint(item, ctx.sufijos); if (!hnt) return null;
+      return h('div.fb-suf', { 'data-suffix': hnt.fin },
+        h('b', 'Pista de sufijo: '),
+        hnt.coincide ? [h('strong', hnt.fin), ' suele ser ', F.genderBadge(hnt.art), ' (' + hnt.ejemplos + ').']
+          : ['Ojo: ', h('strong', hnt.fin), ' suele ser ', F.genderBadge(hnt.art), ', pero ' + hnt.lemma + ' es ', F.genderBadge(hnt.correct), ': una excepción.'],
+        hnt.nota && hnt.coincide ? h('span.hint', ' ' + hnt.nota) : null);
+    }
     function fbTable(item) {
       var info = tableInfo(item); if (!info) return null;
       return h('div.fb-table', chainNode(item, info), tableNode(info, { hit: info.loc }));
@@ -291,7 +300,7 @@
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa'), say),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? 'Wo? ' + f.resp.wo + ' · Wohin? ' + f.resp.wohin : f.resp)) : null,
-          h('div.fb-line', rules.oneLine(item)), fbTable(item), capsuleNode(rules.capsule(item)),
+          h('div.fb-line', rules.oneLine(item)), fbSuffix(item), fbTable(item), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
       if (prefs.get('voice') === 'auto' && voice.available()) voice.speakItem(item);
