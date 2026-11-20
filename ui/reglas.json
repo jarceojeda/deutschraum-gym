@@ -1,0 +1,390 @@
+{
+ "version": 1,
+ "fuentes": [
+  "aleman_declination_master_mobile_v1_1.html",
+  "telc_a1_cheatsheet_v4_3.html (solo gramática)"
+ ],
+ "reglas": {
+  "dm:s1-1": {
+   "titulo": "1.1 · El caso viene de fuera",
+   "regla": "**MEMORY:** El trigger elige el caso. Esta cheat sheet te enseña qué hacer después.",
+   "ejemplo": {
+    "antes": "**mit**",
+    "despues": "Dat"
+   }
+  },
+  "dm:s1-2": {
+   "titulo": "1.2 · Después fija M · F · N · PL",
+   "formula": "Fórmula humanaCASO + M/F/N/PL = TU CASILLA",
+   "regla": "Ejemplo: **mit + Chef** → **DAT · M**. Todavía no has elegido ninguna terminación.",
+   "ejemplo": {
+    "antes": "**der Chef**",
+    "despues": "M"
+   }
+  },
+  "dm:s2-1": {
+   "titulo": "2.1 · La gran idea",
+   "regla": "Regla productiva: si delante del adjetivo hay un artículo/determinante con **terminación flexiva**, el adjetivo usa el patrón débil. Si ese elemento no lleva terminación o no existe, el adjetivo toma la terminación fuerte necesaria."
+  },
+  "dm:s2-2": {
+   "titulo": "2.2 · Solo necesitas dos comportamientos",
+   "regla": "**MEMORY:** “Mixta” no es una tercera máquina: la familia ein alterna entre fuerte y débil según tenga o no una terminación visible."
+  },
+  "dm:s2-3": {
+   "titulo": "2.3 · “Señal” es una herramienta mental, no magia",
+   "regla": "La “señal” es la terminación flexiva relevante para una casilla que **ya fijaste**. No significa que una sola forma identifique por sí sola caso + género + número: una misma forma puede servir para varias casillas, como die. El sustantivo puede llevar…"
+  },
+  "dm:s3-1": {
+   "titulo": "3.1 · Familia DER · la señal suele venir delante",
+   "regla": "**JED-:** para CORE, úsalo en Nom/Akk/Dat singular con las terminaciones familiares (jeder/jedes/jede · jeden · jedem/jeder). No tiene un plural ordinario; el Genitiv M/N presenta variantes y no merece cargar el motor principal."
+  },
+  "dm:s3-2": {
+   "titulo": "3.2 · Familia EIN · solo 3 huecos importantes",
+   "regla": "**MEMORY:** Los 3 huecos son **Nom M · Nom N · Akk N**. Ahí el adjetivo debe mostrar la terminación fuerte."
+  },
+  "dm:s3-3": {
+   "titulo": "3.3 · Ø · nadie delante del adjetivo",
+   "regla": "Sin artículo/determinante flexionado, el adjetivo normalmente toma la terminación fuerte necesaria."
+  },
+  "dm:s3-4": {
+   "titulo": "3.4 · Posesivos · separa dos preguntas",
+   "formula": "Pregunta 1¿QUIÉN POSEE? → elige la raíz",
+   "regla": "**EUER:** cuando recibe terminación, la forma habitual contrae: **eure · euren · eurem · eurer · eures**.",
+   "ejemplo": {
+    "antes": "ich",
+    "despues": "**mein-**"
+   }
+  },
+  "dm:s4-1": {
+   "titulo": "4.1 · Débil = solo -e / -en",
+   "regla": "**5 casillas -e:** Nom M/F/N + Akk F/N. **Todo lo demás → -en.**"
+  },
+  "dm:s4-2": {
+   "titulo": "4.2 · Fuerte = el adjetivo muestra la casilla",
+   "regla": "**LÍMITE DE LA METÁFORA:** en Genitiv M/N sin determinante, el adjetivo fuerte usa **-en**, no **-es**: wegen schlechten Wetters. Aquí la marca inequívoca del caso aparece en el sustantivo (**Wetter-s**)."
+  },
+  "dm:s4-3": {
+   "titulo": "4.3 · “Mixta” = EIN alternando",
+   "regla": "No necesitas memorizar una tercera tabla para producir. La tabla mixta completa queda al final como referencia."
+  },
+  "dm:s5-1": {
+   "titulo": "5.1 · DATIV PLURAL · normalmente +n",
+   "regla": "**MEMORY:** DAT + PL → mira siempre el final del sustantivo.",
+   "ejemplo": {
+    "antes": "die Kinder",
+    "despues": "mit den Kinder**n**"
+   }
+  },
+  "dm:s5-2": {
+   "titulo": "5.2 · GENITIV M/N · normalmente -(e)s",
+   "regla": "**ATAJO -S / -ES:** tras sonidos sibilantes escritos, por ejemplo **-s/-ss/-ß/-z/-tz/-x**, usa **-es**. Tras **-en/-em/-el/-er** y diminutivos **-chen/-lein**, normalmente **-s**. En muchos otros sustantivos cortos pueden aparecer ambas formas.",
+   "ejemplo": {
+    "antes": "der Mann",
+    "despues": "des Mann**es**"
+   }
+  },
+  "dm:s5-3": {
+   "titulo": "5.3 · N-DEKLINATION · algunos masculinos cambian fuera de Nom sg",
+   "regla": "**ALARMA MEJOR:** masculino animado terminado en **-e** es una pista muy fuerte. También hay muchos nombres de persona en **-ant/-ent/-ist/-oge**. Aprende los frecuentes como chunks.",
+   "ejemplo": {
+    "antes": "der Student",
+    "despues": "den Student**en**"
+   }
+  },
+  "dm:s5-4": {
+   "titulo": "5.4 · EXPANSION · bordes que vale la pena reconocer",
+   "regla": "Son patrones frecuentes, pero no deberían romper el motor principal.",
+   "ejemplo": {
+    "antes": "**der Herr",
+    "despues": "den Herrn**"
+   }
+  },
+  "dm:s6-1": {
+   "titulo": "6.1 · Misma raíz, otra función",
+   "regla": "**REUSE:** cambia mein- por dein-/sein-/ihr-/unser-/euer-/Ihr-. El Genitiv existe, pero es de bajo retorno productivo.",
+   "ejemplo": {
+    "antes": "**dieser Mann**",
+    "despues": "determinante"
+   }
+  },
+  "dm:s6-2": {
+   "titulo": "6.2 · Pronombres personales · tabla que sí merece existir",
+   "regla": "**Prioridad:** automatiza Nom/Akk/Dat. El Genitiv de los pronombres personales es de bajo retorno productivo."
+  },
+  "dm:s6-3": {
+   "titulo": "6.3 · OJO · der artículo ≠ siempre der pronombre",
+   "regla": "Los pronombres demostrativos der/die/das tienen formas propias en algunas casillas, por ejemplo **denen**, **dessen**, **deren**. No necesitas mezclarlas con el motor de adjetivos."
+  },
+  "dm:s9-1": {
+   "titulo": "9.1 · Masculino definido",
+   "regla": "der → den → dem → des"
+  },
+  "dm:s9-3": {
+   "titulo": "9.3 · Dativ tiene una firma fuerte",
+   "regla": "M/N → -m · F → -r · PL → -n"
+  },
+  "dm:s9-4": {
+   "titulo": "9.4 · Débil = 5 veces -e; resto -en",
+   "regla": "Nom M/F/N + Akk F/N → -e · RESTO → -en"
+  },
+  "dm:s9-5": {
+   "titulo": "9.5 · EIN = tres huecos",
+   "regla": "Nom M · Nom N · Akk N → Ø → adjetivo fuerte"
+  },
+  "dm:s9-6": {
+   "titulo": "9.6 · Sin determinante",
+   "regla": "Ø delante → el adjetivo normalmente lleva la señal fuerte"
+  },
+  "dm:s9-7": {
+   "titulo": "9.7 · Tres alarmas del sustantivo",
+   "ejemplo": {
+    "antes": "**Dat Pl",
+    "despues": "+n**"
+   }
+  },
+  "dm:s11-4": {
+   "titulo": "11.4 · Adjetivo “mixto” · familia EIN",
+   "regla": "*Plural aplica a kein y posesivos, no a ein."
+  },
+  "dm:s11-6": {
+   "titulo": "11.6 · Terminaciones de dies-/jen-/welch-",
+   "regla": "**JED-:** esta matriz te sirve como referencia práctica en Nom/Akk/Dat singular; no tiene un plural ordinario. El Genitiv M/N admite variantes, por eso queda fuera del CORE."
+  },
+  "cs:t1": {
+   "titulo": "La regla madre: V₂",
+   "formula": "LO PRIMERO + VERBO CONJUGADO + RESTO",
+   "regla": "**Recuerda:** “posición” no significa “palabra”. Am Montag cuenta como una sola posición.",
+   "ejemplo": {
+    "antes": "Ich arbeite heute.",
+    "despues": "Heute arbeite ich."
+   }
+  },
+  "cs:t2": {
+   "titulo": "Preguntas: dos patrones",
+   "formula": "PALABRA DE PREGUNTA + VERBO + PERSONA + RESTO",
+   "regla": "**3 formas:** Aussage → V₂ · W-Frage → W + V · Ja/Nein → V₁.",
+   "ejemplo": {
+    "antes": "Du wohnst in Köln.",
+    "despues": "Wohnst du in Köln?"
+   }
+  },
+  "cs:t3": {
+   "titulo": "Präsens: construir la forma del verbo",
+   "formula": "RAÍZ DEL VERBO + TERMINACIÓN DE LA PERSONA",
+   "regla": "**Fórmula automática:** -e · -st · -t · -en · -t · -en",
+   "ejemplo": {
+    "antes": "arbeiten",
+    "despues": "du arbeit**est**"
+   }
+  },
+  "cs:t4": {
+   "titulo": "Vokalwechsel: solo vigila dos personas",
+   "ejemplo": {
+    "antes": "ich fahre",
+    "despues": "du fährst"
+   }
+  },
+  "cs:t6": {
+   "titulo": "¿Quién hace la acción? · Personalpronomen",
+   "regla": "**sie / sie / Sie:** ella · ellos/ellas · usted/ustedes formal. **Sie formal siempre con mayúscula.**"
+  },
+  "cs:t7": {
+   "titulo": "Una sola idea explica tres estructuras",
+   "regla": "**No memorices tres reglas separadas.** Memoriza una: **dos piezas verbales abrazan la oración.**"
+  },
+  "cs:t8": {
+   "titulo": "Trennbare Verben · el prefijo se va al final",
+   "formula": "VERBO CONJUGADO + INFORMACIÓN + PREFIJO",
+   "ejemplo": {
+    "antes": "aufstehen",
+    "despues": "Ich stehe um 7 Uhr auf."
+   }
+  },
+  "cs:t9": {
+   "titulo": "Modalverben · cambia la intención, no la arquitectura",
+   "formula": "QUIÉN + MODAL + RESTO + ACCIÓN AL FINAL",
+   "regla": "**Patrón potente:** en muchos modales, **ich = er/sie/es**.",
+   "ejemplo": {
+    "antes": "Ich spreche Deutsch.",
+    "despues": "Ich kann Deutsch sprechen."
+   }
+  },
+  "cs:t10": {
+   "titulo": "mögen · gern · möchten: tres ideas distintas",
+   "formula": "QUIÉN + möchten + RESTO + ACCIÓN AL FINAL"
+  },
+  "cs:t11": {
+   "titulo": "Imperativ · quitar el sujeto",
+   "ejemplo": {
+    "antes": "nehmen",
+    "despues": "**Nimm!**"
+   }
+  },
+  "cs:t12": {
+   "titulo": "Aprende el sustantivo como un paquete",
+   "regla": "**Pistas:** die: -ung/-heit/-keit/-schaft/-ei · das: -chen/-lein · der: días, meses, estaciones.",
+   "ejemplo": {
+    "antes": "Tisch",
+    "despues": "der Tisch · die Tische"
+   }
+  },
+  "cs:t13": {
+   "titulo": "Komposita · mira siempre la última palabra",
+   "formula": "PALABRA + SUSTANTIVO FINAL + NUEVO SUSTANTIVO",
+   "regla": "**Superregla:** la última palabra decide el género y normalmente también el patrón básico del plural.",
+   "ejemplo": {
+    "antes": "Kurs + Buch",
+    "despues": "das Kursbuch"
+   }
+  },
+  "cs:t14": {
+   "titulo": "Los 3 casos de A1",
+   "formula": "VERBO / PREPOSICIÓN + CASO QUE EXIGE + FORMA CORRECTA",
+   "regla": "**Aprende chunks:** sehen + Akk · helfen + Dat · mit + Dat."
+  },
+  "cs:t15": {
+   "titulo": "La tabla importa, pero el patrón importa más",
+   "regla": "**Regla de alto rendimiento:** en Akkusativ comparado con Nominativ, **solo cambia el masculino**.",
+   "ejemplo": {
+    "antes": "der Mann",
+    "despues": "den Mann"
+   }
+  },
+  "cs:t16": {
+   "titulo": "Dativ plural · dos cambios a la vez",
+   "formula": "den + PLURAL + normalmente + n",
+   "ejemplo": {
+    "antes": "die Kinder",
+    "despues": "den Kindern"
+   }
+  },
+  "cs:t17": {
+   "titulo": "El verbo decide el caso",
+   "formula": "A QUIÉN + QUÉ COSA",
+   "ejemplo": {
+    "antes": "dir",
+    "despues": "einen Kaffee"
+   }
+  },
+  "cs:t18": {
+   "titulo": "Cuando la persona ya no necesita sustantivo",
+   "ejemplo": {
+    "antes": "Ich helfe dem Mann.",
+    "despues": "Ich helfe ihm."
+   }
+  },
+  "cs:t19": {
+   "titulo": "Possessivartikel · primero identifica al dueño",
+   "formula": "MASC. / NEUTRO + RAÍZ",
+   "regla": "**euer:** euer Vater · eure Mutter · euren Vater.",
+   "ejemplo": {
+    "antes": "mein Freund",
+    "despues": "meinen Freund"
+   }
+  },
+  "cs:t20": {
+   "titulo": "Negación: primero pregunta qué estás negando",
+   "ejemplo": {
+    "antes": "Ich habe ein Auto.",
+    "despues": "Ich habe kein Auto."
+   }
+  },
+  "cs:t21": {
+   "titulo": "Una sola familia explica muchas terminaciones",
+   "regla": "**Superfórmula:MASCULINO AKKUSATIV → busca -en.**"
+  },
+  "cs:t22": {
+   "titulo": "Preposiciones frecuentes que piden Dativ",
+   "regla": "**Contracciones:** zu+dem=zum · zu+der=zur · bei+dem=beim · von+dem=vom."
+  },
+  "cs:t23": {
+   "titulo": "Woher? · Wo? · Wohin?",
+   "regla": "**nach:** ciudad/país sin artículo → nach Berlin, nach Deutschland.**zu + Dat:** persona/institución → zum Arzt, zur Apotheke.",
+   "ejemplo": {
+    "antes": "zu Hause",
+    "despues": "nach Hause"
+   }
+  },
+  "cs:t24": {
+   "titulo": "in / an: aprende primero el uso de ubicación",
+   "formula": "¿DÓNDE? + in / an + DATIV"
+  },
+  "cs:t27": {
+   "titulo": "Tiempo: tres preposiciones, tres escalas",
+   "regla": "**Mnemotecnia:** para estas expresiones de tiempo: **um = hora · am = día/fecha · im = mes/estación**."
+  },
+  "cs:t28": {
+   "titulo": "Frecuencia · dónde colocarla",
+   "formula": "PERSONA + VERBO + FRECUENCIA",
+   "ejemplo": {
+    "antes": "Ich arbeite heute.",
+    "despues": "Heute arbeite ich."
+   }
+  },
+  "cs:t29": {
+   "titulo": "Rangos y relación temporal",
+   "formula": "von + INICIO + bis + FIN",
+   "ejemplo": {
+    "antes": "**nach + Dat.**",
+    "despues": "nach der Arbeit"
+   }
+  },
+  "cs:t30": {
+   "titulo": "Perfekt · la misma pinza de antes",
+   "formula": "QUIÉN + haben / sein + RESTO + QUÉ PASÓ · AL FINAL",
+   "ejemplo": {
+    "antes": "Ich arbeite heute.",
+    "despues": "Ich habe heute gearbeitet."
+   }
+  },
+  "cs:t32": {
+   "titulo": "¿Qué auxiliar uso?",
+   "regla": "**Mejor hábito:** aprende siempre **Infinitiv + auxiliar + Partizip II**.",
+   "ejemplo": {
+    "antes": "arbeiten",
+    "despues": "**hat gearbeitet**essen"
+   }
+  },
+  "cs:t33": {
+   "titulo": "Las preguntas no cambian de lógica",
+   "formula": "PREGUNTA + haben / sein + QUIÉN + RESTO + QUÉ PASÓ · AL FINAL"
+  },
+  "cs:t34": {
+   "titulo": "sein/haben en pasado: war + hatte",
+   "regla": "**Uso A1:** para sein y haben, **war / hatte** son normalmente las formas más naturales para hablar del pasado."
+  },
+  "cs:t35": {
+   "titulo": "welcher + dieser: reutiliza el patrón de der",
+   "ejemplo": {
+    "antes": "dieser Pullover",
+    "despues": "diesen Pullover"
+   }
+  },
+  "cs:t36": {
+   "titulo": "Comparar: piensa en una escala de 3 niveles",
+   "formula": "NORMAL + MÁS ... + EL MÁS ...",
+   "regla": "**Memoriza estas 3 series:**gut → besser → am bestenviel → mehr → am meistengern → lieber → am liebsten"
+  },
+  "cs:t37": {
+   "titulo": "Ordinalzahlen + fecha: una misma transformación",
+   "formula": "am + NÚMERO EN -ten/-sten + MES",
+   "regla": "**Irregulares útiles:** erste · zweite · dritte · siebte · achte.",
+   "ejemplo": {
+    "antes": "18. August",
+    "despues": "am achtzehnten August"
+   }
+  },
+  "cs:t38": {
+   "titulo": "und / aber / oder: la nueva oración conserva su orden normal",
+   "formula": "IDEA 1 + und / aber / oder + PERSONA + VERBO + IDEA 2"
+  },
+  "cs:t39": {
+   "titulo": "dann: no es como und/aber/oder",
+   "formula": "dann + VERBO + PERSONA + RESTO",
+   "ejemplo": {
+    "antes": "Ich arbeite.",
+    "despues": "Dann gehe ich nach Hause."
+   }
+  }
+ }
+}

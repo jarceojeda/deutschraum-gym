@@ -499,3 +499,83 @@ test('C · sin teclado en Modo Tren: ningún <input> durante la sesión', () => 
   const u = boot(68); u.chooseModule('verben', 30); u.start();
   for (let i = 0; i < 8; i++) { assert.equal(u.qa('input').length, 0); u.answer(true); u.next(); }
 });
+
+/* ---------- Bloque D: cápsula de regla ---------- */
+const REGLAS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'reglas.json'), 'utf8')).reglas;
+const CONCEPTS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'concepts.json'), 'utf8'));
+const hasRule = it => (it.conceptIds || []).some(id => REGLAS[id]);
+function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio actual cumpla pred
+  u.chooseModule(mod, size || 30); u.start();
+  for (let i = 0; i < 60 && u.S().screen === 'session'; i++) { if (pred(u.S().cur.item)) return true; u.answer(true); u.next(); }
+  return false;
+}
+
+test('D · reglas.json: sólo texto copiado de las hojas, NFC, sin HTML, con ids de concepto reales', () => {
+  const ids = new Set(CONCEPTS.map(c => c.id));
+  const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
+  keys.forEach(k => {
+    const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
+    assert.ok(r.regla || r.formula || r.ejemplo, k + ' vacío');
+    const t = JSON.stringify(r); assert.equal(t, t.normalize('NFC')); assert.ok(!/[<>]/.test(t), k + ' lleva HTML');
+    if (r.ejemplo) assert.ok(r.ejemplo.antes && r.ejemplo.despues, k + ' ejemplo incompleto');
+    if (r.regla) assert.ok(r.regla.length <= 262, k + ' regla larga');
+  });
+  assert.equal(REGLAS['cs:t16'].ejemplo.despues, 'den Kindern');
+  assert.ok(/Dativ|DAT/i.test(REGLAS['dm:s5-1'].regla));
+});
+
+test('D · tras fallar: cápsula (fórmula/regla/ejemplo antes→después) si el tema tiene regla; sin regla no se inventa nada', () => {
+  const u = boot(81);
+  assert.ok(toItem(u, it => hasRule(it), 'deklination'), 'ejercicio con regla');
+  const item = u.S().cur.item; u.answer(false);
+  const cap = u.q('.fb.bad .capsule'); assert.ok(cap, 'cápsula tras fallar');
+  assert.ok(REGLAS[cap.dataset.concept] && item.conceptIds.includes(cap.dataset.concept));
+  assert.ok(cap.querySelector('.cap-r, .cap-formula, .cap-ex'));
+  assert.ok(u.q('.fb-line').textContent.length > 3, 'se conserva la explicación de una línea');
+  const v = boot(82);
+  assert.ok(toItem(v, it => !hasRule(it), 'verben'), 'ejercicio sin regla');
+  v.answer(false); assert.ok(v.q('.fb.bad')); assert.equal(v.q('.capsule'), null, 'hueco vacío: sin cápsula inventada');
+});
+
+test('D · «¿Por qué?»: abre y cierra la cápsula bajo demanda; sin regla avisa sin inventar', () => {
+  const u = boot(83); u.w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, ruleFirst: false }));
+  const u2 = boot(83, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, ruleFirst: false })) });
+  assert.ok(toItem(u2, it => hasRule(it), 'deklination'));
+  assert.equal(u2.q('.why-slot .capsule'), null, 'con «regla visible» apagada no sale sola');
+  assert.equal(u2.q('#why').getAttribute('aria-expanded'), 'false');
+  u2.click(u2.q('#why')); assert.ok(u2.q('.why-slot .capsule')); assert.equal(u2.q('#why').getAttribute('aria-expanded'), 'true');
+  u2.click(u2.q('#why')); assert.equal(u2.q('.why-slot .capsule'), null);
+  u2.answer(true);                                     // la respuesta se conserva sin haber tocado el motor al abrir la regla
+  assert.equal(u2.stored().sessionCounter, 1);
+  const u3 = boot(84, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false })) });
+  assert.ok(toItem(u3, it => !hasRule(it), 'verben'));
+  u3.click(u3.q('#why')); assert.ok(/Todav/.test(u3.q('.toast').textContent)); assert.equal(u3.q('.why-slot .capsule'), null);
+});
+
+test('D · regla visible al principio y oculta al dominar el tema (vuelve a verse tras fallar)', () => {
+  const u = boot(85);
+  assert.ok(toItem(u, it => hasRule(it), 'deklination'));
+  const item = u.S().cur.item;
+  assert.ok(u.q('.why-slot .capsule'), 'visible al principio (tema nuevo)');
+  assert.ok(/se oculta sola/.test(u.q('.why-slot').textContent));
+  // dominado: ≥6 intentos con ≥85 % en ese tipo de error (se marcan todos los de Deklination y se abre otra sesión)
+  u.click(u.q('[aria-label="Terminar sesión"]')); if (u.S().screen === 'summary') u.click(u.q('.dock .btn.secondary'));
+  const tags = u.eng.state().tags;
+  u.eng.store.all.filter(i => i.module === 'deklination').forEach(i => { tags[i.errorTag] = { n: 10, f: 0 }; });
+  assert.ok(toItem(u, it => hasRule(it), 'deklination'), 'otro ejercicio con regla');
+  assert.equal(u.q('.why-slot .capsule'), null, 'dominado: la regla ya no sale sola');
+  u.click(u.q('#why')); assert.ok(u.q('.why-slot .capsule'), 'pero sigue disponible bajo demanda');
+  u.answer(false); assert.ok(u.q('.fb.bad .capsule'), 'y tras fallar vuelve a mostrarse');
+});
+
+test('D · «Ver regla» (panel) incluye la cápsula arriba cuando existe', () => {
+  const u = boot(86); assert.ok(toItem(u, it => hasRule(it), 'deklination'));
+  u.answer(false); u.click(u.q('#rule'));
+  assert.ok(u.q('[role="dialog"] .capsule'));
+});
+
+test('D · reglas: md() sólo produce <strong>; nada de HTML del texto', () => {
+  const u = boot(87); u.w.DGUI.util.doc = u.d;
+  const nodes = u.w.DGUI.fmt.md('a **b** <i>c</i>'); const box = u.d.createElement('div'); nodes.forEach(n => box.appendChild(typeof n === 'string' ? u.d.createTextNode(n) : n));
+  assert.equal(box.querySelectorAll('strong').length, 1); assert.equal(box.querySelectorAll('i').length, 0); assert.ok(box.textContent.includes('<i>c</i>'));
+});

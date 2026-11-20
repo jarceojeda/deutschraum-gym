@@ -15,6 +15,7 @@ function build() {
     .replace('/*__CSS__*/', () => rd('ui/style.css'))
     .replace('/*__DATA__*/', () => safe(JSON.stringify(data)))
     .replace('/*__CONCEPTS__*/', () => safe(JSON.stringify(concepts)))
+    .replace('/*__REGLAS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/reglas.json')))))
     .replace('/*__ENGINE__*/', () => safe(rd('dist/dg-engine.bundle.js')))
     .replace('/*__UI__*/', () => safe(ui));
   const out = path.join(root, 'dist', 'deutschraum-gym.html');

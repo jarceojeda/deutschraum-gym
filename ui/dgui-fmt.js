@@ -39,5 +39,9 @@
     }
     return out;
   };
+  // **negrita** → <strong>; nada más (el texto viene de ui/reglas.json, nunca se inserta como HTML).
+  F.md = function (text) {
+    return String(text == null ? '' : text).split('**').map(function (seg, i) { return i % 2 ? h('strong', seg) : seg; });
+  };
   g.DGUI.fmt = F;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

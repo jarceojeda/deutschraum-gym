@@ -41,7 +41,7 @@
 
   function choice(spec, cb) {
     var done = false, n = spec.options.length;
-    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
+    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
     spec.options.forEach(function (o) {
       var badge = F.genderBadge(o, false);
       grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', o)));

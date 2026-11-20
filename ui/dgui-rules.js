@@ -16,9 +16,14 @@
     if (p[0] === 'transform') return 'Transformación de caso';
     return String(tag || '').replace(/[:_-]/g, ' ');
   };
-  R.skillLabel = function (s) { return SKILL[s] || s; };
+  var SKILL_DEK = { 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
+    'kasus-predicate_noun': 'Nominativ', 'kasus-dative_plural': 'Dativ plural', 'kasus-two_way_preposition': 'Wechselpräposition', 'dativ-plural': 'Dativ plural', 'genitiv-noun': 'Genitiv',
+    'genitiv-article': 'Genitiv', 'genitiv-prep': 'Genitiv + Präp.', 'adjektivendung-weak': 'Adjektivendung', 'adjektivendung-mixed': 'Adjektivendung', 'adjektivendung-strong': 'Adjektivendung',
+    'n-deklination': 'N-Deklination', transform: 'Transformación', indefinitpronomen: 'Pronombre indefinido', personalpronomen: 'Pronombre personal' };
+  R.skillLabel = function (s) { return SKILL[s] || SKILL_DEK[s] || String(s || '').replace(/[-_]+/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
 
-  R.create = function (store, concepts) {
+  R.create = function (store, concepts, reglas) {
+    reglas = reglas || {};
     var cmap = Object.create(null); (concepts || []).forEach(function (c) { cmap[c.id] = c; });
     var byConcept = null;
     function conceptIndex() {            // concepto → ítems del mismo módulo (perezoso: sólo si se abre un panel)
@@ -59,7 +64,13 @@
       }
       return out;
     }
-    return { oneLine: oneLine, panel: panel, titles: titles };
+    // Cápsula de regla (ui/reglas.json, por concept id). Sin entrada → null: el hueco queda vacío, no se inventa.
+    function capsule(item) {
+      var ids = item.conceptIds || [];
+      for (var i = 0; i < ids.length; i++) if (reglas[ids[i]]) return Object.assign({ id: ids[i] }, reglas[ids[i]]);
+      return null;
+    }
+    return { oneLine: oneLine, panel: panel, titles: titles, capsule: capsule };
   };
   g.DGUI = g.DGUI || {}; g.DGUI.rules = R;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

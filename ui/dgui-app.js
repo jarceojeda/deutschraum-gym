@@ -24,7 +24,7 @@
   };
 
   function mount(root, ctx) {
-    var win = ctx.win, doc = win.document, eng = ctx.engine, prefs = ctx.prefs, rules = D.rules.create(eng.store, ctx.concepts);
+    var win = ctx.win, doc = win.document, eng = ctx.engine, prefs = ctx.prefs, rules = D.rules.create(eng.store, ctx.concepts, ctx.reglas);
     U.doc = doc;
     var S = { screen: 'home', module: prefs.get('module') || 'verben', size: prefs.get('size') || 10, session: null, cur: null, saveError: null, warnings: [] };
     var api = { state: S };
@@ -119,6 +119,20 @@
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));
       return box;
     }
+    /* ---------- cápsula de regla («memory-strip» / «formula» de las cheat sheets) ---------- */
+    function capsuleNode(c) {
+      if (!c) return null;
+      return h('aside.capsule', { 'data-concept': c.id, 'aria-label': 'Regla' },
+        h('div.cap-h', h('span.cap-k', 'Regla'), c.titulo ? h('span.cap-t', c.titulo) : null),
+        c.formula ? h('div.cap-formula', c.formula.split(' + ').map(function (x, i) { return [i ? h('span.cap-op', '+') : null, h('span.cap-slot', x)]; })) : null,
+        c.regla ? h('p.cap-r', F.md(c.regla)) : null,
+        c.ejemplo ? h('div.cap-ex', h('span.cap-b', F.rich(c.ejemplo.antes.replace(/\*\*/g, '')).concat([]), ' '), h('span.cap-arrow', { 'aria-hidden': 'true' }, '→'), ' ', h('span.cap-a', F.md(c.ejemplo.despues))) : null);
+    }
+    // «Dominada» = ≥6 intentos con ≥85 % de aciertos en ese tipo de error (errorTag). Al dominarla la regla deja de mostrarse sola.
+    function dominated(item) {
+      var t = (eng.state().tags || {})[item.errorTag];
+      return !!t && t.n >= 6 && (t.n - t.f) / t.n >= 0.85;
+    }
     function sessionFrame(mainChildren, dockNode) {
       var s = S.session, pos = Math.min(s.position() + (S.cur && S.cur.fb ? 1 : 0), s.length());
       var bar = h('div.progress', { role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(s.length()), 'aria-valuenow': String(pos) }, h('div.progress-fill', { style: 'width:' + Math.round(100 * pos / s.length()) + '%' }));
@@ -137,7 +151,15 @@
       S.cur = { view: v, item: item, spec: spec, fb: null };
       var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(8); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
       var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
-      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
+      var cap = rules.capsule(item), auto = !!cap && prefs.get('ruleFirst') !== false && !dominated(item);
+      var slot = h('div.why-slot'), open = auto;
+      var why = h('button.btn.secondary.why', { type: 'button', id: 'why', 'aria-expanded': 'false', onclick: function () {
+        if (!cap) { toast('Todavía no hay regla escrita para este tema.'); return; }
+        open = !open; paint();
+      } }, '¿Por qué?');
+      function paint() { U.clear(slot); why.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open && cap) { slot.appendChild(capsuleNode(cap)); if (auto) slot.appendChild(h('p.hint.center', 'Regla visible mientras la aprendes; se oculta sola cuando la dominas.')); } }
+      paint();
+      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item), why), slot, inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
     function submit(resp, extra) {
       var s = S.session, item = S.cur.item, v = S.cur.view, spec = S.cur.spec;
@@ -183,7 +205,7 @@
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
-          h('div.fb-line', rules.oneLine(item)),
+          h('div.fb-line', rules.oneLine(item)), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
       var go = function () { cancelAuto(); if (f.out.finished || s.done()) summary(); else question(); };
@@ -206,7 +228,7 @@
       var back = h('div.sheet-back', { onclick: function (e) { if (e.target === back) close(); } });
       function close() { if (back.parentNode) back.parentNode.removeChild(back); doc.removeEventListener('keydown', onKey); if (opener && opener.focus) opener.focus(); }
       function onKey(e) { if (e.key === 'Escape') close(); }
-      var content = [];
+      var content = [], capn = capsuleNode(rules.capsule(item)); if (capn) content.push(capn);
       if (p.concepts.length) content.push(h('div.r-concepts', p.concepts.map(function (c) { return h('div.r-concept', c); })));
       if (p.explanation) content.push(h('p.r-expl', p.explanation));
       if (p.table) content.push(h('table.r-table', h('caption', p.table.caption), h('tbody', p.table.rows.map(function (r) { return h('tr' + (r.hit ? '.hit' : ''), h('th', r.k), h('td', r.v)); }))));
