@@ -1262,3 +1262,41 @@ test('Accesibilidad de idioma: el texto alemán lleva lang="de" y el español la
   assert.ok(seen['es-de'] || seen['de-es'], 'se comprobó al menos una dirección');
   const v = boot(281); v.chooseModule('verben', 10); v.start(); assert.equal(v.q('.qbody').getAttribute('lang'), 'de');
 });
+
+test('R1 · Gramática B1: tarjeta fija en Inicio que fija B1 en Verben/Deklination/Satzbau y arranca una mezcla; aviso único tras ≥8 sesiones que no reaparece al descartarlo', () => {
+  const u = boot(290); assert.ok(u.q('#b1'), 'tarjeta fija'); assert.equal(u.q('#b1-nudge'), null, 'sin aviso al principio');
+  u.click(u.q('#b1')); assert.equal(u.S().screen, 'session'); ['verben', 'deklination', 'satzbau'].forEach(m => assert.equal(u.eng.levelOf(m), 'B1', m));
+  const mods = new Set(); for (let i = 0; i < 20 && u.S().screen === 'session'; i++) { mods.add(u.S().cur.item.module); u.answer(true); u.next(); }
+  assert.ok([...mods].every(m => ['verben', 'deklination', 'satzbau'].includes(m)), [...mods].join()); assert.ok(u.eng.levelOf('artikel') !== 'B1', 'no cambia los demás módulos');
+  // aviso: simula ≥8 sesiones en A1
+  const v = boot(291, { before: w => { /* sin progreso previo */ } }); const st = v.eng.state(); st.stats.sessions = 9; v.eng.progress.save();
+  v.w.DGUI.app.go('home'); assert.ok(v.q('#b1-nudge'), 'aviso tras 8+ sesiones'); v.click(v.q('#b1-no')); assert.equal(v.q('#b1-nudge'), null); assert.equal(JSON.parse(v.w.localStorage.getItem('dg.ui')).b1nudge, true);
+  v.w.DGUI.app.go('home'); assert.equal(v.q('#b1-nudge'), null, 'descartado: no vuelve');
+});
+
+test('R4 · Inicio: «Seguir» retoma la última sesión (módulo o mezcla B1) y el Inicio queda en tres bloques', () => {
+  const u = boot(292); assert.equal(u.q('#continue'), null, 'sin historial no hay «Seguir»');
+  assert.deepEqual(u.qa('.sec-h').map(e => e.textContent), ['Un módulo', 'Repaso', 'Mi material']);
+  u.chooseModule('artikel', 10); u.start(); u.answer(true); u.next(); u.click(u.q('[aria-label="Terminar sesión"]')); u.click(u.q('.dock .btn.secondary'));
+  assert.match(u.q('#continue').textContent, /Artikel/); u.click(u.q('#continue')); assert.equal(u.S().screen, 'session'); assert.equal(u.S().cur.item.module, 'artikel');
+});
+
+test('R2 · Mi progreso: estadísticas reales, semana por días y avance por módulo; el diario se actualiza una vez por sesión', () => {
+  const u = boot(293); u.click(u.q('#progreso')); assert.equal(u.S().screen, 'progreso'); assert.equal(u.q('#pg-acc strong').textContent, '—'); assert.equal(u.qa('.pg-day').length, 7); assert.equal(u.qa('.pg-mod').length, 7);
+  u.click(u.q('[aria-label="Volver"]')); u.chooseModule('verben', 10); u.start(); for (let i = 0; i < 30 && u.S().screen === 'session'; i++) { u.answer(i % 4 !== 0); u.next(); }
+  const daily = JSON.parse(u.w.localStorage.getItem('dg.ui')).daily, total = Object.values(daily).reduce((a, b) => a + b, 0); assert.ok(total >= 10, 'ejercicios del día guardados: ' + total);
+  u.click(u.q('.dock .btn.secondary')); u.click(u.q('#progreso')); assert.match(u.q('#pg-acc strong').textContent, /\d+ %/); assert.match(u.q('.pg-week').getAttribute('aria-label'), /\d/);
+  assert.ok(Number(u.q('.pg-day:last-child small').textContent) >= 10, 'hoy aparece en la última barra'); assert.match(u.q('.pg-mod[data-module="verben"] .en').textContent, /vist(o|os) de/);
+});
+
+test('R3 · Celebración: una sesión limpia de ≥10 muestra el momento especial (aviso accesible); con errores no', () => {
+  const clean = boot(294); clean.chooseModule('artikel', 10); clean.start(); while (clean.S().screen === 'session') { clean.answer(true); clean.next(); }
+  assert.ok(clean.q('#celebrate') && clean.q('#celebrate').getAttribute('role') === 'status');
+  const dirty = boot(295, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, ret: { streak: 1, best: 1, last: null, perdon: null, badges: { primera: '2026-01-01' } } })) }); dirty.chooseModule('artikel', 10); dirty.start(); let i = 0; while (dirty.S().screen === 'session') { dirty.answer(i++ % 2 === 0); dirty.next(); }
+  assert.equal(dirty.q('#celebrate'), null, 'con errores, y sin logro nuevo, no hay celebración');
+});
+
+test('R5 · Ajustes agrupado: 4 bloques plegables, «Práctica» abierto y todo el contenido sigue alcanzable', () => {
+  const u = boot(296); u.click(u.q('[aria-label="Ajustes"]')); const g = u.qa('details.set-grp'); assert.equal(g.length, 4);
+  assert.ok(g[0].open && !g[1].open, 'sólo el primero abierto'); assert.ok(g[0].querySelector('[aria-label="Nivel"]') && g[1].querySelector('#test-voice') && g[2].querySelector('#export-btn'));
+});

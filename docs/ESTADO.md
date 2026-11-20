@@ -153,3 +153,7 @@ Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 
 
 ## Etapa 6 · Auditoría (hecha)
 Informe completo en `docs/AUDITORIA.md`. Corregido: columnas intercambiadas y marcas «sí/no» en Wortschatz, duplicados, contraste (claro y toast oscuro), `lang="de"/"es"`, foco, copia de Ajustes. Abierto: R1–R7 (puerta al B1, panel de progreso, etc.) y los puntos A1–A4 de `data/verben.json`.
+
+
+## Seguimiento de la auditoría (R1–R7)
+Implementado: puerta al B1 (tarjeta + aviso), Mi progreso, celebración, Inicio en 3 bloques con «Seguir», Ajustes plegable. R6 y R7 se dejaron como están por decisión razonada (ver `docs/AUDITORIA.md` §7).

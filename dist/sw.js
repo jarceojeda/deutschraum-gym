@@ -3,7 +3,7 @@
  * Los DATOS del usuario viven en localStorage: este worker nunca los toca. Cada versión tiene su caché (hash del HTML);
  * al activarse borra las cachés antiguas. Sin red, las navegaciones se sirven desde caché. */
 'use strict';
-var CACHE = 'dg-45989d2bf0';
+var CACHE = 'dg-5b6b752c35';
 var ASSETS = ["./","./index.html","./manifest.webmanifest","./icons/icon.svg","./icons/icon-192.png","./icons/icon-512.png","./icons/maskable-512.png","./icons/apple-touch-icon.png"];
 
 self.addEventListener('install', function (e) {

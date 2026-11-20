@@ -186,6 +186,15 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .sprechen .say-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.say-t{font-weight:700}.said[aria-pressed="true"]{background:var(--brand);color:#fff}
 .p-es{margin-top:4px;font-size:15px;font-weight:700;color:var(--muted)}
 input:focus-visible,summary:focus-visible,[tabindex]:focus-visible,.erow:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.set-grp{border:1px solid var(--line);border-radius:18px;background:var(--surface);margin:0 0 12px;padding:0 14px}.set-grp>summary{list-style:none;display:flex;flex-direction:column;gap:2px;padding:14px 0;min-height:56px;cursor:pointer;justify-content:center}.set-grp>summary::-webkit-details-marker{display:none}.set-grp>summary::after{content:"▾";position:absolute;right:30px;color:var(--muted)}.set-grp[open]>summary::after{content:"▴"}.set-grp{position:relative}.set-grp>summary .hint{margin:0}.set-grp[open]>summary{border-bottom:1px solid var(--line)}
+.cta2{width:100%;margin-top:10px;min-height:56px;background:transparent;border:2px solid rgba(255,255,255,.55);color:#fff;font-weight:800;border-radius:16px}
+.card.b1{--module:var(--brand);border-style:solid;border-color:var(--brand)}.card.b1 .mi{color:var(--on-brand);background:var(--brand)}
+.notice.nudge{border:2px solid var(--brand);background:var(--brand-soft);border-radius:18px;padding:14px;margin:0 0 12px}.notice.nudge p{margin:0 0 10px}.notice.nudge .row{display:flex;gap:10px}.notice.nudge .row .btn{flex:1}
+.pg-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 10px}.pg-stat{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}.pg-stat strong{font-size:28px;line-height:1.1}.pg-stat span{font-size:13px;color:var(--muted)}
+.pg-week{display:flex;align-items:flex-end;justify-content:space-between;gap:6px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 12px 10px;min-height:120px}.pg-day{display:flex;flex-direction:column;align-items:center;gap:2px;flex:1}.pg-day i{display:block;width:70%;max-width:28px;background:var(--brand);border-radius:8px 8px 3px 3px}.pg-day b{font-size:12px}.pg-day small{font-size:12px;color:var(--muted)}
+.pg-mod .eb i{background:var(--brand)}
+.celebrate{background-color:var(--accent);display:flex;align-items:center;justify-content:center;gap:12px;text-align:center;background-image:linear-gradient(135deg,var(--accent),#f7e1a0);color:#173d35;border-radius:18px;padding:16px 14px;margin:0 0 10px;font-size:17px;animation:pop .5s cubic-bezier(.2,1.4,.4,1) both}.celebrate .spark{font-size:22px;animation:twinkle 1.6s ease-in-out infinite}.celebrate .spark.s2{animation-delay:.5s}
+@keyframes pop{from{transform:scale(.88);opacity:0}to{transform:scale(1);opacity:1}}@keyframes twinkle{50%{transform:scale(1.35) rotate(18deg);opacity:.7}}
 
 </style>
 </head>
@@ -3083,28 +3092,40 @@ window.DGUI = window.DGUI || {};
           h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Nivel ' + eng.levelOf(m.id)), h('span.go', { 'aria-hidden': 'true' }, '›')));
       });
       var soonList = h('div.cards');
-      SOON.forEach(function (m) {
-        soonList.appendChild(h('button.card.soon', { type: 'button', disabled: true, 'aria-disabled': 'true', 'data-soon': m.id },
-          h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Próximamente')));
-      });
       var nerr = eng.errorQueue().length;
       var errCard = h('button.card.errs', { type: 'button', id: 'errors', disabled: !nerr, 'data-errors': nerr, onclick: function () { start({ kind: 'errors' }); } },
         h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
       var rc = ret.current(), chip = rc.streak > 0 ? h('span.streak-chip' + (rc.today ? '.done' : ''), { id: 'streak', title: rc.today ? 'Hoy ya practicaste' : 'Practica hoy para mantenerla' }, h('span', { 'aria-hidden': 'true' }, '◆ '), rc.streak + (rc.streak === 1 ? ' día' : ' días')) : null;
-      var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Fórmulas y tiras de memoria, sin ejercicios')), h('span.go', { 'aria-hidden': 'true' }, '›'));
-      var nw = (ctx.words || []).length;
-      var wordsCard = h('button.card.errs', { type: 'button', id: 'palabras', onclick: palabras }, h('span.mi', { 'aria-hidden': 'true' }, '＋'), h('span.mt', h('strong', 'Mis palabras'), h('span', nw ? nw + ' propias en tu repaso' : 'Añade una palabra tuya en unos segundos')), nw ? h('span.badge', String(nw)) : h('span.go', { 'aria-hidden': 'true' }, '›'));
-      var nf = (ctx.frases || []).length;
-      var frasesCard = h('button.card.errs', { type: 'button', id: 'frases', onclick: frases }, h('span.mi', { 'aria-hidden': 'true' }, '❝'), h('span.mt', h('strong', 'Mis frases'), h('span', nf ? nf + ' propias para ordenar' : 'Ordena frases que tú escribes')), nf ? h('span.badge', String(nf)) : h('span.go', { 'aria-hidden': 'true' }, '›'));
-      var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
+      var go = function () { return h('span.go', { 'aria-hidden': 'true' }, '›'); };
+      var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Reglas, hojas A2/B1 y biblioteca de clases, sin ejercicios')), go());
+      var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), go());
+      var progCard = h('button.card.errs.ref', { type: 'button', id: 'progreso', onclick: progreso }, h('span.mi', { 'aria-hidden': 'true' }, '▲'), h('span.mt', h('strong', 'Mi progreso'), h('span', 'Palabras, verbos, aciertos y tu semana')), go());
+      var nw = (ctx.words || []).length, nf = (ctx.frases || []).length;
+      var wordsCard = h('button.card.errs', { type: 'button', id: 'palabras', onclick: palabras }, h('span.mi', { 'aria-hidden': 'true' }, '＋'), h('span.mt', h('strong', 'Mis palabras'), h('span', nw ? nw + ' propias en tu repaso' : 'Añade una palabra tuya en unos segundos')), nw ? h('span.badge', String(nw)) : go());
+      var frasesCard = h('button.card.errs', { type: 'button', id: 'frases', onclick: frases }, h('span.mi', { 'aria-hidden': 'true' }, '❝'), h('span.mt', h('strong', 'Mis frases'), h('span', nf ? nf + ' propias para ordenar' : 'Ordena frases que tú escribes')), nf ? h('span.badge', String(nf)) : go());
+      // R1 · puerta al B1: tarjeta fija + aviso único cuando ya hay práctica y Verben sigue por debajo de B1
+      var b1Card = h('button.card.b1', { type: 'button', id: 'b1', onclick: startB1 }, h('span.mi', { 'aria-hidden': 'true' }, 'B1'), h('span.mt', h('strong', 'Gramática B1'), h('span', 'Plusquamperfekt, Konjunktiv II, Passiv, Relativsatz… (fija B1 en Verben, Deklination y Satzbau)')), go());
+      var sessions = (eng.state().stats || {}).sessions || 0, nudge = sessions >= 8 && eng.levelOf('verben') !== 'B1' && !prefs.get('b1nudge')
+        ? h('div.notice.nudge', { id: 'b1-nudge', role: 'status' }, h('p', h('strong', '¿Probamos Gramática B1? '), 'Ya llevas ' + sessions + ' sesiones. Plusquamperfekt, Konjunktiv II y Passiv están esperando.'),
+            h('div.row', h('button.btn.primary', { type: 'button', id: 'b1-yes', onclick: startB1 }, 'Probar B1'), h('button.btn.ghost', { type: 'button', id: 'b1-no', onclick: function () { prefs.set('b1nudge', true); home(); } }, 'Ahora no'))) : null;
+      var last = prefs.get('last'), cont = last && (last.kind === 'mix' || (last.kind === 'module' && last.module && MODULES.some(function (m) { return m.id === last.module; })))
+        ? h('button.btn.big.cta2', { type: 'button', id: 'continue', onclick: function () { if (last.kind === 'module') S.module = last.module; start(last.b1 ? { kind: 'mix', modules: B1_MODS, b1: true } : { kind: last.kind }); } },
+            'Seguir: ' + (last.b1 ? 'Gramática B1' : last.kind === 'mix' ? 'Viaje combinado' : modName(last.module)) + ' ›') : null;
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
-        [storageBanner(),
+        [storageBanner(), nudge,
           h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo o mezcla todo.'),
             h('div.group', h('p.glabel', 'Ejercicios por sesión'), chipRow('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = v; prefs.set('size', v); home(); }, 'size')),
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, lvMode, function (v) { chooseLevel(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
-            h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Mi vocabulario'), wordsCard, frasesCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+            cont, h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
+          h('h2.sec-h', 'Un módulo'), list, b1Card, h('h2.sec-h', 'Repaso'), errCard, mapCard, progCard, h('h2.sec-h', 'Mi material'), refCard, wordsCard, frasesCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+    }
+    var B1_MODS = ['verben', 'deklination', 'satzbau'];
+    function startB1() {
+      B1_MODS.forEach(function (m) { try { eng.setLevel('B1', m); } catch (e) { /* módulo sin B1 */ } });
+      prefs.set('b1nudge', true); eng.progress.save();
+      S.mixModules = B1_MODS; start({ kind: 'mix', modules: B1_MODS, b1: true });
+      toast('Nivel B1 fijado en Verben, Deklination y Satzbau. Puedes cambiarlo en Ajustes › Práctica.', 'info');
     }
 
     /* ---------- sesión ---------- */
@@ -3113,11 +3134,13 @@ window.DGUI = window.DGUI || {};
       var s, req = { kind: kind, size: S.size, mode: prefs.get('entry') === 'write' ? 'write' : 'touch' };
       S.mode = req.mode; S.lastSpec = null;
       if (kind === 'module') req.modules = [S.module];
-      if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
+      if (kind === 'mix') req.modules = S.mixModules = o.modules || (o.kind === 'mix' ? null : S.mixModules) || MODULES.map(function (m) { return m.id; });
+      if (kind === 'mix' && o.kind === 'mix' && !o.modules) S.mixModules = null;
       if (kind === 'ids') req.ids = S.ids = o.ids || S.ids || [];   // «Practicar mis palabras»
       try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
       if (!s || !s.length()) { toast('No hay ejercicios para esta sesión. ' + (s && s.warnings && s.warnings.length ? WARN[s.warnings[0].code] || '' : 'Revisa el nivel en Ajustes.')); return; }
       S.kind = kind; S.session = s; S.saveError = null; S.answeredAny = false;
+      if (kind === 'module' || kind === 'mix') prefs.set('last', { kind: kind, module: kind === 'module' ? S.module : null, b1: !!o.b1 || (kind === 'mix' && S.mixModules === B1_MODS), ts: win.Date.now() });
       S.warnings = (s.warnings || []).map(function (w) { return { code: w.code, msg: WARN[w.code] || w.code }; });
       question();
     }
@@ -3373,6 +3396,7 @@ window.DGUI = window.DGUI || {};
       if (sm.saveError) S.saveError = sm.saveError;
       // racha y logros: una sola vez por sesión (el resumen puede repintarse)
       if (S.retFor !== sm.sessionNo) {
+        if (sm.answered > 0) { var dly = prefs.get('daily') || {}, dk = D.retention.dateKey(win.Date.now()); dly[dk] = (dly[dk] || 0) + sm.answered; Object.keys(dly).sort().slice(0, -30).forEach(function (kx) { delete dly[kx]; }); prefs.set('daily', dly); }
         S.retFor = sm.sessionNo; S.retInfo = { streak: ret.current().streak, perdonado: false, badges: [] };
         if (sm.answered > 0) {
           var t = ret.touch(); S.retInfo = { streak: t.streak, perdonado: t.perdonado, badges: ret.unlock({ stats: eng.state().stats, summary: sm }) };
@@ -3380,6 +3404,10 @@ window.DGUI = window.DGUI || {};
         }
       }
       var info = S.retInfo, pct = sm.answered ? Math.round(100 * sm.correct / sm.answered) : 0, blocks = [];
+      // R3 · momento de celebración: subir de nivel, hito de racha (3/7/30), logro nuevo o sesión limpia. El movimiento se apaga con «reducir movimiento».
+      var up = (sm.levelChanges || []).filter(function (c) { return c.change === 'promote' || c.to > c.from; });
+      var party = up.length ? 'Subiste de nivel en ' + up.map(function (c) { return c.module; }).join(', ') + ' ✦' : info.badges.length ? 'Logro desbloqueado: ' + info.badges[0].title + ' ✦' : sm.answered >= 10 && sm.correct === sm.answered ? 'Sesión limpia: ¡todo bien a la primera! ✦' : null;
+      if (party) { blocks.push(h('div.celebrate', { id: 'celebrate', role: 'status' }, h('span.spark', { 'aria-hidden': 'true' }, '✦'), h('strong', party), h('span.spark.s2', { 'aria-hidden': 'true' }, '✦'))); buzz(HAP.milestone); }
       blocks.push(h('div.sum-score', h('div.sum-big', sm.correct + '/' + sm.answered), h('div.sum-sub', sm.answered ? pct + ' % de aciertos al primer intento' : 'Sin respuestas esta vez')));
       if (info.streak > 0 && sm.answered > 0) blocks.push(h('div.sum-card.streak', { id: 'streak-card' }, h('strong', 'Racha: ' + info.streak + (info.streak === 1 ? ' día' : ' días')), info.perdonado ? h('span.hint', ' · perdoné un día que faltaste (1 por semana)') : null));
       info.badges.forEach(function (b) { blocks.push(h('div.sum-card.badge', { 'data-badge': b.id }, h('strong', 'Logro: ' + b.title), h('span.hint', ' · ' + b.detail))); });
@@ -3450,6 +3478,37 @@ window.DGUI = window.DGUI || {};
         [chips, h('p.hint', 'Solo lectura: no cuenta como práctica. Los temas sin texto escrito no aparecen.'), list], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
     }
     api.consulta = consulta;
+
+    /* ---------- Mi progreso (R2) ---------- */
+    function progreso() {
+      S.screen = 'progreso'; var st = eng.state(), stats = st.stats || {}, daily = prefs.get('daily') || {};
+      var per = {}; eng.store.modules().forEach(function (m) {
+        var total = 0, seen = 0, mast = 0, lem = {}; (eng.store.unitsByModule[m] || []).forEach(function (u) {
+          total++; var us = st.units[u.unit]; if (us && us.n > 0) seen++;
+          if (us && us.s === 'r' && us.r >= 2) { mast++; if (u.lemma) lem[u.lemma] = true; }
+        }); per[m] = { total: total, seen: seen, mast: mast, lemmas: Object.keys(lem).length };
+      });
+      var acc = stats.answered ? Math.round(100 * stats.correct / stats.answered) : null;
+      var days = [], dn = ['D', 'L', 'M', 'X', 'J', 'V', 'S'], now = win.Date.now(), maxN = 1;
+      for (var i = 6; i >= 0; i--) { var dt = new win.Date(now - i * 864e5), k = D.retention.dateKey(dt.getTime()), n = daily[k] || 0; if (n > maxN) maxN = n; days.push({ k: k, n: n, d: dn[dt.getDay()] }); }
+      var week = days.reduce(function (a, b) { return a + b.n; }, 0);
+      function stat(v, l, id) { return h('div.pg-stat', { id: id }, h('strong', String(v)), h('span', l)); }
+      var bars = h('div.pg-week', { role: 'img', 'aria-label': 'Ejercicios por día en la última semana: ' + days.map(function (x) { return x.d + ' ' + x.n; }).join(', ') },
+        days.map(function (x) { return h('div.pg-day', h('i', { style: 'height:' + Math.round(8 + 64 * x.n / maxN) + 'px' + (x.n ? '' : ';opacity:.35') }), h('b', x.d), h('small', String(x.n))); }));
+      var mods = h('div.emap', MODULES.map(function (m) {
+        var q = per[m.id] || { total: 0, seen: 0, mast: 0 };
+        return h('div.erow.pg-mod', { 'data-module': m.id }, h('span.el', m.name + ' · nivel ' + eng.levelOf(m.id)),
+          h('span.eb', { 'aria-hidden': 'true' }, h('i', { style: 'width:' + (q.total ? Math.round(100 * q.seen / q.total) : 0) + '%' })),
+          h('span.en', q.mast + (q.mast === 1 ? ' dominado · ' : ' dominados · ') + q.seen + (q.seen === 1 ? ' visto de ' : ' vistos de ') + q.total));
+      }));
+      shell('Mi progreso', [iconBtn('Volver', '←', home), brand('Mi progreso', (stats.sessions || 0) + ((stats.sessions || 0) === 1 ? ' sesión' : ' sesiones'))], null,
+        [h('div.pg-grid', stat((per.wortschatz || {}).mast || 0, 'palabras dominadas', 'pg-words'), stat((per.verben || {}).lemmas || 0, 'verbos con un tiempo dominado', 'pg-verbs'), stat(acc == null ? '—' : acc + ' %', 'aciertos', 'pg-acc'), stat(stats.rescued || 0, 'errores rescatados', 'pg-rescued')),
+          h('h2.sec-h', 'Tu semana · ' + week + (week === 1 ? ' ejercicio' : ' ejercicios')), bars,
+          h('p.hint', 'Racha: ' + (ret.current().streak || 0) + ' día(s) · mejor: ' + (ret.state().best || 0) + '. «Dominado» = repasado con éxito 2 veces.'),
+          h('h2.sec-h', 'Por módulo'), mods],
+        [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.progreso = progreso;
 
     /* ---------- Mis palabras ---------- */
     function palabras(msg) {
@@ -3595,7 +3654,7 @@ window.DGUI = window.DGUI || {};
       }
       var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
       var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
-      shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
+      var secs = [
         h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
         h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
@@ -3618,6 +3677,12 @@ window.DGUI = window.DGUI || {};
         pwaSection(),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))
+      ];
+      // Agrupado en bloques plegables (el primero abierto) para que Ajustes no sea una lista de 17 secciones.
+      function grp(id, title, sub, from, to, open) { return h('details.set-grp', Object.assign({ id: id }, open ? { open: true } : {}), h('summary', h('strong', title), h('span.hint', sub)), secs.slice(from, to)); }
+      shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
+        grp('g-practica', 'Práctica', 'Nivel, entrada, ayudas y contenido', 0, 9, true), grp('g-voz', 'Voz y apariencia', 'Sprechen, voz, tema, vibración', 9, 13, false),
+        grp('g-datos', 'Datos y app', 'Copia de seguridad e instalación', 13, 15, false), grp('g-logros', 'Logros', 'Tus insignias', 15, 16, false), secs[16]
       ], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
     }
 

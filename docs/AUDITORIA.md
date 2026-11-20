@@ -57,3 +57,12 @@ node tools/audit-aprendizaje.js [semilla] [% de fallos]
 NODE_PATH=$(npm root -g) node tools/audit-ux.js
 NODE_PATH=$(npm root -g) node tools/check-pwa.js
 ```
+
+## 7. Seguimiento: recomendaciones implementadas
+- **R1** Gramática B1: tarjeta fija en Inicio (fija B1 en Verben, Deklination y Satzbau y arranca una mezcla) + aviso único tras 8 sesiones si Verben sigue por debajo de B1 (se descarta para siempre con «Ahora no»).
+- **R2** «Mi progreso»: palabras dominadas, verbos con un tiempo dominado, aciertos, errores rescatados, barras de los últimos 7 días (diario guardado por sesión, 30 días) y avance por módulo.
+- **R3** Celebración al subir de nivel, desbloquear un logro o cerrar una sesión limpia de ≥10 (animación breve, anulada por «reducir movimiento», aviso accesible).
+- **R4** Inicio en tres bloques (Un módulo · Repaso · Mi material) y botón «Seguir: …» que retoma la última sesión (módulo, mezcla o mezcla B1).
+- **R5** Ajustes en cuatro bloques plegables (Práctica abierto).
+- **R6** Sin cambios, por decisión: el color de género ya está en artículos y palabras con artículo (listas, Mis palabras, resumen); en frases añade ruido y el caso no se marca por color (se mantiene N/A/D/G).
+- **R7** Sin cambios, por decisión: con R1 la puerta al B1 ya no depende de la promoción Auto; `masteryMaxUnits` queda en 30 (protege la calidad del dominio) y se puede revisar con datos de uso real.

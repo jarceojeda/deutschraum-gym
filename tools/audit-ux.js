@@ -53,6 +53,7 @@ async function inspect(p, name, scheme) {
     await p.fill('#mw-de', 'der Hund'); await p.fill('#mw-es', 'el perro'); await p.click('#mw-add'); await step('08-mis-palabras-con-una');
     await p.click('[aria-label="Volver"]'); await p.click('#frases'); await step('09-mis-frases'); await p.click('[aria-label="Volver"]');
     await p.click('#consulta'); await step('10-consulta'); await p.click('[data-group="cl"]'); await step('11-biblioteca'); await p.click('[aria-label="Volver"]');
+    await p.click('#progreso'); await step('11b-progreso'); await p.click('[aria-label="Volver"]');
     await p.click('[aria-label="Ajustes"]'); await step('12-ajustes'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await step('13-ajustes-abajo');
     if (errs.length) findings.push([scheme, 'ERRORES DE PÁGINA: ' + errs.join('; ')]);
     await ctx.close();
