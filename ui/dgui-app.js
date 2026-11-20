@@ -180,12 +180,13 @@
     }
 
     /* ---------- cápsula de regla («memory-strip» / «formula» de las cheat sheets) ---------- */
-    function capsuleNode(c) {
-      if (!c) return null;
+    function capsuleNode(c, o) {
+      if (!c) return null; o = o || {};
       return h('aside.capsule', { 'data-concept': c.id, 'aria-label': 'Regla' },
         h('div.cap-h', h('span.cap-k', 'Regla'), c.titulo ? h('span.cap-t', c.titulo) : null),
         c.formula ? h('div.cap-formula', c.formula.split(' + ').map(function (x, i) { return [i ? h('span.cap-op', '+') : null, h('span.cap-slot', x)]; })) : null,
         c.regla ? h('p.cap-r', F.md(c.regla)) : null,
+        c.errores && c.errores.length ? h('details.cap-err', o.open ? { open: true } : null, h('summary', 'Errores típicos (' + c.errores.length + ')'), h('ul', c.errores.map(function (e) { return h('li', F.md(e)); }))) : null,
         c.ejemplo ? h('div.cap-ex', h('span.cap-b', F.rich(c.ejemplo.antes.replace(/\*\*/g, '')).concat([]), ' '), h('span.cap-arrow', { 'aria-hidden': 'true' }, '→'), ' ', h('span.cap-a', F.md(c.ejemplo.despues))) : null);
     }
     // «Dominada» = ≥6 intentos con ≥85 % de aciertos en ese tipo de error (errorTag). Al dominarla la regla deja de mostrarse sola.
@@ -321,7 +322,7 @@
       return close;
     }
     function openRule(item) {
-      var p = rules.panel(item), content = [], capn = capsuleNode(rules.capsule(item)); if (capn) content.push(capn);
+      var p = rules.panel(item), content = [], capn = capsuleNode(rules.capsule(item), { open: true }); if (capn) content.push(capn);
       if (p.concepts.length) content.push(h('div.r-concepts', p.concepts.map(function (c) { return h('div.r-concept', c); })));
       if (p.explanation) content.push(h('p.r-expl', p.explanation));
       if (p.table) content.push(h('table.r-table', h('caption', p.table.caption), h('tbody', p.table.rows.map(function (r) { return h('tr' + (r.hit ? '.hit' : ''), h('th', r.k), h('td', r.v)); }))));
@@ -333,7 +334,7 @@
     function openTag(tag) {
       var items = eng.store.all.filter(function (it) { return it.errorTag === tag; }), content = [], cap = null;
       for (var i = 0; i < items.length && !cap; i++) cap = rules.capsule(items[i]);
-      if (cap) content.push(capsuleNode(cap)); else content.push(h('p.r-note', 'Todavía no hay una regla escrita para este tipo de error.'));
+      if (cap) content.push(capsuleNode(cap, { open: true })); else content.push(h('p.r-note', 'Todavía no hay una regla escrita para este tipo de error.'));
       var ex = []; for (var k = 0, step = Math.max(1, Math.floor(items.length / 4)); k < items.length && ex.length < 4; k += step) ex.push(items[k]);
       if (ex.length) content.push(h('div.r-ex', h('h3', 'Ejemplos de este tipo'), h('ul', ex.map(function (it) { return h('li', h('span', it.prompt), ' → ', h('strong', it.answer)); }))));
       openSheet(D.rules.tagLabel(tag), content, 'Tipo de error');
@@ -388,14 +389,15 @@
     function consulta(group) {
       S.screen = 'consulta'; var all = ctx.reglas || {};
       var num = function (k) { return k.replace(/^\D+/, '').split('-').map(Number); };
-      var keys = Object.keys(all).filter(function (k) { return group === 'all' || k.indexOf(group + ':') === 0; }).sort(function (a, b) {
+      var inGroup = function (k) { return group === 'all' || (group === 'md' ? /^(md|b1|a24):/.test(k) : k.indexOf(group + ':') === 0); };
+      var keys = Object.keys(all).filter(inGroup).sort(function (a, b) {
         if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
       });
       var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };
-      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática']], group, function (v) { consulta(v); }, 'group');
+      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['md', 'Clases']], group, function (v) { consulta(v); }, 'group');
       var list = h('div.emap', keys.map(function (k) {
-        var r = all[k], first = r.regla ? r.regla.replace(/\*\*/g, '') : (r.formula || '');
-        return h('button.erow', { type: 'button', 'data-concept': k, onclick: function () { openSheet(title(r), [capsuleNode(Object.assign({ id: k }, r))], 'Regla'); } },
+        var r = all[k], first = r.regla ? r.regla.replace(/\*\*/g, '') : (r.formula || (r.errores && r.errores[0] ? r.errores[0].replace(/\*\*/g, '') : ''));
+        return h('button.erow', { type: 'button', 'data-concept': k, onclick: function () { openSheet(title(r), [capsuleNode(Object.assign({ id: k }, r), { open: true })], 'Regla'); } },
           h('span.el', title(r)), first ? h('span.en', first.length > 90 ? first.slice(0, 88).replace(/\s+\S*$/, '') + '…' : first) : null);
       }));
       shell('Consulta', [iconBtn('Volver', '←', home), brand('Consulta de reglas', keys.length + ' temas')], null,

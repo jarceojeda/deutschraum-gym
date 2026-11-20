@@ -2,7 +2,8 @@
  "version": 1,
  "fuentes": [
   "aleman_declination_master_mobile_v1_1.html",
-  "telc_a1_cheatsheet_v4_3.html (solo gramática)"
+  "telc_a1_cheatsheet_v4_3.html (solo gramática)",
+  "docs/fuentes/aleman-markups/NNN-*.md (§5 errores comunes)"
  ],
  "reglas": {
   "dm:s1-1": {
@@ -57,15 +58,30 @@
   },
   "dm:s4-1": {
    "titulo": "4.1 · Débil = solo -e / -en",
-   "regla": "**5 casillas -e:** Nom M/F/N + Akk F/N. **Todo lo demás → -en.**"
+   "regla": "**5 casillas -e:** Nom M/F/N + Akk F/N. **Todo lo demás → -en.**",
+   "errores": [
+    "Los adjetivos predicativos y adverbiales no se declinan: Das Haus ist groß; Er spricht laut.",
+    "Los atributivos van delante del sustantivo: die alte Stadt, no die Stadt alte.",
+    "Un adjetivo atributivo puede aparecer sin artículo: laute Musik, gute Bücher."
+   ]
   },
   "dm:s4-2": {
    "titulo": "4.2 · Fuerte = el adjetivo muestra la casilla",
-   "regla": "**LÍMITE DE LA METÁFORA:** en Genitiv M/N sin determinante, el adjetivo fuerte usa **-en**, no **-es**: wegen schlechten Wetters. Aquí la marca inequívoca del caso aparece en el sustantivo (**Wetter-s**)."
+   "regla": "**LÍMITE DE LA METÁFORA:** en Genitiv M/N sin determinante, el adjetivo fuerte usa **-en**, no **-es**: wegen schlechten Wetters. Aquí la marca inequívoca del caso aparece en el sustantivo (**Wetter-s**).",
+   "errores": [
+    "Los adjetivos predicativos y adverbiales no se declinan: Das Haus ist groß; Er spricht laut.",
+    "Los atributivos van delante del sustantivo: die alte Stadt, no die Stadt alte.",
+    "Un adjetivo atributivo puede aparecer sin artículo: laute Musik, gute Bücher."
+   ]
   },
   "dm:s4-3": {
    "titulo": "4.3 · “Mixta” = EIN alternando",
-   "regla": "No necesitas memorizar una tercera tabla para producir. La tabla mixta completa queda al final como referencia."
+   "regla": "No necesitas memorizar una tercera tabla para producir. La tabla mixta completa queda al final como referencia.",
+   "errores": [
+    "Los adjetivos predicativos y adverbiales no se declinan: Das Haus ist groß; Er spricht laut.",
+    "Los atributivos van delante del sustantivo: die alte Stadt, no die Stadt alte.",
+    "Un adjetivo atributivo puede aparecer sin artículo: laute Musik, gute Bücher."
+   ]
   },
   "dm:s5-1": {
    "titulo": "5.1 · DATIV PLURAL · normalmente +n",
@@ -81,7 +97,12 @@
    "ejemplo": {
     "antes": "der Mann",
     "despues": "des Mann**es**"
-   }
+   },
+   "errores": [
+    "Masculino y neutro usan **des/eines** y el sustantivo suele añadir **-(e)s**: des Kindes.",
+    "Femenino y plural usan **der/einer**, sin añadir **-(e)s** al sustantivo: der Frau, der Kinder.",
+    "No añadas apóstrofo ante la **-s** de un nombre propio: Petras Auto, no Petra's Auto."
+   ]
   },
   "dm:s5-3": {
    "titulo": "5.3 · N-DEKLINATION · algunos masculinos cambian fuera de Nom sg",
@@ -89,7 +110,12 @@
    "ejemplo": {
     "antes": "der Student",
     "despues": "den Student**en**"
-   }
+   },
+   "errores": [
+    "Se dice Ich sehe den Studenten, no den Student.",
+    "El genitivo débil estándar es des Präsidenten, no des Präsidentens.",
+    "der Bär forma den Bären, dem Bären y des Bären; no se añade **-s**."
+   ]
   },
   "dm:s5-4": {
    "titulo": "5.4 · EXPANSION · bordes que vale la pena reconocer",
@@ -157,7 +183,12 @@
    "ejemplo": {
     "antes": "Ich arbeite heute.",
     "despues": "Heute arbeite ich."
-   }
+   },
+   "errores": [
+    "V2 significa segunda posición sintáctica, no necesariamente segunda palabra.",
+    "si un complemento ocupa la posición 1, el sujeto no puede permanecer delante del verbo: **Heute fahre ich**, no *Heute ich fahre.",
+    "con un modal, el infinitivo va al final: **Ich muss arbeiten**."
+   ]
   },
   "cs:t2": {
    "titulo": "Preguntas: dos patrones",
@@ -166,7 +197,12 @@
    "ejemplo": {
     "antes": "Du wohnst in Köln.",
     "despues": "Wohnst du in Köln?"
-   }
+   },
+   "errores": [
+    "La pregunta cerrada neutral comienza con el verbo conjugado.",
+    "En una W-Frage, el verbo conjugado ocupa la segunda posición.",
+    "Con Perfekt, solo el auxiliar pasa al principio; el participio queda al final."
+   ]
   },
   "cs:t3": {
    "titulo": "Präsens: construir la forma del verbo",
@@ -175,7 +211,12 @@
    "ejemplo": {
     "antes": "arbeiten",
     "despues": "du arbeit**est**"
-   }
+   },
+   "errores": [
+    "el verbo conjugado ocupa normalmente la segunda posición en una oración enunciativa.",
+    "la terminación de **ihr** es -t, no -en: **ihr lernt**.",
+    "**ihr seid** pertenece a sein; no se dice *ihr sind."
+   ]
   },
   "cs:t4": {
    "titulo": "Vokalwechsel: solo vigila dos personas",
@@ -198,7 +239,12 @@
    "ejemplo": {
     "antes": "aufstehen",
     "despues": "Ich stehe um 7 Uhr auf."
-   }
+   },
+   "errores": [
+    "**Principal:** **Ich stehe früh auf**, con el prefijo al final.",
+    "**Modal:** **Ich muss früh aufstehen**, con el infinitivo unido.",
+    "**Subordinada:** **..., weil ich früh aufstehe**, con el verbo unido al final."
+   ]
   },
   "cs:t9": {
    "titulo": "Modalverben · cambia la intención, no la arquitectura",
@@ -218,7 +264,12 @@
    "ejemplo": {
     "antes": "nehmen",
     "despues": "**Nimm!**"
-   }
+   },
+   "errores": [
+    "**du e ihr se omiten:** **Komm!**, no *Komm du!* salvo que se quiera contrastar o enfatizar.",
+    "**Sie permanece:** **Kommen Sie!**, no *Kommen!*, cuando se trata formalmente a alguien.",
+    "**Sie formal va en mayúscula:** **Schreiben Sie Ihre Fragen.**"
+   ]
   },
   "cs:t12": {
    "titulo": "Aprende el sustantivo como un paquete",
@@ -240,7 +291,12 @@
   "cs:t14": {
    "titulo": "Los 3 casos de A1",
    "formula": "VERBO / PREPOSICIÓN + CASO QUE EXIGE + FORMA CORRECTA",
-   "regla": "**Aprende chunks:** sehen + Akk · helfen + Dat · mit + Dat."
+   "regla": "**Aprende chunks:** sehen + Akk · helfen + Dat · mit + Dat.",
+   "errores": [
+    "no confundas el nominativo masculino **der** con el acusativo masculino **den**.",
+    "después de **sein**, **werden** y **bleiben**, un sustantivo predicativo se mantiene en nominativo.",
+    "no existe el artículo indeterminado plural; evita construcciones como *eine Wohnungen."
+   ]
   },
   "cs:t15": {
    "titulo": "La tabla importa, pero el patrón importa más",
@@ -248,7 +304,12 @@
    "ejemplo": {
     "antes": "der Mann",
     "despues": "den Mann"
-   }
+   },
+   "errores": [
+    "en acusativo masculino: der → den, ein → einen, kein → keinen.",
+    "el pronombre masculino cambia de **er** a **ihn**, no a *ihm; **ihm** es dativo.",
+    "**Gemüse** se usa normalmente como sustantivo colectivo neutro singular: **das Gemüse**, no *die Gemüse."
+   ]
   },
   "cs:t16": {
    "titulo": "Dativ plural · dos cambios a la vez",
@@ -280,14 +341,24 @@
    "ejemplo": {
     "antes": "mein Freund",
     "despues": "meinen Freund"
-   }
+   },
+   "errores": [
+    "el posesivo concuerda con lo poseído, no con el sexo de quien posee o habla.",
+    "**ihr** puede significar «su, de ella» o «su, de ellos/as»; el contexto lo aclara.",
+    "**Ihr** con mayúscula expresa posesión formal: **Ihr Bruder**."
+   ]
   },
   "cs:t20": {
    "titulo": "Negación: primero pregunta qué estás negando",
    "ejemplo": {
     "antes": "Ich habe ein Auto.",
     "despues": "Ich habe kein Auto."
-   }
+   },
+   "errores": [
+    "**kein-** se declina como **ein-**, no como el artículo determinado.",
+    "El dativo con kein- es normal: mit keinem Auto.",
+    "Usa kein- con sustantivos indefinidos; usa nicht con sustantivos determinados."
+   ]
   },
   "cs:t21": {
    "titulo": "Una sola familia explica muchas terminaciones",
@@ -303,11 +374,21 @@
    "ejemplo": {
     "antes": "zu Hause",
     "despues": "nach Hause"
-   }
+   },
+   "errores": [
+    "No memorices “movimiento = acusativo”. Pregunta si hay destino (**Wohin?**) o ubicación (**Wo?**).",
+    "Ich gehe im Park significa que camino dentro del parque; Ich gehe in den Park significa que voy hacia el parque.",
+    "legen lleva normalmente un destino; liegen describe una posición."
+   ]
   },
   "cs:t24": {
    "titulo": "in / an: aprende primero el uso de ubicación",
-   "formula": "¿DÓNDE? + in / an + DATIV"
+   "formula": "¿DÓNDE? + in / an + DATIV",
+   "errores": [
+    "No memorices “movimiento = acusativo”. Pregunta si hay destino (**Wohin?**) o ubicación (**Wo?**).",
+    "Ich gehe im Park significa que camino dentro del parque; Ich gehe in den Park significa que voy hacia el parque.",
+    "legen lleva normalmente un destino; liegen describe una posición."
+   ]
   },
   "cs:t27": {
    "titulo": "Tiempo: tres preposiciones, tres escalas",
@@ -335,7 +416,12 @@
    "ejemplo": {
     "antes": "Ich arbeite heute.",
     "despues": "Ich habe heute gearbeitet."
-   }
+   },
+   "errores": [
+    "**Participio al final:** **Ich habe Deutsch gelernt**, no *Ich habe gelernt Deutsch*.",
+    "**Auxiliar conjugado:** **Ich bin gegangen**, pero **Wir sind gegangen**.",
+    "**No todo movimiento usa sein:** **Ich habe drei Stunden getanzt**."
+   ]
   },
   "cs:t32": {
    "titulo": "¿Qué auxiliar uso?",
@@ -385,6 +471,86 @@
     "antes": "Ich arbeite.",
     "despues": "Dann gehe ich nach Hause."
    }
+  },
+  "md:verben-praesens": {
+   "titulo": "Präsens",
+   "errores": [
+    "el verbo conjugado ocupa normalmente la segunda posición en una oración enunciativa.",
+    "la terminación de **ihr** es -t, no -en: **ihr lernt**.",
+    "**ihr seid** pertenece a sein; no se dice *ihr sind."
+   ]
+  },
+  "md:verben-praeteritum": {
+   "titulo": "Präteritum",
+   "errores": [
+    "no añadas -te a los verbos fuertes: **ging**, no *gingte.",
+    "los verbos mixtos cambian la raíz y añaden -te: **brachte**, **dachte**, **wusste**.",
+    "la forma estándar es **du lasest**; **ihr last** corresponde a la segunda persona plural."
+   ]
+  },
+  "md:verben-partizip": {
+   "titulo": "Perfekt y Partizip II",
+   "errores": [
+    "**Participio al final:** **Ich habe Deutsch gelernt**, no *Ich habe gelernt Deutsch*.",
+    "**Auxiliar conjugado:** **Ich bin gegangen**, pero **Wir sind gegangen**.",
+    "**No todo movimiento usa sein:** **Ich habe drei Stunden getanzt**."
+   ]
+  },
+  "md:satzbau-v2": {
+   "titulo": "La estructura básica de la oración",
+   "errores": [
+    "V2 significa segunda posición sintáctica, no necesariamente segunda palabra.",
+    "si un complemento ocupa la posición 1, el sujeto no puede permanecer delante del verbo: **Heute fahre ich**, no *Heute ich fahre.",
+    "con un modal, el infinitivo va al final: **Ich muss arbeiten**."
+   ]
+  },
+  "md:satzbau-fragen": {
+   "titulo": "Preguntas: cerradas y abiertas",
+   "errores": [
+    "La pregunta cerrada neutral comienza con el verbo conjugado.",
+    "En una W-Frage, el verbo conjugado ocupa la segunda posición.",
+    "Con Perfekt, solo el auxiliar pasa al principio; el participio queda al final."
+   ]
+  },
+  "md:indefinitpronomen": {
+   "titulo": "Pronombres indefinidos",
+   "errores": [
+    "**man** lleva una sola *n*; **der Mann, Männer** significa “el hombre”.",
+    "el verbo con **man, jemand** y **niemand** aparece en singular.",
+    "no existe *manen* ni *manem*: las formas que retoman a **man** son **einen** y **einem**."
+   ]
+  },
+  "b1:genitiv-praepositionen": {
+   "titulo": "El caso genitivo: posesión, preposiciones y verbos",
+   "errores": [
+    "Masculino y neutro usan **des/eines** y el sustantivo suele añadir **-(e)s**: des Kindes.",
+    "Femenino y plural usan **der/einer**, sin añadir **-(e)s** al sustantivo: der Frau, der Kinder.",
+    "No añadas apóstrofo ante la **-s** de un nombre propio: Petras Auto, no Petra's Auto."
+   ]
+  },
+  "a24:accprep": {
+   "titulo": "El caso acusativo",
+   "errores": [
+    "en acusativo masculino: der → den, ein → einen, kein → keinen.",
+    "el pronombre masculino cambia de **er** a **ihn**, no a *ihm; **ihm** es dativo.",
+    "**Gemüse** se usa normalmente como sustantivo colectivo neutro singular: **das Gemüse**, no *die Gemüse."
+   ]
+  },
+  "dm:s8-3": {
+   "titulo": "La N-Deklination: sustantivos masculinos débiles",
+   "errores": [
+    "Se dice Ich sehe den Studenten, no den Student.",
+    "El genitivo débil estándar es des Präsidenten, no des Präsidentens.",
+    "der Bär forma den Bären, dem Bären y des Bären; no se añade **-s**."
+   ]
+  },
+  "md:konnektoren-doppel": {
+   "titulo": "Conjunciones y conectores",
+   "errores": [
+    "**denn** mantiene el verbo en posición 2; **weil** lo coloca al final.",
+    "**sondern** no equivale siempre a “pero”; corrige un elemento previamente negado.",
+    "no añadas otra negación a **weder ... noch**."
+   ]
   }
  }
 }

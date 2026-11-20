@@ -39,6 +39,19 @@
     'n-deklination': 'N-Deklination', transform: 'Transformación', indefinitpronomen: 'Pronombre indefinido', personalpronomen: 'Pronombre personal' };
   R.skillLabel = function (s) { return SKILL[s] || SKILL_DEK[s] || SKILL_PK[s] || SKILL_WS[s] || String(s || '').replace(/[-_]+/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
 
+  // Cápsula que corresponde a un ítem. En VERBOS sólo vale la regla de SU tiempo (nunca la del Präsens en un Präteritum): sin ella, hueco.
+  var VERB_PREF = { praesens: ['cs:t3', 'md:verben-praesens'], praeteritum: ['md:verben-praeteritum'], 'partizip-ii': ['md:verben-partizip'], hilfsverb: ['cs:t5', 'md:verben-partizip'] };
+  R.pickCapsule = function (item, reglas) {
+    var ids = item.conceptIds || [], i;
+    if (item.module === 'verben') {
+      var pref = VERB_PREF[item.skill] || [];
+      for (i = 0; i < pref.length; i++) if (ids.indexOf(pref[i]) >= 0 && reglas[pref[i]]) return Object.assign({ id: pref[i] }, reglas[pref[i]]);
+      return null;
+    }
+    for (i = 0; i < ids.length; i++) if (reglas[ids[i]]) return Object.assign({ id: ids[i] }, reglas[ids[i]]);
+    return null;
+  };
+
   R.create = function (store, concepts, reglas) {
     reglas = reglas || {};
     var cmap = Object.create(null); (concepts || []).forEach(function (c) { cmap[c.id] = c; });
@@ -84,11 +97,7 @@
       return out;
     }
     // Cápsula de regla (ui/reglas.json, por concept id). Sin entrada → null: el hueco queda vacío, no se inventa.
-    function capsule(item) {
-      var ids = item.conceptIds || [];
-      for (var i = 0; i < ids.length; i++) if (reglas[ids[i]]) return Object.assign({ id: ids[i] }, reglas[ids[i]]);
-      return null;
-    }
+    function capsule(item) { return R.pickCapsule(item, reglas); }
     return { oneLine: oneLine, panel: panel, titles: titles, capsule: capsule };
   };
   g.DGUI = g.DGUI || {}; g.DGUI.rules = R;

@@ -156,3 +156,5 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .btn.opt.end{font-size:22px}
 
 .btn.opt.noun{font-size:19px}.btn.opt.noun .art{font-size:.9em}
+
+.cap-err{margin-top:8px}.cap-err summary{cursor:pointer;font-weight:800;font-size:13.5px;min-height:44px;display:flex;align-items:center}.cap-err ul{margin:4px 0 0;padding-left:18px}.cap-err li{margin:4px 0}.cap-err strong{color:var(--coral)}

@@ -533,12 +533,14 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
   return false;
 }
 
-test('D · reglas.json: sólo texto copiado de las hojas, NFC, sin HTML, con ids de concepto reales', () => {
-  const ids = new Set(CONCEPTS.map(c => c.id));
+test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
+  // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
-    assert.ok(r.regla || r.formula || r.ejemplo, k + ' vacío');
+    assert.ok(r.regla || r.formula || r.ejemplo || (r.errores && r.errores.length), k + ' vacío');
+    if (r.errores) { assert.ok(r.errores.length >= 1 && r.errores.length <= 3, k); r.errores.forEach(e => assert.ok(e.length >= 25 && e.length <= 200, k + ': ' + e)); }
     const t = JSON.stringify(r); assert.equal(t, t.normalize('NFC')); assert.ok(!/[<>]/.test(t), k + ' lleva HTML');
     if (r.ejemplo) assert.ok(r.ejemplo.antes && r.ejemplo.despues, k + ' ejemplo incompleto');
     if (r.regla) assert.ok(r.regla.length <= 262, k + ' regla larga');
@@ -556,7 +558,7 @@ test('D · tras fallar: cápsula (fórmula/regla/ejemplo antes→después) si el
   assert.ok(cap.querySelector('.cap-r, .cap-formula, .cap-ex'));
   assert.ok(u.q('.fb-line').textContent.length > 3, 'se conserva la explicación de una línea');
   const v = boot(82);
-  assert.ok(toItem(v, it => !hasRule(it), 'verben'), 'ejercicio sin regla');
+  assert.ok(toItem(v, it => !hasRule(it), 'wortschatz'), 'ejercicio sin regla');
   v.answer(false); assert.ok(v.q('.fb.bad')); assert.equal(v.q('.capsule'), null, 'hueco vacío: sin cápsula inventada');
 });
 
@@ -571,7 +573,7 @@ test('D · «¿Por qué?»: abre y cierra la cápsula bajo demanda; sin regla av
   u2.answer(true);                                     // la respuesta se conserva sin haber tocado el motor al abrir la regla
   assert.equal(u2.stored().sessionCounter, 1);
   const u3 = boot(84, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false })) });
-  assert.ok(toItem(u3, it => !hasRule(it), 'verben'));
+  assert.ok(toItem(u3, it => !hasRule(it), 'wortschatz'));
   u3.click(u3.q('#why')); assert.ok(/Todav/.test(u3.q('.toast').textContent)); assert.equal(u3.q('.why-slot .capsule'), null);
 });
 
@@ -939,4 +941,31 @@ test('W/S · Viaje combinado con los 7 módulos; B1 deja Wortschatz y Satzbau en
   while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'wortschatz' || it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
   assert.ok(mods.size >= 4, [...mods].join());
   assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
+});
+
+/* ---------- Errores típicos (de las clases) y cápsula de verbos por tiempo ---------- */
+test('Cápsulas · verbos: cada tiempo muestra SU regla (Präteritum ≠ Präsens) y los 3.662 ítems tienen cápsula', () => {
+  const R = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'reglas.json'), 'utf8')).reglas, { newEngine } = require('./helpers.js');
+  const store = newEngine({ seed: 1 }).eng.store, pick = require('../ui/dgui-rules.js'), P = (globalThis.DGUI || {}).rules || pick;
+  const verbs = store.all.filter(i => i.module === 'verben'); assert.ok(verbs.length > 3000);
+  const want = { praesens: ['cs:t3', 'md:verben-praesens'], praeteritum: ['md:verben-praeteritum'], 'partizip-ii': ['md:verben-partizip'], hilfsverb: ['cs:t5', 'md:verben-partizip'] };
+  verbs.forEach(i => { const c = P.pickCapsule(i, R); assert.ok(c, i.id + ' sin cápsula'); assert.ok(want[i.skill].includes(c.id), i.id + ' ' + i.skill + ' → ' + c.id); });
+  assert.notEqual(P.pickCapsule(verbs.find(i => i.skill === 'praeteritum'), R).id, 'cs:t3');
+});
+
+test('Cápsulas · «Errores típicos» desplegables en feedback y abiertos en «Ver regla»; Consulta incluye el grupo «Clases»', () => {
+  const u = boot(170); u.chooseModule('verben', 30); u.start();
+  while (u.S().screen === 'session' && u.S().cur.item.skill !== 'praeteritum') { u.answer(true); u.next(); }
+  assert.equal(u.S().cur.item.skill, 'praeteritum'); u.answer(false);
+  const cap = u.q('.fb.bad .capsule'); assert.equal(cap.dataset.concept, 'md:verben-praeteritum');
+  const det = cap.querySelector('details.cap-err'); assert.ok(det && !det.open, 'cerrado en el feedback'); assert.match(det.textContent, /Errores típicos \(3\)/); assert.equal(det.querySelectorAll('li').length, 3);
+  u.click(u.q('#rule')); assert.ok(u.q('[role="dialog"] details.cap-err[open]'), 'abierto en el panel');
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' }));
+  u.click(u.q('.dock .btn.secondary')); if (u.S().screen !== 'home') u.click(u.q('.dock .btn.secondary'));
+});
+
+test('Consulta · grupo «Clases» lista los conceptos creados desde las clases (md:, b1:, a24:)', () => {
+  const u = boot(171); u.click(u.q('#consulta')); u.click(u.q('[data-group="md"]'));
+  const ids = u.qa('.erow').map(r => r.dataset.concept); assert.ok(ids.length >= 8 && ids.every(k => /^(md|b1|a24):/.test(k)), ids.join());
+  assert.ok(ids.includes('md:verben-praeteritum')); u.click(u.q('[data-concept="md:verben-praeteritum"]')); assert.ok(u.q('[role="dialog"] .capsule details[open]'));
 });
