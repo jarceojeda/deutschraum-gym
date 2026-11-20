@@ -539,6 +539,7 @@ test('D · reglas.json: sólo texto copiado de las hojas y de los errores comune
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
+    if (r.alias) { assert.ok(REGLAS[r.alias] && !REGLAS[r.alias].alias, k + ': el alias debe apuntar a una cápsula real'); return; }
     assert.ok(r.regla || r.formula || r.ejemplo || (r.errores && r.errores.length), k + ' vacío');
     if (r.errores) { assert.ok(r.errores.length >= 1 && r.errores.length <= 3, k); r.errores.forEach(e => assert.ok(e.length >= 25 && e.length <= 200, k + ': ' + e)); }
     const t = JSON.stringify(r); assert.equal(t, t.normalize('NFC')); assert.ok(!/[<>]/.test(t), k + ' lleva HTML');
@@ -775,9 +776,9 @@ test('P/K · Viaje combinado incluye los 5 módulos y el appbar cambia de color 
 /* ---------- Consulta de reglas y copia de seguridad ---------- */
 test('Consulta: lista las reglas de reglas.json sin ejercicios, filtra por grupo y abre la cápsula', () => {
   const u = boot(130); u.click(u.q('#consulta')); assert.equal(u.S().screen, 'consulta');
-  const n = Object.keys(REGLAS).length; assert.equal(u.qa('.erow').length, n);
+  const n = Object.keys(REGLAS).filter(k => !REGLAS[k].alias).length; assert.equal(u.qa('.erow').length, n);
   assert.equal(u.q('.bank, .options'), null, 'sin ejercicios'); assert.equal(u.qa('input').length, 0);
-  u.click(u.q('[data-group="cs"]')); assert.ok(u.qa('.erow').every(r => r.dataset.concept.startsWith('cs:')) && u.qa('.erow').length === Object.keys(REGLAS).filter(k => k.startsWith('cs:')).length);
+  u.click(u.q('[data-group="cs"]')); assert.ok(u.qa('.erow').every(r => r.dataset.concept.startsWith('cs:')) && u.qa('.erow').length === Object.keys(REGLAS).filter(k => k.startsWith('cs:') && !REGLAS[k].alias).length);
   u.click(u.q('[data-group="dm"]')); assert.ok(u.qa('.erow').every(r => r.dataset.concept.startsWith('dm:')));
   u.click(u.q('[data-concept="dm:s5-1"]')); const d = u.q('[role="dialog"] .capsule'); assert.ok(d && /DAT/.test(d.textContent));
   u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null, 'consultar no escribe progreso');

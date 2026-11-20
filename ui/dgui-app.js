@@ -399,7 +399,7 @@
       S.screen = 'consulta'; var all = ctx.reglas || {};
       var num = function (k) { return k.replace(/^\D+/, '').split('-').map(Number); };
       var inGroup = function (k) { return group === 'all' || (group === 'md' ? /^(md|b1|a24):/.test(k) : k.indexOf(group + ':') === 0); };
-      var keys = Object.keys(all).filter(inGroup).sort(function (a, b) {
+      var keys = Object.keys(all).filter(function (k) { return !all[k].alias && inGroup(k); }).sort(function (a, b) {
         if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
       });
       var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };

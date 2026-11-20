@@ -48,7 +48,11 @@
       for (i = 0; i < pref.length; i++) if (ids.indexOf(pref[i]) >= 0 && reglas[pref[i]]) return Object.assign({ id: pref[i] }, reglas[pref[i]]);
       return null;
     }
-    for (i = 0; i < ids.length; i++) if (reglas[ids[i]]) return Object.assign({ id: ids[i] }, reglas[ids[i]]);
+    for (i = 0; i < ids.length; i++) {
+      var e = reglas[ids[i]], id = ids[i];
+      if (e && e.alias) { id = e.alias; e = reglas[id]; }          // concepto de un solo ítem → cápsula de su tipo
+      if (e) return Object.assign({ id: id }, e);
+    }
     return null;
   };
 

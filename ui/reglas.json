@@ -551,6 +551,178 @@
     "**sondern** no equivale siempre a “pero”; corrige un elemento previamente negado.",
     "no añadas otra negación a **weder ... noch**."
    ]
+  },
+  "a2:wechselpraepositionen": {
+   "titulo": "Wechselpräpositionen: Wo? / Wohin?",
+   "errores": [
+    "No memorices “movimiento = acusativo”. Pregunta si hay destino (**Wohin?**) o ubicación (**Wo?**).",
+    "Ich gehe im Park significa que camino dentro del parque; Ich gehe in den Park significa que voy hacia el parque.",
+    "legen lleva normalmente un destino; liegen describe una posición."
+   ]
+  },
+  "cs:t26": {
+   "titulo": "Contracciones: zum, zur, im, am…",
+   "errores": [
+    "Ich gehe im Park significa que camino dentro del parque; Ich gehe in den Park significa que voy hacia el parque.",
+    "Los meses se escriben con minúscula en español, pero con mayúscula en alemán: im September."
+   ]
+  },
+  "a2:praeposition-dat": {
+   "titulo": "Preposiciones con Dativ",
+   "errores": [
+    "No traduzcas el dativo mecánicamente como «a + persona». El verbo o la preposición determinan el caso.",
+    "Añade **-n** al sustantivo en dativo plural cuando corresponda: mit den Kindern.",
+    "seit se usa para una situación que comenzó en el pasado y continúa: Ich wohne seit einem Jahr hier."
+   ]
+  },
+  "a2:praeposition-acc": {
+   "titulo": "Preposiciones con Akkusativ",
+   "errores": [
+    "las preposiciones **durch, für, gegen, ohne, um** exigen acusativo."
+   ]
+  },
+  "a2:verben-mit-praepositionen": {
+   "titulo": "Verbos con preposición",
+   "errores": [
+    "**Tercera persona:** **sich** sirve para singular, plural y **Sie** formal."
+   ]
+  },
+  "b1:verben-mit-praepositionen": {
+   "titulo": "Verbos con preposición",
+   "errores": [
+    "**Tercera persona:** **sich** sirve para singular, plural y **Sie** formal."
+   ]
+  },
+  "a2:konnektoren": {
+   "titulo": "Conectores: aber, denn, und, sondern, oder",
+   "errores": [
+    "ADUSO significa **aber, denn, und, sondern, oder**.",
+    "**denn** mantiene el verbo en posición 2; **weil** lo coloca al final.",
+    "La conjunción ocupa posición cero; después empieza una oración principal normal."
+   ]
+  },
+  "a2:nebensaetze": {
+   "titulo": "Nebensätze: el verbo va al final",
+   "errores": [
+    "la coma entre Hauptsatz y Nebensatz es obligatoria.",
+    "usa **damit** si cambian los sujetos; **um ... zu** no lleva sujeto propio.",
+    "no coloques el verbo conjugado en posición 2 dentro de la subordinada: **weil er krank ist**, no *weil er ist krank*."
+   ]
+  },
+  "b1:konnektoren": {
+   "titulo": "Conectores B1: deshalb, trotzdem, damit…",
+   "errores": [
+    "después de un adverbio conjuntivo en posición 1 viene el verbo, no el sujeto: **Deshalb gehe ich**, no *Deshalb ich gehe*.",
+    "usa **damit** si cambian los sujetos; **um ... zu** no lleva sujeto propio.",
+    "**denn** mantiene el verbo en posición 2; **weil** lo coloca al final."
+   ]
+  },
+  "b1:indirekte-fragen": {
+   "titulo": "Preguntas indirectas: ob y W-Wort",
+   "errores": [
+    "después de **ob**, el verbo conjugado va al final: **ob er kommt**, no *ob kommt er*.",
+    "el verbo conjugado va al final: **wann er kommt**, no *wann kommt er*.",
+    "usa **ob** para “si” interrogativo y **wenn** para “si” condicional."
+   ]
+  },
+  "a24:prep-001": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-002": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-003": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-004": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-008": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-009": {
+   "alias": "a2:praeposition-acc"
+  },
+  "a24:prep-010": {
+   "alias": "a2:praeposition-acc"
+  },
+  "a24:prep-012": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-014": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-015": {
+   "alias": "a2:praeposition-acc"
+  },
+  "a24:prep-018": {
+   "alias": "a2:praeposition-acc"
+  },
+  "a24:prep-019": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-020": {
+   "alias": "a2:praeposition-dat"
+  },
+  "a24:prep-021": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-022": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-023": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-024": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-025": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-026": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-027": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-028": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-029": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-030": {
+   "alias": "a2:wechselpraepositionen"
+  },
+  "a24:prep-031": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-032": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-033": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-034": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-035": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-036": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-037": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-038": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-039": {
+   "alias": "cs:t26"
+  },
+  "a24:prep-040": {
+   "alias": "cs:t26"
   }
  }
 }

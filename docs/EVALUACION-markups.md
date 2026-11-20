@@ -28,6 +28,6 @@ Archivos en `docs/fuentes/aleman-markups/` (ver su `README.md`). Qué contienen,
 - **Verbos separables/irregulares (009, 033):** la lista de irregulares (136 filas) ya está cubierta por `data/verben.json`; no aporta formas nuevas.
 
 ## Pendiente / propuesta
-- Cobertura de cápsulas: faltan reglas para los conceptos de Präpositionen/Konnektoren (clases 016, 019, 047) y Deklination (`dm:s7-*`); las viñetas existen, falta decidir el mapeo concepto→clase.
+- ~~Cápsulas para Präpositionen y Konnektoren~~ (hecho, mapeo decidido por contenido: Wechsel→016; Dativ→011; Akkusativ→004/005; Genitiv→012 (sin viñetas relevantes: hueco); verbos con preposición→005/034; contracciones→011/016 con filtro; conectores a2→019/047; Nebensätze→040/044; conectores B1→043/044/047; preguntas indirectas→045/046). Los 33 conceptos de un solo ítem `a24:prep-*` son alias de su tipo. Cobertura por ítem: Verben 100 %, Artikel 100 %, Satzbau 100 %, Präpositionen 98 %, Deklination 98 %, Konnektoren 84 %. **Hueco declarado:** las partículas modales (45 ítems) no las trata ninguna clase.
 - Ejercicios originales B1 (Passiv, relativsätze, Konjunktiv II, indirekte Fragen) para un módulo de gramática B1; es etapa 4+.
 - Plurales: las tablas de plural y sufijos de plural no están en estas fuentes de forma tabular.
