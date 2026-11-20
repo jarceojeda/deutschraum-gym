@@ -27,7 +27,9 @@
     var win = ctx.win, doc = win.document, eng = ctx.engine, prefs = ctx.prefs, rules = D.rules.create(eng.store, ctx.concepts, ctx.reglas);
     U.doc = doc;
     var S = { screen: 'home', module: prefs.get('module') || 'verben', size: prefs.get('size') || 10, session: null, cur: null, saveError: null, warnings: [] };
-    var api = { state: S };
+    var ret = D.retention.create(prefs, function () { return win.Date.now(); });
+    var HAP = { tap: 8, ok: 12, warn: [15, 40, 15], bad: [30, 40, 30], milestone: [18, 45, 28] };
+    var api = { state: S, ret: ret };
 
     function reducedMotion() { try { return win.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
     function buzz(ms) { U.buzz(win, prefs, ms); }
@@ -72,14 +74,16 @@
       var nerr = eng.errorQueue().length;
       var errCard = h('button.card.errs', { type: 'button', id: 'errors', disabled: !nerr, 'data-errors': nerr, onclick: function () { start({ kind: 'errors' }); } },
         h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
-      shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), iconBtn('Ajustes', '⚙', settings),
+      var rc = ret.current(), chip = rc.streak > 0 ? h('span.streak-chip' + (rc.today ? '.done' : ''), { id: 'streak', title: rc.today ? 'Hoy ya practicaste' : 'Practica hoy para mantenerla' }, h('span', { 'aria-hidden': 'true' }, '◆ '), rc.streak + (rc.streak === 1 ? ' día' : ' días')) : null;
+      var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
+      shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
         [storageBanner(),
           h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo o mezcla todo.'),
             h('div.group', h('p.glabel', 'Ejercicios por sesión'), chipRow('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = v; prefs.set('size', v); home(); }, 'size')),
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, cap, function (v) { setCap(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
             h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, h('h2.sec-h', 'Próximamente'), soonList], null);
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Próximamente'), soonList], null);
     }
 
     /* ---------- sesión ---------- */
@@ -96,8 +100,11 @@
       question();
     }
     function modName(id) { return MODULES.filter(function (m) { return m.id === id; })[0].name; }
-    function toast(msg) {
-      var t = h('div.toast', { role: 'status' }, msg); root.appendChild(t);
+    // Toast único: kind = info | ok | warn (la vibración acompaña a ok/warn, no a info).
+    function toast(msg, kind) {
+      var old = root.querySelector('.toast'); if (old && old.parentNode) old.parentNode.removeChild(old);
+      var t = h('div.toast.' + (kind || 'info'), { role: 'status' }, msg); root.appendChild(t);
+      if (kind === 'warn') buzz(HAP.warn); else if (kind === 'ok') buzz(HAP.milestone);
       win.setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4000);
     }
     function promptNode(v, item) {
@@ -149,7 +156,7 @@
       if (again && again.prefill != null) spec = Object.assign({}, spec, { prefill: again.prefill });
       S.lastSpec = spec;
       S.cur = { view: v, item: item, spec: spec, fb: null };
-      var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(8); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
+      var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(HAP.tap); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
       var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
       var cap = rules.capsule(item), auto = !!cap && prefs.get('ruleFirst') !== false && !dominated(item);
       var slot = h('div.why-slot'), open = auto;
@@ -166,17 +173,20 @@
       var out;
       try { out = s.answer(resp, { mode: S.mode }); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
-      if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
-      if (out.almost) { buzz([10, 30, 10]); return question('Casi. Revisa una letra e inténtalo otra vez.', { spec: spec, prefill: typeof resp === 'string' ? resp : '' }); }
+      noteSave(out);
+      if (out.almost) { buzz(HAP.warn); return question('Casi. Revisa una letra e inténtalo otra vez.', { spec: spec, prefill: typeof resp === 'string' ? resp : '' }); }
       var ok = out.evaluation.verdict === 'correct';
-      buzz(ok ? 12 : [30, 40, 30]);
+      buzz(ok ? HAP.ok : HAP.bad);
       feedback({ ok: ok, out: out, item: item, view: v, resp: resp, gaveUp: false, extra: extra, spec: spec });
+    }
+    function noteSave(out) {
+      if (out.saveError) { if (!S.saveError) buzz(HAP.warn); S.saveError = out.saveError; } else if (S.saveError) S.saveError = null;
     }
     function giveUp() {
       var s = S.session, item = S.cur.item, v = S.cur.view, out;
       try { out = s.giveUp(); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
-      if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
+      noteSave(out);
       feedback({ ok: false, out: out, item: item, view: v, resp: null, gaveUp: true, spec: S.cur.spec });
     }
     function expectedText(item) {
@@ -223,24 +233,35 @@
     }
 
     /* ---------- panel «ver regla» ---------- */
-    function openRule(item) {
-      var p = rules.panel(item), opener = doc.activeElement;
-      var back = h('div.sheet-back', { onclick: function (e) { if (e.target === back) close(); } });
+    function openSheet(title, content, label) {
+      var opener = doc.activeElement, back = h('div.sheet-back', { onclick: function (e) { if (e.target === back) close(); } });
       function close() { if (back.parentNode) back.parentNode.removeChild(back); doc.removeEventListener('keydown', onKey); if (opener && opener.focus) opener.focus(); }
       function onKey(e) { if (e.key === 'Escape') close(); }
-      var content = [], capn = capsuleNode(rules.capsule(item)); if (capn) content.push(capn);
+      var sheet = h('div.sheet', { role: 'dialog', 'aria-modal': 'true', 'aria-label': (label || 'Regla') + ': ' + title },
+        h('div.sheet-h', h('h2', title), h('button.btn.ghost.icon', { type: 'button', 'aria-label': 'Cerrar', onclick: close }, '✕')),
+        h('div.sheet-b', content), h('div.sheet-f', h('button.btn.primary.big', { type: 'button', onclick: close }, 'Entendido')));
+      back.appendChild(sheet); root.appendChild(back); doc.addEventListener('keydown', onKey);
+      var cb = sheet.querySelector('.sheet-f button'); if (cb) cb.focus();
+    }
+    function openRule(item) {
+      var p = rules.panel(item), content = [], capn = capsuleNode(rules.capsule(item)); if (capn) content.push(capn);
       if (p.concepts.length) content.push(h('div.r-concepts', p.concepts.map(function (c) { return h('div.r-concept', c); })));
       if (p.explanation) content.push(h('p.r-expl', p.explanation));
       if (p.table) content.push(h('table.r-table', h('caption', p.table.caption), h('tbody', p.table.rows.map(function (r) { return h('tr' + (r.hit ? '.hit' : ''), h('th', r.k), h('td', r.v)); }))));
       if (p.examples.length) content.push(h('div.r-ex', h('h3', 'Más ejemplos de este tema'), h('ul', p.examples.map(function (e) { return h('li', h('span', e.prompt), ' → ', h('strong', e.answer)); }))));
       if (!p.explanation) content.push(h('p.r-note', 'Esta versión aún no trae el texto completo de la regla: se muestran el tema, la forma correcta y ejemplos del mismo tema.'));
-      var sheet = h('div.sheet', { role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Regla: ' + p.title },
-        h('div.sheet-h', h('h2', p.title), h('button.btn.ghost.icon', { type: 'button', 'aria-label': 'Cerrar', onclick: close }, '✕')),
-        h('div.sheet-b', content), h('div.sheet-f', h('button.btn.primary.big', { type: 'button', onclick: close }, 'Entendido')));
-      back.appendChild(sheet); root.appendChild(back); doc.addEventListener('keydown', onKey);
-      var cb = sheet.querySelector('.sheet-f button'); if (cb) cb.focus();
+      openSheet(p.title, content);
     }
-    api.openRule = openRule;
+    // Hoja de un TIPO de error (mapa de errores): cápsula si hay regla; si no, ejemplos reales de ese tipo. Sin inventar gramática.
+    function openTag(tag) {
+      var items = eng.store.all.filter(function (it) { return it.errorTag === tag; }), content = [], cap = null;
+      for (var i = 0; i < items.length && !cap; i++) cap = rules.capsule(items[i]);
+      if (cap) content.push(capsuleNode(cap)); else content.push(h('p.r-note', 'Todavía no hay una regla escrita para este tipo de error.'));
+      var ex = []; for (var k = 0, step = Math.max(1, Math.floor(items.length / 4)); k < items.length && ex.length < 4; k += step) ex.push(items[k]);
+      if (ex.length) content.push(h('div.r-ex', h('h3', 'Ejemplos de este tipo'), h('ul', ex.map(function (it) { return h('li', h('span', it.prompt), ' → ', h('strong', it.answer)); }))));
+      openSheet(D.rules.tagLabel(tag), content, 'Tipo de error');
+    }
+    api.openRule = openRule; api.openTag = openTag;
 
     /* ---------- resumen ---------- */
     function summary() {
@@ -248,8 +269,18 @@
       var s = S.session, sm = s.finish();
       S.screen = 'summary'; S.summary = sm;
       if (sm.saveError) S.saveError = sm.saveError;
-      var pct = sm.answered ? Math.round(100 * sm.correct / sm.answered) : 0, blocks = [];
+      // racha y logros: una sola vez por sesión (el resumen puede repintarse)
+      if (S.retFor !== sm.sessionNo) {
+        S.retFor = sm.sessionNo; S.retInfo = { streak: ret.current().streak, perdonado: false, badges: [] };
+        if (sm.answered > 0) {
+          var t = ret.touch(); S.retInfo = { streak: t.streak, perdonado: t.perdonado, badges: ret.unlock({ stats: eng.state().stats, summary: sm }) };
+          if (S.retInfo.badges.length || t.perdonado || [3, 7, 30].indexOf(t.streak) >= 0 && t.changed) S.retToast = S.retInfo.badges.length ? 'Logro: ' + S.retInfo.badges[0].title : t.perdonado ? 'Perdón usado: tu racha sigue.' : 'Racha de ' + t.streak + ' días';
+        }
+      }
+      var info = S.retInfo, pct = sm.answered ? Math.round(100 * sm.correct / sm.answered) : 0, blocks = [];
       blocks.push(h('div.sum-score', h('div.sum-big', sm.correct + '/' + sm.answered), h('div.sum-sub', sm.answered ? pct + ' % de aciertos al primer intento' : 'Sin respuestas esta vez')));
+      if (info.streak > 0 && sm.answered > 0) blocks.push(h('div.sum-card.streak', { id: 'streak-card' }, h('strong', 'Racha: ' + info.streak + (info.streak === 1 ? ' día' : ' días')), info.perdonado ? h('span.hint', ' · perdoné un día que faltaste (1 por semana)') : null));
+      info.badges.forEach(function (b) { blocks.push(h('div.sum-card.badge', { 'data-badge': b.id }, h('strong', 'Logro: ' + b.title), h('span.hint', ' · ' + b.detail))); });
       if (sm.newUnits > 0) blocks.push(h('div.sum-card.learn', h('strong', 'Hoy aprendiste ' + sm.newUnits + (sm.newUnits === 1 ? ' cosa' : ' cosas') + ' que ayer no sabías.')));
       if (sm.rescued && sm.rescued.length) {
         blocks.push(h('div.sum-card.rescue', h('strong', 'Rescataste ' + sm.rescued.length + (sm.rescued.length === 1 ? ' ejercicio' : ' ejercicios') + ' que fallabas.'),
@@ -258,9 +289,37 @@
       var tags = Object.keys(sm.errorsByTag || {}).sort(function (a, b) { return sm.errorsByTag[b] - sm.errorsByTag[a]; });
       if (tags.length) blocks.push(h('div.sum-card', h('strong', 'Errores por tipo'), h('ul.tagl', tags.map(function (t) { return h('li', h('span', D.rules.tagLabel(t)), h('span.n', String(sm.errorsByTag[t]))); }))));
       else if (sm.answered) blocks.push(h('div.sum-card', h('strong', 'Sin errores. Muy bien.')));
+      // qué falló y por qué
+      var failed = (sm.failed || []).filter(function (id, i, a) { return a.indexOf(id) === i && eng.store.byId[id]; });
+      if (failed.length) {
+        blocks.push(h('h2.sec-h', 'Qué falló y por qué'));
+        failed.slice(0, 8).forEach(function (id) {
+          var it = eng.store.byId[id], ck = F.caseOf(it), line = rules.oneLine(it), cap = rules.capsule(it);
+          blocks.push(h('div.sum-card.fail', { 'data-id': id },
+            h('div.fail-p', it.prompt.replace(/_{2,}/g, '___')), h('div.fail-a', F.rich(expectedText(it), { case: ck }), ck ? F.caseBadge(ck) : null),
+            line ? h('div.fail-l', line) : null,
+            h('button.btn.secondary.fail-b', { type: 'button', 'data-rule': id, onclick: function () { openRule(it); } }, cap ? 'Ver regla' : 'Ver tema')));
+        });
+        if (failed.length > 8) blocks.push(h('p.hint.center', 'y ' + (failed.length - 8) + ' más en «Mis errores».'));
+      }
       (sm.levelChanges || []).forEach(function (c) { blocks.push(h('div.sum-card', h('strong', (c.change === 'promote' || c.to > c.from ? 'Subiste de nivel' : 'Cambio de nivel') + ': ' + c.module + ' ' + c.from + ' → ' + c.to))); });
       shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: function () { start({}); } }, 'Otra sesión')))], 'summary');
+      if (S.retToast) { var m = S.retToast; S.retToast = null; toast(m, 'ok'); }   // después de pintar: shell() limpia la raíz
     }
+
+    /* ---------- mapa de errores por tipo ---------- */
+    function errmap() {
+      S.screen = 'errmap';
+      var rows = eng.errorMap(), max = rows.reduce(function (m, r) { return Math.max(m, r.f); }, 1);
+      var list = h('div.emap', rows.map(function (r) {
+        return h('button.erow', { type: 'button', 'data-tag': r.tag, onclick: function () { openTag(r.tag); } },
+          h('span.el', D.rules.tagLabel(r.tag)), h('span.eb', h('i', { style: 'width:' + Math.max(6, Math.round(100 * r.f / max)) + '%' })),
+          h('span.en', r.f + ' de ' + r.n + ' · ' + Math.round(100 * r.rate) + ' %'));
+      }));
+      shell('Mapa de errores', [iconBtn('Volver', '←', home), brand('Mapa de errores', 'Qué practicar')], null,
+        [rows.length ? h('p.hint', 'Tipos donde más fallas (primer intento). Toca uno para ver su regla y ejemplos.') : h('div.notice', 'Aún no hay errores registrados. Cuando falles algo aparecerá aquí por tipo.'), list], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.errmap = errmap;
 
     /* ---------- ajustes ---------- */
     function settings() {
@@ -277,6 +336,7 @@
         h('section.set', h('h2', 'Entrada'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
+        h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))
       ], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
     }

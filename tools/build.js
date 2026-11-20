@@ -1,7 +1,7 @@
 // Arma UN solo HTML autocontenido: CSS + motor (dist/dg-engine.bundle.js) + JS de la UI + datos de verben/artikel/deklination + concepts.
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
-const UI_ORDER = ['dgui-util', 'dgui-fmt', 'dgui-rules', 'dgui-variants', 'dgui-inputs', 'dgui-app', 'dgui-boot'];
+const UI_ORDER = ['dgui-util', 'dgui-fmt', 'dgui-rules', 'dgui-retention', 'dgui-variants', 'dgui-inputs', 'dgui-app', 'dgui-boot'];
 const MODULES = ['verben', 'artikel', 'deklination'];
 const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 // Dentro de <script> no puede aparecer «</script» ni «<!--»: se escapan con < (JSON y JS siguen siendo válidos).

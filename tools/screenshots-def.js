@@ -49,5 +49,24 @@ const reglas = require('../ui/reglas.json').reglas;
     if (await until(p, hasRule)) { await solve(p, false); await shot(p, '06-oscuro-capsula-verbo'); }
     await ctx.close();
   }
+  if (block === 'E') {
+    const ayer = (() => { const d = new Date(Date.now() - 864e5), q = n => (n < 10 ? '0' : '') + n; return d.getFullYear() + '-' + q(d.getMonth() + 1) + '-' + q(d.getDate()); })();
+    let { p, ctx } = await page('light', { auto: false, size: 10, ret: { streak: 2, best: 2, last: ayer, perdon: null, badges: { primera: ayer } } });
+    await p.click('.card[data-module="deklination"]');
+    for (let i = 0; (await screen(p)) === 'session' && i < 60; i++) { await solve(p, i % 3 !== 0); await p.click('#next'); }
+    await shot(p, '01-resumen-racha-logro');
+    await p.evaluate(() => { document.querySelector('.main').scrollTop = 520; }); await shot(p, '02-resumen-que-fallo-y-por-que');
+    await p.locator('[data-rule]').first().click(); await shot(p, '03-resumen-ver-regla'); await p.keyboard.press('Escape');
+    await p.click('.dock .btn.secondary'); await shot(p, '04-inicio-chip-racha');
+    await p.click('#emap'); await shot(p, '05-mapa-de-errores');
+    await p.locator('.erow').first().click(); await shot(p, '06-mapa-hoja-del-tipo'); await p.keyboard.press('Escape');
+    await p.click('[aria-label="Volver"]'); await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 400; }); await shot(p, '07-ajustes-logros');
+    await ctx.close();
+    ({ p, ctx } = await page('dark', { auto: false, size: 10 }));
+    await p.click('.card[data-module="artikel"]');
+    for (let i = 0; (await screen(p)) === 'session' && i < 60; i++) { await solve(p, i % 4 !== 0); await p.click('#next'); }
+    await shot(p, '08-oscuro-resumen');
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

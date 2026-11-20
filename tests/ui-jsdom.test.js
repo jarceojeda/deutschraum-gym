@@ -579,3 +579,67 @@ test('D · reglas: md() sólo produce <strong>; nada de HTML del texto', () => {
   const nodes = u.w.DGUI.fmt.md('a **b** <i>c</i>'); const box = u.d.createElement('div'); nodes.forEach(n => box.appendChild(typeof n === 'string' ? u.d.createTextNode(n) : n));
   assert.equal(box.querySelectorAll('strong').length, 1); assert.equal(box.querySelectorAll('i').length, 0); assert.ok(box.textContent.includes('<i>c</i>'));
 });
+
+/* ---------- Bloque E: feedback y retención ---------- */
+const lastSummary = u => { while (u.S().screen === 'session') { u.answer(true); u.next(); } };
+function vib(u) { const calls = []; u.w.navigator.vibrate = p => { calls.push(p); return true; }; return calls; }
+
+test('E · resumen: racha, logro «Primera sesión» y chip de racha en el inicio; el mismo día no suma dos veces', () => {
+  const u = boot(90); let now = Date.UTC(2026, 5, 10, 12); u.w.Date.now = () => now;
+  playSession(u, 'artikel', 10, () => true);
+  assert.match(u.q('#streak-card').textContent, /Racha: 1 día/);
+  assert.ok(u.q('[data-badge="primera"]'), 'logro primera sesión');
+  assert.ok(u.q('.toast.ok'), 'toast de logro');
+  u.click(u.q('.dock .btn.secondary')); assert.match(u.q('#streak').textContent, /1 día/); assert.ok(u.q('#streak.done'));
+  playSession(u, 'artikel', 10, () => true); assert.match(u.q('#streak-card').textContent, /Racha: 1 día/);
+  now += 864e5; u.click(u.q('.dock .btn.secondary')); assert.ok(!u.q('#streak.done'), 'mañana: la racha está pendiente de hoy');
+  playSession(u, 'artikel', 10, () => true); assert.match(u.q('#streak-card').textContent, /Racha: 2 días/);
+  now += 2 * 864e5; u.click(u.q('.dock .btn.secondary'));   // falta un día → perdón
+  playSession(u, 'artikel', 10, () => true); assert.match(u.q('#streak-card').textContent, /Racha: 3 días/); assert.match(u.q('#streak-card').textContent, /perdoné/);
+  assert.equal(JSON.parse(u.w.localStorage.getItem('dg.ui')).ret.streak, 3);
+});
+
+test('E · resumen «qué falló y por qué»: cada fallo con respuesta, explicación y botón de regla', () => {
+  const u = boot(91); playSession(u, 'deklination', 10, (it, i) => i % 3 !== 0);
+  const cards = u.qa('.sum-card.fail'); assert.ok(cards.length >= 2);
+  assert.equal(new Set(cards.map(c => c.dataset.id)).size, cards.length);
+  cards.forEach(c => { assert.ok(c.querySelector('.fail-a').textContent.length > 0); assert.ok(u.stored().errors[c.dataset.id], 'el fallo está en la cola guardada'); });
+  assert.ok(cards.some(c => c.querySelector('.fail-l')), 'con explicación de una línea');
+  u.click(cards[0].querySelector('[data-rule]')); assert.ok(u.q('[role="dialog"]'));
+});
+
+test('E · mapa de errores por tipo: vacío al principio; tras fallar lista tipos con barra y abre su hoja', () => {
+  const u = boot(92); u.click(u.q('#emap')); assert.equal(u.S().screen, 'errmap'); assert.ok(/Aún no hay errores/.test(u.q('.main').textContent)); assert.equal(u.qa('.erow').length, 0);
+  u.click(u.q('[aria-label="Volver"]'));
+  playSession(u, 'deklination', 20, (it, i) => i % 2 === 0); u.click(u.q('.dock .btn.secondary'));
+  u.click(u.q('#emap')); const rows = u.qa('.erow'); assert.ok(rows.length >= 1);
+  rows.forEach(r => { assert.ok(r.querySelector('.eb i').style.width); assert.match(r.querySelector('.en').textContent, /\d+ de \d+ · \d+ %/); });
+  const fails = Object.keys(u.stored().tags).filter(t => u.stored().tags[t].f > 0); assert.deepEqual(rows.map(r => r.dataset.tag).sort(), fails.sort());
+  u.click(rows[0]); const dlg = u.q('[role="dialog"]'); assert.ok(dlg && /Tipo de error/.test(dlg.getAttribute('aria-label')));
+  assert.ok(dlg.querySelector('.capsule, .r-note')); assert.ok(dlg.querySelector('.r-ex li'));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.q('[role="dialog"]'), null);
+});
+
+test('E · haptics: toque 8, acierto 12, fallo [30,40,30], aviso de guardado [15,40,15], hito [18,45,28]; respeta el ajuste', () => {
+  const u = boot(93); const calls = vib(u);
+  u.chooseModule('verben', 30); u.start();
+  let ok = false; for (let i = 0; i < 30 && !ok; i++) { if (u.S().cur.spec.kind === 'blocks') { u.click(u.qa('.bank .tile')[0]); ok = true; } else { u.answer(true); u.next(); } }
+  assert.ok(ok && calls.includes(8), 'toque en bloque: 8 ms'); u.click(u.q('.slots .placed'));   // devolver el bloque antes de responder
+  calls.length = 0; u.answer(true); assert.equal(calls.slice(-1)[0], 12);
+  u.next(); calls.length = 0; u.answer(false); assert.equal(JSON.stringify(calls.slice(-1)[0]), '[30,40,30]');
+  u.next();
+  const real = u.w.Storage.prototype.setItem; u.w.Storage.prototype.setItem = function () { const e = new Error('full'); e.name = 'QuotaExceededError'; throw e; };
+  try { calls.length = 0; u.answer(true); assert.ok(calls.some(c => c && c[0] === 15 && c.length === 3), 'aviso de guardado'); } finally { u.w.Storage.prototype.setItem = real; }
+  const m = boot(94); const c2 = vib(m); lastSessionBadge(m); assert.ok(c2.some(c => c && c[0] === 18 && c.length === 3), 'hito al desbloquear un logro');
+  const off = boot(95, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, vibrate: false })) }); const c3 = vib(off);
+  off.chooseModule('artikel', 10); off.start(); off.answer(true); off.answer; assert.equal(c3.length, 0, 'con la vibración apagada no vibra');
+});
+function lastSessionBadge(u) { playSession(u, 'artikel', 10, () => true); }
+
+test('E · toast único: un toast nuevo reemplaza al anterior', () => {
+  const u = boot(96); u.chooseModule('verben', 30); u.start();
+  u.click(u.qa('.dock .btn.ghost').find(b => b.textContent === 'No sé') || u.q('#why'));
+  u.next(); const why = u.q('#why'); 
+  for (let i = 0; i < 3; i++) { const it = u.S().cur.item; if (!(it.conceptIds || []).some(id => REGLAS[id])) { u.click(u.q('#why')); u.click(u.q('#why')); } u.answer(true); u.next(); }
+  assert.ok(u.qa('.toast').length <= 1);
+});

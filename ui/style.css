@@ -125,3 +125,11 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .cap-slot{font-weight:800;color:var(--violet);padding:2px 8px;border-radius:8px;background:color-mix(in srgb,var(--violet) 12%,transparent)}.cap-op{color:var(--muted);font-weight:800}
 .cap-r{margin:6px 0 0}.cap-ex{margin-top:8px;padding:8px 10px;border-radius:12px;background:color-mix(in srgb,var(--success) 9%,var(--surface));display:flex;gap:8px;flex-wrap:wrap;align-items:center}.cap-arrow{color:var(--muted);font-weight:900}.cap-a strong,.cap-r strong{color:var(--coral)}
 .why-slot:empty{display:none}.btn.why{min-height:48px;font-size:14px;background:transparent;border-style:dashed;margin-top:12px;padding:0 22px}
+
+.streak-chip{display:inline-flex;align-items:center;font-weight:800;font-size:13px;padding:6px 12px;border-radius:999px;background:var(--surface-2);color:var(--muted);white-space:nowrap}.streak-chip.done{background:color-mix(in srgb,var(--success) 14%,var(--surface));color:var(--success)}
+.toast.ok{background:var(--success);color:#fff}.toast.warn{background:var(--warn-bg);color:var(--warn);border:1px solid var(--warn)}
+.sum-card.streak{border-color:var(--accent)}.sum-card.badge{border-color:var(--brand);background:var(--brand-soft)}
+.sum-card.fail{display:flex;flex-direction:column;gap:6px}.fail-p{color:var(--muted);font-size:14px}.fail-a{font-size:20px;font-weight:850;display:flex;gap:8px;align-items:center;flex-wrap:wrap}.fail-l{font-size:14.5px}.fail-b{align-self:flex-start;min-height:48px}
+.emap{display:flex;flex-direction:column;gap:8px}.erow{display:grid;grid-template-columns:1fr;gap:6px;text-align:left;width:100%;min-height:64px;padding:10px 14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);cursor:pointer}
+.erow .el{font-weight:800}.erow .eb{display:block;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}.erow .eb i{display:block;height:100%;background:var(--coral);border-radius:inherit}.erow .en{font-size:13px;color:var(--muted)}
+.badges{display:grid;gap:8px}.bdg{padding:10px 12px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);display:flex;flex-direction:column}.bdg.got{border-style:solid;border-color:var(--brand);background:var(--brand-soft);color:var(--ink)}

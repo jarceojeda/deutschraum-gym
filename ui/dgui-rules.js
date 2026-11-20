@@ -9,10 +9,12 @@
   var SKILL = { praesens: 'Präsens', praeteritum: 'Präteritum', 'partizip-ii': 'Partizip II', hilfsverb: 'haben / sein', genero: 'Género', plural: 'Plural', indefinido: 'Artículo indefinido' };
   var TAG = { 'verb:praesens': 'Präsens', 'verb:praeteritum': 'Präteritum', 'verb:partizip': 'Partizip II', 'verb:aux': 'haben / sein', 'artikel:genero': 'Género (der/die/das)', 'artikel:plural': 'Plural', 'artikel:indefinido': 'Artículo indefinido' };
   var CASE = { nominative: 'Nominativ', accusative: 'Akkusativ', dative: 'Dativ', genitive: 'Genitiv' };
+  var SUB = { possessive_article: 'posesivo', possessive_pronoun: 'posesivo', predicate_noun: 'predicado', two_way_preposition: 'Wechselpräposition', article: 'artículo', adjective: 'adjetivo',
+    personal_pronoun: 'pronombre', dative_plural: 'plural', preposition: 'preposición', noun: 'sustantivo', mixed: 'mixto' };
   R.tagLabel = function (tag) {
     if (TAG[tag]) return TAG[tag];
     var p = String(tag || '').split(':');
-    if (p[0] === 'case') return (CASE[p[1]] || p[1]) + (p[2] ? ' · ' + p[2].replace(/_/g, ' ') : '');
+    if (p[0] === 'case') return (CASE[p[1]] || p[1]) + (p[2] ? ' · ' + (SUB[p[2]] || p[2].replace(/_/g, ' ')) : '');
     if (p[0] === 'transform') return 'Transformación de caso';
     return String(tag || '').replace(/[:_-]/g, ' ');
   };
