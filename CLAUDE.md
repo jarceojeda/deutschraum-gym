@@ -8,7 +8,7 @@ App de alemán A1→B1 (vanilla JS, sin frameworks ni backend, localStorage, IIF
 3. `docs/PROMPTS-etapas.md` — qué toca en cada etapa (etapa 3 hecha; siguiente: etapa 4).
 
 ## Comandos
-- `npm ci` · `npm test` (≈235 pruebas, ≈3 min) · `npm run test:fast` (sin simulaciones) · `npm run bundle` · `node tools/make-report.js` · `npm run build:ui` (genera `dist/deutschraum-gym.html`).
+- `npm ci` · `npm test` (≈235 pruebas, ≈3 min) · `npm run test:fast` (sin simulaciones) · `npm run bundle` · `node tools/make-report.js` · `npm run build:ui` (genera `dist/deutschraum-gym.html` y la PWA: `dist/index.html`, `sw.js`, manifest e iconos) · `NODE_PATH=$(npm root -g) node tools/check-pwa.js` (comprobación real de la PWA sin red).
 - `npm test` regenera `dist/dg-engine.bundle.js`; si cambia `src/`, commitea también el bundle.
 
 ## Reglas del proyecto

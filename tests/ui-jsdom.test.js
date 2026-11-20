@@ -111,7 +111,8 @@ function playSession(u, mod, size, okFn) {
 }
 
 test('el HTML es autocontenido (sin recursos externos), NFC y usa sólo IIFE vanilla', () => {
-  assert.ok(!/<script[^>]+src=|<link[^>]+href=|@import|https?:\/\//i.test(HTML.replace(/https?:\/\/localhost/g, '')), 'recurso externo');
+  // recursos externos = scripts con src, enlaces a http(s), @import o cualquier URL absoluta (el manifest y los iconos son rutas RELATIVAS del propio sitio)
+  assert.ok(!/<script[^>]+src=|<link[^>]+href="https?:|@import|https?:\/\//i.test(HTML.replace(/https?:\/\/localhost/g, '')), 'recurso externo');
   const block = id => HTML.match(new RegExp('id="' + id + '">([\\s\\S]*?)</script>'))[1];
   ['dg-data', 'dg-concepts'].forEach(id => assert.equal(block(id), block(id).normalize('NFC'), id + ' contiene texto no NFC'));
   ['style.css', 'dgui-util.js', 'dgui-rules.js', 'dgui-inputs.js', 'dgui-app.js', 'dgui-boot.js', 'index.html'].forEach(f => {
@@ -984,4 +985,39 @@ test('Sufijo · tras fallar un sustantivo con terminación conocida sale la pist
     u.answer(true); u.next();
   }
   assert.ok(con && sin, 'se probaron ambos casos');
+});
+
+/* ---------- PWA en la interfaz ---------- */
+test('PWA · Ajustes: sin service worker todavía «preparando»; botón «Instalar app» sólo cuando el navegador lo ofrece; la instalación se confirma', async () => {
+  const u = boot(190); goSettings(u);
+  assert.match(u.q('#offline-status').textContent, /Preparando el modo sin conexión/, 'en http aún sin service worker'); assert.equal(u.q('#install-btn'), null);
+  assert.match(u.q('#pwa .hint').textContent, /menú ⋮/);
+  let prompted = 0;
+  const ev = new u.w.Event('beforeinstallprompt'); ev.prompt = () => { prompted++; }; ev.userChoice = Promise.resolve({ outcome: 'accepted' });
+  u.w.dispatchEvent(ev);
+  const btn = u.q('#install-btn'); assert.ok(btn, 'aparece el botón'); assert.match(u.q('#pwa .hint').textContent, /Puedes instalarla/);
+  u.click(btn); assert.equal(prompted, 1);
+  await waitFor(() => u.q('.toast.ok'));
+  assert.match(u.q('.toast').textContent, /Instalada/);
+  u.w.dispatchEvent(new u.w.Event('appinstalled')); assert.match(u.q('#pwa .hint').textContent, /Ya la usas como app instalada/); assert.equal(u.q('#install-btn'), null);
+});
+
+test('PWA · almacenamiento persistente: se pide y Ajustes informa si está protegido o no', async () => {
+  const asked = [];
+  const mk = persisted => ({ before: w => { w.navigator.storage = { persisted: () => Promise.resolve(false), persist: () => { asked.push(1); return Promise.resolve(persisted); } }; } });
+  const a = boot(191, mk(true)); await waitFor(() => a.w.DGUI.pwa.state().persisted === true); goSettings(a);
+  assert.equal(asked.length, 1, 'se pidió persistencia'); assert.match(a.q('#persist-status').textContent, /Almacenamiento protegido/);
+  const b = boot(192, mk(false)); await waitFor(() => b.w.DGUI.pwa.state().persisted === false); goSettings(b);
+  assert.match(b.q('#persist-status').textContent, /podría borrar el progreso/);
+});
+
+test('PWA · service worker activo → «Sin conexión: lista»; una versión nueva avisa sin recargar ni tocar el progreso', async () => {
+  let ctl = null; const listeners = {};
+  const sw = { controller: { }, register: () => Promise.resolve(), ready: Promise.resolve({}), addEventListener: (t, f) => { listeners[t] = f; } };
+  const u = boot(193, { before: w => { Object.defineProperty(w.navigator, 'serviceWorker', { value: sw, configurable: true }); } });
+  // jsdom sirve http://localhost/: el registro se intenta
+  await waitFor(() => u.w.DGUI.pwa.state().offline); goSettings(u); assert.match(u.q('#offline-status').textContent, /Sin conexión: lista/);
+  const before = u.w.localStorage.getItem('dg.progress'); listeners.controllerchange();
+  await waitFor(() => u.q('.toast.ok')); assert.match(u.q('.toast').textContent, /versión nueva/);
+  assert.equal(u.w.localStorage.getItem('dg.progress'), before, 'el progreso no cambia al actualizar'); assert.equal(u.S().screen, 'settings', 'no recarga ni cambia de pantalla');
 });

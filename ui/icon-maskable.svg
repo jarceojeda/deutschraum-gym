@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#183f38"/>
+  <g transform="rotate(-3 256 262)"><text x="256" y="333" text-anchor="middle" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="900" font-size="230" fill="#fffdf8">D</text></g>
+  <rect x="186" y="358" width="140" height="14" rx="7" fill="#f0c861"/>
+</svg>

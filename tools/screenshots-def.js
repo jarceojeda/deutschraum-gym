@@ -155,5 +155,10 @@ const reglas = require('../ui/reglas.json').reglas;
     await p.locator('.erow').nth(3).click(); await shot(p, '05-consulta-clases-errores-abiertos');
     await ctx.close();
   }
+  if (block === 'L') {
+    const { p, ctx } = await page('light', { auto: false, size: 10 }, () => { window.addEventListener('DOMContentLoaded', () => { const ev = new Event('beforeinstallprompt'); ev.prompt = () => {}; ev.userChoice = Promise.resolve({ outcome: 'accepted' }); setTimeout(() => window.dispatchEvent(ev), 300); }); });
+    await p.waitForTimeout(500); await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('#pwa').scrollIntoView({ block: 'center' }); }); await shot(p, '01-ajustes-instalar-y-sin-conexion');
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

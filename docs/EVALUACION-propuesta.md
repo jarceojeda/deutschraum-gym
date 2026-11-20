@@ -58,7 +58,7 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 ## Dónde se usa y toques vs teclado
 | Propuesta | Estado | Notas |
 |---|---|---|
-| URL gratis + PWA offline (service worker) | Pendiente (etapa 5) | Mantengo la recomendación. Ya se probó que un HTML suelto puede perder el progreso, por eso la copia de seguridad ya existe. Necesita: `manifest`, `sw.js`, iconos y activar GitHub Pages (decisión tuya). |
+| URL gratis + PWA offline (service worker) | **Hecho (falta publicar)** | PWA construida y verificada offline en Chromium; publicar = merge a `main` + Pages (`docs/PUBLICAR.md`). Antes: Mantengo la recomendación. Ya se probó que un HTML suelto puede perder el progreso, por eso la copia de seguridad ya existe. Necesita: `manifest`, `sw.js`, iconos y activar GitHub Pages (decisión tuya). |
 | Escalera «opciones → banco de letras → solo la terminación» | **Hecho** | Variante «solo la terminación» (322 plurales, Dativ plural, ~2.300 formas de verbo) y retirada progresiva por dominio del tipo de error: opciones → bloques/terminación → letras. Las ~120 terminaciones de adjetivos de Deklination ya eran de elegir solo la terminación (opciones del dato). Apagable en Ajustes. |
 | Modo Casa (teclado completo para la laptop) | Parcial | «Escribir» ya existe (opcional); un Modo Casa pensado para laptop (atajos, Enter) queda para la etapa 5. |
 

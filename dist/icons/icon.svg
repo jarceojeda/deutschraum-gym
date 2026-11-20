@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" rx="112" fill="#183f38"/>
+  <clipPath id="c"><rect width="512" height="512" rx="112"/></clipPath>
+  <circle clip-path="url(#c)" cx="400" cy="112" r="150" fill="none" stroke="#e8b84b" stroke-opacity=".22" stroke-width="44"/>
+  <g transform="rotate(-3 256 270)"><text x="256" y="355" text-anchor="middle" font-family="Inter, 'Segoe UI', Roboto, Arial, sans-serif" font-weight="900" font-size="320" fill="#fffdf8">D</text></g>
+  <rect x="150" y="392" width="212" height="18" rx="9" fill="#f0c861"/>
+</svg>

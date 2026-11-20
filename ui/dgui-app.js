@@ -449,6 +449,17 @@
         h('div.row', h('button.btn.secondary', { type: 'button', id: 'export-btn', onclick: exportBackup }, 'Exportar copia'), h('label.btn.secondary.filelabel', { for: 'import-file' }, 'Importar copia', input)));
     }
 
+    /* ---------- instalar / sin conexión / almacenamiento ---------- */
+    function pwaSection() {
+      var st = D.pwa ? D.pwa.state() : { offline: false, installable: false, installed: false, persisted: null };
+      var web = /^https?:$/.test(win.location.protocol);
+      return h('section.set', { id: 'pwa' }, h('h2', 'Instalar y sin conexión'),
+        h('p.hint', st.installed ? 'Ya la usas como app instalada.' : st.installable ? 'Puedes instalarla: icono en la pantalla de inicio y se abre sin la barra del navegador.' : 'En Chrome: menú ⋮ → «Instalar app» (o «Añadir a la pantalla de inicio»).'),
+        st.installable ? h('button.btn.secondary.test-voice', { type: 'button', id: 'install-btn', onclick: function () { D.pwa.install().then(function (r) { toast(r === 'accepted' ? 'Instalada.' : 'Instalación cancelada.', r === 'accepted' ? 'ok' : 'info'); }); } }, 'Instalar app') : null,
+        h('p.hint#offline-status', st.offline ? 'Sin conexión: lista ✓ (la app ya está guardada en este dispositivo).' : web ? 'Preparando el modo sin conexión…' : 'Abierta como archivo local: sin modo sin conexión ni instalación. Usa la versión publicada (https).'),
+        st.persisted === true ? h('p.hint#persist-status', 'Almacenamiento protegido ✓: el navegador no debería borrar tu progreso.') : st.persisted === false ? h('p.hint#persist-status', 'El navegador podría borrar el progreso si falta espacio: exporta una copia de vez en cuando.') : null);
+    }
+
     /* ---------- mapa de errores por tipo ---------- */
     function errmap() {
       S.screen = 'errmap';
@@ -490,6 +501,7 @@
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
         backupSection(),
+        pwaSection(),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))
       ], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
@@ -497,6 +509,11 @@
 
     api.go = function (name) { ({ home: home, settings: settings }[name] || home)(); };
     U.applyTheme(doc, prefs.get('theme'));
+    if (D.pwa) D.pwa.onChange(function (pst) {
+      var upd = pst.updated && !S.updToast; if (upd) S.updToast = true;
+      if (S.screen === 'settings') settings();                          // primero repintar (shell limpia la raíz) y después el aviso
+      if (upd) toast('Hay una versión nueva: se usará al reabrir la app.', 'ok');
+    });
     home();
     return api;
   }
