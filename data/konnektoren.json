@@ -1,0 +1,8594 @@
+[
+{
+"id": "gx-konn-denn-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Ich",
+"bleibe",
+"heute",
+"zu",
+"Hause",
+",",
+"denn",
+"ich",
+"bin",
+"krank",
+"."
+],
+"answer": "Ich bleibe heute zu Hause, denn ich bin krank.",
+"accept": [
+"Ich bleibe heute zu Hause, denn ich bin krank."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Ich",
+"bleibe",
+"heute",
+"zu",
+"Hause",
+",",
+"weil",
+"ich",
+"krank",
+"bin",
+"."
+],
+"answer": "Ich bleibe heute zu Hause, weil ich krank bin.",
+"accept": [
+"Ich bleibe heute zu Hause, weil ich krank bin."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"ich",
+"krank",
+"bin",
+",",
+"bleibe",
+"ich",
+"heute",
+"zu",
+"Hause",
+"."
+],
+"answer": "Weil ich krank bin, bleibe ich heute zu Hause.",
+"accept": [
+"Weil ich krank bin, bleibe ich heute zu Hause."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Ich",
+"bin",
+"krank",
+".",
+"Deshalb",
+"bleibe",
+"ich",
+"heute",
+"zu",
+"Hause",
+"."
+],
+"answer": "Ich bin krank. Deshalb bleibe ich heute zu Hause.",
+"accept": [
+"Ich bin krank. Deshalb bleibe ich heute zu Hause."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich bleibe heute zu Hause, ___ ich bin krank.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich bleibe heute zu Hause, ___ ich krank bin.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich bin krank. ___ bleibe ich heute zu Hause.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Ich bleibe heute zu Hause. Ich bin krank.",
+"hint": "weil",
+"answer": "Ich bleibe heute zu Hause, weil ich krank bin.",
+"accept": [
+"Ich bleibe heute zu Hause, weil ich krank bin."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Ich bin krank. Ich bleibe heute zu Hause.",
+"hint": "deshalb",
+"answer": "Ich bin krank. Deshalb bleibe ich heute zu Hause.",
+"accept": [
+"Ich bin krank. Deshalb bleibe ich heute zu Hause."
+],
+"translation": "Hoy me quedo en casa, estoy enfermo.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Wir",
+"nehmen",
+"ein",
+"Taxi",
+",",
+"denn",
+"der",
+"Bus",
+"kommt",
+"nicht",
+"."
+],
+"answer": "Wir nehmen ein Taxi, denn der Bus kommt nicht.",
+"accept": [
+"Wir nehmen ein Taxi, denn der Bus kommt nicht."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Wir",
+"nehmen",
+"ein",
+"Taxi",
+",",
+"weil",
+"der",
+"Bus",
+"nicht",
+"kommt",
+"."
+],
+"answer": "Wir nehmen ein Taxi, weil der Bus nicht kommt.",
+"accept": [
+"Wir nehmen ein Taxi, weil der Bus nicht kommt."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"der",
+"Bus",
+"nicht",
+"kommt",
+",",
+"nehmen",
+"wir",
+"ein",
+"Taxi",
+"."
+],
+"answer": "Weil der Bus nicht kommt, nehmen wir ein Taxi.",
+"accept": [
+"Weil der Bus nicht kommt, nehmen wir ein Taxi."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Der",
+"Bus",
+"kommt",
+"nicht",
+".",
+"Deshalb",
+"nehmen",
+"wir",
+"ein",
+"Taxi",
+"."
+],
+"answer": "Der Bus kommt nicht. Deshalb nehmen wir ein Taxi.",
+"accept": [
+"Der Bus kommt nicht. Deshalb nehmen wir ein Taxi."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir nehmen ein Taxi, ___ der Bus kommt nicht.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Cogemos un taxi, el autobús no viene.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir nehmen ein Taxi, ___ der Bus nicht kommt.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Cogemos un taxi, el autobús no viene.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Der Bus kommt nicht. ___ nehmen wir ein Taxi.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Cogemos un taxi, el autobús no viene.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Wir nehmen ein Taxi. Der Bus kommt nicht.",
+"hint": "weil",
+"answer": "Wir nehmen ein Taxi, weil der Bus nicht kommt.",
+"accept": [
+"Wir nehmen ein Taxi, weil der Bus nicht kommt."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Der Bus kommt nicht. Wir nehmen ein Taxi.",
+"hint": "deshalb",
+"answer": "Der Bus kommt nicht. Deshalb nehmen wir ein Taxi.",
+"accept": [
+"Der Bus kommt nicht. Deshalb nehmen wir ein Taxi."
+],
+"translation": "Cogemos un taxi, el autobús no viene.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Er",
+"geht",
+"früh",
+"schlafen",
+",",
+"denn",
+"er",
+"ist",
+"müde",
+"."
+],
+"answer": "Er geht früh schlafen, denn er ist müde.",
+"accept": [
+"Er geht früh schlafen, denn er ist müde."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Er",
+"geht",
+"früh",
+"schlafen",
+",",
+"weil",
+"er",
+"müde",
+"ist",
+"."
+],
+"answer": "Er geht früh schlafen, weil er müde ist.",
+"accept": [
+"Er geht früh schlafen, weil er müde ist."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"er",
+"müde",
+"ist",
+",",
+"geht",
+"er",
+"früh",
+"schlafen",
+"."
+],
+"answer": "Weil er müde ist, geht er früh schlafen.",
+"accept": [
+"Weil er müde ist, geht er früh schlafen."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Er",
+"ist",
+"müde",
+".",
+"Deshalb",
+"geht",
+"er",
+"früh",
+"schlafen",
+"."
+],
+"answer": "Er ist müde. Deshalb geht er früh schlafen.",
+"accept": [
+"Er ist müde. Deshalb geht er früh schlafen."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er geht früh schlafen, ___ er ist müde.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Se acuesta temprano, está cansado.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er geht früh schlafen, ___ er müde ist.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Se acuesta temprano, está cansado.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er ist müde. ___ geht er früh schlafen.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Se acuesta temprano, está cansado.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Er geht früh schlafen. Er ist müde.",
+"hint": "weil",
+"answer": "Er geht früh schlafen, weil er müde ist.",
+"accept": [
+"Er geht früh schlafen, weil er müde ist."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Er ist müde. Er geht früh schlafen.",
+"hint": "deshalb",
+"answer": "Er ist müde. Deshalb geht er früh schlafen.",
+"accept": [
+"Er ist müde. Deshalb geht er früh schlafen."
+],
+"translation": "Se acuesta temprano, está cansado.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Sie",
+"trinkt",
+"Tee",
+",",
+"denn",
+"sie",
+"mag",
+"keinen",
+"Kaffee",
+"."
+],
+"answer": "Sie trinkt Tee, denn sie mag keinen Kaffee.",
+"accept": [
+"Sie trinkt Tee, denn sie mag keinen Kaffee."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Sie",
+"trinkt",
+"Tee",
+",",
+"weil",
+"sie",
+"keinen",
+"Kaffee",
+"mag",
+"."
+],
+"answer": "Sie trinkt Tee, weil sie keinen Kaffee mag.",
+"accept": [
+"Sie trinkt Tee, weil sie keinen Kaffee mag."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"sie",
+"keinen",
+"Kaffee",
+"mag",
+",",
+"trinkt",
+"sie",
+"Tee",
+"."
+],
+"answer": "Weil sie keinen Kaffee mag, trinkt sie Tee.",
+"accept": [
+"Weil sie keinen Kaffee mag, trinkt sie Tee."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Sie",
+"mag",
+"keinen",
+"Kaffee",
+".",
+"Deshalb",
+"trinkt",
+"sie",
+"Tee",
+"."
+],
+"answer": "Sie mag keinen Kaffee. Deshalb trinkt sie Tee.",
+"accept": [
+"Sie mag keinen Kaffee. Deshalb trinkt sie Tee."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie trinkt Tee, ___ sie mag keinen Kaffee.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Ella toma té, no le gusta el café.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie trinkt Tee, ___ sie keinen Kaffee mag.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Ella toma té, no le gusta el café.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie mag keinen Kaffee. ___ trinkt sie Tee.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Ella toma té, no le gusta el café.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Sie trinkt Tee. Sie mag keinen Kaffee.",
+"hint": "weil",
+"answer": "Sie trinkt Tee, weil sie keinen Kaffee mag.",
+"accept": [
+"Sie trinkt Tee, weil sie keinen Kaffee mag."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Sie mag keinen Kaffee. Sie trinkt Tee.",
+"hint": "deshalb",
+"answer": "Sie mag keinen Kaffee. Deshalb trinkt sie Tee.",
+"accept": [
+"Sie mag keinen Kaffee. Deshalb trinkt sie Tee."
+],
+"translation": "Ella toma té, no le gusta el café.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Ich",
+"lerne",
+"jeden",
+"Tag",
+"Deutsch",
+",",
+"denn",
+"ich",
+"möchte",
+"in",
+"Deutschland",
+"arbeiten",
+"."
+],
+"answer": "Ich lerne jeden Tag Deutsch, denn ich möchte in Deutschland arbeiten.",
+"accept": [
+"Ich lerne jeden Tag Deutsch, denn ich möchte in Deutschland arbeiten."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Ich",
+"lerne",
+"jeden",
+"Tag",
+"Deutsch",
+",",
+"weil",
+"ich",
+"in",
+"Deutschland",
+"arbeiten",
+"möchte",
+"."
+],
+"answer": "Ich lerne jeden Tag Deutsch, weil ich in Deutschland arbeiten möchte.",
+"accept": [
+"Ich lerne jeden Tag Deutsch, weil ich in Deutschland arbeiten möchte."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"ich",
+"in",
+"Deutschland",
+"arbeiten",
+"möchte",
+",",
+"lerne",
+"ich",
+"jeden",
+"Tag",
+"Deutsch",
+"."
+],
+"answer": "Weil ich in Deutschland arbeiten möchte, lerne ich jeden Tag Deutsch.",
+"accept": [
+"Weil ich in Deutschland arbeiten möchte, lerne ich jeden Tag Deutsch."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Ich",
+"möchte",
+"in",
+"Deutschland",
+"arbeiten",
+".",
+"Deshalb",
+"lerne",
+"ich",
+"jeden",
+"Tag",
+"Deutsch",
+"."
+],
+"answer": "Ich möchte in Deutschland arbeiten. Deshalb lerne ich jeden Tag Deutsch.",
+"accept": [
+"Ich möchte in Deutschland arbeiten. Deshalb lerne ich jeden Tag Deutsch."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-013",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich lerne jeden Tag Deutsch, ___ ich möchte in Deutschland arbeiten.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-014",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich lerne jeden Tag Deutsch, ___ ich in Deutschland arbeiten möchte.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-015",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich möchte in Deutschland arbeiten. ___ lerne ich jeden Tag Deutsch.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Ich lerne jeden Tag Deutsch. Ich möchte in Deutschland arbeiten.",
+"hint": "weil",
+"answer": "Ich lerne jeden Tag Deutsch, weil ich in Deutschland arbeiten möchte.",
+"accept": [
+"Ich lerne jeden Tag Deutsch, weil ich in Deutschland arbeiten möchte."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Ich möchte in Deutschland arbeiten. Ich lerne jeden Tag Deutsch.",
+"hint": "deshalb",
+"answer": "Ich möchte in Deutschland arbeiten. Deshalb lerne ich jeden Tag Deutsch.",
+"accept": [
+"Ich möchte in Deutschland arbeiten. Deshalb lerne ich jeden Tag Deutsch."
+],
+"translation": "Aprendo alemán cada día, quiero trabajar en Alemania.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Wir",
+"bleiben",
+"im",
+"Haus",
+",",
+"denn",
+"es",
+"regnet",
+"heute",
+"."
+],
+"answer": "Wir bleiben im Haus, denn es regnet heute.",
+"accept": [
+"Wir bleiben im Haus, denn es regnet heute."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Wir",
+"bleiben",
+"im",
+"Haus",
+",",
+"weil",
+"es",
+"heute",
+"regnet",
+"."
+],
+"answer": "Wir bleiben im Haus, weil es heute regnet.",
+"accept": [
+"Wir bleiben im Haus, weil es heute regnet."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"es",
+"heute",
+"regnet",
+",",
+"bleiben",
+"wir",
+"im",
+"Haus",
+"."
+],
+"answer": "Weil es heute regnet, bleiben wir im Haus.",
+"accept": [
+"Weil es heute regnet, bleiben wir im Haus."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Es",
+"regnet",
+"heute",
+".",
+"Deshalb",
+"bleiben",
+"wir",
+"im",
+"Haus",
+"."
+],
+"answer": "Es regnet heute. Deshalb bleiben wir im Haus.",
+"accept": [
+"Es regnet heute. Deshalb bleiben wir im Haus."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-016",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir bleiben im Haus, ___ es regnet heute.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Nos quedamos en casa, hoy llueve.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-017",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir bleiben im Haus, ___ es heute regnet.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Nos quedamos en casa, hoy llueve.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-018",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Es regnet heute. ___ bleiben wir im Haus.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Nos quedamos en casa, hoy llueve.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Wir bleiben im Haus. Es regnet heute.",
+"hint": "weil",
+"answer": "Wir bleiben im Haus, weil es heute regnet.",
+"accept": [
+"Wir bleiben im Haus, weil es heute regnet."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Es regnet heute. Wir bleiben im Haus.",
+"hint": "deshalb",
+"answer": "Es regnet heute. Deshalb bleiben wir im Haus.",
+"accept": [
+"Es regnet heute. Deshalb bleiben wir im Haus."
+],
+"translation": "Nos quedamos en casa, hoy llueve.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Ich",
+"kann",
+"nicht",
+"kommen",
+",",
+"denn",
+"ich",
+"muss",
+"arbeiten",
+"."
+],
+"answer": "Ich kann nicht kommen, denn ich muss arbeiten.",
+"accept": [
+"Ich kann nicht kommen, denn ich muss arbeiten."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Ich",
+"kann",
+"nicht",
+"kommen",
+",",
+"weil",
+"ich",
+"arbeiten",
+"muss",
+"."
+],
+"answer": "Ich kann nicht kommen, weil ich arbeiten muss.",
+"accept": [
+"Ich kann nicht kommen, weil ich arbeiten muss."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"ich",
+"arbeiten",
+"muss",
+",",
+"kann",
+"ich",
+"nicht",
+"kommen",
+"."
+],
+"answer": "Weil ich arbeiten muss, kann ich nicht kommen.",
+"accept": [
+"Weil ich arbeiten muss, kann ich nicht kommen."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Ich",
+"muss",
+"arbeiten",
+".",
+"Deshalb",
+"kann",
+"ich",
+"nicht",
+"kommen",
+"."
+],
+"answer": "Ich muss arbeiten. Deshalb kann ich nicht kommen.",
+"accept": [
+"Ich muss arbeiten. Deshalb kann ich nicht kommen."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-019",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich kann nicht kommen, ___ ich muss arbeiten.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "No puedo venir, tengo que trabajar.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-020",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich kann nicht kommen, ___ ich arbeiten muss.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "No puedo venir, tengo que trabajar.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-021",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich muss arbeiten. ___ kann ich nicht kommen.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "No puedo venir, tengo que trabajar.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Ich kann nicht kommen. Ich muss arbeiten.",
+"hint": "weil",
+"answer": "Ich kann nicht kommen, weil ich arbeiten muss.",
+"accept": [
+"Ich kann nicht kommen, weil ich arbeiten muss."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Ich muss arbeiten. Ich kann nicht kommen.",
+"hint": "deshalb",
+"answer": "Ich muss arbeiten. Deshalb kann ich nicht kommen.",
+"accept": [
+"Ich muss arbeiten. Deshalb kann ich nicht kommen."
+],
+"translation": "No puedo venir, tengo que trabajar.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Er",
+"kauft",
+"ein",
+"neues",
+"Handy",
+",",
+"denn",
+"sein",
+"altes",
+"Handy",
+"ist",
+"kaputt",
+"."
+],
+"answer": "Er kauft ein neues Handy, denn sein altes Handy ist kaputt.",
+"accept": [
+"Er kauft ein neues Handy, denn sein altes Handy ist kaputt."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Er",
+"kauft",
+"ein",
+"neues",
+"Handy",
+",",
+"weil",
+"sein",
+"altes",
+"Handy",
+"kaputt",
+"ist",
+"."
+],
+"answer": "Er kauft ein neues Handy, weil sein altes Handy kaputt ist.",
+"accept": [
+"Er kauft ein neues Handy, weil sein altes Handy kaputt ist."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"sein",
+"altes",
+"Handy",
+"kaputt",
+"ist",
+",",
+"kauft",
+"er",
+"ein",
+"neues",
+"Handy",
+"."
+],
+"answer": "Weil sein altes Handy kaputt ist, kauft er ein neues Handy.",
+"accept": [
+"Weil sein altes Handy kaputt ist, kauft er ein neues Handy."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Sein",
+"altes",
+"Handy",
+"ist",
+"kaputt",
+".",
+"Deshalb",
+"kauft",
+"er",
+"ein",
+"neues",
+"Handy",
+"."
+],
+"answer": "Sein altes Handy ist kaputt. Deshalb kauft er ein neues Handy.",
+"accept": [
+"Sein altes Handy ist kaputt. Deshalb kauft er ein neues Handy."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-022",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er kauft ein neues Handy, ___ sein altes Handy ist kaputt.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-023",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er kauft ein neues Handy, ___ sein altes Handy kaputt ist.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-024",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sein altes Handy ist kaputt. ___ kauft er ein neues Handy.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Er kauft ein neues Handy. Sein altes Handy ist kaputt.",
+"hint": "weil",
+"answer": "Er kauft ein neues Handy, weil sein altes Handy kaputt ist.",
+"accept": [
+"Er kauft ein neues Handy, weil sein altes Handy kaputt ist."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Sein altes Handy ist kaputt. Er kauft ein neues Handy.",
+"hint": "deshalb",
+"answer": "Sein altes Handy ist kaputt. Deshalb kauft er ein neues Handy.",
+"accept": [
+"Sein altes Handy ist kaputt. Deshalb kauft er ein neues Handy."
+],
+"translation": "Se compra un móvil nuevo, su móvil viejo está roto.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Sie",
+"fährt",
+"mit",
+"dem",
+"Fahrrad",
+",",
+"denn",
+"sie",
+"hat",
+"kein",
+"Auto",
+"."
+],
+"answer": "Sie fährt mit dem Fahrrad, denn sie hat kein Auto.",
+"accept": [
+"Sie fährt mit dem Fahrrad, denn sie hat kein Auto."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Sie",
+"fährt",
+"mit",
+"dem",
+"Fahrrad",
+",",
+"weil",
+"sie",
+"kein",
+"Auto",
+"hat",
+"."
+],
+"answer": "Sie fährt mit dem Fahrrad, weil sie kein Auto hat.",
+"accept": [
+"Sie fährt mit dem Fahrrad, weil sie kein Auto hat."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"sie",
+"kein",
+"Auto",
+"hat",
+",",
+"fährt",
+"sie",
+"mit",
+"dem",
+"Fahrrad",
+"."
+],
+"answer": "Weil sie kein Auto hat, fährt sie mit dem Fahrrad.",
+"accept": [
+"Weil sie kein Auto hat, fährt sie mit dem Fahrrad."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Sie",
+"hat",
+"kein",
+"Auto",
+".",
+"Deshalb",
+"fährt",
+"sie",
+"mit",
+"dem",
+"Fahrrad",
+"."
+],
+"answer": "Sie hat kein Auto. Deshalb fährt sie mit dem Fahrrad.",
+"accept": [
+"Sie hat kein Auto. Deshalb fährt sie mit dem Fahrrad."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-025",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie fährt mit dem Fahrrad, ___ sie hat kein Auto.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Ella va en bicicleta, no tiene coche.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-026",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie fährt mit dem Fahrrad, ___ sie kein Auto hat.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Ella va en bicicleta, no tiene coche.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-027",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie hat kein Auto. ___ fährt sie mit dem Fahrrad.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Ella va en bicicleta, no tiene coche.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Sie fährt mit dem Fahrrad. Sie hat kein Auto.",
+"hint": "weil",
+"answer": "Sie fährt mit dem Fahrrad, weil sie kein Auto hat.",
+"accept": [
+"Sie fährt mit dem Fahrrad, weil sie kein Auto hat."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Sie hat kein Auto. Sie fährt mit dem Fahrrad.",
+"hint": "deshalb",
+"answer": "Sie hat kein Auto. Deshalb fährt sie mit dem Fahrrad.",
+"accept": [
+"Sie hat kein Auto. Deshalb fährt sie mit dem Fahrrad."
+],
+"translation": "Ella va en bicicleta, no tiene coche.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Wir",
+"essen",
+"im",
+"Restaurant",
+",",
+"denn",
+"der",
+"Kühlschrank",
+"ist",
+"leer",
+"."
+],
+"answer": "Wir essen im Restaurant, denn der Kühlschrank ist leer.",
+"accept": [
+"Wir essen im Restaurant, denn der Kühlschrank ist leer."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Wir",
+"essen",
+"im",
+"Restaurant",
+",",
+"weil",
+"der",
+"Kühlschrank",
+"leer",
+"ist",
+"."
+],
+"answer": "Wir essen im Restaurant, weil der Kühlschrank leer ist.",
+"accept": [
+"Wir essen im Restaurant, weil der Kühlschrank leer ist."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"der",
+"Kühlschrank",
+"leer",
+"ist",
+",",
+"essen",
+"wir",
+"im",
+"Restaurant",
+"."
+],
+"answer": "Weil der Kühlschrank leer ist, essen wir im Restaurant.",
+"accept": [
+"Weil der Kühlschrank leer ist, essen wir im Restaurant."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Der",
+"Kühlschrank",
+"ist",
+"leer",
+".",
+"Deshalb",
+"essen",
+"wir",
+"im",
+"Restaurant",
+"."
+],
+"answer": "Der Kühlschrank ist leer. Deshalb essen wir im Restaurant.",
+"accept": [
+"Der Kühlschrank ist leer. Deshalb essen wir im Restaurant."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-028",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir essen im Restaurant, ___ der Kühlschrank ist leer.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-029",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir essen im Restaurant, ___ der Kühlschrank leer ist.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-030",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Der Kühlschrank ist leer. ___ essen wir im Restaurant.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Wir essen im Restaurant. Der Kühlschrank ist leer.",
+"hint": "weil",
+"answer": "Wir essen im Restaurant, weil der Kühlschrank leer ist.",
+"accept": [
+"Wir essen im Restaurant, weil der Kühlschrank leer ist."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Der Kühlschrank ist leer. Wir essen im Restaurant.",
+"hint": "deshalb",
+"answer": "Der Kühlschrank ist leer. Deshalb essen wir im Restaurant.",
+"accept": [
+"Der Kühlschrank ist leer. Deshalb essen wir im Restaurant."
+],
+"translation": "Comemos en el restaurante, la nevera está vacía.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Ich",
+"rufe",
+"dich",
+"an",
+",",
+"denn",
+"ich",
+"habe",
+"deine",
+"Nachricht",
+"gelesen",
+"."
+],
+"answer": "Ich rufe dich an, denn ich habe deine Nachricht gelesen.",
+"accept": [
+"Ich rufe dich an, denn ich habe deine Nachricht gelesen."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Ich",
+"rufe",
+"dich",
+"an",
+",",
+"weil",
+"ich",
+"deine",
+"Nachricht",
+"gelesen",
+"habe",
+"."
+],
+"answer": "Ich rufe dich an, weil ich deine Nachricht gelesen habe.",
+"accept": [
+"Ich rufe dich an, weil ich deine Nachricht gelesen habe."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"ich",
+"deine",
+"Nachricht",
+"gelesen",
+"habe",
+",",
+"rufe",
+"ich",
+"dich",
+"an",
+"."
+],
+"answer": "Weil ich deine Nachricht gelesen habe, rufe ich dich an.",
+"accept": [
+"Weil ich deine Nachricht gelesen habe, rufe ich dich an."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Ich",
+"habe",
+"deine",
+"Nachricht",
+"gelesen",
+".",
+"Deshalb",
+"rufe",
+"ich",
+"dich",
+"an",
+"."
+],
+"answer": "Ich habe deine Nachricht gelesen. Deshalb rufe ich dich an.",
+"accept": [
+"Ich habe deine Nachricht gelesen. Deshalb rufe ich dich an."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-031",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich rufe dich an, ___ ich habe deine Nachricht gelesen.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "Te llamo, he leído tu mensaje.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-032",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich rufe dich an, ___ ich deine Nachricht gelesen habe.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "Te llamo, he leído tu mensaje.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-033",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich habe deine Nachricht gelesen. ___ rufe ich dich an.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "Te llamo, he leído tu mensaje.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Ich rufe dich an. Ich habe deine Nachricht gelesen.",
+"hint": "weil",
+"answer": "Ich rufe dich an, weil ich deine Nachricht gelesen habe.",
+"accept": [
+"Ich rufe dich an, weil ich deine Nachricht gelesen habe."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Ich habe deine Nachricht gelesen. Ich rufe dich an.",
+"hint": "deshalb",
+"answer": "Ich habe deine Nachricht gelesen. Deshalb rufe ich dich an.",
+"accept": [
+"Ich habe deine Nachricht gelesen. Deshalb rufe ich dich an."
+],
+"translation": "Te llamo, he leído tu mensaje.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-denn-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "denn",
+"prompt": "Ordena: denn (posición 0, verbo en 2.ª posición)",
+"tiles": [
+"Der",
+"Kurs",
+"fällt",
+"heute",
+"aus",
+",",
+"denn",
+"die",
+"Lehrerin",
+"ist",
+"krank",
+"."
+],
+"answer": "Der Kurs fällt heute aus, denn die Lehrerin ist krank.",
+"accept": [
+"Der Kurs fällt heute aus, denn die Lehrerin ist krank."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn",
+"source": "gen",
+"pool": "denn",
+"options": []
+},
+{
+"id": "gx-konn-weil-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil",
+"prompt": "Ordena: weil (verbo al final)",
+"tiles": [
+"Der",
+"Kurs",
+"fällt",
+"heute",
+"aus",
+",",
+"weil",
+"die",
+"Lehrerin",
+"krank",
+"ist",
+"."
+],
+"answer": "Der Kurs fällt heute aus, weil die Lehrerin krank ist.",
+"accept": [
+"Der Kurs fällt heute aus, weil die Lehrerin krank ist."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "weil",
+"options": []
+},
+{
+"id": "gx-konn-weil-vorn-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "weil-vorn",
+"prompt": "Ordena: la subordinada va primero (inversión en la principal)",
+"tiles": [
+"Weil",
+"die",
+"Lehrerin",
+"krank",
+"ist",
+",",
+"fällt",
+"der",
+"Kurs",
+"heute",
+"aus",
+"."
+],
+"answer": "Weil die Lehrerin krank ist, fällt der Kurs heute aus.",
+"accept": [
+"Weil die Lehrerin krank ist, fällt der Kurs heute aus."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil-inversion",
+"source": "gen",
+"pool": "weil-vorn",
+"options": []
+},
+{
+"id": "gx-konn-deshalb-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "deshalb",
+"prompt": "Ordena: deshalb en posición 1 + verbo",
+"tiles": [
+"Die",
+"Lehrerin",
+"ist",
+"krank",
+".",
+"Deshalb",
+"fällt",
+"der",
+"Kurs",
+"heute",
+"aus",
+"."
+],
+"answer": "Die Lehrerin ist krank. Deshalb fällt der Kurs heute aus.",
+"accept": [
+"Die Lehrerin ist krank. Deshalb fällt der Kurs heute aus."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "deshalb",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-034",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Der Kurs fällt heute aus, ___ die Lehrerin ist krank.",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "denn + oración principal: el verbo queda en 2.ª posición (weil enviaría el verbo al final).",
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-035",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Der Kurs fällt heute aus, ___ die Lehrerin krank ist.",
+"answer": "weil",
+"accept": [
+"weil"
+],
+"options": [
+"weil",
+"deshalb",
+"dass",
+"obwohl"
+],
+"explanation": "weil envía el verbo conjugado al final.",
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:denn-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-036",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Die Lehrerin ist krank. ___ fällt der Kurs heute aus.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Denn",
+"Weil",
+"Deshalb",
+"Dass"
+],
+"explanation": "deshalb ocupa la posición 1 y el verbo va justo después.",
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-transform-weil-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-weil",
+"prompt": "Der Kurs fällt heute aus. Die Lehrerin ist krank.",
+"hint": "weil",
+"answer": "Der Kurs fällt heute aus, weil die Lehrerin krank ist.",
+"accept": [
+"Der Kurs fällt heute aus, weil die Lehrerin krank ist."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "weil → verbo conjugado al final.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:weil",
+"source": "gen",
+"pool": "transform-weil",
+"options": []
+},
+{
+"id": "gx-konn-transform-deshalb-012",
+"module": "konnektoren",
+"level": "A2",
+"type": "transform",
+"skill": "transform-deshalb",
+"prompt": "Die Lehrerin ist krank. Der Kurs fällt heute aus.",
+"hint": "deshalb",
+"answer": "Die Lehrerin ist krank. Deshalb fällt der Kurs heute aus.",
+"accept": [
+"Die Lehrerin ist krank. Deshalb fällt der Kurs heute aus."
+],
+"translation": "El curso se cancela hoy, la profesora está enferma.",
+"explanation": "deshalb → verbo en 2.ª posición tras deshalb.",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:deshalb",
+"source": "gen",
+"pool": "transform-deshalb",
+"options": []
+},
+{
+"id": "gx-konn-wenn-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Ich",
+"nehme",
+"den",
+"Bus",
+",",
+"wenn",
+"es",
+"regnet",
+"."
+],
+"answer": "Ich nehme den Bus, wenn es regnet.",
+"accept": [
+"Ich nehme den Bus, wenn es regnet."
+],
+"translation": "Si llueve, cojo el autobús.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"es",
+"regnet",
+",",
+"nehme",
+"ich",
+"den",
+"Bus",
+"."
+],
+"answer": "Wenn es regnet, nehme ich den Bus.",
+"accept": [
+"Wenn es regnet, nehme ich den Bus."
+],
+"translation": "Si llueve, cojo el autobús.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-037",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ es regnet, nehme ich den Bus.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si llueve, cojo el autobús.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Ich",
+"besuche",
+"dich",
+",",
+"wenn",
+"ich",
+"Zeit",
+"habe",
+"."
+],
+"answer": "Ich besuche dich, wenn ich Zeit habe.",
+"accept": [
+"Ich besuche dich, wenn ich Zeit habe."
+],
+"translation": "Si tengo tiempo, te visito.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"ich",
+"Zeit",
+"habe",
+",",
+"besuche",
+"ich",
+"dich",
+"."
+],
+"answer": "Wenn ich Zeit habe, besuche ich dich.",
+"accept": [
+"Wenn ich Zeit habe, besuche ich dich."
+],
+"translation": "Si tengo tiempo, te visito.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-038",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ ich Zeit habe, besuche ich dich.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si tengo tiempo, te visito.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Ich",
+"helfe",
+"dir",
+",",
+"wenn",
+"du",
+"Hilfe",
+"brauchst",
+"."
+],
+"answer": "Ich helfe dir, wenn du Hilfe brauchst.",
+"accept": [
+"Ich helfe dir, wenn du Hilfe brauchst."
+],
+"translation": "Si necesitas ayuda, te ayudo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"du",
+"Hilfe",
+"brauchst",
+",",
+"helfe",
+"ich",
+"dir",
+"."
+],
+"answer": "Wenn du Hilfe brauchst, helfe ich dir.",
+"accept": [
+"Wenn du Hilfe brauchst, helfe ich dir."
+],
+"translation": "Si necesitas ayuda, te ayudo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-039",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ du Hilfe brauchst, helfe ich dir.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si necesitas ayuda, te ayudo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Wir",
+"gehen",
+"spazieren",
+",",
+"wenn",
+"das",
+"Wetter",
+"schön",
+"ist",
+"."
+],
+"answer": "Wir gehen spazieren, wenn das Wetter schön ist.",
+"accept": [
+"Wir gehen spazieren, wenn das Wetter schön ist."
+],
+"translation": "Si hace buen tiempo, damos un paseo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"das",
+"Wetter",
+"schön",
+"ist",
+",",
+"gehen",
+"wir",
+"spazieren",
+"."
+],
+"answer": "Wenn das Wetter schön ist, gehen wir spazieren.",
+"accept": [
+"Wenn das Wetter schön ist, gehen wir spazieren."
+],
+"translation": "Si hace buen tiempo, damos un paseo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-040",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ das Wetter schön ist, gehen wir spazieren.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si hace buen tiempo, damos un paseo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Ich",
+"bleibe",
+"im",
+"Bett",
+",",
+"wenn",
+"ich",
+"krank",
+"bin",
+"."
+],
+"answer": "Ich bleibe im Bett, wenn ich krank bin.",
+"accept": [
+"Ich bleibe im Bett, wenn ich krank bin."
+],
+"translation": "Si estoy enfermo, me quedo en la cama.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"ich",
+"krank",
+"bin",
+",",
+"bleibe",
+"ich",
+"im",
+"Bett",
+"."
+],
+"answer": "Wenn ich krank bin, bleibe ich im Bett.",
+"accept": [
+"Wenn ich krank bin, bleibe ich im Bett."
+],
+"translation": "Si estoy enfermo, me quedo en la cama.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-041",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ ich krank bin, bleibe ich im Bett.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si estoy enfermo, me quedo en la cama.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Ich",
+"komme",
+"später",
+",",
+"wenn",
+"der",
+"Zug",
+"Verspätung",
+"hat",
+"."
+],
+"answer": "Ich komme später, wenn der Zug Verspätung hat.",
+"accept": [
+"Ich komme später, wenn der Zug Verspätung hat."
+],
+"translation": "Si el tren se retrasa, llego más tarde.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"der",
+"Zug",
+"Verspätung",
+"hat",
+",",
+"komme",
+"ich",
+"später",
+"."
+],
+"answer": "Wenn der Zug Verspätung hat, komme ich später.",
+"accept": [
+"Wenn der Zug Verspätung hat, komme ich später."
+],
+"translation": "Si el tren se retrasa, llego más tarde.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-042",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ der Zug Verspätung hat, komme ich später.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si el tren se retrasa, llego más tarde.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Wir",
+"essen",
+"eine",
+"Pizza",
+",",
+"wenn",
+"wir",
+"Hunger",
+"haben",
+"."
+],
+"answer": "Wir essen eine Pizza, wenn wir Hunger haben.",
+"accept": [
+"Wir essen eine Pizza, wenn wir Hunger haben."
+],
+"translation": "Si tenemos hambre, comemos una pizza.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"wir",
+"Hunger",
+"haben",
+",",
+"essen",
+"wir",
+"eine",
+"Pizza",
+"."
+],
+"answer": "Wenn wir Hunger haben, essen wir eine Pizza.",
+"accept": [
+"Wenn wir Hunger haben, essen wir eine Pizza."
+],
+"translation": "Si tenemos hambre, comemos una pizza.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-043",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ wir Hunger haben, essen wir eine Pizza.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si tenemos hambre, comemos una pizza.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-wenn-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn",
+"prompt": "Ordena: wenn (verbo al final)",
+"tiles": [
+"Er",
+"kann",
+"im",
+"Sommer",
+"reisen",
+",",
+"wenn",
+"er",
+"Geld",
+"spart",
+"."
+],
+"answer": "Er kann im Sommer reisen, wenn er Geld spart.",
+"accept": [
+"Er kann im Sommer reisen, wenn er Geld spart."
+],
+"translation": "Si ahorra dinero, puede viajar en verano.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-wenn-vorn-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "wenn-vorn",
+"prompt": "Ordena: subordinada primero",
+"tiles": [
+"Wenn",
+"er",
+"Geld",
+"spart",
+",",
+"kann",
+"er",
+"im",
+"Sommer",
+"reisen",
+"."
+],
+"answer": "Wenn er Geld spart, kann er im Sommer reisen.",
+"accept": [
+"Wenn er Geld spart, kann er im Sommer reisen."
+],
+"translation": "Si ahorra dinero, puede viajar en verano.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn-inversion",
+"source": "gen",
+"pool": "wenn",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-044",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "___ er Geld spart, kann er im Sommer reisen.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Wenn",
+"Als",
+"Dass",
+"Damit"
+],
+"explanation": "wenn = condición («si»): verbo al final y la principal con inversión.",
+"translation": "Si ahorra dinero, puede viajar en verano.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:wenn",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Ich",
+"gehe",
+"zur",
+"Arbeit",
+",",
+"obwohl",
+"ich",
+"müde",
+"bin",
+"."
+],
+"answer": "Ich gehe zur Arbeit, obwohl ich müde bin.",
+"accept": [
+"Ich gehe zur Arbeit, obwohl ich müde bin."
+],
+"translation": "Aunque estoy cansado, voy al trabajo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"ich",
+"müde",
+"bin",
+",",
+"gehe",
+"ich",
+"zur",
+"Arbeit",
+"."
+],
+"answer": "Obwohl ich müde bin, gehe ich zur Arbeit.",
+"accept": [
+"Obwohl ich müde bin, gehe ich zur Arbeit."
+],
+"translation": "Aunque estoy cansado, voy al trabajo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Ich",
+"bin",
+"müde",
+".",
+"Trotzdem",
+"gehe",
+"ich",
+"zur",
+"Arbeit",
+"."
+],
+"answer": "Ich bin müde. Trotzdem gehe ich zur Arbeit.",
+"accept": [
+"Ich bin müde. Trotzdem gehe ich zur Arbeit."
+],
+"translation": "Aunque estoy cansado, voy al trabajo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-045",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich gehe zur Arbeit, ___ ich müde bin.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque estoy cansado, voy al trabajo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-046",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich bin müde. ___ gehe ich zur Arbeit.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque estoy cansado, voy al trabajo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Wir",
+"gehen",
+"spazieren",
+",",
+"obwohl",
+"es",
+"regnet",
+"."
+],
+"answer": "Wir gehen spazieren, obwohl es regnet.",
+"accept": [
+"Wir gehen spazieren, obwohl es regnet."
+],
+"translation": "Aunque llueve, damos un paseo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"es",
+"regnet",
+",",
+"gehen",
+"wir",
+"spazieren",
+"."
+],
+"answer": "Obwohl es regnet, gehen wir spazieren.",
+"accept": [
+"Obwohl es regnet, gehen wir spazieren."
+],
+"translation": "Aunque llueve, damos un paseo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Es",
+"regnet",
+".",
+"Trotzdem",
+"gehen",
+"wir",
+"spazieren",
+"."
+],
+"answer": "Es regnet. Trotzdem gehen wir spazieren.",
+"accept": [
+"Es regnet. Trotzdem gehen wir spazieren."
+],
+"translation": "Aunque llueve, damos un paseo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-047",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir gehen spazieren, ___ es regnet.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque llueve, damos un paseo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-048",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Es regnet. ___ gehen wir spazieren.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque llueve, damos un paseo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Wir",
+"fahren",
+"ans",
+"Meer",
+",",
+"obwohl",
+"das",
+"Wetter",
+"schlecht",
+"ist",
+"."
+],
+"answer": "Wir fahren ans Meer, obwohl das Wetter schlecht ist.",
+"accept": [
+"Wir fahren ans Meer, obwohl das Wetter schlecht ist."
+],
+"translation": "Aunque hace mal tiempo, vamos al mar.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"das",
+"Wetter",
+"schlecht",
+"ist",
+",",
+"fahren",
+"wir",
+"ans",
+"Meer",
+"."
+],
+"answer": "Obwohl das Wetter schlecht ist, fahren wir ans Meer.",
+"accept": [
+"Obwohl das Wetter schlecht ist, fahren wir ans Meer."
+],
+"translation": "Aunque hace mal tiempo, vamos al mar.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Das",
+"Wetter",
+"ist",
+"schlecht",
+".",
+"Trotzdem",
+"fahren",
+"wir",
+"ans",
+"Meer",
+"."
+],
+"answer": "Das Wetter ist schlecht. Trotzdem fahren wir ans Meer.",
+"accept": [
+"Das Wetter ist schlecht. Trotzdem fahren wir ans Meer."
+],
+"translation": "Aunque hace mal tiempo, vamos al mar.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-049",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir fahren ans Meer, ___ das Wetter schlecht ist.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque hace mal tiempo, vamos al mar.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-050",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Das Wetter ist schlecht. ___ fahren wir ans Meer.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque hace mal tiempo, vamos al mar.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Sie",
+"arbeitet",
+"heute",
+",",
+"obwohl",
+"sie",
+"krank",
+"ist",
+"."
+],
+"answer": "Sie arbeitet heute, obwohl sie krank ist.",
+"accept": [
+"Sie arbeitet heute, obwohl sie krank ist."
+],
+"translation": "Aunque está enferma, trabaja hoy.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"sie",
+"krank",
+"ist",
+",",
+"arbeitet",
+"sie",
+"heute",
+"."
+],
+"answer": "Obwohl sie krank ist, arbeitet sie heute.",
+"accept": [
+"Obwohl sie krank ist, arbeitet sie heute."
+],
+"translation": "Aunque está enferma, trabaja hoy.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Sie",
+"ist",
+"krank",
+".",
+"Trotzdem",
+"arbeitet",
+"sie",
+"heute",
+"."
+],
+"answer": "Sie ist krank. Trotzdem arbeitet sie heute.",
+"accept": [
+"Sie ist krank. Trotzdem arbeitet sie heute."
+],
+"translation": "Aunque está enferma, trabaja hoy.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-051",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie arbeitet heute, ___ sie krank ist.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque está enferma, trabaja hoy.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-052",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie ist krank. ___ arbeitet sie heute.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque está enferma, trabaja hoy.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Er",
+"kauft",
+"ein",
+"Geschenk",
+",",
+"obwohl",
+"er",
+"wenig",
+"Geld",
+"hat",
+"."
+],
+"answer": "Er kauft ein Geschenk, obwohl er wenig Geld hat.",
+"accept": [
+"Er kauft ein Geschenk, obwohl er wenig Geld hat."
+],
+"translation": "Aunque tiene poco dinero, compra un regalo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"er",
+"wenig",
+"Geld",
+"hat",
+",",
+"kauft",
+"er",
+"ein",
+"Geschenk",
+"."
+],
+"answer": "Obwohl er wenig Geld hat, kauft er ein Geschenk.",
+"accept": [
+"Obwohl er wenig Geld hat, kauft er ein Geschenk."
+],
+"translation": "Aunque tiene poco dinero, compra un regalo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Er",
+"hat",
+"wenig",
+"Geld",
+".",
+"Trotzdem",
+"kauft",
+"er",
+"ein",
+"Geschenk",
+"."
+],
+"answer": "Er hat wenig Geld. Trotzdem kauft er ein Geschenk.",
+"accept": [
+"Er hat wenig Geld. Trotzdem kauft er ein Geschenk."
+],
+"translation": "Aunque tiene poco dinero, compra un regalo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-053",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er kauft ein Geschenk, ___ er wenig Geld hat.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque tiene poco dinero, compra un regalo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-054",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er hat wenig Geld. ___ kauft er ein Geschenk.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque tiene poco dinero, compra un regalo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-obwohl-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl",
+"prompt": "Ordena: obwohl (verbo al final)",
+"tiles": [
+"Ich",
+"helfe",
+"dir",
+",",
+"obwohl",
+"ich",
+"keine",
+"Zeit",
+"habe",
+"."
+],
+"answer": "Ich helfe dir, obwohl ich keine Zeit habe.",
+"accept": [
+"Ich helfe dir, obwohl ich keine Zeit habe."
+],
+"translation": "Aunque no tengo tiempo, te ayudo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-obwohl-vorn-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "obwohl-vorn",
+"prompt": "Ordena: obwohl al principio",
+"tiles": [
+"Obwohl",
+"ich",
+"keine",
+"Zeit",
+"habe",
+",",
+"helfe",
+"ich",
+"dir",
+"."
+],
+"answer": "Obwohl ich keine Zeit habe, helfe ich dir.",
+"accept": [
+"Obwohl ich keine Zeit habe, helfe ich dir."
+],
+"translation": "Aunque no tengo tiempo, te ayudo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-inversion",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-trotzdem-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "trotzdem",
+"prompt": "Ordena: trotzdem en posición 1 + verbo",
+"tiles": [
+"Ich",
+"habe",
+"keine",
+"Zeit",
+".",
+"Trotzdem",
+"helfe",
+"ich",
+"dir",
+"."
+],
+"answer": "Ich habe keine Zeit. Trotzdem helfe ich dir.",
+"accept": [
+"Ich habe keine Zeit. Trotzdem helfe ich dir."
+],
+"translation": "Aunque no tengo tiempo, te ayudo.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem",
+"source": "gen",
+"pool": "obwohl-trotzdem",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-055",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich helfe dir, ___ ich keine Zeit habe.",
+"answer": "obwohl",
+"accept": [
+"obwohl"
+],
+"options": [
+"obwohl",
+"weil",
+"deshalb",
+"trotzdem"
+],
+"explanation": "obwohl = concesión («aunque»), verbo al final.",
+"translation": "Aunque no tengo tiempo, te ayudo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:obwohl-vs-weil",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-konnektor-wahl-056",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich habe keine Zeit. ___ helfe ich dir.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Trotzdem",
+"Obwohl",
+"Weil"
+],
+"explanation": "trotzdem = «a pesar de eso»: posición 1 + verbo.",
+"translation": "Aunque no tengo tiempo, te ayudo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:trotzdem-vs-deshalb",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Ich",
+"weiß",
+",",
+"dass",
+"du",
+"Deutsch",
+"lernst",
+"."
+],
+"answer": "Ich weiß, dass du Deutsch lernst.",
+"accept": [
+"Ich weiß, dass du Deutsch lernst."
+],
+"translation": "Sé que aprendes alemán.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-057",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich weiß, ___ du Deutsch lernst.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Sé que aprendes alemán.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Ich",
+"glaube",
+",",
+"dass",
+"er",
+"heute",
+"kommt",
+"."
+],
+"answer": "Ich glaube, dass er heute kommt.",
+"accept": [
+"Ich glaube, dass er heute kommt."
+],
+"translation": "Creo que viene hoy.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-058",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich glaube, ___ er heute kommt.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Creo que viene hoy.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Sie",
+"sagt",
+",",
+"dass",
+"das",
+"Wetter",
+"morgen",
+"schön",
+"ist",
+"."
+],
+"answer": "Sie sagt, dass das Wetter morgen schön ist.",
+"accept": [
+"Sie sagt, dass das Wetter morgen schön ist.",
+"Sie sagt, dass morgen das Wetter schön ist."
+],
+"translation": "Dice que mañana hace buen tiempo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-059",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie sagt, ___ das Wetter morgen schön ist.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Dice que mañana hace buen tiempo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Es",
+"ist",
+"wichtig",
+",",
+"dass",
+"wir",
+"einen",
+"Test",
+"schreiben",
+"."
+],
+"answer": "Es ist wichtig, dass wir einen Test schreiben.",
+"accept": [
+"Es ist wichtig, dass wir einen Test schreiben."
+],
+"translation": "Es importante que escribamos un examen.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-060",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Es ist wichtig, ___ wir einen Test schreiben.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Es importante que escribamos un examen.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Ich",
+"hoffe",
+",",
+"dass",
+"du",
+"Zeit",
+"hast",
+"."
+],
+"answer": "Ich hoffe, dass du Zeit hast.",
+"accept": [
+"Ich hoffe, dass du Zeit hast."
+],
+"translation": "Espero que tengas tiempo.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-061",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich hoffe, ___ du Zeit hast.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Espero que tengas tiempo.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Er",
+"meint",
+",",
+"dass",
+"der",
+"Kurs",
+"um",
+"acht",
+"Uhr",
+"beginnt",
+"."
+],
+"answer": "Er meint, dass der Kurs um acht Uhr beginnt.",
+"accept": [
+"Er meint, dass der Kurs um acht Uhr beginnt."
+],
+"translation": "Opina que el curso empieza a las ocho.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-062",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er meint, ___ der Kurs um acht Uhr beginnt.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Opina que el curso empieza a las ocho.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-007",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Wir",
+"wissen",
+",",
+"dass",
+"sie",
+"in",
+"Berlin",
+"wohnt",
+"."
+],
+"answer": "Wir wissen, dass sie in Berlin wohnt.",
+"accept": [
+"Wir wissen, dass sie in Berlin wohnt."
+],
+"translation": "Sabemos que vive en Berlín.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-063",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir wissen, ___ sie in Berlin wohnt.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Sabemos que vive en Berlín.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-dass-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "order",
+"skill": "dass",
+"prompt": "Ordena: dass (verbo al final)",
+"tiles": [
+"Ich",
+"finde",
+",",
+"dass",
+"das",
+"Buch",
+"sehr",
+"gut",
+"ist",
+"."
+],
+"answer": "Ich finde, dass das Buch sehr gut ist.",
+"accept": [
+"Ich finde, dass das Buch sehr gut ist."
+],
+"translation": "Creo que el libro es muy bueno.",
+"explanation": "",
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-064",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich finde, ___ das Buch sehr gut ist.",
+"answer": "dass",
+"accept": [
+"dass"
+],
+"options": [
+"dass",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "dass introduce el contenido de lo que se sabe/dice/piensa; verbo al final.",
+"translation": "Creo que el libro es muy bueno.",
+"hint": null,
+"conceptIds": [
+"a2:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-ob-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "ob",
+"prompt": "Ordena: ob (pregunta indirecta sí/no, verbo al final)",
+"tiles": [
+"Ich",
+"weiß",
+"nicht",
+",",
+"ob",
+"er",
+"heute",
+"kommt",
+"."
+],
+"answer": "Ich weiß nicht, ob er heute kommt.",
+"accept": [
+"Ich weiß nicht, ob er heute kommt."
+],
+"translation": "No sé si viene hoy.",
+"explanation": "",
+"conceptIds": [
+"b1:indirekte-fragen",
+"cs:t2"
+],
+"errorTag": "konnektor:ob",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-065",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich weiß nicht, ___ er heute kommt.",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"ob",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "ob = «si» en pregunta indirecta de sí/no.",
+"translation": "No sé si viene hoy.",
+"hint": null,
+"conceptIds": [
+"b1:indirekte-fragen"
+],
+"errorTag": "konnektor:ob-vs-dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-ob-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "ob",
+"prompt": "Ordena: ob (pregunta indirecta sí/no, verbo al final)",
+"tiles": [
+"Sie",
+"fragt",
+",",
+"ob",
+"du",
+"Zeit",
+"hast",
+"."
+],
+"answer": "Sie fragt, ob du Zeit hast.",
+"accept": [
+"Sie fragt, ob du Zeit hast."
+],
+"translation": "Pregunta si tienes tiempo.",
+"explanation": "",
+"conceptIds": [
+"b1:indirekte-fragen",
+"cs:t2"
+],
+"errorTag": "konnektor:ob",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-066",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Sie fragt, ___ du Zeit hast.",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"ob",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "ob = «si» en pregunta indirecta de sí/no.",
+"translation": "Pregunta si tienes tiempo.",
+"hint": null,
+"conceptIds": [
+"b1:indirekte-fragen"
+],
+"errorTag": "konnektor:ob-vs-dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-ob-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "ob",
+"prompt": "Ordena: ob (pregunta indirecta sí/no, verbo al final)",
+"tiles": [
+"Wir",
+"wissen",
+"nicht",
+",",
+"ob",
+"der",
+"Zug",
+"pünktlich",
+"kommt",
+"."
+],
+"answer": "Wir wissen nicht, ob der Zug pünktlich kommt.",
+"accept": [
+"Wir wissen nicht, ob der Zug pünktlich kommt."
+],
+"translation": "No sabemos si el tren llega puntual.",
+"explanation": "",
+"conceptIds": [
+"b1:indirekte-fragen",
+"cs:t2"
+],
+"errorTag": "konnektor:ob",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-067",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir wissen nicht, ___ der Zug pünktlich kommt.",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"ob",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "ob = «si» en pregunta indirecta de sí/no.",
+"translation": "No sabemos si el tren llega puntual.",
+"hint": null,
+"conceptIds": [
+"b1:indirekte-fragen"
+],
+"errorTag": "konnektor:ob-vs-dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-ob-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "ob",
+"prompt": "Ordena: ob (pregunta indirecta sí/no, verbo al final)",
+"tiles": [
+"Kannst",
+"du",
+"mir",
+"sagen",
+",",
+"ob",
+"das",
+"Museum",
+"heute",
+"offen",
+"ist",
+"?"
+],
+"answer": "Kannst du mir sagen, ob das Museum heute offen ist?",
+"accept": [
+"Kannst du mir sagen, ob das Museum heute offen ist?"
+],
+"translation": "¿Puedes decirme si el museo está abierto hoy?",
+"explanation": "",
+"conceptIds": [
+"b1:indirekte-fragen",
+"cs:t2"
+],
+"errorTag": "konnektor:ob",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-068",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Kannst du mir sagen, ___ das Museum heute offen ist?",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"ob",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "ob = «si» en pregunta indirecta de sí/no.",
+"translation": "¿Puedes decirme si el museo está abierto hoy?",
+"hint": null,
+"conceptIds": [
+"b1:indirekte-fragen"
+],
+"errorTag": "konnektor:ob-vs-dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-ob-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "ob",
+"prompt": "Ordena: ob (pregunta indirecta sí/no, verbo al final)",
+"tiles": [
+"Ich",
+"frage",
+"mich",
+",",
+"ob",
+"es",
+"morgen",
+"regnet",
+"."
+],
+"answer": "Ich frage mich, ob es morgen regnet.",
+"accept": [
+"Ich frage mich, ob es morgen regnet."
+],
+"translation": "Me pregunto si lloverá mañana.",
+"explanation": "",
+"conceptIds": [
+"b1:indirekte-fragen",
+"cs:t2"
+],
+"errorTag": "konnektor:ob",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-069",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich frage mich, ___ es morgen regnet.",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"ob",
+"damit",
+"obwohl",
+"als"
+],
+"explanation": "ob = «si» en pregunta indirecta de sí/no.",
+"translation": "Me pregunto si lloverá mañana.",
+"hint": null,
+"conceptIds": [
+"b1:indirekte-fragen"
+],
+"errorTag": "konnektor:ob-vs-dass",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-damit-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "damit",
+"prompt": "Ordena: damit (finalidad, verbo al final)",
+"tiles": [
+"Ich",
+"lerne",
+"Deutsch",
+",",
+"damit",
+"ich",
+"in",
+"Deutschland",
+"arbeiten",
+"kann",
+"."
+],
+"answer": "Ich lerne Deutsch, damit ich in Deutschland arbeiten kann.",
+"accept": [
+"Ich lerne Deutsch, damit ich in Deutschland arbeiten kann."
+],
+"translation": "Aprendo alemán para poder trabajar en Alemania.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-070",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich lerne Deutsch, ___ ich in Deutschland arbeiten kann.",
+"answer": "damit",
+"accept": [
+"damit"
+],
+"options": [
+"damit",
+"obwohl",
+"dass",
+"ob"
+],
+"explanation": "damit = finalidad («para que»): sujeto propio y verbo al final.",
+"translation": "Aprendo alemán para poder trabajar en Alemania.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-damit-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "damit",
+"prompt": "Ordena: damit (finalidad, verbo al final)",
+"tiles": [
+"Er",
+"spart",
+"Geld",
+",",
+"damit",
+"er",
+"ein",
+"Auto",
+"kaufen",
+"kann",
+"."
+],
+"answer": "Er spart Geld, damit er ein Auto kaufen kann.",
+"accept": [
+"Er spart Geld, damit er ein Auto kaufen kann."
+],
+"translation": "Ahorra dinero para poder comprar un coche.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-071",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Er spart Geld, ___ er ein Auto kaufen kann.",
+"answer": "damit",
+"accept": [
+"damit"
+],
+"options": [
+"damit",
+"obwohl",
+"dass",
+"ob"
+],
+"explanation": "damit = finalidad («para que»): sujeto propio y verbo al final.",
+"translation": "Ahorra dinero para poder comprar un coche.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-damit-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "damit",
+"prompt": "Ordena: damit (finalidad, verbo al final)",
+"tiles": [
+"Wir",
+"fahren",
+"früh",
+"los",
+",",
+"damit",
+"wir",
+"pünktlich",
+"sind",
+"."
+],
+"answer": "Wir fahren früh los, damit wir pünktlich sind.",
+"accept": [
+"Wir fahren früh los, damit wir pünktlich sind."
+],
+"translation": "Salimos temprano para estar puntuales.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-072",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Wir fahren früh los, ___ wir pünktlich sind.",
+"answer": "damit",
+"accept": [
+"damit"
+],
+"options": [
+"damit",
+"obwohl",
+"dass",
+"ob"
+],
+"explanation": "damit = finalidad («para que»): sujeto propio y verbo al final.",
+"translation": "Salimos temprano para estar puntuales.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-damit-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "damit",
+"prompt": "Ordena: damit (finalidad, verbo al final)",
+"tiles": [
+"Ich",
+"schreibe",
+"die",
+"Wörter",
+"auf",
+",",
+"damit",
+"ich",
+"sie",
+"nicht",
+"vergesse",
+"."
+],
+"answer": "Ich schreibe die Wörter auf, damit ich sie nicht vergesse.",
+"accept": [
+"Ich schreibe die Wörter auf, damit ich sie nicht vergesse."
+],
+"translation": "Apunto las palabras para no olvidarlas.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "dass-ob-damit",
+"options": []
+},
+{
+"id": "gx-konn-konnektor-wahl-073",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "konnektor-wahl",
+"prompt": "Ich schreibe die Wörter auf, ___ ich sie nicht vergesse.",
+"answer": "damit",
+"accept": [
+"damit"
+],
+"options": [
+"damit",
+"obwohl",
+"dass",
+"ob"
+],
+"explanation": "damit = finalidad («para que»): sujeto propio y verbo al final.",
+"translation": "Apunto las palabras para no olvidarlas.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:damit",
+"source": "gen",
+"pool": "konnektor-wahl"
+},
+{
+"id": "gx-konn-als-wenn-ob-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ ich ein Kind war, wohnten wir in Madrid.",
+"answer": "Als",
+"accept": [
+"Als"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "als = un hecho único o un periodo cerrado en el pasado.",
+"translation": "Cuando era niño vivíamos en Madrid.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ ich nach Hause komme, koche ich immer.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "wenn = repetición en presente o futuro.",
+"translation": "Cuando llego a casa, siempre cocino.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ ich gestern ankam, regnete es.",
+"answer": "Als",
+"accept": [
+"Als"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "als + pasado de un solo momento (gestern).",
+"translation": "Cuando llegué ayer, llovía.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Jedes Mal, ___ er anruft, bin ich beschäftigt.",
+"answer": "wenn",
+"accept": [
+"wenn"
+],
+"options": [
+"als",
+"wenn",
+"ob",
+"dass"
+],
+"explanation": "«jedes Mal» = repetición → wenn.",
+"translation": "Cada vez que llama, estoy ocupado.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ du Zeit hast, ruf mich an.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "wenn = condición o momento futuro.",
+"translation": "Cuando tengas tiempo, llámame.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ wir in Berlin waren, besuchten wir das Museum.",
+"answer": "Als",
+"accept": [
+"Als"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "als = una sola vez en el pasado.",
+"translation": "Cuando estuvimos en Berlín, visitamos el museo.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-007",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Früher, ___ ich jung war, spielte ich oft Fußball.",
+"answer": "als",
+"accept": [
+"als"
+],
+"options": [
+"als",
+"wenn",
+"ob",
+"dass"
+],
+"explanation": "als + sein/periodo pasado cerrado.",
+"translation": "Antes, cuando era joven, jugaba a menudo al fútbol.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-008",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Immer ___ es regnet, bleibt er zu Hause.",
+"answer": "wenn",
+"accept": [
+"wenn"
+],
+"options": [
+"als",
+"wenn",
+"ob",
+"dass"
+],
+"explanation": "«immer» = repetición → wenn.",
+"translation": "Siempre que llueve, se queda en casa.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-009",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "___ morgen die Sonne scheint, fahren wir ans Meer.",
+"answer": "Wenn",
+"accept": [
+"Wenn"
+],
+"options": [
+"Als",
+"Wenn",
+"Ob",
+"Dass"
+],
+"explanation": "futuro/condición → wenn.",
+"translation": "Si mañana hay sol, iremos al mar.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-010",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Ich war müde, ___ ich nach Hause kam.",
+"answer": "als",
+"accept": [
+"als"
+],
+"options": [
+"als",
+"wenn",
+"ob",
+"dass"
+],
+"explanation": "pasado único → als.",
+"translation": "Estaba cansado cuando llegué a casa.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-011",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Ich weiß nicht, ___ sie heute kommt.",
+"answer": "ob",
+"accept": [
+"ob"
+],
+"options": [
+"als",
+"ob",
+"damit",
+"obwohl"
+],
+"explanation": "pregunta indirecta sí/no → ob (no wenn).",
+"translation": "No sé si viene hoy.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-als-wenn-ob-012",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "als-wenn-ob",
+"prompt": "Sag mir Bescheid, ___ du Hilfe brauchst.",
+"answer": "wenn",
+"accept": [
+"wenn"
+],
+"options": [
+"als",
+"wenn",
+"obwohl",
+"damit"
+],
+"explanation": "«avísame cuando…» (momento) → wenn.",
+"translation": "Avísame cuando necesites ayuda.",
+"hint": null,
+"conceptIds": [
+"a2:nebensaetze",
+"cs:t38"
+],
+"errorTag": "konnektor:als-wenn",
+"source": "gen",
+"pool": "als-wenn-ob"
+},
+{
+"id": "gx-konn-aber-sondern-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Ich trinke keinen Kaffee, ___ Tee.",
+"answer": "sondern",
+"accept": [
+"sondern"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "sondern corrige una negación previa (nicht/kein … sondern …).",
+"translation": "No tomo café, sino té.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Ich möchte Kaffee, ___ ich habe keine Zeit.",
+"answer": "aber",
+"accept": [
+"aber"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "aber = contraste sin corrección.",
+"translation": "Quiero café, pero no tengo tiempo.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Er ist nicht krank, ___ müde.",
+"answer": "sondern",
+"accept": [
+"sondern"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "nicht … sondern: corrección.",
+"translation": "No está enfermo, sino cansado.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-004",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Das Hotel ist schön, ___ teuer.",
+"answer": "aber",
+"accept": [
+"aber"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "contraste: schön / teuer → aber.",
+"translation": "El hotel es bonito, pero caro.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-005",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Wir fahren nicht nach Berlin, ___ nach Hamburg.",
+"answer": "sondern",
+"accept": [
+"sondern"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "nicht + sondern (sustituye el destino).",
+"translation": "No vamos a Berlín, sino a Hamburgo.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-006",
+"module": "konnektoren",
+"level": "A1",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Möchtest du Tee ___ Kaffee?",
+"answer": "oder",
+"accept": [
+"oder"
+],
+"options": [
+"oder",
+"sondern",
+"denn",
+"weil"
+],
+"explanation": "oder = alternativa.",
+"translation": "¿Quieres té o café?",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-007",
+"module": "konnektoren",
+"level": "A1",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Ich lerne Deutsch ___ Spanisch.",
+"answer": "und",
+"accept": [
+"und"
+],
+"options": [
+"und",
+"sondern",
+"denn",
+"weil"
+],
+"explanation": "und suma elementos.",
+"translation": "Aprendo alemán y español.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-aber-sondern-008",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "aber-sondern",
+"prompt": "Sie hat kein Auto, ___ ein Fahrrad.",
+"answer": "sondern",
+"accept": [
+"sondern"
+],
+"options": [
+"aber",
+"sondern",
+"weil",
+"obwohl"
+],
+"explanation": "kein … sondern.",
+"translation": "No tiene coche, sino una bicicleta.",
+"hint": null,
+"conceptIds": [
+"cs:t38",
+"a2:konnektoren"
+],
+"errorTag": "konnektor:sondern-vs-aber",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Ich habe Hunger. ___ esse ich eine Pizza.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Deshalb",
+"Außerdem",
+"Trotzdem",
+"Sonst"
+],
+"explanation": "consecuencia: «por eso».",
+"translation": "Tengo hambre. Por eso me como una pizza.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Ich bin müde. ___ gehe ich zur Arbeit.",
+"answer": "Trotzdem",
+"accept": [
+"Trotzdem"
+],
+"options": [
+"Deshalb",
+"Außerdem",
+"Trotzdem",
+"Sonst"
+],
+"explanation": "concesión: «aun así».",
+"translation": "Estoy cansado. Aun así voy al trabajo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Der Kurs ist interessant. ___ ist er nicht teuer.",
+"answer": "Außerdem",
+"accept": [
+"Außerdem"
+],
+"options": [
+"Deshalb",
+"Außerdem",
+"Trotzdem",
+"Sonst"
+],
+"explanation": "adición: «además».",
+"translation": "El curso es interesante. Además no es caro.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Du musst jetzt gehen. ___ verpasst du den Zug.",
+"answer": "Sonst",
+"accept": [
+"Sonst"
+],
+"options": [
+"Deshalb",
+"Außerdem",
+"Trotzdem",
+"Sonst"
+],
+"explanation": "advertencia: «si no».",
+"translation": "Tienes que irte ya. Si no, pierdes el tren.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-005",
+"module": "konnektoren",
+"level": "A1",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Zuerst frühstücke ich, ___ fahre ich zur Arbeit.",
+"answer": "dann",
+"accept": [
+"dann"
+],
+"options": [
+"dann",
+"sondern",
+"denn",
+"weil"
+],
+"explanation": "secuencia: dann ocupa la posición 1 y el verbo sigue.",
+"translation": "Primero desayuno, luego voy al trabajo.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-adverb-konnektor-006",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "adverb-konnektor",
+"prompt": "Ich habe kein Geld. ___ kann ich nicht reisen.",
+"answer": "Deshalb",
+"accept": [
+"Deshalb"
+],
+"options": [
+"Deshalb",
+"Außerdem",
+"Trotzdem",
+"Sonst"
+],
+"explanation": "consecuencia con inversión: Deshalb kann ich…",
+"translation": "No tengo dinero. Por eso no puedo viajar.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"cs:t39"
+],
+"errorTag": "konnektor:adverb",
+"source": "gen",
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "Er spricht ___ Deutsch ___ Englisch.",
+"answer": "sowohl … als auch",
+"accept": [
+"sowohl … als auch"
+],
+"options": [
+"sowohl … als auch",
+"weder … noch",
+"entweder … oder",
+"zwar … aber"
+],
+"explanation": "tanto … como",
+"translation": "Habla tanto alemán como inglés.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "Ich esse ___ Fleisch ___ Fisch.",
+"answer": "weder … noch",
+"accept": [
+"weder … noch"
+],
+"options": [
+"sowohl … als auch",
+"weder … noch",
+"entweder … oder",
+"zwar … aber"
+],
+"explanation": "ni … ni (ya es negación; no añadas nicht).",
+"translation": "No como ni carne ni pescado.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "Wir fahren ___ nach Spanien ___ nach Italien.",
+"answer": "entweder … oder",
+"accept": [
+"entweder … oder"
+],
+"options": [
+"sowohl … als auch",
+"weder … noch",
+"entweder … oder",
+"zwar … aber"
+],
+"explanation": "o … o (alternativa).",
+"translation": "Vamos o a España o a Italia.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "Sie ist ___ intelligent, ___ auch freundlich.",
+"answer": "nicht nur … sondern",
+"accept": [
+"nicht nur … sondern"
+],
+"options": [
+"nicht nur … sondern",
+"weder … noch",
+"entweder … oder",
+"sowohl … als auch"
+],
+"explanation": "no solo … sino también.",
+"translation": "No solo es inteligente, sino también amable.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "Das Hotel ist ___ schön, ___ sehr teuer.",
+"answer": "zwar … aber",
+"accept": [
+"zwar … aber"
+],
+"options": [
+"sowohl … als auch",
+"zwar … aber",
+"weder … noch",
+"entweder … oder"
+],
+"explanation": "es cierto que … pero (concesión).",
+"translation": "El hotel es bonito, pero muy caro.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-doppelkonnektor-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "doppelkonnektor",
+"prompt": "___ Anna ___ Max kommen zur Party.",
+"answer": "Sowohl … als auch",
+"accept": [
+"Sowohl … als auch"
+],
+"options": [
+"Sowohl … als auch",
+"Weder … noch",
+"Entweder … oder",
+"Nicht nur … sondern"
+],
+"explanation": "tanto … como con dos sujetos (verbo en plural).",
+"translation": "Tanto Anna como Max vienen a la fiesta.",
+"hint": null,
+"conceptIds": [
+"b1:konnektoren",
+"md:konnektoren-doppel"
+],
+"errorTag": "konnektor:doppel",
+"source": "gen",
+"needs_translation": true,
+"pool": "konnektor-misc"
+},
+{
+"id": "gx-konn-nebensatz-b1-001",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: bevor (subordinada, verbo final)",
+"tiles": [
+"Ich",
+"wasche",
+"mir",
+"die",
+"Hände",
+",",
+"bevor",
+"ich",
+"esse",
+"."
+],
+"answer": "Ich wasche mir die Hände, bevor ich esse.",
+"accept": [
+"Ich wasche mir die Hände, bevor ich esse."
+],
+"translation": "Me lavo las manos antes de comer.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:bevor",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-002",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: bevor (subordinada, verbo final)",
+"tiles": [
+"Bevor",
+"ich",
+"esse",
+",",
+"wasche",
+"ich",
+"mir",
+"die",
+"Hände",
+"."
+],
+"answer": "Bevor ich esse, wasche ich mir die Hände.",
+"accept": [
+"Bevor ich esse, wasche ich mir die Hände."
+],
+"translation": "Antes de comer me lavo las manos.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:bevor",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-003",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: nachdem (subordinada, verbo final)",
+"tiles": [
+"Nachdem",
+"ich",
+"gegessen",
+"hatte",
+",",
+"bin",
+"ich",
+"spazieren",
+"gegangen",
+"."
+],
+"answer": "Nachdem ich gegessen hatte, bin ich spazieren gegangen.",
+"accept": [
+"Nachdem ich gegessen hatte, bin ich spazieren gegangen."
+],
+"translation": "Después de comer, fui a pasear.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:nachdem",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: bevor (subordinada, verbo final)",
+"tiles": [
+"Er",
+"ruft",
+"an",
+",",
+"bevor",
+"er",
+"kommt",
+"."
+],
+"answer": "Er ruft an, bevor er kommt.",
+"accept": [
+"Er ruft an, bevor er kommt."
+],
+"translation": "Llama antes de venir.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:bevor",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: nachdem (subordinada, verbo final)",
+"tiles": [
+"Nachdem",
+"sie",
+"aufgestanden",
+"war",
+",",
+"hat",
+"sie",
+"Kaffee",
+"getrunken",
+"."
+],
+"answer": "Nachdem sie aufgestanden war, hat sie Kaffee getrunken.",
+"accept": [
+"Nachdem sie aufgestanden war, hat sie Kaffee getrunken."
+],
+"translation": "Después de levantarse, tomó café.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:nachdem",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: bis (subordinada, verbo final)",
+"tiles": [
+"Wir",
+"warten",
+",",
+"bis",
+"der",
+"Bus",
+"kommt",
+"."
+],
+"answer": "Wir warten, bis der Bus kommt.",
+"accept": [
+"Wir warten, bis der Bus kommt."
+],
+"translation": "Esperamos hasta que llegue el autobús.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:bis",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-007",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: seit (subordinada, verbo final)",
+"tiles": [
+"Seit",
+"ich",
+"in",
+"Berlin",
+"wohne",
+",",
+"lerne",
+"ich",
+"Deutsch",
+"."
+],
+"answer": "Seit ich in Berlin wohne, lerne ich Deutsch.",
+"accept": [
+"Seit ich in Berlin wohne, lerne ich Deutsch."
+],
+"translation": "Desde que vivo en Berlín, aprendo alemán.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:seit",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-nebensatz-b1-008",
+"module": "konnektoren",
+"level": "B1",
+"type": "order",
+"skill": "nebensatz-b1",
+"prompt": "Ordena: während (subordinada, verbo final)",
+"tiles": [
+"Während",
+"ich",
+"koche",
+",",
+"hört",
+"er",
+"Musik",
+"."
+],
+"answer": "Während ich koche, hört er Musik.",
+"accept": [
+"Während ich koche, hört er Musik."
+],
+"translation": "Mientras yo cocino, él escucha música.",
+"explanation": "",
+"conceptIds": [
+"b1:konnektoren",
+"a2:nebensaetze"
+],
+"errorTag": "konnektor:während",
+"source": "gen",
+"pool": "konnektor-misc",
+"options": []
+},
+{
+"id": "gx-konn-partikel-001",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Kannst du mir ___ helfen?",
+"answer": "mal",
+"accept": [
+"mal",
+"eben",
+"doch"
+],
+"options": [
+"mal",
+"ja",
+"denn",
+"schon"
+],
+"explanation": "mal suaviza la petición.",
+"translation": "¿Puedes ayudarme un momento?",
+"hint": null,
+"conceptIds": [
+"a2:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-002",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Wie heißt du ___?",
+"answer": "denn",
+"accept": [
+"denn"
+],
+"options": [
+"denn",
+"mal",
+"ja",
+"doch",
+"eben",
+"schon"
+],
+"explanation": "denn muestra curiosidad en una pregunta.",
+"translation": "¿Y cómo te llamas?",
+"hint": null,
+"conceptIds": [
+"a2:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:denn",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-003",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Kommst du nicht mit? — ___, ich komme mit!",
+"answer": "Doch",
+"accept": [
+"Doch"
+],
+"options": [
+"Doch",
+"Ja",
+"Nein",
+"Mal"
+],
+"explanation": "doch contradice una pregunta o frase negativa.",
+"translation": "¿No vienes? — ¡Sí, voy!",
+"hint": null,
+"conceptIds": [
+"a2:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:doch",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-004",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Du weißt ___, dass ich nicht gern früh aufstehe.",
+"answer": "ja",
+"accept": [
+"ja",
+"doch"
+],
+"options": [
+"ja",
+"mal",
+"denn",
+"eben"
+],
+"explanation": "ja recuerda algo que ambos ya saben.",
+"translation": "Ya sabes que no me gusta madrugar.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:ja",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-005",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Das Wetter ist schlecht. Da kann man ___ nichts machen.",
+"answer": "eben",
+"accept": [
+"eben",
+"halt"
+],
+"options": [
+"eben",
+"mal",
+"denn",
+"bloß"
+],
+"explanation": "eben/halt expresan resignación: «es lo que hay».",
+"translation": "El tiempo es malo. No se puede hacer nada.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:eben/halt",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-006",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Keine Sorge, das klappt ___.",
+"answer": "schon",
+"accept": [
+"schon"
+],
+"options": [
+"schon",
+"mal",
+"ja",
+"denn",
+"eben"
+],
+"explanation": "schon tranquiliza: «seguro que sí».",
+"translation": "No te preocupes, seguro que sale bien.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:schon",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-007",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Mach das ___ nicht noch einmal!",
+"answer": "bloß",
+"accept": [
+"bloß",
+"nur",
+"ja"
+],
+"options": [
+"bloß",
+"mal",
+"schon"
+],
+"explanation": "bloß/nur refuerzan una advertencia.",
+"translation": "¡No lo vuelvas a hacer!",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:bloß/nur",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-008",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Er ist ___ noch bei der Arbeit.",
+"answer": "wohl",
+"accept": [
+"wohl"
+],
+"options": [
+"wohl",
+"mal",
+"ja",
+"eben",
+"denn"
+],
+"explanation": "wohl expresa suposición: «seguramente».",
+"translation": "Seguramente aún está en el trabajo.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:wohl",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-009",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Du kannst ___ anrufen, es stört mich nicht.",
+"answer": "ruhig",
+"accept": [
+"ruhig",
+"mal",
+"doch",
+"eben",
+"einfach"
+],
+"options": [
+"ruhig",
+"denn",
+"schon",
+"wohl"
+],
+"explanation": "ruhig da permiso/ánimo: «sin problema».",
+"translation": "Puedes llamar tranquilamente, no me molesta.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:ruhig",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-010",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Ich wollte ___ gar nicht kommen, aber dann habe ich es doch getan.",
+"answer": "eigentlich",
+"accept": [
+"eigentlich"
+],
+"options": [
+"eigentlich",
+"mal",
+"ja",
+"schon",
+"denn"
+],
+"explanation": "eigentlich = «en realidad».",
+"translation": "En realidad no quería venir, pero al final fui.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:eigentlich",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-011",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Schau ___, wie schön das ist!",
+"answer": "mal",
+"accept": [
+"mal",
+"doch"
+],
+"options": [
+"mal",
+"ja",
+"denn",
+"wohl"
+],
+"explanation": "mal en imperativo: «mira un momento».",
+"translation": "¡Mira qué bonito es!",
+"hint": null,
+"conceptIds": [
+"a2:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-012",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Das ist ___ ein schönes Haus!",
+"answer": "aber",
+"accept": [
+"aber",
+"ja"
+],
+"options": [
+"aber",
+"mal",
+"denn",
+"eben"
+],
+"explanation": "aber/ja expresan sorpresa.",
+"translation": "¡Qué casa tan bonita!",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:aber/ja",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-013",
+"module": "konnektoren",
+"level": "A2",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Komm ___ her! Ich zeige dir etwas.",
+"answer": "mal",
+"accept": [
+"mal",
+"doch",
+"eben"
+],
+"options": [
+"mal",
+"ja",
+"denn",
+"wohl"
+],
+"explanation": "mal suaviza la orden.",
+"translation": "¡Ven un momento! Te enseño algo.",
+"hint": null,
+"conceptIds": [
+"a2:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-014",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Hast du ___ einen Stift für mich?",
+"answer": "vielleicht",
+"accept": [
+"vielleicht",
+"mal"
+],
+"options": [
+"vielleicht",
+"ja",
+"eben",
+"schon"
+],
+"explanation": "vielleicht/mal suavizan la petición.",
+"translation": "¿No tendrás un bolígrafo para mí?",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:vielleicht",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-015",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Ruf ihn ___ an, dann weißt du es.",
+"answer": "doch",
+"accept": [
+"doch",
+"einfach",
+"mal",
+"eben"
+],
+"options": [
+"doch",
+"denn",
+"wohl",
+"aber"
+],
+"explanation": "doch/einfach/mal animan a actuar: «llámalo, anda».",
+"translation": "Llámalo y así lo sabrás.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:doch/einfach",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-016",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Ich habe ___ gar keine Zeit.",
+"answer": "eben",
+"accept": [
+"eben",
+"halt",
+"ja"
+],
+"options": [
+"eben",
+"wohl",
+"denn",
+"bloß"
+],
+"explanation": "eben/halt/ja justifican: «es que no tengo tiempo».",
+"translation": "Es que no tengo nada de tiempo.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:eben/halt",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-017",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Was machst du ___ am Wochenende?",
+"answer": "denn",
+"accept": [
+"denn",
+"eigentlich"
+],
+"options": [
+"denn",
+"mal",
+"eben",
+"schon"
+],
+"explanation": "denn/eigentlich suavizan la pregunta.",
+"translation": "¿Qué haces (por cierto) el fin de semana?",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:denn/eigentlich",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "gx-konn-partikel-018",
+"module": "konnektoren",
+"level": "B1",
+"type": "cloze",
+"skill": "partikel",
+"prompt": "Das war ___ nicht so schlimm.",
+"answer": "doch",
+"accept": [
+"doch",
+"ja"
+],
+"options": [
+"doch",
+"denn",
+"bloß",
+"mal"
+],
+"explanation": "doch/ja tranquilizan: «no fue para tanto».",
+"translation": "No fue para tanto.",
+"hint": null,
+"conceptIds": [
+"b1:partikeln",
+"md:partikeln"
+],
+"errorTag": "particle:doch/ja",
+"source": "gen",
+"needs_translation": true,
+"pool": "partikel"
+},
+{
+"id": "d244-part-005",
+"level": "A2",
+"type": "cloze",
+"prompt": "Komm ___ bitte her!",
+"hint": "mal suaviza el imperativo.",
+"explanation": "mal puede suavizar una petición informal, no se traduce siempre palabra por palabra.",
+"translation": "¡Ven un momento, por favor!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "mal",
+"accept": [
+"mal",
+"doch",
+"ruhig",
+"eben"
+],
+"options": [
+"mal",
+"denn",
+"wohl",
+"aber"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"pool": "partikel"
+},
+{
+"id": "d244-part-006",
+"level": "A2",
+"type": "cloze",
+"prompt": "Schau ___!",
+"hint": "Schau mal! = mira.",
+"explanation": "Schau mal! es una expresión cotidiana para atraer la atención.",
+"translation": "¡Mira! / ¡Mira un momento!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "mal",
+"accept": [
+"mal",
+"doch",
+"nur"
+],
+"options": [
+"mal",
+"denn",
+"wohl",
+"aber"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"pool": "partikel"
+},
+{
+"id": "d244-part-008",
+"level": "A2",
+"type": "cloze",
+"prompt": "Warte ___ kurz!",
+"hint": "Warte mal = espera un poco.",
+"explanation": "mal en este imperativo suaviza el tono; es coloquial.",
+"translation": "¡Espera un momentito!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "mal",
+"accept": [
+"mal",
+"noch",
+"doch",
+"bitte",
+"eben"
+],
+"options": [
+"mal",
+"denn",
+"wohl",
+"aber"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"pool": "partikel"
+},
+{
+"id": "d244-part-009",
+"level": "A2",
+"type": "cloze",
+"prompt": "Hör ___ zu!",
+"hint": "Hör mal zu!.",
+"explanation": "Hör mal zu! es una invitación informal a prestar atención.",
+"translation": "¡Escucha un momento!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "mal",
+"accept": [
+"mal",
+"doch",
+"bitte"
+],
+"options": [
+"mal",
+"denn",
+"wohl",
+"aber"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:mal",
+"pool": "partikel"
+},
+{
+"id": "d244-part-010",
+"level": "A2",
+"type": "cloze",
+"prompt": "Du hast keinen Hunger? — ___, ich habe Hunger!",
+"hint": "doch = sí, al contrario.",
+"explanation": "doch contradice una negación previa. Con preguntas negativas permite responder afirmativamente.",
+"translation": "¿No tienes hambre? — ¡Sí, sí tengo!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "Doch",
+"accept": [
+"Doch"
+],
+"options": [
+"Doch",
+"Ja",
+"Nein",
+"Denn"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:doch",
+"pool": "partikel"
+},
+{
+"id": "d244-part-011",
+"level": "A2",
+"type": "cloze",
+"prompt": "Du kommst nicht? — ___, ich komme!",
+"hint": "doch contradice un no.",
+"explanation": "Se usa doch para negar una afirmación negativa.",
+"translation": "¿No vienes? — ¡Sí que voy!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "Doch",
+"accept": [
+"Doch"
+],
+"options": [
+"Doch",
+"Ja",
+"Nein",
+"Denn"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:doch",
+"pool": "partikel"
+},
+{
+"id": "d244-part-012",
+"level": "A2",
+"type": "cloze",
+"prompt": "Komm ___ mit!",
+"hint": "Komm doch mit!.",
+"explanation": "doch puede hacer una invitación o insistencia más cálida; el matiz depende del contexto.",
+"translation": "¡Ven con nosotros, anda!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "doch",
+"accept": [
+"doch",
+"mal",
+"ruhig",
+"bitte",
+"auch",
+"aber"
+],
+"options": [
+"doch",
+"denn",
+"wohl",
+"bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:doch",
+"pool": "partikel"
+},
+{
+"id": "d244-part-013",
+"level": "A2",
+"type": "cloze",
+"prompt": "Das ist ___ schön!",
+"hint": "doch = matiz, no traducción fija.",
+"explanation": "doch puede expresar sorpresa o insistencia; no tiene traducción literal fija.",
+"translation": "¡Pero si es bonito!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "doch",
+"accept": [
+"doch",
+"ja",
+"aber",
+"schon",
+"auch"
+],
+"options": [
+"doch",
+"denn",
+"wohl",
+"bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:doch",
+"pool": "partikel"
+},
+{
+"id": "d244-part-015",
+"level": "A2",
+"type": "cloze",
+"prompt": "Was machst du ___ hier?",
+"hint": "denn pregunta = tono.",
+"explanation": "denn añade un matiz conversacional a la pregunta, a menudo curiosidad/sorpresa.",
+"translation": "Pero ¿qué haces aquí? (sorpresa)",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "denn",
+"accept": [
+"denn",
+"eigentlich",
+"überhaupt",
+"bloß",
+"nur"
+],
+"options": [
+"denn",
+"mal",
+"ja",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:denn",
+"pool": "partikel"
+},
+{
+"id": "d244-part-016",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ein Wasser, ___!",
+"hint": "bitte = por favor.",
+"explanation": "bitte sirve para pedir con cortesía.",
+"translation": "¡Un agua, por favor!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "bitte",
+"accept": [
+"bitte"
+],
+"options": [
+"bitte",
+"doch",
+"ja",
+"denn"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:bitte",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-017",
+"level": "A2",
+"type": "cloze",
+"prompt": "Danke! — ___ schön!",
+"hint": "Bitte schön = de nada.",
+"explanation": "Bitte schön! responde educadamente a Danke.",
+"translation": "¡Gracias! — ¡De nada!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "Bitte",
+"accept": [
+"Bitte"
+],
+"options": [
+"Bitte",
+"Danke",
+"Doch",
+"Mal"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:bitte",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-018",
+"level": "A2",
+"type": "cloze",
+"prompt": "Das ist ___ toll!",
+"hint": "ja = matiz de énfasis.",
+"explanation": "ja como partícula modal puede reforzar algo evidente o compartido. No es la respuesta aislada «sí».",
+"translation": "¡Qué bien! / ¡Pues sí que es genial!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "ja",
+"accept": [
+"ja",
+"aber",
+"doch"
+],
+"options": [
+"ja",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:ja",
+"pool": "partikel"
+},
+{
+"id": "d244-part-019",
+"level": "A2",
+"type": "cloze",
+"prompt": "Du bist ___ schon da!",
+"hint": "ja modal ≠ sí de respuesta.",
+"explanation": "ja puede señalar sorpresa ante algo que se hace evidente.",
+"translation": "¡Pero si ya estás aquí!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "partikel",
+"answer": "ja",
+"accept": [
+"ja",
+"doch",
+"aber"
+],
+"options": [
+"ja",
+"denn",
+"mal",
+"bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:partikeln"
+],
+"errorTag": "particle:ja",
+"pool": "partikel"
+},
+{
+"id": "d244-part-020",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich habe ___ fünf Euro.",
+"hint": "nur = solo.",
+"explanation": "nur restringe una cantidad: solamente.",
+"translation": "Solo tengo cinco euros.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "nur",
+"accept": [
+"nur",
+"bloß"
+],
+"options": [
+"nur",
+"mal",
+"denn",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:nur",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-021",
+"level": "A2",
+"type": "cloze",
+"prompt": "___ heute kostet das Ticket zehn Euro.",
+"hint": "nur heute.",
+"explanation": "nur acota el tiempo: únicamente hoy.",
+"translation": "Solo hoy cuesta diez euros el billete.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "Nur",
+"accept": [
+"Nur",
+"Bloß"
+],
+"options": [
+"Nur",
+"Mal",
+"Denn",
+"Wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:nur",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-022",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich lerne ___ Deutsch.",
+"hint": "noch = todavía.",
+"explanation": "noch marca continuidad: aún / todavía.",
+"translation": "Todavía estoy aprendiendo alemán.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "noch",
+"accept": [
+"noch",
+"auch",
+"gerade",
+"schon",
+"nur"
+],
+"options": [
+"noch",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:noch",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-023",
+"level": "A2",
+"type": "cloze",
+"prompt": "Möchten Sie ___ Kaffee?",
+"hint": "noch Kaffee = más café.",
+"explanation": "noch puede significar «más / otro poco» cuando se ofrece algo adicional.",
+"translation": "¿Quiere más café?",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "noch",
+"accept": [
+"noch",
+"auch",
+"gern",
+"eigentlich"
+],
+"options": [
+"noch",
+"denn",
+"wohl",
+"bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:noch",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-024",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich bin ___ fertig.",
+"hint": "schon ≠ schön.",
+"explanation": "schon puede significar «ya». No equivale al schön con umlaut (bonito).",
+"translation": "Ya terminé.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "schon",
+"accept": [
+"schon",
+"auch",
+"gerade",
+"bald",
+"gleich",
+"endlich",
+"fast"
+],
+"options": [
+"schon",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:schon",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-025",
+"level": "A2",
+"type": "cloze",
+"prompt": "Es ist ___ acht Uhr!",
+"hint": "schon = ya.",
+"explanation": "schon enfatiza que la hora llegó antes de lo esperado.",
+"translation": "¡Ya son las ocho!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "schon",
+"accept": [
+"schon",
+"erst",
+"gerade",
+"fast",
+"bereits"
+],
+"options": [
+"schon",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:schon",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-026",
+"level": "A2",
+"type": "cloze",
+"prompt": "Es ist ___ acht Uhr.",
+"hint": "erst ≠ schon.",
+"explanation": "erst subraya que es temprano; contrasta con schon acht Uhr = ya son las ocho.",
+"translation": "Apenas son las ocho.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "erst",
+"accept": [
+"erst",
+"schon",
+"gerade",
+"fast",
+"nur",
+"bloß"
+],
+"options": [
+"erst",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:erst",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-027",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich lerne ___ seit zwei Wochen Deutsch.",
+"hint": "erst seit ...",
+"explanation": "erst enfatiza poco tiempo transcurrido.",
+"translation": "Solo llevo dos semanas aprendiendo alemán.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "erst",
+"accept": [
+"erst",
+"schon",
+"nur",
+"bloß",
+"auch"
+],
+"options": [
+"erst",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:erst",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-028",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich komme ___ aus Chile.",
+"hint": "auch = también.",
+"explanation": "auch añade a alguien o algo más.",
+"translation": "Yo también vengo de Chile.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "auch",
+"accept": [
+"auch",
+"ja",
+"eigentlich",
+"gerade",
+"nur",
+"schon",
+"vielleicht"
+],
+"options": [
+"auch",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:auch",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-029",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich lerne Deutsch und ___ Englisch.",
+"hint": "auch = también.",
+"explanation": "auch añade información.",
+"translation": "Estudio alemán y también inglés.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "auch",
+"accept": [
+"auch",
+"noch",
+"nur",
+"schon",
+"gerade",
+"ja"
+],
+"options": [
+"auch",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:auch",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-031",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich esse ___ zu Mittag.",
+"hint": "gerade = justo ahora.",
+"explanation": "gerade puede describir una acción que está ocurriendo ahora.",
+"translation": "Estoy almorzando ahora mismo.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "gerade",
+"accept": [
+"gerade",
+"eben",
+"schon",
+"noch",
+"jetzt",
+"bald",
+"gleich",
+"mal",
+"auch",
+"erst"
+],
+"options": [
+"gerade",
+"denn",
+"wohl",
+"bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:gerade",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-032",
+"level": "A2",
+"type": "cloze",
+"prompt": "___ komme ich morgen.",
+"hint": "vielleicht = quizás.",
+"explanation": "vielleicht expresa posibilidad, no certeza.",
+"translation": "Quizás vaya mañana.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "Vielleicht",
+"accept": [
+"Vielleicht",
+"Lieber",
+"Eigentlich",
+"Gern",
+"Erst",
+"Wohl",
+"Noch"
+],
+"options": [
+"Vielleicht",
+"Denn",
+"Mal",
+"Bloß"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:vielleicht",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-033",
+"level": "A2",
+"type": "cloze",
+"prompt": "Ich trinke ___ Tee als Kaffee.",
+"hint": "lieber = preferir.",
+"explanation": "lieber ... als ... expresa preferencia.",
+"translation": "Prefiero té al café.",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "lieber",
+"accept": [
+"lieber",
+"eher"
+],
+"options": [
+"lieber",
+"denn",
+"mal",
+"wohl"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:lieber",
+"pool": "adverb-gradpartikel"
+},
+{
+"id": "d244-part-034",
+"level": "A2",
+"type": "cloze",
+"prompt": "Frag ___!",
+"hint": "Frag ruhig! = adelante, pregunta.",
+"explanation": "ruhig puede transmitir permiso o tranquilidad en una invitación; no siempre significa «silencioso».",
+"translation": "¡Pregunta sin problema!",
+"source": "d244",
+"module": "konnektoren",
+"skill": "adverb-gradpartikel",
+"answer": "ruhig",
+"accept": [
+"ruhig",
+"doch",
+"mal",
+"nur",
+"einfach",
+"bitte",
+"gern"
+],
+"options": [
+"ruhig",
+"denn",
+"wohl",
+"aber"
+],
+"needs_translation": true,
+"conceptIds": [
+"md:gradpartikeln"
+],
+"errorTag": "adverb:ruhig",
+"pool": "adverb-gradpartikel"
+}
+]

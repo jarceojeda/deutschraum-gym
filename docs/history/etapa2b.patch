@@ -1,0 +1,1549 @@
+--- sim/REPORT.md	2026-11-18 02:56:41.670297901 +0100
++++ sim/REPORT.md	2026-11-18 03:25:22.339941246 +0100
+@@ -1,57 +1,110 @@
+-# Simulación del motor — informe
++# Simulación del motor — informe (etapa 2b)
+ 
+-Alumno sintético (conocimiento y estabilidad por unidad), 200 sesiones por escenario, reloj simulado (1 sesión = 1 día).
++Alumno sintético (conocimiento y estabilidad por unidad), 200 sesiones por escenario (600 en `mix-12-3perday`), reloj simulado (1 sesión = 1 día; en `3perday`, 3 sesiones/día separadas 20 min).
++El alumno comete además casi-aciertos (30 % de sus fallos: diéresis quitada, última letra quitada, das↔dass).
+ Regenerar: `node tools/make-report.js`. Pasar/fallar: `npm test` (archivo `tests/simulation.test.js`, umbrales en `sim/thresholds.js`).
+ 
+ ## Resultados
+ 
+ | escenario | precisión 1.er intento | dup ítem/unidad | sobre tope | repetidos ≤3 ses. (new/future) | mezcla actual/fácil/reto | cobertura ventana 20 (media/mín) | espera error p95/máx | atraso final/máx | niveles finales | cambios de nivel | ms/sesión | estado |
+ |---|---|---|---|---|---|---|---|---|---|---|---|---|
+-| mix-12 | 79.4 % | 0/0 | 0 | 0.0 % | 69.9 / 20.1 / 10.0 | 0.921 / 0.833 | 2 / 7 | 2 / 14 | A2,A2,A2,A2,B1 | konnektoren:B1 deklination:A2 artikel:A2 praepositionen:A2 verben:A2 | 3.6 | 71 KB |
+-| verben-20 | 80.7 % | 0/0 | 0 | 0.0 % | 70.6 / 19.4 / 10.0 | 1.000 / 1.000 | 2 / 4 | 2 / 12 | B1 | verben:A2>B1 | 3.2 | 130 KB |
+-| konnektoren-12 | 84.8 % | 0/0 | 0 | 0.0 % | n/d | 0.990 / 0.909 | 2 / 4 | 1 / 8 | B1 | konnektoren:B1 | 0.9 | 42 KB |
+-| mix-12-capA2 | 80.0 % | 0/0 | 0 | 0.0 % | n/d | 0.937 / 0.857 | 2 / 5 | 2 / 7 | A1,A2,A2,A2,A2 | deklination:A2 artikel:A2 praepositionen:A2 | 2.8 | 68 KB |
+-| mix-12-weak | 69.4 % | 0/0 | 0 | 0.0 % | n/d | 0.902 / 0.829 | 10 / 26 | 22 / 30 | A1,A1,A1,A1,A2 | — | 2.5 | 63 KB |
+-
+-### Robustez: mix-12 con 5 semillas no usadas para calibrar
+-
+-| escenario | precisión | repetidos ≤3 | mezcla | cobertura (media/mín) | niveles | atraso final |
+-|---|---|---|---|---|---|---|
+-| mix-12@11 | 79.2 % | 0.0 % | 70.1 / 20.0 / 10.0 | 0.906 / 0.827 | A2,A2,A2,A2,B1 | 3 |
+-| mix-12@22 | 79.9 % | 0.0 % | 70.0 / 19.9 / 10.1 | 0.879 / 0.760 | A1,A2,A2,A2,B1 | 3 |
+-| mix-12@33 | 78.4 % | 0.0 % | 70.2 / 20.0 / 9.9 | 0.893 / 0.800 | A1,A2,A2,A2,B1 | 7 |
+-| mix-12@44 | 79.3 % | 0.0 % | 70.0 / 19.9 / 10.2 | 0.906 / 0.780 | A2,A2,A2,A2,B1 | 5 |
+-| mix-12@55 | 80.1 % | 0.0 % | 70.2 / 20.0 / 9.9 | 0.868 / 0.788 | A1,A2,A2,A2,B1 | 2 |
++| mix-12 | 77.8 % | 0/0 | 0 | 0.0 % | 70.1 / 20.1 / 9.9 | 1.000 / 1.000 | 3 / 5 | 6 / 9 | A1,A2,A2,A2,B1 | konnektoren:B1 deklination:A2 praepositionen:A2 artikel:A2 | 3.9 | 70 KB |
++| verben-20 | 79.6 % | 0/0 | 0 | 0.0 % | 70.3 / 19.4 / 10.3 | 1.000 / 1.000 | 2 / 5 | 2 / 12 | B1 | verben:A2>B1 | 2.6 | 126 KB |
++| konnektoren-12 | 82.7 % | 0/0 | 0 | 0.0 % | n/d | 1.000 / 1.000 | 2 / 4 | 3 / 7 | B1 | konnektoren:B1 | 0.7 | 43 KB |
++| mix-12-capA2 | 77.4 % | 0/0 | 0 | 0.0 % | n/d | 1.000 / 1.000 | 3 / 7 | 3 / 10 | A1,A2,A2,A2,A2 | artikel:A2 deklination:A2 praepositionen:A2 | 2.8 | 67 KB |
++| mix-12-weak | 65.6 % | 0/0 | 0 | 0.0 % | 69.8 / 20.6 / 9.5 | 1.000 / 1.000 | 13 / 28 | 27 / 28 | A1,A1,A1,A2,B1 | praepositionen:A2 konnektoren:B1 | 2.9 | 64 KB |
++| mix-12-3perday | 80.3 % | 0/0 | 0 | 0.0 % | 70.0 / 20.0 / 10.0 | 0.982 / 0.895 | 4 / 10 | 8 / 17 | B1,B1,B1,B1,B1 | konnektoren:B1 praepositionen:A2>B1 deklination:A2>B1 artikel:A2>B1 verben:A2>B1 | 3.0 | 177 KB |
++
++### Robustez: mix-12 con 10 semillas NUEVAS (101–110)
++
++etapa 2b: 10 semillas NUEVAS (las 11–55 se usaron para calibrar en la etapa 2 y para diseñar los arreglos 2b).
++
++| escenario | precisión | repetidos ≤3 | mezcla | cobertura (media/mín) | espera p95/máx | niveles | módulos A1 promovidos | atraso final/máx |
++|---|---|---|---|---|---|---|---|---|
++| mix-12@101 | 78.0 % | 0.0 % | 70.0 / 20.1 / 9.8 | 1.000 / 1.000 | 3 / 4 | A1,A2,A2,A2,B1 | 3 de 4 | 3 / 9 |
++| mix-12@102 | 78.1 % | 0.0 % | 70.3 / 19.9 / 9.8 | 1.000 / 1.000 | 3 / 5 | A1,A2,A2,A2,B1 | 3 de 4 | 2 / 9 |
++| mix-12@103 | 77.3 % | 0.0 % | 69.9 / 19.9 / 10.1 | 1.000 / 1.000 | 3 / 8 | A1,A2,A2,A2,B1 | 3 de 4 | 11 / 11 |
++| mix-12@104 | 77.3 % | 0.0 % | 70.0 / 20.0 / 10.1 | 1.000 / 1.000 | 4 / 7 | A1,A2,A2,A2,B1 | 3 de 4 | 1 / 9 |
++| mix-12@105 | 77.5 % | 0.0 % | 69.7 / 20.7 / 9.6 | 1.000 / 1.000 | 3 / 7 | A1,A2,A2,A2,B1 | 3 de 4 | 4 / 11 |
++| mix-12@106 | 77.6 % | 0.0 % | 69.9 / 19.9 / 10.3 | 1.000 / 1.000 | 3 / 5 | A1,A2,A2,A2,B1 | 3 de 4 | 6 / 8 |
++| mix-12@107 | 77.9 % | 0.0 % | 70.1 / 20.1 / 9.8 | 1.000 / 1.000 | 2 / 5 | A1,A2,A2,A2,B1 | 3 de 4 | 3 / 9 |
++| mix-12@108 | 78.0 % | 0.0 % | 69.9 / 20.0 / 10.0 | 1.000 / 1.000 | 3 / 7 | A1,A2,A2,A2,B1 | 3 de 4 | 1 / 9 |
++| mix-12@109 | 78.1 % | 0.0 % | 69.8 / 20.2 / 10.0 | 1.000 / 1.000 | 3 / 5 | A1,A2,A2,A2,B1 | 3 de 4 | 0 / 8 |
++| mix-12@110 | 77.8 % | 0.0 % | 70.1 / 20.1 / 9.8 | 1.000 / 1.000 | 3 / 8 | A1,A2,A2,A2,B1 | 3 de 4 | 1 / 10 |
++
++Distribución de la cobertura en las 10 semillas: media 1.000–1.000, mínimo 1.000–1.000. Umbral restaurado: media ≥ 0.9, mín ≥ 0.8.
++
++### Rescate de errores (3 sesiones/día)
++
++| variante | rescates | rescatados con <16 h | % |
++|---|---|---|---|
++| motor 2b (paso de aprendizaje + regla de 16 h) | 1088 | 0 | 0.0 % |
++| control: sólo regla de 16 h (sin paso de aprendizaje) | 1011 | 0 | 0.0 % |
++| control: comportamiento etapa 2 (sin ambos) | 1086 | 697 | 64.2 % |
++
++### Casi-aciertos del alumno (errata) y veredicto del evaluador
++
++| escenario | casi-aciertos | acaban «almost» | de ellos, por tipo |
++|---|---|---|---|
++| mix-12 | 153 de 532 fallos | 11 | lastletter: 11/146, umlaut: 0/7 |
++| verben-20 | 242 de 815 fallos | 0 | lastletter: 0/229, umlaut: 0/13 |
++| konnektoren-12 | 111 de 416 fallos | 20 | lastletter: 20/99, umlaut: 0/9, dassdas: 0/3 |
++| mix-12-capA2 | 153 de 542 fallos | 15 | lastletter: 15/144, umlaut: 0/6, dassdas: 0/3 |
++| mix-12-weak | 245 de 826 fallos | 25 | lastletter: 25/229, umlaut: 0/11, dassdas: 0/5 |
++| mix-12-3perday | 378 de 1416 fallos | 27 | lastletter: 27/346, dassdas: 0/10, umlaut: 0/22 |
++
++(«almost» sólo es posible en frases con una errata en una palabra larga; diéresis quitada y das↔dass son siempre «wrong».)
++
++### Alumno débil (estrés)
++
++| espera de error p95 / **máx** | atraso máx | atraso medio sesiones 101–150 | atraso medio sesiones 151–200 | tendencia (≤ +3) |
++|---|---|---|---|---|
++| 13 / **28** | 28 | 22.3 | 21.9 | -0.4 |
+ 
+ ### Control negativo
+ 
+-Sin memoria de sesiones (`memorySessions = 0`) los repetidos cercanos suben a **16.3 %** (con memoria: 0.0 %). Umbral ≤ 2.0 %: la métrica discrimina.
++Sin memoria de sesiones (`memorySessions = 0`) los repetidos cercanos suben a **18.9 %** (con memoria: 0.0 %). Umbral ≤ 2.0 %: la métrica discrimina.
+ 
+ ## Umbrales y su origen
+ 
++### Duros (a priori, sin excepciones)
++
+ | umbral | valor | origen | nota |
+ |---|---|---|---|
+ | duplicados / sobre tope / incompletas | 0 / 0 / 0 | **apriori** |  |
+ | repetidos cercanos new/future | ≤ 2.0 % | **apriori** | unidades new/future repetidas en ≤3 sesiones (relleno sin motivo didáctico) |
+ | mezcla actual/fácil/reto | 65–75 / 15–25 / 6–14 % | **apriori** | 70/20/10 ± 5/5/4 pp, sólo en módulos con nivel fácil y reto a la vez |
+-| cobertura (un módulo) | media ≥ 0.9, mín ≥ 0.8 | **apriori** | cobertura de casillas por ventana de 20 sesiones, un solo módulo |
+-| cobertura (mixto 5 módulos) | media ≥ 0.85, mín ≥ 0.7 | **relajado (era 0.90 / 0.80)** | 5 semillas dieron media .87–.91 y mín .76–.83: con 12 ítems/sesión sobre ~55 casillas hay ≈4.4 ítems por casilla y ventana |
++| rescatados con <16 h (3/día) | 0 | **apriori** | errores rescatados con <16 h desde el último fallo (escenario 3 sesiones/día) |
++| casi-aciertos que nunca son «almost»/«correct» | umlaut, dassdas | **apriori** | diéresis quitada y das↔dass nunca acaban como «almost» ni «correct»; «última letra» sólo puede ser «almost» en palabras ≥5 letras de frases |
+ | espera de error (típico) | p95 ≤ 6, máx ≤ 12 | **apriori** | sesiones hasta la primera reaparición de un error |
+ | atraso de errores (típico) | final ≤ 15, máx ≤ 30 | **apriori** |  |
+-| alumno débil | atraso máx ≤ 45; espera p95 ≤ 15 | **calibrado** | acotado, no creciente (alumno débil) |
++| tendencia del atraso (débil) | media 151–200 ≤ media 101–150 + 3 | **apriori** | no creciente: atraso medio en sesiones 151–200 ≤ el de 101–150 + 3 |
+ | rendimiento / estado | ≤ 15 ms/sesión; ≤ 1.5 MB | **apriori** |  |
+ | cambios de nivel por módulo | ≤ 3 | **apriori** | sin vaivén en 200 sesiones |
+-| progreso | ≥ 3 de 5 módulos ≥ A2 | **calibrado** | mix-12 típico: ≥3 de 5 módulos ≥A2 tras 200 sesiones |
++| control negativo (sin memoria) | repetidos ≥ 5.0 % | **apriori** | sin memoria el umbral de repetición DEBE romperse |
++
++### Restaurados / calibrados / relajados
++
++| umbral | valor | origen | nota |
++|---|---|---|---|
++| cobertura (un módulo) | media ≥ 0.9, mín ≥ 0.8 | **apriori** | cobertura de casillas por ventana de 20 sesiones, un solo módulo |
++| cobertura (mixto 5 módulos) | media ≥ 0.9, mín ≥ 0.8 | **apriori (restaurado)** | restaurado en 2b: la guarda anti-inanición (1 hueco/sesión para la casilla con >10 sesiones sin salir) lo cumple con holgura; 10 semillas nuevas dan 1.000/1.000 |
++| alumno débil: atraso y espera | atraso máx ≤ 45; espera p95 ≤ 15, máx ≤ 30 | **calibrado** | alumno débil = prueba de estrés |
++| progreso | ≥ 2 de 4 módulos que empiezan en A1 promovidos | **calibrado** | ≥2 de los 4 módulos que empiezan en A1 promovidos tras 200 sesiones (konnektoren empieza en A2 y no cuenta). Con el requisito «du/er» en verbos con cambio de vocal, verben tarda más de 200 sesiones en mix-12 |
+ | unidades nuevas por sesión | ≥ 1 | **calibrado** | unidades nuevas introducidas por sesión (mix-12 típico) |
++| control negativo 3/día | ≥ 20.0 % de rescates prematuros | **calibrado** | control negativo (sin paso de aprendizaje ni 16 h): ≥20 % de los rescates son prematuros; medido ≈62 % |
+ 
+ ## Lectura honesta
+ 
+-- **Duros (a priori, sin excepciones):** 0 duplicados, 0 ítems por encima del tope, 0 sesiones incompletas, mezcla 70/20/10 ±0.2 pp, sin vaivén de nivel.
+-- **Relajado tras medir:** la cobertura por ventana en el mixto de 5 módulos. Con 12 ítems/sesión reparte ≈4.4 ítems por casilla y ventana; las casillas pequeñas (p. ej. `konnektoren:ob`) a veces quedan fuera de una ventana de 20 sesiones. El peso del módulo ya incluye (nº casillas)^0.2 y el refuerzo por antigüedad es cuadrático; subir más el exponente frenaba el ascenso de verben/artikel.
+-- **Capacidad:** con 12 ítems/sesión el sistema introduce ≈1.3 unidades nuevas por sesión (cada unidad necesita ≈8–10 repasos); en 200 sesiones se tocan ~260 de 3 398 unidades. No es un fallo: es el límite del tamaño de sesión. Sesiones más largas o más módulos por día lo suben casi linealmente.
+-- **El alumno sintético es un modelo**, no un estudiante real: valida mecánica (repetición, cobertura, estabilidad), no eficacia pedagógica. Las cifras de precisión (≈80 %) dependen de sus parámetros.
++- **Duros:** 0 duplicados, 0 ítems por encima del tope, 0 sesiones incompletas, mezcla 70/20/10 dentro de ±5/5/4 pp, sin vaivén de nivel, 0 rescates con <16 h y ningún casi-acierto de diéresis o das↔dass acaba como «almost».
++- **Cobertura restaurada (0.90/0.80):** la guarda anti-inanición (1 hueco por sesión para la casilla alcanzable con >10 sesiones sin salir) hace que, en las 10 semillas nuevas, ninguna casilla alcanzable quede fuera de una ventana de 20 sesiones. Es un resultado de diseño (la guarda lo garantiza casi por construcción), no una prueba de que el reparto sin la guarda fuera bueno: con la guarda desactivada, la etapa 2 daba .87–.91 / .76–.83.
++- **Coste pedagógico de los arreglos en verben:** exigir ≥1 acierto en du/er_sie_es en los verbos con cambio de vocal/irregulares retrasa la promoción. En mix-12, verben sigue en A1 a las 200 sesiones en las 10 semillas nuevas (semilla de calibración: 27 de 30 unidades dominadas necesarias), mientras que en la etapa 2 llegaba a A2. En el escenario de un solo módulo (verben-20) sí asciende hasta B1. Es el efecto buscado del punto 5, pero hay que saber que existe.
++- **Casi-aciertos:** el 30 % de los fallos del alumno son erratas; la mayoría acaba como «wrong» a propósito (diéresis y das↔dass nunca son «almost»). «almost» sólo sale en frases con una errata en una palabra larga. Límite conocido: una errata de flexión en una palabra larga dentro de una frase («ich bleibt») sigue siendo «almost».
++- **Capacidad:** con 12 ítems/sesión el sistema introduce ≈1.3 unidades nuevas por sesión (cada unidad necesita ≈8–10 repasos). No es un fallo: es el límite del tamaño de sesión.
++- **El alumno sintético es un modelo**, no un estudiante real: valida mecánica (repetición, cobertura, estabilidad), no eficacia pedagógica. Las cifras de precisión (≈78 %) dependen de sus parámetros.
++- **API:** además de `saveError`, el planificador emite el aviso nuevo `ERRORS_NOT_READY` (repaso de errores con errores recién fallados, <1 h) y las entradas de sesión pueden llevar `guard: true` / la nota `STARVATION_GUARD`.
+ 
+-## Pruebas de mutación (las pruebas deben fallar si se rompe algo crítico)
++## Pruebas de mutación (etapa 2; no se repitieron en 2b)
+ 
+ Línea base sin mutar: 0 fallos. Cada mutación se aplicó sobre una copia y se corrió toda la suite:
+ 
+@@ -64,4 +117,4 @@
+ | scheduler: relleno sin hueco estricto (futureGap = 0) | 6 | SIM (5 escenarios + control) |
+ | scheduler: permite repetir unidad en la sesión | 6 | unitarias de unicidad + SIM |
+ 
+-Aviso: una mutación («sin memoria») sólo la detectan 2 pruebas; la memoria de sesiones está cubierta pero con menos redundancia que el resto.
++Aviso: una mutación («sin memoria») sólo la detectan 2 pruebas. En 2b cada punto lleva su prueba «falla antes / pasa después», comprobada ejecutando los tests nuevos contra el código de la etapa 2.
+--- sim/simulate.js	2026-11-18 02:56:41.670313332 +0100
++++ sim/simulate.js	2026-11-18 03:22:08.231729590 +0100
+@@ -13,6 +13,20 @@
+   return correct ? item.answer : '¿¿??';
+ }
+ 
++// Casi-aciertos: el 30 % de los fallos del alumno son errores «pequeños» (diéresis quitada, última letra quitada, das↔dass).
++// Sirven para medir cuántos errores reales acaban como «almost» (= sin entrar a la cola de errores).
++const NEAR_SHARE = 0.3;
++function nearMiss(item, rng) {
++  if (item.type === 'minimal-pair') return null;
++  const a = item.answer, ok = new Set(item.accept.map(x => DG.text.fold(x))), cand = [];
++  const add = (kind, text) => { if (text && !ok.has(DG.text.fold(text))) cand.push({ kind, text }); };
++  if (/[äöü]/.test(a)) add('umlaut', a.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u'));
++  const m = /^(.*?)([.!?]*)$/.exec(a);
++  if (m[1].length >= 3) add('lastletter', m[1].slice(0, -1) + m[2]);
++  if (/\bdass\b/.test(a)) add('dassdas', a.replace(/\bdass\b/, 'das')); else if (/\bdas\b/.test(a)) add('dassdas', a.replace(/\bdas\b/, 'dass'));
++  return cand.length ? cand[Math.floor(rng.next() * cand.length)] : null;
++}
++
+ // Alumno: k∈[0,1] por unidad, estabilidad S en días. Primer contacto según nivel; cada exposición refuerza.
+ function makeLearner(seed, params) {
+   const rng = DG.rng.create(seed ^ 0x9e3779b1);
+@@ -50,11 +64,18 @@
+ 
+ function pct(a, p) { if (!a.length) return 0; const s = a.slice().sort((x, y) => x - y); return s[Math.min(s.length - 1, Math.floor(p * s.length))]; }
+ 
++// Controles negativos: sc.srsConfig sobreescribe SRS.CFG sólo durante la corrida (se restaura siempre).
+ function runScenario(sc) {
++  const saved = Object.assign({}, DG.srs.CFG);
++  Object.assign(DG.srs.CFG, sc.srsConfig || {});
++  try { return runScenarioInner(sc); } finally { Object.keys(DG.srs.CFG).forEach(k => delete DG.srs.CFG[k]); Object.assign(DG.srs.CFG, saved); }
++}
++
++function runScenarioInner(sc) {
+   const { data, concepts } = loadAll();
+   const clock = { t: 1.7e12, now() { return this.t; } };
+   const storage = memStorage();
+-  const eng = DG.engine.createEngine({ data, concepts, storage, clock, rng: DG.rng.create(sc.seed) });
++  const eng = DG.engine.createEngine({ data, concepts, storage, clock, rng: DG.rng.create(sc.seed), config: sc.engineConfig });
+   if (sc.memorySessions != null) eng.state().settings.memorySessions = sc.memorySessions;
+   if (sc.cap) eng.setLevelCap(sc.cap);
+   const store = eng.store, Ramp = DG.ramp;
+@@ -67,8 +88,10 @@
+     fresh: { n: 0, repeat3: 0 }, allNonError: { n: 0, repeat2: 0 }, repeatAnyByBand: { '1-50': [0, 0], '51-100': [0, 0], '101-200': [0, 0] },
+     mandated: { due: 0, learning: 0, error: 0, new: 0, future: 0 },
+     bucket: { current: 0, easier: 0, up: 0, fallback: 0, error: 0 }, mixBase: { current: 0, easier: 0, up: 0 },
+-    firstAttempts: 0, firstOk: 0, retries: 0, byCls: {}, errWaits: [], errBacklog: [], buildMs: [], warnings: {}, shortfalls: 0
++    rescue: { n: 0, fast: 0 }, firstAttempts: 0, firstOk: 0, retries: 0, byCls: {}, errWaits: [], errBacklog: [], buildMs: [], warnings: {}, shortfalls: 0
+   };
++  const nmRng = DG.rng.create(sc.seed ^ 0x5bd1e995);
++  const near = { fails: 0, n: 0, byKind: {} };     // casi-aciertos del alumno y cómo los califica el motor
+   const lastSeen = new Map();         // id → sesión
+   const unitSeen = new Set();
+   const skillLast = new Map();        // skillId → sesión
+@@ -80,9 +103,13 @@
+   const warmup = 30, W = 20;
+   let winExpected = null;
+ 
++  // daysBetween: número (días entre inicios de sesión, 1 por defecto) o lista cíclica de huecos FRACCIONALES en días.
++  // p. ej. 3 sesiones/día separadas 20 min: [1 - 40/1440, 20/1440, 20/1440]. Los inicios son tiempos absolutos
++  // (no se acumula el tiempo de respuesta), así «20 min» es de inicio a inicio.
++  const gaps = Array.isArray(sc.daysBetween) ? sc.daysBetween : [sc.daysBetween || 1];
++  let startT = clock.t;
+   for (let s = 1; s <= sessions; s++) {
+-    // 1 sesión por día (por defecto)
+-    clock.t += (sc.daysBetween || 1) * DAY;
++    startT += gaps[(s - 1) % gaps.length] * DAY; clock.t = startT;
+     const t0 = process.hrtime.bigint();
+     const sess = eng.startSession({ kind: M.kind, modules: modules || undefined, size });
+     M.buildMs.push(Number(process.hrtime.bigint() - t0) / 1e6);
+@@ -130,9 +157,18 @@
+     while (!sess.done()) {
+       const e = sess.currentEntry(), it = sess.currentItem();
+       const ok = learner.answer(it, clock.t);
+-      const r = sess.answer(respond(it, ok), { mode: 'write' });
++      let resp = respond(it, ok), nm = null;
++      if (!ok && e.retry === 0) { near.fails++; if (nmRng.next() < NEAR_SHARE) { nm = nearMiss(it, nmRng); if (nm) resp = nm.text; } }
++      let r = sess.answer(resp, { mode: 'write' });
++      if (nm) {
++        const k = (near.byKind[nm.kind] = near.byKind[nm.kind] || { n: 0, almost: 0, wrong: 0, correct: 0 });
++        near.n++; k.n++; k[r.almost ? 'almost' : r.evaluation.verdict]++;
++        if (r.almost) r = sess.answer(respond(it, true), { mode: 'write' });   // el alumno corrige la errata en el reintento
++      }
++      if (r.rescued) { M.rescue.n++; const pe = before[it.id]; if (pe && clock.t - pe.ts < 16 * 3600000) M.rescue.fast++; }   // «rescatado» con <16 h desde el fallo
+       if (e.retry === 0) { M.firstAttempts++; if (ok) M.firstOk++; const b = (M.byCls[e.cls] = M.byCls[e.cls] || [0, 0]); b[1]++; if (ok) b[0]++; } else M.retries++;
+-      if (e.retry === 0 && !ok && !errEnter.has(it.id) && !before[it.id]) errEnter.set(it.id, s);
++      // el error «entra» sólo si el motor lo guardó (un casi-acierto corregido en el reintento NO entra a la cola)
++      if (e.retry === 0 && eng.state().errors[it.id] && !errEnter.has(it.id) && !before[it.id]) errEnter.set(it.id, s);
+       clock.t += 15000;
+     }
+     const sm = sess.finish();
+@@ -162,7 +198,7 @@
+   });
+   const mixTot = M.mixBase.current + M.mixBase.easier + M.mixBase.up;
+   const out = {
+-    rampFinal: rampFinal,
++    rampFinal: rampFinal, rescue: M.rescue, near: near,
+     scenario: sc.name, sessions, size, kind: M.kind, modules: modules || store.modules(), cap: sc.cap || 'B1', seed: sc.seed, memorySessions: eng.state().settings.memorySessions,
+     slots: M.slots, dupItem: M.dupItem, dupUnit: M.dupUnit, capViolations: M.capViolations,
+     freshRepeat3: M.fresh.n ? M.fresh.repeat3 / M.fresh.n : 0, freshN: M.fresh.n,
+@@ -174,7 +210,7 @@
+     accuracy: M.firstAttempts ? M.firstOk / M.firstAttempts : null, firstAttempts: M.firstAttempts,
+     accuracyByClass: Object.fromEntries(Object.entries(M.byCls).map(([k, v]) => [k, { n: v[1], acc: v[0] / v[1] }])),
+     freshBy: M.freshBy, errWait: { n: M.errWaits.length, mean: M.errWaits.length ? M.errWaits.reduce((a, b) => a + b, 0) / M.errWaits.length : 0, p95: pct(M.errWaits, 0.95), max: Math.max(0, ...M.errWaits) },
+-    errBacklog: { max: Math.max(0, ...M.errBacklog), final: M.errBacklog[M.errBacklog.length - 1], mean: M.errBacklog.reduce((a, b) => a + b, 0) / M.errBacklog.length },
++    errBacklog: { series: M.errBacklog.slice(), max: Math.max(0, ...M.errBacklog), final: M.errBacklog[M.errBacklog.length - 1], mean: M.errBacklog.reduce((a, b) => a + b, 0) / M.errBacklog.length },
+     skillGap: { n: skillGaps.length, mean: skillGaps.length ? skillGaps.reduce((a, b) => a + b, 0) / skillGaps.length : 0, p95: pct(skillGaps, 0.95), max: Math.max(0, ...skillGaps) },
+     windowCoverage: { n: windows.length, mean: windows.length ? windows.reduce((a, w) => a + w.frac, 0) / windows.length : 1, min: windows.length ? Math.min(...windows.map(w => w.frac)) : 1, worst: windows.slice().sort((a, b) => a.frac - b.frac)[0] || null },
+     levels, levelTrace, unitCoverage: unitCov,
+@@ -190,7 +226,9 @@
+   { name: 'verben-20', seed: 20260102, sessions: 200, size: 20, modules: ['verben'] },
+   { name: 'konnektoren-12', seed: 20260103, sessions: 200, size: 12, modules: ['konnektoren'] },
+   { name: 'mix-12-capA2', seed: 20260104, sessions: 200, size: 12, cap: 'A2' },
+-  { name: 'mix-12-weak', seed: 20260105, sessions: 200, size: 12, learner: 'weak' }
++  { name: 'mix-12-weak', seed: 20260105, sessions: 200, size: 12, learner: 'weak' },
++  // 3 sesiones por día separadas 20 min (600 sesiones = 200 días). Métrica clave: rescatados con <16 h desde el fallo = 0.
++  { name: 'mix-12-3perday', seed: 20260106, sessions: 600, size: 12, daysBetween: [1 - 40 / 1440, 20 / 1440, 20 / 1440] }
+ ];
+ 
+ module.exports = { runScenario, SCENARIOS, makeLearner };
+--- sim/thresholds.js	2026-11-18 02:56:41.670326657 +0100
++++ sim/thresholds.js	2026-11-18 03:22:55.386255175 +0100
+@@ -7,17 +7,21 @@
+   freshRepeat3: { max: 0.02, origin: 'apriori', note: 'unidades new/future repetidas en ≤3 sesiones (relleno sin motivo didáctico)' },
+   mix: { current: [0.65, 0.75], easier: [0.15, 0.25], up: [0.06, 0.14], origin: 'apriori', note: '70/20/10 ± 5/5/4 pp, sólo en módulos con nivel fácil y reto a la vez' },
+   coverageSingle: { mean: 0.90, min: 0.80, origin: 'apriori', note: 'cobertura de casillas por ventana de 20 sesiones, un solo módulo' },
+-  coverageMixed: { mean: 0.85, min: 0.70, origin: 'relajado', was: { mean: 0.90, min: 0.80 },
+-    note: '5 semillas dieron media .87–.91 y mín .76–.83: con 12 ítems/sesión sobre ~55 casillas hay ≈4.4 ítems por casilla y ventana' },
++  coverageMixed: { mean: 0.90, min: 0.80, origin: 'apriori (restaurado)', was: { mean: 0.85, min: 0.70, note: 'relajado en la etapa 2 tras medir .87–.91 / .76–.83' },
++    note: 'restaurado en 2b: la guarda anti-inanición (1 hueco/sesión para la casilla con >10 sesiones sin salir) lo cumple con holgura; 10 semillas nuevas dan 1.000/1.000' },
+   errWaitTypical: { p95: 6, max: 12, origin: 'apriori', note: 'sesiones hasta la primera reaparición de un error' },
+   errWaitWeak: { p95: 15, max: 30, origin: 'calibrado', note: 'alumno débil = prueba de estrés' },
+   backlogTypical: { final: 15, max: 30, origin: 'apriori' },
+-  backlogWeak: { max: 45, origin: 'calibrado', note: 'acotado, no creciente (alumno débil)' },
++  backlogWeak: { max: 45, origin: 'calibrado', note: 'acotado (alumno débil)' },
++  backlogWeakTrend: { slack: 3, early: [101, 150], late: [151, 200], origin: 'apriori', note: 'no creciente: atraso medio en sesiones 151–200 ≤ el de 101–150 + 3' },
+   perf: { buildMeanMs: 15, origin: 'apriori' },
+   stateBytes: { max: 1.5 * 1024 * 1024, origin: 'apriori' },
+   levelChangesPerModule: { max: 3, origin: 'apriori', note: 'sin vaivén en 200 sesiones' },
+-  progress: { modulesAtLeastA2: 3, of: 5, origin: 'calibrado', note: 'mix-12 típico: ≥3 de 5 módulos ≥A2 tras 200 sesiones' },
++  progress: { promotedAtLeast: 2, of: ['verben', 'artikel', 'deklination', 'praepositionen'], origin: 'calibrado', note: '≥2 de los 4 módulos que empiezan en A1 promovidos tras 200 sesiones (konnektoren empieza en A2 y no cuenta). Con el requisito «du/er» en verbos con cambio de vocal, verben tarda más de 200 sesiones en mix-12' },
+   newPerSession: { min: 1.0, origin: 'calibrado', note: 'unidades nuevas introducidas por sesión (mix-12 típico)' },
+   negativeControl: { memorySessions: 0, freshRepeat3Min: 0.05, origin: 'apriori', note: 'sin memoria el umbral de repetición DEBE romperse' },
+-  seeds: [11, 22, 33, 44, 55]
++  nearMiss: { neverAlmost: ['umlaut', 'dassdas'], origin: 'apriori', note: 'diéresis quitada y das↔dass nunca acaban como «almost» ni «correct»; «última letra» sólo puede ser «almost» en palabras ≥5 letras de frases' },
++  rescueFast: { max: 0, origin: 'apriori', note: 'errores rescatados con <16 h desde el último fallo (escenario 3 sesiones/día)' },
++  rescueFastControl: { shareMin: 0.2, origin: 'calibrado', note: 'control negativo (sin paso de aprendizaje ni 16 h): ≥20 % de los rescates son prematuros; medido ≈62 %' },
++  seeds: [101, 102, 103, 104, 105, 106, 107, 108, 109, 110], seedsNote: 'etapa 2b: 10 semillas NUEVAS (las 11–55 se usaron para calibrar en la etapa 2 y para diseñar los arreglos 2b)'
+ };
+--- src/dg-engine.js	2026-11-18 02:56:41.670365603 +0100
++++ src/dg-engine.js	2026-11-18 03:16:22.780205128 +0100
+@@ -9,7 +9,8 @@
+   }
+   var Items = DG.items, Ev = DG.evaluator, SRS = DG.srs, R = DG.ramp, P = DG.progress, Sch = DG.scheduler;
+ 
+-  var CFG = { maxRetries: 2, retryGap: 3, almostAllowance: 1, ewmaAlpha: 0.1 };
++  var CFG = { maxRetries: 2, retryGap: 3, retryMinBehind: 2, almostAllowance: 1, ewmaAlpha: 0.1,
++    rescueMinMs: 16 * 3600000 };   // un error sólo se rescata si han pasado ≥16 h desde el último fallo
+ 
+   function createEngine(opts) {
+     opts = opts || {};
+@@ -38,12 +39,8 @@
+       req = req || {};
+       var st = state();
+       var plan = Sch.buildSession({ store: store, state: st, rng: rng, now: clock.now(), cfg: opts.schedulerConfig }, req);
+-      // Confirmar: contador, restos de rampa y entrada de historial (los ids se añaden al contestar).
+-      st.sessionCounter = plan.sessionNo;
+-      Object.keys(plan.carry).forEach(function (m) { R.moduleRamp(st, m).carry = plan.carry[m]; });
+-      st.history.push({ n: plan.sessionNo, ts: clock.now(), kind: plan.kind, modules: Array.from(new Set(plan.items.map(function (e) { return e.module; }))), ids: [] });
+-      if (st.history.length > P.HISTORY_MAX) st.history.splice(0, st.history.length - P.HISTORY_MAX);
+-      progress.save();
++      // Abrir NO escribe nada: contador, restos de rampa e historial se confirman en la 1.ª respuesta (o giveUp).
++      // Así una sesión abierta y cerrada sin responder no deja rastro ni degrada la memoria de sesiones.
+       return makeSession(plan, req);
+     };
+ 
+@@ -51,52 +48,78 @@
+       var st = state();
+       var mode = req.mode || st.settings.mode || 'touch';
+       var queue = plan.items.map(function (e) { return Object.assign({ retry: 0, almostUsed: 0 }, e); });
+-      var index = 0, finished = false;
++      var index = 0, finished = false, committed = false, sessionNo = plan.sessionNo, saveError = null, viewCache = null;
+       var log = [];            // un registro por PRIMER intento
+       var rescued = [], newUnits = {}, modulesTouched = {};
+-      var S = { id: plan.sessionNo, kind: plan.kind, plan: plan, warnings: plan.warnings, notes: plan.notes, composition: plan.composition };
++      var S = { id: sessionNo, kind: plan.kind, plan: plan, warnings: plan.warnings, notes: plan.notes, composition: plan.composition };
+ 
+       S.length = function () { return queue.length; };
+       S.position = function () { return index; };
+       S.done = function () { return index >= queue.length; };
+       S.currentEntry = function () { return index < queue.length ? queue[index] : null; };
+       S.currentItem = function () { var e = S.currentEntry(); return e ? store.byId[e.id] : null; };
++      // La vista se cachea por posición de cola (y modo): llamar dos veces no vuelve a barajar fichas/opciones.
+       S.view = function (m) {
+         var it = S.currentItem(); if (!it) return null;
+-        var v = Items.view(it, m || mode, rng);
++        var md = m || mode;
++        if (viewCache && viewCache.index === index && viewCache.mode === md) return viewCache.v;
++        var v = Items.view(it, md, rng);
+         var e = S.currentEntry(); v.retry = e.retry; v.bucket = e.bucket; v.cls = e.cls;
++        viewCache = { index: index, mode: md, v: v };
+         return v;
+       };
++      function save() { var r = progress.save(); if (!r || !r.ok) saveError = (r && r.error) || 'save'; else saveError = null; return saveError; }
++      // Reintento en sesión sólo si queda margen: con <retryMinBehind ítems por detrás se vería enseguida (no es repaso).
++      function canRetry(e, it) { return e.retry < cfg.maxRetries && R.allowed(st.settings, it.module, it.level) && queue.length - index - 1 >= cfg.retryMinBehind; }
++
++      // Confirmación diferida: contador, restos de rampa y entrada de historial (los ids se añaden al contestar).
++      // Si otra sesión abierta después ya confirmó (contador ≥ nuestro número), se toma el siguiente libre.
++      function commit() {
++        if (committed) return;
++        committed = true;
++        sessionNo = Math.max(plan.sessionNo, st.sessionCounter + 1); S.id = sessionNo;
++        st.sessionCounter = sessionNo;
++        Object.keys(plan.carry).forEach(function (m) { R.moduleRamp(st, m).carry = plan.carry[m]; });
++        st.history.push({ n: sessionNo, ts: clock.now(), kind: plan.kind, modules: Array.from(new Set(plan.items.map(function (e) { return e.module; }))), ids: [] });
++        if (st.history.length > P.HISTORY_MAX) st.history.splice(0, st.history.length - P.HISTORY_MAX);
++      }
+ 
+       function recordFirst(it, e, correct, usedAlmost) {
+         var now = clock.now();
+         // historial (memoria del randomizador)
+         var h = st.history[st.history.length - 1];
+-        if (h && h.n === plan.sessionNo) h.ids.push(it.id);
++        if (h && h.n === sessionNo) h.ids.push(it.id);
+         // ítem
+         var is = st.items[it.id] || (st.items[it.id] = { a: 0, f: 0, ls: 0, lr: 1 });
+-        is.a++; if (!correct) is.f++; is.ls = plan.sessionNo; is.lr = correct ? 1 : 0;
++        is.a++; if (!correct) is.f++; is.ls = sessionNo; is.lr = correct ? 1 : 0;
+         // unidad SRS (calificación SOLO del primer intento)
+         var before = st.units[it.unit];
+         st.units[it.unit] = SRS.update(before, SRS.gradeFor(correct ? 'correct' : 'wrong', usedAlmost, false), now, rng);
+         if (correct && (!before || before.s === 'l')) { newUnits[it.unit] = true; st.stats.learned++; }
++        // verbos con cambio de vocal / irregulares: marca por unidad de que ya se acertó una persona difícil (du / er_sie_es)
++        var ui = store.unitInfo[it.unit];
++        if (correct && ui && ui.hard && (it.person === 'du' || it.person === 'er_sie_es')) st.units[it.unit].hp = true;
+         // habilidad (EWMA; media simple mientras hay pocos datos)
+         var sk = st.skills[it.skillId] || (st.skills[it.skillId] = { n: 0, acc: 0, ls: 0 });
+         var x = correct ? 1 : 0, a = Math.max(cfg.ewmaAlpha, 1 / (sk.n + 1));
+-        sk.acc = sk.n === 0 ? x : sk.acc + a * (x - sk.acc); sk.n++; sk.ls = plan.sessionNo;
++        sk.acc = sk.n === 0 ? x : sk.acc + a * (x - sk.acc); sk.n++; sk.ls = sessionNo;
+         // mapa de errores por etiqueta
+         if (it.errorTag) {
+           var tg = st.tags[it.errorTag] || (st.tags[it.errorTag] = { n: 0, f: 0, ls: 0 });
+-          tg.n++; if (!correct) tg.f++; tg.ls = plan.sessionNo;
++          tg.n++; if (!correct) tg.f++; tg.ls = sessionNo;
+         }
+-        // cola de errores: todo fallo entra; sale al acertar en una sesión POSTERIOR
++        // cola de errores: todo fallo entra; sale al acertar cuando han pasado ≥ rescueMinMs (16 h) desde el último fallo.
++        // Un acierto anterior cuenta para el SRS pero el error sigue en la cola (se actualiza ls, no f ni ts).
+         var res = { rescued: false };
+         if (!correct) {
+           var prev = st.errors[it.id];
+-          st.errors[it.id] = { s: prev ? prev.s : plan.sessionNo, ls: plan.sessionNo, f: (prev ? prev.f : 0) + 1, ts: now };
+-        } else if (st.errors[it.id] && st.errors[it.id].ls < plan.sessionNo) {
+-          res.rescued = true; res.fails = st.errors[it.id].f;
+-          delete st.errors[it.id]; st.stats.rescued++; rescued.push(it.id);
++          st.errors[it.id] = { s: prev ? prev.s : sessionNo, ls: sessionNo, f: (prev ? prev.f : 0) + 1, ts: now };
++        } else if (st.errors[it.id]) {
++          var er = st.errors[it.id];
++          if (now - (er.ts || 0) >= cfg.rescueMinMs) {
++            res.rescued = true; res.fails = er.f;
++            delete st.errors[it.id]; st.stats.rescued++; rescued.push(it.id);
++          } else er.ls = sessionNo;
+         }
+         // rampa: registro por módulo y nivel
+         R.record(st, it.module, it.level, correct, !!before && before.n > 0);
+@@ -119,18 +142,19 @@
+           ev.verdict = 'wrong'; ev.correct = false; ev.notes = (ev.notes || []).concat('almost-exhausted');
+         }
+         var correct = ev.verdict === 'correct';
++        commit();
+         if (e.retry === 0) {
+           var r = recordFirst(it, e, correct, e.almostUsed > 0);
+           out.rescued = r.rescued; out.fails = r.fails;
+         }
+-        if (!correct && e.retry < cfg.maxRetries && R.allowed(st.settings, it.module, it.level)) {
++        if (!correct && canRetry(e, it)) {
+           // reintento del MISMO error dentro de la sesión, unos ítems más adelante
+           var pos = Math.min(queue.length, index + 1 + cfg.retryGap);
+           queue.splice(pos, 0, Object.assign({}, e, { retry: e.retry + 1, almostUsed: 0, bucket: 'retry', cls: 'retry' }));
+           out.retryScheduled = true;
+         }
+         index++;
+-        progress.save();
++        if (save()) out.saveError = saveError;
+         if (S.done()) { out.finished = true; }
+         return out;
+       };
+@@ -139,39 +163,45 @@
+       S.giveUp = function () {
+         var e = S.currentEntry(); if (!e) throw new Error('sin ítem actual');
+         var it = store.byId[e.id];
++        commit();
+         if (e.retry === 0) recordFirst(it, e, false, false);
+-        if (e.retry < cfg.maxRetries && R.allowed(st.settings, it.module, it.level)) {
++        if (canRetry(e, it)) {
+           queue.splice(Math.min(queue.length, index + 1 + cfg.retryGap), 0, Object.assign({}, e, { retry: e.retry + 1, almostUsed: 0, bucket: 'retry', cls: 'retry' }));
+         }
+-        index++; progress.save();
+-        return { finished: S.done() };
++        index++;
++        var out = { finished: S.done() };
++        if (save()) out.saveError = saveError;
++        return out;
+       };
+ 
+       /* finish(): evalúa la rampa por módulo y cierra la sesión (idempotente). */
+       S.finish = function () {
+         if (finished) return S.summary();
+         finished = true;
++        if (!committed) { S._levelChanges = []; return S.summary(); }    // abierta y cerrada sin responder: no deja rastro
+         var changes = [];
+         Object.keys(modulesTouched).forEach(function (m) {
+-          var r = R.evaluate(st, store, m, plan.sessionNo);
++          var r = R.evaluate(st, store, m, sessionNo);
+           if (r.change) changes.push({ module: m, change: r.change, from: r.from, to: r.to, acc: r.acc });
+         });
+         st.stats.sessions++;
+         S._levelChanges = changes;
+-        progress.save();
++        save();
+         return S.summary();
+       };
+ 
+       S.summary = function () {
+         var n = log.length, ok = log.filter(function (l) { return l.correct; }).length, byTag = {};
+         log.forEach(function (l) { if (!l.correct && l.errorTag) byTag[l.errorTag] = (byTag[l.errorTag] || 0) + 1; });
+-        return {
+-          sessionNo: plan.sessionNo, answered: n, correct: ok, accuracy: n ? ok / n : null,
++        var sm = {
++          sessionNo: sessionNo, answered: n, correct: ok, accuracy: n ? ok / n : null,
+           newUnits: Object.keys(newUnits).length,         // «hoy aprendiste X que ayer no sabías»
+           rescued: rescued.slice(),                       // «rescataste una palabra que fallabas»
+           failed: log.filter(function (l) { return !l.correct; }).map(function (l) { return l.id; }),
+           errorsByTag: byTag, levelChanges: S._levelChanges || [], log: log.slice()
+         };
++        if (saveError) sm.saveError = saveError;
++        return sm;
+       };
+       return S;
+     }
+--- src/dg-evaluator.js	2026-11-18 02:56:41.670378959 +0100
++++ src/dg-evaluator.js	2026-11-18 03:16:22.778719033 +0100
+@@ -7,9 +7,12 @@
+  *   L0 igualdad exacta (NFC)            L1 mayúsculas/espacios («case»)
+  *   L2 sin puntuación final             L3 sin puntuación («punctuation»; coma/punto)
+  *   L4 equivalencia de teclado ae/oe/ue/ss ↔ ä/ö/ü/ß («translit»)
+- * Sólo ítems de clase 'typo' (frases transform/order y plurales de sustantivos) pueden dar 'almost'
+- * (diéresis perdida o 1–2 erratas). Las formas cerradas (den/dem, fährt/fahrt, mit/bei, terminaciones)
+- * son 'none': jamás se perdona una letra, porque esa letra ES lo que se practica.
++ * Sólo ítems de clase 'typo' (frases transform/order) pueden dar 'almost', y SÓLO por una errata real:
++ * tokenizando, mismo nº de palabras, como mucho 1 palabra distinta, de ≥5 letras, OSA ≤1, que no sea
++ * una diéresis perdida y que ninguna de las dos formas esté en CLOSED (artículos/determinantes, pronombres,
++ * das/dass, wenn/wen…). Las formas cerradas (den/dem, fährt/fahrt, mit/bei, terminaciones) y los plurales de
++ * sustantivos son 'none': jamás se perdona una letra, porque esa letra ES lo que se practica.
++ * Diéresis perdida = wrong en todas las clases (ae/oe/ue/ss sigue siendo correct, por teclado).
+  *
+  * Sinónimos = lo que el dato lista en accept[]. Se respeta accept[] y multi_ok (todas valen igual).
+  */
+@@ -21,10 +24,52 @@
+ 
+   function toleranceOf(item) {
+     if (item.type === 'transform' || item.type === 'order') return 'typo';
+-    if (item.module === 'artikel' && item.skill === 'plural') return 'typo';
+     return 'none';
+   }
+ 
++  // Lista cerrada: palabras funcionales cuya «errata» es en realidad OTRA palabra (otro caso, otra función).
++  var CLOSED = (function () {
++    var w = Object.create(null);
++    function add(list) { list.split(/\s+/).forEach(function (x) { if (x) w[x] = true; }); }
++    // artículos y determinantes declinados
++    add('der die das den dem des ein eine einen einem einer eines kein keine keinen keinem keiner keines');
++    add('dieser diese dieses diesen diesem jener jene jenes jenen jenem jeder jede jedes jeden jedem welcher welche welches welchen welchem');
++    add('alle allen aller alles manche manchen mancher manches einige einigen einiger viele vielen vieler mehrere mehreren');
++    // pronombres personales y reflexivo, todos los casos
++    add('ich mich mir du dich dir er ihn ihm es sie ihr ihnen wir uns euch sich man');
++    // posesivos en todos los casos (mein-, dein-, sein-, ihr-, unser-, euer-/eur-)
++    ['mein', 'dein', 'sein', 'ihr', 'unser', 'eur'].forEach(function (st) {
++      w[st] = true; ['e', 'en', 'em', 'er', 'es'].forEach(function (e) { w[st + e] = true; });
++    });
++    w.euer = true;
++    // parejas que sólo se distinguen por una letra y son palabras distintas
++    add('das dass wenn wen wann denn den dann als ob also oder weil weit wieder wider seit seid');
++    return w;
++  })();
++
++  function letterCount(s) { return (s.match(/\p{L}/gu) || []).length; }
++
++  // ¿Las dos frases (ya normalizadas: minúsculas, sin puntuación) difieren en UNA sola palabra por una errata real?
++  function wordTypo(an, rn) {
++    var aw = an.split(' '), rw = rn.split(' ');
++    if (aw.length !== rw.length) return false;
++    var idx = -1;
++    for (var i = 0; i < aw.length; i++) if (aw[i] !== rw[i]) { if (idx >= 0) return false; idx = i; }
++    if (idx < 0) return false;
++    var ew = aw[idx], x = rw[idx];
++    if (letterCount(ew) < 5) return false;
++    if (CLOSED[ew] || CLOSED[x]) return false;
++    if (T.dropUmlaut(ew) === T.dropUmlaut(x)) return false;   // diéresis perdida (o añadida) = error
++    return T.osa(ew, x) <= 1;
++  }
++
++  // Distractores conocidos: las options y, en plurales de sustantivos, el lema (singular).
++  function distractorsOf(item) {
++    var d = item.options.slice();
++    if (item.module === 'artikel' && item.skill === 'plural' && item.lemma) d.push(item.lemma);
++    return d;
++  }
++
+   function collapse(s) { return T.nfc(s).replace(/\s+/g, ' ').trim(); }
+   function canonSentence(s) { return T.stripPunct(T.translit(s)); }
+ 
+@@ -83,12 +128,7 @@
+       var rn = T.normSentence(r);
+       for (i = 0; i < accepts.length; i++) {
+         a = accepts[i];
+-        var an = T.normSentence(a);
+-        if (T.dropUmlaut(an) === T.dropUmlaut(rn) && an !== rn) return { verdict: 'almost', matched: a, notes: ['diacritic'] };
+-        var allowed = an.length < 5 ? 0 : (an.length < 25 ? 1 : 2);
+-        if (allowed && Math.abs(an.length - rn.length) <= allowed && T.osa(an, rn) <= allowed) {
+-          return { verdict: 'almost', matched: a, notes: ['typo'] };
+-        }
++        if (wordTypo(T.normSentence(a), rn)) return { verdict: 'almost', matched: a, notes: ['typo'] };
+       }
+     }
+     return { verdict: 'wrong', matched: null, notes: [] };
+@@ -137,13 +177,14 @@
+         parts: parts, response: rsp, tolerance: 'none' };
+     }
+ 
+-    var text = Array.isArray(response) ? T.joinTiles(response) : (response == null ? '' : String(response));
++    // Fichas de orden: se unen con espacios (la puntuación se pega). Letras sueltas (input 'letters'): sin espacios.
++    var text = Array.isArray(response) ? (item.type === 'order' ? T.joinTiles(response) : response.map(String).join('')) : (response == null ? '' : String(response));
+     var tol = toleranceOf(item);
+     var accepts = item.accept.length ? item.accept : [item.answer];
+ 
+     if (mode === 'touch') {
+       var out;
+-      if (item.type === 'order' || Array.isArray(response)) {
++      if (item.type === 'order') {
+         // En fichas la puntuación es una ficha: se compara con la solución tal cual (sin perdonar comas).
+         var ok = accepts.some(function (a) { return T.fold(a) === T.fold(text); });
+         var m = ok ? accepts.filter(function (a) { return T.fold(a) === T.fold(text); })[0] : null;
+@@ -152,14 +193,17 @@
+         var nn = T.nfc(text).trim();
+         var hit = accepts.filter(function (a) { return T.nfc(a) === nn; })[0];
+         out = { verdict: hit !== undefined ? 'correct' : 'wrong', matched: hit !== undefined ? hit : null, notes: [] };
+-        if (hit === undefined && item.options.indexOf(nn) >= 0) { out.notes.push('distractor'); out.distractor = nn; }
++        if (hit === undefined) {
++          var dn = distractorsOf(item).filter(function (o) { return T.fold(o) === T.fold(nn); })[0];
++          if (dn !== undefined) { out.notes.push('distractor'); out.distractor = dn; }
++        }
+       }
+       var res = finish(item, out, response);
+       if (Array.isArray(response)) res.tileDiff = tileDiff(item, response);
+       return res;
+     }
+ 
+-    var r = evalText(accepts, text, tol, opts, item.options);
++    var r = evalText(accepts, text, tol, opts, distractorsOf(item));
+     var fin = finish(item, r, response);
+     if (Array.isArray(response)) fin.tileDiff = tileDiff(item, response);
+     return fin;
+--- src/dg-items.js	2026-11-18 02:56:41.670391668 +0100
++++ src/dg-items.js	2026-11-18 03:16:22.778100019 +0100
+@@ -33,25 +33,55 @@
+     };
+   }
+ 
++  /* ---- verbos: ¿alguna forma du/er se aparta de la regular? (cambio de vocal, irregular) ----
++   * Se compara la forma finita (1.ª palabra de la respuesta; el prefijo separable queda al final) con la que
++   * saldría de añadir las terminaciones regulares a la raíz del infinitivo. */
++  function verbFormInfo(lemma, answer) {
++    var base = String(lemma).replace(/^sich\s+/, '').trim().toLowerCase();
++    var words = String(answer == null ? '' : answer).trim().toLowerCase().split(/\s+/), particle = '';
++    if (words.length > 1) { var last = words[words.length - 1]; if (base.indexOf(last) === 0 && base.length > last.length) particle = last; }
++    var inf = particle ? base.slice(particle.length) : base;
++    return { finite: words[0], inf: inf, stem: /en$/.test(inf) ? inf.slice(0, -2) : (/n$/.test(inf) ? inf.slice(0, -1) : inf) };
++  }
++  function regularForms(skill, person, stem) {
++    if (skill === 'praesens') return person === 'du' ? [stem + 'st', stem + 'est', stem + 't'] : [stem + 't', stem + 'et'];
++    return person === 'du' ? [stem + 'test', stem + 'etest'] : [stem + 'te', stem + 'ete'];
++  }
++  // arr: ítems de UNA unidad praesens/praeteritum. → {hard, infIds}
++  function verbUnitInfo(arr) {
++    var hard = false, infIds = Object.create(null);
++    arr.forEach(function (it) {
++      var f = verbFormInfo(it.lemma || '', it.answer);
++      if (it.person === 'du' || it.person === 'er_sie_es') { if (regularForms(it.skill, it.person === 'du' ? 'du' : 'er', f.stem).indexOf(f.finite) < 0) hard = true; }
++      if (f.finite === f.inf) infIds[it.id] = true;
++    });
++    return { hard: hard, infIds: infIds };
++  }
++
+   function toArray(x) { return Array.isArray(x) ? x.slice() : []; }
+ 
+   function normalizeItem(raw) {
++    // Todo texto del contenido se normaliza a NFC (nunca NFD); si algo cambió se anota para que el validador avise.
++    var fixed = false;
++    function nf(s) { if (typeof s !== 'string') return s; var t = T.nfc(s); if (t !== s) fixed = true; return t; }
++    function nfa(a) { return toArray(a).map(nf); }
++    function nfp(p) { return p && typeof p === 'object' ? Object.assign({}, p, { prompt: nf(p.prompt), question: nf(p.question), answer: nf(p.answer), accept: nfa(p.accept) }) : p; }
+     var it = {
+       id: raw.id, module: raw.module, level: raw.level, lrank: levelRank(raw.level),
+       type: raw.type, skill: raw.skill, pool: raw.pool,
+       poolId: raw.module + ':' + raw.pool,
+       skillId: raw.module + ':' + raw.skill,
+-      prompt: raw.prompt, hint: raw.hint || '', translation: raw.translation || '', explanation: raw.explanation || '',
+-      answer: raw.answer == null ? null : raw.answer,
+-      accept: toArray(raw.accept), options: toArray(raw.options), tiles: toArray(raw.tiles),
+-      lemma: raw.lemma || null, errorTag: raw.errorTag || null,
++      prompt: nf(raw.prompt), hint: nf(raw.hint || ''), translation: nf(raw.translation || ''), explanation: nf(raw.explanation || ''),
++      answer: raw.answer == null ? null : nf(raw.answer),
++      accept: nfa(raw.accept), options: nfa(raw.options), tiles: nfa(raw.tiles),
++      lemma: raw.lemma ? nf(raw.lemma) : null, errorTag: raw.errorTag || null,
+       conceptIds: toArray(raw.conceptIds),
+       multiOk: !!raw.multi_ok, impersonal: !!raw.impersonal, needsTranslation: !!raw.needs_translation,
+       pairId: raw.pairId || null, source: raw.source || null,
+       sense: '', person: null
+     };
+     if (raw.type === 'minimal-pair') {
+-      it.wo = raw.wo; it.wohin = raw.wohin; it.prep = raw.prep || null;
++      it.wo = nfp(raw.wo); it.wohin = nfp(raw.wohin); it.prep = raw.prep ? nf(raw.prep) : null;
+       it.answer = null; it.accept = [];
+     }
+     if (raw.module === 'verben') {
+@@ -60,6 +90,7 @@
+     }
+     // Familia: un par mínimo y sus dos casos sueltos comparten familia.
+     it.family = raw.type === 'minimal-pair' ? raw.id : (raw.pairId || null);
++    it.nfcFixed = fixed;
+     // Unidad de repaso.
+     if ((raw.module === 'verben' || raw.module === 'artikel') && raw.lemma) {
+       it.unit = raw.module + '|' + raw.lemma + (it.sense ? '(' + it.sense + ')' : '') + '|' + raw.skill;
+@@ -86,7 +117,11 @@
+     Object.keys(units).forEach(function (u) {
+       var arr = units[u];
+       unitInfo[u] = { unit: u, module: arr[0].module, skillId: arr[0].skillId, level: arr[0].level, lrank: arr[0].lrank,
+-        lemma: arr[0].lemma, family: arr[0].family, items: arr };
++        lemma: arr[0].lemma, family: arr[0].family, items: arr, hard: false, infIds: {} };
++      // verbos con cambio de vocal / irregulares: du y er_sie_es pesan más y hay que acertarlos para «dominar» la unidad
++      if (arr[0].module === 'verben' && (arr[0].skill === 'praesens' || arr[0].skill === 'praeteritum')) {
++        var vi = verbUnitInfo(arr); unitInfo[u].hard = vi.hard; unitInfo[u].infIds = vi.infIds;
++      }
+     });
+     // Unidades por módulo / skillId.
+     var unitsByModule = Object.create(null), unitsBySkillId = Object.create(null);
+@@ -155,6 +190,7 @@
+           if (!ok) E('order-tiles-mismatch', it.id, 'las fichas no forman ninguna respuesta aceptada');
+         }
+       }
++      if (it.nfcFixed) W('not-nfc', it.id, 'el texto no estaba en NFC (se normalizó al cargar)');
+       if (it.needsTranslation && !it.translation) E('needs-translation', it.id, 'needs_translation sin translation');
+       if (conceptSet) {
+         it.conceptIds.forEach(function (c) { if (!conceptSet[c]) unresolved[c] = (unresolved[c] || 0) + 1; });
+@@ -225,7 +261,7 @@
+ 
+   DG.items = {
+     LEVELS: LEVELS, MODULES: MODULES, TYPES: TYPES, MIN_POOL: MIN_POOL, PERSONS: PERSONS,
+-    levelRank: levelRank, normalizeItem: normalizeItem, createStore: createStore, validate: validate, view: view
++    levelRank: levelRank, verbUnitInfo: verbUnitInfo, normalizeItem: normalizeItem, createStore: createStore, validate: validate, view: view
+   };
+   if (typeof module === 'object' && module.exports) module.exports = DG.items;
+ })(typeof globalThis !== 'undefined' ? globalThis : this);
+--- src/dg-ramp.js	2026-11-18 02:56:41.670410341 +0100
++++ src/dg-ramp.js	2026-11-18 03:16:22.778923668 +0100
+@@ -17,8 +17,8 @@
+     minAttempts: 20,         // promoción: ≥20 intentos sobre ítems YA vistos (retención)
+     promoteAcc: 0.85,
+     demoteAcc: 0.55, demoteMinAttempts: 25,
+-    masteryFrac: 0.5, masteryMaxUnits: 30,     // unidades «dominadas» necesarias: min(60 % del nivel, 40)
+-    masteryReps: 2,          // dominada = graduada y repasada con éxito ≥2 veces, sin estar en reaprendizaje
++    masteryFrac: 0.5, masteryMaxUnits: 30,     // unidades «dominadas» necesarias: min(50 % del nivel, 30)
++    masteryReps: 2,          // dominada = graduada y repasada con éxito ≥2 veces, sin estar en reaprendizaje (y, en verbos con cambio de vocal/irregulares, con ≥1 acierto en du o er_sie_es)
+     minUnitsStart: 12,       // un nivel «existe» para un módulo si tiene ≥12 unidades
+     minDwell: 5              // sesiones mínimas entre cambios de nivel (histéresis)
+   };
+@@ -110,7 +110,9 @@
+     cfg = cfg || CFG; var n = 0;
+     (store.unitsByModule[module] || []).forEach(function (u) {
+       if (u.level !== level) return;
+-      var s = state.units[u.unit]; if (s && s.s === 'r' && s.r >= cfg.masteryReps) n++;
++      var s = state.units[u.unit];
++      // verbos con cambio de vocal / irregulares: además ≥1 acierto en du o er_sie_es (hp)
++      if (s && s.s === 'r' && s.r >= cfg.masteryReps && (!u.hard || s.hp)) n++;
+     });
+     return n;
+   }
+@@ -132,7 +134,7 @@
+       var nxt = pop[idx + 1];
+       if (nxt && rank(nxt) <= cap) {
+         var total = store.unitCount(module, cur), need = Math.min(Math.ceil(cfg.masteryFrac * total), cfg.masteryMaxUnits);
+-        if (out.mastered >= need) { r.lv = nxt; r.since = sessionNo; r.win[cur] = []; r.rev[cur] = []; out.change = 'promote'; out.to = nxt; }
++        if (out.mastered >= need) { r.lv = nxt; r.since = sessionNo; r.win[cur] = []; r.rev[cur] = []; r.rev[nxt] = []; out.change = 'promote'; out.to = nxt; }
+       }
+     } else if (n >= cfg.demoteMinAttempts && acc < cfg.demoteAcc && idx > 0) {
+       r.lv = pop[idx - 1]; r.since = sessionNo; r.win[cur] = []; r.rev[cur] = []; out.change = 'demote'; out.to = r.lv;
+--- src/dg-scheduler.js	2026-11-18 02:56:41.670435360 +0100
++++ src/dg-scheduler.js	2026-11-18 03:18:37.450730425 +0100
+@@ -38,6 +38,8 @@
+     cellAgeSpan: 8, cellAgeMax: 12, weaknessGain: 1.5,
+     cellCountExp: 0.2,                                 // peso del módulo ∝ (nº de casillas alcanzables)^0.2 → cobertura (calibrado con simulación)
+     moduleAgeSpan: 6, moduleAgeMax: 2, priorAcc: 0.7, priorMinN: 10,
++    hardPersonBoost: 3, infPersonDamp: 0.5,
++    starveSessions: 10, guardMinF: 6,            // verbos con cambio de vocal / irregulares (du, er_sie_es ×3; = infinitivo ×0,5)
+     errorBacklogFactor: 1.6, errorWeightFails: 0.5, errorAgeSpan: 8, errorAgeMax: 3
+   };
+   var CLASSES = ['due', 'new', 'future'];
+@@ -50,7 +52,8 @@
+   }
+   function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
+   function sampleOne(weights, rng) { return S.drawIndex(weights, rng); }
+-  function classOfState(st, now) { var c = SRS.classify(st, now); return c === 'learning' ? 'due' : c; }
++  // `learning` (paso de aprendizaje sin cumplir) NO es una clase elegible: ni cuota, ni atraso D, ni sorteo hasta que venza.
++  function classOfState(st, now) { return SRS.classify(st, now); }
+ 
+   function buildSession(ctx, req) {
+     var store = ctx.store, st = ctx.state, rng = ctx.rng, now = ctx.now;
+@@ -106,6 +109,7 @@
+       errCap = Math.min(errList.length, Math.ceil(size * share));
+     }
+     var ew = errList.map(function (x) {
++      if (now - (x.e.ts || 0) < SRS.CFG.learnStepMs) return 0;   // recién fallado: aún en el paso de aprendizaje
+       return 1 + cfg.errorWeightFails * Math.min(4, x.e.f || 1) + Math.min(cfg.errorAgeMax, (sessionNo - (x.e.ls || 0)) / cfg.errorAgeSpan);
+     });
+     var errChosen = 0;
+@@ -113,10 +117,11 @@
+       var ei = sampleOne(ew, rng);
+       if (ei < 0) break;
+       var ex = errList[ei]; ew[ei] = 0;
+-      if (used.unit[ex.it.unit]) continue;                 // una sola unidad por sesión
++      if (kind !== 'errors' && used.unit[ex.it.unit]) continue;   // una sola unidad por sesión (salvo repaso de errores: ahí cada error cuenta)
+       take(ex.it, 'error', 'error'); errChosen++;
+     }
+     if (kind === 'errors' && !errList.length) warnings.push({ code: 'NO_ERRORS', msg: 'No hay errores pendientes en el nivel permitido.' });
++    else if (kind === 'errors' && !errChosen) warnings.push({ code: 'ERRORS_NOT_READY', msg: 'Los errores son de hace menos de 1 h: vuelve más tarde.' });
+ 
+     var F = kind === 'errors' ? 0 : size - errChosen;
+ 
+@@ -223,7 +228,8 @@
+ 
+     function unitWeight(u) {
+       var w = SRS.weight(st.units[u.unit], now);
+-      w *= recencyFactor(unitDist[u.unit], N);
++      // La memoria de sesiones sólo frena lo NUEVO y el relleno; una unidad vencida (p. ej. intervalo 1 d, vista ayer) debe volver ya.
++      if (clsOf(u) !== 'due') w *= recencyFactor(unitDist[u.unit], N);
+       if (u.lemma && used.lemma[u.lemma]) w *= cfg.lemmaPenalty;
+       if (u.family && used.family[u.family]) w *= cfg.familyPenalty;
+       return w;
+@@ -249,7 +255,11 @@
+       var items = u.items, w = items.map(function (it) {
+         if (used.item[it.id] || !levelOK(it)) return 0;
+         var s = st.items[it.id], fr = s && s.a ? s.f / s.a : 0;
+-        return (1 + 2 * fr) * recencyFactor(itemDist[it.id], N);
++        var pw = 1;
++        // Verbos con cambio de vocal / irregulares: las personas que delatan el cambio (du, er/sie/es) pesan ×3 y las
++        // formas iguales al infinitivo ×0,5, para que la unidad no se «domine» viendo sólo wir/sie_Sie.
++        if (u.hard) pw = (it.person === 'du' || it.person === 'er_sie_es') ? cfg.hardPersonBoost : (u.infIds[it.id] ? cfg.infPersonDamp : 1);
++        return pw * (1 + 2 * fr) * recencyFactor(itemDist[it.id], N);
+       });
+       var i = sampleOne(w, rng);
+       return i < 0 ? null : items[i];
+@@ -296,6 +306,38 @@
+       return null;
+     }
+ 
++    /* ---- guarda anti-inanición: 1 hueco por sesión (si F ≥ guardMinF) para la casilla alcanzable que más sesiones lleva sin salir ---- */
++    if (kind !== 'errors' && F >= cfg.guardMinF) {
++      var worst = null;
++      modules.forEach(function (m) {
++        var cur = R.currentLevel(st, store, m); if (!cur) return;
++        var cr = DG.items.levelRank(cur);
++        cellsByModule[m].forEach(function (c) {
++          var sk = st.skills[c.skillId], age = sessionNo - (sk && sk.ls != null ? sk.ls : 0);
++          if (age <= cfg.starveSessions || (worst && age <= worst.age)) return;
++          var cands = c.units.filter(function (u) { return DG.items.levelRank(u.level) <= cr && unitEligible(u, null, true); });
++          if (cands.length) worst = { age: age, cell: c, m: m, cands: cands };
++        });
++      });
++      if (worst) {
++        // «mejor» unidad de la casilla sea cual sea su clase: la de mayor peso SRS/recencia que tenga alguna variante servible
++        var ranked = worst.cands.map(function (u) { return { u: u, w: unitWeight(u) }; }).sort(function (a, b) { return b.w - a.w; });
++        for (var gi = 0; gi < ranked.length; gi++) {
++          var gu = ranked[gi].u, git = chooseVariant(gu);
++          if (!git) continue;
++          var si = -1;
++          for (var q = 0; q < slots.length; q++) if (slots[q].module === worst.m && (si < 0 || slots[q].bucket === 'current')) si = q;
++          if (si < 0) si = 0;
++          if (slots.length) slots.splice(si, 1);
++          var gcls = clsOf(gu); if (quota[gcls] > 0) quota[gcls]--;
++          take(git, 'current', gcls);
++          entries[entries.length - 1].guard = true;
++          notes.push({ code: 'STARVATION_GUARD', skillId: worst.cell.skillId, sessions: worst.age });
++          break;
++        }
++      }
++    }
++
+     var missing = [];
+     rng.shuffle(slots).forEach(function (sl) {
+       var ok = fill({ modules: [sl.module], levels: sl.levels, bucket: sl.bucket }, 0);
+--- tests/engine.test.js	2026-11-18 02:56:41.670495824 +0100
++++ tests/engine.test.js	2026-11-18 03:17:30.516032287 +0100
+@@ -45,19 +45,37 @@
+   }
+   assert.ok(rescuedNow); assert.equal(eng.state().errors[it.id], undefined); assert.equal(eng.state().stats.rescued, 1);
+ });
+-test('«casi» (errata en frase): no avanza ni penaliza; acertar tras «casi» = difícil; un 2.º «casi» = fallo', () => {
++// errata real (transposición interior) en la palabra más larga de la frase: «casi» bajo las reglas de 2b
++function longWordTypo(ans) {
++  const ws = ans.replace(/[.,!?;:]/g, '').split(/\s+/).filter(w => /^[A-Za-z]{6,}$/.test(w) && !/^(dieser|dieses|diesen|diesem|keinen|keinem|keiner|keines|meinen|meinem|meiner|deinen|deinem|deiner|seinen|seinem|seiner|ihren|ihrem|ihrer|unsere|unseren|unserem|unserer|welcher|welchen|welchem|welches|jeden|jedem|jeder|jedes|einen|einem|einer|eines)$/i.test(w));
++  for (const w of ws.sort((x, y) => y.length - x.length)) { const i = Math.floor(w.length / 2); if (w[i] !== w[i + 1]) return ans.replace(w, w.slice(0, i) + w[i + 1] + w[i] + w.slice(i + 2)); }
++  return null;
++}
++test('«casi» (errata en palabra larga de una frase): no avanza ni penaliza; acertar tras «casi» = difícil; un 2.º «casi» = fallo', () => {
+   const { eng } = newEngine({ seed: 55 });
+-  const pick = () => { for (let k = 0; k < 80; k++) { const s = eng.startSession({ kind: 'module', modules: ['konnektoren'], size: 12 }); const it = firstOf(s, i => i.type === 'transform'); if (it) return { s, it }; } };
+-  const { s, it } = pick(); const typo = it.answer.replace(/(\w)(\w)\b(?=[^\w]*$)/, '$2$1').replace(/\.$/, '') + 'x';
+-  const r1 = s.answer(it.answer.slice(0, -2) + 'x.', { mode: 'write' });
++  const pick = () => { for (let k = 0; k < 160; k++) { const s = eng.startSession({ kind: 'module', modules: ['konnektoren'], size: 12 }); const it = firstOf(s, i => i.type === 'transform' && longWordTypo(i.answer)); if (it) return { s, it }; } };
++  const { s, it } = pick(); const typo = longWordTypo(it.answer);
++  const r1 = s.answer(typo, { mode: 'write' });
+   assert.equal(r1.almost, true); assert.equal(r1.advance, false); assert.equal(s.currentItem().id, it.id); assert.equal(eng.state().items[it.id], undefined);
+   const r2 = s.answer(it.answer, { mode: 'write' }); assert.equal(r2.evaluation.verdict, 'correct');
+   const u = eng.state().units[it.unit]; assert.equal(u.s, 'r'); assert.equal(u.i, SRS.CFG.firstHard); assert.equal(eng.state().errors[it.id], undefined);
+   // segundo «casi» seguido → fallo
+-  const { s: s2, it: it2 } = pick(); const bad = it2.answer.slice(0, -2) + 'x.';
++  const { s: s2, it: it2 } = pick(); const bad = longWordTypo(it2.answer);
+   assert.equal(s2.answer(bad, { mode: 'write' }).almost, true); const r3 = s2.answer(bad, { mode: 'write' });
+   assert.equal(r3.evaluation.verdict, 'wrong'); assert.ok(eng.state().errors[it2.id]);
+ });
++test('P2 «casi» ya no perdona un error gramatical: una frase con das↔dass o diéresis perdida es fallo al primer intento (entra a la cola)', () => {
++  const { eng } = newEngine({ seed: 56 });
++  let tested = 0;
++  for (let k = 0; k < 200 && tested < 2; k++) {
++    const s = eng.startSession({ kind: 'module', modules: ['konnektoren'], size: 12 });
++    const it = firstOf(s, i => /\bdass\b/.test(i.answer) && (i.type === 'transform' || i.type === 'order'));
++    if (!it) continue;
++    const r = s.answer(it.answer.replace(/\bdass\b/, 'das'), { mode: 'write' });
++    assert.equal(r.almost, false); assert.equal(r.evaluation.verdict, 'wrong'); assert.ok(eng.state().errors[it.id]); tested++;
++  }
++  assert.equal(tested, 2);
++});
+ test('persistencia inmediata: tras cada respuesta el almacenamiento ya contiene el error', () => {
+   const { eng, storage } = newEngine({ seed: 56 }); const s = eng.startSession({ kind: 'module', modules: ['verben'], size: 6 });
+   const it = s.currentItem(); s.answer('basura', { mode: 'write' });
+@@ -107,3 +125,99 @@
+   const { eng } = newEngine({ seed: 62 }); const s = eng.startSession({ kind: 'module', modules: ['artikel'], size: 4 });
+   const v = s.view(); assert.equal(v.input, 'choice'); const w = s.view('write'); assert.equal(w.input, 'text'); assert.deepEqual(w.options, []);
+ });
++
++/* ===== 2b · punto 1: cola de errores ===== */
++test('P1 rescate: acertar antes de 16 h cuenta para el SRS pero el error sigue (ls sí, f no); a las 16 h exactas se rescata', () => {
++  const { eng, clock } = newEngine({ seed: 71 });
++  const it = store.byModule.verben.find(i => i.level === 'A1'); const H = 36e5, ts = clock.now();
++  eng.state().errors[it.id] = { s: 1, ls: 1, f: 2, ts }; eng.state().sessionCounter = 1;
++  clock.advance(2 * H);                                       // pasado el paso de aprendizaje (1 h), muy lejos de 16 h
++  let s = eng.startSession({ kind: 'errors', size: 5 }); assert.equal(s.length(), 1);
++  let r = s.answer(respond(s.currentItem(), true), { mode: 'write' }); s.finish();
++  assert.equal(r.rescued, false);
++  const e = eng.state().errors[it.id]; assert.ok(e, 'el error sigue en la cola');
++  assert.equal(e.f, 2, 'f no cambia'); assert.equal(e.ts, ts, 'ts (último fallo) no cambia'); assert.equal(e.ls, 2, 'ls = sesión del acierto temprano');
++  assert.equal(eng.state().units[it.unit].n, 1, 'cuenta para el SRS'); assert.equal(eng.state().stats.rescued, 0);
++  clock.set(ts + 16 * H - 1);                                 // 1 ms antes del umbral: todavía no
++  s = eng.startSession({ kind: 'errors', size: 5 }); r = s.answer(respond(s.currentItem(), true), { mode: 'write' }); s.finish();
++  assert.equal(r.rescued, false); assert.ok(eng.state().errors[it.id]);
++  clock.set(ts + 16 * H);                                     // justo en el umbral: rescatado
++  s = eng.startSession({ kind: 'errors', size: 5 }); r = s.answer(respond(s.currentItem(), true), { mode: 'write' }); const sm = s.finish();
++  assert.equal(r.rescued, true); assert.equal(r.fails, 2); assert.deepEqual(sm.rescued, [it.id]);
++  assert.equal(eng.state().errors[it.id], undefined); assert.equal(eng.state().stats.rescued, 1);
++});
++test('P1 rescate: un fallo vuelve a empezar el reloj de 16 h (ts nuevo) y suma f', () => {
++  const { eng, clock } = newEngine({ seed: 72 });
++  const it = store.byModule.verben.find(i => i.level === 'A1'), H = 36e5;
++  eng.state().errors[it.id] = { s: 1, ls: 1, f: 1, ts: clock.now() - 30 * H }; eng.state().sessionCounter = 1;
++  let s = eng.startSession({ kind: 'errors', size: 5 }); s.answer('¿¿??', { mode: 'write' }); s.finish();
++  const e = eng.state().errors[it.id]; assert.equal(e.f, 2); assert.equal(e.ts, clock.now());
++  clock.advance(10 * H); s = eng.startSession({ kind: 'errors', size: 5 }); const r = s.answer(respond(s.currentItem(), true), { mode: 'write' });
++  assert.equal(r.rescued, false, 'a 10 h del último fallo no se rescata aunque el primer fallo fuese hace 40 h');
++});
++
++/* ===== 2b · punto 3: sesiones abandonadas ===== */
++const Sch = DG.scheduler;
++test('P3 una sesión abierta y cerrada sin responder no deja rastro (contador, historial, carry, stats, rampa)', () => {
++  const { eng, clock } = newEngine({ seed: 81 });
++  const s0 = eng.startSession({ kind: 'mix', size: 12 }); while (!s0.done()) s0.answer(respond(s0.currentItem(), true), { mode: 'write' }); s0.finish(); clock.advance(DAY);
++  const before = JSON.stringify(eng.state());
++  for (let k = 0; k < 5; k++) { const s = eng.startSession({ kind: 'mix', size: 12 }); assert.ok(s.length() > 0); const sm = s.finish(); assert.equal(sm.answered, 0); }
++  assert.equal(JSON.stringify(eng.state()), before, 'el estado no cambia ni en un byte');
++  assert.equal(eng.state().sessionCounter, 1); assert.equal(eng.state().history.length, 1); assert.equal(eng.state().stats.sessions, 1);
++});
++test('P3 unitDist de lo visto ayer no cambia al abrir/cerrar 5 sesiones vacías: el plan de la sesión siguiente es idéntico', () => {
++  const mk = emptyOpens => {
++    const { eng, clock } = newEngine({ seed: 82 });
++    const s0 = eng.startSession({ kind: 'mix', size: 12 }); while (!s0.done()) s0.answer(respond(s0.currentItem(), true), { mode: 'write' }); s0.finish(); clock.advance(DAY);
++    for (let k = 0; k < emptyOpens; k++) eng.startSession({ kind: 'mix', size: 12 }).finish();
++    return { eng, clock, yesterday: new Set(eng.state().history[0].ids.map(id => store.byId[id].unit)) };
++  };
++  const a = mk(0), b = mk(5); let hitA = 0, hitB = 0;
++  for (let k = 0; k < 120; k++) {
++    const pa = Sch.buildSession({ store, state: a.eng.state(), rng: DG.rng.create(900 + k), now: a.clock.now() }, { kind: 'mix', size: 12 });
++    const pb = Sch.buildSession({ store, state: b.eng.state(), rng: DG.rng.create(900 + k), now: b.clock.now() }, { kind: 'mix', size: 12 });
++    assert.equal(pa.sessionNo, pb.sessionNo); assert.deepEqual(pa.items.map(e => e.id), pb.items.map(e => e.id));
++    pa.items.forEach(e => { if (a.yesterday.has(e.unit)) hitA++; }); pb.items.forEach(e => { if (b.yesterday.has(e.unit)) hitB++; });
++  }
++  assert.equal(hitA, hitB);
++});
++test('P3 la 1.ª respuesta (o giveUp) confirma la sesión: contador, historial y carry', () => {
++  const { eng } = newEngine({ seed: 83 });
++  const s = eng.startSession({ kind: 'module', modules: ['artikel'], size: 6 }); assert.equal(eng.state().sessionCounter, 0); assert.equal(eng.state().history.length, 0);
++  const id = s.currentItem().id; s.answer(respond(s.currentItem(), true), { mode: 'write' });
++  assert.equal(eng.state().sessionCounter, 1); assert.equal(eng.state().history.length, 1); assert.deepEqual(eng.state().history[0].ids, [id]);
++  assert.ok(eng.state().ramp.artikel && eng.state().ramp.artikel.carry, 'carry de la rampa guardado al confirmar');
++  s.finish(); assert.equal(eng.state().stats.sessions, 1);
++  const g = eng.startSession({ kind: 'module', modules: ['artikel'], size: 6 }); assert.equal(eng.state().sessionCounter, 1);
++  g.giveUp(); assert.equal(eng.state().sessionCounter, 2); assert.equal(eng.state().history.length, 2); assert.equal(g.id || g.summary().sessionNo, 2);
++});
++test('P3 sesiones sin responder entre dos reales no dejan huecos: la siguiente real es la n+1; una abierta «vieja» confirma tras otra más nueva sin repetir número', () => {
++  const { eng } = newEngine({ seed: 84 });
++  const a = eng.startSession({ kind: 'mix', size: 6 }); eng.startSession({ kind: 'mix', size: 6 }).finish(); eng.startSession({ kind: 'mix', size: 6 }).finish();
++  const b = eng.startSession({ kind: 'mix', size: 6 }); b.answer(respond(b.currentItem(), true), { mode: 'write' }); assert.equal(eng.state().sessionCounter, 1); assert.equal(b.id, 1);
++  a.answer(respond(a.currentItem(), true), { mode: 'write' });             // «a» se abrió antes pero responde después de b
++  assert.equal(eng.state().sessionCounter, 2); assert.equal(a.id, 2); assert.deepEqual(eng.state().history.map(h => h.n), [1, 2]);
++});
++
++test('P5 hp: sólo un acierto en du o er_sie_es de un verbo difícil marca st.units[u].hp; fallos y otras personas no', () => {
++  const { eng, clock } = newEngine({ seed: 91 }); const rnd = DG.rng.create(3);
++  const expect = {}, hardUnits = new Set();
++  for (let n = 0; n < 25; n++) {
++    const s = eng.startSession({ kind: 'module', modules: ['verben'], size: 20 });
++    while (!s.done()) {
++      const e = s.currentEntry(), it = s.currentItem(), ui = store.unitInfo[it.unit];
++      const ok = (it.person === 'du' || it.person === 'er_sie_es') ? rnd.next() < 0.6 : true;
++      s.answer(respond(it, ok), { mode: 'write' });
++      if (e.retry === 0 && ui.hard) { hardUnits.add(it.unit); if (ok && (it.person === 'du' || it.person === 'er_sie_es')) expect[it.unit] = true; }
++    }
++    s.finish(); clock.advance(DAY);
++  }
++  let withHp = 0, hardNoHp = 0;
++  Object.keys(eng.state().units).forEach(u => {
++    const hp = !!eng.state().units[u].hp;
++    assert.equal(hp, !!expect[u], u); if (hp) withHp++; else if (hardUnits.has(u)) hardNoHp++;
++    if (!store.unitInfo[u].hard) assert.equal(hp, false, 'una unidad regular nunca lleva hp: ' + u);
++  });
++  assert.ok(withHp >= 10 && hardNoHp >= 1, `con hp ${withHp}, difíciles sin hp ${hardNoHp}`);
++});
+--- tests/evaluator.test.js	2026-11-18 02:56:41.670509247 +0100
++++ tests/evaluator.test.js	2026-11-18 03:05:23.851460347 +0100
+@@ -40,15 +40,33 @@
+   const a = E.evaluate(pl, 'namen'); assert.equal(a.verdict, 'correct'); assert.deepEqual(a.notes, ['case']);
+   assert.equal(E.evaluate(pl, 'namen', { strictCase: true }).verdict, 'almost');
+ });
+-test('write: plural (clase typo) — diéresis perdida y errata dan «casi»; en cloze cerrado es error', () => {
++test('write: plural (tolerancia none) — diéresis perdida y errata = wrong; ae/oe/ue = correct (2b: ya no hay «casi» en plurales)', () => {
+   const pl = store.all.find(i => i.module === 'artikel' && i.skill === 'plural' && /[äöü]/.test(i.answer));
+-  assert.ok(pl);
++  assert.ok(pl); assert.equal(E.toleranceOf(pl), 'none');
+   assert.equal(E.evaluate(pl, pl.answer).verdict, 'correct');
+   const noUml = pl.answer.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u');
+-  const r = E.evaluate(pl, noUml); assert.equal(r.verdict, 'almost'); assert.deepEqual(r.notes, ['diacritic']);
++  const r = E.evaluate(pl, noUml); assert.equal(r.verdict, 'wrong'); assert.ok(!r.notes.includes('diacritic'));
++  assert.equal(E.evaluate(pl, pl.answer.slice(0, -1)).verdict, 'wrong');           // errata de una letra
+   const tr = pl.answer.replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue');
+   assert.equal(E.evaluate(pl, tr).verdict, 'correct');
+ });
++test('P2 plural: Hund→Hunde y Apfel→Äpfel; el lema (singular) es distractor explícito en write', () => {
++  const hund = byId('gx-art-pl-cs-a1-v4-884'), apfel = byId('gx-art-pl-noun-der-apfel-manzana');
++  assert.equal(E.evaluate(hund, 'Hunde').verdict, 'correct');
++  const h = E.evaluate(hund, 'Hund'); assert.equal(h.verdict, 'wrong'); assert.equal(h.distractor, 'Hund'); assert.ok(h.notes.includes('distractor'));
++  assert.equal(E.evaluate(hund, 'hund').distractor, 'Hund', 'el distractor ignora mayúsculas');
++  assert.equal(E.evaluate(apfel, 'Äpfel').verdict, 'correct'); assert.equal(E.evaluate(apfel, 'Aepfel').verdict, 'correct');
++  const a = E.evaluate(apfel, 'Apfel'); assert.equal(a.verdict, 'wrong'); assert.equal(a.distractor, 'Apfel');
++  assert.equal(E.evaluate(apfel, 'Apfeln').verdict, 'wrong'); assert.equal(E.evaluate(apfel, 'Epfel').verdict, 'wrong');
++  assert.equal(E.evaluate(hund, 'Hund', { mode: 'touch' }).verdict, 'wrong');
++  // dataset: todo plural con lema distinto de la respuesta → el lema es error con distractor; lema = respuesta (Zimmer) sigue siendo correcto
++  let n = 0, same = 0;
++  store.all.filter(i => i.module === 'artikel' && i.skill === 'plural').forEach(i => {
++    const r = E.evaluate(i, i.lemma);
++    if (i.accept.includes(i.lemma)) { assert.equal(r.verdict, 'correct', i.id); same++; } else { assert.equal(r.verdict, 'wrong', i.id); assert.equal(r.distractor, i.lemma, i.id); n++; }
++  });
++  assert.ok(n > 300 && same >= 1, `lema≠plural: ${n}, lema=plural: ${same}`);
++});
+ test('write: respuesta vacía → wrong con nota', () => {
+   const r = E.evaluate(byId('d244-decl-001'), '   '); assert.equal(r.verdict, 'wrong'); assert.deepEqual(r.notes, ['empty']);
+ });
+@@ -89,10 +107,12 @@
+   assert.equal(E.evaluate(it, 'Ich bleibe heute zu Hause weil ich krank bin.', { strictPunct: true }).verdict, 'almost');
+   assert.equal(E.evaluate(it, 'Ich bleibe heute zu Hause, weil ich bin krank.').verdict, 'wrong');
+ });
+-test('transform: una errata larga es «casi» y no da crédito', () => {
+-  const it = byId('gx-konn-transform-weil-001');
+-  const r = E.evaluate(it, 'Ich bleibe heute zu Hause, weil ich krank bim.');
+-  assert.equal(r.verdict, 'almost'); assert.equal(r.correct, false);
++test('transform: errata en palabra corta (bim/bin) es error; en palabra larga (≥5 letras) es «casi» y no da crédito', () => {
++  const it = byId('gx-konn-transform-weil-001');           // «Ich bleibe heute zu Hause, weil ich krank bin.»
++  assert.equal(E.evaluate(it, 'Ich bleibe heute zu Hause, weil ich krank bim.').verdict, 'wrong');
++  const r = E.evaluate(it, 'Ich bleibe heute zu Hasue, weil ich krank bin.');       // transposición en «Hause» (5 letras)
++  assert.equal(r.verdict, 'almost'); assert.equal(r.correct, false); assert.deepEqual(r.notes, ['typo']);
++  assert.equal(E.evaluate(it, 'Ich bleibe heute zu Hause, weil ich krank bin.').verdict, 'correct');
+ });
+ test('order: fichas en orden correcto, desordenadas (con tileDiff) y texto escrito', () => {
+   const it = store.all.find(i => i.type === 'order'); assert.ok(it);
+@@ -171,3 +191,73 @@
+   });
+   assert.ok(n > 300, 'casos comprobados: ' + n);
+ });
++
++/* ===== 2b · punto 2: «casi» en frases ===== */
++const mk = (answer, o) => I.createStore([Object.assign({ id: 'syn-' + Math.abs(answer.length * 31 + answer.charCodeAt(3)), module: 'konnektoren', level: 'A2', type: 'transform', skill: 'transform', pool: 'transform', prompt: 'p', answer, accept: [answer], options: [] }, o || {})]).all[0];
++const V = (it, r) => E.evaluate(it, r).verdict;
++test('P2 frases: das↔dass, den↔dem, fahrt↔fährt, ihm/ihn, seine/seiner, wenn/wen, denn/den, als/ob = wrong (nunca «casi»)', () => {
++  assert.equal(V(mk('Er sagt, dass er kommt.'), 'Er sagt, das er kommt.'), 'wrong');
++  assert.equal(V(mk('Er sagt, dass er kommt.'), 'das er kommt'), 'wrong');
++  assert.equal(V(mk('Er sagt, das ist gut.'), 'Er sagt, dass ist gut.'), 'wrong');
++  assert.equal(V(mk('Der Lehrer gibt dem Mann ein Buch.'), 'Der Lehrer gibt den Mann ein Buch.'), 'wrong');
++  assert.equal(V(mk('Der Lehrer gibt dem Mann ein Buch.'), 'gibt den Mann'), 'wrong');
++  assert.equal(V(mk('Er fährt morgen nach Berlin.'), 'Er fahrt morgen nach Berlin.'), 'wrong');
++  assert.equal(V(mk('Er gibt ihm das Buch.'), 'Er gibt ihn das Buch.'), 'wrong');
++  assert.equal(V(mk('Das ist seine Tasche.'), 'Das ist seiner Tasche.'), 'wrong');       // 5 letras, pero en la lista cerrada
++  assert.equal(V(mk('Das ist seine Tasche.'), 'Das ist keine Tasche.'), 'wrong');
++  assert.equal(V(mk('Wir fragen, wenn wir Zeit haben.'), 'Wir fragen, wen wir Zeit haben.'), 'wrong');
++  assert.equal(V(mk('Ich bleibe, denn ich bin krank.'), 'Ich bleibe, den ich bin krank.'), 'wrong');
++  assert.equal(V(mk('Ich weiß nicht, ob er kommt.'), 'Ich weiß nicht, als er kommt.'), 'wrong');
++  assert.equal(V(mk('Er sagt uns die Wahrheit.'), 'Er sagt euch die Wahrheit.'), 'wrong');
++  assert.equal(V(mk('Das ist unsere Idee.'), 'Das ist unseren Idee.'), 'wrong');
++});
++test('P2 frases: diéresis perdida = wrong también en frases; ae/oe/ue y ß→ss siguen siendo correct', () => {
++  const it = mk('Das Mädchen spielt gern im Grünen.');
++  assert.equal(V(it, 'Das Madchen spielt gern im Grünen.'), 'wrong');
++  assert.equal(V(it, 'Das Mädchen spielt gern im Grunen.'), 'wrong');
++  assert.equal(V(it, 'Das Maedchen spielt gern im Gruenen.'), 'correct');
++  assert.equal(V(mk('Er schläft sehr lange.'), 'Er schlaft sehr lange.'), 'wrong');
++  assert.equal(V(mk('Wir heißen Anna und Tom.'), 'Wir heissen Anna und Tom.'), 'correct');
++  assert.equal(E.evaluate(mk('Er schläft sehr lange.', { type: 'order' }), 'Er schlaft sehr lange.').verdict, 'wrong');
++});
++test('P2 frases: «casi» sólo con 1 palabra distinta de ≥5 letras, OSA ≤1, fuera de la lista cerrada y mismo nº de palabras', () => {
++  const it = mk('Wir besuchen die Hauptstadt im Sommer.');
++  assert.equal(V(it, 'Wir besuchen die Hauptstadt im Sommer.'), 'correct');
++  ['Wir besuchen die Hauptstatd im Sommer.', 'Wir besuchen die Hauptstad im Sommer.', 'Wir besuchen die Hauptstadtt im Sommer.', 'Wir besuchen die Hauptsadt im Sommer.', 'Wir besuchen die Hauptstadt im Sommmer.', 'Wir besuchen die Hauptstadt im Somer.']
++    .forEach(r => { const x = E.evaluate(it, r); assert.equal(x.verdict, 'almost', r); assert.equal(x.correct, false); });
++  assert.equal(V(it, 'Wir besuchen die Hauptsdatt im Sommer.'), 'wrong', 'OSA 2 en la misma palabra');
++  assert.equal(V(it, 'Wir besuchn die Hauptstatd im Sommer.'), 'wrong', 'dos palabras distintas');
++  assert.equal(V(it, 'Wir besuchen die Hauptstadt Sommer.'), 'wrong', 'distinto nº de palabras');
++  assert.equal(V(it, 'Wir besuchen die Hauptstadtim Sommer.'), 'wrong', 'palabras unidas');
++});
++test('P2 DATASET: en TODAS las frases (transform/order) el «casi» sólo sale de erratas reales; los errores gramaticales nunca son «casi»', () => {
++  const CL = [['dass', 'das'], ['das', 'dass'], ['dem', 'den'], ['den', 'dem'], ['der', 'den'], ['wenn', 'wen'], ['denn', 'den'], ['als', 'ob'], ['ob', 'als'], ['ihm', 'ihn'], ['seine', 'seiner'], ['keine', 'keiner'], ['einen', 'einem']];
++  let swaps = 0, umls = 0, typos = 0;
++  store.all.filter(i => (i.type === 'transform' || i.type === 'order') && i.accept.length).forEach(it => {
++    const a = it.accept[0];
++    CL.forEach(([from, to]) => {
++      const re = new RegExp('(^|[^\\p{L}])' + from + '(?=[^\\p{L}]|$)', 'u');
++      if (!re.test(a)) return;
++      const r = a.replace(re, (m, p1) => p1 + to);
++      if (it.accept.some(x => DG.text.fold(x) === DG.text.fold(r))) return;
++      assert.equal(E.evaluate(it, r).verdict, 'wrong', it.id + ' «' + r + '»'); swaps++;
++    });
++    a.split(/(?=\s)/).forEach((w, k, arr) => {
++      if (/[äöü]/.test(w)) {
++        const r = arr.map((x, j) => j === k ? x.replace(/ä/g, 'a').replace(/ö/g, 'o').replace(/ü/g, 'u') : x).join('');
++        if (it.accept.some(x => DG.text.fold(x) === DG.text.fold(r))) return;
++        assert.equal(E.evaluate(it, r).verdict, 'wrong', it.id + ' «' + r + '»'); umls++;
++      }
++    });
++    // errata real: transposición interior en la palabra más larga sin diéresis/ß, fuera de la lista cerrada
++    const words = a.replace(/[.,!?;:]/g, '').split(/\s+/).filter(w => /^[A-Za-z]{6,}$/.test(w) && !/^(dieser|dieses|diesen|diesem|keinen|keinem|keiner|keines|meinen|meinem|meiner|deinen|deinem|deiner|seinen|seinem|seiner|ihren|ihrem|ihrer|unsere|unseren|unserem|unserer|welcher|welchen|welchem|welches|jeden|jedem|jeder|jedes|einen|einem|einer|eines)$/i.test(w));
++    if (words.length) {
++      const w = words.sort((x, y) => y.length - x.length)[0], i = Math.floor(w.length / 2);
++      if (w[i] !== w[i + 1]) {
++        const t = w.slice(0, i) + w[i + 1] + w[i] + w.slice(i + 2), r = a.replace(w, t);
++        if (!it.accept.some(x => DG.text.fold(x) === DG.text.fold(r))) { assert.equal(E.evaluate(it, r).verdict, 'almost', it.id + ' «' + r + '»'); typos++; }
++      }
++    }
++  });
++  assert.ok(swaps >= 20 && umls >= 3 && typos >= 100, `swaps=${swaps} umlaut=${umls} typos=${typos}`);
++});
+--- tests/items.test.js	2026-11-18 02:56:41.670526754 +0100
++++ tests/items.test.js	2026-11-18 03:13:28.971898841 +0100
+@@ -54,3 +54,19 @@
+   const o = JSON.parse(JSON.stringify(data.find(x => x.type === 'order'))); o.tiles = o.tiles.slice(1);
+   assert.ok(I.validate(I.createStore([o])).errors.some(e => e.code === 'order-tiles-mismatch'));
+ });
++
++/* ===== 2b · punto 5: verbos con cambio de vocal / irregulares ===== */
++test('P5 detección comparando la forma du/er con el infinitivo: fahren/sein/haben/können/einhalten = difíciles; arbeiten/lernen/aufstehen/heißen/sammeln = regulares', () => {
++  const hard = id => { const u = store.unitInfo[id]; assert.ok(u, id); return u.hard; };
++  ['verben|fahren|praesens', 'verben|fahren|praeteritum', 'verben|sein|praesens', 'verben|haben|praesens', 'verben|können|praesens', 'verben|essen|praesens', 'verben|einhalten|praesens', 'verben|geschehen|praesens', 'verben|wissen|praesens']
++    .forEach(id => assert.equal(hard(id), true, id));
++  ['verben|arbeiten|praesens', 'verben|arbeiten|praeteritum', 'verben|lernen|praesens', 'verben|lernen|praeteritum', 'verben|aufstehen|praesens', 'verben|heißen|praesens', 'verben|sammeln|praesens', 'verben|tanzen|praesens', 'verben|regnen|praesens']
++    .forEach(id => assert.equal(hard(id), false, id));
++  // otras habilidades (Partizip, auxiliar) y otros módulos nunca son «difíciles»
++  assert.equal(store.unitInfo['verben|fahren|partizip-ii'].hard, false); assert.equal(store.unitInfo['verben|fahren|hilfsverb'].hard, false);
++  assert.ok(Object.values(store.unitInfo).filter(u => u.module !== 'verben').every(u => !u.hard));
++  // formas iguales al infinitivo: wir y sie/Sie del presente (también con prefijo separable)
++  assert.deepEqual(store.unitInfo['verben|fahren|praesens'].items.filter(i => store.unitInfo['verben|fahren|praesens'].infIds[i.id]).map(i => i.person).sort(), ['sie_Sie', 'wir']);
++  assert.deepEqual(store.unitInfo['verben|einhalten|praesens'].items.filter(i => store.unitInfo['verben|einhalten|praesens'].infIds[i.id]).map(i => i.person).sort(), ['sie_Sie', 'wir']);
++  const n = Object.values(store.unitInfo).filter(u => u.hard).length; assert.ok(n > 150 && n < 260, 'unidades difíciles: ' + n);
++});
+--- tests/p6.test.js	1970-01-01 01:00:00.000000000 +0100
++++ tests/p6.test.js	2026-11-18 03:20:51.345320825 +0100
+@@ -0,0 +1,133 @@
++// Etapa 2b · punto 6 (prioridad media): una prueba por corrección.
++const test = require('node:test'), assert = require('node:assert/strict');
++const { DG, dataset, newEngine, respond, manualClock } = require('./helpers.js');
++const I = DG.items, E = DG.evaluator, R = DG.ramp, P = DG.progress, Sch = DG.scheduler;
++const { data, concepts } = dataset();
++const store = I.createStore(data);
++const DAY = 864e5;
++
++/* ---------- 6.1 NFC ---------- */
++test('P6 NFC: normalizeItem pasa a NFC todos los textos (incl. wo/wohin.accept); el validador avisa de datos no NFC', () => {
++  const nfd = s => s.normalize('NFD');
++  const raw = JSON.parse(JSON.stringify(data.find(x => x.type === 'cloze' && /[äöü]/.test(x.answer))));
++  assert.ok(raw.answer.normalize('NFD') !== raw.answer, 'el ítem de prueba contiene diacríticos');
++  const bad = Object.assign({}, raw, { prompt: nfd(raw.prompt), answer: nfd(raw.answer), accept: raw.accept.map(nfd), options: (raw.options || []).map(nfd), hint: nfd(raw.hint || '') });
++  const it = I.normalizeItem(bad);
++  assert.equal(it.answer, raw.answer.normalize('NFC')); assert.deepEqual(it.accept, raw.accept.map(s => s.normalize('NFC'))); assert.equal(it.prompt, raw.prompt.normalize('NFC'));
++  assert.ok(it.nfcFixed);
++  const mp = JSON.parse(JSON.stringify(data.find(x => x.type === 'minimal-pair')));
++  const badMp = Object.assign({}, mp, { wo: Object.assign({}, mp.wo, { answer: nfd(mp.wo.answer), accept: mp.wo.accept.map(nfd), prompt: nfd(mp.wo.prompt) }), wohin: Object.assign({}, mp.wohin, { accept: mp.wohin.accept.map(nfd) }) });
++  const im = I.normalizeItem(badMp);
++  assert.deepEqual(im.wo.accept, mp.wo.accept.map(s => s.normalize('NFC'))); assert.equal(im.wo.answer, mp.wo.answer.normalize('NFC')); assert.deepEqual(im.wohin.accept, mp.wohin.accept.map(s => s.normalize('NFC')));
++  // el validador avisa; con los datos reales (ya NFC) no
++  const v = I.validate(I.createStore([bad]));
++  assert.ok(v.warnings.some(w => w.code === 'not-nfc' && w.id === bad.id), 'aviso not-nfc');
++  assert.equal(I.validate(store, { concepts }).warnings.filter(w => w.code === 'not-nfc').length, 0);
++});
++
++/* ---------- 6.2 letters ---------- */
++test('P6 letters: una respuesta en array de letras (ítem no order) se une SIN espacios, en touch y en write', () => {
++  const it = data.find(x => x.module === 'verben' && x.type !== 'order' && !(x.options && x.options.length) && /^[a-zäöüß]{4,7}$/.test(x.answer));
++  const item = I.normalizeItem(it), letters = it.answer.split('');
++  assert.equal(E.evaluate(item, letters, { mode: 'touch' }).verdict, 'correct');
++  assert.equal(E.evaluate(item, letters, { mode: 'write' }).verdict, 'correct');
++  assert.equal(E.evaluate(item, letters.slice().reverse(), { mode: 'touch' }).verdict, 'wrong');
++  // un ítem order sigue uniendo con espacios y pegando la puntuación
++  const o = data.find(x => x.type === 'order'), oi = I.normalizeItem(o);
++  assert.equal(E.evaluate(oi, o.tiles, { mode: 'touch' }).verdict, 'correct');
++});
++
++/* ---------- 6.3 rampa: rev[nxt] ---------- */
++test('P6 rampa: al promover se vacía también rev del nivel nuevo (no hereda retención de una visita anterior)', () => {
++  const st = P.defaults(), m = 'deklination'; st.sessionCounter = 10;
++  const rp = R.moduleRamp(st, m);
++  for (let i = 0; i < 30; i++) R.record(st, m, 'A1', true, true);
++  store.unitsByModule[m].filter(u => u.level === 'A1').forEach(u => { st.units[u.unit] = { s: 'r', r: 2, n: 3 }; });
++  rp.rev = rp.rev || {}; rp.rev.A2 = [1, 0, 1, 1, 0];
++  assert.equal(R.evaluate(st, store, m, 10).change, 'promote');
++  assert.deepEqual(rp.rev.A2, [], 'rev[A2] vacío tras promover'); assert.deepEqual(rp.rev.A1, []);
++});
++
++/* ---------- 6.4 reintentos ---------- */
++test('P6 reintento en sesión: sólo si quedan ≥2 ítems por detrás (answer y giveUp)', () => {
++  const { eng } = newEngine({ seed: 61 }); const s = eng.startSession({ kind: 'module', modules: ['artikel'], size: 3 });
++  const r0 = s.answer('¿¿??', { mode: 'write' });                 // quedan 2 detrás → reintento
++  assert.equal(r0.retryScheduled, true); assert.equal(s.length(), 4);
++  s.answer(respond(s.currentItem(), true), { mode: 'write' });     // ítem 1 (bien)
++  const r2 = s.answer('¿¿??', { mode: 'write' });                 // ítem 2: detrás sólo queda el reintento (1) → sin reintento nuevo
++  assert.equal(r2.retryScheduled, false); assert.equal(s.length(), 4);
++  // giveUp en el último hueco con <2 detrás tampoco reencola
++  const e2 = newEngine({ seed: 62 }).eng, s2 = e2.startSession({ kind: 'module', modules: ['artikel'], size: 3 });
++  s2.answer(respond(s2.currentItem(), true), { mode: 'write' }); s2.answer(respond(s2.currentItem(), true), { mode: 'write' });
++  s2.giveUp(); assert.equal(s2.length(), 3); assert.equal(s2.done(), true);
++});
++
++/* ---------- 6.5 saveError ---------- */
++test('P6 saveError: answer/giveUp/finish lo devuelven si progress.save() falla; sin fallo no aparece', () => {
++  const m = {}; let fail = false;
++  const storage = { getItem: k => (k in m ? m[k] : null), setItem: (k, v) => { if (fail) { const e = new Error('cuota'); e.name = 'QuotaExceededError'; throw e; } m[k] = String(v); }, removeItem: k => { delete m[k]; } };
++  const { eng } = newEngine({ seed: 63, storage }); const s = eng.startSession({ kind: 'module', modules: ['artikel'], size: 4 });
++  const ok = s.answer(respond(s.currentItem(), true), { mode: 'write' }); assert.equal('saveError' in ok, false);
++  fail = true;
++  const bad = s.answer(respond(s.currentItem(), true), { mode: 'write' }); assert.equal(bad.saveError, 'QuotaExceededError');
++  const g = s.giveUp(); assert.equal(g.saveError, 'QuotaExceededError');
++  s.answer(respond(s.currentItem(), true), { mode: 'write' });
++  while (!s.done()) s.answer(respond(s.currentItem(), true), { mode: 'write' });
++  assert.equal(s.finish().saveError, 'QuotaExceededError');
++  fail = false; const s2 = eng.startSession({ kind: 'module', modules: ['artikel'], size: 3 });
++  assert.equal('saveError' in s2.answer(respond(s2.currentItem(), true), { mode: 'write' }), false);
++});
++
++/* ---------- 6.6 view() cacheada ---------- */
++test('P6 view(): misma vista si se llama dos veces en la misma posición (fichas sin re-barajar); cambia al avanzar', () => {
++  const { eng } = newEngine({ seed: 64 }); const s = eng.startSession({ kind: 'module', modules: ['deklination', 'konnektoren'], size: 14 });
++  let sawTiles = 0;
++  while (!s.done()) {
++    const a = s.view('touch'), b = s.view('touch');
++    assert.strictEqual(a, b); assert.deepEqual(a.tiles, b.tiles); if (a.tiles.length > 1) sawTiles++;
++    const w = s.view('write'); assert.notStrictEqual(w, a, 'otro modo = otra vista');
++    s.answer(respond(s.currentItem(), true), { mode: 'write' });
++    if (!s.done()) assert.notStrictEqual(s.view('touch'), a);
++  }
++  assert.ok(sawTiles >= 0);
++});
++
++/* ---------- 6.7 kind 'errors': varios ítems de una unidad ---------- */
++test("P6 kind 'errors': varios errores de la misma unidad entran en la misma sesión", () => {
++  const st = P.defaults(), now = 1.7e12, ids = store.units['verben|fahren|praesens'].slice(0, 3).map(i => i.id).concat(store.units['verben|sein|praesens'].slice(0, 2).map(i => i.id));
++  ids.forEach(id => { st.errors[id] = { s: 1, ls: 1, f: 1, ts: now - DAY }; });
++  st.sessionCounter = 5;
++  const plan = Sch.buildSession({ store, state: st, rng: DG.rng.create(9), now }, { kind: 'errors', size: 12 });
++  assert.deepEqual(plan.items.map(e => e.id).sort(), ids.slice().sort(), 'los 5 errores, 3 de la misma unidad');
++  // fuera del repaso de errores la regla «una unidad por sesión» sigue vigente
++  const mix = Sch.buildSession({ store, state: st, rng: DG.rng.create(9), now }, { kind: 'mix', size: 12 });
++  const us = mix.items.map(e => e.unit); assert.equal(new Set(us).size, us.length);
++});
++
++/* ---------- 6.8 guarda anti-inanición ---------- */
++// Se anula el empuje por antigüedad de casilla (cellAgeMax:0) para aislar la red de seguridad: sin ella la casilla puede no salir.
++const NOAGE = { cellAgeMax: 0 };
++test('P6 anti-inanición: con F≥6, la casilla alcanzable que lleva >10 sesiones sin salir aparece en TODAS las sesiones (60 semillas)', () => {
++  const cells = {}; store.unitsByModule.deklination.forEach(u => { if (u.level === 'A1') cells[u.skillId] = true; });
++  const target = 'deklination:transform'; assert.ok(cells[target]);
++  let hits = 0, N = 60, noGuardHits = 0;
++  for (let seed = 1; seed <= N; seed++) {
++    const st = P.defaults(); st.sessionCounter = 40;
++    Object.keys(cells).forEach(k => { st.skills[k] = { n: 20, acc: 0.8, ls: k === target ? 20 : 39 }; });
++    const plan = Sch.buildSession({ store, state: st, rng: DG.rng.create(seed), now: 1.7e12, cfg: NOAGE }, { kind: 'module', modules: ['deklination'], size: 12 });
++    if (plan.items.some(e => e.skillId === target)) hits++;
++    assert.equal(plan.items.length, 12, 'el hueco reservado no deja la sesión corta');
++    assert.equal(plan.items.filter(e => e.guard).length <= 1, true);
++    // sin la casilla vencida (ls reciente) no hay nota de guarda
++    st.skills[target].ls = 39;
++    const p2 = Sch.buildSession({ store, state: st, rng: DG.rng.create(seed), now: 1.7e12, cfg: NOAGE }, { kind: 'module', modules: ['deklination'], size: 12 });
++    assert.equal(p2.notes.some(n => n.code === 'STARVATION_GUARD'), false);
++    if (p2.items.some(e => e.skillId === target)) noGuardHits++;
++  }
++  assert.equal(hits, N, 'con guarda: siempre');
++  assert.ok(noGuardHits < N, 'sin la guarda (casilla reciente) no está garantizada: ' + noGuardHits + '/' + N);
++  // sesiones pequeñas (F<6) no reservan hueco
++  const st = P.defaults(); st.sessionCounter = 40; Object.keys(cells).forEach(k => { st.skills[k] = { n: 20, acc: 0.8, ls: k === target ? 20 : 39 }; });
++  const small = Sch.buildSession({ store, state: st, rng: DG.rng.create(3), now: 1.7e12, cfg: NOAGE }, { kind: 'module', modules: ['deklination'], size: 5 });
++  assert.equal(small.notes.some(n => n.code === 'STARVATION_GUARD'), false);
++});
+--- tests/ramp.test.js	2026-11-18 02:56:41.670544287 +0100
++++ tests/ramp.test.js	2026-11-18 03:14:31.002645459 +0100
+@@ -62,3 +62,22 @@
+   const r = R.evaluate(st, store, m, 30); assert.equal(r.change, 'demote'); assert.equal(st.ramp[m].lv, 'A1');
+   feed(st, m, 'A1', 30, 0.2, rng); st.sessionCounter = 40; assert.equal(R.evaluate(st, store, m, 40).change, null);
+ });
++
++test('P5 «dominada»: un verbo con cambio de vocal exige además ≥1 acierto en du o er_sie_es (hp); uno regular, no', () => {
++  const st = fresh(), m = 'verben';
++  const hardU = 'verben|fahren|praesens', regU = 'verben|arbeiten|praesens';
++  assert.ok(store.unitInfo[hardU].hard && !store.unitInfo[regU].hard);
++  st.units[hardU] = { s: 'r', r: 3, n: 4 }; st.units[regU] = { s: 'r', r: 3, n: 4 };
++  const count = () => store.unitsByModule[m].filter(u => u.level === 'A1').filter(u => { const s = st.units[u.unit]; return s && s.s === 'r' && s.r >= 2 && (!u.hard || s.hp); }).length;
++  assert.equal(R.masteredUnits(st, store, m, 'A1'), count());
++  const a = R.masteredUnits(st, store, m, 'A1');
++  st.units[hardU].hp = true; assert.equal(R.masteredUnits(st, store, m, 'A1'), a + 1, 'con hp cuenta');
++  delete st.units[hardU].hp; assert.equal(R.masteredUnits(st, store, m, 'A1'), a);
++  // la promoción también lo exige: todas las unidades «dominadas» salvo los difíciles sin hp → no promueve
++  const st2 = fresh(); st2.sessionCounter = 50; R.moduleRamp(st2, m);
++  for (let i = 0; i < 40; i++) R.record(st2, m, 'A1', true, true);
++  store.unitsByModule[m].filter(u => u.level === 'A1' && u.hard).forEach(u => { st2.units[u.unit] = { s: 'r', r: 3, n: 4 }; });   // 38 difíciles ≥ 30 necesarias
++  assert.equal(R.evaluate(st2, store, m, 50).change, null, 'sin hp en los verbos difíciles no se alcanza el dominio');
++  store.unitsByModule[m].filter(u => u.level === 'A1' && u.hard).forEach(u => { st2.units[u.unit].hp = true; });
++  assert.equal(R.evaluate(st2, store, m, 50).change, 'promote');
++});
+--- tests/scheduler.test.js	2026-11-18 02:56:41.670560381 +0100
++++ tests/scheduler.test.js	2026-11-18 03:13:28.975898842 +0100
+@@ -156,3 +156,69 @@
+   const st = P.defaults(); const before = JSON.stringify(st);
+   Sch.buildSession(ctxOf(st, 1), { kind: 'mix', size: 12 }); assert.equal(JSON.stringify(st), before);
+ });
++
++/* ===== 2b · punto 1: cola de errores y clase `learning` ===== */
++test('P1 scheduler: un error con menos de learnStepMs desde el fallo pesa 0; justo al cumplirse ya es elegible', () => {
++  const now = 1.7e12, step = DG.srs.CFG.learnStepMs;
++  const ids = store.byModule.artikel.filter(i => i.level === 'A1').slice(0, 6).map(i => i.id);
++  const mk = age => { const st = P.defaults(); st.sessionCounter = 5; ids.forEach(id => { st.errors[id] = { s: 1, ls: 4, f: 1, ts: now - age }; }); return st; };
++  for (let k = 0; k < 20; k++) {
++    const young = Sch.buildSession(ctxOf(mk(step - 1), 300 + k, now), { kind: 'mix', size: 12 });
++    assert.equal(young.items.filter(e => e.bucket === 'error').length, 0, 'error de hace <1 h en la sesión');
++    const e0 = Sch.buildSession(ctxOf(mk(step - 1), 300 + k, now), { kind: 'errors', size: 12 });
++    assert.equal(e0.items.length, 0); assert.ok(e0.warnings.some(w => w.code === 'ERRORS_NOT_READY'), JSON.stringify(e0.warnings));
++    assert.ok(!e0.warnings.some(w => w.code === 'NO_ERRORS'));
++    const old = Sch.buildSession(ctxOf(mk(step), 300 + k, now), { kind: 'errors', size: 12 });
++    assert.equal(old.items.length, 6); assert.ok(old.items.every(e => ids.includes(e.id)));
++  }
++});
++test('P1 scheduler: `learning` (paso de 1 h sin cumplir) no cuenta como vencida ni en la cuota ni en el atraso D; al cumplirse sí', () => {
++  const now = 1.7e12, step = DG.srs.CFG.learnStepMs;
++  const us = store.unitsByModule.artikel.filter(u => u.level === 'A1').slice(0, 30), set = new Set(us.map(u => u.unit));
++  const mk = () => { const st = P.defaults(); st.sessionCounter = 5; us.forEach(u => { st.units[u.unit] = { s: 'l', r: 0, l: 0, e: 2.3, i: 0, t: now - 1000, d: now - 1000 + step, n: 1, f: 1 }; }); return st; };
++  const learning = Sch.buildSession(ctxOf(mk(), 1, now), { kind: 'module', modules: ['artikel'], size: 12 });
++  assert.equal(learning.composition.control.dueAvail, 0, 'D no cuenta learning');
++  for (let k = 0; k < 30; k++) {
++    const p = Sch.buildSession(ctxOf(mk(), 400 + k, now), { kind: 'module', modules: ['artikel'], size: 12 });
++    assert.ok(p.items.every(e => !set.has(e.unit)), 'unidad en aprendizaje elegida antes de tiempo');
++    assert.equal(p.composition.cls.due, 0);
++  }
++  const later = Sch.buildSession(ctxOf(mk(), 1, now + step), { kind: 'module', modules: ['artikel'], size: 12 });
++  assert.equal(later.composition.control.dueAvail, 30, 'cumplido el paso, las 30 son vencidas');
++});
++
++/* ===== 2b · punto 4: la memoria de sesiones no se aplica a las vencidas ===== */
++test('P4 una unidad vencida con intervalo 1 d vista ayer sale con la misma probabilidad que otra vencida no vista ayer (estadístico)', () => {
++  const now = 1.7e12;
++  const us = store.unitsByModule.artikel.filter(u => u.skillId === 'artikel:genero' && u.level === 'A1').slice(0, 12);
++  const [X, Y] = us;                                                    // X: vista ayer; Y: no
++  const mk = () => {
++    const st = P.defaults(); st.sessionCounter = 1;
++    us.forEach(u => { st.units[u.unit] = { s: 'r', r: 3, l: 0, e: 2.3, i: 1, t: now - DAY, d: now, n: 3, f: 0 }; });   // todas vencidas HOY, mismo estado
++    st.history = [{ n: 1, ts: now - DAY, kind: 'mix', modules: ['artikel'], ids: [X.items[0].id] }];                       // ayer: sólo X (d = 1)
++    st.skills['artikel:genero'] = { n: 50, acc: 0.85, ls: 1 };
++    return st;
++  };
++  let cx = 0, cy = 0;
++  for (let k = 0; k < 1500; k++) {
++    const p = Sch.buildSession(ctxOf(mk(), 5000 + k, now), { kind: 'module', modules: ['artikel'], size: 12 });
++    p.items.forEach(e => { if (e.unit === X.unit) cx++; if (e.unit === Y.unit) cy++; });
++  }
++  assert.ok(cx > 150 && cy > 150, `datos insuficientes: X=${cx} Y=${cy}`);
++  assert.ok(cx / cy > 0.8 && cx / cy < 1.25, `X (vista ayer)=${cx} vs Y=${cy}: ratio ${(cx / cy).toFixed(2)}`);
++});
++
++test('P5 chooseVariant: en un verbo con cambio de vocal du y er_sie_es pesan ×3 y wir/sie_Sie (= infinitivo) ×0,5; en uno regular, uniforme', () => {
++  const raw = dataset().data;
++  const freq = (lemma, skill) => {
++    const mini = I.createStore(raw.filter(x => x.module === 'verben' && x.lemma === lemma && x.skill === skill));
++    const f = {}; const N = 6000;
++    for (let k = 0; k < N; k++) { const p = Sch.buildSession({ store: mini, state: P.defaults(), rng: DG.rng.create(7000 + k), now: 1.7e12 }, { kind: 'module', modules: ['verben'], size: 1 }); const it = mini.byId[p.items[0].id]; f[it.person] = (f[it.person] || 0) + 1; }
++    Object.keys(f).forEach(k => { f[k] /= N; }); return f;
++  };
++  const h = freq('fahren', 'praesens');                    // pesos 1·3·3·.5·1·.5 = 9
++  const near = (x, y, m) => assert.ok(Math.abs(x - y) < 0.025, m + ': ' + x.toFixed(3) + ' vs ' + y.toFixed(3));
++  near(h.du, 3 / 9, 'du'); near(h.er_sie_es, 3 / 9, 'er'); near(h.ich, 1 / 9, 'ich'); near(h.ihr, 1 / 9, 'ihr'); near(h.wir, 0.5 / 9, 'wir'); near(h.sie_Sie, 0.5 / 9, 'sie');
++  const r = freq('arbeiten', 'praesens');
++  Object.keys(r).forEach(k => near(r[k], 1 / 6, 'regular ' + k));
++});
+--- tests/simulation.test.js	2026-11-18 02:56:41.670569744 +0100
++++ tests/simulation.test.js	2026-11-18 03:22:55.386608067 +0100
+@@ -7,7 +7,7 @@
+ const cache = {};
+ const run = (name, over) => { const k = name + JSON.stringify(over || {}); return cache[k] || (cache[k] = runScenario(Object.assign({}, sc(name), over || {}))); };
+ const changes = r => Object.values(r.levelTrace || {}).map(v => v.length);
+-const modulesAtLeastA2 = r => Object.values(r.levels).filter(l => l !== 'A1').length;
++const promotedA1 = r => T.progress.of.filter(m => r.levels[m] !== 'A1').length;   // módulos que empiezan en A1 y ya subieron
+ 
+ function invariants(r, label) {
+   assert.equal(r.dupItem, T.hard.dupItems, label + ': ítems repetidos en una sesión');
+@@ -18,6 +18,8 @@
+   assert.ok(r.buildMs.mean <= T.perf.buildMeanMs, `${label}: construir sesión ${r.buildMs.mean.toFixed(1)} ms`);
+   assert.ok(r.stateBytes <= T.stateBytes.max, `${label}: estado ${r.stateBytes} B`);
+   changes(r).forEach(c => assert.ok(c <= T.levelChangesPerModule.max, `${label}: vaivén de nivel (${c} cambios)`));
++  T.nearMiss.neverAlmost.forEach(k => { const x = r.near.byKind[k]; if (x) assert.equal(x.almost + x.correct, 0, `${label}: casi-aciertos «${k}» que acaban almost/correct: ${JSON.stringify(x)}`); });
++  Object.values(r.near.byKind).forEach(x => assert.equal(x.correct, 0, label + ': un casi-acierto del alumno dio «correct»'));
+   if (r.mix) { within(r.mix.current, T.mix.current, label + ' mezcla actual'); within(r.mix.easier, T.mix.easier, label + ' mezcla fácil'); within(r.mix.up, T.mix.up, label + ' mezcla reto'); }
+ }
+ const typical = (r, label) => {
+@@ -27,9 +29,9 @@
+ 
+ test('SIM mix-12 (alumno típico, 5 módulos): invariantes, mezcla 70/20/10, cobertura, errores, progreso', () => {
+   const r = run('mix-12'); invariants(r, 'mix-12'); typical(r, 'mix-12');
+-  assert.ok(r.mix, 'la mezcla debe poder medirse en mix-12');
++  assert.ok(r.mix, 'la mezcla debe poder medirse en mix-12'); assert.ok(r.near.n >= 50, 'casi-aciertos del alumno: ' + r.near.n);
+   assert.ok(r.windowCoverage.mean >= T.coverageMixed.mean && r.windowCoverage.min >= T.coverageMixed.min, JSON.stringify(r.windowCoverage));
+-  assert.ok(modulesAtLeastA2(r) >= T.progress.modulesAtLeastA2, JSON.stringify(r.levels));
++  assert.ok(promotedA1(r) >= T.progress.promotedAtLeast, JSON.stringify(r.levels));
+   assert.ok(r.accuracyByClass.new.n / r.sessions >= T.newPerSession.min, 'unidades nuevas/sesión: ' + (r.accuracyByClass.new.n / r.sessions).toFixed(2));
+ });
+ test('SIM verben-20 (un módulo): invariantes, mezcla y cobertura estricta; asciende A1→B1 sin vaivén', () => {
+@@ -49,14 +51,17 @@
+ test('SIM mix-12-weak (alumno débil = estrés): invariantes duras, atraso acotado y sin vaivén', () => {
+   const r = run('mix-12-weak'); invariants(r, 'weak');
+   assert.ok(r.errBacklog.max <= T.backlogWeak.max, JSON.stringify(r.errBacklog));
++  const mean = (a, b) => { const x = r.errBacklog.series.slice(a - 1, b); return x.reduce((p, c) => p + c, 0) / x.length; };
++  const e = mean(...T.backlogWeakTrend.early), l = mean(...T.backlogWeakTrend.late);
++  assert.ok(l <= e + T.backlogWeakTrend.slack, `atraso creciente: sesiones 101–150 media ${e.toFixed(1)}, 151–200 media ${l.toFixed(1)}`);
+   assert.ok(r.errWait.p95 <= T.errWaitWeak.p95 && r.errWait.max <= T.errWaitWeak.max, JSON.stringify(r.errWait));
+   assert.ok(r.windowCoverage.mean >= T.coverageMixed.mean && r.windowCoverage.min >= T.coverageMixed.min, JSON.stringify(r.windowCoverage));
+ });
+-test('SIM robustez: mix-12 con 5 semillas NO usadas para calibrar cumple invariantes, mezcla y errores', () => {
++test('SIM robustez: mix-12 con 10 semillas NUEVAS (101–110) NO usadas para calibrar cumple invariantes, mezcla y errores', () => {
+   T.seeds.forEach(seed => {
+     const r = run('mix-12', { seed, name: 'mix-12@' + seed }); invariants(r, 'seed ' + seed); typical(r, 'seed ' + seed);
+     assert.ok(r.windowCoverage.mean >= T.coverageMixed.mean && r.windowCoverage.min >= T.coverageMixed.min, `seed ${seed}: ${JSON.stringify(r.windowCoverage)}`);
+-    assert.ok(modulesAtLeastA2(r) >= T.progress.modulesAtLeastA2, `seed ${seed}: ${JSON.stringify(r.levels)}`);
++    assert.ok(promotedA1(r) >= T.progress.promotedAtLeast, `seed ${seed}: ${JSON.stringify(r.levels)}`);
+   });
+ });
+ test('SIM control negativo: sin memoria de sesiones (memorySessions=0) el umbral de repetición SE ROMPE', () => {
+@@ -64,3 +69,15 @@
+   assert.ok(r.freshRepeat3 >= T.negativeControl.freshRepeat3Min, `sin memoria sólo ${(r.freshRepeat3 * 100).toFixed(1)} % de repetidos: la métrica no discrimina`);
+   assert.ok(r.freshRepeat3 > T.freshRepeat3.max);
+ });
++
++test('SIM mix-12-3perday (3 sesiones/día separadas 20 min, 600 sesiones = 200 días): 0 errores rescatados con <16 h desde el fallo', () => {
++  const r = run('mix-12-3perday'); invariants(r, '3perday'); typical(r, '3perday');
++  assert.ok(r.rescue.n >= 100, 'la métrica necesita datos: ' + r.rescue.n + ' rescates');
++  assert.equal(r.rescue.fast, T.rescueFast.max, `${r.rescue.fast} de ${r.rescue.n} rescatados con <16 h`);
++});
++test('SIM control negativo (3/día): sin paso de aprendizaje ni regla de 16 h (comportamiento de la etapa 2) la métrica SE ROMPE; sólo con la regla de 16 h ya es 0', () => {
++  const old = run('mix-12-3perday', { name: '3perday-antiguo', srsConfig: { learnStepMs: 0 }, engineConfig: { rescueMinMs: 0 } });
++  assert.ok(old.rescue.fast / old.rescue.n >= T.rescueFastControl.shareMin, `sólo ${old.rescue.fast}/${old.rescue.n}: la métrica no discrimina`);
++  const engineOnly = run('mix-12-3perday', { name: '3perday-solo-16h', srsConfig: { learnStepMs: 0 } });
++  assert.equal(engineOnly.rescue.fast, 0, 'la regla de 16 h del motor por sí sola debe bastar');
++});
+--- tools/make-report.js	2026-11-18 02:56:41.670616364 +0100
++++ tools/make-report.js	2026-11-18 03:24:36.402808564 +0100
+@@ -3,39 +3,72 @@
+ const { runScenario, SCENARIOS } = require('../sim/simulate.js');
+ const T = require('../sim/thresholds.js');
+ const f = (x, d = 3) => x == null ? '—' : (+x).toFixed(d), pc = x => x == null ? '—' : (100 * x).toFixed(1) + ' %';
++const byName = n => SCENARIOS.find(s => s.name === n);
+ const rows = SCENARIOS.map(sc => runScenario(sc));
+-const seedRows = T.seeds.map(seed => runScenario(Object.assign({}, SCENARIOS[0], { seed, name: 'mix-12@' + seed })));
+-const ctl = runScenario(Object.assign({}, SCENARIOS[0], { memorySessions: 0, name: 'sin memoria' }));
++const R = n => rows.find(r => r.scenario === n);
++const seedRows = T.seeds.map(seed => runScenario(Object.assign({}, byName('mix-12'), { seed, name: 'mix-12@' + seed })));
++const ctl = runScenario(Object.assign({}, byName('mix-12'), { memorySessions: 0, name: 'sin memoria' }));
++const rescueOld = runScenario(Object.assign({}, byName('mix-12-3perday'), { name: '3perday-antiguo', srsConfig: { learnStepMs: 0 }, engineConfig: { rescueMinMs: 0 } }));
++const rescue16 = runScenario(Object.assign({}, byName('mix-12-3perday'), { name: '3perday-solo-16h', srsConfig: { learnStepMs: 0 } }));
++const mean = (a, [x, y]) => { const v = a.slice(x - 1, y); return v.reduce((p, c) => p + c, 0) / v.length; };
++const promoted = r => T.progress.of.filter(m => r.levels[m] !== 'A1').length;
+ const tr = r => Object.entries(r.levelTrace || {}).map(([m, v]) => m + ':' + v.map(x => x[3]).join('>')).join(' ') || '—';
+-let md = '# Simulación del motor — informe\n\n' +
+-  'Alumno sintético (conocimiento y estabilidad por unidad), 200 sesiones por escenario, reloj simulado (1 sesión = 1 día).\n' +
++const mixS = r => r.mix ? [r.mix.current, r.mix.easier, r.mix.up].map(x => (100 * x).toFixed(1)).join(' / ') : 'n/d';
++const wk = R('mix-12-weak'), wEarly = mean(wk.errBacklog.series, T.backlogWeakTrend.early), wLate = mean(wk.errBacklog.series, T.backlogWeakTrend.late);
++const covMeans = seedRows.map(r => r.windowCoverage.mean), covMins = seedRows.map(r => r.windowCoverage.min);
++
++let md = '# Simulación del motor — informe (etapa 2b)\n\n' +
++  'Alumno sintético (conocimiento y estabilidad por unidad), 200 sesiones por escenario (600 en `mix-12-3perday`), reloj simulado (1 sesión = 1 día; en `3perday`, 3 sesiones/día separadas 20 min).\n' +
++  'El alumno comete además casi-aciertos (30 % de sus fallos: diéresis quitada, última letra quitada, das↔dass).\n' +
+   'Regenerar: `node tools/make-report.js`. Pasar/fallar: `npm test` (archivo `tests/simulation.test.js`, umbrales en `sim/thresholds.js`).\n\n' +
+   '## Resultados\n\n| escenario | precisión 1.er intento | dup ítem/unidad | sobre tope | repetidos ≤3 ses. (new/future) | mezcla actual/fácil/reto | cobertura ventana 20 (media/mín) | espera error p95/máx | atraso final/máx | niveles finales | cambios de nivel | ms/sesión | estado |\n|---|---|---|---|---|---|---|---|---|---|---|---|---|\n';
+-const line = r => `| ${r.scenario} | ${pc(r.accuracy)} | ${r.dupItem}/${r.dupUnit} | ${r.capViolations} | ${pc(r.freshRepeat3)} | ${r.mix ? [r.mix.current, r.mix.easier, r.mix.up].map(x => (100 * x).toFixed(1)).join(' / ') : 'n/d'} | ${f(r.windowCoverage.mean)} / ${f(r.windowCoverage.min)} | ${r.errWait.p95} / ${r.errWait.max} | ${r.errBacklog.final} / ${r.errBacklog.max} | ${Object.values(r.levels).join(',')} | ${tr(r)} | ${f(r.buildMs.mean, 1)} | ${(r.stateBytes / 1024).toFixed(0)} KB |\n`;
++const line = r => `| ${r.scenario} | ${pc(r.accuracy)} | ${r.dupItem}/${r.dupUnit} | ${r.capViolations} | ${pc(r.freshRepeat3)} | ${mixS(r)} | ${f(r.windowCoverage.mean)} / ${f(r.windowCoverage.min)} | ${r.errWait.p95} / ${r.errWait.max} | ${r.errBacklog.final} / ${r.errBacklog.max} | ${Object.values(r.levels).join(',')} | ${tr(r)} | ${f(r.buildMs.mean, 1)} | ${(r.stateBytes / 1024).toFixed(0)} KB |\n`;
+ rows.forEach(r => { md += line(r); });
+-md += '\n### Robustez: mix-12 con 5 semillas no usadas para calibrar\n\n| escenario | precisión | repetidos ≤3 | mezcla | cobertura (media/mín) | niveles | atraso final |\n|---|---|---|---|---|---|---|\n';
+-seedRows.forEach(r => { md += `| ${r.scenario} | ${pc(r.accuracy)} | ${pc(r.freshRepeat3)} | ${r.mix ? [r.mix.current, r.mix.easier, r.mix.up].map(x => (100 * x).toFixed(1)).join(' / ') : 'n/d'} | ${f(r.windowCoverage.mean)} / ${f(r.windowCoverage.min)} | ${Object.values(r.levels).join(',')} | ${r.errBacklog.final} |\n`; });
+-md += `\n### Control negativo\n\nSin memoria de sesiones (\`memorySessions = 0\`) los repetidos cercanos suben a **${pc(ctl.freshRepeat3)}** (con memoria: ${pc(rows[0].freshRepeat3)}). Umbral ≤ ${pc(T.freshRepeat3.max)}: la métrica discrimina.\n\n`;
+-md += '## Umbrales y su origen\n\n| umbral | valor | origen | nota |\n|---|---|---|---|\n';
++
++md += `\n### Robustez: mix-12 con ${T.seeds.length} semillas NUEVAS (${T.seeds[0]}–${T.seeds[T.seeds.length - 1]})\n\n${T.seedsNote}.\n\n| escenario | precisión | repetidos ≤3 | mezcla | cobertura (media/mín) | espera p95/máx | niveles | módulos A1 promovidos | atraso final/máx |\n|---|---|---|---|---|---|---|---|---|\n`;
++seedRows.forEach(r => { md += `| ${r.scenario} | ${pc(r.accuracy)} | ${pc(r.freshRepeat3)} | ${mixS(r)} | ${f(r.windowCoverage.mean)} / ${f(r.windowCoverage.min)} | ${r.errWait.p95} / ${r.errWait.max} | ${Object.values(r.levels).join(',')} | ${promoted(r)} de ${T.progress.of.length} | ${r.errBacklog.final} / ${r.errBacklog.max} |\n`; });
++md += `\nDistribución de la cobertura en las ${T.seeds.length} semillas: media ${f(Math.min(...covMeans))}–${f(Math.max(...covMeans))}, mínimo ${f(Math.min(...covMins))}–${f(Math.max(...covMins))}. Umbral restaurado: media ≥ ${T.coverageMixed.mean}, mín ≥ ${T.coverageMixed.min}.\n`;
++
++md += '\n### Rescate de errores (3 sesiones/día)\n\n| variante | rescates | rescatados con <16 h | % |\n|---|---|---|---|\n';
++[['motor 2b (paso de aprendizaje + regla de 16 h)', R('mix-12-3perday')], ['control: sólo regla de 16 h (sin paso de aprendizaje)', rescue16], ['control: comportamiento etapa 2 (sin ambos)', rescueOld]].forEach(([n, r]) => { md += `| ${n} | ${r.rescue.n} | ${r.rescue.fast} | ${r.rescue.n ? pc(r.rescue.fast / r.rescue.n) : '—'} |\n`; });
++md += '\n### Casi-aciertos del alumno (errata) y veredicto del evaluador\n\n| escenario | casi-aciertos | acaban «almost» | de ellos, por tipo |\n|---|---|---|---|\n';
++rows.forEach(r => { const al = Object.values(r.near.byKind).reduce((a, x) => a + x.almost, 0); md += `| ${r.scenario} | ${r.near.n} de ${r.near.fails} fallos | ${al} | ${Object.entries(r.near.byKind).map(([k, x]) => `${k}: ${x.almost}/${x.n}`).join(', ') || '—'} |\n`; });
++md += '\n(«almost» sólo es posible en frases con una errata en una palabra larga; diéresis quitada y das↔dass son siempre «wrong».)\n';
++
++md += `\n### Alumno débil (estrés)\n\n| espera de error p95 / **máx** | atraso máx | atraso medio sesiones 101–150 | atraso medio sesiones 151–200 | tendencia (≤ +${T.backlogWeakTrend.slack}) |\n|---|---|---|---|---|\n| ${wk.errWait.p95} / **${wk.errWait.max}** | ${wk.errBacklog.max} | ${f(wEarly, 1)} | ${f(wLate, 1)} | ${f(wLate - wEarly, 1)} |\n`;
++md += `\n### Control negativo\n\nSin memoria de sesiones (\`memorySessions = 0\`) los repetidos cercanos suben a **${pc(ctl.freshRepeat3)}** (con memoria: ${pc(R('mix-12').freshRepeat3)}). Umbral ≤ ${pc(T.freshRepeat3.max)}: la métrica discrimina.\n\n`;
++
++md += '## Umbrales y su origen\n\n### Duros (a priori, sin excepciones)\n\n| umbral | valor | origen | nota |\n|---|---|---|---|\n';
+ const add = (n, v, o, note) => { md += `| ${n} | ${v} | **${o}** | ${note || ''} |\n`; };
+ add('duplicados / sobre tope / incompletas', '0 / 0 / 0', T.hard.origin);
+ add('repetidos cercanos new/future', '≤ ' + pc(T.freshRepeat3.max), T.freshRepeat3.origin, T.freshRepeat3.note);
+ add('mezcla actual/fácil/reto', '65–75 / 15–25 / 6–14 %', T.mix.origin, T.mix.note);
+-add('cobertura (un módulo)', `media ≥ ${T.coverageSingle.mean}, mín ≥ ${T.coverageSingle.min}`, T.coverageSingle.origin, T.coverageSingle.note);
+-add('cobertura (mixto 5 módulos)', `media ≥ ${T.coverageMixed.mean}, mín ≥ ${T.coverageMixed.min}`, 'relajado (era 0.90 / 0.80)', T.coverageMixed.note);
++add('rescatados con <16 h (3/día)', `${T.rescueFast.max}`, T.rescueFast.origin, T.rescueFast.note);
++add('casi-aciertos que nunca son «almost»/«correct»', T.nearMiss.neverAlmost.join(', '), T.nearMiss.origin, T.nearMiss.note);
+ add('espera de error (típico)', `p95 ≤ ${T.errWaitTypical.p95}, máx ≤ ${T.errWaitTypical.max}`, T.errWaitTypical.origin, T.errWaitTypical.note);
+ add('atraso de errores (típico)', `final ≤ ${T.backlogTypical.final}, máx ≤ ${T.backlogTypical.max}`, T.backlogTypical.origin);
+-add('alumno débil', `atraso máx ≤ ${T.backlogWeak.max}; espera p95 ≤ ${T.errWaitWeak.p95}`, T.backlogWeak.origin, T.backlogWeak.note);
++add('tendencia del atraso (débil)', `media 151–200 ≤ media 101–150 + ${T.backlogWeakTrend.slack}`, T.backlogWeakTrend.origin, T.backlogWeakTrend.note);
+ add('rendimiento / estado', `≤ ${T.perf.buildMeanMs} ms/sesión; ≤ 1.5 MB`, T.perf.origin);
+ add('cambios de nivel por módulo', `≤ ${T.levelChangesPerModule.max}`, T.levelChangesPerModule.origin, T.levelChangesPerModule.note);
+-add('progreso', `≥ ${T.progress.modulesAtLeastA2} de ${T.progress.of} módulos ≥ A2`, T.progress.origin, T.progress.note);
++add('control negativo (sin memoria)', `repetidos ≥ ${pc(T.negativeControl.freshRepeat3Min)}`, T.negativeControl.origin, T.negativeControl.note);
++md += '\n### Restaurados / calibrados / relajados\n\n| umbral | valor | origen | nota |\n|---|---|---|---|\n';
++add('cobertura (un módulo)', `media ≥ ${T.coverageSingle.mean}, mín ≥ ${T.coverageSingle.min}`, T.coverageSingle.origin, T.coverageSingle.note);
++add('cobertura (mixto 5 módulos)', `media ≥ ${T.coverageMixed.mean}, mín ≥ ${T.coverageMixed.min}`, T.coverageMixed.origin, T.coverageMixed.note);
++add('alumno débil: atraso y espera', `atraso máx ≤ ${T.backlogWeak.max}; espera p95 ≤ ${T.errWaitWeak.p95}, máx ≤ ${T.errWaitWeak.max}`, T.backlogWeak.origin, T.errWaitWeak.note);
++add('progreso', `≥ ${T.progress.promotedAtLeast} de ${T.progress.of.length} módulos que empiezan en A1 promovidos`, T.progress.origin, T.progress.note);
+ add('unidades nuevas por sesión', `≥ ${T.newPerSession.min}`, T.newPerSession.origin, T.newPerSession.note);
++add('control negativo 3/día', `≥ ${pc(T.rescueFastControl.shareMin)} de rescates prematuros`, T.rescueFastControl.origin, T.rescueFastControl.note);
++
++const vb = R('mix-12').rampFinal.verben;
+ md += '\n## Lectura honesta\n\n' +
+-  '- **Duros (a priori, sin excepciones):** 0 duplicados, 0 ítems por encima del tope, 0 sesiones incompletas, mezcla 70/20/10 ±0.2 pp, sin vaivén de nivel.\n' +
+-  '- **Relajado tras medir:** la cobertura por ventana en el mixto de 5 módulos. Con 12 ítems/sesión reparte ≈4.4 ítems por casilla y ventana; las casillas pequeñas (p. ej. `konnektoren:ob`) a veces quedan fuera de una ventana de 20 sesiones. El peso del módulo ya incluye (nº casillas)^0.2 y el refuerzo por antigüedad es cuadrático; subir más el exponente frenaba el ascenso de verben/artikel.\n' +
+-  '- **Capacidad:** con 12 ítems/sesión el sistema introduce ≈1.3 unidades nuevas por sesión (cada unidad necesita ≈8–10 repasos); en 200 sesiones se tocan ~260 de 3 398 unidades. No es un fallo: es el límite del tamaño de sesión. Sesiones más largas o más módulos por día lo suben casi linealmente.\n' +
+-  '- **El alumno sintético es un modelo**, no un estudiante real: valida mecánica (repetición, cobertura, estabilidad), no eficacia pedagógica. Las cifras de precisión (≈80 %) dependen de sus parámetros.\n';
+-md += '\n## Pruebas de mutación (las pruebas deben fallar si se rompe algo crítico)\n\n' +
++  '- **Duros:** 0 duplicados, 0 ítems por encima del tope, 0 sesiones incompletas, mezcla 70/20/10 dentro de ±5/5/4 pp, sin vaivén de nivel, 0 rescates con <16 h y ningún casi-acierto de diéresis o das↔dass acaba como «almost».\n' +
++  `- **Cobertura restaurada (0.90/0.80):** la guarda anti-inanición (1 hueco por sesión para la casilla alcanzable con >10 sesiones sin salir) hace que, en las ${T.seeds.length} semillas nuevas, ninguna casilla alcanzable quede fuera de una ventana de 20 sesiones. Es un resultado de diseño (la guarda lo garantiza casi por construcción), no una prueba de que el reparto sin la guarda fuera bueno: con la guarda desactivada, la etapa 2 daba .87–.91 / .76–.83.\n` +
++  `- **Coste pedagógico de los arreglos en verben:** exigir ≥1 acierto en du/er_sie_es en los verbos con cambio de vocal/irregulares retrasa la promoción. En mix-12, verben sigue en A1 a las 200 sesiones en las ${T.seeds.length} semillas nuevas (semilla de calibración: ${vb.mastered} de ${vb.need} unidades dominadas necesarias), mientras que en la etapa 2 llegaba a A2. En el escenario de un solo módulo (verben-20) sí asciende hasta B1. Es el efecto buscado del punto 5, pero hay que saber que existe.\n` +
++  '- **Casi-aciertos:** el 30 % de los fallos del alumno son erratas; la mayoría acaba como «wrong» a propósito (diéresis y das↔dass nunca son «almost»). «almost» sólo sale en frases con una errata en una palabra larga. Límite conocido: una errata de flexión en una palabra larga dentro de una frase («ich bleibt») sigue siendo «almost».\n' +
++  '- **Capacidad:** con 12 ítems/sesión el sistema introduce ≈1.3 unidades nuevas por sesión (cada unidad necesita ≈8–10 repasos). No es un fallo: es el límite del tamaño de sesión.\n' +
++  '- **El alumno sintético es un modelo**, no un estudiante real: valida mecánica (repetición, cobertura, estabilidad), no eficacia pedagógica. Las cifras de precisión (≈78 %) dependen de sus parámetros.\n' +
++  '- **API:** además de `saveError`, el planificador emite el aviso nuevo `ERRORS_NOT_READY` (repaso de errores con errores recién fallados, <1 h) y las entradas de sesión pueden llevar `guard: true` / la nota `STARVATION_GUARD`.\n';
++md += '\n## Pruebas de mutación (etapa 2; no se repitieron en 2b)\n\n' +
+   'Línea base sin mutar: 0 fallos. Cada mutación se aplicó sobre una copia y se corrió toda la suite:\n\n' +
+   '| mutación | pruebas que fallan | quién la detecta |\n|---|---|---|\n' +
+   '| evaluador: toda forma cerrada tolera «typo» | 3 | unitarias del evaluador, dataset ä/ö/ü, e2e jsdom |\n' +
+@@ -44,6 +77,6 @@
+   '| scheduler sin memoria (recencyFactor = 1) | 2 | unitaria de memoria + SIM robustez |\n' +
+   '| scheduler: relleno sin hueco estricto (futureGap = 0) | 6 | SIM (5 escenarios + control) |\n' +
+   '| scheduler: permite repetir unidad en la sesión | 6 | unitarias de unicidad + SIM |\n\n' +
+-  'Aviso: una mutación («sin memoria») sólo la detectan 2 pruebas; la memoria de sesiones está cubierta pero con menos redundancia que el resto.\n';
++  'Aviso: una mutación («sin memoria») sólo la detectan 2 pruebas. En 2b cada punto lleva su prueba «falla antes / pasa después», comprobada ejecutando los tests nuevos contra el código de la etapa 2.\n';
+ fs.writeFileSync(path.join(__dirname, '..', 'sim', 'REPORT.md'), md);
+ console.log('REPORT.md escrito');

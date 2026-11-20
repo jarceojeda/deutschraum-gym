@@ -1,0 +1,2512 @@
+[
+{
+"id": "cs:t1",
+"title": "La regla madre: V₂",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t2",
+"title": "Preguntas: dos patrones",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t3",
+"title": "Präsens: construir la forma del verbo",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t4",
+"title": "Vokalwechsel: solo vigila dos personas",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t5",
+"title": "sein + haben: dos verbos que no se negocian",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t6",
+"title": "¿Quién hace la acción? · Personalpronomen",
+"parent": "cs:c1",
+"decisionId": "cs:c1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t7",
+"title": "Una sola idea explica tres estructuras",
+"parent": "cs:c2",
+"decisionId": "cs:c2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t8",
+"title": "Trennbare Verben · el prefijo se va al final",
+"parent": "cs:c2",
+"decisionId": "cs:c2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t9",
+"title": "Modalverben · cambia la intención, no la arquitectura",
+"parent": "cs:c2",
+"decisionId": "cs:c2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t10",
+"title": "mögen · gern · möchten: tres ideas distintas",
+"parent": "cs:c2",
+"decisionId": "cs:c2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t11",
+"title": "Imperativ · quitar el sujeto",
+"parent": "cs:c2",
+"decisionId": "cs:c2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t12",
+"title": "Aprende el sustantivo como un paquete",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t13",
+"title": "Komposita · mira siempre la última palabra",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t14",
+"title": "Los 3 casos de A1",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t15",
+"title": "La tabla importa, pero el patrón importa más",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t16",
+"title": "Dativ plural · dos cambios a la vez",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t17",
+"title": "El verbo decide el caso",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t18",
+"title": "Cuando la persona ya no necesita sustantivo",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t19",
+"title": "Possessivartikel · primero identifica al dueño",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t20",
+"title": "Negación: primero pregunta qué estás negando",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t21",
+"title": "Una sola familia explica muchas terminaciones",
+"parent": "cs:c3",
+"decisionId": "cs:c3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t22",
+"title": "Preposiciones frecuentes que piden Dativ",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t23",
+"title": "Woher? · Wo? · Wohin?",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t24",
+"title": "in / an: aprende primero el uso de ubicación",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t25",
+"title": "Lokale Präpositionen · aprende la imagen",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t26",
+"title": "Contracciones · memorízalas como palabras",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t27",
+"title": "Tiempo: tres preposiciones, tres escalas",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t28",
+"title": "Frecuencia · dónde colocarla",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t29",
+"title": "Rangos y relación temporal",
+"parent": "cs:c4",
+"decisionId": "cs:c4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t30",
+"title": "Perfekt · la misma pinza de antes",
+"parent": "cs:c5",
+"decisionId": "cs:c5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t31",
+"title": "Partizip II · primero identifica el tipo de verbo",
+"parent": "cs:c5",
+"decisionId": "cs:c5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t32",
+"title": "¿Qué auxiliar uso?",
+"parent": "cs:c5",
+"decisionId": "cs:c5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t33",
+"title": "Las preguntas no cambian de lógica",
+"parent": "cs:c5",
+"decisionId": "cs:c5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t34",
+"title": "sein/haben en pasado: war + hatte",
+"parent": "cs:c5",
+"decisionId": "cs:c5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t35",
+"title": "welcher + dieser: reutiliza el patrón de der",
+"parent": "cs:c6",
+"decisionId": "cs:c6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t36",
+"title": "Comparar: piensa en una escala de 3 niveles",
+"parent": "cs:c6",
+"decisionId": "cs:c6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t37",
+"title": "Ordinalzahlen + fecha: una misma transformación",
+"parent": "cs:c6",
+"decisionId": "cs:c6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t38",
+"title": "und / aber / oder: la nueva oración conserva su orden normal",
+"parent": "cs:c6",
+"decisionId": "cs:c6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t39",
+"title": "dann: no es como und/aber/oder",
+"parent": "cs:c6",
+"decisionId": "cs:c6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v1t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v1",
+"decisionId": "cs:v1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v1t2",
+"title": "Satzbausteine · moldes reutilizables",
+"parent": "cs:v1",
+"decisionId": "cs:v1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v1t3",
+"title": "Wörter · por familias",
+"parent": "cs:v1",
+"decisionId": "cs:v1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v1t4",
+"title": "Mini-Szene · Kennenlernen",
+"parent": "cs:v1",
+"decisionId": "cs:v1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v2t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v2",
+"decisionId": "cs:v2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v2t2",
+"title": "Satzbausteine",
+"parent": "cs:v2",
+"decisionId": "cs:v2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v2t3",
+"title": "Wörter",
+"parent": "cs:v2",
+"decisionId": "cs:v2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v2t4",
+"title": "Mini-Szene · Mein Montag",
+"parent": "cs:v2",
+"decisionId": "cs:v2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v3t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v3",
+"decisionId": "cs:v3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v3t2",
+"title": "Satzbausteine",
+"parent": "cs:v3",
+"decisionId": "cs:v3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v3t3",
+"title": "Wörter",
+"parent": "cs:v3",
+"decisionId": "cs:v3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v3t4",
+"title": "Mini-Szene · Im Geschäft",
+"parent": "cs:v3",
+"decisionId": "cs:v3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v4t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v4",
+"decisionId": "cs:v4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v4t2",
+"title": "Satzbausteine",
+"parent": "cs:v4",
+"decisionId": "cs:v4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v4t3",
+"title": "Wörter",
+"parent": "cs:v4",
+"decisionId": "cs:v4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v4t4",
+"title": "Mini-Szene · Meine Wohnung",
+"parent": "cs:v4",
+"decisionId": "cs:v4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v5t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v5",
+"decisionId": "cs:v5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v5t2",
+"title": "Satzbausteine",
+"parent": "cs:v5",
+"decisionId": "cs:v5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v5t3",
+"title": "Wörter",
+"parent": "cs:v5",
+"decisionId": "cs:v5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v5t4",
+"title": "Mini-Szene · Nach dem Weg fragen",
+"parent": "cs:v5",
+"decisionId": "cs:v5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v6t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v6",
+"decisionId": "cs:v6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v6t2",
+"title": "Satzbausteine",
+"parent": "cs:v6",
+"decisionId": "cs:v6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v6t3",
+"title": "Wörter",
+"parent": "cs:v6",
+"decisionId": "cs:v6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v6t4",
+"title": "Mini-Szene · Auf der Post",
+"parent": "cs:v6",
+"decisionId": "cs:v6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v7t1",
+"title": "¿Qué debo poder hacer?",
+"parent": "cs:v7",
+"decisionId": "cs:v7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v7t2",
+"title": "Satzbausteine",
+"parent": "cs:v7",
+"decisionId": "cs:v7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v7t3",
+"title": "Wörter",
+"parent": "cs:v7",
+"decisionId": "cs:v7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:v7t4",
+"title": "Mini-Szene · Beim Arzt",
+"parent": "cs:v7",
+"decisionId": "cs:v7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t40",
+"title": "Construye cualquier oración A1 así",
+"parent": "cs:c7",
+"decisionId": "cs:c7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t41",
+"title": "Errores que deberían “sonar mal” inmediatamente",
+"parent": "cs:c7",
+"decisionId": "cs:c7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "cs:t42",
+"title": "Qué debe quedar automático primero",
+"parent": "cs:c7",
+"decisionId": "cs:c7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s1-1",
+"title": "1.1 · El caso viene de fuera",
+"parent": "dm:s1",
+"decisionId": "dm:s1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s1-2",
+"title": "1.2 · Después fija M · F · N · PL",
+"parent": "dm:s1",
+"decisionId": "dm:s1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s1-3",
+"title": "1.3 · Aprende viendo una variable cambiar",
+"parent": "dm:s1",
+"decisionId": "dm:s1",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s2-1",
+"title": "2.1 · La gran idea",
+"parent": "dm:s2",
+"decisionId": "dm:s2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s2-2",
+"title": "2.2 · Solo necesitas dos comportamientos",
+"parent": "dm:s2",
+"decisionId": "dm:s2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s2-3",
+"title": "2.3 · “Señal” es una herramienta mental, no magia",
+"parent": "dm:s2",
+"decisionId": "dm:s2",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s3-1",
+"title": "3.1 · Familia DER · la señal suele venir delante",
+"parent": "dm:s3",
+"decisionId": "dm:s3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s3-2",
+"title": "3.2 · Familia EIN · solo 3 huecos importantes",
+"parent": "dm:s3",
+"decisionId": "dm:s3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s3-3",
+"title": "3.3 · Ø · nadie delante del adjetivo",
+"parent": "dm:s3",
+"decisionId": "dm:s3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s3-4",
+"title": "3.4 · Posesivos · separa dos preguntas",
+"parent": "dm:s3",
+"decisionId": "dm:s3",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s4-1",
+"title": "4.1 · Débil = solo -e / -en",
+"parent": "dm:s4",
+"decisionId": "dm:s4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s4-2",
+"title": "4.2 · Fuerte = el adjetivo muestra la casilla",
+"parent": "dm:s4",
+"decisionId": "dm:s4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s4-3",
+"title": "4.3 · “Mixta” = EIN alternando",
+"parent": "dm:s4",
+"decisionId": "dm:s4",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s5-1",
+"title": "5.1 · DATIV PLURAL · normalmente +n",
+"parent": "dm:s5",
+"decisionId": "dm:s5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s5-2",
+"title": "5.2 · GENITIV M/N · normalmente -(e)s",
+"parent": "dm:s5",
+"decisionId": "dm:s5",
+"scope": "beyond-a1",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s5-3",
+"title": "5.3 · N-DEKLINATION · algunos masculinos cambian fuera de Nom sg",
+"parent": "dm:s5",
+"decisionId": "dm:s5",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s5-4",
+"title": "5.4 · EXPANSION · bordes que vale la pena reconocer",
+"parent": "dm:s5",
+"decisionId": "dm:s5",
+"scope": "beyond-a1",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s6-1",
+"title": "6.1 · Misma raíz, otra función",
+"parent": "dm:s6",
+"decisionId": "dm:s6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s6-2",
+"title": "6.2 · Pronombres personales · tabla que sí merece existir",
+"parent": "dm:s6",
+"decisionId": "dm:s6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s6-3",
+"title": "6.3 · OJO · der artículo ≠ siempre der pronombre",
+"parent": "dm:s6",
+"decisionId": "dm:s6",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s7-1",
+"title": "7.1 · Cambia el CASO",
+"parent": "dm:s7",
+"decisionId": "dm:s7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s7-2",
+"title": "7.2 · Cambia quién lleva la SEÑAL",
+"parent": "dm:s7",
+"decisionId": "dm:s7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s7-3",
+"title": "7.3 · Cambia M/F/N/PL",
+"parent": "dm:s7",
+"decisionId": "dm:s7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s7-4",
+"title": "7.4 · Ahora deja que el sustantivo cambie",
+"parent": "dm:s7",
+"decisionId": "dm:s7",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s8-1",
+"title": "8.1 · Falló la señal del determinante",
+"parent": "dm:s8",
+"decisionId": "dm:s8",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s8-2",
+"title": "8.2 · Olvidaste el sustantivo",
+"parent": "dm:s8",
+"decisionId": "dm:s8",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s8-3",
+"title": "8.3 · Olvidaste N-Deklination",
+"parent": "dm:s8",
+"decisionId": "dm:s8",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s8-4",
+"title": "8.4 · No viste el hueco",
+"parent": "dm:s8",
+"decisionId": "dm:s8",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-1",
+"title": "9.1 · Masculino definido",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-2",
+"title": "9.2 · Akkusativ masculino = zona -en",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-3",
+"title": "9.3 · Dativ tiene una firma fuerte",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-4",
+"title": "9.4 · Débil = 5 veces -e; resto -en",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-5",
+"title": "9.5 · EIN = tres huecos",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-6",
+"title": "9.6 · Sin determinante",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s9-7",
+"title": "9.7 · Tres alarmas del sustantivo",
+"parent": "dm:s9",
+"decisionId": "dm:s9",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s10-1",
+"title": "10.1 · NIVEL 1 · cambia una variable",
+"parent": "dm:s10",
+"decisionId": "dm:s10",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s10-2",
+"title": "10.2 · NIVEL 2 · identifica la señal",
+"parent": "dm:s10",
+"decisionId": "dm:s10",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s10-3",
+"title": "10.3 · NIVEL 3 · genera desde piezas",
+"parent": "dm:s10",
+"decisionId": "dm:s10",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s10-4",
+"title": "10.4 · NIVEL 4 · inserta en una frase real",
+"parent": "dm:s10",
+"decisionId": "dm:s10",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s10-5",
+"title": "10.5 · NIVEL 5 · combina mecanismos",
+"parent": "dm:s10",
+"decisionId": "dm:s10",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-1",
+"title": "11.1 · Artículo definido",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-2",
+"title": "11.2 · Artículo indefinido · ein",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-3",
+"title": "11.3 · Adjetivo débil",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-4",
+"title": "11.4 · Adjetivo “mixto” · familia EIN",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-5",
+"title": "11.5 · Adjetivo fuerte",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s11-6",
+"title": "11.6 · Terminaciones de dies-/jen-/welch-",
+"parent": "dm:s11",
+"decisionId": "dm:s11",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:s12-1",
+"title": "12.1 · Frontera práctica",
+"parent": "dm:s12",
+"decisionId": "dm:s12",
+"scope": "beyond-a1",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:final-can-do",
+"title": "KANNST DU…? · Prueba de capacidad",
+"parent": "dm:final",
+"decisionId": "dm:final",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "dm:final-demonstration",
+"title": "La prueba final",
+"parent": "dm:final",
+"decisionId": "dm:final",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [],
+"itemFilters": {}
+},
+{
+"id": "a24:meaning",
+"title": "Vocabulario en contexto",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:meaning"
+]
+},
+{
+"id": "a24:reading",
+"title": "Lesen · buscar evidencia",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:reading"
+]
+},
+{
+"id": "a24:listening",
+"title": "Hören · contrastar detalles",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:listening"
+]
+},
+{
+"id": "a24:form",
+"title": "Schreiben · datos del formulario",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:form"
+]
+},
+{
+"id": "a24:message",
+"title": "Schreiben · construir un mensaje",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:message"
+]
+},
+{
+"id": "a24:speaking",
+"title": "Sprechen · responder a la intención",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:speaking"
+]
+},
+{
+"id": "a24:accprep",
+"title": "Preposiciones con Akkusativ",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:accprep"
+]
+},
+{
+"id": "a24:subordinate",
+"title": "Conectores y verbo al final",
+"parent": "support240",
+"scope": "a1-extended",
+"prerequisites": [],
+"errorTags": [
+"a24:subordinate"
+]
+},
+{
+"id": "a24:prep-001",
+"title": "Preposición / conector · mit dem",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-001"
+]
+},
+{
+"id": "a24:prep-002",
+"title": "Preposición / conector · mit der",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-002"
+]
+},
+{
+"id": "a24:prep-003",
+"title": "Preposición / conector · aus",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-003"
+]
+},
+{
+"id": "a24:prep-004",
+"title": "Preposición / conector · nach",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-004"
+]
+},
+{
+"id": "a24:prep-005",
+"title": "Preposición / conector · zum",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-005"
+]
+},
+{
+"id": "a24:prep-006",
+"title": "Preposición / conector · zur",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-006"
+]
+},
+{
+"id": "a24:prep-007",
+"title": "Preposición / conector · zum",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-007"
+]
+},
+{
+"id": "a24:prep-008",
+"title": "Preposición / conector · mit dem",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-008"
+]
+},
+{
+"id": "a24:prep-009",
+"title": "Preposición / conector · für",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-009"
+]
+},
+{
+"id": "a24:prep-010",
+"title": "Preposición / conector · ohne",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-010"
+]
+},
+{
+"id": "a24:prep-011",
+"title": "Preposición / conector · auf",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-011"
+]
+},
+{
+"id": "a24:prep-012",
+"title": "Preposición / conector · bei",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-012"
+]
+},
+{
+"id": "a24:prep-013",
+"title": "Preposición / conector · in",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-013"
+]
+},
+{
+"id": "a24:prep-014",
+"title": "Preposición / conector · seit",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-014"
+]
+},
+{
+"id": "a24:prep-015",
+"title": "Preposición / conector · um",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-015"
+]
+},
+{
+"id": "a24:prep-016",
+"title": "Preposición / conector · am",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-016"
+]
+},
+{
+"id": "a24:prep-017",
+"title": "Preposición / conector · im",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-017"
+]
+},
+{
+"id": "a24:prep-018",
+"title": "Preposición / conector · durch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-018"
+]
+},
+{
+"id": "a24:prep-019",
+"title": "Preposición / conector · bei",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-019"
+]
+},
+{
+"id": "a24:prep-020",
+"title": "Preposición / conector · nach",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-020"
+]
+},
+{
+"id": "a24:prep-021",
+"title": "Preposición / conector · auf dem",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-021"
+]
+},
+{
+"id": "a24:prep-022",
+"title": "Preposición / conector · auf den",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-022"
+]
+},
+{
+"id": "a24:prep-023",
+"title": "Preposición / conector · in der",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-023"
+]
+},
+{
+"id": "a24:prep-024",
+"title": "Preposición / conector · in die",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-024"
+]
+},
+{
+"id": "a24:prep-025",
+"title": "Preposición / conector · im",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-025"
+]
+},
+{
+"id": "a24:prep-026",
+"title": "Preposición / conector · in den",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-026"
+]
+},
+{
+"id": "a24:prep-027",
+"title": "Preposición / conector · am",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-027"
+]
+},
+{
+"id": "a24:prep-028",
+"title": "Preposición / conector · ans",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-028"
+]
+},
+{
+"id": "a24:prep-029",
+"title": "Preposición / conector · unter dem",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-029"
+]
+},
+{
+"id": "a24:prep-030",
+"title": "Preposición / conector · unter den",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-030"
+]
+},
+{
+"id": "a24:prep-031",
+"title": "Preposición / conector · zur",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-031"
+]
+},
+{
+"id": "a24:prep-032",
+"title": "Preposición / conector · im",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-032"
+]
+},
+{
+"id": "a24:prep-033",
+"title": "Preposición / conector · in den",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-033"
+]
+},
+{
+"id": "a24:prep-034",
+"title": "Preposición / conector · ins",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-034"
+]
+},
+{
+"id": "a24:prep-035",
+"title": "Preposición / conector · im",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-035"
+]
+},
+{
+"id": "a24:prep-036",
+"title": "Preposición / conector · vom",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-036"
+]
+},
+{
+"id": "a24:prep-037",
+"title": "Preposición / conector · beim",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-037"
+]
+},
+{
+"id": "a24:prep-038",
+"title": "Preposición / conector · zur",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-038"
+]
+},
+{
+"id": "a24:prep-039",
+"title": "Preposición / conector · vom",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-039"
+]
+},
+{
+"id": "a24:prep-040",
+"title": "Preposición / conector · am",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-040"
+]
+},
+{
+"id": "a24:prep-041",
+"title": "Preposición / conector · weil",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-041"
+]
+},
+{
+"id": "a24:prep-042",
+"title": "Preposición / conector · denn",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-042"
+]
+},
+{
+"id": "a24:prep-043",
+"title": "Preposición / conector · und",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-043"
+]
+},
+{
+"id": "a24:prep-044",
+"title": "Preposición / conector · oder",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-044"
+]
+},
+{
+"id": "a24:prep-045",
+"title": "Preposición / conector · aber",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-045"
+]
+},
+{
+"id": "a24:prep-046",
+"title": "Preposición / conector · Deshalb",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-046"
+]
+},
+{
+"id": "a24:prep-047",
+"title": "Preposición / conector · Zuerst",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-047"
+]
+},
+{
+"id": "a24:prep-048",
+"title": "Preposición / conector · wann",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-048"
+]
+},
+{
+"id": "a24:prep-049",
+"title": "Preposición / conector · dass",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-049"
+]
+},
+{
+"id": "a24:prep-050",
+"title": "Preposición / conector · Wenn",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-050"
+]
+},
+{
+"id": "a24:prep-051",
+"title": "Preposición / conector · Deshalb",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-051"
+]
+},
+{
+"id": "a24:prep-052",
+"title": "Preposición / conector · denn",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-052"
+]
+},
+{
+"id": "a24:prep-053",
+"title": "Preposición / conector · aber",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-053"
+]
+},
+{
+"id": "a24:prep-054",
+"title": "Preposición / conector · Heute",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-054"
+]
+},
+{
+"id": "a24:prep-055",
+"title": "Preposición / conector · weil",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:prep-055"
+]
+},
+{
+"id": "a24:part-001",
+"title": "Palabra en contexto · Man",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-001"
+]
+},
+{
+"id": "a24:part-002",
+"title": "Palabra en contexto · man",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-002"
+]
+},
+{
+"id": "a24:part-003",
+"title": "Palabra en contexto · man",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-003"
+]
+},
+{
+"id": "a24:part-004",
+"title": "Palabra en contexto · man",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-004"
+]
+},
+{
+"id": "a24:part-005",
+"title": "Palabra en contexto · mal",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-005"
+]
+},
+{
+"id": "a24:part-006",
+"title": "Palabra en contexto · mal",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-006"
+]
+},
+{
+"id": "a24:part-007",
+"title": "Palabra en contexto · mir",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-007"
+]
+},
+{
+"id": "a24:part-008",
+"title": "Palabra en contexto · mal",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-008"
+]
+},
+{
+"id": "a24:part-009",
+"title": "Palabra en contexto · mal",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-009"
+]
+},
+{
+"id": "a24:part-010",
+"title": "Palabra en contexto · Doch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-010"
+]
+},
+{
+"id": "a24:part-011",
+"title": "Palabra en contexto · Doch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-011"
+]
+},
+{
+"id": "a24:part-012",
+"title": "Palabra en contexto · doch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-012"
+]
+},
+{
+"id": "a24:part-013",
+"title": "Palabra en contexto · doch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-013"
+]
+},
+{
+"id": "a24:part-014",
+"title": "Palabra en contexto · denn",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-014"
+]
+},
+{
+"id": "a24:part-015",
+"title": "Palabra en contexto · denn",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-015"
+]
+},
+{
+"id": "a24:part-016",
+"title": "Palabra en contexto · bitte",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-016"
+]
+},
+{
+"id": "a24:part-017",
+"title": "Palabra en contexto · Bitte",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-017"
+]
+},
+{
+"id": "a24:part-018",
+"title": "Palabra en contexto · ja",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-018"
+]
+},
+{
+"id": "a24:part-019",
+"title": "Palabra en contexto · ja",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-019"
+]
+},
+{
+"id": "a24:part-020",
+"title": "Palabra en contexto · nur",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-020"
+]
+},
+{
+"id": "a24:part-021",
+"title": "Palabra en contexto · Nur",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-021"
+]
+},
+{
+"id": "a24:part-022",
+"title": "Palabra en contexto · noch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-022"
+]
+},
+{
+"id": "a24:part-023",
+"title": "Palabra en contexto · noch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-023"
+]
+},
+{
+"id": "a24:part-024",
+"title": "Palabra en contexto · schon",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-024"
+]
+},
+{
+"id": "a24:part-025",
+"title": "Palabra en contexto · schon",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-025"
+]
+},
+{
+"id": "a24:part-026",
+"title": "Palabra en contexto · erst",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-026"
+]
+},
+{
+"id": "a24:part-027",
+"title": "Palabra en contexto · erst",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-027"
+]
+},
+{
+"id": "a24:part-028",
+"title": "Palabra en contexto · auch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-028"
+]
+},
+{
+"id": "a24:part-029",
+"title": "Palabra en contexto · auch",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-029"
+]
+},
+{
+"id": "a24:part-030",
+"title": "Palabra en contexto · eigentlich",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-030"
+]
+},
+{
+"id": "a24:part-031",
+"title": "Palabra en contexto · gerade",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-031"
+]
+},
+{
+"id": "a24:part-032",
+"title": "Palabra en contexto · Vielleicht",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-032"
+]
+},
+{
+"id": "a24:part-033",
+"title": "Palabra en contexto · lieber",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-033"
+]
+},
+{
+"id": "a24:part-034",
+"title": "Palabra en contexto · ruhig",
+"parent": "support240",
+"scope": "core",
+"prerequisites": [],
+"errorTags": [
+"a24:part-034"
+]
+},
+{
+"id": "a2:konnektoren",
+"title": "Konnektoren A2",
+"scope": "core",
+"origin": "etapa1",
+"items": 156
+},
+{
+"id": "a2:nebensaetze",
+"title": "Nebensätze (weil, dass, wenn)",
+"scope": "core",
+"origin": "etapa1",
+"items": 223
+},
+{
+"id": "a2:partikeln",
+"title": "partikeln",
+"scope": "core",
+"origin": "etapa1",
+"items": 5
+},
+{
+"id": "a2:perfekt",
+"title": "Perfekt (A2)",
+"scope": "core",
+"origin": "etapa1",
+"items": 8
+},
+{
+"id": "a2:praeposition-acc",
+"title": "praeposition acc",
+"scope": "core",
+"origin": "etapa1",
+"items": 8
+},
+{
+"id": "a2:praeposition-dat",
+"title": "praeposition dat",
+"scope": "core",
+"origin": "etapa1",
+"items": 13
+},
+{
+"id": "a2:praeposition-gen",
+"title": "praeposition gen",
+"scope": "core",
+"origin": "etapa1",
+"items": 4
+},
+{
+"id": "a2:tekamolo",
+"title": "TeKaMoLo (A2)",
+"scope": "core",
+"origin": "etapa1",
+"items": 12
+},
+{
+"id": "a2:verben-mit-praepositionen",
+"title": "verben mit praepositionen",
+"scope": "core",
+"origin": "etapa1",
+"items": 12
+},
+{
+"id": "a2:wechselpraepositionen",
+"title": "Wechselpräpositionen Wo/Wohin",
+"scope": "core",
+"origin": "etapa1",
+"items": 97
+},
+{
+"id": "b1:genitiv-praepositionen",
+"title": "Genitiv-Präpositionen",
+"scope": "core",
+"origin": "etapa1",
+"items": 12
+},
+{
+"id": "b1:indirekte-fragen",
+"title": "Indirekte Fragen",
+"scope": "core",
+"origin": "etapa1",
+"items": 18
+},
+{
+"id": "b1:infinitiv-mit-zu",
+"title": "Infinitiv mit zu",
+"scope": "core",
+"origin": "etapa1",
+"items": 9
+},
+{
+"id": "b1:konjunktiv-ii",
+"title": "Konjunktiv II",
+"scope": "core",
+"origin": "etapa1",
+"items": 9
+},
+{
+"id": "b1:konnektoren",
+"title": "Konnektoren B1",
+"scope": "core",
+"origin": "etapa1",
+"items": 58
+},
+{
+"id": "b1:partikeln",
+"title": "partikeln",
+"scope": "core",
+"origin": "etapa1",
+"items": 13
+},
+{
+"id": "b1:passiv",
+"title": "Passiv",
+"scope": "core",
+"origin": "etapa1",
+"items": 10
+},
+{
+"id": "b1:relativsaetze",
+"title": "Relativsätze",
+"scope": "core",
+"origin": "etapa1",
+"items": 12
+},
+{
+"id": "b1:verben-mit-praepositionen",
+"title": "Verben mit Präpositionen",
+"scope": "core",
+"origin": "etapa1",
+"items": 26
+},
+{
+"id": "cs:a1-v1",
+"title": "a1 v1",
+"scope": "core",
+"origin": "etapa1",
+"items": 26
+},
+{
+"id": "cs:a1-v2",
+"title": "a1 v2",
+"scope": "core",
+"origin": "etapa1",
+"items": 236
+},
+{
+"id": "cs:a1-v3",
+"title": "a1 v3",
+"scope": "core",
+"origin": "etapa1",
+"items": 85
+},
+{
+"id": "cs:a1-v4",
+"title": "a1 v4",
+"scope": "core",
+"origin": "etapa1",
+"items": 32
+},
+{
+"id": "cs:a1-v5",
+"title": "a1 v5",
+"scope": "core",
+"origin": "etapa1",
+"items": 100
+},
+{
+"id": "cs:a1-v6",
+"title": "a1 v6",
+"scope": "core",
+"origin": "etapa1",
+"items": 96
+},
+{
+"id": "cs:a1-v7",
+"title": "a1 v7",
+"scope": "core",
+"origin": "etapa1",
+"items": 67
+},
+{
+"id": "cs:a2-tr",
+"title": "a2 tr",
+"scope": "core",
+"origin": "etapa1",
+"items": 87
+},
+{
+"id": "cs:a2-va",
+"title": "a2 va",
+"scope": "core",
+"origin": "etapa1",
+"items": 81
+},
+{
+"id": "cs:a2-vb",
+"title": "a2 vb",
+"scope": "core",
+"origin": "etapa1",
+"items": 15
+},
+{
+"id": "cs:a2-vc",
+"title": "a2 vc",
+"scope": "core",
+"origin": "etapa1",
+"items": 16
+},
+{
+"id": "cs:a2-vd",
+"title": "a2 vd",
+"scope": "core",
+"origin": "etapa1",
+"items": 59
+},
+{
+"id": "cs:a2-ve",
+"title": "a2 ve",
+"scope": "core",
+"origin": "etapa1",
+"items": 57
+},
+{
+"id": "cs:a2-vf",
+"title": "a2 vf",
+"scope": "core",
+"origin": "etapa1",
+"items": 74
+},
+{
+"id": "cs:a2-vg",
+"title": "a2 vg",
+"scope": "core",
+"origin": "etapa1",
+"items": 80
+},
+{
+"id": "cs:b1-va",
+"title": "b1 va",
+"scope": "core",
+"origin": "etapa1",
+"items": 34
+},
+{
+"id": "cs:b1-vb",
+"title": "b1 vb",
+"scope": "core",
+"origin": "etapa1",
+"items": 32
+},
+{
+"id": "cs:b1-vc",
+"title": "b1 vc",
+"scope": "core",
+"origin": "etapa1",
+"items": 42
+},
+{
+"id": "cs:b1-vd",
+"title": "b1 vd",
+"scope": "core",
+"origin": "etapa1",
+"items": 59
+},
+{
+"id": "cs:b1-ve",
+"title": "b1 ve",
+"scope": "core",
+"origin": "etapa1",
+"items": 51
+},
+{
+"id": "cs:b1-vf",
+"title": "b1 vf",
+"scope": "core",
+"origin": "etapa1",
+"items": 35
+},
+{
+"id": "cs:b1-vg",
+"title": "b1 vg",
+"scope": "core",
+"origin": "etapa1",
+"items": 44
+},
+{
+"id": "md:konnektoren-doppel",
+"title": "Doppelkonnektoren",
+"scope": "core",
+"origin": "etapa1",
+"items": 6
+},
+{
+"id": "md:partikeln",
+"title": "Modalpartikeln",
+"scope": "core",
+"origin": "etapa1",
+"items": 51
+},
+{
+"id": "md:satzbau-fragen",
+"title": "satzbau fragen",
+"scope": "core",
+"origin": "etapa1",
+"items": 48
+},
+{
+"id": "md:satzbau-klammer",
+"title": "satzbau klammer",
+"scope": "core",
+"origin": "etapa1",
+"items": 25
+},
+{
+"id": "md:satzbau-v2",
+"title": "satzbau v2",
+"scope": "core",
+"origin": "etapa1",
+"items": 35
+},
+{
+"id": "md:verben-partizip",
+"title": "verben partizip",
+"scope": "core",
+"origin": "etapa1",
+"items": 3668
+},
+{
+"id": "md:verben-praesens",
+"title": "verben praesens",
+"scope": "core",
+"origin": "etapa1",
+"items": 3674
+},
+{
+"id": "md:verben-praeteritum",
+"title": "verben praeteritum",
+"scope": "core",
+"origin": "etapa1",
+"items": 3668
+},
+{
+"id": "md:wortschatz-transversal",
+"title": "wortschatz transversal",
+"scope": "core",
+"origin": "etapa1",
+"items": 8
+}
+]

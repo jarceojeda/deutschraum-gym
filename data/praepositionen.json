@@ -1,0 +1,9434 @@
+[
+{
+"id": "prep-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich fahre ___ Bus zur Arbeit.",
+"answer": "mit dem",
+"accept": [
+"mit dem"
+],
+"options": [
+"mit dem",
+"mit der",
+"mit die",
+"mit das",
+"mit den"
+],
+"explanation": "mit + dativo. Bus es masculino: dem Bus.",
+"hint": "mit exige dativo.",
+"translation": "Voy al trabajo en autobús.",
+"conceptIds": [
+"a24:prep-001"
+],
+"errorTag": "preposition:mit",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich spreche ___ Lehrerin.",
+"answer": "mit der",
+"accept": [
+"mit der"
+],
+"options": [
+"mit der",
+"mit die",
+"mit das",
+"mit den",
+"mit dem"
+],
+"explanation": "mit + dativo: die Lehrerin → der Lehrerin.",
+"hint": "mit + Dativ.",
+"translation": "Hablo con la profesora.",
+"conceptIds": [
+"a24:prep-002"
+],
+"errorTag": "preposition:mit",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich komme ___ Chile.",
+"answer": "aus",
+"accept": [
+"aus"
+],
+"options": [
+"aus",
+"von",
+"nach",
+"in"
+],
+"explanation": "aus expresa origen o procedencia.",
+"hint": "aus = de / desde el interior.",
+"translation": "Vengo de Chile.",
+"conceptIds": [
+"a24:prep-003"
+],
+"errorTag": "preposition:aus",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-004",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich fahre ___ Deutschland.",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"nach",
+"zu",
+"in",
+"aus"
+],
+"explanation": "Con países sin artículo normalmente usamos nach.",
+"hint": "nach Deutschland; pero in die Schweiz.",
+"translation": "Viajo a Alemania.",
+"conceptIds": [
+"a24:prep-004"
+],
+"errorTag": "preposition:nach",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-005",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich gehe ___ Arzt.",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"zum",
+"zur",
+"zu",
+"im",
+"ins",
+"beim"
+],
+"explanation": "zu + dem = zum: der Arzt → dem Arzt.",
+"hint": "zu + dem = zum.",
+"translation": "Voy al médico.",
+"conceptIds": [
+"a24:prep-005"
+],
+"errorTag": "preposition:zum",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-006",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich gehe ___ Schule.",
+"answer": "zur",
+"accept": [
+"zur"
+],
+"options": [
+"zur",
+"zum",
+"zu",
+"im",
+"ins",
+"beim"
+],
+"explanation": "zu + der = zur: die Schule → der Schule.",
+"hint": "zu + der = zur.",
+"translation": "Voy a la escuela.",
+"conceptIds": [
+"a24:prep-006"
+],
+"errorTag": "preposition:zur",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-007",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich gehe ___ Bahnhof.",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"zum",
+"zur",
+"zu",
+"im",
+"ins",
+"beim"
+],
+"explanation": "der Bahnhof → zu dem Bahnhof → zum Bahnhof.",
+"hint": "Zum = zu dem (masculino/neutro).",
+"translation": "Voy a la estación.",
+"conceptIds": [
+"a24:prep-007"
+],
+"errorTag": "preposition:zum",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-008",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Wir fahren ___ Zug.",
+"answer": "mit dem",
+"accept": [
+"mit dem"
+],
+"options": [
+"mit dem",
+"mit der",
+"mit die",
+"mit das",
+"mit den"
+],
+"explanation": "Medio de transporte con mit + dativo: mit dem Zug.",
+"hint": "mit dem Zug = en tren.",
+"translation": "Viajamos en tren.",
+"conceptIds": [
+"a24:prep-008"
+],
+"errorTag": "preposition:mit",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-009",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Das Geschenk ist ___ meine Mutter.",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"für",
+"mit",
+"ohne",
+"durch"
+],
+"explanation": "für rige acusativo: für meine Mutter.",
+"hint": "für + Akkusativ.",
+"translation": "El regalo es para mi madre.",
+"conceptIds": [
+"a24:prep-009"
+],
+"errorTag": "preposition:für",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-010",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich fahre ___ dich.",
+"answer": "ohne",
+"accept": [
+"ohne"
+],
+"options": [
+"ohne",
+"mit",
+"bei",
+"aus"
+],
+"explanation": "ohne + acusativo, pronombre dich.",
+"hint": "ohne + Akkusativ.",
+"translation": "Voy sin ti.",
+"conceptIds": [
+"a24:prep-010"
+],
+"errorTag": "preposition:ohne",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-011",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich warte ___ den Bus.",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"auf",
+"in",
+"an",
+"unter"
+],
+"explanation": "warten auf + Akkusativ es una construcción fija.",
+"hint": "warten auf + Akkusativ.",
+"translation": "Espero el autobús.",
+"conceptIds": [
+"a24:prep-011"
+],
+"errorTag": "preposition:auf",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-012",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich bin ___ meiner Freundin.",
+"answer": "bei",
+"accept": [
+"bei"
+],
+"options": [
+"bei",
+"mit",
+"in",
+"zu"
+],
+"explanation": "bei + dativo expresa estar donde alguien.",
+"hint": "bei + Dativ.",
+"translation": "Estoy en casa de mi amiga.",
+"conceptIds": [
+"a24:prep-012"
+],
+"errorTag": "preposition:bei",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-013",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich wohne ___ Köln.",
+"answer": "in",
+"accept": [
+"in"
+],
+"options": [
+"in",
+"an",
+"auf",
+"zu"
+],
+"explanation": "in indica ubicación en una ciudad.",
+"hint": "in + ciudad (Wo?).",
+"translation": "Vivo en Colonia.",
+"conceptIds": [
+"a24:prep-013"
+],
+"errorTag": "preposition:in",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-014",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich lerne Deutsch ___ zwei Monaten.",
+"answer": "seit",
+"accept": [
+"seit"
+],
+"options": [
+"seit",
+"ab",
+"vor",
+"für"
+],
+"explanation": "seit + dativo indica una acción iniciada antes que continúa.",
+"hint": "seit = desde hace.",
+"translation": "Estudio alemán desde hace dos meses.",
+"conceptIds": [
+"a24:prep-014"
+],
+"errorTag": "preposition:seit",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-015",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Der Kurs beginnt ___ acht Uhr.",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"um",
+"am",
+"im",
+"für"
+],
+"explanation": "um se usa con la hora exacta.",
+"hint": "um 8 Uhr.",
+"translation": "El curso empieza a las ocho.",
+"conceptIds": [
+"a24:prep-015"
+],
+"errorTag": "preposition:um",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-016",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich komme ___ Montag.",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"an",
+"im"
+],
+"explanation": "an + dem = am para días y fechas.",
+"hint": "am Montag.",
+"translation": "Vengo el lunes.",
+"conceptIds": [
+"a24:prep-016"
+],
+"errorTag": "preposition:am",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-017",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich habe Urlaub ___ August.",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"zum",
+"zur",
+"zu",
+"ins",
+"beim"
+],
+"explanation": "in + dem = im para meses.",
+"hint": "im August.",
+"translation": "Tengo vacaciones en agosto.",
+"conceptIds": [
+"a24:prep-017"
+],
+"errorTag": "preposition:im",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-018",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich gehe ___ den Park.",
+"answer": "durch",
+"accept": [
+"durch"
+],
+"options": [
+"durch",
+"für",
+"ohne",
+"mit"
+],
+"explanation": "durch + Akkusativ expresa atravesar un lugar.",
+"hint": "durch den Park.",
+"translation": "Camino por el parque (atravesándolo).",
+"conceptIds": [
+"a24:prep-018"
+],
+"errorTag": "preposition:durch",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-019",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich bin ___ meiner Schwester.",
+"answer": "bei",
+"accept": [
+"bei"
+],
+"options": [
+"bei",
+"in",
+"zu",
+"aus"
+],
+"explanation": "bei + dativo: meiner Schwester.",
+"hint": "bei + Dativ.",
+"translation": "Estoy en casa de mi hermana.",
+"conceptIds": [
+"a24:prep-019"
+],
+"errorTag": "preposition:bei",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-020",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich fahre ___ Bonn.",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"nach",
+"zu",
+"in",
+"aus"
+],
+"explanation": "Destinos de ciudad sin artículo suelen llevar nach.",
+"hint": "nach Bonn.",
+"translation": "Voy a Bonn.",
+"conceptIds": [
+"a24:prep-020"
+],
+"errorTag": "preposition:nach",
+"source": "d244",
+"group": "casos",
+"pool": "praep-wahl"
+},
+{
+"id": "prep-021",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Buch liegt ___ Tisch.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"options": [
+"auf dem",
+"auf der",
+"auf die",
+"auf das",
+"auf den"
+],
+"explanation": "Wo? Posición fija → Dativ: auf dem Tisch.",
+"hint": "Wo? → Dativ.",
+"translation": "El libro está sobre la mesa.",
+"conceptIds": [
+"a24:prep-021"
+],
+"errorTag": "preposition:auf",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wo"
+},
+{
+"id": "prep-022",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich lege das Buch ___ Tisch.",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"options": [
+"auf den",
+"auf der",
+"auf die",
+"auf das",
+"auf dem"
+],
+"explanation": "Wohin? Cambio a un destino → Akkusativ: auf den Tisch.",
+"hint": "Wohin? → Akkusativ.",
+"translation": "Pongo el libro sobre la mesa.",
+"conceptIds": [
+"a24:prep-022"
+],
+"errorTag": "preposition:auf",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wohin"
+},
+{
+"id": "prep-023",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Ich bin ___ Küche.",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"options": [
+"in der",
+"in die",
+"in das",
+"in den",
+"in dem"
+],
+"explanation": "Wo? → Dativ femenino: in der Küche.",
+"hint": "Wo? = lugar, dativo.",
+"translation": "Estoy en la cocina.",
+"conceptIds": [
+"a24:prep-023"
+],
+"errorTag": "preposition:in",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wo"
+},
+{
+"id": "prep-024",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich gehe ___ Küche.",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"options": [
+"in die",
+"in der",
+"in das",
+"in den",
+"in dem"
+],
+"explanation": "Wohin? → Akkusativ femenino: in die Küche.",
+"hint": "Wohin? = destino, acusativo.",
+"translation": "Entro en la cocina.",
+"conceptIds": [
+"a24:prep-024"
+],
+"errorTag": "preposition:in",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wohin"
+},
+{
+"id": "prep-025",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Kind spielt ___ Garten.",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"zum",
+"zur",
+"zu",
+"ins",
+"beim"
+],
+"explanation": "in + dem = im: ubicación en el jardín.",
+"hint": "im = in dem.",
+"translation": "El niño juega en el jardín.",
+"conceptIds": [
+"a24:prep-025"
+],
+"errorTag": "preposition:im",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wo"
+},
+{
+"id": "prep-026",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Das Kind läuft ___ Garten.",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"options": [
+"in den",
+"in der",
+"in die",
+"in das",
+"in dem"
+],
+"explanation": "Dirección hacia el jardín: in den Garten (Akk.).",
+"hint": "Wohin? → Akkusativ.",
+"translation": "El niño corre hacia el jardín (entrando).",
+"conceptIds": [
+"a24:prep-026"
+],
+"errorTag": "preposition:in",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wohin"
+},
+{
+"id": "prep-027",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Wir sitzen ___ Fenster.",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"an",
+"im"
+],
+"explanation": "Ubicación: an + dem = am Fenster.",
+"hint": "am = an dem.",
+"translation": "Estamos sentados junto a la ventana.",
+"conceptIds": [
+"a24:prep-027"
+],
+"errorTag": "preposition:am",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wo"
+},
+{
+"id": "prep-028",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle den Stuhl ___ Fenster.",
+"answer": "ans",
+"accept": [
+"ans"
+],
+"options": [
+"ans",
+"am",
+"an",
+"im"
+],
+"explanation": "Dirección: an + das = ans Fenster.",
+"hint": "ans = an das.",
+"translation": "Pongo la silla junto a la ventana.",
+"conceptIds": [
+"a24:prep-028"
+],
+"errorTag": "preposition:ans",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wohin"
+},
+{
+"id": "prep-029",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Tasche ist ___ Stuhl.",
+"answer": "unter dem",
+"accept": [
+"unter dem"
+],
+"options": [
+"unter dem",
+"unter der",
+"unter die",
+"unter das",
+"unter den"
+],
+"explanation": "Wo? unter + Dativ → unter dem Stuhl.",
+"hint": "Wo? → Dativ.",
+"translation": "La bolsa está debajo de la silla.",
+"conceptIds": [
+"a24:prep-029"
+],
+"errorTag": "preposition:unter",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wo"
+},
+{
+"id": "prep-030",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle die Tasche ___ Stuhl.",
+"answer": "unter den",
+"accept": [
+"unter den"
+],
+"options": [
+"unter den",
+"unter der",
+"unter die",
+"unter das",
+"unter dem"
+],
+"explanation": "Wohin? unter + Akkusativ → unter den Stuhl.",
+"hint": "Wohin? → Akkusativ.",
+"translation": "Pongo la bolsa debajo de la silla.",
+"conceptIds": [
+"a24:prep-030"
+],
+"errorTag": "preposition:unter",
+"source": "d244",
+"group": "movimiento",
+"pool": "wechsel-wohin",
+"needs_translation": true
+},
+{
+"id": "prep-031",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich gehe ___ Apotheke.",
+"answer": "zur",
+"accept": [
+"zur"
+],
+"options": [
+"zur",
+"zum",
+"zu",
+"im",
+"ins",
+"beim"
+],
+"explanation": "zu + der Apotheke = zur Apotheke.",
+"hint": "zur = zu der.",
+"translation": "Voy a la farmacia.",
+"conceptIds": [
+"a24:prep-031"
+],
+"errorTag": "preposition:zur",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-032",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir sind ___ Supermarkt.",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"zum",
+"zur",
+"zu",
+"ins",
+"beim"
+],
+"explanation": "in + dem = im indica posición.",
+"hint": "im = in dem.",
+"translation": "Estamos en el supermercado.",
+"conceptIds": [
+"a24:prep-032"
+],
+"errorTag": "preposition:im",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-033",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir gehen ___ Supermarkt.",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"options": [
+"in den",
+"in der",
+"in die",
+"in das",
+"in dem"
+],
+"explanation": "in + Akkusativ masculino: in den Supermarkt.",
+"hint": "in den, no ins (masculino).",
+"translation": "Entramos al supermercado.",
+"conceptIds": [
+"a24:prep-033"
+],
+"errorTag": "preposition:in",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-034",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich gehe ___ Kino.",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"options": [
+"ins",
+"zum",
+"zur",
+"zu",
+"im",
+"beim"
+],
+"explanation": "in + das = ins Kino expresa destino.",
+"hint": "ins = in das.",
+"translation": "Voy al cine (entro).",
+"conceptIds": [
+"a24:prep-034"
+],
+"errorTag": "preposition:ins",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-035",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich bin ___ Kino.",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"zum",
+"zur",
+"zu",
+"ins",
+"beim"
+],
+"explanation": "in + dem = im Kino indica ubicación.",
+"hint": "im = in dem.",
+"translation": "Estoy en el cine.",
+"conceptIds": [
+"a24:prep-035"
+],
+"errorTag": "preposition:im",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-036",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich komme gerade ___ Büro.",
+"answer": "vom",
+"accept": [
+"vom"
+],
+"options": [
+"vom",
+"von",
+"vor",
+"nach"
+],
+"explanation": "von + dem = vom Büro.",
+"hint": "vom = von dem.",
+"translation": "Vengo de la oficina (desde ella).",
+"conceptIds": [
+"a24:prep-036"
+],
+"errorTag": "preposition:vom",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-037",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich bin ___ Arzt.",
+"answer": "beim",
+"accept": [
+"beim"
+],
+"options": [
+"beim",
+"zum",
+"zur",
+"zu",
+"im",
+"ins"
+],
+"explanation": "bei + dem = beim Arzt indica ubicación.",
+"hint": "beim = bei dem.",
+"translation": "Estoy donde el médico (en la consulta).",
+"conceptIds": [
+"a24:prep-037"
+],
+"errorTag": "preposition:beim",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-038",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich gehe ___ Bäckerei.",
+"answer": "zur",
+"accept": [
+"zur"
+],
+"options": [
+"zur",
+"zum",
+"zu",
+"im",
+"ins",
+"beim"
+],
+"explanation": "zu + der = zur, porque Bäckerei es femenino.",
+"hint": "zur Bäckerei.",
+"translation": "Voy a la panadería.",
+"conceptIds": [
+"a24:prep-038"
+],
+"errorTag": "preposition:zur",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-039",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Der Zug fährt ___ Bahnhof ab.",
+"answer": "vom",
+"accept": [
+"vom"
+],
+"options": [
+"vom",
+"von",
+"vor",
+"nach"
+],
+"explanation": "von + dem = vom Bahnhof.",
+"hint": "vom Bahnhof.",
+"translation": "El tren sale de la estación.",
+"conceptIds": [
+"a24:prep-039"
+],
+"errorTag": "preposition:vom",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "prep-040",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir warten ___ Eingang.",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"an",
+"im"
+],
+"explanation": "an + dem = am, posición.",
+"hint": "am Eingang.",
+"translation": "Esperamos junto a la entrada.",
+"conceptIds": [
+"a24:prep-040"
+],
+"errorTag": "preposition:am",
+"source": "d244",
+"group": "contracciones",
+"pool": "kontraktion"
+},
+{
+"id": "gx-pair-001-wohin",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich hänge das Bild ___ Wand.",
+"hint": "Wohin?",
+"answer": "an die",
+"accept": [
+"an die"
+],
+"options": [
+"an das",
+"an dem",
+"an den",
+"an der",
+"an die"
+],
+"explanation": "Wohin? Akkusativ: an + den/die/das (destino) → an die.",
+"translation": "Cuelgo el cuadro en la pared.",
+"pairId": "gx-pair-001",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-001-wo",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Bild hängt ___ Wand.",
+"hint": "Wo?",
+"answer": "an der",
+"accept": [
+"an der"
+],
+"options": [
+"an das",
+"an dem",
+"an den",
+"an der",
+"an die"
+],
+"explanation": "Wo? Dativ: an + dem/der/dem (lugar) → an der.",
+"translation": "El cuadro cuelga en la pared.",
+"pairId": "gx-pair-001",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "an",
+"wohin": {
+"sentence": "Ich hänge das Bild an die Wand.",
+"answer": "an die",
+"accept": [
+"an die"
+],
+"es": "Cuelgo el cuadro en la pared.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich hänge das Bild ___ Wand."
+},
+"wo": {
+"sentence": "Das Bild hängt an der Wand.",
+"answer": "an der",
+"accept": [
+"an der"
+],
+"es": "El cuadro cuelga en la pared.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Bild hängt ___ Wand."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:an:pair",
+"source": "gen",
+"prompt": "Das Bild hängt ___ Wand.  ↔  Ich hänge das Bild ___ Wand.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-002-wohin",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er geht ___ Tür.",
+"hint": "Wohin?",
+"answer": "an die",
+"accept": [
+"an die"
+],
+"options": [
+"an das",
+"an dem",
+"an den",
+"an der",
+"an die"
+],
+"explanation": "Wohin? Akkusativ: an + den/die/das (destino) → an die.",
+"translation": "Él va a la puerta.",
+"pairId": "gx-pair-002",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-002-wo",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Er steht ___ Tür.",
+"hint": "Wo?",
+"answer": "an der",
+"accept": [
+"an der"
+],
+"options": [
+"an das",
+"an dem",
+"an den",
+"an der",
+"an die"
+],
+"explanation": "Wo? Dativ: an + dem/der/dem (lugar) → an der.",
+"translation": "Él está junto a la puerta.",
+"pairId": "gx-pair-002",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "an",
+"wohin": {
+"sentence": "Er geht an die Tür.",
+"answer": "an die",
+"accept": [
+"an die"
+],
+"es": "Él va a la puerta.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er geht ___ Tür."
+},
+"wo": {
+"sentence": "Er steht an der Tür.",
+"answer": "an der",
+"accept": [
+"an der"
+],
+"es": "Él está junto a la puerta.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Er steht ___ Tür."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:an:pair",
+"source": "gen",
+"prompt": "Er steht ___ Tür.  ↔  Er geht ___ Tür.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-003-wohin",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Wir fahren ___ Meer.",
+"hint": "Wohin?",
+"answer": "ans",
+"accept": [
+"ans"
+],
+"options": [
+"am",
+"an den",
+"an der",
+"an die",
+"ans"
+],
+"explanation": "Wohin? Akkusativ: an + den/die/das (destino) → ans.",
+"translation": "Vamos al mar.",
+"pairId": "gx-pair-003",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-003-wo",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Wir sind ___ Meer.",
+"hint": "Wo?",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"an den",
+"an der",
+"an die",
+"ans"
+],
+"explanation": "Wo? Dativ: an + dem/der/dem (lugar) → am.",
+"translation": "Estamos en la costa.",
+"pairId": "gx-pair-003",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "an",
+"wohin": {
+"sentence": "Wir fahren ans Meer.",
+"answer": "ans",
+"accept": [
+"ans"
+],
+"es": "Vamos al mar.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Wir fahren ___ Meer."
+},
+"wo": {
+"sentence": "Wir sind am Meer.",
+"answer": "am",
+"accept": [
+"am"
+],
+"es": "Estamos en la costa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Wir sind ___ Meer."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:an:pair",
+"source": "gen",
+"prompt": "Wir sind ___ Meer.  ↔  Wir fahren ___ Meer.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-004-wohin",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Setz dich bitte ___ Tisch!",
+"hint": "Wohin?",
+"answer": "an den",
+"accept": [
+"an den"
+],
+"options": [
+"an das",
+"an dem",
+"an den",
+"an der",
+"an die"
+],
+"explanation": "Wohin? Akkusativ: an + den/die/das (destino) → an den.",
+"translation": "¡Siéntate a la mesa, por favor!",
+"pairId": "gx-pair-004",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-004-wo",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Wir sitzen ___ Tisch.",
+"hint": "Wo?",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"an den",
+"an der",
+"an die",
+"ans"
+],
+"explanation": "Wo? Dativ: an + dem/der/dem (lugar) → am.",
+"translation": "Estamos sentados a la mesa.",
+"pairId": "gx-pair-004",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:an:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-004",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "an",
+"wohin": {
+"sentence": "Setz dich bitte an den Tisch!",
+"answer": "an den",
+"accept": [
+"an den"
+],
+"es": "¡Siéntate a la mesa, por favor!",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Setz dich bitte ___ Tisch!"
+},
+"wo": {
+"sentence": "Wir sitzen am Tisch.",
+"answer": "am",
+"accept": [
+"am"
+],
+"es": "Estamos sentados a la mesa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Wir sitzen ___ Tisch."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:an:pair",
+"source": "gen",
+"prompt": "Wir sitzen ___ Tisch.  ↔  Setz dich bitte ___ Tisch!",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-005",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "auf",
+"wohin": {
+"sentence": "Ich lege das Buch auf den Tisch.",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"es": "Pongo el libro sobre la mesa.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich lege das Buch ___ Tisch."
+},
+"wo": {
+"sentence": "Das Buch liegt auf dem Tisch.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"es": "El libro está sobre la mesa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Buch liegt ___ Tisch."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:auf:pair",
+"source": "gen",
+"prompt": "Das Buch liegt ___ Tisch.  ↔  Ich lege das Buch ___ Tisch.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-006-wohin",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er stellt die Flasche ___ Boden.",
+"hint": "Wohin?",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wohin? Akkusativ: auf + den/die/das (destino) → auf den.",
+"translation": "Pone la botella en el suelo.",
+"pairId": "gx-pair-006",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-006-wo",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Flasche steht ___ Boden.",
+"hint": "Wo?",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wo? Dativ: auf + dem/der/dem (lugar) → auf dem.",
+"translation": "La botella está en el suelo.",
+"pairId": "gx-pair-006",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-006",
+"module": "praepositionen",
+"level": "A1",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "auf",
+"wohin": {
+"sentence": "Er stellt die Flasche auf den Boden.",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"es": "Pone la botella en el suelo.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er stellt die Flasche ___ Boden."
+},
+"wo": {
+"sentence": "Die Flasche steht auf dem Boden.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"es": "La botella está en el suelo.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Flasche steht ___ Boden."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:auf:pair",
+"source": "gen",
+"prompt": "Die Flasche steht ___ Boden.  ↔  Er stellt die Flasche ___ Boden.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-007-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Sie setzt sich ___ Sofa.",
+"hint": "Wohin?",
+"answer": "auf das",
+"accept": [
+"auf das",
+"aufs"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wohin? Akkusativ: auf + den/die/das (destino) → auf das.",
+"translation": "Ella se sienta en el sofá.",
+"pairId": "gx-pair-007",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-007-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Sie sitzt ___ Sofa.",
+"hint": "Wo?",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wo? Dativ: auf + dem/der/dem (lugar) → auf dem.",
+"translation": "Ella está sentada en el sofá.",
+"pairId": "gx-pair-007",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-007",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "auf",
+"wohin": {
+"sentence": "Sie setzt sich auf das Sofa.",
+"answer": "auf das",
+"accept": [
+"auf das",
+"aufs"
+],
+"es": "Ella se sienta en el sofá.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Sie setzt sich ___ Sofa."
+},
+"wo": {
+"sentence": "Sie sitzt auf dem Sofa.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"es": "Ella está sentada en el sofá.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Sie sitzt ___ Sofa."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:auf:pair",
+"source": "gen",
+"prompt": "Sie sitzt ___ Sofa.  ↔  Sie setzt sich ___ Sofa.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-008-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich lege die Tasche ___ Stuhl.",
+"hint": "Wohin?",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wohin? Akkusativ: auf + den/die/das (destino) → auf den.",
+"translation": "Pongo el bolso sobre la silla.",
+"pairId": "gx-pair-008",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-008-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Tasche liegt ___ Stuhl.",
+"hint": "Wo?",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wo? Dativ: auf + dem/der/dem (lugar) → auf dem.",
+"translation": "El bolso está sobre la silla.",
+"pairId": "gx-pair-008",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-008",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "auf",
+"wohin": {
+"sentence": "Ich lege die Tasche auf den Stuhl.",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"es": "Pongo el bolso sobre la silla.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich lege die Tasche ___ Stuhl."
+},
+"wo": {
+"sentence": "Die Tasche liegt auf dem Stuhl.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"es": "El bolso está sobre la silla.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Tasche liegt ___ Stuhl."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:auf:pair",
+"source": "gen",
+"prompt": "Die Tasche liegt ___ Stuhl.  ↔  Ich lege die Tasche ___ Stuhl.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-009-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich gehe ___ Markt.",
+"hint": "Wohin?",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wohin? Akkusativ: auf + den/die/das (destino) → auf den.",
+"translation": "Voy al mercado.",
+"pairId": "gx-pair-009",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-009-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Ich bin ___ Markt.",
+"hint": "Wo?",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"options": [
+"auf das",
+"auf dem",
+"auf den",
+"auf der",
+"auf die"
+],
+"explanation": "Wo? Dativ: auf + dem/der/dem (lugar) → auf dem.",
+"translation": "Estoy en el mercado.",
+"pairId": "gx-pair-009",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:auf:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-009",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "auf",
+"wohin": {
+"sentence": "Ich gehe auf den Markt.",
+"answer": "auf den",
+"accept": [
+"auf den"
+],
+"es": "Voy al mercado.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich gehe ___ Markt."
+},
+"wo": {
+"sentence": "Ich bin auf dem Markt.",
+"answer": "auf dem",
+"accept": [
+"auf dem"
+],
+"es": "Estoy en el mercado.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Ich bin ___ Markt."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:auf:pair",
+"source": "gen",
+"prompt": "Ich bin ___ Markt.  ↔  Ich gehe ___ Markt.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-010-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Der Hund läuft ___ Haus.",
+"hint": "Wohin?",
+"answer": "hinter das",
+"accept": [
+"hinter das"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wohin? Akkusativ: hinter + den/die/das (destino) → hinter das.",
+"translation": "El perro corre detrás de la casa.",
+"pairId": "gx-pair-010",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-010-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Hund wartet ___ Haus.",
+"hint": "Wo?",
+"answer": "hinter dem",
+"accept": [
+"hinter dem"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wo? Dativ: hinter + dem/der/dem (lugar) → hinter dem.",
+"translation": "El perro espera detrás de la casa.",
+"pairId": "gx-pair-010",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-010",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "hinter",
+"wohin": {
+"sentence": "Der Hund läuft hinter das Haus.",
+"answer": "hinter das",
+"accept": [
+"hinter das"
+],
+"es": "El perro corre detrás de la casa.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Der Hund läuft ___ Haus."
+},
+"wo": {
+"sentence": "Der Hund wartet hinter dem Haus.",
+"answer": "hinter dem",
+"accept": [
+"hinter dem"
+],
+"es": "El perro espera detrás de la casa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Hund wartet ___ Haus."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:hinter:pair",
+"source": "gen",
+"prompt": "Der Hund wartet ___ Haus.  ↔  Der Hund läuft ___ Haus.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-011-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle die Tasche ___ Stuhl.",
+"hint": "Wohin?",
+"answer": "hinter den",
+"accept": [
+"hinter den"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wohin? Akkusativ: hinter + den/die/das (destino) → hinter den.",
+"translation": "Pongo el bolso detrás de la silla.",
+"pairId": "gx-pair-011",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-011-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Tasche steht ___ Stuhl.",
+"hint": "Wo?",
+"answer": "hinter dem",
+"accept": [
+"hinter dem"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wo? Dativ: hinter + dem/der/dem (lugar) → hinter dem.",
+"translation": "El bolso está detrás de la silla.",
+"pairId": "gx-pair-011",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-011",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "hinter",
+"wohin": {
+"sentence": "Ich stelle die Tasche hinter den Stuhl.",
+"answer": "hinter den",
+"accept": [
+"hinter den"
+],
+"es": "Pongo el bolso detrás de la silla.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich stelle die Tasche ___ Stuhl."
+},
+"wo": {
+"sentence": "Die Tasche steht hinter dem Stuhl.",
+"answer": "hinter dem",
+"accept": [
+"hinter dem"
+],
+"es": "El bolso está detrás de la silla.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Tasche steht ___ Stuhl."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:hinter:pair",
+"source": "gen",
+"prompt": "Die Tasche steht ___ Stuhl.  ↔  Ich stelle die Tasche ___ Stuhl.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-012-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Sie legt den Schlüssel ___ Lampe.",
+"hint": "Wohin?",
+"answer": "hinter die",
+"accept": [
+"hinter die"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wohin? Akkusativ: hinter + den/die/das (destino) → hinter die.",
+"translation": "Ella pone la llave detrás de la lámpara.",
+"pairId": "gx-pair-012",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-012-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Schlüssel liegt ___ Lampe.",
+"hint": "Wo?",
+"answer": "hinter der",
+"accept": [
+"hinter der"
+],
+"options": [
+"hinter das",
+"hinter dem",
+"hinter den",
+"hinter der",
+"hinter die"
+],
+"explanation": "Wo? Dativ: hinter + dem/der/dem (lugar) → hinter der.",
+"translation": "La llave está detrás de la lámpara.",
+"pairId": "gx-pair-012",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:hinter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-012",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "hinter",
+"wohin": {
+"sentence": "Sie legt den Schlüssel hinter die Lampe.",
+"answer": "hinter die",
+"accept": [
+"hinter die"
+],
+"es": "Ella pone la llave detrás de la lámpara.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Sie legt den Schlüssel ___ Lampe."
+},
+"wo": {
+"sentence": "Der Schlüssel liegt hinter der Lampe.",
+"answer": "hinter der",
+"accept": [
+"hinter der"
+],
+"es": "La llave está detrás de la lámpara.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Schlüssel liegt ___ Lampe."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:hinter:pair",
+"source": "gen",
+"prompt": "Der Schlüssel liegt ___ Lampe.  ↔  Sie legt den Schlüssel ___ Lampe.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-013-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stecke das Geld ___ Tasche.",
+"hint": "Wohin?",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → in die.",
+"translation": "Meto el dinero en el bolso.",
+"pairId": "gx-pair-013",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-013-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Geld ist ___ Tasche.",
+"hint": "Wo?",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → in der.",
+"translation": "El dinero está en el bolso.",
+"pairId": "gx-pair-013",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-013",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Ich stecke das Geld in die Tasche.",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"es": "Meto el dinero en el bolso.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich stecke das Geld ___ Tasche."
+},
+"wo": {
+"sentence": "Das Geld ist in der Tasche.",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"es": "El dinero está en el bolso.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Geld ist ___ Tasche."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Das Geld ist ___ Tasche.  ↔  Ich stecke das Geld ___ Tasche.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-014-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Wir gehen ___ Park.",
+"hint": "Wohin?",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → in den.",
+"translation": "Vamos al parque.",
+"pairId": "gx-pair-014",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-014-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Wir laufen ___ Park.",
+"hint": "Wo?",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"in den",
+"in der",
+"in die",
+"ins"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → im.",
+"translation": "Corremos por el parque.",
+"pairId": "gx-pair-014",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-014",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Wir gehen in den Park.",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"es": "Vamos al parque.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Wir gehen ___ Park."
+},
+"wo": {
+"sentence": "Wir laufen im Park.",
+"answer": "im",
+"accept": [
+"im"
+],
+"es": "Corremos por el parque.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Wir laufen ___ Park."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Wir laufen ___ Park.  ↔  Wir gehen ___ Park.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-015-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Sie geht ___ Küche.",
+"hint": "Wohin?",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → in die.",
+"translation": "Ella va a la cocina.",
+"pairId": "gx-pair-015",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-015-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Sie ist ___ Küche.",
+"hint": "Wo?",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → in der.",
+"translation": "Ella está en la cocina.",
+"pairId": "gx-pair-015",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-015",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Sie geht in die Küche.",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"es": "Ella va a la cocina.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Sie geht ___ Küche."
+},
+"wo": {
+"sentence": "Sie ist in der Küche.",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"es": "Ella está en la cocina.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Sie ist ___ Küche."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Sie ist ___ Küche.  ↔  Sie geht ___ Küche.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-016-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle die Milch ___ Kühlschrank.",
+"hint": "Wohin?",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → in den.",
+"translation": "Pongo la leche en la nevera.",
+"pairId": "gx-pair-016",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-016-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Milch steht ___ Kühlschrank.",
+"hint": "Wo?",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"in den",
+"in der",
+"in die",
+"ins"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → im.",
+"translation": "La leche está en la nevera.",
+"pairId": "gx-pair-016",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-016",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Ich stelle die Milch in den Kühlschrank.",
+"answer": "in den",
+"accept": [
+"in den"
+],
+"es": "Pongo la leche en la nevera.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich stelle die Milch ___ Kühlschrank."
+},
+"wo": {
+"sentence": "Die Milch steht im Kühlschrank.",
+"answer": "im",
+"accept": [
+"im"
+],
+"es": "La leche está en la nevera.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Milch steht ___ Kühlschrank."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Die Milch steht ___ Kühlschrank.  ↔  Ich stelle die Milch ___ Kühlschrank.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-017-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Wir fahren ___ Stadt.",
+"hint": "Wohin?",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → in die.",
+"translation": "Vamos a la ciudad.",
+"pairId": "gx-pair-017",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-017-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Wir wohnen ___ Stadt.",
+"hint": "Wo?",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"options": [
+"in das",
+"in dem",
+"in den",
+"in der",
+"in die"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → in der.",
+"translation": "Vivimos en la ciudad.",
+"pairId": "gx-pair-017",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-017",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Wir fahren in die Stadt.",
+"answer": "in die",
+"accept": [
+"in die"
+],
+"es": "Vamos a la ciudad.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Wir fahren ___ Stadt."
+},
+"wo": {
+"sentence": "Wir wohnen in der Stadt.",
+"answer": "in der",
+"accept": [
+"in der"
+],
+"es": "Vivimos en la ciudad.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Wir wohnen ___ Stadt."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Wir wohnen ___ Stadt.  ↔  Wir fahren ___ Stadt.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-018-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er geht ___ Kino.",
+"hint": "Wohin?",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"options": [
+"im",
+"in den",
+"in der",
+"in die",
+"ins"
+],
+"explanation": "Wohin? Akkusativ: in + den/die/das (destino) → ins.",
+"translation": "Él va al cine.",
+"pairId": "gx-pair-018",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-018-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Er ist ___ Kino.",
+"hint": "Wo?",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"im",
+"in den",
+"in der",
+"in die",
+"ins"
+],
+"explanation": "Wo? Dativ: in + dem/der/dem (lugar) → im.",
+"translation": "Él está en el cine.",
+"pairId": "gx-pair-018",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:in:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-018",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "in",
+"wohin": {
+"sentence": "Er geht ins Kino.",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"es": "Él va al cine.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er geht ___ Kino."
+},
+"wo": {
+"sentence": "Er ist im Kino.",
+"answer": "im",
+"accept": [
+"im"
+],
+"es": "Él está en el cine.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Er ist ___ Kino."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:in:pair",
+"source": "gen",
+"prompt": "Er ist ___ Kino.  ↔  Er geht ___ Kino.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-019-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Peter setzt sich ___ Mann.",
+"hint": "Wohin?",
+"answer": "neben den",
+"accept": [
+"neben den"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wohin? Akkusativ: neben + den/die/das (destino) → neben den.",
+"translation": "Peter se sienta junto al hombre.",
+"pairId": "gx-pair-019",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-019-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Peter sitzt ___ Mann.",
+"hint": "Wo?",
+"answer": "neben dem",
+"accept": [
+"neben dem"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wo? Dativ: neben + dem/der/dem (lugar) → neben dem.",
+"translation": "Peter está sentado junto al hombre.",
+"pairId": "gx-pair-019",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-019",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "neben",
+"wohin": {
+"sentence": "Peter setzt sich neben den Mann.",
+"answer": "neben den",
+"accept": [
+"neben den"
+],
+"es": "Peter se sienta junto al hombre.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Peter setzt sich ___ Mann."
+},
+"wo": {
+"sentence": "Peter sitzt neben dem Mann.",
+"answer": "neben dem",
+"accept": [
+"neben dem"
+],
+"es": "Peter está sentado junto al hombre.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Peter sitzt ___ Mann."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:neben:pair",
+"source": "gen",
+"prompt": "Peter sitzt ___ Mann.  ↔  Peter setzt sich ___ Mann.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-020-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle den Stuhl ___ Bett.",
+"hint": "Wohin?",
+"answer": "neben das",
+"accept": [
+"neben das"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wohin? Akkusativ: neben + den/die/das (destino) → neben das.",
+"translation": "Pongo la silla junto a la cama.",
+"pairId": "gx-pair-020",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-020-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Stuhl steht ___ Bett.",
+"hint": "Wo?",
+"answer": "neben dem",
+"accept": [
+"neben dem"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wo? Dativ: neben + dem/der/dem (lugar) → neben dem.",
+"translation": "La silla está junto a la cama.",
+"pairId": "gx-pair-020",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-020",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "neben",
+"wohin": {
+"sentence": "Ich stelle den Stuhl neben das Bett.",
+"answer": "neben das",
+"accept": [
+"neben das"
+],
+"es": "Pongo la silla junto a la cama.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich stelle den Stuhl ___ Bett."
+},
+"wo": {
+"sentence": "Der Stuhl steht neben dem Bett.",
+"answer": "neben dem",
+"accept": [
+"neben dem"
+],
+"es": "La silla está junto a la cama.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Stuhl steht ___ Bett."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:neben:pair",
+"source": "gen",
+"prompt": "Der Stuhl steht ___ Bett.  ↔  Ich stelle den Stuhl ___ Bett.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-021-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Sie legt das Handy ___ Lampe.",
+"hint": "Wohin?",
+"answer": "neben die",
+"accept": [
+"neben die"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wohin? Akkusativ: neben + den/die/das (destino) → neben die.",
+"translation": "Ella pone el móvil junto a la lámpara.",
+"pairId": "gx-pair-021",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-021-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Handy liegt ___ Lampe.",
+"hint": "Wo?",
+"answer": "neben der",
+"accept": [
+"neben der"
+],
+"options": [
+"neben das",
+"neben dem",
+"neben den",
+"neben der",
+"neben die"
+],
+"explanation": "Wo? Dativ: neben + dem/der/dem (lugar) → neben der.",
+"translation": "El móvil está junto a la lámpara.",
+"pairId": "gx-pair-021",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:neben:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-021",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "neben",
+"wohin": {
+"sentence": "Sie legt das Handy neben die Lampe.",
+"answer": "neben die",
+"accept": [
+"neben die"
+],
+"es": "Ella pone el móvil junto a la lámpara.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Sie legt das Handy ___ Lampe."
+},
+"wo": {
+"sentence": "Das Handy liegt neben der Lampe.",
+"answer": "neben der",
+"accept": [
+"neben der"
+],
+"es": "El móvil está junto a la lámpara.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Handy liegt ___ Lampe."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:neben:pair",
+"source": "gen",
+"prompt": "Das Handy liegt ___ Lampe.  ↔  Sie legt das Handy ___ Lampe.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-022-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er hängt die Lampe ___ Tisch.",
+"hint": "Wohin?",
+"answer": "über den",
+"accept": [
+"über den"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wohin? Akkusativ: über + den/die/das (destino) → über den.",
+"translation": "Él cuelga la lámpara sobre la mesa.",
+"pairId": "gx-pair-022",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-022-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Lampe hängt ___ Tisch.",
+"hint": "Wo?",
+"answer": "über dem",
+"accept": [
+"über dem"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wo? Dativ: über + dem/der/dem (lugar) → über dem.",
+"translation": "La lámpara cuelga sobre la mesa.",
+"pairId": "gx-pair-022",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-022",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "über",
+"wohin": {
+"sentence": "Er hängt die Lampe über den Tisch.",
+"answer": "über den",
+"accept": [
+"über den"
+],
+"es": "Él cuelga la lámpara sobre la mesa.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er hängt die Lampe ___ Tisch."
+},
+"wo": {
+"sentence": "Die Lampe hängt über dem Tisch.",
+"answer": "über dem",
+"accept": [
+"über dem"
+],
+"es": "La lámpara cuelga sobre la mesa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Lampe hängt ___ Tisch."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:über:pair",
+"source": "gen",
+"prompt": "Die Lampe hängt ___ Tisch.  ↔  Er hängt die Lampe ___ Tisch.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-023-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich hänge das Bild ___ Sofa.",
+"hint": "Wohin?",
+"answer": "über das",
+"accept": [
+"über das"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wohin? Akkusativ: über + den/die/das (destino) → über das.",
+"translation": "Cuelgo el cuadro sobre el sofá.",
+"pairId": "gx-pair-023",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-023-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Bild hängt ___ Sofa.",
+"hint": "Wo?",
+"answer": "über dem",
+"accept": [
+"über dem"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wo? Dativ: über + dem/der/dem (lugar) → über dem.",
+"translation": "El cuadro cuelga sobre el sofá.",
+"pairId": "gx-pair-023",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-023",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "über",
+"wohin": {
+"sentence": "Ich hänge das Bild über das Sofa.",
+"answer": "über das",
+"accept": [
+"über das"
+],
+"es": "Cuelgo el cuadro sobre el sofá.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich hänge das Bild ___ Sofa."
+},
+"wo": {
+"sentence": "Das Bild hängt über dem Sofa.",
+"answer": "über dem",
+"accept": [
+"über dem"
+],
+"es": "El cuadro cuelga sobre el sofá.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Bild hängt ___ Sofa."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:über:pair",
+"source": "gen",
+"prompt": "Das Bild hängt ___ Sofa.  ↔  Ich hänge das Bild ___ Sofa.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-024-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Wir hängen eine Uhr ___ Tür.",
+"hint": "Wohin?",
+"answer": "über die",
+"accept": [
+"über die"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wohin? Akkusativ: über + den/die/das (destino) → über die.",
+"translation": "Colgamos un reloj sobre la puerta.",
+"pairId": "gx-pair-024",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-024-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Eine Uhr hängt ___ Tür.",
+"hint": "Wo?",
+"answer": "über der",
+"accept": [
+"über der"
+],
+"options": [
+"über das",
+"über dem",
+"über den",
+"über der",
+"über die"
+],
+"explanation": "Wo? Dativ: über + dem/der/dem (lugar) → über der.",
+"translation": "Un reloj cuelga sobre la puerta.",
+"pairId": "gx-pair-024",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:über:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-024",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "über",
+"wohin": {
+"sentence": "Wir hängen eine Uhr über die Tür.",
+"answer": "über die",
+"accept": [
+"über die"
+],
+"es": "Colgamos un reloj sobre la puerta.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Wir hängen eine Uhr ___ Tür."
+},
+"wo": {
+"sentence": "Eine Uhr hängt über der Tür.",
+"answer": "über der",
+"accept": [
+"über der"
+],
+"es": "Un reloj cuelga sobre la puerta.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Eine Uhr hängt ___ Tür."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:über:pair",
+"source": "gen",
+"prompt": "Eine Uhr hängt ___ Tür.  ↔  Wir hängen eine Uhr ___ Tür.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-025-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Der Hund legt sich ___ Tisch.",
+"hint": "Wohin?",
+"answer": "unter den",
+"accept": [
+"unter den"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wohin? Akkusativ: unter + den/die/das (destino) → unter den.",
+"translation": "El perro se tumba bajo la mesa.",
+"pairId": "gx-pair-025",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-025-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Hund liegt ___ Tisch.",
+"hint": "Wo?",
+"answer": "unter dem",
+"accept": [
+"unter dem"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wo? Dativ: unter + dem/der/dem (lugar) → unter dem.",
+"translation": "El perro está tumbado bajo la mesa.",
+"pairId": "gx-pair-025",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-025",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "unter",
+"wohin": {
+"sentence": "Der Hund legt sich unter den Tisch.",
+"answer": "unter den",
+"accept": [
+"unter den"
+],
+"es": "El perro se tumba bajo la mesa.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Der Hund legt sich ___ Tisch."
+},
+"wo": {
+"sentence": "Der Hund liegt unter dem Tisch.",
+"answer": "unter dem",
+"accept": [
+"unter dem"
+],
+"es": "El perro está tumbado bajo la mesa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Hund liegt ___ Tisch."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:unter:pair",
+"source": "gen",
+"prompt": "Der Hund liegt ___ Tisch.  ↔  Der Hund legt sich ___ Tisch.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-026-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich schiebe die Kiste ___ Bett.",
+"hint": "Wohin?",
+"answer": "unter das",
+"accept": [
+"unter das"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wohin? Akkusativ: unter + den/die/das (destino) → unter das.",
+"translation": "Empujo la caja bajo la cama.",
+"pairId": "gx-pair-026",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-026-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Kiste liegt ___ Bett.",
+"hint": "Wo?",
+"answer": "unter dem",
+"accept": [
+"unter dem"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wo? Dativ: unter + dem/der/dem (lugar) → unter dem.",
+"translation": "La caja está bajo la cama.",
+"pairId": "gx-pair-026",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-026",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "unter",
+"wohin": {
+"sentence": "Ich schiebe die Kiste unter das Bett.",
+"answer": "unter das",
+"accept": [
+"unter das"
+],
+"es": "Empujo la caja bajo la cama.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich schiebe die Kiste ___ Bett."
+},
+"wo": {
+"sentence": "Die Kiste liegt unter dem Bett.",
+"answer": "unter dem",
+"accept": [
+"unter dem"
+],
+"es": "La caja está bajo la cama.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Kiste liegt ___ Bett."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:unter:pair",
+"source": "gen",
+"prompt": "Die Kiste liegt ___ Bett.  ↔  Ich schiebe die Kiste ___ Bett.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-027-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Sie stellt die Schuhe ___ Bank.",
+"hint": "Wohin?",
+"answer": "unter die",
+"accept": [
+"unter die"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wohin? Akkusativ: unter + den/die/das (destino) → unter die.",
+"translation": "Ella pone los zapatos bajo el banco.",
+"pairId": "gx-pair-027",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-027-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Schuhe stehen ___ Bank.",
+"hint": "Wo?",
+"answer": "unter der",
+"accept": [
+"unter der"
+],
+"options": [
+"unter das",
+"unter dem",
+"unter den",
+"unter der",
+"unter die"
+],
+"explanation": "Wo? Dativ: unter + dem/der/dem (lugar) → unter der.",
+"translation": "Los zapatos están bajo el banco.",
+"pairId": "gx-pair-027",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:unter:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-027",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "unter",
+"wohin": {
+"sentence": "Sie stellt die Schuhe unter die Bank.",
+"answer": "unter die",
+"accept": [
+"unter die"
+],
+"es": "Ella pone los zapatos bajo el banco.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Sie stellt die Schuhe ___ Bank."
+},
+"wo": {
+"sentence": "Die Schuhe stehen unter der Bank.",
+"answer": "unter der",
+"accept": [
+"unter der"
+],
+"es": "Los zapatos están bajo el banco.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Schuhe stehen ___ Bank."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:unter:pair",
+"source": "gen",
+"prompt": "Die Schuhe stehen ___ Bank.  ↔  Sie stellt die Schuhe ___ Bank.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-028-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Die Frau stellt sich ___ Fenster.",
+"hint": "Wohin?",
+"answer": "vor das",
+"accept": [
+"vor das"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wohin? Akkusativ: vor + den/die/das (destino) → vor das.",
+"translation": "La mujer se pone delante de la ventana.",
+"pairId": "gx-pair-028",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-028-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Die Frau steht ___ Fenster.",
+"hint": "Wo?",
+"answer": "vor dem",
+"accept": [
+"vor dem"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wo? Dativ: vor + dem/der/dem (lugar) → vor dem.",
+"translation": "La mujer está delante de la ventana.",
+"pairId": "gx-pair-028",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-028",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "vor",
+"wohin": {
+"sentence": "Die Frau stellt sich vor das Fenster.",
+"answer": "vor das",
+"accept": [
+"vor das"
+],
+"es": "La mujer se pone delante de la ventana.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Die Frau stellt sich ___ Fenster."
+},
+"wo": {
+"sentence": "Die Frau steht vor dem Fenster.",
+"answer": "vor dem",
+"accept": [
+"vor dem"
+],
+"es": "La mujer está delante de la ventana.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Die Frau steht ___ Fenster."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:vor:pair",
+"source": "gen",
+"prompt": "Die Frau steht ___ Fenster.  ↔  Die Frau stellt sich ___ Fenster.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-029-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich stelle das Auto ___ Haus.",
+"hint": "Wohin?",
+"answer": "vor das",
+"accept": [
+"vor das"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wohin? Akkusativ: vor + den/die/das (destino) → vor das.",
+"translation": "Pongo el coche delante de la casa.",
+"pairId": "gx-pair-029",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-029-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Auto steht ___ Haus.",
+"hint": "Wo?",
+"answer": "vor dem",
+"accept": [
+"vor dem"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wo? Dativ: vor + dem/der/dem (lugar) → vor dem.",
+"translation": "El coche está delante de la casa.",
+"pairId": "gx-pair-029",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-029",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "vor",
+"wohin": {
+"sentence": "Ich stelle das Auto vor das Haus.",
+"answer": "vor das",
+"accept": [
+"vor das"
+],
+"es": "Pongo el coche delante de la casa.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich stelle das Auto ___ Haus."
+},
+"wo": {
+"sentence": "Das Auto steht vor dem Haus.",
+"answer": "vor dem",
+"accept": [
+"vor dem"
+],
+"es": "El coche está delante de la casa.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Auto steht ___ Haus."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:vor:pair",
+"source": "gen",
+"prompt": "Das Auto steht ___ Haus.  ↔  Ich stelle das Auto ___ Haus.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-030-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er legt das Paket ___ Tür.",
+"hint": "Wohin?",
+"answer": "vor die",
+"accept": [
+"vor die"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wohin? Akkusativ: vor + den/die/das (destino) → vor die.",
+"translation": "Él deja el paquete delante de la puerta.",
+"pairId": "gx-pair-030",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-030-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Das Paket liegt ___ Tür.",
+"hint": "Wo?",
+"answer": "vor der",
+"accept": [
+"vor der"
+],
+"options": [
+"vor das",
+"vor dem",
+"vor den",
+"vor der",
+"vor die"
+],
+"explanation": "Wo? Dativ: vor + dem/der/dem (lugar) → vor der.",
+"translation": "El paquete está delante de la puerta.",
+"pairId": "gx-pair-030",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:vor:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-030",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "vor",
+"wohin": {
+"sentence": "Er legt das Paket vor die Tür.",
+"answer": "vor die",
+"accept": [
+"vor die"
+],
+"es": "Él deja el paquete delante de la puerta.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er legt das Paket ___ Tür."
+},
+"wo": {
+"sentence": "Das Paket liegt vor der Tür.",
+"answer": "vor der",
+"accept": [
+"vor der"
+],
+"es": "El paquete está delante de la puerta.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Das Paket liegt ___ Tür."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:vor:pair",
+"source": "gen",
+"prompt": "Das Paket liegt ___ Tür.  ↔  Er legt das Paket ___ Tür.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-031-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Er setzt sich ___ Frauen.",
+"hint": "Wohin?",
+"answer": "zwischen die",
+"accept": [
+"zwischen die"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wohin? Akkusativ: zwischen + den/die/das (destino) → zwischen die.",
+"translation": "Él se sienta entre las mujeres.",
+"pairId": "gx-pair-031",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-031-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Er sitzt ___ Frauen.",
+"hint": "Wo?",
+"answer": "zwischen den",
+"accept": [
+"zwischen den"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wo? Dativ: zwischen + dem/der/dem (lugar) → zwischen den.",
+"translation": "Él está sentado entre las mujeres.",
+"pairId": "gx-pair-031",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-031",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "zwischen",
+"wohin": {
+"sentence": "Er setzt sich zwischen die Frauen.",
+"answer": "zwischen die",
+"accept": [
+"zwischen die"
+],
+"es": "Él se sienta entre las mujeres.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Er setzt sich ___ Frauen."
+},
+"wo": {
+"sentence": "Er sitzt zwischen den Frauen.",
+"answer": "zwischen den",
+"accept": [
+"zwischen den"
+],
+"es": "Él está sentado entre las mujeres.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Er sitzt ___ Frauen."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:zwischen:pair",
+"source": "gen",
+"prompt": "Er sitzt ___ Frauen.  ↔  Er setzt sich ___ Frauen.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-032-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Ich lege den Brief ___ Bücher.",
+"hint": "Wohin?",
+"answer": "zwischen die",
+"accept": [
+"zwischen die"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wohin? Akkusativ: zwischen + den/die/das (destino) → zwischen die.",
+"translation": "Pongo la carta entre los libros.",
+"pairId": "gx-pair-032",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-032-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Brief liegt ___ Büchern.",
+"hint": "Wo?",
+"answer": "zwischen den",
+"accept": [
+"zwischen den"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wo? Dativ: zwischen + dem/der/dem (lugar) → zwischen den.",
+"translation": "La carta está entre los libros.",
+"pairId": "gx-pair-032",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-032",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "zwischen",
+"wohin": {
+"sentence": "Ich lege den Brief zwischen die Bücher.",
+"answer": "zwischen die",
+"accept": [
+"zwischen die"
+],
+"es": "Pongo la carta entre los libros.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Ich lege den Brief ___ Bücher."
+},
+"wo": {
+"sentence": "Der Brief liegt zwischen den Büchern.",
+"answer": "zwischen den",
+"accept": [
+"zwischen den"
+],
+"es": "La carta está entre los libros.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Brief liegt ___ Büchern."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:zwischen:pair",
+"source": "gen",
+"prompt": "Der Brief liegt ___ Büchern.  ↔  Ich lege den Brief ___ Bücher.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-pair-033-wohin",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wohin",
+"prompt": "Wir stellen den Tisch ___ Sofa und das Bett.",
+"hint": "Wohin?",
+"answer": "zwischen das",
+"accept": [
+"zwischen das"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wohin? Akkusativ: zwischen + den/die/das (destino) → zwischen das.",
+"translation": "Ponemos la mesa entre el sofá y la cama.",
+"pairId": "gx-pair-033",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wohin",
+"source": "gen",
+"pool": "wechsel-wohin"
+},
+{
+"id": "gx-pair-033-wo",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "wechsel-wo",
+"prompt": "Der Tisch steht ___ Sofa und dem Bett.",
+"hint": "Wo?",
+"answer": "zwischen dem",
+"accept": [
+"zwischen dem"
+],
+"options": [
+"zwischen das",
+"zwischen dem",
+"zwischen den",
+"zwischen der",
+"zwischen die"
+],
+"explanation": "Wo? Dativ: zwischen + dem/der/dem (lugar) → zwischen dem.",
+"translation": "La mesa está entre el sofá y la cama.",
+"pairId": "gx-pair-033",
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23",
+"cs:t24"
+],
+"errorTag": "wechsel:zwischen:wo",
+"source": "gen",
+"pool": "wechsel-wo"
+},
+{
+"id": "gx-pair-033",
+"module": "praepositionen",
+"level": "A2",
+"type": "minimal-pair",
+"skill": "wechsel-pair",
+"prep": "zwischen",
+"wohin": {
+"sentence": "Wir stellen den Tisch zwischen das Sofa und das Bett.",
+"answer": "zwischen das",
+"accept": [
+"zwischen das"
+],
+"es": "Ponemos la mesa entre el sofá y la cama.",
+"question": "Wohin?",
+"case": "Akkusativ",
+"prompt": "Wir stellen den Tisch ___ Sofa und das Bett."
+},
+"wo": {
+"sentence": "Der Tisch steht zwischen dem Sofa und dem Bett.",
+"answer": "zwischen dem",
+"accept": [
+"zwischen dem"
+],
+"es": "La mesa está entre el sofá y la cama.",
+"question": "Wo?",
+"case": "Dativ",
+"prompt": "Der Tisch steht ___ Sofa und dem Bett."
+},
+"conceptIds": [
+"a2:wechselpraepositionen",
+"cs:t23"
+],
+"errorTag": "wechsel:zwischen:pair",
+"source": "gen",
+"prompt": "Der Tisch steht ___ Sofa und dem Bett.  ↔  Wir stellen den Tisch ___ Sofa und das Bett.",
+"pool": "wechsel-pair"
+},
+{
+"id": "gx-prep-wahl-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Das Geschenk ist ___ die Mutter.",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"für",
+"nach",
+"von",
+"zu"
+],
+"explanation": "für + Akkusativ.",
+"translation": "El regalo es para la madre.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:für",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Das Geschenk ist für ___ Mutter.",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "für + Akkusativ: für die Mutter.",
+"translation": "El regalo es para la madre.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:für:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich kaufe Blumen ___ meine Freundin.",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"bei",
+"für",
+"nach",
+"von"
+],
+"explanation": "für + Akkusativ.",
+"translation": "Compro flores para mi amiga.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:für",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Ich kaufe Blumen für ___ Freundin.",
+"answer": "meine",
+"accept": [
+"meine"
+],
+"options": [
+"mein",
+"meine",
+"meinen",
+"meinem",
+"meiner"
+],
+"explanation": "für + Akkusativ: für meine Freundin.",
+"translation": "Compro flores para mi amiga.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:für:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich gehe nie ___ den Schlüssel aus dem Haus.",
+"answer": "ohne",
+"accept": [
+"ohne"
+],
+"options": [
+"bei",
+"nach",
+"ohne",
+"von"
+],
+"explanation": "ohne + Akkusativ.",
+"translation": "Nunca salgo de casa sin la llave.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:ohne",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Ich gehe nie ohne ___ Schlüssel aus dem Haus.",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "ohne + Akkusativ: ohne den Schlüssel.",
+"translation": "Nunca salgo de casa sin la llave.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:ohne:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-004",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Wir fahren ___ den Tunnel.",
+"answer": "durch",
+"accept": [
+"durch"
+],
+"options": [
+"bei",
+"durch",
+"von",
+"zu"
+],
+"explanation": "durch + Akkusativ.",
+"translation": "Pasamos por el túnel.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:durch",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-004",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Wir fahren durch ___ Tunnel.",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "durch + Akkusativ: durch den Tunnel.",
+"translation": "Pasamos por el túnel.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:durch:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-005",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Sie läuft ___ den See.",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"aus",
+"mit",
+"nach",
+"um"
+],
+"explanation": "um + Akkusativ.",
+"translation": "Ella corre alrededor del lago.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:um",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-005",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Sie läuft um ___ See.",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "um + Akkusativ: um den See.",
+"translation": "Ella corre alrededor del lago.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:um:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-006",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Der Bus fährt ___ die Wand.",
+"answer": "gegen",
+"accept": [
+"gegen"
+],
+"options": [
+"aus",
+"bei",
+"gegen",
+"von"
+],
+"explanation": "gegen + Akkusativ.",
+"translation": "El autobús choca contra la pared.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:gegen",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-006",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Der Bus fährt gegen ___ Wand.",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "gegen + Akkusativ: gegen die Wand.",
+"translation": "El autobús choca contra la pared.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:gegen:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-007",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Wir gehen den Fluss ___.",
+"answer": "entlang",
+"accept": [
+"entlang"
+],
+"options": [
+"aus",
+"bei",
+"entlang",
+"mit"
+],
+"explanation": "entlang + Akkusativ.",
+"translation": "Caminamos a lo largo del río.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:entlang",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-wahl-008",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich bleibe ___ Montag.",
+"answer": "bis",
+"accept": [
+"bis"
+],
+"options": [
+"aus",
+"bei",
+"bis",
+"mit"
+],
+"explanation": "bis + Akkusativ.",
+"translation": "Me quedo hasta el lunes.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-acc"
+],
+"errorTag": "preposition:bis",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-wahl-009",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich komme ___ der Schweiz.",
+"answer": "aus",
+"accept": [
+"aus"
+],
+"options": [
+"aus",
+"gegen",
+"ohne",
+"um"
+],
+"explanation": "aus + Dativ.",
+"translation": "Vengo de Suiza.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:aus",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-007",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Ich komme aus ___ Schweiz.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "aus + Dativ: aus der Schweiz.",
+"translation": "Vengo de Suiza.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:aus:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-010",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Er kommt ___ dem Büro.",
+"answer": "aus",
+"accept": [
+"aus"
+],
+"options": [
+"aus",
+"durch",
+"gegen",
+"ohne"
+],
+"explanation": "aus + Dativ.",
+"translation": "Él sale de la oficina.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:aus",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-008",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Er kommt aus ___ Büro.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "aus + Dativ: aus dem Büro.",
+"translation": "Él sale de la oficina.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:aus:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-011",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Sie wohnt ___ der Oma.",
+"answer": "bei",
+"accept": [
+"bei"
+],
+"options": [
+"bei",
+"für",
+"gegen",
+"um"
+],
+"explanation": "bei + Dativ.",
+"translation": "Ella vive en casa de la abuela.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:bei",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-009",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Sie wohnt bei ___ Oma.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "bei + Dativ: bei der Oma.",
+"translation": "Ella vive en casa de la abuela.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:bei:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-012",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Ich fahre ___ dem Bus.",
+"answer": "mit",
+"accept": [
+"mit"
+],
+"options": [
+"für",
+"gegen",
+"mit",
+"ohne"
+],
+"explanation": "mit + Dativ.",
+"translation": "Voy en autobús.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:mit",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-010",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Ich fahre mit ___ Bus.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "mit + Dativ: mit dem Bus.",
+"translation": "Voy en autobús.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:mit:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-013",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Wir sprechen ___ der Lehrerin.",
+"answer": "mit",
+"accept": [
+"mit"
+],
+"options": [
+"für",
+"gegen",
+"mit",
+"ohne"
+],
+"explanation": "mit + Dativ.",
+"translation": "Hablamos con la profesora.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:mit",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-011",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Wir sprechen mit ___ Lehrerin.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "mit + Dativ: mit der Lehrerin.",
+"translation": "Hablamos con la profesora.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:mit:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-014",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ dem Essen trinken wir Kaffee.",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"durch",
+"gegen",
+"nach",
+"um"
+],
+"explanation": "nach + Dativ.",
+"translation": "Después de comer tomamos café.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:nach",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-012",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Nach ___ Essen trinken wir Kaffee.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "nach + Dativ: nach dem Essen.",
+"translation": "Después de comer tomamos café.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:nach:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-015",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ der Arbeit gehe ich nach Hause.",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"durch",
+"gegen",
+"nach",
+"ohne"
+],
+"explanation": "nach + Dativ.",
+"translation": "Después del trabajo voy a casa.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:nach",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-013",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Nach ___ Arbeit gehe ich nach Hause.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "nach + Dativ: nach der Arbeit.",
+"translation": "Después del trabajo voy a casa.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:nach:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-016",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ dem Sommer lerne ich Deutsch.",
+"answer": "seit",
+"accept": [
+"seit"
+],
+"options": [
+"durch",
+"für",
+"seit",
+"um"
+],
+"explanation": "seit + Dativ.",
+"translation": "Desde el verano aprendo alemán.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:seit",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-014",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Seit ___ Sommer lerne ich Deutsch.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "seit + Dativ: seit dem Sommer.",
+"translation": "Desde el verano aprendo alemán.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:seit:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-017",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Das ist ein Geschenk ___ der Mutter.",
+"answer": "von",
+"accept": [
+"von"
+],
+"options": [
+"durch",
+"für",
+"um",
+"von"
+],
+"explanation": "von + Dativ.",
+"translation": "Es un regalo de la madre.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:von",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-015",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Das ist ein Geschenk von ___ Mutter.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "von + Dativ: von der Mutter.",
+"translation": "Es un regalo de la madre.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:von:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-018",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Der Zug kommt ___ der Haltestelle.",
+"answer": "von",
+"accept": [
+"von"
+],
+"options": [
+"durch",
+"gegen",
+"um",
+"von"
+],
+"explanation": "von + Dativ.",
+"translation": "El tren viene de la parada.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:von",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-016",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Der Zug kommt von ___ Haltestelle.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "von + Dativ: von der Haltestelle.",
+"translation": "El tren viene de la parada.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:von:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-019",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ dem Bahnhof ist ein Café.",
+"answer": "gegenüber",
+"accept": [
+"gegenüber"
+],
+"options": [
+"durch",
+"für",
+"gegenüber",
+"ohne"
+],
+"explanation": "gegenüber + Dativ.",
+"translation": "Enfrente de la estación hay un café.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:gegenüber",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-017",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Gegenüber ___ Bahnhof ist ein Café.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "gegenüber + Dativ: gegenüber dem Bahnhof.",
+"translation": "Enfrente de la estación hay un café.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:gegenüber:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-020",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ dem Wochenende ist das Wetter besser.",
+"answer": "ab",
+"accept": [
+"ab"
+],
+"options": [
+"ab",
+"durch",
+"für",
+"ohne"
+],
+"explanation": "ab + Dativ.",
+"translation": "A partir del fin de semana hace mejor tiempo.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:ab",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-018",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Ab ___ Wochenende ist das Wetter besser.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "ab + Dativ: ab dem Wochenende.",
+"translation": "A partir del fin de semana hace mejor tiempo.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:ab:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-021",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "Alle sind da ___ dem Chef.",
+"answer": "außer",
+"accept": [
+"außer"
+],
+"options": [
+"außer",
+"für",
+"gegen",
+"ohne"
+],
+"explanation": "außer + Dativ.",
+"translation": "Todos están aquí excepto el jefe.",
+"conceptIds": [
+"cs:t22",
+"a2:praeposition-dat"
+],
+"errorTag": "preposition:außer",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-019",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Alle sind da außer ___ Chef.",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "außer + Dativ: außer dem Chef.",
+"translation": "Todos están aquí excepto el jefe.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:außer:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ des Busses nehmen wir ein Taxi.",
+"answer": "statt",
+"accept": [
+"statt"
+],
+"options": [
+"durch",
+"für",
+"ohne",
+"statt"
+],
+"explanation": "statt + Genitiv.",
+"translation": "En lugar del autobús cogemos un taxi.",
+"conceptIds": [
+"dm:s5-2",
+"a2:praeposition-gen"
+],
+"errorTag": "preposition:statt",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-020",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Statt ___ Busses nehmen wir ein Taxi.",
+"answer": "des",
+"accept": [
+"des"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "statt + Genitiv: statt des Busses.",
+"translation": "En lugar del autobús cogemos un taxi.",
+"conceptIds": [
+"dm:s5-2"
+],
+"errorTag": "preposition:statt:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-023",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ des Wetters bleiben wir zu Hause.",
+"answer": "wegen",
+"accept": [
+"wegen"
+],
+"options": [
+"durch",
+"für",
+"gegen",
+"wegen"
+],
+"explanation": "wegen + Genitiv.",
+"translation": "Por el tiempo nos quedamos en casa.",
+"conceptIds": [
+"dm:s5-2",
+"a2:praeposition-gen"
+],
+"errorTag": "preposition:wegen",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-021",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Wegen ___ Wetters bleiben wir zu Hause.",
+"answer": "des",
+"accept": [
+"des"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "wegen + Genitiv: wegen des Wetters.",
+"translation": "Por el tiempo nos quedamos en casa.",
+"conceptIds": [
+"dm:s5-2"
+],
+"errorTag": "preposition:wegen:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-024",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ des Regens gehen wir spazieren.",
+"answer": "trotz",
+"accept": [
+"trotz"
+],
+"options": [
+"für",
+"gegen",
+"ohne",
+"trotz"
+],
+"explanation": "trotz + Genitiv.",
+"translation": "A pesar de la lluvia damos un paseo.",
+"conceptIds": [
+"dm:s5-2",
+"a2:praeposition-gen"
+],
+"errorTag": "preposition:trotz",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Trotz ___ Regens gehen wir spazieren.",
+"answer": "des",
+"accept": [
+"des"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "trotz + Genitiv: trotz des Regens.",
+"translation": "A pesar de la lluvia damos un paseo.",
+"conceptIds": [
+"dm:s5-2"
+],
+"errorTag": "preposition:trotz:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-wahl-025",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-wahl",
+"prompt": "___ der Ferien arbeitet sie.",
+"answer": "während",
+"accept": [
+"während"
+],
+"options": [
+"für",
+"ohne",
+"um",
+"während"
+],
+"explanation": "während + Genitiv.",
+"translation": "Durante las vacaciones ella trabaja.",
+"conceptIds": [
+"dm:s5-2",
+"a2:praeposition-gen"
+],
+"errorTag": "preposition:während",
+"source": "gen",
+"pool": "praep-wahl"
+},
+{
+"id": "gx-prep-artikel-023",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Während ___ Ferien arbeitet sie.",
+"answer": "der",
+"accept": [
+"der"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "während + Genitiv: während der Ferien.",
+"translation": "Durante las vacaciones ella trabaja.",
+"conceptIds": [
+"dm:s5-2"
+],
+"errorTag": "preposition:während:article",
+"source": "gen",
+"pool": "praep-artikel"
+},
+{
+"id": "gx-prep-kontraktion-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich gehe ___ Bahnhof.",
+"hint": "zu + dem",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "zu + dem = zum.",
+"translation": "Voy a la estación.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:zum",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir gehen ___ Schule.",
+"hint": "zu + der",
+"answer": "zur",
+"accept": [
+"zur"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "zu + der = zur.",
+"translation": "Vamos a la escuela.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:zur",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Sie ist ___ Bäcker.",
+"hint": "bei + dem",
+"answer": "beim",
+"accept": [
+"beim"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "bei + dem = beim.",
+"translation": "Ella está en la panadería.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:beim",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-004",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Er kommt ___ Arzt.",
+"hint": "von + dem",
+"answer": "vom",
+"accept": [
+"vom"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "von + dem = vom.",
+"translation": "Él viene del médico.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:vom",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-005",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Das Buch liegt ___ Regal.",
+"hint": "in + dem",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + dem = im.",
+"translation": "El libro está en la estantería.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:im",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-006",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir gehen ___ Theater.",
+"hint": "in + das",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + das = ins.",
+"translation": "Vamos al teatro.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:ins",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-007",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Er geht ___ Fenster.",
+"hint": "an + das",
+"answer": "ans",
+"accept": [
+"ans"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "an + das = ans.",
+"translation": "Él va a la ventana.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:ans",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-008",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir warten ___ Bahnhof.",
+"hint": "an + dem",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "an + dem = am.",
+"translation": "Esperamos en la estación.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:am",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-009",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Das ist ___ Kind.",
+"hint": "für + das",
+"answer": "fürs",
+"accept": [
+"fürs"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "für + das = fürs.",
+"translation": "Esto es para el niño.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:fürs",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-010",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Sie läuft ___ Haus.",
+"hint": "um + das",
+"answer": "ums",
+"accept": [
+"ums"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "um + das = ums.",
+"translation": "Ella corre alrededor de la casa.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:ums",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-011",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Er klettert ___ Dach.",
+"hint": "auf + das",
+"answer": "aufs",
+"accept": [
+"aufs"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "auf + das = aufs.",
+"translation": "Él trepa al tejado.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:aufs",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-012",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir gehen ___ Essen.",
+"hint": "zu + dem",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "zu + dem = zum.",
+"translation": "Vamos a comer.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:zum",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-013",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich fahre ___ Arbeit.",
+"hint": "zu + der",
+"answer": "zur",
+"accept": [
+"zur"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "zu + der = zur.",
+"translation": "Voy al trabajo.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:zur",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-014",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Er liest ___ Essen.",
+"hint": "bei + dem",
+"answer": "beim",
+"accept": [
+"beim"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "bei + dem = beim.",
+"translation": "Él lee mientras come.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:beim",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-015",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Ich komme ___ Büro.",
+"hint": "von + dem",
+"answer": "vom",
+"accept": [
+"vom"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "von + dem = vom.",
+"translation": "Vengo de la oficina.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:vom",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-016",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir sind ___ Zug.",
+"hint": "in + dem",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + dem = im.",
+"translation": "Estamos en el tren.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:im",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-017",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "___ Montag habe ich Unterricht.",
+"hint": "an + dem",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "an + dem = am.",
+"translation": "El lunes tengo clase.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:am",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-018",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "___ Sommer fahren wir ans Meer.",
+"hint": "in + dem",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + dem = im.",
+"translation": "En verano vamos al mar.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:im",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-019",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Sie geht ___ Zimmer.",
+"hint": "in + das",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + das = ins.",
+"translation": "Ella entra en la habitación.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:ins",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-020",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "___ Abend lese ich.",
+"hint": "an + dem",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "an + dem = am.",
+"translation": "Por la noche leo.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:am",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-021",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Wir gehen ___ Spiel.",
+"hint": "zu + dem",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "zu + dem = zum.",
+"translation": "Vamos al partido.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:zum",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-kontraktion-022",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "kontraktion",
+"prompt": "Er geht ___ Büro.",
+"hint": "in + das",
+"answer": "ins",
+"accept": [
+"ins"
+],
+"options": [
+"am",
+"ans",
+"aufs",
+"beim",
+"durchs",
+"fürs",
+"im",
+"ins",
+"ums",
+"vom",
+"zum",
+"zur"
+],
+"explanation": "in + das = ins.",
+"translation": "Él va a la oficina.",
+"conceptIds": [
+"cs:t26"
+],
+"errorTag": "contraction:ins",
+"source": "gen",
+"pool": "kontraktion"
+},
+{
+"id": "gx-prep-zeit-001",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Der Kurs beginnt ___ acht Uhr.",
+"hint": "um + hora",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"am",
+"im",
+"seit",
+"um"
+],
+"explanation": "um + hora: um.",
+"translation": "El curso empieza a las ocho.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:um",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-002",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Wir treffen uns ___ halb drei.",
+"hint": "um + hora",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"am",
+"im",
+"seit",
+"um"
+],
+"explanation": "um + hora: um.",
+"translation": "Nos vemos a las dos y media.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:um",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-003",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Montag habe ich Unterricht.",
+"hint": "am + día",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"im",
+"in",
+"um"
+],
+"explanation": "am + día: am.",
+"translation": "El lunes tengo clase.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:am",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-004",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Morgen trinke ich Kaffee.",
+"hint": "am + parte del día",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"im",
+"in",
+"um"
+],
+"explanation": "am + parte del día: am.",
+"translation": "Por la mañana tomo café.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:am",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-005",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Wochenende schlafe ich lange.",
+"hint": "am + Wochenende",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"seit",
+"um",
+"zwischen"
+],
+"explanation": "am + Wochenende: am.",
+"translation": "El fin de semana duermo mucho.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:am",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-006",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Ich habe ___ 3. Mai Geburtstag.",
+"hint": "am + fecha",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"im",
+"seit",
+"um"
+],
+"explanation": "am + fecha: am.",
+"translation": "Mi cumpleaños es el 3 de mayo.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:am",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-007",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Mai fahren wir in Urlaub.",
+"hint": "im + mes",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"im",
+"um",
+"zwischen"
+],
+"explanation": "im + mes: im.",
+"translation": "En mayo nos vamos de vacaciones.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:im",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-008",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Sommer ist es heiß.",
+"hint": "im + estación",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"im",
+"um",
+"zwischen"
+],
+"explanation": "im + estación: im.",
+"translation": "En verano hace calor.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:im",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-009",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Jahr 2020 war ich in Berlin.",
+"hint": "im Jahr + año",
+"answer": "im",
+"accept": [
+"im"
+],
+"options": [
+"am",
+"im",
+"seit",
+"um"
+],
+"explanation": "im Jahr + año: im.",
+"translation": "En 2020 estuve en Berlín.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:im",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-010",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Ich lerne ___ einem Jahr Deutsch.",
+"hint": "seit + Dativ (hasta hoy)",
+"answer": "seit",
+"accept": [
+"seit"
+],
+"options": [
+"am",
+"bis",
+"seit",
+"um"
+],
+"explanation": "seit + Dativ (hasta hoy): seit.",
+"translation": "Aprendo alemán desde hace un año.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:seit",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-011",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Er wohnt ___ drei Monaten hier.",
+"hint": "seit + Dativ",
+"answer": "seit",
+"accept": [
+"seit"
+],
+"options": [
+"am",
+"bis",
+"seit",
+"um"
+],
+"explanation": "seit + Dativ: seit.",
+"translation": "Vive aquí desde hace tres meses.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:seit",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-012",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ einer Woche war ich krank.",
+"hint": "vor + Dativ (hace)",
+"answer": "vor",
+"accept": [
+"vor"
+],
+"options": [
+"am",
+"um",
+"vor",
+"zwischen"
+],
+"explanation": "vor + Dativ (hace): vor.",
+"translation": "Hace una semana estuve enfermo.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:vor",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-013",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ dem Unterricht trinke ich Kaffee.",
+"hint": "vor + Dativ (antes de)",
+"answer": "vor",
+"accept": [
+"vor"
+],
+"options": [
+"an",
+"um",
+"vor",
+"zwischen"
+],
+"explanation": "vor + Dativ (antes de): vor.",
+"translation": "Antes de la clase tomo café.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:vor",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-014",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ einer Woche habe ich Urlaub.",
+"hint": "in + Dativ (dentro de)",
+"answer": "in",
+"accept": [
+"in"
+],
+"options": [
+"am",
+"bis",
+"in",
+"um"
+],
+"explanation": "in + Dativ (dentro de): in.",
+"translation": "Dentro de una semana tengo vacaciones.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:in",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-015",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Ich arbeite ___ Freitag.",
+"hint": "bis (hasta)",
+"answer": "bis",
+"accept": [
+"bis"
+],
+"options": [
+"bis",
+"im",
+"um",
+"zwischen"
+],
+"explanation": "bis (hasta): bis.",
+"translation": "Trabajo hasta el viernes.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:bis",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-016",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Montag arbeite ich wieder.",
+"hint": "ab (a partir de)",
+"answer": "ab",
+"accept": [
+"ab"
+],
+"options": [
+"ab",
+"im",
+"um",
+"zwischen"
+],
+"explanation": "ab (a partir de): ab.",
+"translation": "A partir del lunes vuelvo a trabajar.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:ab",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-017",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Ich arbeite ___ neun bis fünf Uhr.",
+"hint": "von … bis",
+"answer": "von",
+"accept": [
+"von"
+],
+"options": [
+"am",
+"seit",
+"um",
+"von"
+],
+"explanation": "von … bis: von.",
+"translation": "Trabajo de nueve a cinco.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:von",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-018",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Er kommt ___ acht Uhr.",
+"hint": "gegen (aprox.)",
+"answer": "gegen",
+"accept": [
+"gegen"
+],
+"options": [
+"am",
+"gegen",
+"im",
+"zwischen"
+],
+"explanation": "gegen (aprox.): gegen.",
+"translation": "Viene sobre las ocho.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:gegen",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-019",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Ich habe ___ drei und vier Uhr Zeit.",
+"hint": "zwischen … und",
+"answer": "zwischen",
+"accept": [
+"zwischen"
+],
+"options": [
+"am",
+"bis",
+"um",
+"zwischen"
+],
+"explanation": "zwischen … und: zwischen.",
+"translation": "Tengo tiempo entre las tres y las cuatro.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:zwischen",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-020",
+"module": "praepositionen",
+"level": "A1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ dem Kurs gehe ich nach Hause.",
+"hint": "nach (después de)",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"am",
+"nach",
+"um",
+"zwischen"
+],
+"explanation": "nach (después de): nach.",
+"translation": "Después del curso voy a casa.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:nach",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-021",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ der Ferien lese ich viel.",
+"hint": "während + Genitiv",
+"answer": "während",
+"accept": [
+"während"
+],
+"options": [
+"am",
+"seit",
+"um",
+"während"
+],
+"explanation": "während + Genitiv: während.",
+"translation": "Durante las vacaciones leo mucho.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:während",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ Weihnachten fahren wir nach Hause.",
+"hint": "über + Akk (durante festividad)",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"im",
+"um",
+"zwischen",
+"über"
+],
+"explanation": "über + Akk (durante festividad): über.",
+"translation": "Durante la Navidad volvemos a casa.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:über",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-023",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ nächster Woche habe ich einen neuen Job.",
+"hint": "ab + Dativ",
+"answer": "ab",
+"accept": [
+"ab"
+],
+"options": [
+"ab",
+"am",
+"seit",
+"um"
+],
+"explanation": "ab + Dativ: ab.",
+"translation": "Desde la semana que viene tengo un trabajo nuevo.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:ab",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-zeit-024",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "___ einer Woche bekommen Sie eine Antwort.",
+"hint": "innerhalb + Genitiv",
+"answer": "innerhalb",
+"accept": [
+"innerhalb"
+],
+"options": [
+"am",
+"innerhalb",
+"seit",
+"um"
+],
+"explanation": "innerhalb + Genitiv: innerhalb.",
+"translation": "En el plazo de una semana recibirá una respuesta.",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:innerhalb",
+"source": "gen",
+"pool": "praep-zeit"
+},
+{
+"id": "gx-prep-verb-praep-001",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich warte ___ den Bus.",
+"hint": "warten + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "warten + auf + Akkusativ.",
+"translation": "Espero el autobús.",
+"chunk": "warten auf + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:warten:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-001",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich warte auf ___ Bus.",
+"hint": "warten auf + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "warten auf + Akkusativ: den Bus.",
+"translation": "Espero el autobús.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-002",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er denkt oft ___ seine Familie.",
+"hint": "denken + ___",
+"answer": "an",
+"accept": [
+"an"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "denken + an + Akkusativ.",
+"translation": "Piensa a menudo en su familia.",
+"chunk": "denken an + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:denken:an",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-002",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er denkt oft an ___ Familie.",
+"hint": "denken an + Akkusativ",
+"answer": "seine",
+"accept": [
+"seine"
+],
+"options": [
+"sein",
+"seine",
+"seinen",
+"seinem",
+"seiner"
+],
+"explanation": "denken an + Akkusativ: seine Familie.",
+"translation": "Piensa a menudo en su familia.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:an",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-003",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich freue mich ___ den Urlaub.",
+"hint": "sich freuen + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich freuen + auf + Akkusativ.",
+"translation": "Tengo ganas de las vacaciones.",
+"chunk": "sich freuen auf + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:freuen:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-003",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich freue mich auf ___ Urlaub.",
+"hint": "sich freuen auf + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich freuen auf + Akkusativ: den Urlaub.",
+"translation": "Tengo ganas de las vacaciones.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-004",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich freue mich ___ das Geschenk.",
+"hint": "sich freuen + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich freuen + über + Akkusativ.",
+"translation": "Me alegro por el regalo.",
+"chunk": "sich freuen über + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:freuen:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-004",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich freue mich über ___ Geschenk.",
+"hint": "sich freuen über + Akkusativ",
+"answer": "das",
+"accept": [
+"das"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich freuen über + Akkusativ: das Geschenk.",
+"translation": "Me alegro por el regalo.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-005",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie interessiert sich ___ Musik.",
+"hint": "sich interessieren + ___",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich interessieren + für + Akkusativ.",
+"translation": "Se interesa por la música.",
+"chunk": "sich interessieren für + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:interessieren:für",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-006",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir ärgern uns ___ den Lärm.",
+"hint": "sich ärgern + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich ärgern + über + Akkusativ.",
+"translation": "Nos enfadamos por el ruido.",
+"chunk": "sich ärgern über + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:ärgern:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-005",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Wir ärgern uns über ___ Lärm.",
+"hint": "sich ärgern über + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich ärgern über + Akkusativ: den Lärm.",
+"translation": "Nos enfadamos por el ruido.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-007",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er erinnert sich ___ den Tag.",
+"hint": "sich erinnern + ___",
+"answer": "an",
+"accept": [
+"an"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich erinnern + an + Akkusativ.",
+"translation": "Se acuerda de ese día.",
+"chunk": "sich erinnern an + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:erinnern:an",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-006",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er erinnert sich an ___ Tag.",
+"hint": "sich erinnern an + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich erinnern an + Akkusativ: den Tag.",
+"translation": "Se acuerda de ese día.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:an",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-008",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir sprechen ___ das Wetter.",
+"hint": "sprechen + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sprechen + über + Akkusativ.",
+"translation": "Hablamos del tiempo.",
+"chunk": "sprechen über + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:sprechen:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-007",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Wir sprechen über ___ Wetter.",
+"hint": "sprechen über + Akkusativ",
+"answer": "das",
+"accept": [
+"das"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sprechen über + Akkusativ: das Wetter.",
+"translation": "Hablamos del tiempo.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-009",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich spreche ___ dem Chef.",
+"hint": "sprechen + ___",
+"answer": "mit",
+"accept": [
+"mit"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sprechen + mit + Dativ.",
+"translation": "Hablo con el jefe.",
+"chunk": "sprechen mit + Dat.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:sprechen:mit",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-008",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich spreche mit ___ Chef.",
+"hint": "sprechen mit + Dativ",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sprechen mit + Dativ: dem Chef.",
+"translation": "Hablo con el jefe.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:mit",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-010",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Du kannst dich ___ mich verlassen.",
+"hint": "sich verlassen + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich verlassen + auf + Akkusativ.",
+"translation": "Puedes confiar en mí.",
+"chunk": "sich verlassen auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:verlassen:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-011",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich bitte ___ Hilfe.",
+"hint": "bitten + ___",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "bitten + um + Akkusativ.",
+"translation": "Pido ayuda.",
+"chunk": "bitten um + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:bitten:um",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-012",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich danke dir ___ die Einladung.",
+"hint": "danken + ___",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "danken + für + Akkusativ.",
+"translation": "Te doy las gracias por la invitación.",
+"chunk": "danken für + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:danken:für",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-009",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich danke dir für ___ Einladung.",
+"hint": "danken für + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "danken für + Akkusativ: die Einladung.",
+"translation": "Te doy las gracias por la invitación.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:für",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-013",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er fragt ___ dem Weg.",
+"hint": "fragen + ___",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "fragen + nach + Dativ.",
+"translation": "Pregunta por el camino.",
+"chunk": "fragen nach + Dat.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:fragen:nach",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-010",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er fragt nach ___ Weg.",
+"hint": "fragen nach + Dativ",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "fragen nach + Dativ: dem Weg.",
+"translation": "Pregunta por el camino.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:nach",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-014",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie sucht ___ einer Lösung.",
+"hint": "suchen + ___",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "suchen + nach + Dativ.",
+"translation": "Busca una solución.",
+"chunk": "suchen nach + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:suchen:nach",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-011",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Sie sucht nach ___ Lösung.",
+"hint": "suchen nach + Dativ",
+"answer": "einer",
+"accept": [
+"einer"
+],
+"options": [
+"ein",
+"eine",
+"einen",
+"einem",
+"einer"
+],
+"explanation": "suchen nach + Dativ: einer Lösung.",
+"translation": "Busca una solución.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:nach",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-015",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er beschwert sich ___ den Service.",
+"hint": "sich beschweren + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich beschweren + über + Akkusativ.",
+"translation": "Se queja del servicio.",
+"chunk": "sich beschweren über + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:beschweren:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-012",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er beschwert sich über ___ Service.",
+"hint": "sich beschweren über + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich beschweren über + Akkusativ: den Service.",
+"translation": "Se queja del servicio.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-016",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Das Kind hat Angst ___ dem Hund.",
+"hint": "Angst haben + ___",
+"answer": "vor",
+"accept": [
+"vor"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "Angst haben + vor + Dativ.",
+"translation": "El niño tiene miedo del perro.",
+"chunk": "Angst haben vor + Dat.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:haben:vor",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-013",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Das Kind hat Angst vor ___ Hund.",
+"hint": "Angst haben vor + Dativ",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "Angst haben vor + Dativ: dem Hund.",
+"translation": "El niño tiene miedo del perro.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:vor",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-017",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir nehmen ___ Kurs teil.",
+"hint": "teilnehmen an + Dativ (an + dem)",
+"answer": "am",
+"accept": [
+"am"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "teilnehmen + an + Dativ: an + dem = am.",
+"translation": "Participamos en el curso.",
+"chunk": "teilnehmen an + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:teilnehmen:an",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-018",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Das hängt ___ Wetter ab.",
+"hint": "abhängen von + Dativ (von + dem)",
+"answer": "vom",
+"accept": [
+"vom"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "abhängen + von + Dativ: von + dem = vom.",
+"translation": "Eso depende del tiempo.",
+"chunk": "abhängen von + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:abhängen:von",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-019",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie träumt ___ einer Reise.",
+"hint": "träumen + ___",
+"answer": "von",
+"accept": [
+"von"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "träumen + von + Dativ.",
+"translation": "Sueña con un viaje.",
+"chunk": "träumen von + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:träumen:von",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-014",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Sie träumt von ___ Reise.",
+"hint": "träumen von + Dativ",
+"answer": "einer",
+"accept": [
+"einer"
+],
+"options": [
+"ein",
+"eine",
+"einen",
+"einem",
+"einer"
+],
+"explanation": "träumen von + Dativ: einer Reise.",
+"translation": "Sueña con un viaje.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:von",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-020",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Das gehört ___ Programm.",
+"hint": "gehören zu + Dativ (zu + dem)",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "gehören + zu + Dativ: zu + dem = zum.",
+"translation": "Eso forma parte del programa.",
+"chunk": "gehören zu + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:gehören:zu",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-021",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich entscheide mich ___ den Job.",
+"hint": "sich entscheiden + ___",
+"answer": "für",
+"accept": [
+"für"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich entscheiden + für + Akkusativ.",
+"translation": "Me decido por el trabajo.",
+"chunk": "sich entscheiden für + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:entscheiden:für",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-015",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich entscheide mich für ___ Job.",
+"hint": "sich entscheiden für + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich entscheiden für + Akkusativ: den Job.",
+"translation": "Me decido por el trabajo.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:für",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie konzentriert sich ___ die Prüfung.",
+"hint": "sich konzentrieren + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich konzentrieren + auf + Akkusativ.",
+"translation": "Se concentra en el examen.",
+"chunk": "sich konzentrieren auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:konzentrieren:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-016",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Sie konzentriert sich auf ___ Prüfung.",
+"hint": "sich konzentrieren auf + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich konzentrieren auf + Akkusativ: die Prüfung.",
+"translation": "Se concentra en el examen.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-023",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er kümmert sich ___ die Kinder.",
+"hint": "sich kümmern + ___",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich kümmern + um + Akkusativ.",
+"translation": "Se ocupa de los niños.",
+"chunk": "sich kümmern um + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:kümmern:um",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-017",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er kümmert sich um ___ Kinder.",
+"hint": "sich kümmern um + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich kümmern um + Akkusativ: die Kinder.",
+"translation": "Se ocupa de los niños.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:um",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-024",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich bewerbe mich ___ die Stelle.",
+"hint": "sich bewerben + ___",
+"answer": "um",
+"accept": [
+"um"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich bewerben + um + Akkusativ.",
+"translation": "Solicito el puesto.",
+"chunk": "sich bewerben um + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:bewerben:um",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-018",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich bewerbe mich um ___ Stelle.",
+"hint": "sich bewerben um + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich bewerben um + Akkusativ: die Stelle.",
+"translation": "Solicito el puesto.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:um",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-025",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er ist stolz ___ seinen Sohn.",
+"hint": "stolz sein + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "stolz sein + auf + Akkusativ.",
+"translation": "Está orgulloso de su hijo.",
+"chunk": "stolz sein auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:sein:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-019",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er ist stolz auf ___ Sohn.",
+"hint": "stolz sein auf + Akkusativ",
+"answer": "seinen",
+"accept": [
+"seinen"
+],
+"options": [
+"sein",
+"seine",
+"seinen",
+"seinem",
+"seiner"
+],
+"explanation": "stolz sein auf + Akkusativ: seinen Sohn.",
+"translation": "Está orgulloso de su hijo.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-026",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir sind zufrieden ___ dem Ergebnis.",
+"hint": "zufrieden sein + ___",
+"answer": "mit",
+"accept": [
+"mit"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "zufrieden sein + mit + Dativ.",
+"translation": "Estamos satisfechos con el resultado.",
+"chunk": "zufrieden sein mit + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:sein:mit",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-020",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Wir sind zufrieden mit ___ Ergebnis.",
+"hint": "zufrieden sein mit + Dativ",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "zufrieden sein mit + Dativ: dem Ergebnis.",
+"translation": "Estamos satisfechos con el resultado.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:mit",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-027",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie verzichtet ___ den Kaffee.",
+"hint": "verzichten + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "verzichten + auf + Akkusativ.",
+"translation": "Renuncia al café.",
+"chunk": "verzichten auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:verzichten:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-021",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Sie verzichtet auf ___ Kaffee.",
+"hint": "verzichten auf + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "verzichten auf + Akkusativ: den Kaffee.",
+"translation": "Renuncia al café.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-028",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Bitte achten Sie ___ die Gesundheit.",
+"hint": "achten + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "achten + auf + Akkusativ.",
+"translation": "Por favor, cuide la salud.",
+"chunk": "achten auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:achten:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Bitte achten Sie auf ___ Gesundheit.",
+"hint": "achten auf + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "achten auf + Akkusativ: die Gesundheit.",
+"translation": "Por favor, cuide la salud.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-029",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich lade dich ___ Konzert ein.",
+"hint": "einladen zu + Dativ (zu + dem)",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "einladen + zu + Dativ: zu + dem = zum.",
+"translation": "Te invito al concierto.",
+"chunk": "einladen zu + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:einladen:zu",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-030",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir gratulieren dir ___ Geburtstag.",
+"hint": "gratulieren zu + Dativ (zu + dem)",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "gratulieren + zu + Dativ: zu + dem = zum.",
+"translation": "Te felicitamos por tu cumpleaños.",
+"chunk": "gratulieren zu + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:gratulieren:zu",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-031",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir diskutieren ___ das Problem.",
+"hint": "diskutieren + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "diskutieren + über + Akkusativ.",
+"translation": "Discutimos sobre el problema.",
+"chunk": "diskutieren über + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:diskutieren:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-023",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Wir diskutieren über ___ Problem.",
+"hint": "diskutieren über + Akkusativ",
+"answer": "das",
+"accept": [
+"das"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "diskutieren über + Akkusativ: das Problem.",
+"translation": "Discutimos sobre el problema.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-032",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Er hofft ___ eine Chance.",
+"hint": "hoffen + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "hoffen + auf + Akkusativ.",
+"translation": "Espera una oportunidad.",
+"chunk": "hoffen auf + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:hoffen:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-024",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Er hofft auf ___ Chance.",
+"hint": "hoffen auf + Akkusativ",
+"answer": "eine",
+"accept": [
+"eine"
+],
+"options": [
+"ein",
+"eine",
+"einen",
+"einem",
+"einer"
+],
+"explanation": "hoffen auf + Akkusativ: eine Chance.",
+"translation": "Espera una oportunidad.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-033",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich glaube ___ die Zukunft.",
+"hint": "glauben + ___",
+"answer": "an",
+"accept": [
+"an"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "glauben + an + Akkusativ.",
+"translation": "Creo en el futuro.",
+"chunk": "glauben an + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:glauben:an",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-025",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich glaube an ___ Zukunft.",
+"hint": "glauben an + Akkusativ",
+"answer": "die",
+"accept": [
+"die"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "glauben an + Akkusativ: die Zukunft.",
+"translation": "Creo en el futuro.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:an",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-034",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Sie leidet ___ dem Lärm.",
+"hint": "leiden + ___",
+"answer": "unter",
+"accept": [
+"unter"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "leiden + unter + Dativ.",
+"translation": "Sufre por el ruido.",
+"chunk": "leiden unter + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:leiden:unter",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-026",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Sie leidet unter ___ Lärm.",
+"hint": "leiden unter + Dativ",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "leiden unter + Dativ: dem Lärm.",
+"translation": "Sufre por el ruido.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:unter",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-035",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Wir unterhalten uns ___ den Film.",
+"hint": "sich unterhalten + ___",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "sich unterhalten + über + Akkusativ.",
+"translation": "Conversamos sobre la película.",
+"chunk": "sich unterhalten über + Akk.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:unterhalten:über",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-027",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Wir unterhalten uns über ___ Film.",
+"hint": "sich unterhalten über + Akkusativ",
+"answer": "den",
+"accept": [
+"den"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "sich unterhalten über + Akkusativ: den Film.",
+"translation": "Conversamos sobre la película.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:über",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-036",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Ich passe ___ das Kind auf.",
+"hint": "aufpassen + ___",
+"answer": "auf",
+"accept": [
+"auf"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "aufpassen + auf + Akkusativ.",
+"translation": "Cuido del niño.",
+"chunk": "aufpassen auf + Akk.",
+"conceptIds": [
+"a2:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:aufpassen:auf",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-artikel-028",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "verb-praeposition-artikel",
+"prompt": "Ich passe auf ___ Kind auf.",
+"hint": "aufpassen auf + Akkusativ",
+"answer": "das",
+"accept": [
+"das"
+],
+"options": [
+"der",
+"die",
+"das",
+"den",
+"dem",
+"des"
+],
+"explanation": "aufpassen auf + Akkusativ: das Kind.",
+"translation": "Cuido del niño.",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "verb-prep:article:auf",
+"source": "gen",
+"pool": "verb-praeposition-artikel"
+},
+{
+"id": "gx-prep-verb-praep-037",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Das passt ___ Hotel.",
+"hint": "passen zu + Dativ (zu + dem)",
+"answer": "zum",
+"accept": [
+"zum"
+],
+"options": [
+"am",
+"beim",
+"im",
+"vom",
+"zum"
+],
+"explanation": "passen + zu + Dativ: zu + dem = zum.",
+"translation": "Eso encaja con el hotel.",
+"chunk": "passen zu + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen",
+"cs:t26"
+],
+"errorTag": "verb-prep:passen:zu",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "gx-prep-verb-praep-038",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "verb-praeposition",
+"prompt": "Es riecht ___ Kaffee.",
+"hint": "riechen + ___",
+"answer": "nach",
+"accept": [
+"nach"
+],
+"options": [
+"an",
+"auf",
+"aus",
+"bei",
+"für",
+"mit",
+"nach",
+"um",
+"unter",
+"von",
+"vor",
+"zu",
+"über"
+],
+"explanation": "riechen + nach + Dativ.",
+"translation": "Huele a café.",
+"chunk": "riechen nach + Dat.",
+"conceptIds": [
+"b1:verben-mit-praepositionen"
+],
+"errorTag": "verb-prep:riechen:nach",
+"source": "gen",
+"pool": "verb-praeposition"
+},
+{
+"id": "d244-decl-source-quiz-u16-022",
+"module": "praepositionen",
+"level": "B1",
+"type": "cloze",
+"skill": "praep-zeit",
+"prompt": "Wir fahren _____ Weihnachten in den Schwarzwald.",
+"hint": "",
+"answer": "über",
+"accept": [
+"über"
+],
+"options": [
+"über",
+"am",
+"im",
+"zwischen"
+],
+"explanation": "Las preposiciones de dos casos más frecuentes (in, an, auf...) son A1; el detalle fino es A2.",
+"translation": "",
+"conceptIds": [
+"cs:t27",
+"cs:t29"
+],
+"errorTag": "preposition:time:über",
+"source": "d244",
+"case": "mixed",
+"pool": "praep-zeit"
+},
+{
+"id": "d244-decl-source-quiz-u16-023",
+"module": "praepositionen",
+"level": "A2",
+"type": "cloze",
+"skill": "praep-artikel",
+"prompt": "Vor _____ Essen wasche ich mir die Hände. (das)",
+"hint": "",
+"answer": "dem",
+"accept": [
+"dem"
+],
+"options": [
+"dem",
+"der",
+"die",
+"das",
+"den",
+"des"
+],
+"explanation": "Las preposiciones de dos casos más frecuentes (in, an, auf...) son A1; el detalle fino es A2.",
+"translation": "",
+"conceptIds": [
+"cs:t22",
+"cs:t15"
+],
+"errorTag": "preposition:vor:article",
+"source": "d244",
+"case": "dative",
+"pool": "praep-artikel"
+}
+]
