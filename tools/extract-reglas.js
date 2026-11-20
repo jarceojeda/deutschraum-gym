@@ -16,6 +16,7 @@ function mark(el) {
     if (n.nodeType === 3) out += n.textContent;
     else if (n.nodeName === 'STRONG' || n.nodeName === 'B') out += '**' + mark(n) + '**';
     else if (n.nodeName === 'DEL' || n.nodeName === 'SCRIPT') out += '';
+    else if (/^(DIV|P|LI|BR|TR|H4)$/.test(n.nodeName)) out += ' ' + mark(n) + ' ';   // bloques contiguos: separar con espacio
     else out += mark(n);
   });
   return out;

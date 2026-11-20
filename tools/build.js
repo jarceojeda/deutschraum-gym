@@ -2,7 +2,7 @@
 const fs = require('fs'), path = require('path');
 const root = path.join(__dirname, '..');
 const UI_ORDER = ['dgui-util', 'dgui-fmt', 'dgui-rules', 'dgui-retention', 'dgui-voice', 'dgui-variants', 'dgui-inputs', 'dgui-app', 'dgui-boot'];
-const MODULES = ['verben', 'artikel', 'deklination'];
+const MODULES = ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren'];
 const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 // Dentro de <script> no puede aparecer «</script» ni «<!--»: se escapan con < (JSON y JS siguen siendo válidos).
 const safe = s => s.replace(/<(\/script|!--)/gi, '\\u003c$1');

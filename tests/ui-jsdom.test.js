@@ -49,6 +49,8 @@ function boot(seed, opts) {
     };
     return rec(target, new Set());
   }
+  // orden correcto de las fichas: la solución del ítem, ficha a ficha (la puntuación es una ficha)
+  function solveTiles(item) { const T = item.tiles.slice(), joined = item.accept[0]; const rec = (rem, used) => { if (rem === '') return []; for (let i = 0; i < T.length; i++) { if (used.has(i) || !rem.startsWith(T[i])) continue; const r = rec(rem.slice(T[i].length).replace(/^ /, ''), new Set(used).add(i)); if (r) return [T[i]].concat(r); } return null; }; const r = rec(joined, new Set()); assert.ok(r, 'fichas no forman ' + joined); return r; }
   function answer(ok) {
     const { item, spec } = S().cur, check = () => click(qa('.dock .btn.primary')[0]);
     if (spec.kind === 'choice') {
@@ -69,6 +71,12 @@ function boot(seed, opts) {
         click(chip);
       }
       check();
+    } else if (spec.kind === 'tiles') {
+      if (!ok) { click(qa('.bank .tile').find(b => !b.disabled)); return check(); }
+      solveTiles(item).forEach(t => click(qa('.bank .tile').find(b => !b.disabled && b.textContent === t))); check();
+    } else if (spec.kind === 'pair') {
+      const it = item, pick = (key, val) => click(qa('.options [data-pair="' + key + '"]').find(b => b.dataset.opt === val));
+      pick('wo', ok ? it.wo.answer : it.wohin.answer); pick('wohin', ok ? it.wohin.answer : it.wo.answer); check();
     } else if (spec.kind === 'text') {
       const inp = q('#answer'); inp.value = ok ? item.answer : 'zzzz'; check();
     } else {
@@ -107,7 +115,7 @@ test('el HTML es autocontenido (sin recursos externos), NFC y usa sólo IIFE van
   assert.ok(HTML.length < 4e6);
 });
 
-for (const mod of ['verben', 'artikel', 'deklination']) {
+for (const mod of ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren']) {
   test('sesión completa de ' + mod + ': se juega pulsando, termina en resumen y deja el progreso en localStorage', () => {
     const u = boot(21);
     assert.ok(u.q('.cards'), 'inicio con módulos');
@@ -294,13 +302,13 @@ test('el resumen muestra «aprendiste», rescatados y errores por tipo tras una 
 });
 
 /* ---------- Bloque B: pantalla de inicio ---------- */
-test('B · inicio: Viaje combinado, 3 módulos activos y 4 «Próximamente» deshabilitados, errores sin pendientes', () => {
+test('B · inicio: Viaje combinado, 5 módulos activos y 2 «Próximamente» deshabilitados, errores sin pendientes', () => {
   const u = boot(41);
   assert.ok(u.q('#mix'), 'botón Viaje combinado');
-  assert.deepEqual(u.qa('.card[data-module]').map(c => c.dataset.module), ['verben', 'artikel', 'deklination']);
+  assert.deepEqual(u.qa('.card[data-module]').map(c => c.dataset.module), ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren']);
   assert.ok(u.qa('.card[data-module]').every(c => !c.disabled));
   const soon = u.qa('.card.soon');
-  assert.deepEqual(soon.map(c => c.dataset.soon), ['praepositionen', 'konnektoren', 'wortschatz', 'satzbau']);
+  assert.deepEqual(soon.map(c => c.dataset.soon), ['wortschatz', 'satzbau']);
   assert.ok(soon.every(c => c.disabled && c.getAttribute('aria-disabled') === 'true' && /Próximamente/.test(c.textContent)));
   assert.equal(u.q('#errors').disabled, true, 'sin errores todavía');
   soon.forEach(c => u.click(c));
@@ -706,4 +714,80 @@ test('F · ajustes: todos los controles son botones de ≥48 px por CSS y los gr
   groups.forEach(g => { assert.ok(g.getAttribute('aria-label'), 'grupo sin nombre'); assert.equal(g.getAttribute('role'), 'radiogroup'); });
   u.qa('.seg button').forEach(b => { assert.equal(b.getAttribute('role'), 'radio'); assert.ok(['true', 'false'].includes(b.getAttribute('aria-checked'))); });
   assert.equal(u.qa('.seg button[aria-checked="true"]').length, groups.length, 'cada grupo con una opción marcada');
+});
+
+/* ---------- Präpositionen y Konnektoren (datos y motor ya existían; ahora jugables) ---------- */
+test('P/K · Präpositionen: par mínimo Wo?/Wohin? por toques; se envía {wo, wohin}, el fallo se guarda y se explica', () => {
+  const u = boot(120); assert.ok(toKind(u, 'pair', 'praepositionen'), 'salió un par mínimo');
+  const { item } = u.S().cur, sent = [], sess = u.S().session, orig = sess.answer;
+  sess.answer = function (r, o) { sent.push(r); return orig.call(sess, r, o); };
+  assert.equal(u.qa('.p-pair').length, 2, 'las dos frases del par');
+  assert.equal(u.qa('.options [data-pair="wo"]').length, 2); assert.ok(u.qa('.dock .btn.primary')[0].disabled);
+  u.answer(false);
+  assert.equal(typeof sent[0], 'object'); assert.deepEqual([sent[0].wo, sent[0].wohin], [item.wohin.answer, item.wo.answer]);
+  assert.ok(u.q('.fb.bad')); assert.match(u.q('.fb-line').textContent, /Wo\? → Dativ.*Wohin\? → Akkusativ/); assert.match(u.q('.fb-yours').textContent, /Wo\? .* · Wohin\? /);
+  assert.ok(u.stored().errors[item.id], 'guardado antes de terminar');
+  u.next(); while (u.S().screen === 'session' && u.S().cur.spec.kind !== 'pair') { u.answer(true); u.next(); }
+  if (u.S().screen === 'session') { u.answer(true); assert.ok(u.q('.fb.ok')); }
+});
+
+test('P/K · Konnektoren: fichas para ordenar con la traducción visible; los transform se arman por palabras', () => {
+  const u = boot(121); assert.ok(toKind(u, 'tiles', 'konnektoren'), 'salió un orden por fichas');
+  const { item } = u.S().cur; assert.ok(u.q('.p-tr') && u.q('.p-tr').textContent.includes(item.translation), 'traducción visible');
+  assert.ok(u.qa('.bank .tile').length === item.tiles.length);
+  u.answer(true); assert.ok(u.q('.fb.ok'));
+  const v = boot(122); let found = false;
+  for (let n = 0; n < 12 && !found; n++) { if (toKind(v, 'blocks', 'konnektoren')) { found = v.S().cur.item.type === 'transform'; if (!found) { v.answer(true); v.next(); continue; } } else break; }
+  if (found) { const sp = v.S().cur.spec; assert.equal(sp.joiner, ' '); assert.ok(sp.blocks.length > sp.parts, 'con conectores como distractores'); v.answer(true); assert.ok(v.q('.fb.ok')); }
+});
+
+test('P/K · Viaje combinado incluye los 5 módulos y el appbar cambia de color por módulo', () => {
+  const u = boot(123); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
+  while (u.S().screen === 'session') { mods.add(u.S().cur.item.module); assert.equal(u.q('.appbar').dataset.module, u.S().cur.item.module); u.answer(true); u.next(); }
+  assert.ok(mods.size >= 3, [...mods].join());
+});
+
+/* ---------- Consulta de reglas y copia de seguridad ---------- */
+test('Consulta: lista las reglas de reglas.json sin ejercicios, filtra por grupo y abre la cápsula', () => {
+  const u = boot(130); u.click(u.q('#consulta')); assert.equal(u.S().screen, 'consulta');
+  const n = Object.keys(REGLAS).length; assert.equal(u.qa('.erow').length, n);
+  assert.equal(u.q('.bank, .options'), null, 'sin ejercicios'); assert.equal(u.qa('input').length, 0);
+  u.click(u.q('[data-group="cs"]')); assert.ok(u.qa('.erow').every(r => r.dataset.concept.startsWith('cs:')) && u.qa('.erow').length === Object.keys(REGLAS).filter(k => k.startsWith('cs:')).length);
+  u.click(u.q('[data-group="dm"]')); assert.ok(u.qa('.erow').every(r => r.dataset.concept.startsWith('dm:')));
+  u.click(u.q('[data-concept="dm:s5-1"]')); const d = u.q('[role="dialog"] .capsule'); assert.ok(d && /DAT/.test(d.textContent));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null, 'consultar no escribe progreso');
+});
+
+function fileInput(u, text, name) {
+  const inp = u.q('#import-file'), f = new u.w.File([text], name || 'copia.json', { type: 'application/json' });
+  Object.defineProperty(inp, 'files', { value: [f], configurable: true });
+  inp.dispatchEvent(new u.w.Event('change', { bubbles: true }));
+}
+const waitFor = async (fn, ms = 1000) => { const t0 = Date.now(); while (Date.now() - t0 < ms) { const v = fn(); if (v) return v; await sleep(15); } return null; };
+
+test('Copia de seguridad: exportar genera un JSON con checksum; importar en otro dispositivo pide confirmar y reproduce el estado', async () => {
+  const A = boot(131); playSession(A, 'verben', 10, (it, i) => i % 3 !== 0); A.click(A.q('.dock .btn.secondary'));
+  A.click(A.q('[aria-label="Ajustes"]')); A.w.URL.createObjectURL = () => 'blob:x'; A.w.URL.revokeObjectURL = () => {};
+  A.click(A.q('#export-btn')); const ex = A.w.DGUI.app.lastExport; assert.match(ex.name, /^deutschraum-gym-\d{4}-\d{2}-\d{2}\.json$/);
+  const pkg = JSON.parse(ex.text); assert.ok(pkg.checksum && pkg.state && pkg.state.sessionCounter === 1); assert.ok(A.q('.toast.ok'));
+  const B = boot(132); B.click(B.q('[aria-label="Ajustes"]')); fileInput(B, ex.text);
+  assert.ok(await waitFor(() => B.q('#confirm-import')), 'pide confirmación antes de reemplazar');
+  assert.equal(B.stored(), null, 'todavía no cambió nada'); 
+  B.click(B.q('#confirm-import'));
+  assert.equal(B.stored().sessionCounter, 1); assert.deepEqual(Object.keys(B.stored().errors).sort(), Object.keys(A.stored().errors).sort());
+  assert.ok(B.q('.toast.ok'));
+});
+
+test('Copia de seguridad: archivo alterado o ajeno se rechaza sin tocar nada; cancelar no importa', async () => {
+  const A = boot(133); playSession(A, 'artikel', 10, () => true); const good = JSON.parse(A.w.DGUI.engine.exportJSON());
+  const B = boot(134); B.click(B.q('[aria-label="Ajustes"]'));
+  const bad = JSON.parse(JSON.stringify(good)); bad.state.sessionCounter += 7;
+  fileInput(B, JSON.stringify(bad)); assert.ok(await waitFor(() => B.q('#confirm-import'))); B.click(B.q('#confirm-import'));
+  assert.match(B.q('.toast.warn').textContent, /alterada|incompleta/); assert.equal(B.stored(), null);
+  const C = boot(135); C.click(C.q('[aria-label="Ajustes"]')); fileInput(C, 'esto no es json'); await waitFor(() => C.q('.toast'));
+  assert.match(C.q('.toast.warn').textContent, /no es una copia válida/); assert.equal(C.q('#confirm-import'), null);
+  const D = boot(136); D.click(D.q('[aria-label="Ajustes"]')); fileInput(D, JSON.stringify({ app: 'otra', state: {} })); await waitFor(() => D.q('#confirm-import')); D.click(D.q('#confirm-import'));
+  assert.match(D.q('.toast.warn').textContent, /No es una copia de Deutschraum/); assert.equal(D.stored(), null);
+  const E = boot(137); E.click(E.q('[aria-label="Ajustes"]')); fileInput(E, JSON.stringify(good)); await waitFor(() => E.q('#confirm-import'));
+  E.click(E.q('[role="dialog"] .sheet-f button')); assert.equal(E.stored(), null, 'cancelar: nada cambia');
 });

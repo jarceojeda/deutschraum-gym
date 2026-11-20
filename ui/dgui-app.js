@@ -6,12 +6,12 @@
   var MODULES = [
     { id: 'verben', icon: 'V', name: 'Verben', desc: 'Conjugar con toques: Präsens, Präteritum, Partizip II, haben/sein' },
     { id: 'artikel', icon: 'A', name: 'Artikel', desc: 'Género con color y forma, plural, artículo indefinido' },
-    { id: 'deklination', icon: 'D', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' }
+    { id: 'deklination', icon: 'D', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' },
+    { id: 'praepositionen', icon: 'P', name: 'Präpositionen', desc: 'Wo? / Wohin?, contracciones, verbos con preposición' },
+    { id: 'konnektoren', icon: 'K', name: 'Konnektoren', desc: 'weil, dass, wenn… ordenar frases y partículas modales' }
   ];
   var SIZES = [{ n: 10, label: '10' }, { n: 20, label: '20' }, { n: 30, label: '30' }];
   var SOON = [
-    { id: 'praepositionen', icon: 'P', name: 'Präpositionen', desc: 'Wo? / Wohin?, contracciones, verbos con preposición' },
-    { id: 'konnektoren', icon: 'K', name: 'Konnektoren', desc: 'weil, dass, wenn… y partículas modales' },
     { id: 'wortschatz', icon: 'W', name: 'Wortschatz', desc: 'Vocabulario por situaciones y «Mis palabras»' },
     { id: 'satzbau', icon: 'S', name: 'Satzbau', desc: 'Ordenar frases: V₂, TeKaMoLo, verbo final' }
   ];
@@ -76,6 +76,7 @@
       var errCard = h('button.card.errs', { type: 'button', id: 'errors', disabled: !nerr, 'data-errors': nerr, onclick: function () { start({ kind: 'errors' }); } },
         h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
       var rc = ret.current(), chip = rc.streak > 0 ? h('span.streak-chip' + (rc.today ? '.done' : ''), { id: 'streak', title: rc.today ? 'Hoy ya practicaste' : 'Practica hoy para mantenerla' }, h('span', { 'aria-hidden': 'true' }, '◆ '), rc.streak + (rc.streak === 1 ? ' día' : ' días')) : null;
+      var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Fórmulas y tiras de memoria, sin ejercicios')), h('span.go', { 'aria-hidden': 'true' }, '›'));
       var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
         [storageBanner(),
@@ -84,7 +85,7 @@
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, cap, function (v) { setCap(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
             h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Próximamente'), soonList], null);
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Próximamente'), soonList], null);
     }
 
     /* ---------- sesión ---------- */
@@ -108,6 +109,9 @@
       if (kind === 'warn') buzz(HAP.warn); else if (kind === 'ok') buzz(HAP.milestone);
       win.setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4000);
     }
+    function sentNodes(text) {
+      return String(text).split(/_{2,}/).reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(F.rich(sg)); return acc; }, []);
+    }
     function promptNode(v, item) {
       var box = h('div.qbody');
       var parts = String(v.prompt).split(' · ');
@@ -119,10 +123,13 @@
       } else if (v.module === 'artikel') {
         var m = /^(der|die|das)\s+(.*)$/i.exec(v.prompt);
         box.appendChild(h('div.p-big', m ? [F.genderBadge(m[1]), ' ', m[2]] : v.prompt));
+      } else if (v.type === 'minimal-pair') {
+        String(v.prompt).split('↔').forEach(function (line) { box.appendChild(h('div.p-big.p-sent.p-pair', sentNodes(line.trim()))); });
       } else {
-        var segs = String(v.prompt).split(/_{2,}/);
-        box.appendChild(h('div.p-big.p-sent', segs.reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(F.rich(sg)); return acc; }, [])));
+        var long = v.type === 'order' || v.type === 'transform';
+        box.appendChild(h('div.p-big.p-sent' + (long ? '.p-long' : ''), sentNodes(String(v.prompt))));
       }
+      if (v.type === 'order' && item.translation) box.appendChild(h('div.p-tr', '“' + item.translation + '”'));
       if (v.showTranslation && v.translation) box.appendChild(h('div.p-tr', '“' + v.translation + '”'));
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));
       return box;
@@ -216,7 +223,7 @@
         body.push(h('div.fb.bad', { role: 'status' },
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa'), say),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
-          !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
+          !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? 'Wo? ' + f.resp.wo + ' · Wohin? ' + f.resp.wohin : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
@@ -236,15 +243,16 @@
     }
 
     /* ---------- panel «ver regla» ---------- */
-    function openSheet(title, content, label) {
+    function openSheet(title, content, label, closeLabel) {
       var opener = doc.activeElement, back = h('div.sheet-back', { onclick: function (e) { if (e.target === back) close(); } });
       function close() { if (back.parentNode) back.parentNode.removeChild(back); doc.removeEventListener('keydown', onKey); if (opener && opener.focus) opener.focus(); }
       function onKey(e) { if (e.key === 'Escape') close(); }
       var sheet = h('div.sheet', { role: 'dialog', 'aria-modal': 'true', 'aria-label': (label || 'Regla') + ': ' + title },
         h('div.sheet-h', h('h2', title), h('button.btn.ghost.icon', { type: 'button', 'aria-label': 'Cerrar', onclick: close }, '✕')),
-        h('div.sheet-b', content), h('div.sheet-f', h('button.btn.primary.big', { type: 'button', onclick: close }, 'Entendido')));
+        h('div.sheet-b', content), h('div.sheet-f', h('button.btn.primary.big', { type: 'button', onclick: close }, closeLabel || 'Entendido')));
       back.appendChild(sheet); root.appendChild(back); doc.addEventListener('keydown', onKey);
       var cb = sheet.querySelector('.sheet-f button'); if (cb) cb.focus();
+      return close;
     }
     function openRule(item) {
       var p = rules.panel(item), content = [], capn = capsuleNode(rules.capsule(item)); if (capn) content.push(capn);
@@ -310,6 +318,60 @@
       if (S.retToast) { var m = S.retToast; S.retToast = null; toast(m, 'ok'); }   // después de pintar: shell() limpia la raíz
     }
 
+    /* ---------- consulta de reglas (separada de los ejercicios) ---------- */
+    function consulta(group) {
+      S.screen = 'consulta'; var all = ctx.reglas || {};
+      var num = function (k) { return k.replace(/^\D+/, '').split('-').map(Number); };
+      var keys = Object.keys(all).filter(function (k) { return group === 'all' || k.indexOf(group + ':') === 0; }).sort(function (a, b) {
+        if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
+      });
+      var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };
+      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática']], group, function (v) { consulta(v); }, 'group');
+      var list = h('div.emap', keys.map(function (k) {
+        var r = all[k], first = r.regla ? r.regla.replace(/\*\*/g, '') : (r.formula || '');
+        return h('button.erow', { type: 'button', 'data-concept': k, onclick: function () { openSheet(title(r), [capsuleNode(Object.assign({ id: k }, r))], 'Regla'); } },
+          h('span.el', title(r)), first ? h('span.en', first.length > 90 ? first.slice(0, 88).replace(/\s+\S*$/, '') + '…' : first) : null);
+      }));
+      shell('Consulta', [iconBtn('Volver', '←', home), brand('Consulta de reglas', keys.length + ' temas')], null,
+        [chips, h('p.hint', 'Solo lectura: no cuenta como práctica. Los temas sin texto escrito no aparecen.'), list], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.consulta = consulta;
+
+    /* ---------- copia de seguridad ---------- */
+    var IMPORT_ERR = { NOT_JSON: 'Ese archivo no es una copia válida.', NOT_BACKUP: 'No es una copia de Deutschraum Gym.', CHECKSUM: 'La copia está alterada o incompleta: no se cambió nada.', MIGRATION: 'La copia es de una versión que no entiendo: no se cambió nada.', SAVE: 'No pude guardar la copia (almacenamiento lleno o bloqueado).' };
+    function exportBackup() {
+      var text = eng.exportJSON(), d = new win.Date(win.Date.now()), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+      var name = 'deutschraum-gym-' + d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + '.json';
+      api.lastExport = { name: name, text: text };
+      try {
+        var url = win.URL.createObjectURL(new win.Blob([text], { type: 'application/json' })), a = h('a', { href: url, download: name });
+        doc.body.appendChild(a); a.click(); doc.body.removeChild(a); win.setTimeout(function () { win.URL.revokeObjectURL(url); }, 4000);
+        toast('Copia guardada: ' + name, 'ok');
+      } catch (e) { toast('No pude crear el archivo en este navegador.', 'warn'); }
+    }
+    function applyImport(text) {
+      var r = eng.importJSON(text);
+      if (!r.ok) { toast(IMPORT_ERR[r.code] || 'No se pudo importar la copia.', 'warn'); return r; }
+      eng.progress.reconcile(eng.store);          // quita ítems que ya no existen en esta versión
+      settings(); toast('Copia importada: ' + (eng.state().stats.sessions || 0) + ' sesiones.', 'ok'); return r;   // primero repintar (shell limpia la raíz), luego el aviso
+    }
+    function askImport(text, filename) {
+      // Primero se valida SIN tocar nada (importJSON es atómico, pero aquí se avisa antes de reemplazar).
+      var pkg = null; try { pkg = JSON.parse(text); } catch (e) { /* se informa abajo */ }
+      if (!pkg || typeof pkg !== 'object' || !pkg.state) { toast(IMPORT_ERR[pkg && typeof pkg === 'object' ? 'NOT_BACKUP' : 'NOT_JSON'], 'warn'); return; }   // el motor valida de verdad (app, checksum, versión) al reemplazar
+      var close = openSheet('Importar copia', [h('p.r-expl', 'Esto reemplaza el progreso de este dispositivo por el de «' + filename + '». No se puede deshacer.'),
+        h('p.hint', 'Ajustes de pantalla (tema, voz, racha) no van en la copia.'),
+        h('button.btn.big.danger', { type: 'button', id: 'confirm-import', onclick: function () { close(); applyImport(text); } }, 'Reemplazar mi progreso')], 'Copia', 'Cancelar');
+    }
+    function backupSection() {
+      var input = h('input.file', { type: 'file', id: 'import-file', accept: '.json,application/json', 'aria-label': 'Elegir archivo de copia', onchange: function () {
+        var f = input.files && input.files[0]; if (!f) return;
+        var rd = new win.FileReader(); rd.onload = function () { askImport(String(rd.result), f.name); }; rd.onerror = function () { toast('No pude leer el archivo.', 'warn'); }; rd.readAsText(f); input.value = '';
+      } });
+      return h('section.set', h('h2', 'Copia de seguridad'), h('p.hint', 'El progreso vive solo en este dispositivo. Guarda una copia antes de cambiar de teléfono o limpiar el navegador.'),
+        h('div.row', h('button.btn.secondary', { type: 'button', id: 'export-btn', onclick: exportBackup }, 'Exportar copia'), h('label.btn.secondary.filelabel', { for: 'import-file' }, 'Importar copia', input)));
+    }
+
     /* ---------- mapa de errores por tipo ---------- */
     function errmap() {
       S.screen = 'errmap';
@@ -348,6 +410,7 @@
           h('p.hint#voice-status', vst)),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
+        backupSection(),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))
       ], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);

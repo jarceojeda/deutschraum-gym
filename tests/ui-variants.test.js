@@ -8,7 +8,7 @@ const DG = globalThis.DG;
 
 const { eng } = newEngine({ seed: 5 });
 const store = eng.store;
-const MODS = new Set(['verben', 'artikel', 'deklination']);
+const MODS = new Set(['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren']);
 const items = store.all.filter(i => MODS.has(i.module));
 const rng = DG.rng.create(99), r = () => rng.next();
 
@@ -24,7 +24,7 @@ function canBuild(blocks, target, joiner) {
   return rec(target, new Set());
 }
 
-test('pick(): cada ejercicio de los 3 módulos tiene una variante resoluble (≈5.400 ítems × 3 pasadas)', () => {
+test('pick(): cada ejercicio de los 5 módulos tiene una variante resoluble (≈6.000 ítems × 3 pasadas)', () => {
   const kinds = {};
   for (let pass = 0; pass < 3; pass++) for (const it of items) {
     const view = DG.items.view(it, 'touch', rng);
@@ -44,13 +44,17 @@ test('pick(): cada ejercicio de los 3 módulos tiene una variante resoluble (≈
       assert.ok(spec.rows.length >= 6);
       const need = spec.rows.map(x => x.expected).sort(), have = spec.bank.map(b => b.t).slice().sort();
       need.forEach(n => { const i = have.indexOf(n); assert.ok(i >= 0, it.id + ' falta ficha ' + n); have.splice(i, 1); });
+    } else if (spec.kind === 'pair') {
+      assert.equal(spec.parts.length, 2); spec.parts.forEach(p => { assert.ok(p.choices.includes(it[p.key].answer), it.id + ' ' + p.key); assert.equal(p.choices.length, 2); });
+    } else if (spec.kind === 'tiles') {
+      assert.equal(spec.tiles.slice().sort().join('|'), it.tiles.slice().sort().join('|'), it.id); assert.ok(spec.tiles.length >= 3, it.id);
     } else if (spec.kind === 'letters') {
-      assert.ok(it.module === 'verben' || it.module === 'artikel' || it.module === 'deklination');
+      assert.ok(it.type === 'cloze' && !it.options.length, it.id + ': letras sólo para cloze sin opciones');
     }
     const texts = JSON.stringify(spec);
     assert.equal(texts, texts.normalize('NFC'), it.id + ': spec no NFC');
   }
-  assert.ok(kinds.choice > 1000 && kinds.blocks > 300 && kinds.match > 100, JSON.stringify(kinds));
+  assert.ok(kinds.choice > 1000 && kinds.blocks > 300 && kinds.match > 100 && kinds.pair > 50 && kinds.tiles > 250, JSON.stringify(kinds));
 });
 
 test('pick(): modo escribir → text; verbos usan las tres variantes; Partizip II y plural por opciones/bloques', () => {

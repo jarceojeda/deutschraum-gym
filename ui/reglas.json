@@ -299,7 +299,7 @@
   },
   "cs:t23": {
    "titulo": "Woher? · Wo? · Wohin?",
-   "regla": "**nach:** ciudad/país sin artículo → nach Berlin, nach Deutschland.**zu + Dat:** persona/institución → zum Arzt, zur Apotheke.",
+   "regla": "**nach:** ciudad/país sin artículo → nach Berlin, nach Deutschland. **zu + Dat:** persona/institución → zum Arzt, zur Apotheke.",
    "ejemplo": {
     "antes": "zu Hause",
     "despues": "nach Hause"
@@ -342,7 +342,7 @@
    "regla": "**Mejor hábito:** aprende siempre **Infinitiv + auxiliar + Partizip II**.",
    "ejemplo": {
     "antes": "arbeiten",
-    "despues": "**hat gearbeitet**essen"
+    "despues": "**hat gearbeitet** essen"
    }
   },
   "cs:t33": {
@@ -363,7 +363,7 @@
   "cs:t36": {
    "titulo": "Comparar: piensa en una escala de 3 niveles",
    "formula": "NORMAL + MÁS ... + EL MÁS ...",
-   "regla": "**Memoriza estas 3 series:**gut → besser → am bestenviel → mehr → am meistengern → lieber → am liebsten"
+   "regla": "**Memoriza estas 3 series:** gut → besser → am besten viel → mehr → am meisten gern → lieber → am liebsten"
   },
   "cs:t37": {
    "titulo": "Ordinalzahlen + fecha: una misma transformación",

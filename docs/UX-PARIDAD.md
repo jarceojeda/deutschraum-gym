@@ -11,7 +11,7 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 4 | Color por caso (nominativo/acusativo/dativo) | N teal · A terracota · D morado (+ G ámbar, nuevo) con letra N/A/D/G dentro de la insignia (no solo color). El caso sale del `errorTag` (`case:dative:…`) y solo se muestra **después** de responder (no filtra la respuesta) | A · HECHO (artículos y respuestas) |
 | 5 | Appbar sticky + marca | Appbar con marca «D», título, racha (E) y ajustes; `safe-area` arriba | A · HECHO |
 | 6 | Hero verde con CTA | Hero en inicio con «Viaje combinado», selector de tamaño y de nivel | A/B · HECHO |
-| 7 | Tarjetas de módulo con barra de color por módulo (artikel azul, verben naranja, deklination morado) | Tarjetas por módulo, nivel actual (`engine.levelOf`) y un toque = empezar. Los 4 módulos de la etapa 4 salen «Próximamente» deshabilitados | B · HECHO |
+| 7 | Tarjetas de módulo con barra de color por módulo (artikel azul, verben naranja, deklination morado) | Tarjetas por módulo, nivel actual (`engine.levelOf`) y un toque = empezar. Ahora 5 módulos jugables (Verben, Artikel, Deklination, Präpositionen, Konnektoren); Wortschatz y Satzbau salen «Próximamente» (sus datos no están en el repo) | B · HECHO |
 | 8 | Modo Tren (`trainMode`, por toques) | Es el modo por defecto. «Escribir» es opcional (Ajustes y chip en inicio); usa `mode:'write'` del motor | C · HECHO |
 | 9 | Bloques tocables (`word-chip`, `sentence-builder`) | `ui/dgui-inputs.js`: bloques de raíz+terminación (verbos), prefijo-ge+raíz+terminación (Partizip II), palabras (transformaciones), letras como último recurso. Se envía el texto unido al motor | C · HECHO |
 | 10 | Emparejado rápido (`verb-quick-match`, 7 formas) | Paradigma de 6 personas (+ Partizip II si existe su unidad) sobre las formas de `store.units`. **Solo la fila de la persona del ítem se envía a `answer()`** (el motor puntúa 1 unidad = 1 ítem); las otras filas se corrigen en pantalla y no puntúan. Límite declarado | C · HECHO con límite |
@@ -32,8 +32,13 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 25 | `safe-area`, `100dvh`, `touch-action`, objetivos ≥48 px, sin hover | Prueba jsdom del CSS (≥48 px, sin `:hover`) + medición real en Chromium 390×844: el botón activo más bajo mide 48 px | A/C · HECHO |
 | 26 | `prefers-reduced-motion` | Anula animaciones y transiciones (también la barra de avance automático) | A · HECHO |
 | 27 | Reanudar sesión (`resume-banner`) | El motor no persiste sesiones abiertas (`startSession` no escribe). No se reanuda; lo respondido sí queda guardado | DESCARTADO (limitación del motor) |
-| 28 | Backup exportar/importar, `requestPersistence`, IndexedDB | Etapa 5 (el motor ya tiene `exportJSON/importJSON`) | Etapa 5 |
+| 28 | Backup exportar/importar, `requestPersistence`, IndexedDB | Exportar/importar copia en Ajustes (JSON con checksum, confirma antes de reemplazar). `requestPersistence`/IndexedDB: no (localStorage + copia) | HECHO (copia) |
 | 29 | Teclado de umlauts en respuestas escritas | Fila ä ö ü ß (≥48 px) en el modo «Escribir» | C · HECHO |
+
+| 30 | Präpositionen y Konnektoren (módulos 4 y 5 de la propuesta) | Par mínimo Wo?/Wohin? y fichas para ordenar con datos y motor existentes; transformaciones por palabras con conectores como distractores | HECHO (ahora) |
+| 31 | Pestaña de consulta separada de los ejercicios | «Consulta de reglas»: 62 temas de `reglas.json`, solo lectura | HECHO (parcial: faltan cheat sheets A2/B1) |
+
+Evaluación completa de la propuesta de la charla inicial: `docs/EVALUACION-propuesta.md`.
 
 ## Variedad (queja de la 1.9: «repetía siempre lo mismo»)
 `tests/ui-variedad.test.js` juega 30 sesiones seguidas del Viaje combinado pulsando la UI. **Pasa** lo pedido (misma unidad ≤2 veces seguidas, los 3 módulos, las 6 personas verbales, las 3 variantes de verbos). **No pasan los límites estrictos** (≥75 % de ejercicios distintos, ≤15 % de solape con la sesión siguiente, ninguna persona >30 %): con 8 h entre sesiones salen 111 ejercicios distintos de 300 (37 %), 21 % de solape y «du» ≈ 33 %. Son dos pruebas `todo` (visibles, no relajadas). Causa probable en el motor: paso de aprendizaje de 1 h (lo nuevo vuelve en cada sesión), cupo de nuevas ≈1,3 unidades/sesión y pesos ×3 de du/er en verbos difíciles. Decisión pendiente del usuario.

@@ -87,6 +87,7 @@ Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `doc
 - **D** cápsula de regla: `ui/reglas.json` (62 reglas copiadas de `aleman_declination_master` y de la hoja A1; regenerable con `node tools/extract-reglas.js`). Tras fallar, en «Ver regla» y bajo demanda («¿Por qué?»); visible mientras el tema es nuevo, oculta al dominarlo (≥6 intentos y ≥85 % en el `errorTag`).
 - **E** retención: haptics con nombre, toast único, racha con perdón (1 por semana), 7 logros sobrios, resumen «qué falló y por qué», **mapa de errores por tipo**. Estado en `dg.ui` (`ui/dgui-retention.js`).
 - **F** ajustes completos y voz alemana (`ui/dgui-voice.js`: de-DE, 0,85, 🔊 tras responder, «Probar voz» con estado de la voz).
+- **Después de F:** 5 módulos jugables (+ Präpositionen y Konnektoren), `Consulta de reglas` y copia de seguridad en Ajustes; HTML ≈2,6 MB.
 - **Límites declarados:**
   1. En el emparejado **solo la fila ★ puntúa** (el motor puntúa 1 unidad = 1 ítem).
   2. **Infinitivo↔significado no se puede**: `verben.json` no trae traducción (0 de 3.662).
@@ -95,6 +96,7 @@ Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `doc
   5. La voz depende de la voz alemana instalada en Android (la pantalla de ajustes lo comprueba y explica cómo instalarla).
   6. Los HTML sueltos pierden el progreso en algunos navegadores; para el teléfono falta la URL hospedada + PWA (etapa 5).
 - **Hallazgo del motor (no se relajó):** 30 sesiones seguidas con 8 h entre sesiones dan 111 ejercicios distintos de 300 (37 %), 21 % de solape con la sesión siguiente y «du» ≈ 33 % de las personas. Pasa lo pedido (misma unidad ≤2 seguidas, 3 módulos, 6 personas), pero los límites estrictos (≥75 % distintos, ≤15 % solape, persona ≤30 %) fallan y están como pruebas `todo` en `tests/ui-variedad.test.js`. Causas probables: paso de aprendizaje de 1 h, cupo de nuevas ≈1,3/sesión y pesos ×3 de du/er (ver «Avisos honestos»). Decide el usuario.
+- **Evaluación de la propuesta inicial** (`docs/EVALUACION-propuesta.md`): aplicado ahora **Präpositionen** y **Konnektoren** jugables (datos y motor ya existían; 299 y 281 ítems), **Consulta de reglas** y **copia de seguridad** exportar/importar. Pendiente/bloqueado: andamiaje de tablas y motor de 4 movimientos (Deklination), «completar solo la terminación», PWA, minutos reales de sesión, Wortschatz/Satzbau (sin datos).
 - **Ideas pendientes (de la charla sobre Grammatik aktiv):** ciclo Verstehen→Üben→Sprechen por concepto, preguntas-respuesta en cadena (Wo?/Wohin?), «completar solo la terminación» (gut__), «Mis palabras», frases personalizadas, cruce del temario por capítulos A1–B1.
 - Pruebas: ver `npm test` (UI en `tests/ui-*.test.js`; `ui-variedad` con 2 `todo` a propósito).
 

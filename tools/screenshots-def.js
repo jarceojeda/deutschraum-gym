@@ -25,6 +25,11 @@ const reglas = require('../ui/reglas.json').reglas;
       const rec = (rem, used) => { if (!rem) return []; for (const bl of spec.blocks) { if (used.has(bl.id)) continue; const hit = spec.joiner ? (rem === bl.t || rem.startsWith(bl.t + ' ')) : rem.startsWith(bl.t); if (!hit) continue; const r = rec(spec.joiner ? rem.slice(bl.t.length + (rem === bl.t ? 0 : 1)) : rem.slice(bl.t.length), new Set(used).add(bl.id)); if (r) return [bl].concat(r); } return null; };
       for (const bl of rec(item.answer, new Set())) await p.locator('.bank .tile:not([disabled])[data-block="' + bl.t + '"]').first().click(); return check();
     }
+    if (spec.kind === 'pair') { await p.locator('[data-pair="wo"][data-opt="' + item.wo.answer + '"]').click(); await p.locator('[data-pair="wohin"][data-opt="' + item.wohin.answer + '"]').click(); return check(); }
+    if (spec.kind === 'tiles') {
+      const T = item.tiles.slice(), rec = (rem, used) => { if (rem === '') return []; for (let i = 0; i < T.length; i++) { if (used.has(i) || !rem.startsWith(T[i])) continue; const r = rec(rem.slice(T[i].length).replace(/^ /, ''), new Set(used).add(i)); if (r) return [T[i]].concat(r); } return null; };
+      for (const t of rec(item.accept[0], new Set())) await p.locator('.bank .tile:not([disabled])', { hasText: new RegExp('^' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$') }).first().click(); return check();
+    }
     for (const c of Array.from(item.answer)) await p.locator('.bank .tile:not([disabled])', { hasText: c === ' ' ? '␣' : c }).first().click(); return check();
   }
   const screen = p => p.evaluate(() => DGUI.app.state.screen);
@@ -80,6 +85,18 @@ const reglas = require('../ui/reglas.json').reglas;
     await ctx.close();
     ({ p, ctx } = await page('dark', { auto: false, size: 10 }));
     await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 700; }); await shot(p, '05-oscuro-ajustes-sin-voz');
+    await ctx.close();
+  }
+  if (block === 'G') {
+    let { p, ctx } = await page('light', { auto: false, size: 30 });
+    await shot(p, '01-inicio-5-modulos');
+    await p.click('.card[data-module="praepositionen"]');
+    if (await until(p, c => c.spec.kind === 'pair')) { await shot(p, '02-praepositionen-par-minimo'); await solve(p, false); await shot(p, '03-praepositionen-fallo'); }
+    await home(p); await p.click('.card[data-module="konnektoren"]');
+    if (await until(p, c => c.spec.kind === 'tiles')) { await shot(p, '04-konnektoren-fichas'); await p.locator('.bank .tile:not([disabled])').first().click(); await shot(p, '05-konnektoren-ficha-tocada'); }
+    await home(p); await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await p.click('#consulta'); await shot(p, '06-consulta');
+    await p.locator('.erow').nth(3).click(); await shot(p, '07-consulta-regla'); await p.keyboard.press('Escape');
+    await p.click('[aria-label="Volver"]'); await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 900; }); await shot(p, '08-ajustes-copia-de-seguridad');
     await ctx.close();
   }
   await b.close();

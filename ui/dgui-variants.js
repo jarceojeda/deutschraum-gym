@@ -14,6 +14,7 @@
   var END_PRES = { ich: ['e'], du: ['est', 'st'], er_sie_es: ['et', 't'], wir: ['en', 'n'], ihr: ['et', 't'], sie_Sie: ['en', 'n'] };
   var END_PRET = { ich: ['ete', 'te'], du: ['etest', 'test', 'est', 'st'], er_sie_es: ['ete', 'te'], wir: ['eten', 'ten', 'en'], ihr: ['etet', 'tet', 'et', 't'], sie_Sie: ['eten', 'ten', 'en'] };
   var ALL_END_PRES = ['e', 'st', 'est', 't', 'et', 'en', 'n'], ALL_END_PRET = ['te', 'test', 'ten', 'tet', 'ete', 'st', 'en', 't'];
+  var CONNECTORS = ['weil', 'denn', 'dass', 'wenn', 'obwohl', 'deshalb', 'trotzdem', 'damit', 'aber', 'sondern', 'ob', 'als'];
   var ARTICLES = ['der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'einen', 'einem', 'einer', 'eines'];
 
   function rnd(ctx) { return ctx && ctx.rnd ? ctx.rnd : Math.random; }
@@ -95,6 +96,10 @@
   function wordBlocks(item, r) {
     var words = item.answer.split(/\s+/).filter(Boolean); if (words.length < 2) return null;
     var dis = [];
+    if (words.length >= 5) {   // frase completa (Konnektoren): distractores = otros conectores
+      var low = words.map(function (w) { return w.toLowerCase().replace(/[.,;!?]/g, ''); });
+      return { kind: 'blocks', label: 'Ordena las palabras', blocks: mkBlocks(words.concat(pickN(CONNECTORS.filter(function (c) { return low.indexOf(c) < 0; }), 2, r)), r), joiner: ' ', parts: words.length };
+    }
     words.forEach(function (w) { if (ARTICLES.indexOf(w.toLowerCase()) >= 0) pickN(ARTICLES.filter(function (x) { return x !== w.toLowerCase() && words.indexOf(x) < 0; }), 1, r).forEach(function (x) { dis.push(x); }); });
     var noun = words[words.length - 1];
     dis.push(/n$/.test(noun) ? noun.slice(0, -1) : noun + 'n');
@@ -123,7 +128,7 @@
       spec = { kind: 'choice', label: item.skill === 'genero' ? '¿der, die o das?' : 'Elige la opción', options: opts };
     } else if (item.module === 'artikel' && item.skill === 'plural') {
       spec = pluralChoice(item, r);
-    } else if (item.module === 'deklination' && item.type === 'transform') {
+    } else if (item.type === 'transform') {
       spec = wordBlocks(item, r);
     }
     return spec || { kind: 'letters', label: 'Arma la respuesta con letras' };

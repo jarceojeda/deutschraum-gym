@@ -145,19 +145,23 @@
     return { answerEl: line, dockEl: h('div.dock-in', bankEl, h('div.row', skip, check)) };
   }
 
-  // Par mínimo (Präpositionen, etapa 4): dos preguntas, una elección por pregunta.
+  // Par mínimo (Präpositionen): dos frases, una elección por frase (Wo? / Wohin?). Se envía {wo, wohin}.
   function pair(spec, cb) {
-    var sel = {}, wrap = h('div.dock-in');
-    var check = btn('primary', 'Comprobar', function () { cb.onSubmit(sel); }, { disabled: true });
+    var sel = {}, wrap = h('div.dock-in'), done = false;
+    var check = btn('primary', 'Comprobar', function () { if (done || !(sel.wo && sel.wohin)) return; done = true; cb.onSubmit({ wo: sel.wo, wohin: sel.wohin }); }, { disabled: true });
     spec.parts.forEach(function (p) {
       var row = h('div.options.row2', { role: 'group', 'aria-label': p.question });
       p.choices.forEach(function (c) {
-        var b = h('button.btn.opt', { type: 'button', onclick: function () { sel[p.key] = c; Array.prototype.forEach.call(row.children, function (x) { x.classList.toggle('on', x === b); }); check.disabled = !(sel.wo && sel.wohin); } }, c);
+        var b = h('button.btn.opt', { type: 'button', 'data-pair': p.key, 'data-opt': c, 'aria-pressed': 'false', onclick: function () {
+          if (done) return; tapFx(cb); sel[p.key] = c;
+          Array.prototype.forEach.call(row.children, function (x) { var on = x === b; x.classList.toggle('on', on); x.setAttribute('aria-pressed', on ? 'true' : 'false'); });
+          check.disabled = !(sel.wo && sel.wohin);
+        } }, c);
         row.appendChild(b);
       });
-      wrap.appendChild(h('div.q', p.question + ' ' + p.prompt)); wrap.appendChild(row);
+      wrap.appendChild(h('div.q', h('strong', p.question), ' ' + p.prompt.replace(/_{2,}/g, '___'))); wrap.appendChild(row);
     });
-    wrap.appendChild(h('div.row', btn('ghost', 'No sé', function () { cb.onGiveUp(); }), check));
+    wrap.appendChild(h('div.row', btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); }), check));
     return { answerEl: null, dockEl: wrap };
   }
 
