@@ -14,6 +14,7 @@
       if (item.skill === 'genero') return a + ' ' + (item.lemma || '');
       if (item.skill === 'plural') return 'die ' + a;
     }
+    if (item.module === 'wortschatz' && item.skill === 'de-es') return String(item.prompt);   // aquí lo alemán es el enunciado
     var p = String(item.prompt || '');
     if (/_{2,}/.test(p) && item.type !== 'transform') {
       p = p.replace(/^Completa:\s*/i, '').replace(/\s*\((?:[^()]*)\)\s*$/, '').replace(/_{2,}/g, a).replace(/\s+/g, ' ').trim();

@@ -45,7 +45,8 @@
     var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
     spec.options.forEach(function (o) {
       var badge = F.genderBadge(o, false);
-      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', o)));
+      var noun = !badge && /^(der|die|das)\s+\S/i.test(o);   // «der Name»: artículo con color y forma
+      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : '') + (noun ? '.noun' : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', noun ? F.rich(o) : o)));
     });
     var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
     return { answerEl: null, dockEl: h('div.dock-in', grid, skip) };

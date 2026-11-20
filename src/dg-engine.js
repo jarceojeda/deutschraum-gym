@@ -28,6 +28,16 @@
 
     engine.validate = function () { return Items.validate(store, { concepts: opts.concepts }); };
 
+    // «Practicar desde este nivel»: fija el nivel ACTUAL de la rampa (por módulo o de todos). setLevelCap sólo pone un techo; sin esto
+    // el B1 sólo se alcanzaría dominando A1 y A2. Respeta el tope y los niveles con ≥12 unidades; la permanencia mínima protege el cambio.
+    engine.setLevel = function (level, module) {
+      if (Items.LEVELS.indexOf(level) < 0) throw new Error('nivel inválido: ' + level);
+      var st = state(), mods = module ? [module] : store.modules(), levels = {};
+      mods.forEach(function (m) { var r = R.moduleRamp(st, m); r.lv = level; r.since = st.sessionCounter; levels[m] = R.currentLevel(st, store, m); });
+      var sv = progress.save() || {};
+      return Object.assign({ levels: levels }, sv);
+    };
+
     engine.setLevelCap = function (level, module) {
       if (Items.LEVELS.indexOf(level) < 0) throw new Error('nivel inválido: ' + level);
       if (module) state().settings.capByModule[module] = level; else state().settings.levelCap = level;

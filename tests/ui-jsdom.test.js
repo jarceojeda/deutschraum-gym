@@ -1,5 +1,5 @@
 /* Pruebas de la UI sobre el HTML FINAL (dist/deutschraum-gym.html) en jsdom: se pulsan botones reales y se inspecciona localStorage. */
-const test = require('node:test'), { after } = require('node:test'), assert = require('node:assert/strict');
+const test = require('node:test'), { after, afterEach } = require('node:test'), assert = require('node:assert/strict');
 const fs = require('fs'), path = require('path');
 const { JSDOM } = require('jsdom');
 const { build } = require('../tools/build.js');
@@ -8,7 +8,9 @@ const HTML_PATH = build();
 const HTML = fs.readFileSync(HTML_PATH, 'utf8');
 
 const DOMS = [];
-after(() => DOMS.forEach(d => { try { d.window.close(); } catch (e) { /* ya cerrada */ } }));
+// cada prueba abre varias ventanas con el HTML completo (≈3,6 MB, 8.700 ítems): se cierran al terminar la prueba para no agotar la memoria
+afterEach(() => { DOMS.splice(0).forEach(d => { try { d.window.close(); } catch (e) { /* ya cerrada */ } }); });
+after(() => DOMS.splice(0).forEach(d => { try { d.window.close(); } catch (e) { /* ya cerrada */ } }));
 function boot(seed, opts) {
   opts = opts || {};
   const dom = new JSDOM(HTML, { runScripts: 'dangerously', url: 'http://localhost/', pretendToBeVisual: true,
@@ -119,7 +121,7 @@ test('el HTML es autocontenido (sin recursos externos), NFC y usa sólo IIFE van
   assert.ok(HTML.length < 4e6);
 });
 
-for (const mod of ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren']) {
+for (const mod of ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'wortschatz', 'satzbau']) {
   test('sesión completa de ' + mod + ': se juega pulsando, termina en resumen y deja el progreso en localStorage', () => {
     const u = boot(21);
     assert.ok(u.q('.cards'), 'inicio con módulos');
@@ -306,14 +308,13 @@ test('el resumen muestra «aprendiste», rescatados y errores por tipo tras una 
 });
 
 /* ---------- Bloque B: pantalla de inicio ---------- */
-test('B · inicio: Viaje combinado, 5 módulos activos y 2 «Próximamente» deshabilitados, errores sin pendientes', () => {
+test('B · inicio: Viaje combinado, los 7 módulos activos (ninguno «Próximamente»), errores sin pendientes', () => {
   const u = boot(41);
   assert.ok(u.q('#mix'), 'botón Viaje combinado');
-  assert.deepEqual(u.qa('.card[data-module]').map(c => c.dataset.module), ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren']);
+  assert.deepEqual(u.qa('.card[data-module]').map(c => c.dataset.module), ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'wortschatz', 'satzbau']);
   assert.ok(u.qa('.card[data-module]').every(c => !c.disabled));
   const soon = u.qa('.card.soon');
-  assert.deepEqual(soon.map(c => c.dataset.soon), ['wortschatz', 'satzbau']);
-  assert.ok(soon.every(c => c.disabled && c.getAttribute('aria-disabled') === 'true' && /Próximamente/.test(c.textContent)));
+  assert.equal(soon.length, 0, 'todos los módulos están activos'); assert.ok(!/Próximamente/.test(u.q('.main').textContent));
   assert.equal(u.q('#errors').disabled, true, 'sin errores todavía');
   soon.forEach(c => u.click(c));
   assert.equal(u.S().screen, 'home', 'una tarjeta deshabilitada no abre nada');
@@ -334,16 +335,26 @@ test('B · Viaje combinado mezcla módulos y el appbar toma el color del módulo
   assert.equal(u.stored().sessionCounter, 1);
 });
 
-test('B · nivel: Auto (B1) / A1 / A2 se guarda en el motor y filtra los ejercicios', () => {
-  const u = boot(43);
-  assert.equal(u.q('[data-level="B1"]').getAttribute('aria-checked'), 'true', 'por defecto Auto');
-  u.click(u.q('[data-level="A1"]'));
-  assert.equal(u.stored().settings.levelCap, 'A1');
-  assert.equal(u.q('[data-level="A1"]').getAttribute('aria-checked'), 'true');
+test('B · nivel: Auto / A1 / A2 / B1; cada uno se guarda en el motor y filtra los ejercicios', () => {
+  const u = boot(43); const lv = () => u.eng.levelOf('verben');
+  assert.deepEqual(u.qa('[data-level]').map(c => c.dataset.level), ['auto', 'A1', 'A2', 'B1'], 'hay botón B1');
+  assert.equal(u.q('[data-level="auto"]').getAttribute('aria-checked'), 'true', 'por defecto Auto');
+  u.click(u.q('[data-level="A1"]')); assert.equal(u.stored().settings.levelCap, 'A1'); assert.equal(u.q('[data-level="A1"]').getAttribute('aria-checked'), 'true');
   u.click(u.q('[data-size="20"]')); u.click(u.q('#mix'));
   while (u.S().screen === 'session') { assert.equal(u.S().cur.item.level, 'A1'); u.answer(true); u.next(); }
   u.click(u.q('.dock .btn.secondary'));
-  u.click(u.q('[data-level="B1"]')); assert.equal(u.stored().settings.levelCap, 'B1');
+  u.click(u.q('[data-level="A2"]')); assert.equal(u.stored().settings.levelCap, 'A2'); assert.equal(lv(), 'A2');
+  u.click(u.q('[data-level="B1"]')); assert.equal(u.stored().settings.levelCap, 'B1'); assert.equal(lv(), 'B1', 'B1 lleva a practicar B1, no sólo pone un tope');
+  assert.match(u.q('.card[data-module="verben"] .badge').textContent, /Nivel B1/);
+  u.click(u.q('[data-level="auto"]')); assert.equal(u.stored().settings.levelCap, 'B1'); assert.equal(lv(), 'A1', 'Auto restaura el nivel ganado por dominio');
+});
+
+test('B · B1: la sesión es sobre todo material B1 de los módulos que lo tienen; Auto devuelve la rampa', () => {
+  const u = boot(47); u.click(u.q('[data-level="B1"]')); u.chooseModule('verben', 30); u.start(); let b1 = 0, n = 0;
+  while (u.S().screen === 'session') { n++; if (u.S().cur.item.level === 'B1') b1++; u.answer(true); u.next(); }
+  assert.ok(b1 / n >= 0.6, 'B1: ' + b1 + '/' + n);
+  u.click(u.q('.dock .btn.secondary')); u.click(u.q('[data-level="auto"]'));
+  u.chooseModule('verben', 30); u.start(); assert.equal(u.S().cur.item.level, 'A1');
 });
 
 test('B · tamaño de sesión y entrada (Toques/Escribir) persisten en dg.ui', () => {
@@ -898,4 +909,34 @@ test('Escalera · tras dominar el tipo, las letras sueltas funcionan (ä/ö/ü/�
     if (k === 'letters') { letters++; if (/[äöüß]/.test(it.answer)) um++; } u.next();
   }
   assert.ok(letters > 3, 'salieron letras: ' + letters);
+});
+
+/* ---------- Wortschatz y Satzbau (datos generados desde la referencia 2.4.4, solo A1) ---------- */
+test('W · Wortschatz: ES → DE con opciones y sustantivos con artículo en color y forma; DE → ES; contexto; escribir la palabra', () => {
+  const u = boot(160); u.chooseModule('wortschatz', 30); u.start(); const seen = {};
+  for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item, k = it.skill; seen[k] = (seen[k] || 0) + 1;
+    if (k === 'es-de' && /^(der|die|das) /.test(it.answer) && !seen.badge) { seen.badge = 1; assert.ok(u.qa('.options .btn.opt.noun .art').length >= 1, 'artículo con insignia en las opciones'); }
+    if (k === 'contexto') assert.equal(u.q('.p-big .blank') !== null, true, 'hueco en la frase');
+    if (k === 'produccion') assert.equal(u.S().cur.spec.kind, 'letters');
+    if (k === 'de-es') assert.equal(u.S().cur.spec.kind, 'choice');
+    u.answer(true); assert.ok(u.q('.fb.ok'), k + ' ' + it.answer); u.next();
+  }
+  assert.ok(Object.keys(seen).filter(k => k !== 'badge').length >= 3, JSON.stringify(seen));
+});
+
+test('S · Satzbau: ordenar la frase con fichas; al fallar sale la regla de V₂ / preguntas y el fallo se guarda', () => {
+  const u = boot(161); u.chooseModule('satzbau', 30); u.start();
+  assert.equal(u.S().cur.spec.kind, 'tiles'); assert.ok(u.qa('.bank .tile').length >= 4); assert.match(u.q('.qcard').textContent, /Ordena/);
+  const item = u.S().cur.item; u.answer(false);
+  assert.ok(u.q('.fb.bad')); assert.ok(u.stored().errors[item.id]); assert.ok(u.q('.fb.bad .capsule'), 'cápsula de regla (cs:t1 / cs:t2)'); assert.ok(/V₂|Preguntas/.test(u.q('.capsule .cap-t').textContent));
+  assert.match(u.q('.fb-ans').textContent, new RegExp(item.answer.split(' ')[0]));
+  u.next(); u.answer(true); assert.ok(u.q('.fb.ok'));
+});
+
+test('W/S · Viaje combinado con los 7 módulos; B1 deja Wortschatz y Satzbau en A1 (sólo tienen A1)', () => {
+  const u = boot(162); u.click(u.q('[data-level="B1"]')); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
+  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'wortschatz' || it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
+  assert.ok(mods.size >= 4, [...mods].join());
+  assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
 });

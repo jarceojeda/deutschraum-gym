@@ -11,7 +11,7 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 4 | Color por caso (nominativo/acusativo/dativo) | N teal · A terracota · D morado (+ G ámbar, nuevo) con letra N/A/D/G dentro de la insignia (no solo color). El caso sale del `errorTag` (`case:dative:…`) y solo se muestra **después** de responder (no filtra la respuesta) | A · HECHO (artículos y respuestas) |
 | 5 | Appbar sticky + marca | Appbar con marca «D», título, racha (E) y ajustes; `safe-area` arriba | A · HECHO |
 | 6 | Hero verde con CTA | Hero en inicio con «Viaje combinado», selector de tamaño y de nivel | A/B · HECHO |
-| 7 | Tarjetas de módulo con barra de color por módulo (artikel azul, verben naranja, deklination morado) | Tarjetas por módulo, nivel actual (`engine.levelOf`) y un toque = empezar. Ahora 5 módulos jugables (Verben, Artikel, Deklination, Präpositionen, Konnektoren); Wortschatz y Satzbau salen «Próximamente» (sus datos no están en el repo) | B · HECHO |
+| 7 | Tarjetas de módulo con barra de color por módulo (artikel azul, verben naranja, deklination morado) | Tarjetas por módulo, nivel actual (`engine.levelOf`) y un toque = empezar. Los 7 módulos jugables (Verben, Artikel, Deklination, Präpositionen, Konnektoren, Wortschatz, Satzbau) | B · HECHO |
 | 8 | Modo Tren (`trainMode`, por toques) | Es el modo por defecto. «Escribir» es opcional (Ajustes y chip en inicio); usa `mode:'write'` del motor | C · HECHO |
 | 9 | Bloques tocables (`word-chip`, `sentence-builder`) | `ui/dgui-inputs.js`: bloques de raíz+terminación (verbos), prefijo-ge+raíz+terminación (Partizip II), palabras (transformaciones), letras como último recurso. Se envía el texto unido al motor | C · HECHO |
 | 10 | Emparejado rápido (`verb-quick-match`, 7 formas) | Paradigma de 6 personas (+ Partizip II si existe su unidad) sobre las formas de `store.units`. **Solo la fila de la persona del ítem se envía a `answer()`** (el motor puntúa 1 unidad = 1 ítem); las otras filas se corrigen en pantalla y no puntúan. Límite declarado | C · HECHO con límite |
@@ -40,6 +40,8 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 33 | Motor de 4 movimientos (caso → casilla → quién lleva la señal → cola del sustantivo) | Cadena **caso → casilla → forma** tras fallar (pasos con dato). «Quién lleva la señal» y «cola del sustantivo» no existen como dato en `data/` | PARCIAL |
 | 34 | «Completar solo la terminación» (`gut__`) | Variante `ending`: la raíz queda puesta y se elige solo la terminación (`-en`, `-n`, `—`…). Aplica a 322 plurales, los Dativ plural y ~2.300 formas de verbos conjugados; envía raíz + terminación al motor | HECHO |
 | 35 | Escalera de ayuda que se retira (opciones → bloques/terminación → letras) | Por intentos acumulados del `errorTag`: <5 ayuda (opciones, emparejado), 5–19 o <85 % media (bloques, terminación), ≥20 con ≥85 % dominado (letras sueltas). Se apaga en Ajustes («Ayuda que se retira») | HECHO |
+| 36 | Nivel A1 / A2 / **B1** / Auto | Cuatro botones; A1/A2/B1 = practicar ese nivel (`engine.setLevel` + tope), Auto = rampa por dominio y restaura el nivel ganado | HECHO |
+| 37 | Wortschatz y Satzbau (módulos 6 y 7) | Primera versión solo A1 generada desde la referencia 2.4.4 (2.316 y 421 ítems); los 7 módulos están activos | HECHO (A1) |
 | 31 | Pestaña de consulta separada de los ejercicios | «Consulta de reglas»: 62 temas de `reglas.json`, solo lectura | HECHO (parcial: faltan cheat sheets A2/B1) |
 
 Evaluación completa de la propuesta de la charla inicial: `docs/EVALUACION-propuesta.md`.

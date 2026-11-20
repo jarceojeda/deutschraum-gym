@@ -127,5 +127,21 @@ const reglas = require('../ui/reglas.json').reglas;
     const { p, ctx } = await page('light', { auto: false, size: 10 });
     await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 520; }); await shot(p, '05-ajustes-ayuda-que-se-retira'); await ctx.close();
   }
+  if (block === 'J') {
+    let { p, ctx } = await page('light', { auto: false, size: 30 });
+    await shot(p, '01-inicio-niveles-auto-a1-a2-b1');
+    await p.click('[data-level="B1"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 560; }); await shot(p, '02-b1-elegido-siete-modulos');
+    await p.evaluate(() => { document.querySelector('.main').scrollTop = 0; }); await p.click('[data-level="auto"]');
+    await p.click('.card[data-module="wortschatz"]');
+    if (await until(p, c => c.item.skill === 'es-de' && /^(der|die|das) /.test(c.item.answer))) await shot(p, '03-wortschatz-es-de-articulos');
+    if (await until(p, c => c.item.skill === 'contexto')) await shot(p, '04-wortschatz-en-contexto');
+    if (await until(p, c => c.item.skill === 'produccion')) await shot(p, '05-wortschatz-escribir-palabra');
+    await home(p); await p.click('.card[data-module="satzbau"]');
+    if (await until(p, c => c.item.skill === 'w-frage' || c.item.skill === 'ja-nein-frage')) { await shot(p, '06-satzbau-fichas'); await solve(p, false); await shot(p, '07-satzbau-fallo-regla'); }
+    await ctx.close();
+    ({ p, ctx } = await page('dark', { auto: false, size: 30 }));
+    await p.click('[aria-label="Ajustes"]'); await shot(p, '08-oscuro-ajustes-nivel');
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

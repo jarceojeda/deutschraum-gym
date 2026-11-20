@@ -8,14 +8,14 @@
     { id: 'artikel', icon: 'A', name: 'Artikel', desc: 'Género con color y forma, plural, artículo indefinido' },
     { id: 'deklination', icon: 'D', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' },
     { id: 'praepositionen', icon: 'P', name: 'Präpositionen', desc: 'Wo? / Wohin?, contracciones, verbos con preposición' },
-    { id: 'konnektoren', icon: 'K', name: 'Konnektoren', desc: 'weil, dass, wenn… ordenar frases y partículas modales' }
+    { id: 'konnektoren', icon: 'K', name: 'Konnektoren', desc: 'weil, dass, wenn… ordenar frases y partículas modales' },
+    { id: 'wortschatz', icon: 'W', name: 'Wortschatz', desc: 'Vocabulario por situaciones: ES ↔ DE, en contexto y escribir la palabra' },
+    { id: 'satzbau', icon: 'S', name: 'Satzbau', desc: 'Ordenar frases con toques: afirmaciones, preguntas y transformaciones' }
   ];
   var SIZES = [{ n: 10, label: '10' }, { n: 20, label: '20' }, { n: 30, label: '30' }];
-  var SOON = [
-    { id: 'wortschatz', icon: 'W', name: 'Wortschatz', desc: 'Vocabulario por situaciones y «Mis palabras»' },
-    { id: 'satzbau', icon: 'S', name: 'Satzbau', desc: 'Ordenar frases: V₂, TeKaMoLo, verbo final' }
-  ];
-  var LEVELS = [['B1', 'Auto'], ['A1', 'A1'], ['A2', 'A2']];   // Auto = rampa ascendente del motor hasta B1; A1/A2 = tope
+  var SOON = [];   // todos los módulos del SPEC ya son jugables
+
+  var LEVELS = [['auto', 'Auto'], ['A1', 'A1'], ['A2', 'A2'], ['B1', 'B1']];   // Auto = rampa por dominio hasta B1; A1/A2/B1 = practicar ese nivel (con repaso de los anteriores)
   var WARN = {
     NO_ERRORS: 'No hay errores pendientes que repasar.', ERRORS_NOT_READY: 'Tus errores aún no están listos para repasar (hace falta esperar unas horas).',
     NO_MODULES: 'No hay módulo elegido.', POOL_UNDER_MIN: 'Hay pocos ejercicios disponibles en este módulo con tu tope de nivel.',
@@ -59,10 +59,27 @@
         return h('button.chip' + (String(cur) === String(o[0]) ? '.on' : ''), a, o[1]);
       }));
     }
-    function setCap(v) { eng.setLevelCap(v); eng.progress.save(); }
+    // Nivel de trabajo. Auto = la rampa del motor (sube por dominio, tope B1). A1/A2/B1 = practicar ESE nivel: tope en ese nivel y nivel actual
+    // en ese nivel (engine.setLevel), con 20 % de repaso de los anteriores. Al salir de Auto se recuerda el nivel ganado y Auto lo restaura.
+    function levelMode() {
+      var m = prefs.get('level') || 'auto', cap = eng.state().settings.levelCap;
+      return m === 'auto' ? (cap === 'B1' ? 'auto' : cap) : m;
+    }
+    function chooseLevel(v) {
+      if (v === 'auto') {
+        var saved = prefs.get('autoRamp');
+        eng.setLevelCap('B1');
+        if (saved) Object.keys(saved).forEach(function (m) { try { eng.setLevel(saved[m], m); } catch (e) { /* módulo ya no existe */ } });
+        prefs.set('autoRamp', null); prefs.set('level', 'auto');
+      } else {
+        if (!prefs.get('autoRamp') && levelMode() === 'auto') { var keep = {}; eng.store.modules().forEach(function (m) { keep[m] = eng.levelOf(m); }); prefs.set('autoRamp', keep); }
+        eng.setLevelCap(v); eng.setLevel(v); prefs.set('level', v);
+      }
+      eng.progress.save();
+    }
     function home() {
       S.screen = 'home'; S.session = null; S.cur = null;
-      var list = h('div.cards'), cap = eng.state().settings.levelCap;
+      var list = h('div.cards'), lvMode = levelMode();
       MODULES.forEach(function (m) {
         list.appendChild(h('button.card', { type: 'button', 'data-module': m.id, onclick: function () { S.module = m.id; prefs.set('module', m.id); start({ kind: 'module' }); } },
           h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Nivel ' + eng.levelOf(m.id)), h('span.go', { 'aria-hidden': 'true' }, '›')));
@@ -82,10 +99,10 @@
         [storageBanner(),
           h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo o mezcla todo.'),
             h('div.group', h('p.glabel', 'Ejercicios por sesión'), chipRow('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = v; prefs.set('size', v); home(); }, 'size')),
-            h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, cap, function (v) { setCap(v); home(); }, 'level')),
+            h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, lvMode, function (v) { chooseLevel(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
             h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Próximamente'), soonList], null);
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
     }
 
     /* ---------- sesión ---------- */
@@ -448,7 +465,7 @@
       var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
       var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
       shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'), seg('Nivel', LEVELS, st.levelCap, setCap)),
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores. Wortschatz y Satzbau solo tienen A1 por ahora.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
         h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),

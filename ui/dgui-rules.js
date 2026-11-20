@@ -16,6 +16,8 @@
     var p = String(tag || '').split(':');
     if (p[0] === 'case') return (CASE[p[1]] || p[1]) + (p[2] ? ' · ' + (SUB[p[2]] || p[2].replace(/_/g, ' ')) : '');
     if (p[0] === 'transform') return 'Transformación de caso';
+    if (p[0] === 'vocab') return 'Vocabulario · ' + (SKILL_WS[p[1]] || p[1]);
+    if (p[0] === 'satzbau') return 'Orden de frase · ' + (SKILL_WS[p[1]] || p[1]);
     if (p[0] === 'preposition') return 'Preposición · ' + p[1];
     if (p[0] === 'wechsel') return 'Wechselpräposition · ' + p[1];
     if (p[0] === 'contraction') return 'Contracción · ' + p[1];
@@ -29,11 +31,13 @@
     'praep-artikel': 'Preposición + artículo', 'praep-zeit': 'Preposición de tiempo', 'verb-praeposition': 'Verbo + preposición', 'verb-praeposition-artikel': 'Verbo + prep. + artículo',
     'konnektor-wahl': 'Elige el conector', 'weil-vorn': 'weil al inicio', 'wenn-vorn': 'wenn al inicio', 'obwohl-vorn': 'obwohl al inicio', 'transform-weil': 'Une con weil', 'transform-deshalb': 'Une con deshalb',
     'als-wenn-ob': 'als / wenn / ob', 'aber-sondern': 'aber / sondern', 'adverb-konnektor': 'Adverbio conector', doppelkonnektor: 'Conector doble', 'nebensatz-b1': 'Nebensatz', partikel: 'Partícula modal', 'adverb-gradpartikel': 'Partícula de grado' };
+  var SKILL_WS = { 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
+    aussagesatz: 'Frase afirmativa', 'w-frage': 'W-Frage', 'ja-nein-frage': 'Pregunta sí / no', umformen: 'Transformar la frase' };
   var SKILL_DEK = { 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
     'kasus-predicate_noun': 'Nominativ', 'kasus-dative_plural': 'Dativ plural', 'kasus-two_way_preposition': 'Wechselpräposition', 'dativ-plural': 'Dativ plural', 'genitiv-noun': 'Genitiv',
     'genitiv-article': 'Genitiv', 'genitiv-prep': 'Genitiv + Präp.', 'adjektivendung-weak': 'Adjektivendung', 'adjektivendung-mixed': 'Adjektivendung', 'adjektivendung-strong': 'Adjektivendung',
     'n-deklination': 'N-Deklination', transform: 'Transformación', indefinitpronomen: 'Pronombre indefinido', personalpronomen: 'Pronombre personal' };
-  R.skillLabel = function (s) { return SKILL[s] || SKILL_DEK[s] || SKILL_PK[s] || String(s || '').replace(/[-_]+/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
+  R.skillLabel = function (s) { return SKILL[s] || SKILL_DEK[s] || SKILL_PK[s] || SKILL_WS[s] || String(s || '').replace(/[-_]+/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
 
   R.create = function (store, concepts, reglas) {
     reglas = reglas || {};

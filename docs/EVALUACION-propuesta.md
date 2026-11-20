@@ -27,15 +27,15 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 | 3 | Deklination con andamiaje que se retira (tabla → media tabla → ninguna) | **Hecho** | `ui/tablas.json` (5 tablas de la guía §11). Completa con <3 intentos del tipo, media tabla (se oculta la mitad que contiene la respuesta, con «Mostrar toda») después, ninguna al dominarlo (≥6 intentos y ≥85 %). |
 | 4 | **Präpositionen** (par mínimo Wo?/Wohin?, verbos con preposición, contracciones) | **Hecho ahora** | 299 ítems (33 pares mínimos). Par mínimo por toques, envía `{wo, wohin}` al motor. |
 | 5 | **Konnektoren y Partikeln** (ordenar frases con toques) | **Hecho ahora** | 281 ítems: 107 de ordenar fichas con traducción, 24 «une con weil/deshalb» por palabras, 150 de elegir y partículas. |
-| 6 | Wortschatz (7 situaciones, «Mis palabras») | Bloqueado | `wortschatz.json` no está en el repo. «Mis palabras» exige que el motor acepte ítems creados en la app (cambio de motor con prueba). |
-| 7 | Satzbau | Bloqueado | `satzbau.json` no está en el repo. La UI ya sabe ordenar fichas, así que será barato cuando lleguen los datos. |
+| 6 | Wortschatz (situaciones, «Mis palabras») | **Hecho (primera versión, solo A1)** | 2.316 ítems generados desde la referencia 2.4.4 (54 categorías = situaciones): ES→DE, DE→ES, en contexto y escribir la palabra; sustantivos con artículo en color y forma. «Mis palabras» sigue pendiente: exige que el motor acepte ítems creados en la app (cambio de motor con prueba). Los 1.139 ítems definitivos de la etapa 1 no están en el repo. |
+| 7 | Satzbau | **Hecho (primera versión, solo A1)** | 421 ítems de ordenar frases con fichas (afirmación, W-Frage, pregunta sí/no, transformaciones) con la regla de V₂ / preguntas al fallar. Los 216 ítems definitivos (V₂, TeKaMoLo, verbo final…) no están en el repo: esta versión no cubre TeKaMoLo ni subordinadas. |
 
 ## Modos de uso
 | Propuesta | Estado | Notas |
 |---|---|---|
 | Un módulo / Mis errores | Hecho | + Mapa de errores por tipo. |
 | Viaje combinado de 5/10/20 min | Pendiente (calibrar) | Hoy 10/20/30 **ejercicios**. Falta medir segundos por ejercicio con uso real para etiquetar en minutos; no he medido tiempos. |
-| Hacia el B1 (rampa, 70/20/10, tope) | Hecho | Motor + chips Auto/A1/A2. «Auto» ya llega a B1; no hay chip B1 aparte porque sería idéntico. |
+| Hacia el B1 (rampa, 70/20/10, tope) | **Hecho (corregido)** | Motor + chips Auto/A1/A2/**B1**. B1 = practicar B1 (`engine.setLevel`); antes solo había tope y el B1 era inalcanzable sin dominar A2. Wortschatz y Satzbau solo tienen A1. |
 
 ## Teoría
 | Propuesta | Estado | Notas |
@@ -66,4 +66,4 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 1. ~~Andamiaje de tablas en Deklination~~ (hecho).
 2. ~~Variante «completar solo la terminación» + retirada progresiva de la ayuda~~ (hecho).
 3. PWA + URL gratis (etapa 5) y calibrar los tamaños de sesión en minutos con uso real.
-4. Wortschatz/Satzbau cuando lleguen los datos; «Mis palabras» con cambio de motor.
+4. Datos definitivos de Wortschatz/Satzbau (A2/B1, TeKaMoLo, subordinadas) cuando lleguen; «Mis palabras» con cambio de motor.

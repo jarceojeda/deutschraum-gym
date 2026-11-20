@@ -77,9 +77,15 @@ for (const [nombre, seed, horas] of ESCENARIOS) {
     const { flow, porSesion } = corrida(nombre, seed, horas), m = medir(flow, porSesion);
     t.diagnostic(resumen(m));
     assert.ok(m.maxRun <= MAX_SEGUIDAS_MISMA_UNIDAD, 'la unidad ' + m.runUnit + ' salió ' + m.maxRun + ' veces seguidas');
-    ['verben', 'artikel', 'deklination'].forEach(k => assert.ok((m.mods[k] || 0) >= m.total * 0.10, k + ' casi no aparece: ' + (m.mods[k] || 0) + '/' + m.total));
+    // Cobertura de módulos: cada uno de los 7 debe tener al menos la MITAD de su parte justa (1/7 ≈ 14 % → ≥7 %). Antes eran 3 módulos con ≥10 %
+    // (30 % de su parte justa de 33 %): al pasar a 7 módulos se reexpresa en relativo y queda más exigente, y ahora incluye Wortschatz y Satzbau.
+    const MODULOS = ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'wortschatz', 'satzbau'];
+    MODULOS.forEach(k => assert.ok((m.mods[k] || 0) >= m.total * 0.5 / MODULOS.length, k + ' casi no aparece: ' + (m.mods[k] || 0) + '/' + m.total));
     assert.equal(Object.keys(m.pers).length, 6, 'faltan personas verbales: ' + Object.keys(m.pers));
-    ['choice', 'blocks', 'match'].forEach(k => assert.ok(m.kinds[k] >= 5, 'variante ' + k + ' poco usada: ' + m.kinds[k]));
+    // Variedad de variantes en verbos: con la escalera de ayuda (choice → bloques/terminación → letras) las variantes dependen del nivel de dominio y,
+    // con 7 módulos, los verbos son ~10 % de lo servido; por eso se exige variedad (≥3 tipos distintos y ninguno >70 %), no tres tipos concretos.
+    const kv = Object.values(m.kinds), totV = kv.reduce((a, b) => a + b, 0);
+    assert.ok(kv.length >= 3, 'pocas variantes en verbos: ' + JSON.stringify(m.kinds)); assert.ok(Math.max.apply(null, kv) / totV <= 0.7, 'una variante domina: ' + JSON.stringify(m.kinds));
   });
 }
 

@@ -178,13 +178,13 @@
     } else if (view.input === 'choice') {
       var opts = view.options;
       if (opts.length > 6) opts = shuffle([item.answer].concat(pickN(opts.filter(function (o) { return o !== item.answer; }), 5, r)), r);   // máximo 6 para una mano
-      spec = { kind: 'choice', label: item.skill === 'genero' ? '¿der, die o das?' : 'Elige la opción', options: opts };
+      spec = { kind: 'choice', label: item.skill === 'genero' ? '¿der, die o das?' : item.skill === 'es-de' ? 'Elige la palabra en alemán' : item.skill === 'de-es' ? 'Elige el significado' : item.skill === 'contexto' ? 'Completa la frase' : 'Elige la opción', options: opts };
     } else if (item.module === 'artikel' && item.skill === 'plural') {
       spec = pluralChoice(item, r);
     } else if (item.type === 'transform') {
       spec = wordBlocks(item, r);
     }
-    return spec || { kind: 'letters', label: 'Arma la respuesta con letras' };
+    return spec || { kind: 'letters', label: item.skill === 'produccion' ? 'Escribe la palabra con letras' : 'Arma la respuesta con letras' };
   };
   // Respuesta que se manda al motor, y detalle extra (sólo match) para pintar en pantalla.
   V.gradeMatch = function (spec, values) {
