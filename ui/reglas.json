@@ -807,6 +807,20 @@
     "antes": "Man baute das Haus.",
     "despues": "Das Haus **wurde** gebaut."
    }
+  },
+  "md:relativpronomen": {
+   "titulo": "Relativpronomen: der, die, das…",
+   "errores": [
+    "son **Relativpronomen**, no *Reflexivpronomen*. Los primeros conectan una relativa; los segundos remiten al sujeto.",
+    "el género y el número proceden del antecedente, pero el caso se decide dentro de la relativa.",
+    "el verbo conjugado va al final: **der die Bank überfallen hat**, no *der hat die Bank überfallen*."
+   ],
+   "formula": "GÉNERO y NÚMERO del antecedente + CASO en la subordinada",
+   "regla": "**Dos preguntas:** ¿a quién se refiere (género/número)? ¿qué función tiene dentro de la subordinada (caso)? La subordinada va entre comas y el verbo al final.",
+   "ejemplo": {
+    "antes": "der Mann + ich kenne ihn",
+    "despues": "der Mann, **den** ich kenne"
+   }
   }
  }
 }

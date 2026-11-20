@@ -536,7 +536,7 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
@@ -1026,7 +1026,7 @@ test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv
   const etiquetas = { plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II', passiv: 'Passiv (Präsens)', 'passiv-praeteritum': 'Passiv (Präteritum)' };
   const vistos = {};
   for (let seed = 90; seed < 100 && Object.keys(vistos).length < 4; seed++) {
-    const u = boot(seed); u.chooseModule('verben', 30); u.start();
+    const u = boot(seed); u.click(u.q('[data-level="B1"]')); u.chooseModule('verben', 30); u.start();
     for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
       const it = u.S().cur.item;
       if (etiquetas[it.skill] && !vistos[it.skill]) {
@@ -1038,7 +1038,7 @@ test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv
       u.next();
     }
   }
-  assert.ok(Object.keys(vistos).length >= 2, 'habilidades nuevas vistas: ' + Object.keys(vistos).join());
+  assert.ok(Object.keys(vistos).length >= 4, 'habilidades nuevas vistas: ' + Object.keys(vistos).join());
 });
 
 test('T · Trampas: en Satzbau aparece «¿Cuál es correcta?» por toques y, tras fallar, se muestra la explicación propia del ítem', () => {
@@ -1050,4 +1050,17 @@ test('T · Trampas: en Satzbau aparece «¿Cuál es correcta?» por toques y, tr
     u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation); ok = true;
   }
   assert.ok(ok, 'ninguna trampa servida en 10 semillas');
+});
+
+test('R · Relativpronomen: Deklination lo sirve con su etiqueta, la tabla de ayuda y, tras fallar, la cápsula del tema', () => {
+  let ok = false;
+  for (let seed = 140; seed < 150 && !ok; seed++) {
+    const u = boot(seed); u.click(u.q('[data-level="B1"]'));   // los ejercicios B1 sólo salen con el botón B1
+    if (!toItem(u, it => it.skill === 'relativpronomen', 'deklination', 30)) continue;
+    const it = u.S().cur.item; assert.ok(u.q('.options .opt'));
+    u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation);
+    const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:relativpronomen');
+    assert.ok(u.q('.fb.bad table'), 'tabla del pronombre relativo tras fallar'); ok = true;
+  }
+  assert.ok(ok, 'ningún Relativpronomen servido en 10 semillas');
 });

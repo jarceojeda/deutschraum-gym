@@ -8,8 +8,8 @@ const { eng } = newEngine({ seed: 4 });
 const dk = eng.store.all.filter(i => i.module === 'deklination');
 const ROW = { nominative: 'Nom', accusative: 'Akk', dative: 'Dat', genitive: 'Gen' };
 
-test('tablas.json: 5 tablas de 4 casos × 4 columnas, NFC, con los valores de la guía', () => {
-  assert.deepEqual(Object.keys(TAB), ['s11-1', 's11-2', 's11-3', 's11-4', 's11-5']);
+test('tablas.json: 5 tablas de la guía + la propia del relativo (s11-6) de 4 casos × 4 columnas, NFC, con los valores de la guía', () => {
+  assert.deepEqual(Object.keys(TAB), ['s11-1', 's11-2', 's11-3', 's11-4', 's11-5', 's11-6']);
   Object.values(TAB).forEach(t => { assert.deepEqual(t.cols, ['M', 'F', 'N', 'PL']); assert.deepEqual(t.rows.map(r => r.caso), ['Nom', 'Akk', 'Dat', 'Gen']); t.rows.forEach(r => assert.equal(r.celdas.length, 4)); assert.equal(JSON.stringify(t), JSON.stringify(t).normalize('NFC')); });
   assert.equal(TAB['s11-1'].rows[2].celdas[0], 'dem'); assert.equal(TAB['s11-1'].rows[1].celdas[0], 'den'); assert.equal(TAB['s11-5'].rows[2].celdas[0], '-em');
 });

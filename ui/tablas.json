@@ -237,6 +237,54 @@
      ]
     }
    ]
+  },
+  "s11-6": {
+   "titulo": "Pronombre relativo",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "der",
+      "die",
+      "das",
+      "die"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "den",
+      "die",
+      "das",
+      "die"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "dem",
+      "der",
+      "dem",
+      "denen"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "dessen",
+      "deren",
+      "dessen",
+      "deren"
+     ]
+    }
+   ],
+   "nota": "El género y el número vienen del antecedente; el caso, de la función dentro de la subordinada."
   }
  }
 }

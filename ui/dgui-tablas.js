@@ -34,6 +34,7 @@
     var s = item.skill, a = String(item.answer || '').toLowerCase();
     if (/^adjektivendung-(weak|mixed|strong)$/.test(s)) return { weak: 's11-3', mixed: 's11-4', strong: 's11-5' }[s.split('-')[1]];
     if (s === 'kasus-possessive_article') return 's11-2';
+    if (s === 'relativpronomen') return 's11-6';
     if (s === 'kasus-article' || s === 'kasus-two_way_preposition' || s === 'genitiv-article' || s === 'kasus-predicate_noun') {
       var has = function (id) { return tablas[id] && tablas[id].rows.some(function (r) { return r.celdas.indexOf(a) >= 0; }); };   // celdas ya en minúscula
       if (has('s11-1')) return 's11-1';

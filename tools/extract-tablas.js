@@ -13,5 +13,7 @@ const tablas = {};
   tablas[id] = { titulo: clean((a.querySelector('h3') || {}).textContent).replace(/^\d+\.\d+\s*·\s*/, ''), cols, rows, nota };
   if (!nota) delete tablas[id].nota;
 });
+// tabla propia (texto original): pronombre relativo por género/número y caso
+tablas['s11-6'] = { titulo: 'Pronombre relativo', cols: ['M', 'F', 'N', 'PL'], rows: [{ caso: 'Nom', celdas: ['der', 'die', 'das', 'die'] }, { caso: 'Akk', celdas: ['den', 'die', 'das', 'die'] }, { caso: 'Dat', celdas: ['dem', 'der', 'dem', 'denen'] }, { caso: 'Gen', celdas: ['dessen', 'deren', 'dessen', 'deren'] }], nota: 'El género y el número vienen del antecedente; el caso, de la función dentro de la subordinada.' };
 fs.writeFileSync(path.join(root, 'ui', 'tablas.json'), JSON.stringify({ version: 1, fuente: 'aleman_declination_master_mobile_v1_1.html §11', tablas }, null, 1) + '\n');
 console.log('tablas:', Object.keys(tablas).join(', '));

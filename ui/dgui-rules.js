@@ -33,7 +33,7 @@
     'als-wenn-ob': 'als / wenn / ob', 'aber-sondern': 'aber / sondern', 'adverb-konnektor': 'Adverbio conector', doppelkonnektor: 'Conector doble', 'nebensatz-b1': 'Nebensatz', partikel: 'Partícula modal', 'adverb-gradpartikel': 'Partícula de grado' };
   var SKILL_WS = { 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
     aussagesatz: 'Frase afirmativa', 'w-frage': 'W-Frage', 'ja-nein-frage': 'Pregunta sí / no', umformen: 'Transformar la frase', trampa: '¿Cuál es correcta?' };
-  var SKILL_DEK = { 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
+  var SKILL_DEK = { relativpronomen: 'Pronombre relativo', 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
     'kasus-predicate_noun': 'Nominativ', 'kasus-dative_plural': 'Dativ plural', 'kasus-two_way_preposition': 'Wechselpräposition', 'dativ-plural': 'Dativ plural', 'genitiv-noun': 'Genitiv',
     'genitiv-article': 'Genitiv', 'genitiv-prep': 'Genitiv + Präp.', 'adjektivendung-weak': 'Adjektivendung', 'adjektivendung-mixed': 'Adjektivendung', 'adjektivendung-strong': 'Adjektivendung',
     'n-deklination': 'N-Deklination', transform: 'Transformación', indefinitpronomen: 'Pronombre indefinido', personalpronomen: 'Pronombre personal' };
