@@ -47,6 +47,9 @@ function loadNotesVocab() {
     sec.split('\n').filter(l => /^\|/.test(l) && !/^\|\s*:?-/.test(l) && !/Alemán \(mit/.test(l)).forEach((l, i) => {
       const c = l.split('|').slice(1, -1).map(clean); if (c.length < 3) return;
       let de = c[0], es = c[1].replace(/\s*;\s*/g, ' / '); const kind = kindOf(c[2]);
+      // columnas intercambiadas en algunas tablas (alemán ↔ español): un verbo reflexivo español en la columna alemana → se intercambian
+      if (/(arse|erse|irse)$/.test(de.replace(/\s*\([^)]*\)/g, '')) && !/(arse|erse|irse)$/.test(es) && /^[a-zäöüß]+(en|ln|rn)?( (\+ Akk\.|\/ [a-zäöüß]+))?$/.test(es)) { const t = de; de = es; es = t; }
+      if (/^(sí|no)(?![a-zñáéíóú])/i.test(es) && c[0] !== 'ja' && c[0] !== 'nein') return;   // marcas «sí / no» de tablas de reflexivos: no son traducciones
       if (!de || !es || /[\/…]|\.\.\./.test(de) || /\.\.\./.test(es) || /\{\{/.test(de + es)) return;
       if (kind === 'noun') { if (!/^(der|die|das)\s+\S/.test(de)) return; de = de.replace(/,.*$/, '').trim(); }
       else if (kind === 'verb') de = de.replace(/,.*$/, '').replace(/\s*\([^)]*\)/g, '').trim();
@@ -123,6 +126,7 @@ let ti = 0;
     errorTag: 'satzbau:umformen', conceptIds: (t.conceptIds || []).slice(0, 2), source: 'a1-2.4.4' });
 });
 
+{ const k = {}, keep = items.filter(i => { const key = i.skill + '|' + i.prompt + '|' + i.answer; if (k[key]) return false; k[key] = 1; return true; }); items.length = 0; keep.forEach(i => items.push(i)); }   // sin ejercicios idénticos
 if (BEYOND) fs.writeFileSync(path.join(root, 'data', 'wortschatz-beyond.json'), JSON.stringify(items, null, 1) + '\n');
 else { fs.writeFileSync(path.join(root, 'data', 'wortschatz.json'), JSON.stringify(items, null, 1) + '\n'); fs.writeFileSync(path.join(root, 'data', 'satzbau.json'), JSON.stringify(sat, null, 1) + '\n'); }
 

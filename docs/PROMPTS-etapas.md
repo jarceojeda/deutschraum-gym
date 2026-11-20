@@ -15,7 +15,7 @@ Durante la «etapa 3» se hizo también buena parte de las etapas 4 y 5 (ver `do
 | 4c | Datos definitivos de Wortschatz (1.139) y Satzbau (216) del pipeline + «Mis palabras» (requiere cambio de motor con prueba) | **Hecha**: «Mis palabras» y Satzbau A2/B1 generado (los datos del pipeline no existen; se llenó el hueco) |
 | 5 | Teoría, rampa A1→B1 con tope, backup, PWA, voz, «Escribir» | **Hecha en lo esencial** (publicada como PWA). Pendiente → **5b** |
 | 5b | Modo Casa para laptop, ciclo Verstehen→Üben→Sprechen formal, cheat sheets A2/B1 completos en la Consulta, frases personalizadas | **Hecha en lo esencial** (ver ESTADO) |
-| 6 | **Auditoría final** (accesibilidad, diéresis en todos los datos, cola de errores, filtro de nivel, pools, viewport, pendientes de la revisión Opus 2b) | **Pendiente: se hace al final** |
+| 6 | **Auditoría final** (accesibilidad, diéresis en todos los datos, cola de errores, filtro de nivel, pools, viewport, pendientes de la revisión Opus 2b) | **Hecha** (ver `docs/AUDITORIA.md`; recomendaciones R1–R7 abiertas) |
 
 ---
 ## Etapa 3 · Interfaz base + 3 módulos

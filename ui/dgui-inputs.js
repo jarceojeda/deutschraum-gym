@@ -28,7 +28,7 @@
   // spec (dgui-variants) + item → { answerEl, dockEl }. cb: {onSubmit(resp, extra), onGiveUp(), rnd, tap()}
   I.mount = function (spec, item, cb) {
     switch (spec.kind) {
-      case 'choice': return choice(spec, cb);
+      case 'choice': return choice(spec, cb, item);
       case 'blocks': return blocks(spec, cb);
       case 'match': return match(spec, cb);
       case 'ending': return ending(spec, cb);
@@ -40,9 +40,9 @@
   };
   function tapFx(cb) { if (cb.tap) cb.tap(); }
 
-  function choice(spec, cb) {
-    var done = false, n = spec.options.length;
-    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
+  function choice(spec, cb, item) {
+    var done = false, n = spec.options.length, optLang = F.langOf(item, 'options');
+    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones', lang: optLang || null });
     spec.options.forEach(function (o, oi) {
       var badge = F.genderBadge(o, false);
       var noun = !badge && /^(der|die|das)\s+\S/i.test(o);   // «der Name»: artículo con color y forma

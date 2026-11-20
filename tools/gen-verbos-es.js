@@ -22,7 +22,7 @@ const MANUAL = {
 };
 Object.keys(MANUAL).forEach(k => { map[k] = map[k] || MANUAL[k]; });
 // correcciones sobre lo que sale del Wortschatz (duplicados o respuestas que no son el significado)
-Object.assign(map, { lernen: 'aprender', dürfen: 'poder, tener permiso', verlassen: 'dejar, abandonar', können: 'poder, saber hacer' });
+Object.assign(map, { hängen: 'colgar (algo)', lernen: 'aprender', dürfen: 'poder, tener permiso', verlassen: 'dejar, abandonar', können: 'poder, saber hacer' });
 const miss = lem.filter(l => !map[l]);
 if (miss.length) { console.error('SIN SIGNIFICADO:', miss.join(' ')); process.exit(1); }
 const out = {}; lem.forEach(l => { out[l] = String(map[l]).normalize('NFC'); });

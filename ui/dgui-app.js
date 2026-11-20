@@ -146,7 +146,7 @@
       return String(text).split(/_{2,}/).reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(F.rich(sg)); return acc; }, []);
     }
     function promptNode(v, item) {
-      var box = h('div.qbody');
+      var box = h('div.qbody'), pl = F.langOf(item, 'prompt'); if (pl) box.setAttribute('lang', pl);   // lector de pantalla: voz alemana o española según el texto
       var parts = String(v.prompt).split(' · ');
       if (v.module === 'verben' && parts.length === 3) {
         box.appendChild(h('div.p-big', parts[0]));
@@ -598,7 +598,7 @@
       var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
       var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
       shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores. Wortschatz y Satzbau solo tienen A1 por ahora.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
         h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),

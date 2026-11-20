@@ -1244,3 +1244,21 @@ test('Verben: cada ejercicio muestra el significado del verbo («= aprender») y
   }
   assert.ok(n >= 15, 'ejercicios de verbos revisados: ' + n);
 });
+
+test('Accesibilidad de idioma: el texto alemán lleva lang="de" y el español lang="es" (el lector de pantalla usa la voz correcta)', () => {
+  const u = boot(280), F = u.w.DGUI.fmt;
+  assert.equal(F.langOf({ module: 'wortschatz', skill: 'es-de', prompt: 'perro' }, 'prompt'), 'es'); assert.equal(F.langOf({ module: 'wortschatz', skill: 'es-de' }, 'options'), 'de');
+  assert.equal(F.langOf({ module: 'wortschatz', skill: 'de-es', prompt: 'Hund' }, 'prompt'), 'de'); assert.equal(F.langOf({ module: 'wortschatz', skill: 'de-es' }, 'options'), 'es');
+  assert.equal(F.langOf({ module: 'satzbau', skill: 'trampa', prompt: '¿Cuál es correcta?' }, 'options'), 'de'); assert.equal(F.langOf({ module: 'satzbau', type: 'order', prompt: 'Ordena la frase' }, 'prompt'), null);
+  u.chooseModule('wortschatz', 30); u.start(); const seen = {};
+  for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item;
+    if ((it.skill === 'es-de' || it.skill === 'de-es') && !seen[it.skill] && u.q('.options')) {
+      seen[it.skill] = true; const pl = it.skill === 'es-de' ? 'es' : 'de', ol = it.skill === 'es-de' ? 'de' : 'es';
+      assert.equal(u.q('.qbody').getAttribute('lang'), pl, it.skill + ' enunciado'); assert.equal(u.q('.options').getAttribute('lang'), ol, it.skill + ' opciones');
+    }
+    u.answer(true); u.next();
+  }
+  assert.ok(seen['es-de'] || seen['de-es'], 'se comprobó al menos una dirección');
+  const v = boot(281); v.chooseModule('verben', 10); v.start(); assert.equal(v.q('.qbody').getAttribute('lang'), 'de');
+});

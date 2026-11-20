@@ -3520,10 +3520,10 @@
    "vorher"
   ],
   "options": [
-   "jedoch",
    "vorher",
    "sonst",
-   "irgendwann"
+   "jedoch",
+   "wonach"
   ]
  },
  {
@@ -3544,10 +3544,10 @@
    "antes / previamente"
   ],
   "options": [
-   "algún día / en algún momento",
+   "sin embargo / eso sí",
    "antes / previamente",
-   "si no / de lo contrario / aparte de eso",
-   "en lugar de eso"
+   "seguramente",
+   "de lo que / de lo cual"
   ]
  },
  {
@@ -4099,10 +4099,10 @@
    "sicher"
   ],
   "options": [
-   "bestimmt",
    "sicher",
+   "so",
    "irgendwann",
-   "so"
+   "bestimmt"
   ]
  },
  {
@@ -4123,10 +4123,10 @@
    "seguramente"
   ],
   "options": [
-   "sin duda / seguramente",
-   "no obstante / pese a ello",
+   "algún día / en algún momento",
    "seguramente",
-   "algún día / en algún momento"
+   "sin duda / seguramente",
+   "en lo que / de lo que"
   ]
  },
  {
@@ -4166,10 +4166,10 @@
    "bestimmt"
   ],
   "options": [
-   "dennoch",
    "sicher",
-   "bestimmt",
-   "irgendwann"
+   "worauf",
+   "irgendwann",
+   "bestimmt"
   ]
  },
  {
@@ -4190,10 +4190,10 @@
    "sin duda / seguramente"
   ],
   "options": [
-   "sin duda / seguramente",
-   "sobre lo que / por lo cual",
+   "algún día / en algún momento",
    "seguramente",
-   "algún día / en algún momento"
+   "sin duda / seguramente",
+   "con lo que / con lo cual"
   ]
  },
  {
@@ -4411,9 +4411,9 @@
   ],
   "options": [
    "irgendwann",
-   "bestimmt",
+   "sicher",
    "woraus",
-   "sicher"
+   "bestimmt"
   ]
  },
  {
@@ -4435,9 +4435,9 @@
   ],
   "options": [
    "algún día / en algún momento",
+   "seguramente",
    "sin duda / seguramente",
-   "no obstante / pese a ello",
-   "seguramente"
+   "supuestamente"
   ]
  },
  {
@@ -10830,8 +10830,8 @@
   "options": [
    "außerdem",
    "daher",
-   "allerdings",
-   "jedoch"
+   "sonst",
+   "allerdings"
   ]
  },
  {
@@ -10852,10 +10852,10 @@
    "sin embargo / eso sí"
   ],
   "options": [
-   "así / de ese modo",
-   "por eso / de ahí que",
-   "además",
-   "sin embargo / eso sí"
+   "sin embargo / no obstante",
+   "sin embargo / eso sí",
+   "en lugar de eso",
+   "además"
   ]
  },
  {
@@ -10896,10 +10896,10 @@
    "zudem"
   ],
   "options": [
-   "außerdem",
-   "dennoch",
    "daher",
-   "sonst"
+   "jedoch",
+   "sonst",
+   "außerdem"
   ]
  },
  {
@@ -10920,9 +10920,9 @@
    "además"
   ],
   "options": [
-   "además",
-   "en lugar de eso",
    "por eso / de ahí que",
+   "además",
+   "sin embargo / eso sí",
    "sin embargo / no obstante"
   ]
  },
@@ -10965,9 +10965,9 @@
   ],
   "options": [
    "jedoch",
-   "außerdem",
    "daher",
-   "dennoch"
+   "allerdings",
+   "außerdem"
   ]
  },
  {
@@ -10988,10 +10988,10 @@
    "por eso / de ahí que"
   ],
   "options": [
-   "además",
+   "si no / de lo contrario / aparte de eso",
    "por eso / de ahí que",
-   "sin embargo / eso sí",
-   "así / de ese modo"
+   "sin embargo / no obstante",
+   "sin embargo / eso sí"
   ]
  },
  {
@@ -11014,73 +11014,6 @@
   "options": []
  },
  {
-  "id": "wz-md043-5-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "beyond-clase-043",
-  "lemma": "dennoch",
-  "prompt": "no obstante / pese a ello",
-  "hint": "",
-  "answer": "dennoch",
-  "accept": [
-   "dennoch"
-  ],
-  "options": [
-   "außerdem",
-   "daher",
-   "stattdessen",
-   "dennoch"
-  ]
- },
- {
-  "id": "wz-md043-5-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "beyond-clase-043",
-  "lemma": "dennoch",
-  "prompt": "dennoch",
-  "hint": "",
-  "answer": "no obstante / pese a ello",
-  "accept": [
-   "no obstante / pese a ello"
-  ],
-  "options": [
-   "en lugar de eso",
-   "por eso / de ahí que",
-   "si no / de lo contrario / aparte de eso",
-   "no obstante / pese a ello"
-  ]
- },
- {
-  "id": "wz-md043-5-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "beyond-clase-043",
-  "lemma": "dennoch",
-  "prompt": "no obstante / pese a ello",
-  "hint": "",
-  "answer": "dennoch",
-  "accept": [
-   "dennoch"
-  ],
-  "options": []
- },
- {
   "id": "wz-md043-9-es-de",
   "module": "wortschatz",
   "level": "B1",
@@ -11098,10 +11031,10 @@
    "jedoch"
   ],
   "options": [
-   "zudem",
    "allerdings",
-   "sonst",
-   "jedoch"
+   "zudem",
+   "jedoch",
+   "sonst"
   ]
  },
  {
@@ -11122,10 +11055,10 @@
    "sin embargo / no obstante"
   ],
   "options": [
-   "así / de ese modo",
    "sin embargo / no obstante",
-   "sin embargo / eso sí",
-   "si no / de lo contrario / aparte de eso"
+   "en lugar de eso",
+   "así / de ese modo",
+   "sin embargo / eso sí"
   ]
  },
  {
@@ -11165,10 +11098,10 @@
    "so"
   ],
   "options": [
-   "jedoch",
    "so",
+   "stattdessen",
    "zudem",
-   "allerdings"
+   "jedoch"
   ]
  },
  {
@@ -11189,10 +11122,10 @@
    "así / de ese modo"
   ],
   "options": [
-   "no obstante / pese a ello",
-   "así / de ese modo",
+   "si no / de lo contrario / aparte de eso",
    "sin embargo / eso sí",
-   "sin embargo / no obstante"
+   "por eso / de ahí que",
+   "así / de ese modo"
   ]
  },
  {
@@ -11233,9 +11166,9 @@
   ],
   "options": [
    "sonst",
-   "daher",
    "so",
-   "dennoch"
+   "daher",
+   "zudem"
   ]
  },
  {
@@ -11256,10 +11189,10 @@
    "si no / de lo contrario / aparte de eso"
   ],
   "options": [
-   "sin embargo / eso sí",
    "además",
-   "si no / de lo contrario / aparte de eso",
-   "por eso / de ahí que"
+   "sin embargo / eso sí",
+   "en lugar de eso",
+   "si no / de lo contrario / aparte de eso"
   ]
  },
  {
@@ -11300,9 +11233,9 @@
   ],
   "options": [
    "stattdessen",
-   "sonst",
+   "zudem",
    "jedoch",
-   "daher"
+   "so"
   ]
  },
  {
@@ -11325,8 +11258,8 @@
   "options": [
    "en lugar de eso",
    "sin embargo / no obstante",
-   "así / de ese modo",
-   "no obstante / pese a ello"
+   "por eso / de ahí que",
+   "así / de ese modo"
   ]
  },
  {
@@ -11367,10 +11300,10 @@
    "außerdem"
   ],
   "options": [
-   "daher",
+   "sonst",
+   "allerdings",
    "so",
-   "zudem",
-   "stattdessen"
+   "zudem"
   ]
  },
  {
@@ -11391,10 +11324,10 @@
    "además"
   ],
   "options": [
-   "además",
-   "en lugar de eso",
+   "por eso / de ahí que",
    "así / de ese modo",
-   "no obstante / pese a ello"
+   "si no / de lo contrario / aparte de eso",
+   "además"
   ]
  },
  {
@@ -13580,10 +13513,10 @@
    "angeblich"
   ],
   "options": [
-   "daher",
    "angeblich",
+   "worauf",
    "außerdem",
-   "wovon"
+   "stattdessen"
   ]
  },
  {
@@ -13604,10 +13537,10 @@
    "supuestamente"
   ],
   "options": [
+   "seguramente",
    "supuestamente",
-   "para lo que / para lo cual",
-   "antes / previamente",
-   "sin embargo / eso sí"
+   "sobre lo que / por lo cual",
+   "algún día / en algún momento"
   ]
  },
  {

@@ -149,3 +149,7 @@ Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 
 - **Datos definitivos del pipeline: no existen para el usuario**, así que se llenó el hueco con contenido propio. Wortschatz ya tenía miles de ítems (referencia + clases A2/B1 + opcional B2/C1); lo que faltaba era **Satzbau más allá de A1**: `data/satzbau-b1.json` (158 frases A2/B1 propias, `tools/gen-satzbau-b1.js`): subordinadas weil/wenn/obwohl/damit/nachdem en las dos órdenes (con inversión), Perfekt, Modalverben, verbos separables, Dativ+Akkusativ, Infinitiv con zu, preguntas indirectas, Relativsatz, Passiv, Konjunktiv II y comparación. Cada una con pista de estructura y traducción.
 - **Significado del verbo** en todos los ejercicios de Verben («= aprender» bajo la consigna): `ui/verbos-es.json` (263 verbos; 183 salen del Wortschatz y 80 son una tabla propia en `tools/gen-verbos-es.js`, con correcciones manuales). Prueba: todo verbo del contenido tiene significado.
 - Límite: traducciones y significados escritos/derivados sin revisión de una persona nativa; algunos verbos tienen varios sentidos y se muestra el más común.
+
+
+## Etapa 6 · Auditoría (hecha)
+Informe completo en `docs/AUDITORIA.md`. Corregido: columnas intercambiadas y marcas «sí/no» en Wortschatz, duplicados, contraste (claro y toast oscuro), `lang="de"/"es"`, foco, copia de Ajustes. Abierto: R1–R7 (puerta al B1, panel de progreso, etc.) y los puntos A1–A4 de `data/verben.json`.

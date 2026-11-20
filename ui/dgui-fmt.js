@@ -24,6 +24,21 @@
     return h('span.cbadge.' + c.cls, h('span.cl', { 'aria-hidden': 'true' }, c.letter), withLabel === false ? null : h('span.ct', c.label));
   };
   // Texto → nodos: der/die/das con insignia de género; con {case}, formas marcadas (den, dem, einen…) con color de caso.
+  // Idioma del texto de un ejercicio (para lang="de"/"es": el lector de pantalla usa la voz correcta). Sólo para lo que es CLARAMENTE de un idioma.
+  // part: 'prompt' | 'options'. Devuelve 'de', 'es' o null (mixto / desconocido: se hereda el lang de la página).
+  F.langOf = function (item, part) {
+    if (!item) return null; var sk = item.skill, p = String(item.prompt || '');
+    if (item.module === 'wortschatz') {
+      if (sk === 'es-de') return part === 'options' ? 'de' : 'es';
+      if (sk === 'de-es') return part === 'options' ? 'es' : 'de';
+      if (sk === 'produccion' || sk === 'pronunciacion') return part === 'options' ? (sk === 'pronunciacion' ? 'es' : null) : 'es';
+      if (sk === 'contexto') return part === 'options' ? 'de' : 'de';
+    }
+    if (sk === 'trampa') return part === 'options' ? 'de' : 'es';
+    if (part === 'prompt' && (/^[¿¡]/.test(p) || /^(Ordena|Completa|Elige|Transforma|Convierte|Escribe)\b/i.test(p) || item.type === 'order' || item.type === 'transform')) return null;
+    if (item.module === 'verben' || item.module === 'artikel' || item.module === 'deklination' || item.module === 'praepositionen' || item.module === 'konnektoren' || item.module === 'satzbau') return 'de';
+    return null;
+  };
   F.rich = function (text, o) {
     o = o || {}; var out = [], toks = String(text == null ? '' : text).split(/(\s+)/), marked = false;
     toks.forEach(function (t) {
