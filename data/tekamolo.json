@@ -1,0 +1,3054 @@
+[
+ {
+  "id": "tk-001",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich fahre nach der Arbeit mit dem Zug in die Stadt.",
+  "accept": [
+   "Ich fahre nach der Arbeit mit dem Zug in die Stadt."
+  ],
+  "tiles": [
+   "Ich",
+   "fahre",
+   "nach",
+   "der",
+   "Arbeit",
+   "mit",
+   "dem",
+   "Zug",
+   "in",
+   "die",
+   "Stadt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-002",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir fahren jeden Tag wegen des Projekts in die Stadt.",
+  "accept": [
+   "Wir fahren jeden Tag wegen des Projekts in die Stadt."
+  ],
+  "tiles": [
+   "Wir",
+   "fahren",
+   "jeden",
+   "Tag",
+   "wegen",
+   "des",
+   "Projekts",
+   "in",
+   "die",
+   "Stadt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-003",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er fährt aus Erschöpfung allein nach Berlin.",
+  "accept": [
+   "Er fährt aus Erschöpfung allein nach Berlin."
+  ],
+  "tiles": [
+   "Er",
+   "fährt",
+   "aus",
+   "Erschöpfung",
+   "allein",
+   "nach",
+   "Berlin",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-004",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich fahre am Montag wegen des Projekts langsam zur Arbeit.",
+  "accept": [
+   "Ich fahre am Montag wegen des Projekts langsam zur Arbeit."
+  ],
+  "tiles": [
+   "Ich",
+   "fahre",
+   "am",
+   "Montag",
+   "wegen",
+   "des",
+   "Projekts",
+   "langsam",
+   "zur",
+   "Arbeit",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-005",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir fahren heute langsam in die Stadt.",
+  "accept": [
+   "Wir fahren heute langsam in die Stadt."
+  ],
+  "tiles": [
+   "Wir",
+   "fahren",
+   "heute",
+   "langsam",
+   "in",
+   "die",
+   "Stadt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-006",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er fährt jeden Tag aus Neugier mit dem Bus nach Berlin.",
+  "accept": [
+   "Er fährt jeden Tag aus Neugier mit dem Bus nach Berlin."
+  ],
+  "tiles": [
+   "Er",
+   "fährt",
+   "jeden",
+   "Tag",
+   "aus",
+   "Neugier",
+   "mit",
+   "dem",
+   "Bus",
+   "nach",
+   "Berlin",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-007",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich fahre jeden Tag langsam zur Arbeit.",
+  "accept": [
+   "Ich fahre jeden Tag langsam zur Arbeit."
+  ],
+  "tiles": [
+   "Ich",
+   "fahre",
+   "jeden",
+   "Tag",
+   "langsam",
+   "zur",
+   "Arbeit",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-008",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir fahren heute aus Neugier nach Berlin.",
+  "accept": [
+   "Wir fahren heute aus Neugier nach Berlin."
+  ],
+  "tiles": [
+   "Wir",
+   "fahren",
+   "heute",
+   "aus",
+   "Neugier",
+   "nach",
+   "Berlin",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-009",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er fährt wegen der Prüfung mit dem Zug zur Arbeit.",
+  "accept": [
+   "Er fährt wegen der Prüfung mit dem Zug zur Arbeit."
+  ],
+  "tiles": [
+   "Er",
+   "fährt",
+   "wegen",
+   "der",
+   "Prüfung",
+   "mit",
+   "dem",
+   "Zug",
+   "zur",
+   "Arbeit",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-010",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich fahre im Sommer wegen der Prüfung langsam in die Stadt.",
+  "accept": [
+   "Ich fahre im Sommer wegen der Prüfung langsam in die Stadt."
+  ],
+  "tiles": [
+   "Ich",
+   "fahre",
+   "im",
+   "Sommer",
+   "wegen",
+   "der",
+   "Prüfung",
+   "langsam",
+   "in",
+   "die",
+   "Stadt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-011",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir fahren am Wochenende allein in die Stadt.",
+  "accept": [
+   "Wir fahren am Wochenende allein in die Stadt."
+  ],
+  "tiles": [
+   "Wir",
+   "fahren",
+   "am",
+   "Wochenende",
+   "allein",
+   "in",
+   "die",
+   "Stadt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-012",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er fährt jeden Tag wegen des Projekts allein zur Arbeit.",
+  "accept": [
+   "Er fährt jeden Tag wegen des Projekts allein zur Arbeit."
+  ],
+  "tiles": [
+   "Er",
+   "fährt",
+   "jeden",
+   "Tag",
+   "wegen",
+   "des",
+   "Projekts",
+   "allein",
+   "zur",
+   "Arbeit",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-013",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich arbeite am Wochenende konzentriert in der Bibliothek.",
+  "accept": [
+   "Ich arbeite am Wochenende konzentriert in der Bibliothek."
+  ],
+  "tiles": [
+   "Ich",
+   "arbeite",
+   "am",
+   "Wochenende",
+   "konzentriert",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-014",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir arbeiten im Sommer aus Erschöpfung zu Hause.",
+  "accept": [
+   "Wir arbeiten im Sommer aus Erschöpfung zu Hause."
+  ],
+  "tiles": [
+   "Wir",
+   "arbeiten",
+   "im",
+   "Sommer",
+   "aus",
+   "Erschöpfung",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-015",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er arbeitet aus Erschöpfung konzentriert in der Bibliothek.",
+  "accept": [
+   "Er arbeitet aus Erschöpfung konzentriert in der Bibliothek."
+  ],
+  "tiles": [
+   "Er",
+   "arbeitet",
+   "aus",
+   "Erschöpfung",
+   "konzentriert",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-016",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich arbeite jeden Tag wegen der Prüfung gern in der Bibliothek.",
+  "accept": [
+   "Ich arbeite jeden Tag wegen der Prüfung gern in der Bibliothek."
+  ],
+  "tiles": [
+   "Ich",
+   "arbeite",
+   "jeden",
+   "Tag",
+   "wegen",
+   "der",
+   "Prüfung",
+   "gern",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-017",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir arbeiten im Sommer konzentriert im Büro.",
+  "accept": [
+   "Wir arbeiten im Sommer konzentriert im Büro."
+  ],
+  "tiles": [
+   "Wir",
+   "arbeiten",
+   "im",
+   "Sommer",
+   "konzentriert",
+   "im",
+   "Büro",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-018",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er arbeitet am Wochenende wegen des Projekts schnell in der Bibliothek.",
+  "accept": [
+   "Er arbeitet am Wochenende wegen des Projekts schnell in der Bibliothek."
+  ],
+  "tiles": [
+   "Er",
+   "arbeitet",
+   "am",
+   "Wochenende",
+   "wegen",
+   "des",
+   "Projekts",
+   "schnell",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-019",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich arbeite jeden Tag konzentriert in der Bibliothek.",
+  "accept": [
+   "Ich arbeite jeden Tag konzentriert in der Bibliothek."
+  ],
+  "tiles": [
+   "Ich",
+   "arbeite",
+   "jeden",
+   "Tag",
+   "konzentriert",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-020",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir arbeiten heute wegen des Wetters in der Bibliothek.",
+  "accept": [
+   "Wir arbeiten heute wegen des Wetters in der Bibliothek."
+  ],
+  "tiles": [
+   "Wir",
+   "arbeiten",
+   "heute",
+   "wegen",
+   "des",
+   "Wetters",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-021",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er arbeitet aus Neugier gern in der Bibliothek.",
+  "accept": [
+   "Er arbeitet aus Neugier gern in der Bibliothek."
+  ],
+  "tiles": [
+   "Er",
+   "arbeitet",
+   "aus",
+   "Neugier",
+   "gern",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-022",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich arbeite im Sommer wegen des Projekts konzentriert in der Bibliothek.",
+  "accept": [
+   "Ich arbeite im Sommer wegen des Projekts konzentriert in der Bibliothek."
+  ],
+  "tiles": [
+   "Ich",
+   "arbeite",
+   "im",
+   "Sommer",
+   "wegen",
+   "des",
+   "Projekts",
+   "konzentriert",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-023",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir arbeiten nach der Arbeit allein im Büro.",
+  "accept": [
+   "Wir arbeiten nach der Arbeit allein im Büro."
+  ],
+  "tiles": [
+   "Wir",
+   "arbeiten",
+   "nach",
+   "der",
+   "Arbeit",
+   "allein",
+   "im",
+   "Büro",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-024",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er arbeitet morgen wegen des Wetters schnell zu Hause.",
+  "accept": [
+   "Er arbeitet morgen wegen des Wetters schnell zu Hause."
+  ],
+  "tiles": [
+   "Er",
+   "arbeitet",
+   "morgen",
+   "wegen",
+   "des",
+   "Wetters",
+   "schnell",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-025",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich lerne am Montag allein in der Bibliothek.",
+  "accept": [
+   "Ich lerne am Montag allein in der Bibliothek."
+  ],
+  "tiles": [
+   "Ich",
+   "lerne",
+   "am",
+   "Montag",
+   "allein",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-026",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir lernen im Sommer wegen der Prüfung in der Bibliothek.",
+  "accept": [
+   "Wir lernen im Sommer wegen der Prüfung in der Bibliothek."
+  ],
+  "tiles": [
+   "Wir",
+   "lernen",
+   "im",
+   "Sommer",
+   "wegen",
+   "der",
+   "Prüfung",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-027",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er lernt aus Erschöpfung fleißig zu Hause.",
+  "accept": [
+   "Er lernt aus Erschöpfung fleißig zu Hause."
+  ],
+  "tiles": [
+   "Er",
+   "lernt",
+   "aus",
+   "Erschöpfung",
+   "fleißig",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-028",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich lerne heute wegen des Wetters allein zu Hause.",
+  "accept": [
+   "Ich lerne heute wegen des Wetters allein zu Hause."
+  ],
+  "tiles": [
+   "Ich",
+   "lerne",
+   "heute",
+   "wegen",
+   "des",
+   "Wetters",
+   "allein",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-029",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir lernen im Sommer mit einer Freundin im Café.",
+  "accept": [
+   "Wir lernen im Sommer mit einer Freundin im Café."
+  ],
+  "tiles": [
+   "Wir",
+   "lernen",
+   "im",
+   "Sommer",
+   "mit",
+   "einer",
+   "Freundin",
+   "im",
+   "Café",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-030",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er lernt am Wochenende aus Neugier fleißig zu Hause.",
+  "accept": [
+   "Er lernt am Wochenende aus Neugier fleißig zu Hause."
+  ],
+  "tiles": [
+   "Er",
+   "lernt",
+   "am",
+   "Wochenende",
+   "aus",
+   "Neugier",
+   "fleißig",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-031",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich lerne jeden Tag allein im Café.",
+  "accept": [
+   "Ich lerne jeden Tag allein im Café."
+  ],
+  "tiles": [
+   "Ich",
+   "lerne",
+   "jeden",
+   "Tag",
+   "allein",
+   "im",
+   "Café",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-032",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir lernen am Wochenende wegen des Wetters zu Hause.",
+  "accept": [
+   "Wir lernen am Wochenende wegen des Wetters zu Hause."
+  ],
+  "tiles": [
+   "Wir",
+   "lernen",
+   "am",
+   "Wochenende",
+   "wegen",
+   "des",
+   "Wetters",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-033",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er lernt wegen des Projekts fleißig zu Hause.",
+  "accept": [
+   "Er lernt wegen des Projekts fleißig zu Hause."
+  ],
+  "tiles": [
+   "Er",
+   "lernt",
+   "wegen",
+   "des",
+   "Projekts",
+   "fleißig",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-034",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich lerne morgen aus Neugier fleißig zu Hause.",
+  "accept": [
+   "Ich lerne morgen aus Neugier fleißig zu Hause."
+  ],
+  "tiles": [
+   "Ich",
+   "lerne",
+   "morgen",
+   "aus",
+   "Neugier",
+   "fleißig",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-035",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir lernen nach der Arbeit allein in der Bibliothek.",
+  "accept": [
+   "Wir lernen nach der Arbeit allein in der Bibliothek."
+  ],
+  "tiles": [
+   "Wir",
+   "lernen",
+   "nach",
+   "der",
+   "Arbeit",
+   "allein",
+   "in",
+   "der",
+   "Bibliothek",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-036",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er lernt im Sommer wegen des Wetters mit einer Freundin im Café.",
+  "accept": [
+   "Er lernt im Sommer wegen des Wetters mit einer Freundin im Café."
+  ],
+  "tiles": [
+   "Er",
+   "lernt",
+   "im",
+   "Sommer",
+   "wegen",
+   "des",
+   "Wetters",
+   "mit",
+   "einer",
+   "Freundin",
+   "im",
+   "Café",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-037",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe heute allein zu Hause.",
+  "accept": [
+   "Ich bleibe heute allein zu Hause."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "heute",
+   "allein",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-038",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir bleiben heute wegen des Wetters im Hotel.",
+  "accept": [
+   "Wir bleiben heute wegen des Wetters im Hotel."
+  ],
+  "tiles": [
+   "Wir",
+   "bleiben",
+   "heute",
+   "wegen",
+   "des",
+   "Wetters",
+   "im",
+   "Hotel",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-039",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er bleibt wegen des Wetters ruhig im Bett.",
+  "accept": [
+   "Er bleibt wegen des Wetters ruhig im Bett."
+  ],
+  "tiles": [
+   "Er",
+   "bleibt",
+   "wegen",
+   "des",
+   "Wetters",
+   "ruhig",
+   "im",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-040",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe morgen wegen des Wetters ruhig im Bett.",
+  "accept": [
+   "Ich bleibe morgen wegen des Wetters ruhig im Bett."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "morgen",
+   "wegen",
+   "des",
+   "Wetters",
+   "ruhig",
+   "im",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-041",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir bleiben im Sommer ruhig im Bett.",
+  "accept": [
+   "Wir bleiben im Sommer ruhig im Bett."
+  ],
+  "tiles": [
+   "Wir",
+   "bleiben",
+   "im",
+   "Sommer",
+   "ruhig",
+   "im",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-042",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er bleibt jeden Tag aus Neugier allein im Hotel.",
+  "accept": [
+   "Er bleibt jeden Tag aus Neugier allein im Hotel."
+  ],
+  "tiles": [
+   "Er",
+   "bleibt",
+   "jeden",
+   "Tag",
+   "aus",
+   "Neugier",
+   "allein",
+   "im",
+   "Hotel",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-043",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe im Sommer ruhig im Hotel.",
+  "accept": [
+   "Ich bleibe im Sommer ruhig im Hotel."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "im",
+   "Sommer",
+   "ruhig",
+   "im",
+   "Hotel",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-044",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir bleiben heute wegen des Projekts zu Hause.",
+  "accept": [
+   "Wir bleiben heute wegen des Projekts zu Hause."
+  ],
+  "tiles": [
+   "Wir",
+   "bleiben",
+   "heute",
+   "wegen",
+   "des",
+   "Projekts",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-045",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er bleibt aus Erschöpfung ruhig im Hotel.",
+  "accept": [
+   "Er bleibt aus Erschöpfung ruhig im Hotel."
+  ],
+  "tiles": [
+   "Er",
+   "bleibt",
+   "aus",
+   "Erschöpfung",
+   "ruhig",
+   "im",
+   "Hotel",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-046",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe morgen aus Neugier gemütlich zu Hause.",
+  "accept": [
+   "Ich bleibe morgen aus Neugier gemütlich zu Hause."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "morgen",
+   "aus",
+   "Neugier",
+   "gemütlich",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-047",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir bleiben am Wochenende gemütlich im Bett.",
+  "accept": [
+   "Wir bleiben am Wochenende gemütlich im Bett."
+  ],
+  "tiles": [
+   "Wir",
+   "bleiben",
+   "am",
+   "Wochenende",
+   "gemütlich",
+   "im",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-048",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er bleibt am Montag aus Neugier ruhig zu Hause.",
+  "accept": [
+   "Er bleibt am Montag aus Neugier ruhig zu Hause."
+  ],
+  "tiles": [
+   "Er",
+   "bleibt",
+   "am",
+   "Montag",
+   "aus",
+   "Neugier",
+   "ruhig",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-049",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich gehe jeden Tag gern ins Museum.",
+  "accept": [
+   "Ich gehe jeden Tag gern ins Museum."
+  ],
+  "tiles": [
+   "Ich",
+   "gehe",
+   "jeden",
+   "Tag",
+   "gern",
+   "ins",
+   "Museum",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-050",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir gehen nach der Arbeit wegen des Projekts in die Schule.",
+  "accept": [
+   "Wir gehen nach der Arbeit wegen des Projekts in die Schule."
+  ],
+  "tiles": [
+   "Wir",
+   "gehen",
+   "nach",
+   "der",
+   "Arbeit",
+   "wegen",
+   "des",
+   "Projekts",
+   "in",
+   "die",
+   "Schule",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-051",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er geht wegen des Wetters zu Fuß ins Museum.",
+  "accept": [
+   "Er geht wegen des Wetters zu Fuß ins Museum."
+  ],
+  "tiles": [
+   "Er",
+   "geht",
+   "wegen",
+   "des",
+   "Wetters",
+   "zu",
+   "Fuß",
+   "ins",
+   "Museum",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-052",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich gehe am Wochenende wegen des Wetters zu Fuß zum Arzt.",
+  "accept": [
+   "Ich gehe am Wochenende wegen des Wetters zu Fuß zum Arzt."
+  ],
+  "tiles": [
+   "Ich",
+   "gehe",
+   "am",
+   "Wochenende",
+   "wegen",
+   "des",
+   "Wetters",
+   "zu",
+   "Fuß",
+   "zum",
+   "Arzt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-053",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir gehen jeden Tag gern ins Kino.",
+  "accept": [
+   "Wir gehen jeden Tag gern ins Kino."
+  ],
+  "tiles": [
+   "Wir",
+   "gehen",
+   "jeden",
+   "Tag",
+   "gern",
+   "ins",
+   "Kino",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-054",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er geht morgen aus Erschöpfung zu Fuß zum Arzt.",
+  "accept": [
+   "Er geht morgen aus Erschöpfung zu Fuß zum Arzt."
+  ],
+  "tiles": [
+   "Er",
+   "geht",
+   "morgen",
+   "aus",
+   "Erschöpfung",
+   "zu",
+   "Fuß",
+   "zum",
+   "Arzt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-055",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich gehe nach der Arbeit allein ins Museum.",
+  "accept": [
+   "Ich gehe nach der Arbeit allein ins Museum."
+  ],
+  "tiles": [
+   "Ich",
+   "gehe",
+   "nach",
+   "der",
+   "Arbeit",
+   "allein",
+   "ins",
+   "Museum",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-056",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir gehen nach der Arbeit wegen des Wetters in die Schule.",
+  "accept": [
+   "Wir gehen nach der Arbeit wegen des Wetters in die Schule."
+  ],
+  "tiles": [
+   "Wir",
+   "gehen",
+   "nach",
+   "der",
+   "Arbeit",
+   "wegen",
+   "des",
+   "Wetters",
+   "in",
+   "die",
+   "Schule",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-057",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er geht wegen des Projekts allein ins Museum.",
+  "accept": [
+   "Er geht wegen des Projekts allein ins Museum."
+  ],
+  "tiles": [
+   "Er",
+   "geht",
+   "wegen",
+   "des",
+   "Projekts",
+   "allein",
+   "ins",
+   "Museum",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-058",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich gehe am Montag wegen der Prüfung gern zum Arzt.",
+  "accept": [
+   "Ich gehe am Montag wegen der Prüfung gern zum Arzt."
+  ],
+  "tiles": [
+   "Ich",
+   "gehe",
+   "am",
+   "Montag",
+   "wegen",
+   "der",
+   "Prüfung",
+   "gern",
+   "zum",
+   "Arzt",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-059",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir gehen heute gern ins Kino.",
+  "accept": [
+   "Wir gehen heute gern ins Kino."
+  ],
+  "tiles": [
+   "Wir",
+   "gehen",
+   "heute",
+   "gern",
+   "ins",
+   "Kino",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-060",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er geht am Montag wegen des Wetters zu Fuß in die Schule.",
+  "accept": [
+   "Er geht am Montag wegen des Wetters zu Fuß in die Schule."
+  ],
+  "tiles": [
+   "Er",
+   "geht",
+   "am",
+   "Montag",
+   "wegen",
+   "des",
+   "Wetters",
+   "zu",
+   "Fuß",
+   "in",
+   "die",
+   "Schule",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-061",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich wohne morgen gern in der Nähe vom Bahnhof.",
+  "accept": [
+   "Ich wohne morgen gern in der Nähe vom Bahnhof."
+  ],
+  "tiles": [
+   "Ich",
+   "wohne",
+   "morgen",
+   "gern",
+   "in",
+   "der",
+   "Nähe",
+   "vom",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-062",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir wohnen heute wegen der Prüfung in einer kleinen Wohnung.",
+  "accept": [
+   "Wir wohnen heute wegen der Prüfung in einer kleinen Wohnung."
+  ],
+  "tiles": [
+   "Wir",
+   "wohnen",
+   "heute",
+   "wegen",
+   "der",
+   "Prüfung",
+   "in",
+   "einer",
+   "kleinen",
+   "Wohnung",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-063",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wohnt aus Erschöpfung billig in der Nähe vom Bahnhof.",
+  "accept": [
+   "Er wohnt aus Erschöpfung billig in der Nähe vom Bahnhof."
+  ],
+  "tiles": [
+   "Er",
+   "wohnt",
+   "aus",
+   "Erschöpfung",
+   "billig",
+   "in",
+   "der",
+   "Nähe",
+   "vom",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-064",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich wohne am Wochenende wegen des Wetters billig in Wien.",
+  "accept": [
+   "Ich wohne am Wochenende wegen des Wetters billig in Wien."
+  ],
+  "tiles": [
+   "Ich",
+   "wohne",
+   "am",
+   "Wochenende",
+   "wegen",
+   "des",
+   "Wetters",
+   "billig",
+   "in",
+   "Wien",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-065",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir wohnen jeden Tag ruhig in einer kleinen Wohnung.",
+  "accept": [
+   "Wir wohnen jeden Tag ruhig in einer kleinen Wohnung."
+  ],
+  "tiles": [
+   "Wir",
+   "wohnen",
+   "jeden",
+   "Tag",
+   "ruhig",
+   "in",
+   "einer",
+   "kleinen",
+   "Wohnung",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-066",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wohnt heute wegen der Prüfung ruhig in Wien.",
+  "accept": [
+   "Er wohnt heute wegen der Prüfung ruhig in Wien."
+  ],
+  "tiles": [
+   "Er",
+   "wohnt",
+   "heute",
+   "wegen",
+   "der",
+   "Prüfung",
+   "ruhig",
+   "in",
+   "Wien",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-067",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich wohne am Montag ruhig in Wien.",
+  "accept": [
+   "Ich wohne am Montag ruhig in Wien."
+  ],
+  "tiles": [
+   "Ich",
+   "wohne",
+   "am",
+   "Montag",
+   "ruhig",
+   "in",
+   "Wien",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-068",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir wohnen am Montag wegen des Wetters in Wien.",
+  "accept": [
+   "Wir wohnen am Montag wegen des Wetters in Wien."
+  ],
+  "tiles": [
+   "Wir",
+   "wohnen",
+   "am",
+   "Montag",
+   "wegen",
+   "des",
+   "Wetters",
+   "in",
+   "Wien",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-069",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wohnt aus Neugier billig in einer kleinen Wohnung.",
+  "accept": [
+   "Er wohnt aus Neugier billig in einer kleinen Wohnung."
+  ],
+  "tiles": [
+   "Er",
+   "wohnt",
+   "aus",
+   "Neugier",
+   "billig",
+   "in",
+   "einer",
+   "kleinen",
+   "Wohnung",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-070",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich wohne jeden Tag wegen des Projekts gern in der Nähe vom Bahnhof.",
+  "accept": [
+   "Ich wohne jeden Tag wegen des Projekts gern in der Nähe vom Bahnhof."
+  ],
+  "tiles": [
+   "Ich",
+   "wohne",
+   "jeden",
+   "Tag",
+   "wegen",
+   "des",
+   "Projekts",
+   "gern",
+   "in",
+   "der",
+   "Nähe",
+   "vom",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-071",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir wohnen heute ruhig in der Nähe vom Bahnhof.",
+  "accept": [
+   "Wir wohnen heute ruhig in der Nähe vom Bahnhof."
+  ],
+  "tiles": [
+   "Wir",
+   "wohnen",
+   "heute",
+   "ruhig",
+   "in",
+   "der",
+   "Nähe",
+   "vom",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-072",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wohnt am Wochenende wegen der Prüfung billig in einer kleinen Wohnung.",
+  "accept": [
+   "Er wohnt am Wochenende wegen der Prüfung billig in einer kleinen Wohnung."
+  ],
+  "tiles": [
+   "Er",
+   "wohnt",
+   "am",
+   "Wochenende",
+   "wegen",
+   "der",
+   "Prüfung",
+   "billig",
+   "in",
+   "einer",
+   "kleinen",
+   "Wohnung",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-073",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich warte jeden Tag geduldig vor dem Bahnhof.",
+  "accept": [
+   "Ich warte jeden Tag geduldig vor dem Bahnhof."
+  ],
+  "tiles": [
+   "Ich",
+   "warte",
+   "jeden",
+   "Tag",
+   "geduldig",
+   "vor",
+   "dem",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-074",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir warten im Sommer aus Erschöpfung am Eingang.",
+  "accept": [
+   "Wir warten im Sommer aus Erschöpfung am Eingang."
+  ],
+  "tiles": [
+   "Wir",
+   "warten",
+   "im",
+   "Sommer",
+   "aus",
+   "Erschöpfung",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-075",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wartet wegen des Wetters ruhig vor dem Bahnhof.",
+  "accept": [
+   "Er wartet wegen des Wetters ruhig vor dem Bahnhof."
+  ],
+  "tiles": [
+   "Er",
+   "wartet",
+   "wegen",
+   "des",
+   "Wetters",
+   "ruhig",
+   "vor",
+   "dem",
+   "Bahnhof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-076",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich warte jeden Tag aus Neugier ruhig am Eingang.",
+  "accept": [
+   "Ich warte jeden Tag aus Neugier ruhig am Eingang."
+  ],
+  "tiles": [
+   "Ich",
+   "warte",
+   "jeden",
+   "Tag",
+   "aus",
+   "Neugier",
+   "ruhig",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-077",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir warten jeden Tag ruhig am Eingang.",
+  "accept": [
+   "Wir warten jeden Tag ruhig am Eingang."
+  ],
+  "tiles": [
+   "Wir",
+   "warten",
+   "jeden",
+   "Tag",
+   "ruhig",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-078",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wartet jeden Tag aus Neugier ruhig am Eingang.",
+  "accept": [
+   "Er wartet jeden Tag aus Neugier ruhig am Eingang."
+  ],
+  "tiles": [
+   "Er",
+   "wartet",
+   "jeden",
+   "Tag",
+   "aus",
+   "Neugier",
+   "ruhig",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-079",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich warte morgen ruhig am Eingang.",
+  "accept": [
+   "Ich warte morgen ruhig am Eingang."
+  ],
+  "tiles": [
+   "Ich",
+   "warte",
+   "morgen",
+   "ruhig",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-080",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir warten heute wegen des Projekts am Eingang.",
+  "accept": [
+   "Wir warten heute wegen des Projekts am Eingang."
+  ],
+  "tiles": [
+   "Wir",
+   "warten",
+   "heute",
+   "wegen",
+   "des",
+   "Projekts",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-081",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wartet aus Neugier ruhig am Eingang.",
+  "accept": [
+   "Er wartet aus Neugier ruhig am Eingang."
+  ],
+  "tiles": [
+   "Er",
+   "wartet",
+   "aus",
+   "Neugier",
+   "ruhig",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-082",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich warte heute aus Erschöpfung geduldig im Auto.",
+  "accept": [
+   "Ich warte heute aus Erschöpfung geduldig im Auto."
+  ],
+  "tiles": [
+   "Ich",
+   "warte",
+   "heute",
+   "aus",
+   "Erschöpfung",
+   "geduldig",
+   "im",
+   "Auto",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-083",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir warten heute mit einem Buch am Eingang.",
+  "accept": [
+   "Wir warten heute mit einem Buch am Eingang."
+  ],
+  "tiles": [
+   "Wir",
+   "warten",
+   "heute",
+   "mit",
+   "einem",
+   "Buch",
+   "am",
+   "Eingang",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-084",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er wartet am Wochenende aus Erschöpfung ruhig im Auto.",
+  "accept": [
+   "Er wartet am Wochenende aus Erschöpfung ruhig im Auto."
+  ],
+  "tiles": [
+   "Er",
+   "wartet",
+   "am",
+   "Wochenende",
+   "aus",
+   "Erschöpfung",
+   "ruhig",
+   "im",
+   "Auto",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-085",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich spiele morgen mit den Kindern auf dem Hof.",
+  "accept": [
+   "Ich spiele morgen mit den Kindern auf dem Hof."
+  ],
+  "tiles": [
+   "Ich",
+   "spiele",
+   "morgen",
+   "mit",
+   "den",
+   "Kindern",
+   "auf",
+   "dem",
+   "Hof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-086",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir spielen morgen wegen der Prüfung im Garten.",
+  "accept": [
+   "Wir spielen morgen wegen der Prüfung im Garten."
+  ],
+  "tiles": [
+   "Wir",
+   "spielen",
+   "morgen",
+   "wegen",
+   "der",
+   "Prüfung",
+   "im",
+   "Garten",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-087",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er spielt wegen des Projekts mit den Kindern im Park.",
+  "accept": [
+   "Er spielt wegen des Projekts mit den Kindern im Park."
+  ],
+  "tiles": [
+   "Er",
+   "spielt",
+   "wegen",
+   "des",
+   "Projekts",
+   "mit",
+   "den",
+   "Kindern",
+   "im",
+   "Park",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-088",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich spiele nach der Arbeit wegen des Wetters gern im Park.",
+  "accept": [
+   "Ich spiele nach der Arbeit wegen des Wetters gern im Park."
+  ],
+  "tiles": [
+   "Ich",
+   "spiele",
+   "nach",
+   "der",
+   "Arbeit",
+   "wegen",
+   "des",
+   "Wetters",
+   "gern",
+   "im",
+   "Park",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-089",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir spielen im Sommer mit den Kindern auf dem Hof.",
+  "accept": [
+   "Wir spielen im Sommer mit den Kindern auf dem Hof."
+  ],
+  "tiles": [
+   "Wir",
+   "spielen",
+   "im",
+   "Sommer",
+   "mit",
+   "den",
+   "Kindern",
+   "auf",
+   "dem",
+   "Hof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-090",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er spielt am Montag aus Neugier gern auf dem Hof.",
+  "accept": [
+   "Er spielt am Montag aus Neugier gern auf dem Hof."
+  ],
+  "tiles": [
+   "Er",
+   "spielt",
+   "am",
+   "Montag",
+   "aus",
+   "Neugier",
+   "gern",
+   "auf",
+   "dem",
+   "Hof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-091",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich spiele jeden Tag gern im Park.",
+  "accept": [
+   "Ich spiele jeden Tag gern im Park."
+  ],
+  "tiles": [
+   "Ich",
+   "spiele",
+   "jeden",
+   "Tag",
+   "gern",
+   "im",
+   "Park",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-092",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir spielen am Wochenende wegen des Wetters auf dem Hof.",
+  "accept": [
+   "Wir spielen am Wochenende wegen des Wetters auf dem Hof."
+  ],
+  "tiles": [
+   "Wir",
+   "spielen",
+   "am",
+   "Wochenende",
+   "wegen",
+   "des",
+   "Wetters",
+   "auf",
+   "dem",
+   "Hof",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-093",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er spielt aus Erschöpfung mit den Kindern im Garten.",
+  "accept": [
+   "Er spielt aus Erschöpfung mit den Kindern im Garten."
+  ],
+  "tiles": [
+   "Er",
+   "spielt",
+   "aus",
+   "Erschöpfung",
+   "mit",
+   "den",
+   "Kindern",
+   "im",
+   "Garten",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-094",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich spiele im Sommer aus Neugier gern im Park.",
+  "accept": [
+   "Ich spiele im Sommer aus Neugier gern im Park."
+  ],
+  "tiles": [
+   "Ich",
+   "spiele",
+   "im",
+   "Sommer",
+   "aus",
+   "Neugier",
+   "gern",
+   "im",
+   "Park",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-095",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir spielen im Sommer laut im Park.",
+  "accept": [
+   "Wir spielen im Sommer laut im Park."
+  ],
+  "tiles": [
+   "Wir",
+   "spielen",
+   "im",
+   "Sommer",
+   "laut",
+   "im",
+   "Park",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ },
+ {
+  "id": "tk-096",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "tekamolo",
+  "pool": "tekamolo",
+  "prompt": "Ordena la frase (orden neutro: Wann? Warum? Wie? Wo/Wohin?)",
+  "hint": "",
+  "translation": "",
+  "answer": "Er spielt im Sommer wegen des Projekts laut im Garten.",
+  "accept": [
+   "Er spielt im Sommer wegen des Projekts laut im Garten."
+  ],
+  "tiles": [
+   "Er",
+   "spielt",
+   "im",
+   "Sommer",
+   "wegen",
+   "des",
+   "Projekts",
+   "laut",
+   "im",
+   "Garten",
+   "."
+  ],
+  "errorTag": "satzbau:tekamolo",
+  "conceptIds": [
+   "md:tekamolo"
+  ],
+  "source": "gen-tekamolo"
+ }
+]

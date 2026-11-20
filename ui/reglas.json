@@ -835,6 +835,20 @@
     "antes": "alt",
     "despues": "älter · am **ältesten**"
    }
+  },
+  "md:tekamolo": {
+   "titulo": "TeKaMoLo: orden de los complementos",
+   "errores": [
+    "TeKaMoLo significa temporal, causal, modal y local.",
+    "Si un complemento ocupa la primera posición, el verbo sigue en segunda: Heute arbeite ich ...",
+    "TeKaMoLo es el orden neutro; el contexto permite otras posiciones."
+   ],
+   "formula": "Temporal – Kausal – Modal – Lokal",
+   "regla": "**Orden neutro** de los complementos tras el verbo: cuándo → por qué → cómo → dónde. Los que no hay se saltan. Si adelantas uno, el verbo sigue en 2.ª posición.",
+   "ejemplo": {
+    "antes": "dónde · cómo · cuándo",
+    "despues": "**heute** · **mit dem Zug** · **nach Berlin**"
+   }
   }
  }
 }
