@@ -168,3 +168,4 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media (pointer:fine){.opt[data-k]{position:relative}.opt[data-k]::after{content:attr(data-k);position:absolute;top:6px;right:8px;font-size:11px;font-weight:800;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 5px;line-height:16px}}
 @media (min-width:900px) and (pointer:fine){.app{max-width:760px}.hero h1{font-size:34px}.field{font-size:28px}}
 .sprechen .say-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.say-t{font-weight:700}.said[aria-pressed="true"]{background:var(--brand);color:#fff}
+.p-es{margin-top:4px;font-size:15px;font-weight:700;color:var(--muted)}

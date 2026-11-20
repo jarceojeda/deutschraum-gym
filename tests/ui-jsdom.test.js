@@ -939,9 +939,9 @@ test('S · Satzbau: ordenar la frase con fichas; al fallar sale la regla de V₂
   u.next(); u.answer(true); assert.ok(u.q('.fb.ok'));
 });
 
-test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1, salvo Trampas y TeKaMoLo) se queda en A1', () => {
+test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1, salvo Trampas, TeKaMoLo y las estructuras A2/B1) se queda en A1', () => {
   const u = boot(162); u.click(u.q('[data-level="B1"]')); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
-  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau' && it.skill !== 'trampa' && it.skill !== 'tekamolo') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
+  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau' && it.skill !== 'trampa' && it.skill !== 'tekamolo' && !/^(nebensatz-|perfekt$|modal$|trennbar$|objekte$|zuinf$|indfrage$|relativ$|passiv$|konj2$|vergleich$)/.test(it.skill)) assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
   assert.ok(mods.size >= 4, [...mods].join());
   assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
 });
@@ -1230,4 +1230,17 @@ test('Mis frases: escribir una frase propia, ordenarla con fichas (con su traduc
   assert.ok(x.eng.store.byId['mf-' + id + '-order'], 'la copia la restaura'); assert.equal(JSON.parse(x.w.localStorage.getItem('dg.frases')).frases.length, 1);
   u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#frases')); u.click(u.q('.mw-del'));
   assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mf-' + id + '-order'], undefined); assert.equal(Object.keys(u.stored().items).filter(k => k.startsWith('mf-' + id)).length, 0);
+});
+
+test('Verben: cada ejercicio muestra el significado del verbo («= aprender») y todos los verbos del contenido tienen significado', () => {
+  const V = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'verbos-es.json'), 'utf8')).verbos;
+  const lemmas = new Set(['verben', 'gramatica'].flatMap(f => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', f + '.json'), 'utf8')).map(i => i.lemma)));
+  [...lemmas].forEach(l => assert.ok(V[l] && V[l].length >= 2, 'sin significado: ' + l)); const t = JSON.stringify(V); assert.equal(t, t.normalize('NFC'));
+  assert.equal(V.lernen, 'aprender'); assert.equal(V.verlassen, 'dejar, abandonar');
+  const u = boot(270); u.click(u.q('[data-level="B1"]')); u.chooseModule('verben', 30); u.start(); let n = 0;
+  for (let i = 0; i < 25 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item; if (it.module === 'verben') { const el = u.q('.p-es'); assert.ok(el, 'sin significado en ' + it.id); assert.equal(el.textContent, '= ' + V[it.lemma]); n++; }
+    u.answer(true); u.next();
+  }
+  assert.ok(n >= 15, 'ejercicios de verbos revisados: ' + n);
 });

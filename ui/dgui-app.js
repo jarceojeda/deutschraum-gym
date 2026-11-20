@@ -162,6 +162,7 @@
         var long = v.type === 'order' || v.type === 'transform';
         box.appendChild(h('div.p-big.p-sent' + (long ? '.p-long' : ''), sentNodes(String(v.prompt))));
       }
+      if (v.module === 'verben' && ctx.verbos && ctx.verbos[parts[0]]) box.appendChild(h('div.p-es', { 'data-verb-es': parts[0] }, '= ' + ctx.verbos[parts[0]]));   // significado del verbo (todas las habilidades)
       if (v.type === 'order' && item.translation) box.appendChild(h('div.p-tr', '“' + item.translation + '”'));
       if (v.showTranslation && v.translation) box.appendChild(h('div.p-tr', '“' + v.translation + '”'));
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));

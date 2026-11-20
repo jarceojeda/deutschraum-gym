@@ -10,7 +10,7 @@ const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 const safe = s => s.replace(/<(\/script|!--)/gi, '\\u003c$1');
 function build() {
   require('./bundle.js');          // el HTML siempre lleva el motor al día
-  const data = [].concat(...MODULES.concat(['gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion']).map(m => JSON.parse(rd('data/' + m + '.json'))));
+  const data = [].concat(...MODULES.concat(['gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion', 'satzbau-b1']).map(m => JSON.parse(rd('data/' + m + '.json'))));
   const concepts = JSON.parse(rd('data/concepts.json'));
   const ui = 'window.DGUI = window.DGUI || {};\n' + UI_ORDER.map(n => '/* ===== ' + n + '.js ===== */\n' + rd('ui/' + n + '.js')).join('\n');
   const html = rd('ui/index.html')
@@ -19,6 +19,7 @@ function build() {
     .replace('/*__BEYOND__*/', () => safe(JSON.stringify(JSON.parse(rd('data/wortschatz-beyond.json')))))
     .replace('/*__CONCEPTS__*/', () => safe(JSON.stringify(concepts)))
     .replace('/*__REGLAS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/reglas.json')))))
+    .replace('/*__VERBOS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/verbos-es.json')))))
     .replace('/*__TABLAS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/tablas.json')))))
     .replace('/*__SUFIJOS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/sufijos.json')))))
     .replace('/*__ENGINE__*/', () => safe(rd('dist/dg-engine.bundle.js')))

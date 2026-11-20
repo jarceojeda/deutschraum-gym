@@ -143,3 +143,9 @@ Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 
 - **Mis frases:** frases propias de 3–12 palabras + significado; aparecen en Satzbau como «Ordena tu frase» (con traducción), se practican aparte, viajan en la copia (`misFrases`) y se quitan con su progreso. Máx. 100.
 - **Ciclo Verstehen→Üben→Sprechen:** Verstehen = cápsula (ya existía), Üben = ejercicios, Sprechen = el paso nuevo opcional.
 - Límite honesto: los atajos y el foco automático están probados en jsdom, no en un navegador de escritorio real; el diseño ancho no tiene capturas.
+
+
+## Etapa 4c (cierre) · hueco de datos Satzbau A2/B1 y significado de los verbos
+- **Datos definitivos del pipeline: no existen para el usuario**, así que se llenó el hueco con contenido propio. Wortschatz ya tenía miles de ítems (referencia + clases A2/B1 + opcional B2/C1); lo que faltaba era **Satzbau más allá de A1**: `data/satzbau-b1.json` (158 frases A2/B1 propias, `tools/gen-satzbau-b1.js`): subordinadas weil/wenn/obwohl/damit/nachdem en las dos órdenes (con inversión), Perfekt, Modalverben, verbos separables, Dativ+Akkusativ, Infinitiv con zu, preguntas indirectas, Relativsatz, Passiv, Konjunktiv II y comparación. Cada una con pista de estructura y traducción.
+- **Significado del verbo** en todos los ejercicios de Verben («= aprender» bajo la consigna): `ui/verbos-es.json` (263 verbos; 183 salen del Wortschatz y 80 son una tabla propia en `tools/gen-verbos-es.js`, con correcciones manuales). Prueba: todo verbo del contenido tiene significado.
+- Límite: traducciones y significados escritos/derivados sin revisión de una persona nativa; algunos verbos tienen varios sentidos y se muestra el más común.
