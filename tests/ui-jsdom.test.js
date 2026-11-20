@@ -536,7 +536,7 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
@@ -938,9 +938,9 @@ test('S · Satzbau: ordenar la frase con fichas; al fallar sale la regla de V₂
   u.next(); u.answer(true); assert.ok(u.q('.fb.ok'));
 });
 
-test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1) se queda en A1', () => {
+test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1, salvo las Trampas A1–B1) se queda en A1', () => {
   const u = boot(162); u.click(u.q('[data-level="B1"]')); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
-  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
+  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau' && it.skill !== 'trampa') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
   assert.ok(mods.size >= 4, [...mods].join());
   assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
 });
@@ -1039,4 +1039,15 @@ test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv
     }
   }
   assert.ok(Object.keys(vistos).length >= 2, 'habilidades nuevas vistas: ' + Object.keys(vistos).join());
+});
+
+test('T · Trampas: en Satzbau aparece «¿Cuál es correcta?» por toques y, tras fallar, se muestra la explicación propia del ítem', () => {
+  let ok = false;
+  for (let seed = 120; seed < 130 && !ok; seed++) {
+    const u = boot(seed);
+    if (!toItem(u, it => it.skill === 'trampa', 'satzbau', 30)) continue;
+    const it = u.S().cur.item; assert.ok(u.q('.options .opt'), 'opciones por toque');
+    u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation); ok = true;
+  }
+  assert.ok(ok, 'ninguna trampa servida en 10 semillas');
 });
