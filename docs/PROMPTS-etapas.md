@@ -14,7 +14,7 @@ Durante la «etapa 3» se hizo también buena parte de las etapas 4 y 5 (ver `do
 | 4b | **Gramática B1** — HECHA en lo esencial (rama `etapa4-gramatica`): Plusquamperfekt, Futur I, Imperativ, Konjunktiv II y Passiv (Präsens/Präteritum) en Verben; Relativpronomen y Komparativ/Superlativ en Deklination (tabla propia s11-6); TeKaMoLo y «Trampas» en Satzbau; Pronunciación en Wortschatz (🔊 con palabra de ejemplo); Biblioteca de clases (51 fichas) en Consulta; «Más allá del B1» opcional (vocabulario B2/C1, apagado por defecto). Todo con ejercicios originales generados y pruebas. Pendiente de pulir: ver ESTADO. | **Hecha en lo esencial** (pendiente de PR) |
 | 4c | Datos definitivos de Wortschatz (1.139) y Satzbau (216) del pipeline + «Mis palabras» (requiere cambio de motor con prueba) | «Mis palabras» **hecha**; datos definitivos pendientes (no están en el repo) |
 | 5 | Teoría, rampa A1→B1 con tope, backup, PWA, voz, «Escribir» | **Hecha en lo esencial** (publicada como PWA). Pendiente → **5b** |
-| 5b | Modo Casa para laptop, ciclo Verstehen→Üben→Sprechen formal, cheat sheets A2/B1 completos en la Consulta, frases personalizadas | Pendiente |
+| 5b | Modo Casa para laptop, ciclo Verstehen→Üben→Sprechen formal, cheat sheets A2/B1 completos en la Consulta, frases personalizadas | **Hecha en lo esencial** (ver ESTADO) |
 | 6 | **Auditoría final** (accesibilidad, diéresis en todos los datos, cola de errores, filtro de nivel, pools, viewport, pendientes de la revisión Opus 2b) | **Pendiente: se hace al final** |
 
 ---

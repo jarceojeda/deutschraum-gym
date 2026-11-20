@@ -29,3 +29,15 @@ test('load/save: ida y vuelta, ignora basura y no falla sin almacenamiento', () 
   st.setItem(P.KEY, '{rota'); assert.deepEqual(P.load(st), []); st.setItem(P.KEY, JSON.stringify({ words: [1, { id: 'x' }, { id: 'b', de: 'x', es: 'y' }] })); assert.deepEqual(P.load(st), [{ id: 'b', de: 'x', es: 'y' }]);
   assert.deepEqual(P.load(null), []); assert.equal(P.save(null, []), false);
 });
+
+test('Mis frases: parseFrase normaliza (mayúscula inicial, punto final), limita 3–12 palabras y rechaza duplicados; las fichas reconstruyen la frase y el motor la valida', () => {
+  const ok = P.parseFrase('  ich lerne jeden tag deutsch ', 'Aprendo alemán cada día', []); assert.equal(ok.ok, true); assert.equal(ok.frase.de, 'Ich lerne jeden tag deutsch.');
+  assert.equal(P.parseFrase('Hallo Welt', 'x', []).ok, false, '2 palabras'); assert.equal(P.parseFrase('a b c d e f g h i j k l m.', 'x', []).ok, false, '13 palabras');
+  assert.equal(P.parseFrase('Ich lerne Deutsch.', '', []).ok, false); assert.equal(P.parseFrase('Ich <b>lerne</b> Deutsch', 'x', []).ok, false);
+  assert.equal(P.parseFrase('ich lerne deutsch', 'x', [{ id: 'a', de: 'Ich lerne deutsch.', es: 'y' }]).ok, false, 'duplicado');
+  assert.deepEqual(P.tiles('Wo wohnst du, Anna?'), ['Wo', 'wohnst', 'du', ',', 'Anna', '?']);
+  const f = { id: 'f1', de: 'Ich möchte einen Kaffee, bitte.', es: 'Quiero un café, por favor.' }, items = P.makeFrase(f);
+  const rep = DG.items.validate(DG.items.createStore(data.concat(items)), { concepts }); assert.deepEqual(rep.errors.filter(e => e.code !== 'pool-too-small'), []);
+  assert.equal(items[0].module, 'satzbau'); assert.equal(items[0].translation, f.es); assert.deepEqual(P.fraseIds(f), ['mf-f1-order']);
+  const st = memStorage(); assert.deepEqual(P.loadFrases(st), []); P.saveFrases(st, [f]); assert.deepEqual(P.loadFrases(st), [f]); st.setItem(P.KEYF, '{rota'); assert.deepEqual(P.loadFrases(st), []);
+});

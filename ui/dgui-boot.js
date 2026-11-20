@@ -14,11 +14,13 @@
   if (beyondOn) data = data.concat(beyond); else keepIds = beyond.map(function (i) { return i.id; });   // apagado: se cargan sin ejercicios, pero su progreso NO se poda
   var words = D.palabras.load(storage);   // «Mis palabras»: ítems propios del alumno
   if (words.length) data = data.concat(D.palabras.makeAll(words, data));
+  var frases = D.palabras.loadFrases(storage);   // «Mis frases»: oraciones propias para ordenar
+  frases.forEach(function (f) { data = data.concat(D.palabras.makeFrase(f)); });
   var opts = { data: data, concepts: json('dg-concepts'), storage: storage, keepIds: keepIds };
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, words: words, storage: storage, keepIds: keepIds, rnd: rnd, autoMs: cfg.autoMs });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, words: words, frases: frases, storage: storage, keepIds: keepIds, rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
   if (!cfg.noPwa) D.pwa.init(g);
 })(typeof globalThis !== 'undefined' ? globalThis : this);

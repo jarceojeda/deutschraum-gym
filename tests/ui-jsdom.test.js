@@ -1186,3 +1186,48 @@ test('Consulta · hojas A2 y B1: dos grupos nuevos con los temas de gramática d
   u.click(u.q('[data-concept="sb1:g1-1-5"]')); const cap = u.q('[role="dialog"] .capsule'); assert.ok(cap && /obwohl/.test(cap.textContent));
   u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null);
 });
+
+test('Modo Casa: teclas 1–4 eligen la opción y Enter continúa; no actúan con un panel abierto ni sobre un botón enfocado; las opciones llevan su número', () => {
+  const u = boot(240), key = (k, target) => (target || u.d.body).dispatchEvent(new u.w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
+  u.chooseModule('verben', 10); u.start();
+  for (let i = 0; i < 30 && u.S().cur.spec.kind !== 'choice'; i++) { u.answer(true); u.next(); }
+  assert.equal(u.S().cur.spec.kind, 'choice'); const opts = u.qa('.options .opt'); assert.ok(opts.length >= 2); assert.deepEqual(opts.map(b => b.dataset.k), opts.map((_, i) => String(i + 1)));
+  // un botón enfocado se maneja solo (Enter lo pulsa el navegador): el atajo no lo duplica
+  const first = u.q('.options .opt'); key('1', first); assert.equal(u.q('.fb'), null, 'con el foco en un botón no actúa');
+  const wrongK = u.qa('.options .opt').find(b => b.dataset.opt !== u.S().cur.item.answer).dataset.k; key(wrongK); assert.ok(u.q('.fb.bad'), 'la tecla ' + wrongK + ' respondió (mal a propósito)');
+  const posAns = u.S().session.position(); key(wrongK); assert.ok(u.q('.fb') && u.S().session.position() === posAns, 'una 2.ª pulsación no responde otra vez');
+  // con un panel abierto, Enter no avanza
+  u.click(u.q('#rule')); assert.ok(u.q('[role="dialog"]')); key('Enter'); assert.ok(u.q('.fb') && u.S().session.position() === posAns, 'panel abierto: sin efecto');
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' }));
+  key('Enter'); assert.equal(u.q('.fb'), null, 'Enter pasó a la siguiente'); assert.ok(u.S().cur.view && !u.S().cur.fb);
+});
+
+test('Sprechen: apagado por defecto; si se activa (y hay voz) el resumen ofrece ≤5 frases para repetir en voz alta con 🔊 y «Lo dije», sin escribir progreso extra', () => {
+  const voice = w => { w.__spoken = []; w.speechSynthesis = { speak: x => w.__spoken.push(x.text), cancel() {}, getVoices: () => [{ lang: 'de-DE', name: 'Test', default: true }] }; w.SpeechSynthesisUtterance = function (t) { this.text = t; }; };
+  const run = (seed, ui, withVoice) => { const u = boot(seed, { before: w => { w.localStorage.setItem('dg.ui', JSON.stringify(Object.assign({ auto: false }, ui))); if (withVoice) voice(w); } }); u.chooseModule('verben', 10); u.start(); while (u.S().screen === 'session') { u.answer(u.S().session.position() % 3 !== 0); u.next(); } return u; };
+  assert.equal(run(250, {}, true).q('#sprechen'), null, 'apagado por defecto');
+  assert.equal(run(251, { sprechen: true }, false).q('#sprechen'), null, 'sin voz no se ofrece');
+  const u = run(252, { sprechen: true }, true), rows = u.qa('#sprechen .say-row'); assert.ok(rows.length >= 1 && rows.length <= 5, String(rows.length));
+  const first = rows[0], txt = first.querySelector('.say-t').textContent; u.click(first.querySelector('.say-b')); assert.equal(u.w.__spoken[u.w.__spoken.length - 1], txt);
+  const said = first.querySelector('.said'); u.click(said); assert.equal(said.getAttribute('aria-pressed'), 'true'); assert.match(said.textContent, /✓/);
+  const antes = JSON.stringify(u.stored()); u.click(said); assert.equal(JSON.stringify(u.stored()), antes, 'marcar «Lo dije» no toca el progreso');
+  assert.equal(new Set(rows.map(r => r.querySelector('.say-t').textContent)).size, rows.length, 'sin frases repetidas');
+});
+
+test('Mis frases: escribir una frase propia, ordenarla con fichas (con su traducción), sobrevivir al reinicio, viajar en la copia y quitarla con su progreso', async () => {
+  const u = boot(260); u.click(u.q('#frases')); assert.equal(u.S().screen, 'frases');
+  const add = (de, es) => { u.q('#mf-de').value = de; u.q('#mf-es').value = es; u.click(u.q('#mf-add')); };
+  add('Hallo Welt', 'x'); assert.equal(u.qa('.mw-row').length, 0, 'menos de 3 palabras: rechazada');
+  add('ich lerne jeden tag Deutsch', 'Aprendo alemán cada día'); assert.equal(u.qa('.mw-row').length, 1); assert.equal(u.q('.mw-row .el').textContent, 'Ich lerne jeden tag Deutsch.');
+  add('Ich lerne jeden tag Deutsch.', 'otra vez'); assert.equal(u.qa('.mw-row').length, 1, 'duplicado rechazado');
+  const raw = JSON.parse(u.w.localStorage.getItem('dg.frases')), id = raw.frases[0].id; assert.ok(u.eng.store.byId['mf-' + id + '-order']);
+  u.click(u.q('#mf-practice')); assert.equal(u.S().screen, 'session'); assert.equal(u.S().cur.item.id, 'mf-' + id + '-order');
+  assert.match(u.q('.p-tr').textContent, /Aprendo alemán/); u.answer(true); assert.ok(u.q('.fb.ok'), 'ordenada con fichas: correcta');
+  u.next(); u.click(u.q('.dock .btn.secondary'));   // resumen → inicio
+  const pkg = (u.click(u.q('[aria-label="Ajustes"]')), u.click(u.q('#export-btn')), JSON.parse(u.w.DGUI.app.lastExport.text)); assert.equal(pkg.misFrases.length, 1);
+  assert.ok(boot(261, { before: w => w.localStorage.setItem('dg.frases', JSON.stringify(raw)) }).eng.store.byId['mf-' + id + '-order'], 'tras reiniciar sigue cargada');
+  const x = boot(262); x.click(x.q('[aria-label="Ajustes"]')); fileInput(x, JSON.stringify(pkg), 'copia.json'); assert.ok(await waitFor(() => x.q('#confirm-import'))); x.click(x.q('#confirm-import'));
+  assert.ok(x.eng.store.byId['mf-' + id + '-order'], 'la copia la restaura'); assert.equal(JSON.parse(x.w.localStorage.getItem('dg.frases')).frases.length, 1);
+  u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#frases')); u.click(u.q('.mw-del'));
+  assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mf-' + id + '-order'], undefined); assert.equal(Object.keys(u.stored().items).filter(k => k.startsWith('mf-' + id)).length, 0);
+});

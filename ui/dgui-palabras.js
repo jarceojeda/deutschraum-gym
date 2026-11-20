@@ -56,6 +56,35 @@
   };
   P.save = function (storage, words) { try { storage.setItem(KEY, JSON.stringify({ v: 1, words: words })); return true; } catch (e) { return false; } };
   P.KEY = KEY; P.MAX = MAXW;
+  /* ---------- Mis frases: oraciones propias para ordenar (Satzbau) ---------- */
+  var KEYF = 'dg.frases', MAXF = 100;
+  P.parseFrase = function (de, es, existing) {
+    de = nfc(de); es = nfc(es);
+    if (!de || !es) return { ok: false, error: 'Escribe la frase en alemán y su significado.' };
+    if (/[<>{}]/.test(de + es)) return { ok: false, error: 'Hay caracteres no permitidos.' };
+    if (de.length > 90 || es.length > 140) return { ok: false, error: 'Es demasiado larga: usa una frase de hasta 90 caracteres.' };
+    if (!/[.!?]$/.test(de)) de += '.';
+    de = de.charAt(0).toUpperCase() + de.slice(1);
+    var n = P.tiles(de).filter(function (t) { return !/^[.,;:!?]$/.test(t); }).length;
+    if (n < 3) return { ok: false, error: 'Escribe una frase de al menos 3 palabras.' };
+    if (n > 12) return { ok: false, error: 'Máximo 12 palabras para poder ordenarla con toques.' };
+    if ((existing || []).some(function (f) { return f.de.toLowerCase() === de.toLowerCase(); })) return { ok: false, error: 'Esa frase ya está en tu lista.' };
+    if ((existing || []).length >= MAXF) return { ok: false, error: 'Tu lista llegó al máximo de ' + MAXF + ' frases.' };
+    return { ok: true, frase: { de: de, es: es } };
+  };
+  P.tiles = function (de) { return de.match(/[^\s.,;:!?]+|[.,;:!?]/g) || []; };
+  P.makeFrase = function (f) {
+    return [{ id: 'mf-' + f.id + '-order', module: 'satzbau', level: 'A1', type: 'order', skill: 'mis-frases', pool: 'mis-frases', prompt: 'Ordena tu frase', hint: '', translation: f.es, answer: f.de, accept: [f.de],
+      tiles: P.tiles(f.de), errorTag: 'satzbau:mis-frases', conceptIds: [], source: 'mis-frases' }];
+  };
+  P.fraseIds = function (f) { return ['mf-' + f.id + '-order']; };
+  P.loadFrases = function (storage) {
+    try { var raw = storage && storage.getItem(KEYF); if (!raw) return []; var j = JSON.parse(raw), a = j && Array.isArray(j.frases) ? j.frases : [];
+      return a.filter(function (w) { return w && typeof w.id === 'string' && typeof w.de === 'string' && typeof w.es === 'string'; }).map(function (w) { return { id: w.id, de: nfc(w.de), es: nfc(w.es) }; }); } catch (e) { return []; }
+  };
+  P.saveFrases = function (storage, frases) { try { storage.setItem(KEYF, JSON.stringify({ v: 1, frases: frases })); return true; } catch (e) { return false; } };
+  P.KEYF = KEYF; P.MAXF = MAXF;
+
   g.DGUI = g.DGUI || {}; g.DGUI.palabras = P;
   if (typeof module === 'object' && module.exports) module.exports = P;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

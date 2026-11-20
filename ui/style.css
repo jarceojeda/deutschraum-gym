@@ -165,3 +165,6 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .mw-in{width:100%;font:inherit;font-size:18px;min-height:52px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0 14px}
 .mw-in:focus{outline:3px solid var(--accent);border-color:var(--brand)}
 .mw-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px}.mw-row .en{grid-column:1}.mw-row .mw-del{grid-row:1 / span 2;grid-column:2;min-height:48px}
+@media (pointer:fine){.opt[data-k]{position:relative}.opt[data-k]::after{content:attr(data-k);position:absolute;top:6px;right:8px;font-size:11px;font-weight:800;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 5px;line-height:16px}}
+@media (min-width:900px) and (pointer:fine){.app{max-width:760px}.hero h1{font-size:34px}.field{font-size:28px}}
+.sprechen .say-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.say-t{font-weight:700}.said[aria-pressed="true"]{background:var(--brand);color:#fff}

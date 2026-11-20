@@ -134,3 +134,12 @@ Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 
 - **Cambios de motor (con prueba que falla antes y pasa después):** `engine.addItems / removeItems` (contenido del usuario en caliente; valida sin exigir pool mínimo), `startSession({kind:'ids', ids})` (sesión sólo con esos ítems; lo menos visto primero) y `keepIds` en `createEngine/reconcile` (no poda el progreso de contenido opcional no cargado).
 - **Bug corregido:** al apagar «Más allá del B1» el motor podaba el progreso de esos ítems; ahora se conserva (prueba en `tests/ui-jsdom.test.js` y `tests/engine.test.js`).
 - **Los datos definitivos del pipeline (Wortschatz 1.139 / Satzbau 216) NO están en el repositorio:** no hay nada que sustituir hasta que los subas. Siguen en uso las primeras versiones generadas.
+
+
+## Etapa 5b · Modo Casa, Sprechen, hojas A2/B1 y «Mis frases» (hecha en lo esencial)
+- **Modo Casa (laptop):** atajos en sesión (teclas 1–6 = opción, Enter = comprobar/continuar; no actúan con un panel abierto, escribiendo ni con un botón enfocado); las opciones muestran su número con puntero fino; en «Escribir» el cursor ya queda en el campo; columna algo más ancha ≥900 px. Sin `:hover` (las consultas usan `pointer:fine`, el test lo exige).
+- **Sprechen:** ajuste («Sprechen al terminar», apagado por defecto). Al final de la sesión, ≤5 frases para repetir con 🔊 y «Lo dije» (sólo visual, no escribe progreso). Necesita voz alemana.
+- **Consulta:** grupos «A2 · hoja» (53) y «B1 · hoja» (67) con los temas de gramática de las hojas `telc_a2/b1` (sin TELC ni vocabulario/escritura), orden natural. Sin ejercicios propios (ids `sa2:`/`sb1:`).
+- **Mis frases:** frases propias de 3–12 palabras + significado; aparecen en Satzbau como «Ordena tu frase» (con traducción), se practican aparte, viajan en la copia (`misFrases`) y se quitan con su progreso. Máx. 100.
+- **Ciclo Verstehen→Üben→Sprechen:** Verstehen = cápsula (ya existía), Üben = ejercicios, Sprechen = el paso nuevo opcional.
+- Límite honesto: los atajos y el foco automático están probados en jsdom, no en un navegador de escritorio real; el diseño ancho no tiene capturas.

@@ -181,6 +181,9 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .mw-in{width:100%;font:inherit;font-size:18px;min-height:52px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0 14px}
 .mw-in:focus{outline:3px solid var(--accent);border-color:var(--brand)}
 .mw-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px}.mw-row .en{grid-column:1}.mw-row .mw-del{grid-row:1 / span 2;grid-column:2;min-height:48px}
+@media (pointer:fine){.opt[data-k]{position:relative}.opt[data-k]::after{content:attr(data-k);position:absolute;top:6px;right:8px;font-size:11px;font-weight:800;color:var(--muted);border:1px solid var(--line);border-radius:6px;padding:0 5px;line-height:16px}}
+@media (min-width:900px) and (pointer:fine){.app{max-width:760px}.hero h1{font-size:34px}.field{font-size:28px}}
+.sprechen .say-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 0;border-top:1px solid var(--line)}.say-t{font-weight:700}.said[aria-pressed="true"]{background:var(--brand);color:#fff}
 
 </style>
 </head>
@@ -2036,7 +2039,7 @@ window.DGUI = window.DGUI || {};
   };
   // Preferencias de la UI (clave aparte del progreso del motor).
   U.prefs = function (storage) {
-    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true, ladder: true, beyond: false };
+    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true, ladder: true, beyond: false, sprechen: false };
     try { var raw = storage && storage.getItem(KEY); if (raw) cur = Object.assign(cur, JSON.parse(raw)); } catch (e) { /* ignora */ }
     return {
       get: function (k) { return cur[k]; },
@@ -2140,7 +2143,7 @@ window.DGUI = window.DGUI || {};
     'praep-artikel': 'Preposición + artículo', 'praep-zeit': 'Preposición de tiempo', 'verb-praeposition': 'Verbo + preposición', 'verb-praeposition-artikel': 'Verbo + prep. + artículo',
     'konnektor-wahl': 'Elige el conector', 'weil-vorn': 'weil al inicio', 'wenn-vorn': 'wenn al inicio', 'obwohl-vorn': 'obwohl al inicio', 'transform-weil': 'Une con weil', 'transform-deshalb': 'Une con deshalb',
     'als-wenn-ob': 'als / wenn / ob', 'aber-sondern': 'aber / sondern', 'adverb-konnektor': 'Adverbio conector', doppelkonnektor: 'Conector doble', 'nebensatz-b1': 'Nebensatz', partikel: 'Partícula modal', 'adverb-gradpartikel': 'Partícula de grado' };
-  var SKILL_WS = { pronunciacion: 'Pronunciación', 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
+  var SKILL_WS = { 'mis-frases': 'Mi frase', pronunciacion: 'Pronunciación', 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
     aussagesatz: 'Frase afirmativa', 'w-frage': 'W-Frage', 'ja-nein-frage': 'Pregunta sí / no', umformen: 'Transformar la frase', tekamolo: 'TeKaMoLo', trampa: '¿Cuál es correcta?' };
   var SKILL_DEK = { relativpronomen: 'Pronombre relativo', komparativ: 'Komparativ', superlativ: 'Superlativ', 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
     'kasus-predicate_noun': 'Nominativ', 'kasus-dative_plural': 'Dativ plural', 'kasus-two_way_preposition': 'Wechselpräposition', 'dativ-plural': 'Dativ plural', 'genitiv-noun': 'Genitiv',
@@ -2504,6 +2507,35 @@ window.DGUI = window.DGUI || {};
   };
   P.save = function (storage, words) { try { storage.setItem(KEY, JSON.stringify({ v: 1, words: words })); return true; } catch (e) { return false; } };
   P.KEY = KEY; P.MAX = MAXW;
+  /* ---------- Mis frases: oraciones propias para ordenar (Satzbau) ---------- */
+  var KEYF = 'dg.frases', MAXF = 100;
+  P.parseFrase = function (de, es, existing) {
+    de = nfc(de); es = nfc(es);
+    if (!de || !es) return { ok: false, error: 'Escribe la frase en alemán y su significado.' };
+    if (/[<>{}]/.test(de + es)) return { ok: false, error: 'Hay caracteres no permitidos.' };
+    if (de.length > 90 || es.length > 140) return { ok: false, error: 'Es demasiado larga: usa una frase de hasta 90 caracteres.' };
+    if (!/[.!?]$/.test(de)) de += '.';
+    de = de.charAt(0).toUpperCase() + de.slice(1);
+    var n = P.tiles(de).filter(function (t) { return !/^[.,;:!?]$/.test(t); }).length;
+    if (n < 3) return { ok: false, error: 'Escribe una frase de al menos 3 palabras.' };
+    if (n > 12) return { ok: false, error: 'Máximo 12 palabras para poder ordenarla con toques.' };
+    if ((existing || []).some(function (f) { return f.de.toLowerCase() === de.toLowerCase(); })) return { ok: false, error: 'Esa frase ya está en tu lista.' };
+    if ((existing || []).length >= MAXF) return { ok: false, error: 'Tu lista llegó al máximo de ' + MAXF + ' frases.' };
+    return { ok: true, frase: { de: de, es: es } };
+  };
+  P.tiles = function (de) { return de.match(/[^\s.,;:!?]+|[.,;:!?]/g) || []; };
+  P.makeFrase = function (f) {
+    return [{ id: 'mf-' + f.id + '-order', module: 'satzbau', level: 'A1', type: 'order', skill: 'mis-frases', pool: 'mis-frases', prompt: 'Ordena tu frase', hint: '', translation: f.es, answer: f.de, accept: [f.de],
+      tiles: P.tiles(f.de), errorTag: 'satzbau:mis-frases', conceptIds: [], source: 'mis-frases' }];
+  };
+  P.fraseIds = function (f) { return ['mf-' + f.id + '-order']; };
+  P.loadFrases = function (storage) {
+    try { var raw = storage && storage.getItem(KEYF); if (!raw) return []; var j = JSON.parse(raw), a = j && Array.isArray(j.frases) ? j.frases : [];
+      return a.filter(function (w) { return w && typeof w.id === 'string' && typeof w.de === 'string' && typeof w.es === 'string'; }).map(function (w) { return { id: w.id, de: nfc(w.de), es: nfc(w.es) }; }); } catch (e) { return []; }
+  };
+  P.saveFrases = function (storage, frases) { try { storage.setItem(KEYF, JSON.stringify({ v: 1, frases: frases })); return true; } catch (e) { return false; } };
+  P.KEYF = KEYF; P.MAXF = MAXF;
+
   g.DGUI = g.DGUI || {}; g.DGUI.palabras = P;
   if (typeof module === 'object' && module.exports) module.exports = P;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
@@ -2753,10 +2785,10 @@ window.DGUI = window.DGUI || {};
   function choice(spec, cb) {
     var done = false, n = spec.options.length;
     var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
-    spec.options.forEach(function (o) {
+    spec.options.forEach(function (o, oi) {
       var badge = F.genderBadge(o, false);
       var noun = !badge && /^(der|die|das)\s+\S/i.test(o);   // «der Name»: artículo con color y forma
-      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : '') + (noun ? '.noun' : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', noun ? F.rich(o) : o)));
+      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : '') + (noun ? '.noun' : ''), { type: 'button', 'data-opt': o, 'data-k': String(oi + 1), onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', noun ? F.rich(o) : o)));
     });
     var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
     return { answerEl: null, dockEl: h('div.dock-in', grid, skip) };
@@ -2892,6 +2924,7 @@ window.DGUI = window.DGUI || {};
   function text(spec, item, cb) {
     var input = h('input.field', { type: 'text', id: 'answer', autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false', lang: 'de', enterkeyhint: 'done', 'aria-label': 'Tu respuesta', value: spec.prefill || '' });
     var done = false;
+    try { if (g.matchMedia && g.matchMedia('(pointer:fine)').matches) g.setTimeout(function () { input.focus(); }, 0); } catch (e) { /* sin foco automático */ }   // Modo Casa: el cursor ya está en el campo
     function submit() { var v = U.nfc(input.value).trim(); if (done || !v) return; done = true; cb.onSubmit(v); }
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
     var keys = h('div.umlauts', ['ä', 'ö', 'ü', 'ß'].map(function (c) {
@@ -3043,6 +3076,8 @@ window.DGUI = window.DGUI || {};
       var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Fórmulas y tiras de memoria, sin ejercicios')), h('span.go', { 'aria-hidden': 'true' }, '›'));
       var nw = (ctx.words || []).length;
       var wordsCard = h('button.card.errs', { type: 'button', id: 'palabras', onclick: palabras }, h('span.mi', { 'aria-hidden': 'true' }, '＋'), h('span.mt', h('strong', 'Mis palabras'), h('span', nw ? nw + ' propias en tu repaso' : 'Añade una palabra tuya en unos segundos')), nw ? h('span.badge', String(nw)) : h('span.go', { 'aria-hidden': 'true' }, '›'));
+      var nf = (ctx.frases || []).length;
+      var frasesCard = h('button.card.errs', { type: 'button', id: 'frases', onclick: frases }, h('span.mi', { 'aria-hidden': 'true' }, '❝'), h('span.mt', h('strong', 'Mis frases'), h('span', nf ? nf + ' propias para ordenar' : 'Ordena frases que tú escribes')), nf ? h('span.badge', String(nf)) : h('span.go', { 'aria-hidden': 'true' }, '›'));
       var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
         [storageBanner(),
@@ -3051,7 +3086,7 @@ window.DGUI = window.DGUI || {};
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, lvMode, function (v) { chooseLevel(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
             h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Mi vocabulario'), wordsCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Mi vocabulario'), wordsCard, frasesCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
     }
 
     /* ---------- sesión ---------- */
@@ -3068,6 +3103,17 @@ window.DGUI = window.DGUI || {};
       S.warnings = (s.warnings || []).map(function (w) { return { code: w.code, msg: WARN[w.code] || w.code }; });
       question();
     }
+    // Modo Casa (laptop): atajos de teclado en la sesión. 1–6 eligen la opción, Enter pasa a la siguiente / comprueba. No actúan con un panel abierto,
+    // escribiendo en un campo ni con un botón enfocado (Enter ya lo pulsa).
+    doc.addEventListener('keydown', function (e) {
+      if (S.screen !== 'session' || e.ctrlKey || e.metaKey || e.altKey || e.defaultPrevented) return;
+      var t = e.target, tag = t && t.tagName ? t.tagName : '';
+      if (/^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(tag) || root.querySelector('[role="dialog"]')) return;
+      var btn = null;
+      if (/^[1-6]$/.test(e.key)) btn = root.querySelector('.options .opt[data-k="' + e.key + '"]:not([disabled])');
+      else if (e.key === 'Enter') btn = root.querySelector('#next') || root.querySelector('.dock .btn.primary:not([disabled])');
+      if (btn) { e.preventDefault(); btn.click(); }
+    });
     function modName(id) { return MODULES.filter(function (m) { return m.id === id; })[0].name; }
     // Toast único: kind = info | ok | warn (la vibración acompaña a ok/warn, no a info).
     function toast(msg, kind) {
@@ -3339,6 +3385,19 @@ window.DGUI = window.DGUI || {};
         });
         if (failed.length > 8) blocks.push(h('p.hint.center', 'y ' + (failed.length - 8) + ' más en «Mis errores».'));
       }
+      // Sprechen (último paso del ciclo Verstehen → Üben → Sprechen): repetir en voz alta las frases de la sesión. Opcional y apagado por defecto (Modo Tren).
+      if (prefs.get('sprechen') === true && voice.available()) {
+        var seen = {}, phrases = [], order = (sm.failed || []).concat((s.plan && s.plan.items || []).map(function (e) { return e.id; }));
+        order.forEach(function (id) {
+          var it = eng.store.byId[id]; if (!it || phrases.length >= 5) return;
+          var tx = D.voice.spokenText(it); if (!tx || seen[tx] || tx.length > 80 || it.skill === 'pronunciacion') return; seen[tx] = true; phrases.push({ id: id, text: tx });
+        });
+        if (phrases.length) blocks.push(h('section.sum-card.sprechen', { id: 'sprechen' }, h('strong', 'Sprechen · repite en voz alta'), h('p.hint', 'Escucha, repite y marca «Lo dije». Es sólo para ti: no cuenta como práctica.'),
+          phrases.map(function (p) {
+            var said = h('button.btn.secondary.said', { type: 'button', 'aria-pressed': 'false', onclick: function () { var on = said.getAttribute('aria-pressed') !== 'true'; said.setAttribute('aria-pressed', String(on)); said.textContent = on ? 'Lo dije ✓' : 'Lo dije'; } }, 'Lo dije');
+            return h('div.say-row', { 'data-id': p.id }, h('span.say-t', F.rich(p.text)), h('button.btn.icon.say-b', { type: 'button', 'aria-label': 'Escuchar: ' + p.text, onclick: function () { var r = voice.speak(p.text); if (!r.ok) toast('No se pudo reproducir el audio.', 'warn'); } }, '🔊'), said);
+          })));
+      }
       (sm.levelChanges || []).forEach(function (c) { blocks.push(h('div.sum-card', h('strong', (c.change === 'promote' || c.to > c.from ? 'Subiste de nivel' : 'Cambio de nivel') + ': ' + c.module + ' ' + c.from + ' → ' + c.to))); });
       shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: function () { start({}); } }, 'Otra sesión')))], 'summary');
       if (S.retToast) { var m = S.retToast; S.retToast = null; toast(m, 'ok'); }   // después de pintar: shell() limpia la raíz
@@ -3401,6 +3460,32 @@ window.DGUI = window.DGUI || {};
     }
     api.palabras = palabras;
 
+    /* ---------- Mis frases ---------- */
+    function frases() {
+      S.screen = 'frases'; var W = D.palabras, list = ctx.frases = ctx.frases || [];
+      var inDe = h('input.mw-in', { type: 'text', id: 'mf-de', autocomplete: 'off', autocorrect: 'off', spellcheck: 'false', lang: 'de', placeholder: 'Ich lerne jeden Tag Deutsch.', 'aria-label': 'Frase en alemán', maxlength: '90' });
+      var inEs = h('input.mw-in', { type: 'text', id: 'mf-es', autocomplete: 'off', lang: 'es', placeholder: 'Aprendo alemán cada día.', 'aria-label': 'Significado en español', maxlength: '140' });
+      function add() {
+        var r = W.parseFrase(inDe.value, inEs.value, list); if (!r.ok) { frases(); toast(r.error, 'warn'); return; }
+        var f = Object.assign({ id: W.newId(list, win.Date.now()) }, r.frase), res = eng.addItems(W.makeFrase(f));
+        if (!res.added) { frases(); toast('No se pudo añadir: ' + ((res.errors[0] && res.errors[0].msg) || 'error'), 'warn'); return; }
+        list.push(f); var saved = W.saveFrases(ctx.storage, list); frases(); toast(saved ? 'Frase añadida: ya sale en Satzbau.' : 'Añadida, pero este navegador no pudo guardarla.', saved ? 'ok' : 'warn');
+      }
+      function remove(f) { eng.removeItems(W.fraseIds(f)); ctx.frases = list = list.filter(function (x) { return x.id !== f.id; }); W.saveFrases(ctx.storage, list); frases(); toast('Quitada.', 'info'); }
+      inEs.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      var rows = list.length ? h('div.emap', list.slice().reverse().map(function (f) {
+        return h('div.erow.mw-row', { 'data-frase': f.id }, h('span.el', f.de), h('span.en', f.es), h('button.btn.ghost.mw-del', { type: 'button', 'aria-label': 'Quitar la frase: ' + f.de, onclick: function () { remove(f); } }, 'Quitar'));
+      })) : h('p.hint', 'Aún no hay frases. Escribe una arriba: la ordenarás con fichas dentro de Satzbau.');
+      shell('Mis frases', [iconBtn('Volver', '←', home), brand('Mis frases', list.length + ' / ' + W.MAXF)], null,
+        [h('p.hint', 'Una frase tuya de 3 a 12 palabras con su significado. Aparece en Satzbau como «Ordena tu frase» y viaja en tu copia de seguridad.'),
+          h('label.mw-l', { for: 'mf-de' }, 'Frase en alemán'), inDe, h('label.mw-l', { for: 'mf-es' }, 'Significado en español'), inEs,
+          h('button.btn.primary.big', { type: 'button', id: 'mf-add', onclick: add }, 'Añadir a mi repaso'),
+          list.length ? h('button.btn.secondary.big', { type: 'button', id: 'mf-practice', onclick: function () { start({ kind: 'ids', ids: [].concat.apply([], list.map(W.fraseIds)).filter(function (id) { return !!eng.store.byId[id]; }) }); } }, 'Practicar mis frases (' + list.length + ')') : null,
+          h('h2.sec-h', 'Tu lista'), rows],
+        [h('div.dock-in', h('button.btn.secondary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.frases = frases;
+
     /* ---------- copia de seguridad ---------- */
     var IMPORT_ERR = { NOT_JSON: 'Ese archivo no es una copia válida.', NOT_BACKUP: 'No es una copia de Deutschraum Gym.', CHECKSUM: 'La copia está alterada o incompleta: no se cambió nada.', MIGRATION: 'La copia es de una versión que no entiendo: no se cambió nada.', SAVE: 'No pude guardar la copia (almacenamiento lleno o bloqueado).' };
     function exportBackup() {
@@ -3414,7 +3499,7 @@ window.DGUI = window.DGUI || {};
       } catch (e) { toast('No pude crear el archivo en este navegador.', 'warn'); }
     }
     // «Mis palabras» viajan en la copia de seguridad como campo aparte (fuera de `state`, así el checksum del motor no cambia).
-    function withWords(text) { try { var pkg = JSON.parse(text); if ((ctx.words || []).length) pkg.misPalabras = ctx.words; return JSON.stringify(pkg); } catch (e) { return text; } }
+    function withWords(text) { try { var pkg = JSON.parse(text); if ((ctx.words || []).length) pkg.misPalabras = ctx.words; if ((ctx.frases || []).length) pkg.misFrases = ctx.frases; return JSON.stringify(pkg); } catch (e) { return text; } }
     function restoreWords(text) {
       var pkg; try { pkg = JSON.parse(text); } catch (e) { return; }
       if (!pkg || !Array.isArray(pkg.misPalabras)) return;
@@ -3423,8 +3508,15 @@ window.DGUI = window.DGUI || {};
       ok.forEach(function (w) { var r = eng.addItems(W.make(w, eng.store.all, mine.concat(ok))); if (r.added) mine.push(w); });
       ctx.words = mine; W.save(ctx.storage, mine);
     }
+    function restoreFrases(text) {
+      var pkg; try { pkg = JSON.parse(text); } catch (e) { return; }
+      if (!pkg || !Array.isArray(pkg.misFrases)) return;
+      var W = D.palabras, mine = ctx.frases || [];
+      pkg.misFrases.forEach(function (f) { if (!f || typeof f.id !== 'string' || mine.some(function (m) { return m.id === f.id; })) return; var p = W.parseFrase(f.de, f.es, mine); if (!p.ok) return; var fr = { id: f.id, de: p.frase.de, es: p.frase.es }; if (eng.addItems(W.makeFrase(fr)).added) mine.push(fr); });
+      ctx.frases = mine; W.saveFrases(ctx.storage, mine);
+    }
     function applyImport(text) {
-      restoreWords(text);
+      restoreWords(text); restoreFrases(text);
       var r = eng.importJSON(text);
       if (!r.ok) { toast(IMPORT_ERR[r.code] || 'No se pudo importar la copia.', 'warn'); return r; }
       eng.progress.reconcile(eng.store, ctx.keepIds);          // quita ítems que ya no existen en esta versión
@@ -3489,12 +3581,14 @@ window.DGUI = window.DGUI || {};
         h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
+        h('section.set', h('h2', 'Modo Casa (laptop)'), h('p.hint', 'Para practicar con teclado: en el inicio elige «Escribir». En cualquier ejercicio: teclas 1–4 para las opciones y Enter para comprobar o continuar. El cursor ya queda en el campo.')),
         h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
         h('section.set', h('h2', 'Ayuda que se retira'), h('p.hint', 'Al empezar un tipo: opciones. Luego bloques y terminaciones. Al dominarlo: letras sueltas. Apagado: mezcla clásica.'), seg('Ayuda que se retira', [['1', 'Sí'], ['0', 'No']], prefs.get('ladder') === false ? '0' : '1', function (v) { prefs.set('ladder', v === '1'); })),
         h('section.set', h('h2', 'Tablas de ayuda en Deklination'), h('p.hint', 'Tabla completa al empezar un tipo, media tabla después y ninguna al dominarlo. Tras fallar siempre ves la casilla.'), seg('Tablas de ayuda', [['1', 'Sí'], ['0', 'No']], prefs.get('tables') === false ? '0' : '1', function (v) { prefs.set('tables', v === '1'); })),
         h('section.set', h('h2', 'Más allá del B1 (opcional)'), h('p.hint', 'Suma vocabulario de las clases B2/C1 al Wortschatz. Apagado por defecto: tu práctica de A1–B1 no cambia. Se aplica al reiniciar la app.'),
           seg('Más allá del B1', [['0', 'No'], ['1', 'Sí']], prefs.get('beyond') === true ? '1' : '0', function (v) { prefs.set('beyond', v === '1'); }),
           (prefs.get('beyond') === true) !== !!ctx.beyondOn ? h('button.btn.secondary', { type: 'button', id: 'restart', onclick: function () { win.location.reload(); } }, 'Reiniciar ahora para aplicar') : null),
+        h('section.set', h('h2', 'Sprechen al terminar'), h('p.hint', 'Al final de la sesión, repetir en voz alta 5 frases con la voz alemana. Apagado por defecto; necesita voz.'), seg('Sprechen', [['0', 'No'], ['1', 'Sí']], prefs.get('sprechen') === true ? '1' : '0', function (v) { prefs.set('sprechen', v === '1'); })),
         h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
           seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),
           h('button.btn.secondary.test-voice', { type: 'button', id: 'test-voice', onclick: function () { var r = voice.speak('Guten Tag! Das ist ein Test.'); toast(r.ok ? (r.voice ? 'Voz: ' + r.voice : 'Voz del sistema (sin voz alemana específica)') : 'No se pudo reproducir el audio.', r.ok ? 'info' : 'warn'); } }, '🔊 Probar voz'),
@@ -3538,11 +3632,13 @@ window.DGUI = window.DGUI || {};
   if (beyondOn) data = data.concat(beyond); else keepIds = beyond.map(function (i) { return i.id; });   // apagado: se cargan sin ejercicios, pero su progreso NO se poda
   var words = D.palabras.load(storage);   // «Mis palabras»: ítems propios del alumno
   if (words.length) data = data.concat(D.palabras.makeAll(words, data));
+  var frases = D.palabras.loadFrases(storage);   // «Mis frases»: oraciones propias para ordenar
+  frases.forEach(function (f) { data = data.concat(D.palabras.makeFrase(f)); });
   var opts = { data: data, concepts: json('dg-concepts'), storage: storage, keepIds: keepIds };
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, words: words, storage: storage, keepIds: keepIds, rnd: rnd, autoMs: cfg.autoMs });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, words: words, frases: frases, storage: storage, keepIds: keepIds, rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
   if (!cfg.noPwa) D.pwa.init(g);
 })(typeof globalThis !== 'undefined' ? globalThis : this);
