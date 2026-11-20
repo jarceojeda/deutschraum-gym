@@ -68,5 +68,19 @@ const reglas = require('../ui/reglas.json').reglas;
     await shot(p, '08-oscuro-resumen');
     await ctx.close();
   }
+  if (block === 'F') {
+    const voz = () => { window.SpeechSynthesisUtterance = function (t) { this.text = t; }; Object.defineProperty(window, 'speechSynthesis', { configurable: true, value: { cancel() {}, speak() {}, getVoices() { return [{ lang: 'de-DE', name: 'Deutsch (Deutschland)' }]; } } }); };
+    let { p, ctx } = await page('light', { auto: true, size: 10 }, voz);
+    await p.click('[aria-label="Ajustes"]'); await shot(p, '01-ajustes-arriba');
+    await p.evaluate(() => { document.querySelector('.main').scrollTop = 700; }); await shot(p, '02-ajustes-voz-tema');
+    await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await shot(p, '03-ajustes-logros');
+    await p.click('[aria-label="Volver"]'); await p.click('.card[data-module="artikel"]');
+    for (let i = 0; i < 30; i++) { const c = await cur(p); if (c.item.skill === 'genero') break; await solve(p, true); await p.click('#next'); }
+    await solve(p, false); await shot(p, '04-boton-escuchar-tras-fallar');
+    await ctx.close();
+    ({ p, ctx } = await page('dark', { auto: false, size: 10 }));
+    await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 700; }); await shot(p, '05-oscuro-ajustes-sin-voz');
+    await ctx.close();
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

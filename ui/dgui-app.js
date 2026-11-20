@@ -28,8 +28,9 @@
     U.doc = doc;
     var S = { screen: 'home', module: prefs.get('module') || 'verben', size: prefs.get('size') || 10, session: null, cur: null, saveError: null, warnings: [] };
     var ret = D.retention.create(prefs, function () { return win.Date.now(); });
+    var voice = D.voice.create(win, prefs);
     var HAP = { tap: 8, ok: 12, warn: [15, 40, 15], bad: [30, 40, 30], milestone: [18, 45, 28] };
-    var api = { state: S, ret: ret };
+    var api = { state: S, ret: ret, voice: voice };
 
     function reducedMotion() { try { return win.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
     function buzz(ms) { U.buzz(win, prefs, ms); }
@@ -205,20 +206,22 @@
       S.cur.fb = f; cancelAuto();
       var body = [];
       var ck = F.caseOf(item), ansNodes = F.rich(expectedText(item), { case: ck }), cb = ck ? F.caseBadge(ck) : null;
+      var say = voice.available() ? h('button.btn.icon.say', { type: 'button', id: 'say', 'aria-label': 'Escuchar en alemán', onclick: function () { var r = voice.speakItem(item); if (!r.ok) toast('No se pudo reproducir el audio.', 'warn'); } }, '🔊') : null;
       var autoOn = f.ok && prefs.get('auto') && !(f.out.finished || s.done()), ms = ctx.autoMs == null ? 1400 : ctx.autoMs;
       var par = f.extra && f.extra.rows ? paradigmNode(f.extra.rows) : null;
       if (f.ok) {
-        body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null),
+        body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null, say),
           par ? null : h('div.fb-ans', ansNodes), cb, par, autoOn ? h('div.autobar', { style: '--auto-ms:' + ms + 'ms' }, h('i')) : null));
       } else {
         body.push(h('div.fb.bad', { role: 'status' },
-          h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
+          h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa'), say),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
-      var go = function () { cancelAuto(); if (f.out.finished || s.done()) summary(); else question(); };
+      if (prefs.get('voice') === 'auto' && voice.available()) voice.speakItem(item);
+      var go = function () { cancelAuto(); voice.stop(); if (f.out.finished || s.done()) summary(); else question(); };
       var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: go }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
       var pause = autoOn ? h('button.btn.secondary', { type: 'button', id: 'pause', onclick: function () { cancelAuto(); var bar = root.querySelector('.autobar'); if (bar) bar.parentNode.removeChild(bar); this.parentNode.removeChild(this); } }, '⏸ Pausar') : null;
       var dock = h('div.dock-in', h('div.row', f.ok ? pause : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
@@ -325,15 +328,24 @@
     function settings() {
       S.screen = 'settings';
       var st = eng.state().settings, theme = prefs.get('theme');
-      function seg(name, opts, cur, fn) {
+      function seg(name, opts, cur, fn, attr) {
         return h('div.seg', { role: 'radiogroup', 'aria-label': name }, opts.map(function (o) {
-          return h('button.chip' + (cur === o[0] ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': cur === o[0] ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); settings(); } }, o[1]);
+          var a = { type: 'button', role: 'radio', 'aria-checked': String(cur) === String(o[0]) ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); settings(); } };
+          return h('button.chip' + (String(cur) === String(o[0]) ? '.on' : ''), a, o[1]);
         }));
       }
+      var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
+      var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
       shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'),
-          seg('Nivel', LEVELS, st.levelCap, setCap)),
-        h('section.set', h('h2', 'Entrada'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'), seg('Nivel', LEVELS, st.levelCap, setCap)),
+        h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
+        h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
+        h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
+        h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
+        h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
+          seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),
+          h('button.btn.secondary.test-voice', { type: 'button', id: 'test-voice', onclick: function () { var r = voice.speak('Guten Tag! Das ist ein Test.'); toast(r.ok ? (r.voice ? 'Voz: ' + r.voice : 'Voz del sistema (sin voz alemana específica)') : 'No se pudo reproducir el audio.', r.ok ? 'info' : 'warn'); } }, '🔊 Probar voz'),
+          h('p.hint#voice-status', vst)),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),

@@ -19,16 +19,16 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 12 | Opciones con distractores (`choice-grid`) | Opciones del motor (`view().options`); para Verben/Artikel-plural sin opciones, distractores generados en la UI (formas de otras personas, plurales plausibles) | C · HECHO |
 | 13 | Avance automático (1,6 s, «Dudé / Pausar») | Tras acertar: barra de 1,4 s con «Pausar» y «Siguiente»; chip Auto activable. Al fallar nunca avanza solo | C · HECHO |
 | 14 | «Casi» con tolerancia | Solo existe en modo «Escribir» (el evaluador táctil es exacto): veredicto `almost` → «Casi, revisa y reintenta» (1 reintento, lo da el motor) | C · HECHO |
-| 15 | Rescate de errores | Insignia «Rescatada» (`out.rescued`) y botón «Mis errores» (`kind:'errors'`) en inicio | C · HECHO |
+| 15 | Rescate de errores | Insignia «Rescatada» (`out.rescued`), botón «Mis errores» (`kind:'errors'`) y **Mapa de errores por tipo** (`errorMap()`, con hoja de regla/ejemplos por tipo) | C/E · HECHO |
 | 16 | Botones de confianza «Lo sabía / Dudé / Adiviné» | **DESCARTADO por ahora:** el motor no recibe confianza (nota SRS 3 `fast` pendiente, ESTADO.md). Se evalúa con el motor | DESCARTADO |
-| 17 | Haptics (`navigator.vibrate`: tap 8, ok 14, milestone, warning, fallo) | Hecho: tap/ok/«casi»/fallo (respeta reduced-motion y el ajuste de vibración); falta milestone | tap 8 ms (bloques, filas, letras), acierto 12, «casi» y fallo ya hechos; milestone y warning · E · PENDIENTE |
-| 18 | Toast | Ya hay toast; se unifican mensajes | E · PENDIENTE (básico HECHO) |
-| 19 | Racha, XP, niveles, logros | Racha con perdón y logros sobrios (sin XP/niveles); estado en `dg.ui`, no en el motor | E · PENDIENTE |
-| 20 | Resumen de sesión | Hecho en etapa 3; se añade «qué falló y por qué» con la cápsula de regla | E · PENDIENTE |
-| 21 | Cápsula de regla («memory-strip», «formula», antes→después, `decisionChain`, tablas de referencia) | `ui/reglas.json` por `conceptId`; el hueco queda vacío si no hay regla (no se inventa) | D · PENDIENTE |
-| 22 | Botón «¿por qué?» bajo demanda | Mismo contenido que 21, también antes de responder (tras el control) | D · PENDIENTE |
-| 23 | TTS de-DE rate 0,85 (`speakGerman`, `autoAudio`) | `speechSynthesis`, `lang=de-DE`, `rate=0.85`, voz alemana si existe; apagado por defecto | F · PENDIENTE |
-| 24 | Ajustes (tema, auto-avance, audio, sesión por defecto) | Ya: nivel (Auto/A1/A2), entrada (Toques/Escribir), tema, vibración; el chip Auto de la sesión. Faltan voz y tamaño por defecto | F · PENDIENTE (parcial HECHO) |
+| 17 | Haptics (`navigator.vibrate`: tap 8, ok 14, milestone, warning, fallo) | Con nombre: tap 8, ok 12, fallo [30,40,30], aviso [15,40,15] (casi y fallo de guardado), hito [18,45,28] (logros/racha). Respeta el ajuste y reduced-motion | E · HECHO |
+| 18 | Toast | Un único toast a la vez, tipos info/ok/warn (ok y warn vibran) | E · HECHO |
+| 19 | Racha, XP, niveles, logros | Racha con perdón (1 por semana) y 7 logros sobrios; **sin XP ni niveles**. Estado en `dg.ui` (`ui/dgui-retention.js`), no en el motor | E · HECHO |
+| 20 | Resumen de sesión | «Hoy aprendiste…», rescatados, errores por tipo, racha, logros y **«Qué falló y por qué»** (respuesta, explicación y regla de cada fallo) | E · HECHO |
+| 21 | Cápsula de regla («memory-strip», «formula», antes→después) | `ui/reglas.json` por concept id, generado por `tools/extract-reglas.js` de `aleman_declination_master` (27) y la hoja A1 (35). Cubre 25 de 54 conceptos de los 3 módulos; el resto queda vacío, sin inventar | D · HECHO (cobertura parcial) |
+| 22 | Botón «¿Por qué?» bajo demanda | Dentro de la tarjeta de pregunta; abre/cierra la cápsula. Además, regla visible mientras el tema es nuevo y oculta al dominarlo (≥6 intentos con ≥85 % en ese `errorTag`); vuelve tras fallar | D · HECHO |
+| 23 | TTS de-DE rate 0,85 (`speakGerman`, `autoAudio`) | `ui/dgui-voice.js`: `de-DE`, `rate 0.85`, voz alemana si existe; botón 🔊 tras responder, «Al responder» opcional, «Probar voz» y estado de la voz (con instrucciones de Android si falta). Apagado por defecto | F · HECHO |
+| 24 | Ajustes (tema, auto-avance, audio, sesión por defecto) | Nivel, entrada, tamaño por defecto, avance automático, regla visible, voz, tema, vibración y logros | F · HECHO |
 | 25 | `safe-area`, `100dvh`, `touch-action`, objetivos ≥48 px, sin hover | Prueba jsdom del CSS (≥48 px, sin `:hover`) + medición real en Chromium 390×844: el botón activo más bajo mide 48 px | A/C · HECHO |
 | 26 | `prefers-reduced-motion` | Anula animaciones y transiciones (también la barra de avance automático) | A · HECHO |
 | 27 | Reanudar sesión (`resume-banner`) | El motor no persiste sesiones abiertas (`startSession` no escribe). No se reanuda; lo respondido sí queda guardado | DESCARTADO (limitación del motor) |

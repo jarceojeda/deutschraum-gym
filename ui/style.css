@@ -133,3 +133,6 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .emap{display:flex;flex-direction:column;gap:8px}.erow{display:grid;grid-template-columns:1fr;gap:6px;text-align:left;width:100%;min-height:64px;padding:10px 14px;border:1px solid var(--line);border-radius:16px;background:var(--surface);cursor:pointer}
 .erow .el{font-weight:800}.erow .eb{display:block;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}.erow .eb i{display:block;height:100%;background:var(--coral);border-radius:inherit}.erow .en{font-size:13px;color:var(--muted)}
 .badges{display:grid;gap:8px}.bdg{padding:10px 12px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);display:flex;flex-direction:column}.bdg.got{border-style:solid;border-color:var(--brand);background:var(--brand-soft);color:var(--ink)}
+
+.btn.say{width:48px;margin-left:auto;font-size:20px;border-color:transparent;background:transparent}.test-voice{margin-top:10px;width:100%}
+.set .seg{display:flex;gap:8px}

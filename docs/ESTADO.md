@@ -79,13 +79,23 @@ Módulos: rng (mulberry32 / crypto, sin depender de la fecha), text (NFC, transl
 - **Progreso en el teléfono:** abierto como archivo local, Chrome puede no conservar `localStorage` entre sesiones según cómo se abra; para uso real conviene la URL hospedada de la etapa 5.
 - La prueba de ä/ö/ü/ß depende de que el sorteo los saque: la prueba recorre hasta 12 sesiones con semilla fija.
 
-## Etapa 3b · Paridad de UX con la 1.9.0 — EN CURSO (bloques A, B, C hechos; D, E, F esperan confirmación)
-Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `docs/capturas/A`, `B`, `C`.
-- **A** (sistema visual): tokens de la 1.9.0, tema sistema/claro/oscuro, appbar, hero, tarjetas; género der ● die ◆ das ⬢ (plural ▲) y caso N/A/D/G con forma o letra (`ui/dgui-fmt.js`).
-- **B** (inicio): Viaje combinado, 3 módulos, 4 «Próximamente» deshabilitados, «Mis errores», tamaño 10/20/30, nivel Auto/A1/A2 (`setLevelCap`) y entrada Toques/Escribir.
-- **C** (sesión): `ui/dgui-variants.js` (sin DOM) elige cómo se responde: opciones, bloques (raíz+terminación, ge-+raíz+terminación, palabras), emparejado de 6 personas (+ Partizip II) y plural por opciones; modo opcional «Escribir» con teclas ä ö ü ß y «casi»; avance automático tras acertar (Pausar / chip Auto); rescate con insignia. Todo entra por `answer()/giveUp()`; no se tocó `src/` ni `data/`.
-- **Límites declarados:** (1) en el emparejado **solo la fila ★ puntúa** (el motor puntúa 1 unidad = 1 ítem); las otras filas se corrigen en pantalla sin registrarse. (2) **Infinitivo↔significado no se puede**: `verben.json` no trae traducción (0 de 3.662). (3) Los textos de regla siguen siendo los de la etapa 3 hasta el bloque D.
+## Etapa 3b · Paridad de UX con la 1.9.0 — HECHA (bloques A–F)
+Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `docs/capturas/A` … `F`. No se tocó `src/` ni `data/`; todo entra por `view()/answer()/giveUp()/finish()/errorMap()`.
+- **A** sistema visual (tokens 1.9.0, tema sistema/claro/oscuro, appbar, hero, tarjetas; género der ● die ◆ das ⬢ plural ▲ y caso N/A/D/G con forma o letra, `ui/dgui-fmt.js`).
+- **B** inicio (Viaje combinado, 3 módulos, 4 «Próximamente» deshabilitados, «Mis errores», tamaño 10/20/30, nivel Auto/A1/A2, entrada Toques/Escribir).
+- **C** sesión (`ui/dgui-variants.js`: opciones, bloques, emparejado de 6 personas + Partizip II, plural por opciones; «Escribir» con ä ö ü ß y «casi»; avance automático; rescate).
+- **D** cápsula de regla: `ui/reglas.json` (62 reglas copiadas de `aleman_declination_master` y de la hoja A1; regenerable con `node tools/extract-reglas.js`). Tras fallar, en «Ver regla» y bajo demanda («¿Por qué?»); visible mientras el tema es nuevo, oculta al dominarlo (≥6 intentos y ≥85 % en el `errorTag`).
+- **E** retención: haptics con nombre, toast único, racha con perdón (1 por semana), 7 logros sobrios, resumen «qué falló y por qué», **mapa de errores por tipo**. Estado en `dg.ui` (`ui/dgui-retention.js`).
+- **F** ajustes completos y voz alemana (`ui/dgui-voice.js`: de-DE, 0,85, 🔊 tras responder, «Probar voz» con estado de la voz).
+- **Límites declarados:**
+  1. En el emparejado **solo la fila ★ puntúa** (el motor puntúa 1 unidad = 1 ítem).
+  2. **Infinitivo↔significado no se puede**: `verben.json` no trae traducción (0 de 3.662).
+  3. **Reglas: 25 de 54 conceptos cubiertos.** Faltan los de Verben (`md:verben-*`, `cs:a1-v*`…) y algunos de Deklination (`dm:s7-*`, `dm:s8-3`, `b1:genitiv-praepositionen`…): los textos de `001-…051-…` del Project no están en el repo. Esos temas muestran el hueco, no una regla inventada.
+  4. Algunas cápsulas son parciales (solo ejemplo o fórmula) porque así vienen en la hoja de origen; una cápsula puede ser más general que el ejercicio (p. ej. «in/an → Dativ» ante un caso de movimiento con Akkusativ).
+  5. La voz depende de la voz alemana instalada en Android (la pantalla de ajustes lo comprueba y explica cómo instalarla).
+  6. Los HTML sueltos pierden el progreso en algunos navegadores; para el teléfono falta la URL hospedada + PWA (etapa 5).
 - **Hallazgo del motor (no se relajó):** 30 sesiones seguidas con 8 h entre sesiones dan 111 ejercicios distintos de 300 (37 %), 21 % de solape con la sesión siguiente y «du» ≈ 33 % de las personas. Pasa lo pedido (misma unidad ≤2 seguidas, 3 módulos, 6 personas), pero los límites estrictos (≥75 % distintos, ≤15 % solape, persona ≤30 %) fallan y están como pruebas `todo` en `tests/ui-variedad.test.js`. Causas probables: paso de aprendizaje de 1 h, cupo de nuevas ≈1,3/sesión y pesos ×3 de du/er (ver «Avisos honestos»). Decide el usuario.
-- Pruebas: 179 (177 OK + 2 `todo` de variedad estricta). Nuevas: `tests/ui-variants.test.js` (todas las variantes sobre los ~5.400 ítems reales) y `tests/ui-variedad.test.js`; la UI jsdom pasa de 16 a 32 pruebas.
+- **Ideas pendientes (de la charla sobre Grammatik aktiv):** ciclo Verstehen→Üben→Sprechen por concepto, preguntas-respuesta en cadena (Wo?/Wohin?), «completar solo la terminación» (gut__), «Mis palabras», frases personalizadas, cruce del temario por capítulos A1–B1.
+- Pruebas: ver `npm test` (UI en `tests/ui-*.test.js`; `ui-variedad` con 2 `todo` a propósito).
 
 ## Etapas 4–6 — PENDIENTES

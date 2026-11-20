@@ -142,6 +142,9 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .erow .el{font-weight:800}.erow .eb{display:block;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}.erow .eb i{display:block;height:100%;background:var(--coral);border-radius:inherit}.erow .en{font-size:13px;color:var(--muted)}
 .badges{display:grid;gap:8px}.bdg{padding:10px 12px;border:1px dashed var(--line);border-radius:14px;color:var(--muted);display:flex;flex-direction:column}.bdg.got{border-style:solid;border-color:var(--brand);background:var(--brand-soft);color:var(--ink)}
 
+.btn.say{width:48px;margin-left:auto;font-size:20px;border-color:transparent;background:transparent}.test-voice{margin-top:10px;width:100%}
+.set .seg{display:flex;gap:8px}
+
 </style>
 </head>
 <body>
@@ -1946,7 +1949,7 @@ window.DGUI = window.DGUI || {};
   };
   // Preferencias de la UI (clave aparte del progreso del motor).
   U.prefs = function (storage) {
-    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true };
+    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off' };
     try { var raw = storage && storage.getItem(KEY); if (raw) cur = Object.assign(cur, JSON.parse(raw)); } catch (e) { /* ignora */ }
     return {
       get: function (k) { return cur[k]; },
@@ -2158,6 +2161,61 @@ window.DGUI = window.DGUI || {};
   };
   g.DGUI = g.DGUI || {}; g.DGUI.retention = R;
   if (typeof module === 'object' && module.exports) module.exports = R;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
+/* ===== dgui-voice.js ===== */
+/* dgui-voice.js — voz alemana (Web Speech API): de-DE, velocidad 0,85, voz alemana del teléfono si existe.
+ * Apagada por defecto (Modo Tren). Sin DOM propio: recibe `win` (speechSynthesis + SpeechSynthesisUtterance). Probado en Node con un doble. */
+(function (g) {
+  'use strict';
+  var V = {};
+  var PRON = { ich: 'ich', du: 'du', er_sie_es: 'er', wir: 'wir', ihr: 'ihr', sie_Sie: 'sie' };
+  V.RATE = 0.85; V.LANG = 'de-DE';
+
+  // Qué se pronuncia al oír un ejercicio ya resuelto (siempre la forma CORRECTA del ítem).
+  V.spokenText = function (item) {
+    var a = String(item.answer || '').trim();
+    if (item.module === 'verben') return item.person && PRON[item.person] ? PRON[item.person] + ' ' + a : a;
+    if (item.module === 'artikel') {
+      if (item.skill === 'genero') return a + ' ' + (item.lemma || '');
+      if (item.skill === 'plural') return 'die ' + a;
+    }
+    var p = String(item.prompt || '');
+    if (/_{2,}/.test(p) && item.type !== 'transform') {
+      p = p.replace(/^Completa:\s*/i, '').replace(/\s*\((?:[^()]*)\)\s*$/, '').replace(/_{2,}/g, a).replace(/\s+/g, ' ').trim();
+      return p;
+    }
+    return a;
+  };
+
+  V.create = function (win, prefs) {
+    var syn = win.speechSynthesis, Utt = win.SpeechSynthesisUtterance;
+    var api = {};
+    api.available = function () { return !!(syn && Utt); };
+    api.germanVoice = function () {
+      try {
+        var vs = (syn && syn.getVoices && syn.getVoices()) || [];
+        return vs.filter(function (v) { return String(v.lang).toLowerCase().replace('_', '-') === 'de-de'; })[0] || vs.filter(function (v) { return /^de/i.test(v.lang); })[0] || null;
+      } catch (e) { return null; }
+    };
+    // → {ok, reason?}
+    api.speak = function (text) {
+      var out = String(text == null ? '' : text).replace(/_{2,}/g, ' ').replace(/\s+/g, ' ').trim();
+      if (!api.available()) return { ok: false, reason: 'unsupported' };
+      if (!out) return { ok: false, reason: 'empty' };
+      try {
+        syn.cancel();
+        var u = new Utt(out); u.lang = V.LANG; u.rate = V.RATE; u.pitch = 1;
+        var v = api.germanVoice(); if (v) u.voice = v;
+        syn.speak(u); return { ok: true, voice: v ? v.name : null };
+      } catch (e) { return { ok: false, reason: 'error' }; }
+    };
+    api.speakItem = function (item) { return api.speak(V.spokenText(item)); };
+    api.stop = function () { try { if (syn) syn.cancel(); } catch (e) { /* ignora */ } };
+    return api;
+  };
+  g.DGUI = g.DGUI || {}; g.DGUI.voice = V;
+  if (typeof module === 'object' && module.exports) module.exports = V;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
 /* ===== dgui-variants.js ===== */
@@ -2514,8 +2572,9 @@ window.DGUI = window.DGUI || {};
     U.doc = doc;
     var S = { screen: 'home', module: prefs.get('module') || 'verben', size: prefs.get('size') || 10, session: null, cur: null, saveError: null, warnings: [] };
     var ret = D.retention.create(prefs, function () { return win.Date.now(); });
+    var voice = D.voice.create(win, prefs);
     var HAP = { tap: 8, ok: 12, warn: [15, 40, 15], bad: [30, 40, 30], milestone: [18, 45, 28] };
-    var api = { state: S, ret: ret };
+    var api = { state: S, ret: ret, voice: voice };
 
     function reducedMotion() { try { return win.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { return false; } }
     function buzz(ms) { U.buzz(win, prefs, ms); }
@@ -2691,20 +2750,22 @@ window.DGUI = window.DGUI || {};
       S.cur.fb = f; cancelAuto();
       var body = [];
       var ck = F.caseOf(item), ansNodes = F.rich(expectedText(item), { case: ck }), cb = ck ? F.caseBadge(ck) : null;
+      var say = voice.available() ? h('button.btn.icon.say', { type: 'button', id: 'say', 'aria-label': 'Escuchar en alemán', onclick: function () { var r = voice.speakItem(item); if (!r.ok) toast('No se pudo reproducir el audio.', 'warn'); } }, '🔊') : null;
       var autoOn = f.ok && prefs.get('auto') && !(f.out.finished || s.done()), ms = ctx.autoMs == null ? 1400 : ctx.autoMs;
       var par = f.extra && f.extra.rows ? paradigmNode(f.extra.rows) : null;
       if (f.ok) {
-        body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null),
+        body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null, say),
           par ? null : h('div.fb-ans', ansNodes), cb, par, autoOn ? h('div.autobar', { style: '--auto-ms:' + ms + 'ms' }, h('i')) : null));
       } else {
         body.push(h('div.fb.bad', { role: 'status' },
-          h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
+          h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa'), say),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
-      var go = function () { cancelAuto(); if (f.out.finished || s.done()) summary(); else question(); };
+      if (prefs.get('voice') === 'auto' && voice.available()) voice.speakItem(item);
+      var go = function () { cancelAuto(); voice.stop(); if (f.out.finished || s.done()) summary(); else question(); };
       var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: go }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
       var pause = autoOn ? h('button.btn.secondary', { type: 'button', id: 'pause', onclick: function () { cancelAuto(); var bar = root.querySelector('.autobar'); if (bar) bar.parentNode.removeChild(bar); this.parentNode.removeChild(this); } }, '⏸ Pausar') : null;
       var dock = h('div.dock-in', h('div.row', f.ok ? pause : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
@@ -2811,15 +2872,24 @@ window.DGUI = window.DGUI || {};
     function settings() {
       S.screen = 'settings';
       var st = eng.state().settings, theme = prefs.get('theme');
-      function seg(name, opts, cur, fn) {
+      function seg(name, opts, cur, fn, attr) {
         return h('div.seg', { role: 'radiogroup', 'aria-label': name }, opts.map(function (o) {
-          return h('button.chip' + (cur === o[0] ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': cur === o[0] ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); settings(); } }, o[1]);
+          var a = { type: 'button', role: 'radio', 'aria-checked': String(cur) === String(o[0]) ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); settings(); } };
+          return h('button.chip' + (String(cur) === String(o[0]) ? '.on' : ''), a, o[1]);
         }));
       }
+      var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
+      var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
       shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'),
-          seg('Nivel', LEVELS, st.levelCap, setCap)),
-        h('section.set', h('h2', 'Entrada'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'), seg('Nivel', LEVELS, st.levelCap, setCap)),
+        h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
+        h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
+        h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
+        h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
+        h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
+          seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),
+          h('button.btn.secondary.test-voice', { type: 'button', id: 'test-voice', onclick: function () { var r = voice.speak('Guten Tag! Das ist ein Test.'); toast(r.ok ? (r.voice ? 'Voz: ' + r.voice : 'Voz del sistema (sin voz alemana específica)') : 'No se pudo reproducir el audio.', r.ok ? 'info' : 'warn'); } }, '🔊 Probar voz'),
+          h('p.hint#voice-status', vst)),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),

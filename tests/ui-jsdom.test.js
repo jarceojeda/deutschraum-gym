@@ -269,7 +269,7 @@ test('ajustes: tope de nivel (persistente) y tema oscuro/claro/sistema', () => {
   u.click(u.q('[data-v="dark"]'));
   assert.equal(u.d.documentElement.getAttribute('data-theme'), 'dark');
   assert.equal(JSON.parse(u.w.localStorage.getItem('dg.ui')).theme, 'dark');
-  u.click(u.q('[data-v="auto"]'));
+  u.click(u.q('[aria-label="Tema"] [data-v="auto"]'));
   assert.equal(u.d.documentElement.getAttribute('data-theme'), null);
   u.click(u.q('[aria-label="Volver"]'));
   u.chooseModule('verben', 10); u.start();
@@ -642,4 +642,68 @@ test('E · toast único: un toast nuevo reemplaza al anterior', () => {
   u.next(); const why = u.q('#why'); 
   for (let i = 0; i < 3; i++) { const it = u.S().cur.item; if (!(it.conceptIds || []).some(id => REGLAS[id])) { u.click(u.q('#why')); u.click(u.q('#why')); } u.answer(true); u.next(); }
   assert.ok(u.qa('.toast').length <= 1);
+});
+
+/* ---------- Bloque F: ajustes y voz ---------- */
+function withVoice(voices) {
+  return w => {
+    w.__spoken = []; w.__cancel = 0;
+    w.SpeechSynthesisUtterance = function (t) { this.text = t; };
+    w.speechSynthesis = { cancel() { w.__cancel++; }, speak(u) { w.__spoken.push(u); }, getVoices() { return voices || []; } };
+  };
+}
+const goSettings = u => u.click(u.q('[aria-label="Ajustes"]'));
+
+test('F · voz: botón 🔊 tras responder pronuncia la forma correcta en de-DE a 0,85; manual por defecto', () => {
+  const u = boot(110, { before: withVoice([{ lang: 'de-DE', name: 'Anna' }]) });
+  u.chooseModule('verben', 30); u.start(); const item = u.S().cur.item;
+  u.answer(true); assert.equal(u.w.__spoken.length, 0, 'por defecto no habla sola');
+  u.click(u.q('#say')); const sp = u.w.__spoken[0]; assert.ok(sp.text.endsWith(item.answer), sp.text);
+  assert.deepEqual([sp.lang, sp.rate, sp.voice.name], ['de-DE', 0.85, 'Anna']);
+  u.next(); u.answer(false); assert.ok(u.q('.fb.bad #say'), 'también tras fallar');
+});
+
+test('F · voz «Al responder» habla sola; «Manual» no; sin API no hay botón 🔊', () => {
+  const u = boot(111, { before: withVoice([]) });
+  goSettings(u); u.click(u.q('[aria-label="Voz"] [data-v="auto"]')); assert.equal(JSON.parse(u.w.localStorage.getItem('dg.ui')).voice, 'auto');
+  u.click(u.q('[aria-label="Volver"]')); u.chooseModule('verben', 30); u.start(); u.answer(true);
+  assert.equal(u.w.__spoken.length, 1, 'habló al responder'); u.next(); assert.ok(u.w.__cancel >= 1, 'al avanzar corta el audio');
+  const n = boot(112); n.chooseModule('verben', 30); n.start(); n.answer(true); assert.equal(n.q('#say'), null);
+  const m = boot(118); goSettings(m); assert.match(m.q('#voice-status').textContent, /no ofrece voz alemana/);
+});
+
+test('F · ajustes: «Probar voz» y estado de la voz alemana (encontrada / falta con instrucciones)', () => {
+  const a = boot(113, { before: withVoice([{ lang: 'de-DE', name: 'Anna' }]) }); goSettings(a);
+  assert.match(a.q('#voice-status').textContent, /Voz alemana encontrada: Anna/);
+  a.click(a.q('#test-voice')); assert.equal(a.w.__spoken[0].text, 'Guten Tag! Das ist ein Test.'); assert.equal(a.w.__spoken[0].rate, 0.85);
+  const b = boot(114, { before: withVoice([{ lang: 'en-US', name: 'EN' }]) }); goSettings(b);
+  assert.match(b.q('#voice-status').textContent, /No encuentro una voz alemana.*texto a voz/i);
+  b.click(b.q('#test-voice')); assert.ok(b.q('.toast'), 'avisa que usa la voz del sistema');
+});
+
+test('F · ajustes persistentes: nivel, entrada, tamaño por defecto, avance, regla visible, vibración, tema', () => {
+  const u = boot(115); goSettings(u);
+  u.click(u.q('[aria-label="Nivel"] [data-v="A2"]')); assert.equal(u.stored().settings.levelCap, 'A2');
+  u.click(u.q('[aria-label="Entrada"] [data-v="write"]'));
+  u.click(u.q('[aria-label="Tamaño de sesión"] [data-v="20"]'));
+  u.click(u.q('[aria-label="Avance automático"] [data-v="0"]'));
+  u.click(u.q('[aria-label="Regla visible"] [data-v="0"]'));
+  u.click(u.q('[aria-label="Vibración"] [data-v="0"]'));
+  u.click(u.q('[aria-label="Tema"] [data-v="dark"]'));
+  const ui = JSON.parse(u.w.localStorage.getItem('dg.ui'));
+  assert.deepEqual([ui.entry, ui.size, ui.auto, ui.ruleFirst, ui.vibrate, ui.theme], ['write', 20, false, false, false, 'dark']);
+  u.click(u.q('[aria-label="Volver"]')); assert.equal(u.q('[data-size="20"]').getAttribute('aria-checked'), 'true');
+  assert.equal(u.q('[data-entry="write"]').getAttribute('aria-checked'), 'true'); assert.equal(u.q('[data-level="A2"]').getAttribute('aria-checked'), 'true');
+  const b = boot(116, { before: w => Object.keys(ui).length && w.localStorage.setItem('dg.ui', JSON.stringify(ui)) });
+  assert.equal(b.d.documentElement.getAttribute('data-theme'), 'dark'); goSettings(b);
+  assert.equal(b.q('[aria-label="Avance automático"] [data-v="0"]').getAttribute('aria-checked'), 'true');
+  assert.equal(b.q('[aria-label="Regla visible"] [data-v="0"]').getAttribute('aria-checked'), 'true');
+});
+
+test('F · ajustes: todos los controles son botones de ≥48 px por CSS y los grupos tienen nombre accesible', () => {
+  const u = boot(117); goSettings(u);
+  const groups = u.qa('.seg'); assert.ok(groups.length >= 8);
+  groups.forEach(g => { assert.ok(g.getAttribute('aria-label'), 'grupo sin nombre'); assert.equal(g.getAttribute('role'), 'radiogroup'); });
+  u.qa('.seg button').forEach(b => { assert.equal(b.getAttribute('role'), 'radio'); assert.ok(['true', 'false'].includes(b.getAttribute('aria-checked'))); });
+  assert.equal(u.qa('.seg button[aria-checked="true"]').length, groups.length, 'cada grupo con una opción marcada');
 });
