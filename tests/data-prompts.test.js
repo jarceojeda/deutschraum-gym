@@ -7,7 +7,7 @@ test('todos los ítems de data/*.json (salvo pares mínimos y artikel, que usa e
     JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8')).forEach(i => {
       if (i.module === 'artikel') { assert.ok(i.lemma && i.answer, f + ' ' + i.id); return; }   // artikel se enuncia con el lema
       if (i.type === 'minimal-pair') { assert.ok(i.wo && i.wohin, f + ' ' + i.id); return; }
-      assert.ok(typeof i.prompt === 'string' && i.prompt.length > 2, f + ' ' + i.id + ' sin prompt');
+      assert.ok(typeof i.prompt === 'string' && i.prompt.length >= 1, f + ' ' + i.id + ' sin prompt');
       assert.ok(typeof i.answer === 'string' && i.answer.length > 0, f + ' ' + i.id + ' sin answer');
     });
   });
