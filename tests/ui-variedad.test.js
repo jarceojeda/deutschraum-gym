@@ -26,6 +26,11 @@ function jugar(seed, horasEntreSesiones) {
       const rec = (rem, used) => { if (!rem) return []; for (const b of spec.blocks) { if (used.has(b.id)) continue; const hit = spec.joiner ? (rem === b.t || rem.startsWith(b.t + ' ')) : rem.startsWith(b.t); if (!hit) continue; const r = rec(spec.joiner ? rem.slice(b.t.length + (rem === b.t ? 0 : 1)) : rem.slice(b.t.length), new Set(used).add(b.id)); if (r) return [b].concat(r); } return null; };
       rec(item.answer, new Set()).forEach(b => click(qa('.bank .tile').find(x => !x.disabled && x.dataset.block === b.t && !x.classList.contains('is-used')))); return check();
     }
+    if (spec.kind === 'pair') { click(qa('[data-pair="wo"]').find(b => b.dataset.opt === item.wo.answer)); click(qa('[data-pair="wohin"]').find(b => b.dataset.opt === item.wohin.answer)); return check(); }
+    if (spec.kind === 'tiles') {
+      const T = item.tiles.slice(), rec = (rem, used) => { if (rem === '') return []; for (let i = 0; i < T.length; i++) { if (used.has(i) || !rem.startsWith(T[i])) continue; const r = rec(rem.slice(T[i].length).replace(/^ /, ''), new Set(used).add(i)); if (r) return [T[i]].concat(r); } return null; };
+      rec(item.accept[0], new Set()).forEach(t => click(qa('.bank .tile').find(b => !b.disabled && b.textContent === t))); return check();
+    }
     Array.from(item.answer).forEach(c => click(qa('.bank .tile').find(b => !b.disabled && b.textContent === (c === ' ' ? '␣' : c)))); return check();
   }
   const flow = [], porSesion = [];
@@ -78,7 +83,7 @@ for (const [nombre, seed, horas] of ESCENARIOS) {
 }
 
 // HALLAZGO DEL MOTOR (no se relaja): los límites estrictos de variedad NO se cumplen hoy. Medido con la semilla 2024 y 8 h entre sesiones:
-// 111 ejercicios distintos de 300 (37 %), 21 % de solape con la sesión siguiente, y «du» ≈ 33 % de las personas (peso ×3 por diseño, ESTADO 2b).
+// 98 ejercicios distintos de 300 (33 %), 24 % de solape con la sesión siguiente (5 módulos; con 3 módulos 37 % y 21 %), «du» ≈ 33 % con 3 módulos (peso ×3 por diseño, ESTADO 2b).
 // Se marca `todo` para que `npm test` siga en verde pero el fallo quede visible en cada ejecución. Decide el usuario qué hacer (ver docs/ESTADO.md).
 for (const [nombre, seed, horas] of ESCENARIOS) {
   test('variedad ESTRICTA · ' + nombre + ': ≥75 % de ejercicios distintos, ≤15 % de solape, ninguna persona >30 %', { timeout: 120000, todo: 'hallazgo del motor: repite demasiado (SRS de aprendizaje); pendiente de decisión' }, () => {
