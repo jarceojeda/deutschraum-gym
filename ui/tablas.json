@@ -1,0 +1,242 @@
+{
+ "version": 1,
+ "fuente": "aleman_declination_master_mobile_v1_1.html §11",
+ "tablas": {
+  "s11-1": {
+   "titulo": "Artículo definido",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "der",
+      "die",
+      "das",
+      "die"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "den",
+      "die",
+      "das",
+      "die"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "dem",
+      "der",
+      "dem",
+      "den"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "des",
+      "der",
+      "des",
+      "der"
+     ]
+    }
+   ]
+  },
+  "s11-2": {
+   "titulo": "Artículo indefinido · ein",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "ein",
+      "eine",
+      "ein",
+      "—"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "einen",
+      "eine",
+      "ein",
+      "—"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "einem",
+      "einer",
+      "einem",
+      "—"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "eines",
+      "einer",
+      "eines",
+      "—"
+     ]
+    }
+   ]
+  },
+  "s11-3": {
+   "titulo": "Adjetivo débil",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "-e",
+      "-e",
+      "-e",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "-en",
+      "-e",
+      "-e",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "-en",
+      "-en",
+      "-en",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "-en",
+      "-en",
+      "-en",
+      "-en"
+     ]
+    }
+   ]
+  },
+  "s11-4": {
+   "titulo": "Adjetivo “mixto” · familia EIN",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "-er",
+      "-e",
+      "-es",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "-en",
+      "-e",
+      "-es",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "-en",
+      "-en",
+      "-en",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "-en",
+      "-en",
+      "-en",
+      "-en"
+     ]
+    }
+   ],
+   "nota": "*Plural aplica a kein y posesivos, no a ein."
+  },
+  "s11-5": {
+   "titulo": "Adjetivo fuerte",
+   "cols": [
+    "M",
+    "F",
+    "N",
+    "PL"
+   ],
+   "rows": [
+    {
+     "caso": "Nom",
+     "celdas": [
+      "-er",
+      "-e",
+      "-es",
+      "-e"
+     ]
+    },
+    {
+     "caso": "Akk",
+     "celdas": [
+      "-en",
+      "-e",
+      "-es",
+      "-e"
+     ]
+    },
+    {
+     "caso": "Dat",
+     "celdas": [
+      "-em",
+      "-er",
+      "-em",
+      "-en"
+     ]
+    },
+    {
+     "caso": "Gen",
+     "celdas": [
+      "-en",
+      "-er",
+      "-en",
+      "-er"
+     ]
+    }
+   ]
+  }
+ }
+}

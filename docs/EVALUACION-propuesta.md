@@ -8,7 +8,7 @@ Criterio: **Hecho** = ya estaba o se aplicó ahora (con prueba). **Pendiente** =
 | Modo Tren (solo toques) | Hecho | Por defecto; «Escribir» es opcional. |
 | Conjugación 6 personas + Partizip II | Hecho (con límite) | Emparejado de 6 personas (+ Partizip II si existe su unidad). Solo la fila ★ puntúa: el motor puntúa 1 unidad = 1 ítem. |
 | Colores de género y tiras de memoria | Hecho | der ● die ◆ das ⬢ plural ▲; caso N/A/D/G; cápsulas «regla/fórmula/ejemplo» (62 temas). |
-| **Motor de 4 movimientos** (caso → casilla → quién lleva la señal → cola del sustantivo) | **Pendiente (parcial)** | Hoy: caso (de `errorTag`, solo 143 de 436 ítems de Deklination lo traen) + regla. Los pasos 3 y 4 no existen como dato en `data/`; habría que derivarlos del texto de `explanation` (422/436) o añadirlos en el pipeline. No lo invento. |
+| **Motor de 4 movimientos** (caso → casilla → quién lleva la señal → cola del sustantivo) | **Hecho (pasos 1–2 + forma)** | Tras fallar: cadena caso → casilla → forma con la tabla marcada (191 ítems). Los pasos «quién lleva la señal» y «cola del sustantivo» no existen como dato en `data/`; no los invento. |
 | BAU ES UM de 5 niveles como ejercicios | Hecho | Ya están en `data/deklination` (`d244-decl-source-quiz-*`, transformaciones). |
 | Ítems enlazados a conceptos y teoría al fallar | Hecho | `conceptIds` → cápsula tras fallar y «¿Por qué?». Cobertura **25 de 54** conceptos de los 3 primeros módulos; el resto queda en blanco. |
 | Módulos sueltos + viaje combinado | Hecho | Ahora con 5 módulos. |
@@ -24,7 +24,7 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 |---|---|---|---|
 | 1 | Verben | Hecho | Präsens, Präteritum, Partizip II, haben/sein. Modales/separables/Konjunktiv II: lo que traiga `verben.json` por nivel. |
 | 2 | Artikel | Hecho | Género con color y forma, plural, indefinido. «Pistas de sufijo»: cápsula `cs:t12` («die: -ung/-heit… · das: -chen/-lein»). |
-| 3 | Deklination con andamiaje que se retira (tabla → media tabla → ninguna) | **Pendiente (viable, ~1 bloque)** | La guía trae las tablas (§11). Plan: mismo criterio de dominio que la regla (≥6 intentos y ≥85 %): tabla completa → solo la fila del caso → nada. Hoy solo se retira la regla, no la tabla. |
+| 3 | Deklination con andamiaje que se retira (tabla → media tabla → ninguna) | **Hecho** | `ui/tablas.json` (5 tablas de la guía §11). Completa con <3 intentos del tipo, media tabla (se oculta la mitad que contiene la respuesta, con «Mostrar toda») después, ninguna al dominarlo (≥6 intentos y ≥85 %). |
 | 4 | **Präpositionen** (par mínimo Wo?/Wohin?, verbos con preposición, contracciones) | **Hecho ahora** | 299 ítems (33 pares mínimos). Par mínimo por toques, envía `{wo, wohin}` al motor. |
 | 5 | **Konnektoren y Partikeln** (ordenar frases con toques) | **Hecho ahora** | 281 ítems: 107 de ordenar fichas con traducción, 24 «une con weil/deshalb» por palabras, 150 de elegir y partículas. |
 | 6 | Wortschatz (7 situaciones, «Mis palabras») | Bloqueado | `wortschatz.json` no está en el repo. «Mis palabras» exige que el motor acepte ítems creados en la app (cambio de motor con prueba). |
@@ -63,7 +63,7 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 | Modo Casa (teclado completo para la laptop) | Parcial | «Escribir» ya existe (opcional); un Modo Casa pensado para laptop (atajos, Enter) queda para la etapa 5. |
 
 ## Propuesta de orden (si quieres seguir)
-1. Andamiaje de tablas en Deklination (tabla → media tabla → ninguna) y los pasos 1–2 del motor de 4 movimientos con lo que hay en los datos.
+1. ~~Andamiaje de tablas en Deklination~~ (hecho).
 2. Variante «completar solo la terminación» + retirada progresiva de la ayuda (opciones → bloques → letras).
 3. PWA + URL gratis (etapa 5) y calibrar los tamaños de sesión en minutos con uso real.
 4. Wortschatz/Satzbau cuando lleguen los datos; «Mis palabras» con cambio de motor.

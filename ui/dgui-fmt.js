@@ -12,7 +12,7 @@
     dative: { cls: 'c-dat', letter: 'D', label: 'dativo' }, genitive: { cls: 'c-gen', letter: 'G', label: 'genitivo' }
   };
   var CASE_FORMS = /^(den|dem|des|einen|einem|einer|eines|keinen|keinem|keiner|keines|meinen|meinem|meiner|meines|deinen|deinem|seinen|seinem|ihren|ihrem|unseren|unserem|euren|eurem|ihn|ihm|ihnen|mich|mir|dich|dir|uns|euch)$/i;
-  F.caseOf = function (item) { var m = /^case:(nominative|accusative|dative|genitive)/.exec(item && item.errorTag || ''); return m ? m[1] : null; };
+  F.caseOf = function (item) { var m = /^(?:case|adjective:[a-z]+):(nominative|accusative|dative|genitive)/.exec(item && item.errorTag || ''); return m ? m[1] : null; };
   F.genderBadge = function (word, showText) {
     var gdr = F.GENDER[String(word).toLowerCase()]; if (!gdr) return null;
     return h('span.art.' + gdr.cls, { title: gdr.label }, h('span.shape', { 'aria-hidden': 'true' }, gdr.shape), showText === false ? null : h('span.word', word));

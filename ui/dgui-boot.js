@@ -7,10 +7,11 @@
   var storage = null, ok = false;
   try { storage = g.localStorage; var k = 'dg.probe'; storage.setItem(k, '1'); storage.removeItem(k); ok = true; } catch (e) { storage = null; }
   var reglasEl = doc.getElementById('dg-reglas'), reglas = reglasEl ? (JSON.parse(reglasEl.textContent).reglas || {}) : {};
+  var tablasEl = doc.getElementById('dg-tablas'), tablas = tablasEl ? (JSON.parse(tablasEl.textContent).tablas || {}) : {};
   var opts = { data: json('dg-data'), concepts: json('dg-concepts'), storage: storage };
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd, autoMs: cfg.autoMs });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, tablas: tablas, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

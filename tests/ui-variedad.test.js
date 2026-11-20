@@ -84,9 +84,10 @@ for (const [nombre, seed, horas] of ESCENARIOS) {
 
 // HALLAZGO DEL MOTOR (no se relaja): los límites estrictos de variedad NO se cumplen hoy. Medido con la semilla 2024 y 8 h entre sesiones:
 // 98 ejercicios distintos de 300 (33 %), 24 % de solape con la sesión siguiente (5 módulos; con 3 módulos 37 % y 21 %), «du» ≈ 33 % con 3 módulos (peso ×3 por diseño, ESTADO 2b).
-// Se marca `todo` para que `npm test` siga en verde pero el fallo quede visible en cada ejecución. Decide el usuario qué hacer (ver docs/ESTADO.md).
+// Se marca `todo` para que `npm test` siga en verde pero el ideal quede visible. DECISIÓN (etapa 3b, delegada por el usuario): no se cambia el motor;
+// tools/exp-variedad.js muestra que memorySessions, futureGap y el cupo de nuevas no mueven la cifra (30–34 %) y que la repetición es repaso espaciado.
 for (const [nombre, seed, horas] of ESCENARIOS) {
-  test('variedad ESTRICTA · ' + nombre + ': ≥75 % de ejercicios distintos, ≤15 % de solape, ninguna persona >30 %', { timeout: 120000, todo: 'hallazgo del motor: repite demasiado (SRS de aprendizaje); pendiente de decisión' }, () => {
+  test('variedad ESTRICTA · ' + nombre + ': ≥75 % de ejercicios distintos, ≤15 % de solape, ninguna persona >30 %', { timeout: 120000, todo: 'ideal sin repetición; DECISIÓN: no se cambia el motor (la repetición es repaso espaciado; ver docs/ESTADO.md y tools/exp-variedad.js)' }, () => {
     const { flow, porSesion } = corrida(nombre, seed, horas), m = medir(flow, porSesion);
     assert.ok(m.unicos / m.primeros >= 0.75, 'solo ' + m.unicos + ' ejercicios distintos de ' + m.primeros + ' (sin contar reintentos)');
     assert.ok(m.solape <= 0.15, 'la sesión siguiente repite ' + (m.solape * 100).toFixed(1) + ' % de la anterior');

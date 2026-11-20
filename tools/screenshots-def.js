@@ -99,5 +99,18 @@ const reglas = require('../ui/reglas.json').reglas;
     await p.click('[aria-label="Volver"]'); await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 900; }); await shot(p, '08-ajustes-copia-de-seguridad');
     await ctx.close();
   }
+  if (block === 'H') {
+    const setTags = (p, st) => p.evaluate(v => { DGUI.engine.store.all.filter(i => i.module === 'deklination').forEach(i => { DGUI.engine.state().tags[i.errorTag] = Object.assign({}, v); }); }, st);
+    const hasT = c => c.item.module === 'deklination' && ['kasus-article', 'adjektivendung-weak', 'adjektivendung-strong', 'kasus-possessive_article'].includes(c.item.skill);
+    for (const [name, st, scheme] of [['01-completa', { n: 0, f: 0 }, 'light'], ['02-media-tabla', { n: 4, f: 1 }, 'light'], ['03-sin-tabla-dominado', { n: 10, f: 0 }, 'dark']]) {
+      const { p, ctx } = await page(scheme, { auto: false, size: 30 });
+      await setTags(p, st); await p.click('.card[data-module="deklination"]');
+      if (await until(p, hasT)) {
+        await shot(p, name);
+        if (name.startsWith('03')) { await solve(p, false); await shot(p, '04-fallo-cadena-y-casilla'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 420; }); await shot(p, '05-fallo-tabla-marcada'); }
+      }
+      await ctx.close();
+    }
+  }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

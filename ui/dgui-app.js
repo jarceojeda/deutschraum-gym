@@ -134,6 +134,34 @@
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));
       return box;
     }
+    /* ---------- tablas de referencia que se retiran (Deklination) ---------- */
+    var TB = D.tablas;
+    function tableInfo(item) {
+      if (prefs.get('tables') === false || !ctx.tablas) return null;
+      var id = TB.tableId(item, ctx.tablas); if (!id) return null;
+      var table = ctx.tablas[id], loc = TB.locate(item, table, id);
+      return { id: id, table: table, loc: loc, level: TB.level((eng.state().tags || {})[item.errorTag]) };
+    }
+    var COLSHAPE = { M: F.GENDER.der, F: F.GENDER.die, N: F.GENDER.das, PL: F.PLURAL };
+    function tableNode(info, o) {
+      o = o || {}; var t = info.table, masked = o.masked || [], hit = o.hit;
+      return h('div.tbl-wrap', { 'data-table': info.id },
+        h('div.tbl-cap', t.titulo),
+        h('table.tbl', h('thead', h('tr', h('th'), t.cols.map(function (c) { var g = COLSHAPE[c]; return h('th.' + (g ? g.cls : ''), g ? h('span.shape', { 'aria-hidden': 'true' }, g.shape) : null, ' ' + c); }))),
+          h('tbody', t.rows.map(function (r, ri) {
+            var hideRow = masked.indexOf(ri) >= 0;
+            return h('tr' + (hit && hit.r === ri ? '.hitrow' : '') + (hideRow ? '.masked' : ''), h('th.rowh', r.caso),
+              r.celdas.map(function (c, ci) { return hideRow ? h('td.mask', { 'aria-label': 'oculto' }, '·') : h('td' + (hit && hit.r === ri && hit.cols.indexOf(ci) >= 0 ? '.hit' : ''), c); }));
+          }))),
+        t.nota ? h('p.hint', t.nota) : null);
+    }
+    function chainNode(item, info) {
+      var steps = TB.chain(item, info.table, info.loc); if (!steps.length) return null;
+      return h('ol.chain', { 'aria-label': 'Cadena de decisión' }, steps.map(function (st, i) {
+        return h('li', h('b.n', String(i + 1)), h('span.k', st.k + ': '), st.caseKey ? F.caseBadge(st.caseKey) : h('strong', st.v));
+      }));
+    }
+
     /* ---------- cápsula de regla («memory-strip» / «formula» de las cheat sheets) ---------- */
     function capsuleNode(c) {
       if (!c) return null;
@@ -166,7 +194,9 @@
       S.cur = { view: v, item: item, spec: spec, fb: null };
       var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(HAP.tap); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
       var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
-      var cap = rules.capsule(item), auto = !!cap && prefs.get('ruleFirst') !== false && !dominated(item);
+      var tinfo = tableInfo(item), withTable = !!tinfo && tinfo.level !== 'ninguna';
+      // la tabla es la ayuda principal de Deklination: con tabla visible la regla no se abre sola (queda en «¿Por qué?») para que quepa en pantalla
+      var cap = rules.capsule(item), auto = !!cap && prefs.get('ruleFirst') !== false && !dominated(item) && !withTable;
       var slot = h('div.why-slot'), open = auto;
       var why = h('button.btn.secondary.why', { type: 'button', id: 'why', 'aria-expanded': 'false', onclick: function () {
         if (!cap) { toast('Todavía no hay regla escrita para este tema.'); return; }
@@ -174,7 +204,17 @@
       } }, '¿Por qué?');
       function paint() { U.clear(slot); why.setAttribute('aria-expanded', open ? 'true' : 'false'); if (open && cap) { slot.appendChild(capsuleNode(cap)); if (auto) slot.appendChild(h('p.hint.center', 'Regla visible mientras la aprendes; se oculta sola cuando la dominas.')); } }
       paint();
-      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item), why), slot, inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
+      var tslot = h('div.tbl-slot');
+      if (withTable) {
+        var showAll = tinfo.level === 'completa';
+        (function paintT() {
+          U.clear(tslot);
+          tslot.appendChild(tableNode(tinfo, { masked: showAll ? [] : TB.maskedRows(tinfo.loc, tinfo.table) }));
+          if (!showAll) tslot.firstChild.querySelector('.tbl-cap').appendChild(h('button.btn.ghost.reveal', { type: 'button', id: 'reveal', onclick: function () { showAll = true; paintT(); } }, 'Mostrar toda'));
+          tslot.appendChild(h('p.hint.center', showAll && tinfo.level === 'media' ? 'Tabla completa (la pediste). La media tabla era parte del reto.' : tinfo.level === 'completa' ? 'Tabla completa mientras aprendes este tipo; después se retira a media tabla y luego desaparece.' : 'Media tabla: falta la mitad donde está la respuesta.'));
+        })();
+      }
+      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item), why), slot, tslot, inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
     function submit(resp, extra) {
       var s = S.session, item = S.cur.item, v = S.cur.view, spec = S.cur.spec;
@@ -208,6 +248,10 @@
           h('span.pres', h('strong', r.ok ? r.expected : r.expected), r.ok ? null : h('s', r.given == null ? '—' : r.given), h('span.mark', { 'aria-hidden': 'true' }, r.ok ? '✓' : '✗')));
       }));
     }
+    function fbTable(item) {
+      var info = tableInfo(item); if (!info) return null;
+      return h('div.fb-table', chainNode(item, info), tableNode(info, { hit: info.loc }));
+    }
     function feedback(f) {
       var s = S.session, item = f.item;
       S.cur.fb = f; cancelAuto();
@@ -224,7 +268,7 @@
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa'), say),
           par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? 'Wo? ' + f.resp.wo + ' · Wohin? ' + f.resp.wohin : f.resp)) : null,
-          h('div.fb-line', rules.oneLine(item)), capsuleNode(rules.capsule(item)),
+          h('div.fb-line', rules.oneLine(item)), fbTable(item), capsuleNode(rules.capsule(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
       if (prefs.get('voice') === 'auto' && voice.available()) voice.speakItem(item);
@@ -404,6 +448,7 @@
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
         h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
+        h('section.set', h('h2', 'Tablas de ayuda en Deklination'), h('p.hint', 'Tabla completa al empezar un tipo, media tabla después y ninguna al dominarlo. Tras fallar siempre ves la casilla.'), seg('Tablas de ayuda', [['1', 'Sí'], ['0', 'No']], prefs.get('tables') === false ? '0' : '1', function (v) { prefs.set('tables', v === '1'); })),
         h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
           seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),
           h('button.btn.secondary.test-voice', { type: 'button', id: 'test-voice', onclick: function () { var r = voice.speak('Guten Tag! Das ist ein Test.'); toast(r.ok ? (r.voice ? 'Voz: ' + r.voice : 'Voz del sistema (sin voz alemana específica)') : 'No se pudo reproducir el audio.', r.ok ? 'info' : 'warn'); } }, '🔊 Probar voz'),

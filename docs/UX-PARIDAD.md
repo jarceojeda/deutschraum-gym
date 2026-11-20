@@ -36,6 +36,8 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 29 | Teclado de umlauts en respuestas escritas | Fila ä ö ü ß (≥48 px) en el modo «Escribir» | C · HECHO |
 
 | 30 | Präpositionen y Konnektoren (módulos 4 y 5 de la propuesta) | Par mínimo Wo?/Wohin? y fichas para ordenar con datos y motor existentes; transformaciones por palabras con conectores como distractores | HECHO (ahora) |
+| 32 | Andamiaje que se retira: tabla completa → media tabla → ninguna (Deklination) | `ui/dgui-tablas.js` + `ui/tablas.json` (§11 de la guía): 191 ítems con tabla; retirada por dominio del `errorTag` (<3 intentos completa, ≥6 y ≥85 % ninguna); tras fallar siempre tabla con la casilla marcada. Se apaga en Ajustes | HECHO |
+| 33 | Motor de 4 movimientos (caso → casilla → quién lleva la señal → cola del sustantivo) | Cadena **caso → casilla → forma** tras fallar (pasos con dato). «Quién lleva la señal» y «cola del sustantivo» no existen como dato en `data/` | PARCIAL |
 | 31 | Pestaña de consulta separada de los ejercicios | «Consulta de reglas»: 62 temas de `reglas.json`, solo lectura | HECHO (parcial: faltan cheat sheets A2/B1) |
 
 Evaluación completa de la propuesta de la charla inicial: `docs/EVALUACION-propuesta.md`.

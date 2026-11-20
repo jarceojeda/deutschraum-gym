@@ -562,7 +562,8 @@ test('D · «¿Por qué?»: abre y cierra la cápsula bajo demanda; sin regla av
 
 test('D · regla visible al principio y oculta al dominar el tema (vuelve a verse tras fallar)', () => {
   const u = boot(85);
-  assert.ok(toItem(u, it => hasRule(it), 'deklination'));
+  const noTable = it => hasRule(it) && !u.w.DGUI.tablas.tableId(it, JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'tablas.json'), 'utf8')).tablas);
+  assert.ok(toItem(u, noTable, 'deklination'));
   const item = u.S().cur.item;
   assert.ok(u.q('.why-slot .capsule'), 'visible al principio (tema nuevo)');
   assert.ok(/se oculta sola/.test(u.q('.why-slot').textContent));
@@ -570,10 +571,17 @@ test('D · regla visible al principio y oculta al dominar el tema (vuelve a vers
   u.click(u.q('[aria-label="Terminar sesión"]')); if (u.S().screen === 'summary') u.click(u.q('.dock .btn.secondary'));
   const tags = u.eng.state().tags;
   u.eng.store.all.filter(i => i.module === 'deklination').forEach(i => { tags[i.errorTag] = { n: 10, f: 0 }; });
-  assert.ok(toItem(u, it => hasRule(it), 'deklination'), 'otro ejercicio con regla');
+  assert.ok(toItem(u, noTable, 'deklination'), 'otro ejercicio con regla');
   assert.equal(u.q('.why-slot .capsule'), null, 'dominado: la regla ya no sale sola');
   u.click(u.q('#why')); assert.ok(u.q('.why-slot .capsule'), 'pero sigue disponible bajo demanda');
   u.answer(false); assert.ok(u.q('.fb.bad .capsule'), 'y tras fallar vuelve a mostrarse');
+});
+
+test('D · con tabla de ayuda visible la regla no se abre sola (cabe en pantalla) pero sigue en «¿Por qué?»', () => {
+  const u = boot(88); const T = u.w.DGUI.tablas, tab = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'tablas.json'), 'utf8')).tablas;
+  assert.ok(toItem(u, it => hasRule(it) && T.tableId(it, tab), 'deklination'));
+  assert.ok(u.q('.tbl-slot .tbl')); assert.equal(u.q('.why-slot .capsule'), null);
+  u.click(u.q('#why')); assert.ok(u.q('.why-slot .capsule'));
 });
 
 test('D · «Ver regla» (panel) incluye la cápsula arriba cuando existe', () => {
@@ -790,4 +798,56 @@ test('Copia de seguridad: archivo alterado o ajeno se rechaza sin tocar nada; ca
   assert.match(D.q('.toast.warn').textContent, /No es una copia de Deutschraum/); assert.equal(D.stored(), null);
   const E = boot(137); E.click(E.q('[aria-label="Ajustes"]')); fileInput(E, JSON.stringify(good)); await waitFor(() => E.q('#confirm-import'));
   E.click(E.q('[role="dialog"] .sheet-f button')); assert.equal(E.stored(), null, 'cancelar: nada cambia');
+});
+
+/* ---------- Tablas que se retiran (Deklination) ---------- */
+const TABLAS = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'tablas.json'), 'utf8')).tablas;
+function toTable(u, setTags, pred) {          // juega hasta un ítem de Deklination con tabla; setTags(tag) → stats a fijar antes de empezar
+  const T = u.w.DGUI.tablas;
+  if (setTags) u.eng.store.all.filter(i => i.module === 'deklination').forEach(i => { u.eng.state().tags[i.errorTag] = Object.assign({}, setTags); });   // copia propia por tipo: responder no debe mutar las demás
+  u.chooseModule('deklination', 30); u.start();
+  for (let i = 0; i < 60 && u.S().screen === 'session'; i++) { const it = u.S().cur.item; if (T.tableId(it, TABLAS) && T.locate(it, TABLAS[T.tableId(it, TABLAS)]) && (!pred || pred(it))) return true; u.answer(true); u.next(); }
+  return false;
+}
+
+test('Tablas · tema nuevo: tabla completa antes de responder, SIN marcar la casilla (no filtra la respuesta)', () => {
+  const u = boot(140); assert.ok(toTable(u));
+  assert.ok(u.q('.tbl-slot .tbl')); assert.equal(u.qa('.tbl-slot tr.masked').length, 0); assert.equal(u.qa('.tbl-slot td.hit').length, 0, 'sin casilla marcada');
+  assert.equal(u.qa('.tbl-slot tbody tr').length, 4); assert.equal(u.q('#reveal'), null); assert.match(u.q('.tbl-slot .hint').textContent, /Tabla completa mientras aprendes/);
+  assert.ok(u.qa('.tbl-slot th .shape').length === 4, 'columnas con forma, no sólo color');
+});
+
+test('Tablas · media tabla: oculta la mitad con la respuesta; «Mostrar toda la tabla» la revela', () => {
+  const u = boot(141); assert.ok(toTable(u, { n: 4, f: 1 }));
+  const masked = u.qa('.tbl-slot tr.masked'); assert.equal(masked.length, 2);
+  masked.forEach(r => assert.ok(Array.from(r.querySelectorAll('td')).every(td => td.textContent === '·'), 'celdas ocultas sin texto'));
+  const item = u.S().cur.item; assert.ok(!u.qa('.tbl-slot td').some(td => td.classList.contains('hit')));
+  u.click(u.q('#reveal')); assert.equal(u.qa('.tbl-slot tr.masked').length, 0); assert.equal(u.q('#reveal'), null);   // el botón vive en la cabecera de la tabla
+});
+
+test('Tablas · dominado: no hay tabla antes de responder; al fallar aparece la cadena caso → casilla → forma y la casilla marcada', () => {
+  const u = boot(142); assert.ok(toTable(u, { n: 10, f: 0 }));
+  const item = u.S().cur.item; assert.equal(u.q('.tbl-slot .tbl'), null, 'dominado: sin tabla');
+  u.answer(false);
+  const tb = u.q('.fb.bad .fb-table .tbl'); assert.ok(tb, 'tras fallar siempre se ve la tabla');
+  const hit = tb.querySelectorAll('td.hit'); assert.ok(hit.length >= 1); assert.ok(/./.test(hit[0].textContent));
+  assert.ok(hit[0].textContent === item.answer || hit[0].textContent === '-' + item.answer || /^ein/.test(hit[0].textContent));
+  const steps = u.qa('.fb .chain li'); assert.equal(steps.length, 3); assert.match(steps[0].textContent, /Caso/); assert.match(steps[1].textContent, /Casilla/); assert.match(steps[2].textContent, /Forma/);
+  assert.ok(tb.querySelector('tr.hitrow'));
+});
+
+test('Tablas · acertar no muestra tabla; apagar «Tablas de ayuda» las quita siempre (y se guarda)', () => {
+  const u = boot(143); assert.ok(toTable(u, { n: 10, f: 0 })); u.answer(true); assert.equal(u.q('.fb-table'), null);
+  const v = boot(144, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, tables: false })) });
+  assert.ok(toTable(v)); assert.equal(v.q('.tbl-slot .tbl'), null); v.answer(false); assert.equal(v.q('.fb-table'), null);
+  const s = boot(145); s.click(s.q('[aria-label="Ajustes"]')); s.click(s.q('[aria-label="Tablas de ayuda"] [data-v="0"]'));
+  assert.equal(JSON.parse(s.w.localStorage.getItem('dg.ui')).tables, false);
+});
+
+test('Tablas · se retiran con el uso: de tabla completa a media y a ninguna según los intentos acumulados', () => {
+  const u = boot(146); const T = u.w.DGUI.tablas, tags = u.eng.state().tags;
+  assert.ok(toTable(u)); const tag = u.S().cur.item.errorTag;
+  assert.equal(u.qa('.tbl-slot tr.masked').length, 0, 'completa');
+  tags[tag] = { n: 3, f: 0 }; assert.equal(T.level(tags[tag]), 'media'); tags[tag] = { n: 6, f: 0 }; assert.equal(T.level(tags[tag]), 'ninguna');
+  u.click(u.q('[aria-label="Terminar sesión"]'));
 });
