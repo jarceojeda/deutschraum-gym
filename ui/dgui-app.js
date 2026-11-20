@@ -85,24 +85,40 @@
           h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Nivel ' + eng.levelOf(m.id)), h('span.go', { 'aria-hidden': 'true' }, '›')));
       });
       var soonList = h('div.cards');
-      SOON.forEach(function (m) {
-        soonList.appendChild(h('button.card.soon', { type: 'button', disabled: true, 'aria-disabled': 'true', 'data-soon': m.id },
-          h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Próximamente')));
-      });
       var nerr = eng.errorQueue().length;
       var errCard = h('button.card.errs', { type: 'button', id: 'errors', disabled: !nerr, 'data-errors': nerr, onclick: function () { start({ kind: 'errors' }); } },
         h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
       var rc = ret.current(), chip = rc.streak > 0 ? h('span.streak-chip' + (rc.today ? '.done' : ''), { id: 'streak', title: rc.today ? 'Hoy ya practicaste' : 'Practica hoy para mantenerla' }, h('span', { 'aria-hidden': 'true' }, '◆ '), rc.streak + (rc.streak === 1 ? ' día' : ' días')) : null;
-      var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Fórmulas y tiras de memoria, sin ejercicios')), h('span.go', { 'aria-hidden': 'true' }, '›'));
-      var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
+      var go = function () { return h('span.go', { 'aria-hidden': 'true' }, '›'); };
+      var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Reglas, hojas A2/B1 y biblioteca de clases, sin ejercicios')), go());
+      var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), go());
+      var progCard = h('button.card.errs.ref', { type: 'button', id: 'progreso', onclick: progreso }, h('span.mi', { 'aria-hidden': 'true' }, '▲'), h('span.mt', h('strong', 'Mi progreso'), h('span', 'Palabras, verbos, aciertos y tu semana')), go());
+      var nw = (ctx.words || []).length, nf = (ctx.frases || []).length;
+      var wordsCard = h('button.card.errs', { type: 'button', id: 'palabras', onclick: palabras }, h('span.mi', { 'aria-hidden': 'true' }, '＋'), h('span.mt', h('strong', 'Mis palabras'), h('span', nw ? nw + ' propias en tu repaso' : 'Añade una palabra tuya en unos segundos')), nw ? h('span.badge', String(nw)) : go());
+      var frasesCard = h('button.card.errs', { type: 'button', id: 'frases', onclick: frases }, h('span.mi', { 'aria-hidden': 'true' }, '❝'), h('span.mt', h('strong', 'Mis frases'), h('span', nf ? nf + ' propias para ordenar' : 'Ordena frases que tú escribes')), nf ? h('span.badge', String(nf)) : go());
+      // R1 · puerta al B1: tarjeta fija + aviso único cuando ya hay práctica y Verben sigue por debajo de B1
+      var b1Card = h('button.card.b1', { type: 'button', id: 'b1', onclick: startB1 }, h('span.mi', { 'aria-hidden': 'true' }, 'B1'), h('span.mt', h('strong', 'Gramática B1'), h('span', 'Plusquamperfekt, Konjunktiv II, Passiv, Relativsatz… (fija B1 en Verben, Deklination y Satzbau)')), go());
+      var sessions = (eng.state().stats || {}).sessions || 0, nudge = sessions >= 8 && eng.levelOf('verben') !== 'B1' && !prefs.get('b1nudge')
+        ? h('div.notice.nudge', { id: 'b1-nudge', role: 'status' }, h('p', h('strong', '¿Probamos Gramática B1? '), 'Ya llevas ' + sessions + ' sesiones. Plusquamperfekt, Konjunktiv II y Passiv están esperando.'),
+            h('div.row', h('button.btn.primary', { type: 'button', id: 'b1-yes', onclick: startB1 }, 'Probar B1'), h('button.btn.ghost', { type: 'button', id: 'b1-no', onclick: function () { prefs.set('b1nudge', true); home(); } }, 'Ahora no'))) : null;
+      var last = prefs.get('last'), cont = last && (last.kind === 'mix' || (last.kind === 'module' && last.module && MODULES.some(function (m) { return m.id === last.module; })))
+        ? h('button.btn.big.cta2', { type: 'button', id: 'continue', onclick: function () { if (last.kind === 'module') S.module = last.module; start(last.b1 ? { kind: 'mix', modules: B1_MODS, b1: true } : { kind: last.kind }); } },
+            'Seguir: ' + (last.b1 ? 'Gramática B1' : last.kind === 'mix' ? 'Viaje combinado' : modName(last.module)) + ' ›') : null;
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
-        [storageBanner(),
+        [storageBanner(), nudge,
           h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo o mezcla todo.'),
             h('div.group', h('p.glabel', 'Ejercicios por sesión'), chipRow('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = v; prefs.set('size', v); home(); }, 'size')),
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, lvMode, function (v) { chooseLevel(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
-            h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+            cont, h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
+          h('h2.sec-h', 'Un módulo'), list, b1Card, h('h2.sec-h', 'Repaso'), errCard, mapCard, progCard, h('h2.sec-h', 'Mi material'), refCard, wordsCard, frasesCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+    }
+    var B1_MODS = ['verben', 'deklination', 'satzbau'];
+    function startB1() {
+      B1_MODS.forEach(function (m) { try { eng.setLevel('B1', m); } catch (e) { /* módulo sin B1 */ } });
+      prefs.set('b1nudge', true); eng.progress.save();
+      S.mixModules = B1_MODS; start({ kind: 'mix', modules: B1_MODS, b1: true });
+      toast('Nivel B1 fijado en Verben, Deklination y Satzbau. Puedes cambiarlo en Ajustes › Práctica.', 'info');
     }
 
     /* ---------- sesión ---------- */
@@ -111,13 +127,27 @@
       var s, req = { kind: kind, size: S.size, mode: prefs.get('entry') === 'write' ? 'write' : 'touch' };
       S.mode = req.mode; S.lastSpec = null;
       if (kind === 'module') req.modules = [S.module];
-      if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
+      if (kind === 'mix') req.modules = S.mixModules = o.modules || (o.kind === 'mix' ? null : S.mixModules) || MODULES.map(function (m) { return m.id; });
+      if (kind === 'mix' && o.kind === 'mix' && !o.modules) S.mixModules = null;
+      if (kind === 'ids') req.ids = S.ids = o.ids || S.ids || [];   // «Practicar mis palabras»
       try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
       if (!s || !s.length()) { toast('No hay ejercicios para esta sesión. ' + (s && s.warnings && s.warnings.length ? WARN[s.warnings[0].code] || '' : 'Revisa el nivel en Ajustes.')); return; }
       S.kind = kind; S.session = s; S.saveError = null; S.answeredAny = false;
+      if (kind === 'module' || kind === 'mix') prefs.set('last', { kind: kind, module: kind === 'module' ? S.module : null, b1: !!o.b1 || (kind === 'mix' && S.mixModules === B1_MODS), ts: win.Date.now() });
       S.warnings = (s.warnings || []).map(function (w) { return { code: w.code, msg: WARN[w.code] || w.code }; });
       question();
     }
+    // Modo Casa (laptop): atajos de teclado en la sesión. 1–6 eligen la opción, Enter pasa a la siguiente / comprueba. No actúan con un panel abierto,
+    // escribiendo en un campo ni con un botón enfocado (Enter ya lo pulsa).
+    doc.addEventListener('keydown', function (e) {
+      if (S.screen !== 'session' || e.ctrlKey || e.metaKey || e.altKey || e.defaultPrevented) return;
+      var t = e.target, tag = t && t.tagName ? t.tagName : '';
+      if (/^(INPUT|TEXTAREA|SELECT|BUTTON|A)$/.test(tag) || root.querySelector('[role="dialog"]')) return;
+      var btn = null;
+      if (/^[1-6]$/.test(e.key)) btn = root.querySelector('.options .opt[data-k="' + e.key + '"]:not([disabled])');
+      else if (e.key === 'Enter') btn = root.querySelector('#next') || root.querySelector('.dock .btn.primary:not([disabled])');
+      if (btn) { e.preventDefault(); btn.click(); }
+    });
     function modName(id) { return MODULES.filter(function (m) { return m.id === id; })[0].name; }
     // Toast único: kind = info | ok | warn (la vibración acompaña a ok/warn, no a info).
     function toast(msg, kind) {
@@ -130,7 +160,7 @@
       return String(text).split(/_{2,}/).reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(F.rich(sg)); return acc; }, []);
     }
     function promptNode(v, item) {
-      var box = h('div.qbody');
+      var box = h('div.qbody'), pl = F.langOf(item, 'prompt'); if (pl) box.setAttribute('lang', pl);   // lector de pantalla: voz alemana o española según el texto
       var parts = String(v.prompt).split(' · ');
       if (v.module === 'verben' && parts.length === 3) {
         box.appendChild(h('div.p-big', parts[0]));
@@ -146,6 +176,7 @@
         var long = v.type === 'order' || v.type === 'transform';
         box.appendChild(h('div.p-big.p-sent' + (long ? '.p-long' : ''), sentNodes(String(v.prompt))));
       }
+      if (v.module === 'verben' && ctx.verbos && ctx.verbos[parts[0]]) box.appendChild(h('div.p-es', { 'data-verb-es': parts[0] }, '= ' + ctx.verbos[parts[0]]));   // significado del verbo (todas las habilidades)
       if (v.type === 'order' && item.translation) box.appendChild(h('div.p-tr', '“' + item.translation + '”'));
       if (v.showTranslation && v.translation) box.appendChild(h('div.p-tr', '“' + v.translation + '”'));
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));
@@ -358,6 +389,7 @@
       if (sm.saveError) S.saveError = sm.saveError;
       // racha y logros: una sola vez por sesión (el resumen puede repintarse)
       if (S.retFor !== sm.sessionNo) {
+        if (sm.answered > 0) { var dly = prefs.get('daily') || {}, dk = D.retention.dateKey(win.Date.now()); dly[dk] = (dly[dk] || 0) + sm.answered; Object.keys(dly).sort().slice(0, -30).forEach(function (kx) { delete dly[kx]; }); prefs.set('daily', dly); }
         S.retFor = sm.sessionNo; S.retInfo = { streak: ret.current().streak, perdonado: false, badges: [] };
         if (sm.answered > 0) {
           var t = ret.touch(); S.retInfo = { streak: t.streak, perdonado: t.perdonado, badges: ret.unlock({ stats: eng.state().stats, summary: sm }) };
@@ -365,6 +397,10 @@
         }
       }
       var info = S.retInfo, pct = sm.answered ? Math.round(100 * sm.correct / sm.answered) : 0, blocks = [];
+      // R3 · momento de celebración: subir de nivel, hito de racha (3/7/30), logro nuevo o sesión limpia. El movimiento se apaga con «reducir movimiento».
+      var up = (sm.levelChanges || []).filter(function (c) { return c.change === 'promote' || c.to > c.from; });
+      var party = up.length ? 'Subiste de nivel en ' + up.map(function (c) { return c.module; }).join(', ') + ' ✦' : info.badges.length ? 'Logro desbloqueado: ' + info.badges[0].title + ' ✦' : sm.answered >= 10 && sm.correct === sm.answered ? 'Sesión limpia: ¡todo bien a la primera! ✦' : null;
+      if (party) { blocks.push(h('div.celebrate', { id: 'celebrate', role: 'status' }, h('span.spark', { 'aria-hidden': 'true' }, '✦'), h('strong', party), h('span.spark.s2', { 'aria-hidden': 'true' }, '✦'))); buzz(HAP.milestone); }
       blocks.push(h('div.sum-score', h('div.sum-big', sm.correct + '/' + sm.answered), h('div.sum-sub', sm.answered ? pct + ' % de aciertos al primer intento' : 'Sin respuestas esta vez')));
       if (info.streak > 0 && sm.answered > 0) blocks.push(h('div.sum-card.streak', { id: 'streak-card' }, h('strong', 'Racha: ' + info.streak + (info.streak === 1 ? ' día' : ' días')), info.perdonado ? h('span.hint', ' · perdoné un día que faltaste (1 por semana)') : null));
       info.badges.forEach(function (b) { blocks.push(h('div.sum-card.badge', { 'data-badge': b.id }, h('strong', 'Logro: ' + b.title), h('span.hint', ' · ' + b.detail))); });
@@ -389,6 +425,19 @@
         });
         if (failed.length > 8) blocks.push(h('p.hint.center', 'y ' + (failed.length - 8) + ' más en «Mis errores».'));
       }
+      // Sprechen (último paso del ciclo Verstehen → Üben → Sprechen): repetir en voz alta las frases de la sesión. Opcional y apagado por defecto (Modo Tren).
+      if (prefs.get('sprechen') === true && voice.available()) {
+        var seen = {}, phrases = [], order = (sm.failed || []).concat((s.plan && s.plan.items || []).map(function (e) { return e.id; }));
+        order.forEach(function (id) {
+          var it = eng.store.byId[id]; if (!it || phrases.length >= 5) return;
+          var tx = D.voice.spokenText(it); if (!tx || seen[tx] || tx.length > 80 || it.skill === 'pronunciacion') return; seen[tx] = true; phrases.push({ id: id, text: tx });
+        });
+        if (phrases.length) blocks.push(h('section.sum-card.sprechen', { id: 'sprechen' }, h('strong', 'Sprechen · repite en voz alta'), h('p.hint', 'Escucha, repite y marca «Lo dije». Es sólo para ti: no cuenta como práctica.'),
+          phrases.map(function (p) {
+            var said = h('button.btn.secondary.said', { type: 'button', 'aria-pressed': 'false', onclick: function () { var on = said.getAttribute('aria-pressed') !== 'true'; said.setAttribute('aria-pressed', String(on)); said.textContent = on ? 'Lo dije ✓' : 'Lo dije'; } }, 'Lo dije');
+            return h('div.say-row', { 'data-id': p.id }, h('span.say-t', F.rich(p.text)), h('button.btn.icon.say-b', { type: 'button', 'aria-label': 'Escuchar: ' + p.text, onclick: function () { var r = voice.speak(p.text); if (!r.ok) toast('No se pudo reproducir el audio.', 'warn'); } }, '🔊'), said);
+          })));
+      }
       (sm.levelChanges || []).forEach(function (c) { blocks.push(h('div.sum-card', h('strong', (c.change === 'promote' || c.to > c.from ? 'Subiste de nivel' : 'Cambio de nivel') + ': ' + c.module + ' ' + c.from + ' → ' + c.to))); });
       shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: function () { start({}); } }, 'Otra sesión')))], 'summary');
       if (S.retToast) { var m = S.retToast; S.retToast = null; toast(m, 'ok'); }   // después de pintar: shell() limpia la raíz
@@ -397,13 +446,22 @@
     /* ---------- consulta de reglas (separada de los ejercicios) ---------- */
     function consulta(group) {
       S.screen = 'consulta'; var all = ctx.reglas || {};
-      var num = function (k) { return k.replace(/^\D+/, '').split('-').map(Number); };
+      var natural = function (a, b) { return a.localeCompare(b, 'en', { numeric: true }); };
       var inGroup = function (k) { return group === 'all' || (group === 'md' ? /^(md|b1|a24):/.test(k) : k.indexOf(group + ':') === 0); };
-      var keys = Object.keys(all).filter(function (k) { return !all[k].alias && inGroup(k); }).sort(function (a, b) {
-        if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
-      });
+      var keys = Object.keys(all).filter(function (k) { return !all[k].alias && inGroup(k); }).sort(natural);
       var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };
-      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['md', 'Clases']], group, function (v) { consulta(v); }, 'group');
+      var bib = ctx.biblioteca || [];
+      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['sa2', 'A2 · hoja'], ['sb1', 'B1 · hoja'], ['md', 'Clases'], ['cl', 'Biblioteca']], group, function (v) { consulta(v); }, 'group');
+      if (group === 'cl') {      // biblioteca: una ficha por clase (objetivos + errores típicos), sólo lectura
+        var blist = h('div.emap', bib.map(function (c) {
+          return h('button.erow', { type: 'button', 'data-clase': String(c.n), onclick: function () {
+            openSheet(c.titulo, [h('p.hint', 'Clase ' + c.n + (c.nivel ? ' · ' + c.nivel : '')), h('ul.bib-p', c.puntos.map(function (p) { return h('li', F.md(p)); })),
+              c.errores.length ? h('details.cap-err', { open: true }, h('summary', 'Errores típicos (' + c.errores.length + ')'), h('ul', c.errores.map(function (e) { return h('li', F.md(e)); }))) : null], 'Clase'); } },
+            h('span.el', c.titulo), h('span.en', 'Clase ' + c.n + (c.nivel ? ' · ' + c.nivel : '')));
+        }));
+        return shell('Consulta', [iconBtn('Volver', '←', home), brand('Biblioteca de clases', bib.length + ' clases')], null,
+          [chips, h('p.hint', 'Solo lectura: resumen de cada clase. No cuenta como práctica.'), blist], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Volver'))]);
+      }
       var list = h('div.emap', keys.map(function (k) {
         var r = all[k], first = r.regla ? r.regla.replace(/\*\*/g, '') : (r.formula || (r.errores && r.errores[0] ? r.errores[0].replace(/\*\*/g, '') : ''));
         return h('button.erow', { type: 'button', 'data-concept': k, onclick: function () { openSheet(title(r), [capsuleNode(Object.assign({ id: k }, r), { open: true })], 'Regla'); } },
@@ -414,10 +472,95 @@
     }
     api.consulta = consulta;
 
+    /* ---------- Mi progreso (R2) ---------- */
+    function progreso() {
+      S.screen = 'progreso'; var st = eng.state(), stats = st.stats || {}, daily = prefs.get('daily') || {};
+      var per = {}; eng.store.modules().forEach(function (m) {
+        var total = 0, seen = 0, mast = 0, lem = {}; (eng.store.unitsByModule[m] || []).forEach(function (u) {
+          total++; var us = st.units[u.unit]; if (us && us.n > 0) seen++;
+          if (us && us.s === 'r' && us.r >= 2) { mast++; if (u.lemma) lem[u.lemma] = true; }
+        }); per[m] = { total: total, seen: seen, mast: mast, lemmas: Object.keys(lem).length };
+      });
+      var acc = stats.answered ? Math.round(100 * stats.correct / stats.answered) : null;
+      var days = [], dn = ['D', 'L', 'M', 'X', 'J', 'V', 'S'], now = win.Date.now(), maxN = 1;
+      for (var i = 6; i >= 0; i--) { var dt = new win.Date(now - i * 864e5), k = D.retention.dateKey(dt.getTime()), n = daily[k] || 0; if (n > maxN) maxN = n; days.push({ k: k, n: n, d: dn[dt.getDay()] }); }
+      var week = days.reduce(function (a, b) { return a + b.n; }, 0);
+      function stat(v, l, id) { return h('div.pg-stat', { id: id }, h('strong', String(v)), h('span', l)); }
+      var bars = h('div.pg-week', { role: 'img', 'aria-label': 'Ejercicios por día en la última semana: ' + days.map(function (x) { return x.d + ' ' + x.n; }).join(', ') },
+        days.map(function (x) { return h('div.pg-day', h('i', { style: 'height:' + Math.round(8 + 64 * x.n / maxN) + 'px' + (x.n ? '' : ';opacity:.35') }), h('b', x.d), h('small', String(x.n))); }));
+      var mods = h('div.emap', MODULES.map(function (m) {
+        var q = per[m.id] || { total: 0, seen: 0, mast: 0 };
+        return h('div.erow.pg-mod', { 'data-module': m.id }, h('span.el', m.name + ' · nivel ' + eng.levelOf(m.id)),
+          h('span.eb', { 'aria-hidden': 'true' }, h('i', { style: 'width:' + (q.total ? Math.round(100 * q.seen / q.total) : 0) + '%' })),
+          h('span.en', q.mast + (q.mast === 1 ? ' dominado · ' : ' dominados · ') + q.seen + (q.seen === 1 ? ' visto de ' : ' vistos de ') + q.total));
+      }));
+      shell('Mi progreso', [iconBtn('Volver', '←', home), brand('Mi progreso', (stats.sessions || 0) + ((stats.sessions || 0) === 1 ? ' sesión' : ' sesiones'))], null,
+        [h('div.pg-grid', stat((per.wortschatz || {}).mast || 0, 'palabras dominadas', 'pg-words'), stat((per.verben || {}).lemmas || 0, 'verbos con un tiempo dominado', 'pg-verbs'), stat(acc == null ? '—' : acc + ' %', 'aciertos', 'pg-acc'), stat(stats.rescued || 0, 'errores rescatados', 'pg-rescued')),
+          h('h2.sec-h', 'Tu semana · ' + week + (week === 1 ? ' ejercicio' : ' ejercicios')), bars,
+          h('p.hint', 'Racha: ' + (ret.current().streak || 0) + ' día(s) · mejor: ' + (ret.state().best || 0) + '. «Dominado» = repasado con éxito 2 veces.'),
+          h('h2.sec-h', 'Por módulo'), mods],
+        [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.progreso = progreso;
+
+    /* ---------- Mis palabras ---------- */
+    function palabras(msg) {
+      S.screen = 'palabras'; var W = D.palabras, list = ctx.words = ctx.words || [];
+      var inDe = h('input.mw-in', { type: 'text', id: 'mw-de', autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false', lang: 'de', placeholder: 'der Hund', 'aria-label': 'Palabra en alemán (con artículo si es sustantivo)', maxlength: '40' });
+      var inEs = h('input.mw-in', { type: 'text', id: 'mw-es', autocomplete: 'off', lang: 'es', placeholder: 'el perro', 'aria-label': 'Significado en español', maxlength: '60' });
+      function add() {
+        var r = W.parse(inDe.value, inEs.value, list); if (!r.ok) { palabras(); toast(r.error, 'warn'); return; }
+        var w = Object.assign({ id: W.newId(list, win.Date.now()) }, r.word), items = W.make(w, eng.store.all.length ? eng.store.all : [], list);
+        if (!items.length) { palabras(); toast('No pude preparar ejercicios con esa palabra.', 'warn'); return; }
+        var res = eng.addItems(items); if (!res.added) { palabras(); toast('No se pudo añadir: ' + ((res.errors[0] && res.errors[0].msg) || 'error'), 'warn'); return; }
+        list.push(w); var saved = W.save(ctx.storage, list); palabras(); toast(saved ? 'Añadida: ' + w.de + ' · ya entra en tu repaso.' : 'Añadida, pero este navegador no pudo guardarla.', saved ? 'ok' : 'warn');
+      }
+      function remove(w) {
+        eng.removeItems(W.itemIds(w)); ctx.words = list = list.filter(function (x) { return x.id !== w.id; }); W.save(ctx.storage, list); palabras(); toast('Quitada: ' + w.de, 'info');
+      }
+      inEs.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      var rows = list.length ? h('div.emap', list.slice().reverse().map(function (w) {
+        return h('div.erow.mw-row', { 'data-word': w.id }, h('span.el', F.rich(w.de, {})), h('span.en', w.es), h('button.btn.ghost.mw-del', { type: 'button', 'aria-label': 'Quitar ' + w.de, onclick: function () { remove(w); } }, 'Quitar'));
+      })) : h('p.hint', 'Aún no hay palabras. Escribe una arriba: entra al Wortschatz con ES→DE, DE→ES y escribirla.');
+      shell('Mis palabras', [iconBtn('Volver', '←', home), brand('Mis palabras', list.length + ' / ' + W.MAX)], null,
+        [h('p.hint', 'Los sustantivos con artículo (der / die / das). Entran al Wortschatz junto al resto; se guardan en tu copia de seguridad.'),
+          h('label.mw-l', { for: 'mw-de' }, 'Alemán'), inDe, h('label.mw-l', { for: 'mw-es' }, 'Español'), inEs,
+          h('button.btn.primary.big', { type: 'button', id: 'mw-add', onclick: add }, 'Añadir a mi repaso'),
+          list.length ? h('button.btn.secondary.big', { type: 'button', id: 'mw-practice', onclick: function () { start({ kind: 'ids', ids: [].concat.apply([], list.map(W.itemIds)).filter(function (id) { return !!eng.store.byId[id]; }) }); } }, 'Practicar mis palabras (' + list.length + ')') : null, h('h2.sec-h', 'Tu lista'), rows],
+        [h('div.dock-in', h('button.btn.secondary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.palabras = palabras;
+
+    /* ---------- Mis frases ---------- */
+    function frases() {
+      S.screen = 'frases'; var W = D.palabras, list = ctx.frases = ctx.frases || [];
+      var inDe = h('input.mw-in', { type: 'text', id: 'mf-de', autocomplete: 'off', autocorrect: 'off', spellcheck: 'false', lang: 'de', placeholder: 'Ich lerne jeden Tag Deutsch.', 'aria-label': 'Frase en alemán', maxlength: '90' });
+      var inEs = h('input.mw-in', { type: 'text', id: 'mf-es', autocomplete: 'off', lang: 'es', placeholder: 'Aprendo alemán cada día.', 'aria-label': 'Significado en español', maxlength: '140' });
+      function add() {
+        var r = W.parseFrase(inDe.value, inEs.value, list); if (!r.ok) { frases(); toast(r.error, 'warn'); return; }
+        var f = Object.assign({ id: W.newId(list, win.Date.now()) }, r.frase), res = eng.addItems(W.makeFrase(f));
+        if (!res.added) { frases(); toast('No se pudo añadir: ' + ((res.errors[0] && res.errors[0].msg) || 'error'), 'warn'); return; }
+        list.push(f); var saved = W.saveFrases(ctx.storage, list); frases(); toast(saved ? 'Frase añadida: ya sale en Satzbau.' : 'Añadida, pero este navegador no pudo guardarla.', saved ? 'ok' : 'warn');
+      }
+      function remove(f) { eng.removeItems(W.fraseIds(f)); ctx.frases = list = list.filter(function (x) { return x.id !== f.id; }); W.saveFrases(ctx.storage, list); frases(); toast('Quitada.', 'info'); }
+      inEs.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      var rows = list.length ? h('div.emap', list.slice().reverse().map(function (f) {
+        return h('div.erow.mw-row', { 'data-frase': f.id }, h('span.el', f.de), h('span.en', f.es), h('button.btn.ghost.mw-del', { type: 'button', 'aria-label': 'Quitar la frase: ' + f.de, onclick: function () { remove(f); } }, 'Quitar'));
+      })) : h('p.hint', 'Aún no hay frases. Escribe una arriba: la ordenarás con fichas dentro de Satzbau.');
+      shell('Mis frases', [iconBtn('Volver', '←', home), brand('Mis frases', list.length + ' / ' + W.MAXF)], null,
+        [h('p.hint', 'Una frase tuya de 3 a 12 palabras con su significado. Aparece en Satzbau como «Ordena tu frase» y viaja en tu copia de seguridad.'),
+          h('label.mw-l', { for: 'mf-de' }, 'Frase en alemán'), inDe, h('label.mw-l', { for: 'mf-es' }, 'Significado en español'), inEs,
+          h('button.btn.primary.big', { type: 'button', id: 'mf-add', onclick: add }, 'Añadir a mi repaso'),
+          list.length ? h('button.btn.secondary.big', { type: 'button', id: 'mf-practice', onclick: function () { start({ kind: 'ids', ids: [].concat.apply([], list.map(W.fraseIds)).filter(function (id) { return !!eng.store.byId[id]; }) }); } }, 'Practicar mis frases (' + list.length + ')') : null,
+          h('h2.sec-h', 'Tu lista'), rows],
+        [h('div.dock-in', h('button.btn.secondary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.frases = frases;
+
     /* ---------- copia de seguridad ---------- */
     var IMPORT_ERR = { NOT_JSON: 'Ese archivo no es una copia válida.', NOT_BACKUP: 'No es una copia de Deutschraum Gym.', CHECKSUM: 'La copia está alterada o incompleta: no se cambió nada.', MIGRATION: 'La copia es de una versión que no entiendo: no se cambió nada.', SAVE: 'No pude guardar la copia (almacenamiento lleno o bloqueado).' };
     function exportBackup() {
-      var text = eng.exportJSON(), d = new win.Date(win.Date.now()), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+      var text = withWords(eng.exportJSON()), d = new win.Date(win.Date.now()), pad = function (n) { return (n < 10 ? '0' : '') + n; };
       var name = 'deutschraum-gym-' + d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + '.json';
       api.lastExport = { name: name, text: text };
       try {
@@ -426,10 +569,28 @@
         toast('Copia guardada: ' + name, 'ok');
       } catch (e) { toast('No pude crear el archivo en este navegador.', 'warn'); }
     }
+    // «Mis palabras» viajan en la copia de seguridad como campo aparte (fuera de `state`, así el checksum del motor no cambia).
+    function withWords(text) { try { var pkg = JSON.parse(text); if ((ctx.words || []).length) pkg.misPalabras = ctx.words; if ((ctx.frases || []).length) pkg.misFrases = ctx.frases; return JSON.stringify(pkg); } catch (e) { return text; } }
+    function restoreWords(text) {
+      var pkg; try { pkg = JSON.parse(text); } catch (e) { return; }
+      if (!pkg || !Array.isArray(pkg.misPalabras)) return;
+      var W = D.palabras, mine = ctx.words || [], ok = [];
+      pkg.misPalabras.forEach(function (w) { if (w && typeof w.id === 'string' && typeof w.de === 'string' && typeof w.es === 'string' && !mine.some(function (m) { return m.id === w.id; }) && !mine.some(function (m) { return m.de.toLowerCase() === w.de.toLowerCase(); })) { var p = W.parse(w.de, w.es, []); if (p.ok) ok.push({ id: w.id, de: p.word.de, es: p.word.es }); } });
+      ok.forEach(function (w) { var r = eng.addItems(W.make(w, eng.store.all, mine.concat(ok))); if (r.added) mine.push(w); });
+      ctx.words = mine; W.save(ctx.storage, mine);
+    }
+    function restoreFrases(text) {
+      var pkg; try { pkg = JSON.parse(text); } catch (e) { return; }
+      if (!pkg || !Array.isArray(pkg.misFrases)) return;
+      var W = D.palabras, mine = ctx.frases || [];
+      pkg.misFrases.forEach(function (f) { if (!f || typeof f.id !== 'string' || mine.some(function (m) { return m.id === f.id; })) return; var p = W.parseFrase(f.de, f.es, mine); if (!p.ok) return; var fr = { id: f.id, de: p.frase.de, es: p.frase.es }; if (eng.addItems(W.makeFrase(fr)).added) mine.push(fr); });
+      ctx.frases = mine; W.saveFrases(ctx.storage, mine);
+    }
     function applyImport(text) {
+      restoreWords(text); restoreFrases(text);
       var r = eng.importJSON(text);
       if (!r.ok) { toast(IMPORT_ERR[r.code] || 'No se pudo importar la copia.', 'warn'); return r; }
-      eng.progress.reconcile(eng.store);          // quita ítems que ya no existen en esta versión
+      eng.progress.reconcile(eng.store, ctx.keepIds);          // quita ítems que ya no existen en esta versión
       settings(); toast('Copia importada: ' + (eng.state().stats.sessions || 0) + ' sesiones.', 'ok'); return r;   // primero repintar (shell limpia la raíz), luego el aviso
     }
     function askImport(text, filename) {
@@ -486,14 +647,19 @@
       }
       var onoff = function (name, key, extra) { return seg(name, [['1', 'Sí'], ['0', 'No']], prefs.get(key) === false || !prefs.get(key) ? '0' : '1', function (v) { prefs.set(key, v === '1'); if (extra) extra(v === '1'); }); };
       var vv = voice.germanVoice(), vst = !voice.available() ? 'Este navegador no ofrece voz alemana.' : vv ? 'Voz alemana encontrada: ' + vv.name + '.' : 'No encuentro una voz alemana. En Android: Ajustes › Sistema › Idiomas › Salida de texto a voz › Motor de Google › Instalar datos de voz › alemán.';
-      shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores. Wortschatz y Satzbau solo tienen A1 por ahora.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
+      var secs = [
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y subes por dominio hasta B1. A1, A2 o B1: practicas ese nivel (con 20 % de repaso de los anteriores) y no ves niveles superiores.'), seg('Nivel', LEVELS, levelMode(), chooseLevel)),
         h('section.set', h('h2', 'Entrada'), h('p.hint', 'Toques es el modo del tren. Escribir pide teclear la respuesta.'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
+        h('section.set', h('h2', 'Modo Casa (laptop)'), h('p.hint', 'Para practicar con teclado: en el inicio elige «Escribir». En cualquier ejercicio: teclas 1–4 para las opciones y Enter para comprobar o continuar. El cursor ya queda en el campo.')),
         h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
         h('section.set', h('h2', 'Ayuda que se retira'), h('p.hint', 'Al empezar un tipo: opciones. Luego bloques y terminaciones. Al dominarlo: letras sueltas. Apagado: mezcla clásica.'), seg('Ayuda que se retira', [['1', 'Sí'], ['0', 'No']], prefs.get('ladder') === false ? '0' : '1', function (v) { prefs.set('ladder', v === '1'); })),
         h('section.set', h('h2', 'Tablas de ayuda en Deklination'), h('p.hint', 'Tabla completa al empezar un tipo, media tabla después y ninguna al dominarlo. Tras fallar siempre ves la casilla.'), seg('Tablas de ayuda', [['1', 'Sí'], ['0', 'No']], prefs.get('tables') === false ? '0' : '1', function (v) { prefs.set('tables', v === '1'); })),
+        h('section.set', h('h2', 'Más allá del B1 (opcional)'), h('p.hint', 'Suma vocabulario de las clases B2/C1 al Wortschatz. Apagado por defecto: tu práctica de A1–B1 no cambia. Se aplica al reiniciar la app.'),
+          seg('Más allá del B1', [['0', 'No'], ['1', 'Sí']], prefs.get('beyond') === true ? '1' : '0', function (v) { prefs.set('beyond', v === '1'); }),
+          (prefs.get('beyond') === true) !== !!ctx.beyondOn ? h('button.btn.secondary', { type: 'button', id: 'restart', onclick: function () { win.location.reload(); } }, 'Reiniciar ahora para aplicar') : null),
+        h('section.set', h('h2', 'Sprechen al terminar'), h('p.hint', 'Al final de la sesión, repetir en voz alta 5 frases con la voz alemana. Apagado por defecto; necesita voz.'), seg('Sprechen', [['0', 'No'], ['1', 'Sí']], prefs.get('sprechen') === true ? '1' : '0', function (v) { prefs.set('sprechen', v === '1'); })),
         h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
           seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),
           h('button.btn.secondary.test-voice', { type: 'button', id: 'test-voice', onclick: function () { var r = voice.speak('Guten Tag! Das ist ein Test.'); toast(r.ok ? (r.voice ? 'Voz: ' + r.voice : 'Voz del sistema (sin voz alemana específica)') : 'No se pudo reproducir el audio.', r.ok ? 'info' : 'warn'); } }, '🔊 Probar voz'),
@@ -504,6 +670,12 @@
         pwaSection(),
         h('section.set', h('h2', 'Logros'), h('div.badges', D.retention.BADGES.map(function (b) { var got = ret.earned()[b.id]; return h('div.bdg' + (got ? '.got' : ''), { 'data-badge': b.id }, h('strong', b.title), h('span', got ? 'Desde ' + got : b.detail)); }))),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))
+      ];
+      // Agrupado en bloques plegables (el primero abierto) para que Ajustes no sea una lista de 17 secciones.
+      function grp(id, title, sub, from, to, open) { return h('details.set-grp', Object.assign({ id: id }, open ? { open: true } : {}), h('summary', h('strong', title), h('span.hint', sub)), secs.slice(from, to)); }
+      shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
+        grp('g-practica', 'Práctica', 'Nivel, entrada, ayudas y contenido', 0, 9, true), grp('g-voz', 'Voz y apariencia', 'Sprechen, voz, tema, vibración', 9, 13, false),
+        grp('g-datos', 'Datos y app', 'Copia de seguridad e instalación', 13, 15, false), grp('g-logros', 'Logros', 'Tus insignias', 15, 16, false), secs[16]
       ], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Listo'))]);
     }
 

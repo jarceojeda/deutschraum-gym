@@ -221,3 +221,50 @@ test('P5 hp: sólo un acierto en du o er_sie_es de un verbo difícil marca st.un
   });
   assert.ok(withHp >= 10 && hardNoHp >= 1, `con hp ${withHp}, difíciles sin hp ${hardNoHp}`);
 });
+
+test('keepIds: los ids que el contenido opcional deja de cargar NO se podan (su progreso vuelve al reactivarlo); el resto de huérfanos sí', () => {
+  const storage = memStorage(), clock = manualClock(), { data } = dataset();
+  const a = newEngine({ storage, clock, seed: 1 });
+  const st = a.eng.state(); st.items.opcional = { a: 3, f: 1, ls: 1, lr: 0 }; st.errors.opcional = { s: 1, ls: 1, f: 1, ts: 1 }; st.items.fantasma = { a: 1, f: 1, ls: 1, lr: 0 };
+  st.history.push({ n: 1, ts: 1, ids: ['opcional', 'fantasma'] }); a.eng.progress.save();
+  const b = newEngine({ storage, clock, seed: 1, keepIds: ['opcional'] });
+  assert.ok(b.eng.state().items.opcional && b.eng.state().errors.opcional, 'se conserva');
+  assert.equal(b.eng.state().items.fantasma, undefined, 'huérfano normal: podado');
+  assert.deepEqual(b.eng.state().history.slice(-1)[0].ids, ['opcional']);
+  b.eng.progress.save();
+  const c = newEngine({ storage, clock, seed: 1 });   // sin keepIds: ahora sí se poda
+  assert.equal(c.eng.state().items.opcional, undefined);
+});
+
+test('addItems / removeItems: el contenido del usuario («Mis palabras») entra en caliente, se juega y se valida sin exigir el tamaño mínimo de pool', () => {
+  const { eng } = newEngine({ seed: 3 }), n0 = eng.store.all.length;
+  assert.equal(typeof eng.addItems, 'function'); assert.equal(typeof eng.removeItems, 'function');
+  const mk = (i, skill) => ({ id: 'mw-' + i + '-' + skill, module: 'wortschatz', level: 'A1', type: 'cloze', skill, pool: skill, prompt: 'ardilla', answer: 'das Eichhörnchen', accept: ['das Eichhörnchen'], options: ['das Eichhörnchen', 'der Hund', 'die Katze', 'das Pferd'], errorTag: 'vocab:' + skill, conceptIds: [], source: 'user', lemma: 'Eichhörnchen' });
+  const r = eng.addItems([mk(1, 'es-de')]); assert.deepEqual(r.errors, []); assert.equal(r.added, 1);
+  assert.equal(eng.store.all.length, n0 + 1); assert.ok(eng.store.byId['mw-1-es-de']); assert.ok(eng.store.unitInfo['mw-1-es-de']);
+  // se puede jugar: una sesión de wortschatz acaba incluyendo la palabra nueva (los ítems nuevos tienen prioridad)
+  const s = eng.startSession({ kind: 'module', modules: ['wortschatz'], size: 10, mode: 'touch' }); const ids = []; while (!s.done()) { ids.push(s.currentItem().id); s.answer(respond(s.currentItem(), true), { mode: 'touch' }); } s.finish();
+  assert.ok(ids.includes('mw-1-es-de'), 'la palabra nueva sale: ' + ids.join());
+  // inválidos: no se añade nada
+  const bad = eng.addItems([Object.assign(mk(2, 'es-de'), { accept: ['otra cosa'] }), mk(1, 'es-de')]);
+  assert.ok(bad.errors.length >= 2 && bad.added === 0); assert.equal(eng.store.all.length, n0 + 1);
+  // borrar: la palabra desaparece del contenido y de su progreso
+  const rm = eng.removeItems(['mw-1-es-de']); assert.equal(rm.removed, 1); assert.equal(eng.store.byId['mw-1-es-de'], undefined); assert.equal(eng.state().items['mw-1-es-de'], undefined); assert.equal(eng.store.all.length, n0);
+});
+
+test("kind 'ids': sesión sólo con los ítems pedidos (p. ej. «Practicar mis palabras»): respeta tamaño, ignora ids desconocidos, prioriza lo menos visto y avisa si no hay nada", () => {
+  const { eng } = newEngine({ seed: 4 });
+  const mk = (i, skill) => ({ id: 'mw-' + i + '-' + skill, module: 'wortschatz', level: 'A1', type: 'cloze', skill, pool: skill, prompt: 'p' + i, answer: 'a' + i, accept: ['a' + i], options: ['a' + i, 'x', 'y', 'z'], errorTag: 'vocab:' + skill, conceptIds: [], source: 'user', lemma: 'l' + i });
+  const list = []; for (let i = 1; i <= 6; i++) { list.push(mk(i, 'es-de')); list.push(mk(i, 'de-es')); }
+  assert.equal(eng.addItems(list).added, 12);
+  const ids = list.map(x => x.id);
+  const s = eng.startSession({ kind: 'ids', ids: ids.concat(['no-existe']), size: 8, mode: 'touch' });
+  assert.deepEqual(s.warnings, []); assert.equal(s.length(), 8); assert.ok(s.plan.items.every(e => ids.includes(e.id)), 'sólo los pedidos');
+  assert.equal(new Set(s.plan.items.map(e => e.unit)).size, 8, 'una sola vez cada unidad');
+  while (!s.done()) s.answer(respond(s.currentItem(), true), { mode: 'touch' }); s.finish();
+  // lo ya visto va después: la siguiente sesión de 4 no repite lo de la anterior mientras queden ítems sin ver
+  const seen = new Set(s.plan.items.map(e => e.id)), s2 = eng.startSession({ kind: 'ids', ids, size: 4, mode: 'touch' });
+  assert.ok(s2.plan.items.every(e => !seen.has(e.id)), 'primero lo no visto');
+  const none = eng.startSession({ kind: 'ids', ids: ['no-existe'], size: 5, mode: 'touch' }); assert.equal(none.length(), 0); assert.ok(none.warnings.some(w => w.code === 'NO_ITEMS'));
+  assert.equal(eng.startSession({ kind: 'ids', ids, size: 50, mode: 'touch' }).length(), 12, 'tope = ítems disponibles');
+});

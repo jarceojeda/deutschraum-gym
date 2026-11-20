@@ -26897,73 +26897,6 @@
   "options": []
  },
  {
-  "id": "wz-ww:w543-es-de",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "buchstabieren",
-  "prompt": "deletrear",
-  "hint": "",
-  "answer": "buchstabieren",
-  "accept": [
-   "buchstabieren"
-  ],
-  "options": [
-   "verdienen",
-   "einschlafen",
-   "buchstabieren",
-   "reagieren"
-  ]
- },
- {
-  "id": "wz-ww:w543-de-es",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "buchstabieren",
-  "prompt": "buchstabieren",
-  "hint": "",
-  "answer": "deletrear",
-  "accept": [
-   "deletrear"
-  ],
-  "options": [
-   "grabar",
-   "deletrear",
-   "celebrarse / tener lugar",
-   "ver televisión"
-  ]
- },
- {
-  "id": "wz-ww:w543-produccion",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "buchstabieren",
-  "prompt": "deletrear",
-  "hint": "",
-  "answer": "buchstabieren",
-  "accept": [
-   "buchstabieren"
-  ],
-  "options": []
- },
- {
   "id": "wz-ww:w546-es-de",
   "module": "wortschatz",
   "level": "A1",
@@ -46346,73 +46279,6 @@
   "options": []
  },
  {
-  "id": "wz-ww:w1034-es-de",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "helfen",
-  "prompt": "ayudar",
-  "hint": "",
-  "answer": "helfen",
-  "accept": [
-   "helfen"
-  ],
-  "options": [
-   "bist",
-   "helfen",
-   "bin",
-   "ist"
-  ]
- },
- {
-  "id": "wz-ww:w1034-de-es",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "helfen",
-  "prompt": "helfen",
-  "hint": "",
-  "answer": "ayudar",
-  "accept": [
-   "ayudar"
-  ],
-  "options": [
-   "tienes",
-   "eres / estás",
-   "ayudar",
-   "soy / estoy"
-  ]
- },
- {
-  "id": "wz-ww:w1034-produccion",
-  "module": "wortschatz",
-  "level": "A1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "a1-2.4.4",
-  "lemma": "helfen",
-  "prompt": "ayudar",
-  "hint": "",
-  "answer": "helfen",
-  "accept": [
-   "helfen"
-  ],
-  "options": []
- },
- {
   "id": "wz-ww:w1037-es-de",
   "module": "wortschatz",
   "level": "A1",
@@ -60144,10 +60010,10 @@
    "weit weg"
   ],
   "options": [
-   "sich rasieren",
-   "componerse de",
+   "reírse",
    "weit weg",
-   "sich betrinken"
+   "weichen",
+   "vor zwei Monaten"
   ]
  },
  {
@@ -60168,10 +60034,10 @@
    "lejos"
   ],
   "options": [
-   "heiraten",
-   "acordarse de",
-   "casi siempre",
-   "lejos"
+   "lejos",
+   "encenderse (la luz)",
+   "apagarse (la luz)",
+   "nadar"
   ]
  },
  {
@@ -62856,10 +62722,10 @@
    "zu Fuß"
   ],
   "options": [
-   "bañarse",
-   "sich rasieren",
-   "zu Fuß",
-   "meiden"
+   "sich befinden",
+   "untergehen",
+   "Portugiesisch",
+   "zu Fuß"
   ]
  },
  {
@@ -62880,10 +62746,10 @@
    "a pie"
   ],
   "options": [
-   "dentro / en el interior",
-   "sentir",
+   "quedar con alguien",
    "a pie",
-   "sí"
+   "lachen",
+   "casarse"
   ]
  },
  {
@@ -76328,10 +76194,10 @@
    "eine Reise machen"
   ],
   "options": [
-   "oben",
-   "überall",
-   "eine Reise machen",
-   "dort"
+   "sich mit jdm. treffen",
+   "zu Fuß",
+   "deswegen",
+   "eine Reise machen"
   ]
  },
  {
@@ -76352,10 +76218,10 @@
    "hacer un viaje"
   ],
   "options": [
-   "hacer un viaje",
-   "cuánto",
-   "arder / quemar",
-   "Colombia"
+   "hacia aquí",
+   "enfadarse por",
+   "rasgar / romper",
+   "hacer un viaje"
   ]
  },
  {
@@ -88671,10 +88537,10 @@
    "passieren"
   ],
   "options": [
-   "anders",
-   "sich sehen",
+   "sich erinnern an + Akk.",
+   "passieren",
    "vor zwei Monaten",
-   "passieren"
+   "zu Fuß"
   ]
  },
  {
@@ -88695,8 +88561,8 @@
    "ocurrir"
   ],
   "options": [
-   "bleiben",
-   "avergonzarse de",
+   "cambiar",
+   "brillar / parecer",
    "hace dos meses",
    "ocurrir"
   ]
@@ -89006,10 +88872,10 @@
    "vor zwei Monaten"
   ],
   "options": [
-   "verlassen",
-   "sich belaufen auf + Akk.",
    "vor zwei Monaten",
-   "passieren"
+   "passieren",
+   "sich schminken",
+   "möglicherweise"
   ]
  },
  {
@@ -89030,10 +88896,10 @@
    "hace dos meses"
   ],
   "options": [
-   "maquillarse",
+   "considerar",
    "ocurrir",
-   "derretir(se)",
-   "hace dos meses"
+   "hace dos meses",
+   "avanzar / caminar"
   ]
  },
  {
@@ -89073,10 +88939,10 @@
    "sich befinden"
   ],
   "options": [
-   "sich waschen",
+   "sich belaufen auf + Akk.",
    "sich befinden",
-   "bañarse",
-   "sich verschlechtern"
+   "vergessen + Akk.",
+   "sich schämen für + Akk."
   ]
  },
  {
@@ -89097,10 +88963,10 @@
    "encontrarse / estar situado"
   ],
   "options": [
-   "einschlafen",
-   "desear algo",
-   "encontrarse / estar situado",
-   "lachen"
+   "empeorar",
+   "abonnieren + Akk.",
+   "apagarse (la luz)",
+   "encontrarse / estar situado"
   ]
  },
  {
@@ -89141,9 +89007,9 @@
   ],
   "options": [
    "sich benehmen",
-   "sich erkälten",
-   "sich freuen über + Akk.",
-   "sich eignen für + Akk."
+   "sich erinnern an + Akk.",
+   "creerse algo",
+   "sich erkälten"
   ]
  },
  {
@@ -89164,10 +89030,10 @@
    "comportarse"
   ],
   "options": [
-   "tumbarse",
-   "peinarse",
-   "quedar / encontrarse con alguien",
-   "comportarse"
+   "comportarse",
+   "abonnieren + Akk.",
+   "quedar con alguien",
+   "bestehen aus + Dat."
   ]
  },
  {
@@ -89207,8 +89073,8 @@
    "sich betrinken"
   ],
   "options": [
-   "llamarse",
-   "aufhalten",
+   "deberse a",
+   "sich freuen über + Akk.",
    "sich ausziehen",
    "sich betrinken"
   ]
@@ -89231,10 +89097,10 @@
    "emborracharse"
   ],
   "options": [
-   "emborracharse",
-   "baden",
-   "etwas glauben",
-   "Alemán"
+   "cambiar",
+   "abonnieren + Akk.",
+   "encontrarse / estar situado",
+   "emborracharse"
   ]
  },
  {
@@ -89274,10 +89140,10 @@
    "sich eignen für + Akk."
   ],
   "options": [
-   "sich eignen für + Akk.",
-   "sich drehen",
-   "sich verschlechtern",
-   "sich rasieren"
+   "encargarse de",
+   "sich kämmen",
+   "sich verabreden mit + Dat.",
+   "sich eignen für + Akk."
   ]
  },
  {
@@ -89299,9 +89165,9 @@
   ],
   "options": [
    "ser adecuado para",
-   "bleiben",
-   "zurückzuführen sein auf + Akk.",
-   "lavarse"
+   "tener miedo de",
+   "resfriarse",
+   "bestehen aus + Dat."
   ]
  },
  {
@@ -89322,10 +89188,10 @@
    "sich erholen"
   ],
   "options": [
-   "sich verabreden",
+   "arrepentirse de",
+   "sich hinlegen",
    "Español",
-   "sich erholen",
-   "mudarse"
+   "sich erholen"
   ]
  },
  {
@@ -89346,10 +89212,10 @@
    "descansar / recuperarse"
   ],
   "options": [
-   "descansar / recuperarse",
-   "abonnieren + Akk.",
-   "aufstehen",
-   "bereuen + Akk."
+   "girar / dar vueltas",
+   "interesarse por",
+   "encenderse (la luz)",
+   "descansar / recuperarse"
   ]
  },
  {
@@ -89389,10 +89255,10 @@
    "sich erkälten"
   ],
   "options": [
+   "sich verabreden mit + Dat.",
    "sich erkälten",
-   "ärgern",
-   "sich auswirken auf + Akk.",
-   "caerse"
+   "sich rasieren",
+   "untergehen"
   ]
  },
  {
@@ -89413,10 +89279,10 @@
    "resfriarse"
   ],
   "options": [
-   "zurückzuführen sein auf + Akk.",
-   "bereuen + Akk.",
-   "quedar con alguien",
-   "resfriarse"
+   "apagarse (la luz)",
+   "resfriarse",
+   "girar / dar vueltas",
+   "mejorar"
   ]
  },
  {
@@ -89456,10 +89322,10 @@
    "sich schämen für + Akk."
   ],
   "options": [
-   "olvidarse",
-   "sich erinnern an + Akk.",
-   "quedarse",
-   "sich schämen für + Akk."
+   "enterarse de",
+   "sich schämen für + Akk.",
+   "sich drehen",
+   "ausgehen"
   ]
  },
  {
@@ -89480,10 +89346,10 @@
    "avergonzarse de"
   ],
   "options": [
-   "avergonzarse de",
+   "peinarse",
+   "mejorar",
    "erfahren von + Dat. / durch + Akk.",
-   "sí, posible",
-   "aufstehen"
+   "avergonzarse de"
   ]
  },
  {
@@ -89504,10 +89370,10 @@
    "sich verspäten"
   ],
   "options": [
-   "sich ausziehen",
    "sich verspäten",
-   "quedarse",
-   "sich benehmen"
+   "sich schämen für + Akk.",
+   "sich freuen auf + Akk.",
+   "deberse a"
   ]
  },
  {
@@ -89528,10 +89394,10 @@
    "llegar tarde / retrasarse"
   ],
   "options": [
-   "afeitarse",
+   "avergonzarse de",
+   "ser adecuado para",
    "llegar tarde / retrasarse",
-   "tener miedo de",
-   "quedar con alguien"
+   "mejorar"
   ]
  },
  {
@@ -89571,10 +89437,10 @@
    "sich verabreden mit + Dat."
   ],
   "options": [
-   "sich schminken",
-   "deberse a",
-   "sich verabreden mit + Dat.",
-   "sich fürchten vor + Dat."
+   "sich kämmen",
+   "sich hinlegen",
+   "vergessen + Akk.",
+   "sich verabreden mit + Dat."
   ]
  },
  {
@@ -89595,10 +89461,10 @@
    "quedar con alguien"
   ],
   "options": [
-   "desvestirse",
+   "encenderse (la luz)",
    "quedar con alguien",
-   "lachen",
-   "girar / dar vueltas"
+   "olvidarse",
+   "comportarse"
   ]
  },
  {
@@ -89619,10 +89485,10 @@
    "sich mit jdm. treffen"
   ],
   "options": [
-   "sich erkälten",
-   "deberse a",
-   "sich mit jdm. treffen",
-   "olvidarse"
+   "sich verabreden mit + Dat.",
+   "Español",
+   "sich kämmen",
+   "sich mit jdm. treffen"
   ]
  },
  {
@@ -89643,10 +89509,10 @@
    "quedar / encontrarse con alguien"
   ],
   "options": [
+   "erfahren von + Dat. / durch + Akk.",
    "quedar / encontrarse con alguien",
-   "llegar tarde / retrasarse",
    "trainieren für + Akk.",
-   "no"
+   "callarse"
   ]
  },
  {
@@ -89667,10 +89533,10 @@
    "sich fürchten vor + Dat."
   ],
   "options": [
+   "sich drehen",
+   "deberse a",
    "sich fürchten vor + Dat.",
-   "componerse de",
-   "sich waschen",
-   "sich verschlechtern"
+   "sich freuen auf + Akk."
   ]
  },
  {
@@ -89691,10 +89557,10 @@
    "tener miedo de"
   ],
   "options": [
-   "tumbarse",
-   "peinarse",
    "tener miedo de",
-   "vergessen + Akk."
+   "girar / dar vueltas",
+   "resfriarse",
+   "trainieren für + Akk."
   ]
  },
  {
@@ -89715,9 +89581,9 @@
    "sich ausziehen"
   ],
   "options": [
-   "sich mit jdm. treffen",
-   "irse",
+   "sich schämen für + Akk.",
    "sich freuen auf + Akk.",
+   "schweigen",
    "sich ausziehen"
   ]
  },
@@ -89739,10 +89605,10 @@
    "desvestirse"
   ],
   "options": [
-   "heiraten",
-   "vergessen + Akk.",
-   "heißen",
-   "desvestirse"
+   "Alemán",
+   "lachen",
+   "desvestirse",
+   "repercutir en"
   ]
  },
  {
@@ -89782,10 +89648,10 @@
    "sich waschen"
   ],
   "options": [
-   "entrenarse para",
-   "mudarse",
-   "dormirse",
-   "sich waschen"
+   "sich waschen",
+   "sich verschlechtern",
+   "sich mit jdm. treffen",
+   "reírse"
   ]
  },
  {
@@ -89806,10 +89672,10 @@
    "lavarse"
   ],
   "options": [
+   "alegrarse por algo futuro",
+   "lachen",
    "lavarse",
-   "gehen / weggehen",
-   "übernehmen + Akk.",
-   "alegrarse por algo futuro"
+   "etwas glauben"
   ]
  },
  {
@@ -89849,10 +89715,10 @@
    "sich kämmen"
   ],
   "options": [
-   "sich schminken",
-   "Español",
-   "sich kämmen",
-   "sich eignen für + Akk."
+   "sich schämen für + Akk.",
+   "sich freuen auf + Akk.",
+   "deberse a",
+   "sich kämmen"
   ]
  },
  {
@@ -89873,9 +89739,9 @@
    "peinarse"
   ],
   "options": [
-   "alegrarse por algo futuro",
-   "comportarse",
-   "duschen",
+   "desear algo",
+   "encenderse (la luz)",
+   "übernehmen + Akk.",
    "peinarse"
   ]
  },
@@ -89916,10 +89782,10 @@
    "sich schminken"
   ],
   "options": [
-   "sich aufhalten",
-   "sich erholen",
-   "sich schminken",
-   "entrenarse para"
+   "schweigen",
+   "sich waschen",
+   "sich rasieren",
+   "sich schminken"
   ]
  },
  {
@@ -89940,10 +89806,10 @@
    "maquillarse"
   ],
   "options": [
-   "bleiben",
-   "erfahren von + Dat. / durch + Akk.",
+   "trainieren für + Akk.",
+   "maquillarse",
    "etwas glauben",
-   "maquillarse"
+   "lavarse"
   ]
  },
  {
@@ -89983,10 +89849,10 @@
    "sich rasieren"
   ],
   "options": [
-   "olvidarse",
+   "sich auswirken auf + Akk.",
+   "sich bessern",
    "sich rasieren",
-   "sich schämen für + Akk.",
-   "sich drehen"
+   "enterarse de"
   ]
  },
  {
@@ -90007,10 +89873,10 @@
    "afeitarse"
   ],
   "options": [
+   "übernehmen + Akk.",
+   "ser adecuado para",
    "afeitarse",
-   "sí",
-   "encontrarse / estar situado",
-   "heißen"
+   "lachen"
   ]
  },
  {
@@ -90050,10 +89916,10 @@
    "sich hinlegen"
   ],
   "options": [
-   "sich verspäten",
    "sich hinlegen",
-   "ducharse",
-   "sich aufhalten"
+   "sich ärgern über + Akk.",
+   "vergessen + Akk.",
+   "sich kämmen"
   ]
  },
  {
@@ -90075,9 +89941,9 @@
   ],
   "options": [
    "tumbarse",
-   "avergonzarse de",
-   "emborracharse",
-   "no"
+   "descansar / recuperarse",
+   "apagarse (la luz)",
+   "olvidarse"
   ]
  },
  {
@@ -90117,9 +89983,9 @@
    "sich freuen auf + Akk."
   ],
   "options": [
-   "verlaufen",
-   "llamarse",
-   "sich betrinken",
+   "reírse",
+   "ausgehen",
+   "entrenarse para",
    "sich freuen auf + Akk."
   ]
  },
@@ -90141,10 +90007,10 @@
    "alegrarse por algo futuro"
   ],
   "options": [
-   "angehen",
-   "mejorar",
+   "Alemán",
    "alegrarse por algo futuro",
-   "Alemán"
+   "erfahren von + Dat. / durch + Akk.",
+   "bereuen + Akk."
   ]
  },
  {
@@ -90165,10 +90031,10 @@
    "sich freuen über + Akk."
   ],
   "options": [
+   "encargarse de",
    "sich freuen über + Akk.",
-   "sich interessieren für + Akk.",
-   "ducharse",
-   "sich verlassen auf + Akk."
+   "sich verabreden",
+   "Español"
   ]
  },
  {
@@ -90189,10 +90055,10 @@
    "alegrarse por algo presente/pasado"
   ],
   "options": [
-   "Alemán",
+   "encontrarse / estar situado",
+   "quedar / encontrarse con alguien",
    "alegrarse por algo presente/pasado",
-   "sí",
-   "resfriarse"
+   "repercutir en"
   ]
  },
  {
@@ -90213,10 +90079,10 @@
    "sich ärgern über + Akk."
   ],
   "options": [
-   "sich rasieren",
-   "casarse",
-   "sich ärgern über + Akk.",
-   "sich etwas wünschen"
+   "ausgehen",
+   "creerse algo",
+   "componerse de",
+   "sich ärgern über + Akk."
   ]
  },
  {
@@ -90237,10 +90103,10 @@
    "enfadarse por"
   ],
   "options": [
-   "untergehen",
-   "aufwachen",
+   "maquillarse",
    "enfadarse por",
-   "sí"
+   "olvidarse",
+   "quedar / encontrarse con alguien"
   ]
  },
  {
@@ -90261,10 +90127,10 @@
    "sich interessieren für + Akk."
   ],
   "options": [
-   "sich erkälten",
-   "mudarse",
-   "sich interessieren für + Akk.",
-   "irse"
+   "entrenarse para",
+   "reírse",
+   "sich verschlechtern",
+   "sich interessieren für + Akk."
   ]
  },
  {
@@ -90285,10 +90151,10 @@
    "interesarse por"
   ],
   "options": [
-   "bestehen aus + Dat.",
-   "einschlafen",
    "interesarse por",
-   "tener miedo de"
+   "tumbarse",
+   "erfahren von + Dat. / durch + Akk.",
+   "etwas glauben"
   ]
  },
  {
@@ -90309,10 +90175,10 @@
    "sich erinnern an + Akk."
   ],
   "options": [
-   "mudarse",
-   "encargarse de",
+   "sich interessieren für + Akk.",
    "sich erinnern an + Akk.",
-   "sich betrinken"
+   "arrepentirse de",
+   "sich ärgern über + Akk."
   ]
  },
  {
@@ -90334,485 +90200,10 @@
   ],
   "options": [
    "acordarse de",
-   "umziehen",
-   "repercutir en",
-   "descansar / recuperarse"
+   "lachen",
+   "quedar / encontrarse con alguien",
+   "llegar tarde / retrasarse"
   ]
- },
- {
-  "id": "wz-md034-31-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlaufen",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "verlaufen",
-  "accept": [
-   "verlaufen",
-   "ärgern",
-   "sich aufhalten",
-   "sich verlassen auf + Akk."
-  ],
-  "options": [
-   "verlaufen",
-   "sich freuen über + Akk.",
-   "sich mit jdm. treffen",
-   "sich ändern"
-  ]
- },
- {
-  "id": "wz-md034-31-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlaufen",
-  "prompt": "verlaufen",
-  "hint": "",
-  "answer": "sí",
-  "accept": [
-   "sí"
-  ],
-  "options": [
-   "desear algo",
-   "zurückzuführen sein auf + Akk.",
-   "sí",
-   "untergehen"
-  ]
- },
- {
-  "id": "wz-md034-31-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlaufen",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "verlaufen",
-  "accept": [
-   "verlaufen",
-   "ärgern",
-   "sich aufhalten",
-   "sich verlassen auf + Akk."
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-33-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ärgern",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "ärgern",
-  "accept": [
-   "ärgern",
-   "verlaufen",
-   "sich aufhalten",
-   "sich verlassen auf + Akk."
-  ],
-  "options": [
-   "sich freuen über + Akk.",
-   "sich ärgern über + Akk.",
-   "ducharse",
-   "ärgern"
-  ]
- },
- {
-  "id": "wz-md034-33-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ärgern",
-  "prompt": "ärgern",
-  "hint": "",
-  "answer": "sí",
-  "accept": [
-   "sí"
-  ],
-  "options": [
-   "sí",
-   "zurückzuführen sein auf + Akk.",
-   "ser adecuado para",
-   "sí, posible"
-  ]
- },
- {
-  "id": "wz-md034-33-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ärgern",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "ärgern",
-  "accept": [
-   "ärgern",
-   "verlaufen",
-   "sich aufhalten",
-   "sich verlassen auf + Akk."
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-35-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich aufhalten",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "sich aufhalten",
-  "accept": [
-   "sich aufhalten",
-   "verlaufen",
-   "ärgern",
-   "sich verlassen auf + Akk."
-  ],
-  "options": [
-   "sich aufhalten",
-   "hundirse",
-   "ducharse",
-   "sich verabreden"
-  ]
- },
- {
-  "id": "wz-md034-35-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich aufhalten",
-  "prompt": "sich aufhalten",
-  "hint": "",
-  "answer": "sí",
-  "accept": [
-   "sí"
-  ],
-  "options": [
-   "no",
-   "untergehen",
-   "encontrarse / estar situado",
-   "sí"
-  ]
- },
- {
-  "id": "wz-md034-35-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich aufhalten",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "sich aufhalten",
-  "accept": [
-   "sich aufhalten",
-   "verlaufen",
-   "ärgern",
-   "sich verlassen auf + Akk."
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-36-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "aufhalten",
-  "prompt": "no",
-  "hint": "",
-  "answer": "aufhalten",
-  "accept": [
-   "aufhalten",
-   "verlassen"
-  ],
-  "options": [
-   "aufhalten",
-   "llamarse",
-   "sich baden",
-   "sich schminken"
-  ]
- },
- {
-  "id": "wz-md034-36-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "aufhalten",
-  "prompt": "aufhalten",
-  "hint": "",
-  "answer": "no",
-  "accept": [
-   "no"
-  ],
-  "options": [
-   "resfriarse",
-   "comportarse",
-   "alegrarse por algo futuro",
-   "no"
-  ]
- },
- {
-  "id": "wz-md034-36-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "aufhalten",
-  "prompt": "no",
-  "hint": "",
-  "answer": "aufhalten",
-  "accept": [
-   "aufhalten",
-   "verlassen"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-39-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich verlassen auf + Akk.",
-  "prompt": "sí",
-  "hint": "",
-  "answer": "sich verlassen auf + Akk.",
-  "accept": [
-   "sich verlassen auf + Akk.",
-   "verlaufen",
-   "ärgern",
-   "sich aufhalten"
-  ],
-  "options": [
-   "sich verlassen auf + Akk.",
-   "sich verschlechtern",
-   "sich bessern",
-   "sich freuen auf + Akk."
-  ]
- },
- {
-  "id": "wz-md034-39-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich verlassen auf + Akk.",
-  "prompt": "sich verlassen auf + Akk.",
-  "hint": "",
-  "answer": "sí",
-  "accept": [
-   "sí"
-  ],
-  "options": [
-   "abonnieren + Akk.",
-   "repercutir en",
-   "sí",
-   "acordarse de"
-  ]
- },
- {
-  "id": "wz-md034-40-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlassen",
-  "prompt": "no",
-  "hint": "",
-  "answer": "verlassen",
-  "accept": [
-   "verlassen",
-   "aufhalten"
-  ],
-  "options": [
-   "mudarse",
-   "sich belaufen auf + Akk.",
-   "verlassen",
-   "sich drehen"
-  ]
- },
- {
-  "id": "wz-md034-40-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlassen",
-  "prompt": "verlassen",
-  "hint": "",
-  "answer": "no",
-  "accept": [
-   "no"
-  ],
-  "options": [
-   "sí",
-   "no",
-   "quedar con alguien",
-   "afeitarse"
-  ]
- },
- {
-  "id": "wz-md034-40-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "verlassen",
-  "prompt": "no",
-  "hint": "",
-  "answer": "verlassen",
-  "accept": [
-   "verlassen",
-   "aufhalten"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-41-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich baden",
-  "prompt": "sí, posible",
-  "hint": "",
-  "answer": "sich baden",
-  "accept": [
-   "sich baden"
-  ],
-  "options": [
-   "sich drehen",
-   "sich baden",
-   "sich schminken",
-   "aufhalten"
-  ]
- },
- {
-  "id": "wz-md034-41-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich baden",
-  "prompt": "sich baden",
-  "hint": "",
-  "answer": "sí, posible",
-  "accept": [
-   "sí, posible"
-  ],
-  "options": [
-   "gehen / weggehen",
-   "sí, posible",
-   "enfadarse por",
-   "bestehen aus + Dat."
-  ]
- },
- {
-  "id": "wz-md034-41-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "sich baden",
-  "prompt": "sí, posible",
-  "hint": "",
-  "answer": "sich baden",
-  "accept": [
-   "sich baden"
-  ],
-  "options": []
  },
  {
   "id": "wz-md034-44-es-de",
@@ -90833,9 +90224,9 @@
   ],
   "options": [
    "sich ändern",
-   "creerse algo",
-   "entrenarse para",
-   "encargarse de"
+   "sich betrinken",
+   "encargarse de",
+   "sich kämmen"
   ]
  },
  {
@@ -90856,10 +90247,10 @@
    "cambiar"
   ],
   "options": [
-   "heißen",
-   "girar / dar vueltas",
-   "angehen",
-   "cambiar"
+   "apagarse (la luz)",
+   "maquillarse",
+   "cambiar",
+   "bereuen + Akk."
   ]
  },
  {
@@ -90899,10 +90290,10 @@
    "sich auswirken auf + Akk."
   ],
   "options": [
+   "sich waschen",
    "sich auswirken auf + Akk.",
-   "sich eignen für + Akk.",
-   "sich verschlechtern",
-   "sich verlassen auf + Akk."
+   "ausgehen",
+   "sich freuen über + Akk."
   ]
  },
  {
@@ -90923,10 +90314,10 @@
    "repercutir en"
   ],
   "options": [
-   "heißen",
-   "enfadarse por",
+   "desvestirse",
    "repercutir en",
-   "erfahren von + Dat. / durch + Akk."
+   "maquillarse",
+   "quedar con alguien"
   ]
  },
  {
@@ -90947,10 +90338,10 @@
    "sich belaufen auf + Akk."
   ],
   "options": [
+   "entrenarse para",
    "sich belaufen auf + Akk.",
-   "sich eignen für + Akk.",
-   "sich verabreden",
-   "bañarse"
+   "sich schminken",
+   "sich etwas wünschen"
   ]
  },
  {
@@ -90971,10 +90362,10 @@
    "ascender a"
   ],
   "options": [
-   "interesarse por",
-   "no",
+   "afeitarse",
    "ascender a",
-   "cambiar"
+   "bereuen + Akk.",
+   "quedar con alguien"
   ]
  },
  {
@@ -90995,10 +90386,10 @@
    "sich bessern"
   ],
   "options": [
+   "sich schämen für + Akk.",
+   "enterarse de",
    "sich bessern",
-   "mudarse",
-   "sich drehen",
-   "sich verlassen auf + Akk."
+   "componerse de"
   ]
  },
  {
@@ -91019,10 +90410,10 @@
    "mejorar"
   ],
   "options": [
-   "umziehen",
-   "peinarse",
-   "alegrarse por algo presente/pasado",
-   "mejorar"
+   "resfriarse",
+   "mejorar",
+   "acordarse de",
+   "quedar / encontrarse con alguien"
   ]
  },
  {
@@ -91062,10 +90453,10 @@
    "sich drehen"
   ],
   "options": [
+   "sich eignen für + Akk.",
+   "arrepentirse de",
    "sich drehen",
-   "sich etwas wünschen",
-   "apagarse",
-   "callarse"
+   "sich ärgern über + Akk."
   ]
  },
  {
@@ -91086,10 +90477,10 @@
    "girar / dar vueltas"
   ],
   "options": [
-   "vergessen + Akk.",
-   "sí",
-   "afeitarse",
-   "girar / dar vueltas"
+   "abonnieren + Akk.",
+   "bestehen aus + Dat.",
+   "girar / dar vueltas",
+   "mejorar"
   ]
  },
  {
@@ -91129,10 +90520,10 @@
    "sich verabreden"
   ],
   "options": [
-   "sich betrinken",
-   "sich schminken",
-   "ärgern",
-   "sich verabreden"
+   "sich verabreden",
+   "sich etwas wünschen",
+   "sich verabreden mit + Dat.",
+   "sich freuen auf + Akk."
   ]
  },
  {
@@ -91153,10 +90544,10 @@
    "quedar"
   ],
   "options": [
-   "ausgehen",
-   "baden",
+   "apagarse (la luz)",
+   "Alemán",
    "quedar",
-   "angehen"
+   "enfadarse por"
   ]
  },
  {
@@ -91196,10 +90587,10 @@
    "sich verschlechtern"
   ],
   "options": [
-   "casarse",
-   "sich betrinken",
    "sich verschlechtern",
-   "sich kämmen"
+   "Español",
+   "sich schämen für + Akk.",
+   "sich benehmen"
   ]
  },
  {
@@ -91220,10 +90611,10 @@
    "empeorar"
   ],
   "options": [
+   "encontrarse / estar situado",
    "empeorar",
-   "cambiar",
-   "emborracharse",
-   "heiraten"
+   "quedar con alguien",
+   "tumbarse"
   ]
  },
  {
@@ -91244,10 +90635,10 @@
    "sich etwas wünschen"
   ],
   "options": [
-   "sich betrinken",
+   "sich rasieren",
    "sich etwas wünschen",
-   "sich fürchten vor + Dat.",
-   "reírse"
+   "sich erholen",
+   "sich ändern"
   ]
  },
  {
@@ -91268,10 +90659,10 @@
    "desear algo"
   ],
   "options": [
-   "gehen / weggehen",
-   "schweigen",
    "desear algo",
-   "avergonzarse de"
+   "Alemán",
+   "encenderse (la luz)",
+   "peinarse"
   ]
  },
  {
@@ -91292,10 +90683,10 @@
    "Español"
   ],
   "options": [
-   "ducharse",
    "Español",
-   "olvidarse",
-   "sich belaufen auf + Akk."
+   "sich auswirken auf + Akk.",
+   "sich waschen",
+   "ausgehen"
   ]
  },
  {
@@ -91316,10 +90707,10 @@
    "Alemán"
   ],
   "options": [
+   "llegar tarde / retrasarse",
+   "callarse",
    "Alemán",
-   "vergessen + Akk.",
-   "bestehen aus + Dat.",
-   "interesarse por"
+   "encontrarse / estar situado"
   ]
  },
  {
@@ -91359,10 +90750,10 @@
    "abonarse a"
   ],
   "options": [
-   "abonarse a",
-   "dormirse",
-   "sich verabreden mit + Dat.",
-   "entrenarse para"
+   "sich erkälten",
+   "entrenarse para",
+   "sich eignen für + Akk.",
+   "abonarse a"
   ]
  },
  {
@@ -91383,10 +90774,10 @@
    "abonnieren + Akk."
   ],
   "options": [
-   "no",
-   "sí",
-   "abonnieren + Akk.",
-   "trainieren für + Akk."
+   "alegrarse por algo presente/pasado",
+   "descansar / recuperarse",
+   "llegar tarde / retrasarse",
+   "abonnieren + Akk."
   ]
  },
  {
@@ -91418,18 +90809,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "apagarse",
-  "prompt": "ausgehen",
+  "lemma": "ausgehen",
+  "prompt": "apagarse (la luz)",
   "hint": "",
-  "answer": "apagarse",
+  "answer": "ausgehen",
   "accept": [
-   "apagarse"
+   "ausgehen"
   ],
   "options": [
-   "llamarse",
-   "abonarse a",
-   "apagarse",
-   "sich belaufen auf + Akk."
+   "sich belaufen auf + Akk.",
+   "sich kämmen",
+   "ausgehen",
+   "arrepentirse de"
   ]
  },
  {
@@ -91442,18 +90833,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "apagarse",
-  "prompt": "apagarse",
+  "lemma": "ausgehen",
+  "prompt": "ausgehen",
   "hint": "",
-  "answer": "ausgehen",
+  "answer": "apagarse (la luz)",
   "accept": [
-   "ausgehen"
+   "apagarse (la luz)"
   ],
   "options": [
-   "lachen",
-   "bereuen + Akk.",
-   "ausgehen",
-   "sí, posible"
+   "girar / dar vueltas",
+   "quedar / encontrarse con alguien",
+   "übernehmen + Akk.",
+   "apagarse (la luz)"
   ]
  },
  {
@@ -91466,12 +90857,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "apagarse",
-  "prompt": "ausgehen",
+  "lemma": "ausgehen",
+  "prompt": "apagarse (la luz)",
   "hint": "",
-  "answer": "apagarse",
+  "answer": "ausgehen",
   "accept": [
-   "apagarse"
+   "ausgehen"
   ],
   "options": []
  },
@@ -91493,10 +90884,10 @@
    "arrepentirse de"
   ],
   "options": [
+   "vergessen + Akk.",
+   "sich freuen auf + Akk.",
    "arrepentirse de",
-   "levantarse",
-   "sich mit jdm. treffen",
-   "aufhalten"
+   "untergehen"
   ]
  },
  {
@@ -91517,10 +90908,10 @@
    "bereuen + Akk."
   ],
   "options": [
-   "Alemán",
-   "bereuen + Akk.",
-   "repercutir en",
-   "abonnieren + Akk."
+   "hundirse",
+   "quedar / encontrarse con alguien",
+   "lavarse",
+   "bereuen + Akk."
   ]
  },
  {
@@ -91543,140 +90934,6 @@
   "options": []
  },
  {
-  "id": "wz-md034-57-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "bañarse",
-  "prompt": "baden",
-  "hint": "",
-  "answer": "bañarse",
-  "accept": [
-   "bañarse"
-  ],
-  "options": [
-   "sich ändern",
-   "hundirse",
-   "bañarse",
-   "verlassen"
-  ]
- },
- {
-  "id": "wz-md034-57-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "bañarse",
-  "prompt": "bañarse",
-  "hint": "",
-  "answer": "baden",
-  "accept": [
-   "baden"
-  ],
-  "options": [
-   "umziehen",
-   "desvestirse",
-   "baden",
-   "empeorar"
-  ]
- },
- {
-  "id": "wz-md034-57-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "bañarse",
-  "prompt": "baden",
-  "hint": "",
-  "answer": "bañarse",
-  "accept": [
-   "bañarse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-58-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "caerse",
-  "prompt": "fallen",
-  "hint": "",
-  "answer": "caerse",
-  "accept": [
-   "caerse"
-  ],
-  "options": [
-   "sich aufhalten",
-   "caerse",
-   "sich belaufen auf + Akk.",
-   "sich baden"
-  ]
- },
- {
-  "id": "wz-md034-58-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "caerse",
-  "prompt": "caerse",
-  "hint": "",
-  "answer": "fallen",
-  "accept": [
-   "fallen"
-  ],
-  "options": [
-   "quedar",
-   "cambiar",
-   "acordarse de",
-   "fallen"
-  ]
- },
- {
-  "id": "wz-md034-58-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "caerse",
-  "prompt": "fallen",
-  "hint": "",
-  "answer": "caerse",
-  "accept": [
-   "caerse"
-  ],
-  "options": []
- },
- {
   "id": "wz-md034-59-es-de",
   "module": "wortschatz",
   "level": "B1",
@@ -91686,18 +90943,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "callarse",
-  "prompt": "schweigen",
+  "lemma": "schweigen",
+  "prompt": "callarse",
   "hint": "",
-  "answer": "callarse",
+  "answer": "schweigen",
   "accept": [
-   "callarse"
+   "schweigen"
   ],
   "options": [
-   "callarse",
-   "sich aufhalten",
-   "deberse a",
-   "encenderse"
+   "schweigen",
+   "angehen",
+   "untergehen",
+   "sich auswirken auf + Akk."
   ]
  },
  {
@@ -91710,18 +90967,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "callarse",
-  "prompt": "callarse",
+  "lemma": "schweigen",
+  "prompt": "schweigen",
   "hint": "",
-  "answer": "schweigen",
+  "answer": "callarse",
   "accept": [
-   "schweigen"
+   "callarse"
   ],
   "options": [
-   "comportarse",
-   "heiraten",
-   "tumbarse",
-   "schweigen"
+   "encontrarse / estar situado",
+   "lavarse",
+   "erfahren von + Dat. / durch + Akk.",
+   "callarse"
   ]
  },
  {
@@ -91734,12 +90991,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "callarse",
-  "prompt": "schweigen",
+  "lemma": "schweigen",
+  "prompt": "callarse",
   "hint": "",
-  "answer": "callarse",
+  "answer": "schweigen",
   "accept": [
-   "callarse"
+   "schweigen"
   ],
   "options": []
  },
@@ -91753,18 +91010,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "casarse",
-  "prompt": "heiraten",
+  "lemma": "heiraten",
+  "prompt": "casarse",
   "hint": "",
-  "answer": "casarse",
+  "answer": "heiraten",
   "accept": [
-   "casarse"
+   "heiraten"
   ],
   "options": [
-   "sich auswirken auf + Akk.",
-   "casarse",
-   "ärgern",
-   "sich rasieren"
+   "heiraten",
+   "Español",
+   "sich kämmen",
+   "sich verschlechtern"
   ]
  },
  {
@@ -91777,18 +91034,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "casarse",
-  "prompt": "casarse",
+  "lemma": "heiraten",
+  "prompt": "heiraten",
   "hint": "",
-  "answer": "heiraten",
+  "answer": "casarse",
   "accept": [
-   "heiraten"
+   "casarse"
   ],
   "options": [
-   "comportarse",
-   "duschen",
-   "heiraten",
-   "baden"
+   "lavarse",
+   "acordarse de",
+   "maquillarse",
+   "casarse"
   ]
  },
  {
@@ -91801,12 +91058,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "casarse",
-  "prompt": "heiraten",
+  "lemma": "heiraten",
+  "prompt": "casarse",
   "hint": "",
-  "answer": "casarse",
+  "answer": "heiraten",
   "accept": [
-   "casarse"
+   "heiraten"
   ],
   "options": []
  },
@@ -91829,9 +91086,9 @@
   ],
   "options": [
    "componerse de",
-   "llamarse",
-   "casarse",
-   "olvidarse"
+   "sich schminken",
+   "sich drehen",
+   "sich fürchten vor + Dat."
   ]
  },
  {
@@ -91852,10 +91109,10 @@
    "bestehen aus + Dat."
   ],
   "options": [
-   "resfriarse",
    "bestehen aus + Dat.",
-   "quedar con alguien",
-   "girar / dar vueltas"
+   "quedar",
+   "tener miedo de",
+   "olvidarse"
   ]
  },
  {
@@ -91895,10 +91152,10 @@
    "creerse algo"
   ],
   "options": [
-   "bañarse",
+   "sich drehen",
+   "sich erkälten",
    "creerse algo",
-   "despertarse",
-   "sich befinden"
+   "encargarse de"
   ]
  },
  {
@@ -91919,10 +91176,10 @@
    "etwas glauben"
   ],
   "options": [
+   "quedar con alguien",
    "etwas glauben",
-   "no",
-   "encontrarse / estar situado",
-   "erfahren von + Dat. / durch + Akk."
+   "afeitarse",
+   "encontrarse / estar situado"
   ]
  },
  {
@@ -91962,10 +91219,10 @@
    "deberse a"
   ],
   "options": [
+   "sich freuen auf + Akk.",
+   "sich verspäten",
    "deberse a",
-   "creerse algo",
-   "reírse",
-   "irse"
+   "sich interessieren für + Akk."
   ]
  },
  {
@@ -91986,10 +91243,10 @@
    "zurückzuführen sein auf + Akk."
   ],
   "options": [
-   "alegrarse por algo futuro",
+   "casarse",
    "zurückzuführen sein auf + Akk.",
-   "untergehen",
-   "quedar / encontrarse con alguien"
+   "quedar con alguien",
+   "Alemán"
   ]
  },
  {
@@ -92012,207 +91269,6 @@
   "options": []
  },
  {
-  "id": "wz-md034-64-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "despertarse",
-  "prompt": "aufwachen",
-  "hint": "",
-  "answer": "despertarse",
-  "accept": [
-   "despertarse"
-  ],
-  "options": [
-   "sich befinden",
-   "despertarse",
-   "sich verlassen auf + Akk.",
-   "callarse"
-  ]
- },
- {
-  "id": "wz-md034-64-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "despertarse",
-  "prompt": "despertarse",
-  "hint": "",
-  "answer": "aufwachen",
-  "accept": [
-   "aufwachen"
-  ],
-  "options": [
-   "vergessen + Akk.",
-   "cambiar",
-   "aufwachen",
-   "encontrarse / estar situado"
-  ]
- },
- {
-  "id": "wz-md034-64-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "despertarse",
-  "prompt": "aufwachen",
-  "hint": "",
-  "answer": "despertarse",
-  "accept": [
-   "despertarse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-65-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "dormirse",
-  "prompt": "einschlafen",
-  "hint": "",
-  "answer": "dormirse",
-  "accept": [
-   "dormirse"
-  ],
-  "options": [
-   "sich kämmen",
-   "sich drehen",
-   "dormirse",
-   "sich ausziehen"
-  ]
- },
- {
-  "id": "wz-md034-65-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "dormirse",
-  "prompt": "dormirse",
-  "hint": "",
-  "answer": "einschlafen",
-  "accept": [
-   "einschlafen"
-  ],
-  "options": [
-   "einschlafen",
-   "baden",
-   "gehen / weggehen",
-   "trainieren für + Akk."
-  ]
- },
- {
-  "id": "wz-md034-65-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "dormirse",
-  "prompt": "einschlafen",
-  "hint": "",
-  "answer": "dormirse",
-  "accept": [
-   "dormirse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-66-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ducharse",
-  "prompt": "duschen",
-  "hint": "",
-  "answer": "ducharse",
-  "accept": [
-   "ducharse"
-  ],
-  "options": [
-   "sich betrinken",
-   "olvidarse",
-   "ducharse",
-   "sich erinnern an + Akk."
-  ]
- },
- {
-  "id": "wz-md034-66-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ducharse",
-  "prompt": "ducharse",
-  "hint": "",
-  "answer": "duschen",
-  "accept": [
-   "duschen"
-  ],
-  "options": [
-   "duschen",
-   "baden",
-   "bereuen + Akk.",
-   "ascender a"
-  ]
- },
- {
-  "id": "wz-md034-66-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "ducharse",
-  "prompt": "duschen",
-  "hint": "",
-  "answer": "ducharse",
-  "accept": [
-   "ducharse"
-  ],
-  "options": []
- },
- {
   "id": "wz-md034-67-es-de",
   "module": "wortschatz",
   "level": "B1",
@@ -92230,10 +91286,10 @@
    "encargarse de"
   ],
   "options": [
-   "olvidarse",
-   "hundirse",
-   "levantarse",
-   "encargarse de"
+   "sich benehmen",
+   "encargarse de",
+   "sich eignen für + Akk.",
+   "sich belaufen auf + Akk."
   ]
  },
  {
@@ -92254,10 +91310,10 @@
    "übernehmen + Akk."
   ],
   "options": [
-   "etwas glauben",
-   "heiraten",
+   "girar / dar vueltas",
    "übernehmen + Akk.",
-   "repercutir en"
+   "repercutir en",
+   "Alemán"
   ]
  },
  {
@@ -92289,18 +91345,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "encenderse",
-  "prompt": "angehen",
+  "lemma": "angehen",
+  "prompt": "encenderse (la luz)",
   "hint": "",
-  "answer": "encenderse",
+  "answer": "angehen",
   "accept": [
-   "encenderse"
+   "angehen"
   ],
   "options": [
-   "sich waschen",
-   "sich ärgern über + Akk.",
-   "encenderse",
-   "sich etwas wünschen"
+   "sich freuen über + Akk.",
+   "angehen",
+   "creerse algo",
+   "sich ändern"
   ]
  },
  {
@@ -92313,18 +91369,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "encenderse",
-  "prompt": "encenderse",
+  "lemma": "angehen",
+  "prompt": "angehen",
   "hint": "",
-  "answer": "angehen",
+  "answer": "encenderse (la luz)",
   "accept": [
-   "angehen"
+   "encenderse (la luz)"
   ],
   "options": [
-   "gehen / weggehen",
-   "angehen",
-   "resfriarse",
-   "desvestirse"
+   "cambiar",
+   "descansar / recuperarse",
+   "encenderse (la luz)",
+   "etwas glauben"
   ]
  },
  {
@@ -92337,12 +91393,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "encenderse",
-  "prompt": "angehen",
+  "lemma": "angehen",
+  "prompt": "encenderse (la luz)",
   "hint": "",
-  "answer": "encenderse",
+  "answer": "angehen",
   "accept": [
-   "encenderse"
+   "angehen"
   ],
   "options": []
  },
@@ -92364,10 +91420,10 @@
    "enterarse de"
   ],
   "options": [
-   "Español",
+   "sich verspäten",
+   "sich verschlechtern",
    "enterarse de",
-   "sich fürchten vor + Dat.",
-   "abonarse a"
+   "arrepentirse de"
   ]
  },
  {
@@ -92389,9 +91445,9 @@
   ],
   "options": [
    "erfahren von + Dat. / durch + Akk.",
-   "no",
-   "llegar tarde / retrasarse",
-   "acordarse de"
+   "lavarse",
+   "tener miedo de",
+   "apagarse (la luz)"
   ]
  },
  {
@@ -92431,10 +91487,10 @@
    "entrenarse para"
   ],
   "options": [
+   "sich ausziehen",
    "entrenarse para",
-   "sich freuen auf + Akk.",
-   "olvidarse",
-   "sich erholen"
+   "sich etwas wünschen",
+   "sich interessieren für + Akk."
   ]
  },
  {
@@ -92455,10 +91511,10 @@
    "trainieren für + Akk."
   ],
   "options": [
+   "desvestirse",
+   "empeorar",
    "trainieren für + Akk.",
-   "girar / dar vueltas",
-   "abonnieren + Akk.",
-   "mejorar"
+   "llegar tarde / retrasarse"
   ]
  },
  {
@@ -92490,18 +91546,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "hundirse",
-  "prompt": "untergehen",
+  "lemma": "untergehen",
+  "prompt": "hundirse",
   "hint": "",
-  "answer": "hundirse",
+  "answer": "untergehen",
   "accept": [
-   "hundirse"
+   "untergehen"
   ],
   "options": [
-   "sich ändern",
-   "olvidarse",
-   "hundirse",
-   "llamarse"
+   "untergehen",
+   "arrepentirse de",
+   "sich freuen auf + Akk.",
+   "Español"
   ]
  },
  {
@@ -92514,18 +91570,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "hundirse",
-  "prompt": "hundirse",
+  "lemma": "untergehen",
+  "prompt": "untergehen",
   "hint": "",
-  "answer": "untergehen",
+  "answer": "hundirse",
   "accept": [
-   "untergehen"
+   "hundirse"
   ],
   "options": [
-   "angehen",
-   "untergehen",
-   "avergonzarse de",
-   "etwas glauben"
+   "hundirse",
+   "bestehen aus + Dat.",
+   "callarse",
+   "zurückzuführen sein auf + Akk."
   ]
  },
  {
@@ -92538,280 +91594,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "hundirse",
-  "prompt": "untergehen",
+  "lemma": "untergehen",
+  "prompt": "hundirse",
   "hint": "",
-  "answer": "hundirse",
+  "answer": "untergehen",
   "accept": [
-   "hundirse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-73-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "irse",
-  "prompt": "gehen / weggehen",
-  "hint": "",
-  "answer": "irse",
-  "accept": [
-   "irse"
-  ],
-  "options": [
-   "sich verlassen auf + Akk.",
-   "irse",
-   "sich betrinken",
-   "sich verspäten"
-  ]
- },
- {
-  "id": "wz-md034-73-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "irse",
-  "prompt": "irse",
-  "hint": "",
-  "answer": "gehen / weggehen",
-  "accept": [
-   "gehen / weggehen"
-  ],
-  "options": [
-   "gehen / weggehen",
-   "ausgehen",
-   "alegrarse por algo presente/pasado",
-   "maquillarse"
-  ]
- },
- {
-  "id": "wz-md034-73-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "irse",
-  "prompt": "gehen / weggehen",
-  "hint": "",
-  "answer": "irse",
-  "accept": [
-   "irse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-74-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "levantarse",
-  "prompt": "aufstehen",
-  "hint": "",
-  "answer": "levantarse",
-  "accept": [
-   "levantarse"
-  ],
-  "options": [
-   "levantarse",
-   "creerse algo",
-   "aufhalten",
-   "sich freuen auf + Akk."
-  ]
- },
- {
-  "id": "wz-md034-74-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "levantarse",
-  "prompt": "levantarse",
-  "hint": "",
-  "answer": "aufstehen",
-  "accept": [
-   "aufstehen"
-  ],
-  "options": [
-   "zurückzuführen sein auf + Akk.",
-   "aufstehen",
-   "ascender a",
-   "emborracharse"
-  ]
- },
- {
-  "id": "wz-md034-74-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "levantarse",
-  "prompt": "aufstehen",
-  "hint": "",
-  "answer": "levantarse",
-  "accept": [
-   "levantarse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-75-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "llamarse",
-  "prompt": "heißen",
-  "hint": "",
-  "answer": "llamarse",
-  "accept": [
-   "llamarse"
-  ],
-  "options": [
-   "sich hinlegen",
-   "irse",
-   "mudarse",
-   "llamarse"
-  ]
- },
- {
-  "id": "wz-md034-75-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "llamarse",
-  "prompt": "llamarse",
-  "hint": "",
-  "answer": "heißen",
-  "accept": [
-   "heißen"
-  ],
-  "options": [
-   "sí",
-   "tumbarse",
-   "heißen",
-   "übernehmen + Akk."
-  ]
- },
- {
-  "id": "wz-md034-75-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "llamarse",
-  "prompt": "heißen",
-  "hint": "",
-  "answer": "llamarse",
-  "accept": [
-   "llamarse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-76-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "mudarse",
-  "prompt": "umziehen",
-  "hint": "",
-  "answer": "mudarse",
-  "accept": [
-   "mudarse"
-  ],
-  "options": [
-   "sich verschlechtern",
-   "abonarse a",
-   "sich etwas wünschen",
-   "mudarse"
-  ]
- },
- {
-  "id": "wz-md034-76-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "mudarse",
-  "prompt": "mudarse",
-  "hint": "",
-  "answer": "umziehen",
-  "accept": [
-   "umziehen"
-  ],
-  "options": [
-   "alegrarse por algo presente/pasado",
-   "umziehen",
-   "tener miedo de",
-   "gehen / weggehen"
-  ]
- },
- {
-  "id": "wz-md034-76-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "mudarse",
-  "prompt": "umziehen",
-  "hint": "",
-  "answer": "mudarse",
-  "accept": [
-   "mudarse"
+   "untergehen"
   ],
   "options": []
  },
@@ -92825,18 +91613,18 @@
   "errorTag": "vocab:es-de",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "olvidarse",
-  "prompt": "vergessen + Akk.",
+  "lemma": "vergessen + Akk.",
+  "prompt": "olvidarse",
   "hint": "",
-  "answer": "olvidarse",
+  "answer": "vergessen + Akk.",
   "accept": [
-   "olvidarse"
+   "vergessen + Akk."
   ],
   "options": [
-   "verlaufen",
-   "casarse",
-   "entrenarse para",
-   "olvidarse"
+   "sich freuen über + Akk.",
+   "vergessen + Akk.",
+   "sich befinden",
+   "sich verspäten"
   ]
  },
  {
@@ -92849,18 +91637,18 @@
   "errorTag": "vocab:de-es",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "olvidarse",
-  "prompt": "olvidarse",
+  "lemma": "vergessen + Akk.",
+  "prompt": "vergessen + Akk.",
   "hint": "",
-  "answer": "vergessen + Akk.",
+  "answer": "olvidarse",
   "accept": [
-   "vergessen + Akk."
+   "olvidarse"
   ],
   "options": [
-   "repercutir en",
-   "vergessen + Akk.",
+   "olvidarse",
+   "interesarse por",
    "ser adecuado para",
-   "aufstehen"
+   "tener miedo de"
   ]
  },
  {
@@ -92873,79 +91661,12 @@
   "errorTag": "vocab:produccion",
   "conceptIds": [],
   "source": "clase-034",
-  "lemma": "olvidarse",
-  "prompt": "vergessen + Akk.",
+  "lemma": "vergessen + Akk.",
+  "prompt": "olvidarse",
   "hint": "",
-  "answer": "olvidarse",
+  "answer": "vergessen + Akk.",
   "accept": [
-   "olvidarse"
-  ],
-  "options": []
- },
- {
-  "id": "wz-md034-78-es-de",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "es-de",
-  "pool": "es-de",
-  "errorTag": "vocab:es-de",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "quedarse",
-  "prompt": "bleiben",
-  "hint": "",
-  "answer": "quedarse",
-  "accept": [
-   "quedarse"
-  ],
-  "options": [
-   "sich erholen",
-   "sich belaufen auf + Akk.",
-   "quedarse",
-   "creerse algo"
-  ]
- },
- {
-  "id": "wz-md034-78-de-es",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "de-es",
-  "pool": "de-es",
-  "errorTag": "vocab:de-es",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "quedarse",
-  "prompt": "quedarse",
-  "hint": "",
-  "answer": "bleiben",
-  "accept": [
-   "bleiben"
-  ],
-  "options": [
-   "mejorar",
-   "encontrarse / estar situado",
-   "bleiben",
-   "sí"
-  ]
- },
- {
-  "id": "wz-md034-78-produccion",
-  "module": "wortschatz",
-  "level": "B1",
-  "type": "cloze",
-  "skill": "produccion",
-  "pool": "produccion",
-  "errorTag": "vocab:produccion",
-  "conceptIds": [],
-  "source": "clase-034",
-  "lemma": "quedarse",
-  "prompt": "bleiben",
-  "hint": "",
-  "answer": "quedarse",
-  "accept": [
-   "quedarse"
+   "vergessen + Akk."
   ],
   "options": []
  },
@@ -92967,10 +91688,10 @@
    "reírse"
   ],
   "options": [
-   "arrepentirse de",
-   "casarse",
-   "sich rasieren",
-   "reírse"
+   "sich mit jdm. treffen",
+   "abonarse a",
+   "reírse",
+   "entrenarse para"
   ]
  },
  {
@@ -92991,10 +91712,10 @@
    "lachen"
   ],
   "options": [
-   "sí",
-   "lachen",
-   "bestehen aus + Dat.",
-   "mejorar"
+   "encontrarse / estar situado",
+   "tener miedo de",
+   "lavarse",
+   "lachen"
   ]
  },
  {
@@ -93574,10 +92295,10 @@
    "was für ein-"
   ],
   "options": [
+   "leider",
+   "hierher",
    "was für ein-",
-   "blasen",
-   "reírse",
-   "backen"
+   "sich ärgern über + Akk."
   ]
  },
  {
@@ -93598,10 +92319,10 @@
    "qué tipo de / qué clase de"
   ],
   "options": [
-   "asar / freír",
-   "qué tipo de / qué clase de",
-   "dar a luz",
-   "caer"
+   "repercutir en",
+   "doblar / girar",
+   "diariamente / cada día",
+   "qué tipo de / qué clase de"
   ]
  },
  {
@@ -94972,10 +93693,10 @@
    "einverstanden sein mit + Dat."
   ],
   "options": [
-   "arrepentirse de",
+   "schwellen",
+   "Portugiesisch",
    "einverstanden sein mit + Dat.",
-   "schmeißen",
-   "vor zwei Monaten"
+   "hierher"
   ]
  },
  {
@@ -94996,10 +93717,10 @@
    "estar de acuerdo con"
   ],
   "options": [
+   "lanzar",
    "estar de acuerdo con",
-   "hacia dentro, alejándose del hablante",
-   "aquí",
-   "erfahren von + Dat. / durch + Akk."
+   "quedar con alguien",
+   "mejorar"
   ]
  },
  {
@@ -95154,10 +93875,10 @@
    "wie lange"
   ],
   "options": [
-   "quellen",
+   "componerse de",
    "wie lange",
-   "wie viel",
-   "wie viele"
+   "wie viele",
+   "wie viel"
   ]
  },
  {
@@ -95178,10 +93899,10 @@
    "cuánto tiempo"
   ],
   "options": [
+   "cuántos/as",
+   "bereuen + Akk.",
    "cuánto",
-   "en algún sitio",
-   "cuánto tiempo",
-   "cuántos/as"
+   "cuánto tiempo"
   ]
  },
  {
@@ -95221,10 +93942,10 @@
    "wie viel"
   ],
   "options": [
-   "wie viel",
-   "Deutsch lernen",
+   "unter welcher Bedingung?",
    "wie lange",
-   "wie viele"
+   "wie viele",
+   "wie viel"
   ]
  },
  {
@@ -95246,9 +93967,9 @@
   ],
   "options": [
    "cuántos/as",
+   "diariamente / cada día",
    "cuánto tiempo",
-   "cuánto",
-   "últimamente / en los últimos tiempos"
+   "cuánto"
   ]
  },
  {
@@ -95288,10 +94009,10 @@
    "wie viele"
   ],
   "options": [
-   "wie viele",
    "wie viel",
-   "sich baden",
-   "wie lange"
+   "biegen",
+   "wie lange",
+   "wie viele"
   ]
  },
  {
@@ -95315,7 +94036,7 @@
    "cuánto",
    "cuánto tiempo",
    "cuántos/as",
-   "pinchar / picar"
+   "de esta manera / haciendo eso / por ello"
   ]
  },
  {

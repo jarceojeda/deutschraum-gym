@@ -10,7 +10,7 @@ const nfc = s => String(s || '').normalize('NFC');
 // concepto → clases (números). Mapeo por tema; sólo asociaciones claras.
 const MAP = {
   // conceptos sin cápsula hasta ahora
-  'md:verben-praesens': [7], 'md:verben-praeteritum': [8], 'md:verben-partizip': [30], 'md:satzbau-v2': [10], 'md:satzbau-fragen': [22, 24],
+  'md:verben-praesens': [7], 'md:verben-praeteritum': [8], 'md:verben-partizip': [30], 'md:verben-plusquamperfekt': [31], 'md:verben-futur': [32], 'md:verben-imperativ': [29], 'md:verben-konjunktiv2': [49], 'md:relativpronomen': [41], 'md:pronunciacion': [1], 'md:tekamolo': [18], 'md:verben-passiv': [36], 'md:verben-passiv-praeteritum': [36], 'md:satzbau-v2': [10], 'md:satzbau-fragen': [22, 24],
   'md:indefinitpronomen': [39], 'b1:genitiv-praepositionen': [12], 'a24:accprep': [4], 'dm:s8-3': [14], 'md:konnektoren-doppel': [47],
   // conceptos con cápsula de las hojas: se enriquecen con errores típicos
   'cs:t1': [10], 'cs:t2': [22, 24], 'cs:t3': [7], 'cs:t8': [33], 'cs:t11': [29], 'cs:t14': [3], 'cs:t15': [4], 'cs:t19': [6], 'cs:t20': [23],
@@ -19,6 +19,7 @@ const MAP = {
 
 // Conceptos de Präpositionen y Konnektoren (decididos por el contenido de cada clase). `re` filtra las viñetas relevantes (si ninguna coincide, queda el hueco).
 const MAP2 = {
+  'md:steigerung': { n: [17], re: /\bals\b|\bwie\b|umlaut|teur|höher|größer/i },
   'a2:wechselpraepositionen': { n: [16] },
   'cs:t26': { n: [11, 16], re: /zum|zur|beim|vom|\bim\b|\bam\b|\bins\b|\bans\b|contracci/i },
   'a2:praeposition-dat': { n: [11], re: /preposici|\bmit\b|\baus\b|\bbei\b|\bnach\b|\bvon\b|\bseit\b/i },
@@ -45,7 +46,7 @@ function readNote(n) {
 }
 
 // títulos propios cuando una cápsula junta varias clases o el de la clase no describe el concepto
-const TITLES = { 'a2:wechselpraepositionen': 'Wechselpräpositionen: Wo? / Wohin?', 'cs:t26': 'Contracciones: zum, zur, im, am…', 'a2:praeposition-dat': 'Preposiciones con Dativ', 'a2:praeposition-acc': 'Preposiciones con Akkusativ', 'a2:praeposition-gen': 'Preposiciones con Genitiv', 'a2:verben-mit-praepositionen': 'Verbos con preposición', 'b1:verben-mit-praepositionen': 'Verbos con preposición', 'a2:konnektoren': 'Conectores: aber, denn, und, sondern, oder', 'a2:nebensaetze': 'Nebensätze: el verbo va al final', 'b1:konnektoren': 'Conectores B1: deshalb, trotzdem, damit…', 'b1:indirekte-fragen': 'Preguntas indirectas: ob y W-Wort', 'md:satzbau-fragen': 'Preguntas: cerradas y abiertas', 'md:verben-partizip': 'Perfekt y Partizip II', 'md:verben-praeteritum': 'Präteritum', 'md:verben-praesens': 'Präsens' };
+const TITLES = { 'a2:wechselpraepositionen': 'Wechselpräpositionen: Wo? / Wohin?', 'cs:t26': 'Contracciones: zum, zur, im, am…', 'a2:praeposition-dat': 'Preposiciones con Dativ', 'a2:praeposition-acc': 'Preposiciones con Akkusativ', 'a2:praeposition-gen': 'Preposiciones con Genitiv', 'a2:verben-mit-praepositionen': 'Verbos con preposición', 'b1:verben-mit-praepositionen': 'Verbos con preposición', 'a2:konnektoren': 'Conectores: aber, denn, und, sondern, oder', 'a2:nebensaetze': 'Nebensätze: el verbo va al final', 'b1:konnektoren': 'Conectores B1: deshalb, trotzdem, damit…', 'b1:indirekte-fragen': 'Preguntas indirectas: ob y W-Wort', 'md:satzbau-fragen': 'Preguntas: cerradas y abiertas', 'md:verben-partizip': 'Perfekt y Partizip II', 'md:verben-praeteritum': 'Präteritum', 'md:verben-praesens': 'Präsens', 'md:verben-plusquamperfekt': 'Plusquamperfekt', 'md:verben-futur': 'Futur I', 'md:verben-imperativ': 'Imperativ', 'md:verben-konjunktiv2': 'Konjunktiv II', 'md:relativpronomen': 'Relativpronomen: der, die, das…', 'md:steigerung': 'Komparativ y Superlativ', 'md:tekamolo': 'TeKaMoLo: orden de los complementos', 'md:pronunciacion': 'Pronunciación: reglas básicas', 'md:verben-passiv': 'Passiv (Präsens)', 'md:verben-passiv-praeteritum': 'Passiv (Präteritum)' };
 const file = path.join(root, 'ui', 'reglas.json');
 const data = JSON.parse(fs.readFileSync(file, 'utf8'));
 let added = 0, created = 0, enriched = 0;
@@ -67,6 +68,19 @@ Object.keys(MAP2).forEach(cid => {
   if (data.reglas[cid]) { data.reglas[cid].errores = errores; enriched++; } else { data.reglas[cid] = { titulo: TITLES[cid] || notes[0].title, errores }; created++; }
   added += errores.length;
 });
+// fórmulas propias (texto original) de las habilidades de Gramática B1: se suman a la cápsula con los errores típicos
+const PROPIAS = {
+  'md:verben-plusquamperfekt': { formula: 'hatte / war (Präteritum) + PARTIZIP II', regla: '**Pasado del pasado.** Mismo auxiliar que en el Perfekt (haben o sein), pero en Präteritum: hatte, hattest… / war, warst…', ejemplo: { antes: 'ich habe gegessen', despues: 'ich **hatte** gegessen' } },
+  'md:verben-futur': { formula: 'werden (Präsens) + INFINITIVO al final', regla: '**werden** se conjuga: werde · wirst · wird · werden · werdet · werden. El verbo principal va en infinitivo, al final.', ejemplo: { antes: 'ich lerne', despues: 'ich **werde** lernen' } },
+  'md:verben-imperativ': { formula: 'du: raíz · ihr: forma de ihr · Sie: infinitivo + Sie', regla: '**du** pierde -st (komm!), los verbos con e→i(e) cambian la raíz (nimm!, lies!) y no llevan umlaut (fahr!). **ihr** = su forma de presente. **Sie** = infinitivo + Sie.', ejemplo: { antes: 'du kommst', despues: '**komm!**' } },
+  'md:steigerung': { formula: 'KOMPARATIV: adj + -er (… als) · SUPERLATIV: am + adj + -sten', regla: '**Muchos adjetivos cortos llevan umlaut** (alt → älter → am ältesten) y los terminados en -d, -t, -s, -ß, -z añaden -e- (am ältesten, am heißesten). Irregulares: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.', ejemplo: { antes: 'alt', despues: 'älter · am **ältesten**' } },
+  'md:tekamolo': { formula: 'Temporal – Kausal – Modal – Lokal', regla: '**Orden neutro** de los complementos tras el verbo: cuándo → por qué → cómo → dónde. Los que no hay se saltan. Si adelantas uno, el verbo sigue en 2.ª posición.', ejemplo: { antes: 'dónde · cómo · cuándo', despues: '**heute** · **mit dem Zug** · **nach Berlin**' } },
+  'md:relativpronomen': { formula: 'GÉNERO y NÚMERO del antecedente + CASO en la subordinada', regla: '**Dos preguntas:** ¿a quién se refiere (género/número)? ¿qué función tiene dentro de la subordinada (caso)? La subordinada va entre comas y el verbo al final.', ejemplo: { antes: 'der Mann + ich kenne ihn', despues: 'der Mann, **den** ich kenne' } },
+  'md:verben-passiv': { formula: 'werden (Präsens) + PARTIZIP II al final', regla: '**El sujeto recibe la acción.** werden se conjuga (werde · wirst · wird · werden · werdet · werden) y el participio va al final. Para el proceso no se usa haben.', ejemplo: { antes: 'Er repariert das Auto.', despues: 'Das Auto **wird repariert**.' } },
+  'md:verben-passiv-praeteritum': { formula: 'wurde (Präteritum de werden) + PARTIZIP II', regla: '**Passiv en pasado:** wurde · wurdest · wurde · wurden · wurdet · wurden + participio. Con werden es un proceso; «war gebaut» describe un estado.', ejemplo: { antes: 'Man baute das Haus.', despues: 'Das Haus **wurde** gebaut.' } },
+  'md:verben-konjunktiv2': { formula: 'würde + INFINITIVO al final', regla: '**würde**: würde · würdest · würde · würden · würdet · würden. Sein, haben y los modales tienen forma propia (wäre, hätte, könnte, müsste…).', ejemplo: { antes: 'ich gehe', despues: 'ich **würde** gehen' } }
+};
+Object.keys(PROPIAS).forEach(cid => { if (data.reglas[cid]) Object.assign(data.reglas[cid], PROPIAS[cid]); });
 // alias: los conceptos de un solo ítem (a24:prep-NNN) apuntan a la cápsula de su tipo (por la etiqueta del ítem)
 const CASE = { acc: ['für', 'fur', 'ohne', 'durch', 'um', 'gegen', 'bis', 'entlang'], dat: ['mit', 'aus', 'nach', 'bei', 'seit', 'von', 'zu', 'gegenüber', 'ab', 'außer'], gen: ['statt', 'wegen', 'trotz', 'während'] };
 let alias = 0;
@@ -80,5 +94,16 @@ JSON.parse(fs.readFileSync(path.join(root, 'data', 'praepositionen.json'), 'utf8
 }));
 console.log('alias a24:prep-*:', alias);
 data.fuentes = Array.from(new Set((data.fuentes || []).concat(['docs/fuentes/aleman-markups/NNN-*.md (§5 errores comunes)'])));
+// Biblioteca: una ficha por clase (título, nivel, objetivos de la lección y errores típicos) para la Consulta. Sólo lectura; no copia ejemplos ni tarjetas Q&A.
+data.biblioteca = fs.readdirSync(dir).filter(x => /^\d{3}-/.test(x)).sort().map(f => {
+  const t = nfc(fs.readFileSync(path.join(dir, f), 'utf8')), n = Number(f.slice(0, 3));
+  const title = (/^title:\s*"([^"]*)"/m.exec(t) || [])[1] || f, nivel = (/^level:\s*"([^"]*)"/m.exec(t) || [])[1] || '';
+  const clean = b => b.replace(/^[-*]\s*/, '').replace(/`([^`]+)`/g, '$1').replace(/\s+/g, ' ').trim();
+  const sec1 = (t.split(/^## 1\./m)[1] || '').split(/^## 2\./m)[0];
+  const puntos = sec1.split('\n').filter(l => /^- /.test(l)).map(clean).filter(b => b.length >= 12 && b.length <= 180).slice(0, 6);
+  const nt = readNote(n);
+  return { n, titulo: title.replace(/^(El|La|Los|Las)\s+/i, m => m), nivel, puntos, errores: (nt ? nt.bullets : []).slice(0, 5) };
+});
+console.log('biblioteca: ' + data.biblioteca.length + ' clases');
 fs.writeFileSync(file, JSON.stringify(data, null, 1) + '\n');
 console.log('conceptos con errores típicos:', enriched + created, '(nuevas cápsulas ' + created + ', enriquecidas ' + enriched + ') · viñetas copiadas:', added);

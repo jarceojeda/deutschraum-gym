@@ -1093,13 +1093,15 @@
     };
 
     // Quita referencias a ítems/unidades que ya no existen (tras actualizar el contenido).
-    self.reconcile = function (store) {
+    self.reconcile = function (store, keepIds) {
+      // keepIds: ids de contenido OPCIONAL que hoy no está cargado (p. ej. «Más allá del B1» apagado): se conservan para que su progreso vuelva al reactivarlo.
+      var keep = Object.create(null); (keepIds || []).forEach(function (id) { keep[id] = true; });
       var st = self.state, removed = { items: 0, errors: 0, units: 0, history: 0 };
-      Object.keys(st.items).forEach(function (id) { if (!store.byId[id]) { delete st.items[id]; removed.items++; } });
-      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id]) { delete st.errors[id]; removed.errors++; } });
-      Object.keys(st.units).forEach(function (u) { if (!store.units[u]) { delete st.units[u]; removed.units++; } });
+      Object.keys(st.items).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.items[id]; removed.items++; } });
+      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.errors[id]; removed.errors++; } });
+      Object.keys(st.units).forEach(function (u) { if (!store.units[u] && !keep[u]) { delete st.units[u]; removed.units++; } });
       st.history.forEach(function (h) {
-        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id]; }); removed.history += n - h.ids.length;
+        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id] || !!keep[id]; }); removed.history += n - h.ids.length;
       });
       return removed;
     };
@@ -1208,6 +1210,17 @@
       typeCount[it.type] = (typeCount[it.type] || 0) + 1;
       cellUsed[it.skillId] = (cellUsed[it.skillId] || 0) + 1;   // los errores obligatorios también ocupan cuota
       entries.push({ id: it.id, unit: it.unit, module: it.module, skillId: it.skillId, level: it.level, type: it.type, bucket: bucket, cls: cls });
+    }
+
+    /* ---- kind 'ids': sesión sólo con los ítems pedidos («Practicar mis palabras») ---- */
+    if (kind === 'ids') {
+      var asked = (req.ids || []).filter(function (id, i, a) { return a.indexOf(id) === i && store.byId[id] && levelOK(store.byId[id]); });
+      // lo menos visto primero (intentos, luego el último uso más antiguo); el azar sólo desempata
+      var keyed = rng.shuffle(asked).map(function (id) { var s = st.items[id]; return { id: id, a: s ? s.a || 0 : 0, ls: s ? s.ls || 0 : 0 }; });
+      keyed.sort(function (x, y) { return x.a - y.a || x.ls - y.ls; });
+      keyed.slice(0, size).forEach(function (x) { take(store.byId[x.id], 'current', 'new'); });
+      if (!entries.length) warnings.push({ code: 'NO_ITEMS', msg: 'No hay ejercicios para esas palabras.' });
+      return { sessionNo: sessionNo, kind: kind, size: size, items: rng.shuffle(entries), warnings: warnings, notes: notes, carry: {}, composition: { error: 0, current: entries.length, easier: 0, up: 0, fallback: 0, cls: { new: entries.length, due: 0, learning: 0, future: 0, error: 0 } }, modulePlan: {} };
     }
 
     /* ---- 1. cola de errores ---- */
@@ -1542,14 +1555,38 @@
     var cfg = Object.assign({}, CFG, opts.config || {});
     var clock = opts.clock || { now: function () { return Date.now(); } };
     var rng = opts.rng || DG.rng.create();
-    var store = Items.createStore(opts.data || []);
+    var rawAll = (opts.data || []).slice();
+    var store = Items.createStore(rawAll);
     var progress = P.create({ storage: opts.storage || null, key: opts.key, clock: clock });
     progress.load();
-    var reconciled = progress.reconcile(store);
+    var reconciled = progress.reconcile(store, opts.keepIds);
 
     var engine = { store: store, progress: progress, rng: rng, clock: clock, cfg: cfg, reconciled: reconciled };
     function state() { return progress.state; }
     engine.state = state;
+
+    /* Contenido del usuario en caliente («Mis palabras»). addItems valida los nuevos por separado (sin exigir el tamaño mínimo de pool, que sólo
+       tiene sentido para los datos oficiales) y no añade NADA si alguno falla o repite un id. removeItems quita ítems y su progreso. */
+    function rebuild() { store = Items.createStore(rawAll); engine.store = store; }
+    engine.addItems = function (list) {
+      list = list || []; var errors = [], seen = Object.create(null);
+      list.forEach(function (raw) { if (!raw || !raw.id) { errors.push({ code: 'missing-field', id: null, msg: 'ítem sin id' }); return; } if (store.byId[raw.id] || seen[raw.id]) errors.push({ code: 'dup-id', id: raw.id, msg: 'id ya existente' }); seen[raw.id] = true; });
+      if (list.length) {
+        var rep = Items.validate(Items.createStore(list), { concepts: opts.concepts });
+        rep.errors.forEach(function (e) { if (e.code !== 'pool-too-small') errors.push(e); });
+      }
+      if (errors.length || !list.length) return { added: 0, errors: errors };
+      list.forEach(function (raw) { rawAll.push(raw); }); rebuild();
+      return { added: list.length, errors: [] };
+    };
+    engine.removeItems = function (ids) {
+      var del = Object.create(null); (ids || []).forEach(function (id) { del[id] = true; });
+      var before = rawAll.length; rawAll = rawAll.filter(function (raw) { return !del[raw.id]; }); rebuild();
+      var st = state(); Object.keys(del).forEach(function (id) { delete st.items[id]; delete st.errors[id]; delete st.units[id]; });
+      st.history.forEach(function (h) { h.ids = h.ids.filter(function (id) { return !del[id]; }); });
+      var sv = progress.save() || {};
+      return Object.assign({ removed: before - rawAll.length }, sv);
+    };
 
     engine.validate = function () { return Items.validate(store, { concepts: opts.concepts }); };
 

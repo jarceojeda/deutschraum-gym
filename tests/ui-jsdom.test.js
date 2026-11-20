@@ -536,10 +536,10 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
-    const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
+    const r = REGLAS[k]; if (!/^(sa2|sb1):/.test(k)) assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');   // sa2/sb1: temas de las hojas A2/B1, sólo para la Consulta (sin ejercicios propios)
     if (r.alias) { assert.ok(REGLAS[r.alias] && !REGLAS[r.alias].alias, k + ': el alias debe apuntar a una cápsula real'); return; }
     assert.ok(r.regla || r.formula || r.ejemplo || (r.errores && r.errores.length), k + ' vacío');
     if (r.errores) { assert.ok(r.errores.length >= 1 && r.errores.length <= 3, k); r.errores.forEach(e => assert.ok(e.length >= 25 && e.length <= 200, k + ': ' + e)); }
@@ -850,7 +850,8 @@ test('Tablas · dominado: no hay tabla antes de responder; al fallar aparece la 
   u.answer(false);
   const tb = u.q('.fb.bad .fb-table .tbl'); assert.ok(tb, 'tras fallar siempre se ve la tabla');
   const hit = tb.querySelectorAll('td.hit'); assert.ok(hit.length >= 1); assert.ok(/./.test(hit[0].textContent));
-  assert.ok(hit[0].textContent === item.answer || hit[0].textContent === '-' + item.answer || /^ein/.test(hit[0].textContent));
+  const hc = hit[0].textContent.toLowerCase(), an = item.answer.toLowerCase();   // la tabla compara sin mayúsculas («Der» a principio de frase = der)
+  assert.ok(hc === an || hc === '-' + an || /^ein/.test(hc));
   const steps = u.qa('.fb .chain li'); assert.equal(steps.length, 3); assert.match(steps[0].textContent, /Caso/); assert.match(steps[1].textContent, /Casilla/); assert.match(steps[2].textContent, /Forma/);
   assert.ok(tb.querySelector('tr.hitrow'));
 });
@@ -938,9 +939,9 @@ test('S · Satzbau: ordenar la frase con fichas; al fallar sale la regla de V₂
   u.next(); u.answer(true); assert.ok(u.q('.fb.ok'));
 });
 
-test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1) se queda en A1', () => {
+test('W/S · Viaje combinado con los 7 módulos; con B1, Wortschatz llega a B1 y Satzbau (sólo A1, salvo Trampas, TeKaMoLo y las estructuras A2/B1) se queda en A1', () => {
   const u = boot(162); u.click(u.q('[data-level="B1"]')); u.click(u.q('[data-size="30"]')); u.click(u.q('#mix')); const mods = new Set();
-  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau') assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
+  while (u.S().screen === 'session') { const it = u.S().cur.item; mods.add(it.module); if (it.module === 'satzbau' && it.skill !== 'trampa' && it.skill !== 'tekamolo' && !/^(nebensatz-|perfekt$|modal$|trennbar$|objekte$|zuinf$|indfrage$|relativ$|passiv$|konj2$|vergleich$)/.test(it.skill)) assert.equal(it.level, 'A1'); u.answer(true); u.next(); }
   assert.ok(mods.size >= 4, [...mods].join());
   assert.match(u.q('.main').textContent + u.d.body.textContent, /Resumen|aciertos/);
 });
@@ -1020,4 +1021,282 @@ test('PWA · service worker activo → «Sin conexión: lista»; una versión nu
   const before = u.w.localStorage.getItem('dg.progress'); listeners.controllerchange();
   await waitFor(() => u.q('.toast.ok')); assert.match(u.q('.toast').textContent, /versión nueva/);
   assert.equal(u.w.localStorage.getItem('dg.progress'), before, 'el progreso no cambia al actualizar'); assert.equal(u.S().screen, 'settings', 'no recarga ni cambia de pantalla');
+});
+
+test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv II con etiqueta propia y, tras fallar, su cápsula (sin la del Präsens)', () => {
+  const etiquetas = { plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II', passiv: 'Passiv (Präsens)', 'passiv-praeteritum': 'Passiv (Präteritum)' };
+  const vistos = {};
+  for (let seed = 90; seed < 100 && Object.keys(vistos).length < 4; seed++) {
+    const u = boot(seed); u.click(u.q('[data-level="B1"]')); u.chooseModule('verben', 30); u.start();
+    for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
+      const it = u.S().cur.item;
+      if (etiquetas[it.skill] && !vistos[it.skill]) {
+        vistos[it.skill] = true; u.answer(false);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap, it.skill + ': cápsula tras fallar');
+        assert.equal(cap.dataset.concept, 'md:verben-' + it.skill);
+        assert.ok(u.q('.fb.bad').textContent.length > 0);
+      } else u.answer(true);
+      u.next();
+    }
+  }
+  assert.ok(Object.keys(vistos).length >= 4, 'habilidades nuevas vistas: ' + Object.keys(vistos).join());
+});
+
+test('T · Trampas: en Satzbau aparece «¿Cuál es correcta?» por toques y, tras fallar, se muestra la explicación propia del ítem', () => {
+  let ok = false;
+  for (let seed = 120; seed < 130 && !ok; seed++) {
+    const u = boot(seed);
+    if (!toItem(u, it => it.skill === 'trampa', 'satzbau', 30)) continue;
+    const it = u.S().cur.item; assert.ok(u.q('.options .opt'), 'opciones por toque');
+    u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation); ok = true;
+  }
+  assert.ok(ok, 'ninguna trampa servida en 10 semillas');
+});
+
+test('R · Relativpronomen: Deklination lo sirve con su etiqueta, la tabla de ayuda y, tras fallar, la cápsula del tema', () => {
+  let ok = false;
+  for (let seed = 140; seed < 150 && !ok; seed++) {
+    const u = boot(seed); u.click(u.q('[data-level="B1"]'));   // los ejercicios B1 sólo salen con el botón B1
+    if (!toItem(u, it => it.skill === 'relativpronomen', 'deklination', 30)) continue;
+    const it = u.S().cur.item; assert.ok(u.q('.options .opt'));
+    u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation);
+    const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:relativpronomen');
+    assert.ok(u.q('.fb.bad table'), 'tabla del pronombre relativo tras fallar'); ok = true;
+  }
+  assert.ok(ok, 'ningún Relativpronomen servido en 10 semillas');
+});
+
+test('S · Komparativ/Superlativ: Deklination los sirve con su etiqueta y la pista del adjetivo, y tras fallar enseña la explicación y la cápsula', () => {
+  const vistos = {};
+  for (let seed = 160; seed < 175 && Object.keys(vistos).length < 2; seed++) {
+    const u = boot(seed); u.chooseModule('deklination', 30); u.start();
+    for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+      const it = u.S().cur.item;
+      if ((it.skill === 'komparativ' || it.skill === 'superlativ') && !vistos[it.skill]) {
+        vistos[it.skill] = true; u.answer(false);
+        assert.equal(u.q('.fb-line').textContent, it.explanation);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:steigerung');
+      } else u.answer(true);
+      u.next();
+    }
+  }
+  assert.equal(Object.keys(vistos).length, 2, Object.keys(vistos).join());
+});
+
+test('K2 · TeKaMoLo: Satzbau (B1) lo sirve para ordenar por toques y, tras fallar, muestra su explicación y cápsula', () => {
+  let ok = false;
+  for (let seed = 180; seed < 195 && !ok; seed++) {
+    const u = boot(seed); u.click(u.q('[data-level="B1"]'));
+    if (!toItem(u, it => it.skill === 'tekamolo', 'satzbau', 30)) continue;
+    const it = u.S().cur.item; assert.ok(u.qa('.bank .tile').length >= 6, 'fichas para ordenar');
+    u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation);
+    const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:tekamolo'); ok = true;
+  }
+  assert.ok(ok, 'ningún TeKaMoLo servido');
+});
+
+test('Biblioteca: Consulta → «Biblioteca» lista una ficha por clase (sin ejercicios ni progreso) y cada ficha abre sus objetivos y errores típicos', () => {
+  const BIB = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'reglas.json'), 'utf8')).biblioteca;
+  assert.ok(BIB.length >= 50 && BIB.every(c => c.titulo && c.puntos.length >= 1 && c.puntos.every(p => p.length <= 180) && c.errores.every(e => e.length >= 25 && e.length <= 200)));
+  const t = JSON.stringify(BIB); assert.equal(t, t.normalize('NFC')); assert.ok(!/[<>]/.test(t));
+  const u = boot(172); u.click(u.q('#consulta')); u.click(u.q('[data-group="cl"]'));
+  assert.equal(u.qa('.erow').length, BIB.length); assert.equal(u.q('.bank, .options'), null);
+  u.click(u.q('[data-clase="18"]')); const dlg = u.q('[role="dialog"]');
+  assert.ok(dlg && /TeKaMoLo/.test(dlg.textContent) && dlg.querySelectorAll('.bib-p li').length >= 3 && dlg.querySelector('details[open]'));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null, 'consultar no escribe progreso');
+});
+
+test('P2 · Pronunciación: Wortschatz la sirve con su etiqueta, tras fallar muestra la explicación y la cápsula, y 🔊 habla la palabra de ejemplo (lemma)', () => {
+  let ok = false;
+  for (let seed = 200; seed < 230 && !ok; seed++) {
+    const spoken = [];
+    const u = boot(seed, { before: w => { w.speechSynthesis = { speak: x => spoken.push(x.text), cancel() {}, getVoices: () => [{ lang: 'de-DE', name: 'Test', default: true }], onvoiceschanged: null, addEventListener() {} }; w.SpeechSynthesisUtterance = function (t) { this.text = t; }; } });
+    u.chooseModule('wortschatz', 30); u.start();
+    for (let i = 0; i < 80 && u.S().screen === 'session' && !ok; i++) {
+      const it = u.S().cur.item;
+      if (it.skill === 'pronunciacion') {
+        u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:pronunciacion');
+        const say = u.q('#say'); if (say) { u.click(say); assert.equal(spoken[spoken.length - 1], it.lemma); } ok = true;
+      } else { u.answer(true); u.next(); }
+    }
+  }
+  assert.ok(ok, 'ninguna pregunta de pronunciación servida');
+});
+
+test('Más allá del B1: apagado por defecto (ningún ítem B2/C1 en el motor); con el ajuste sale vocabulario extra; el ajuste pide reiniciar y el progreso no se pierde al apagarlo', () => {
+  const beyond = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'wortschatz-beyond.json'), 'utf8'));
+  assert.ok(beyond.length > 500 && beyond.every(i => i.module === 'wortschatz' && /^beyond-clase-\d{3}$/.test(i.source) && i.level === 'B1'));
+  const off = boot(210); assert.equal(Object.keys(off.eng.store.byId).filter(id => /^wz-md0(1[2-9]|[2-5]\d)/.test(id) && beyond.some(b => b.id === id)).length, 0);
+  assert.ok(!off.eng.store.byId[beyond[0].id], 'por defecto no está cargado');
+  // activar en ajustes → aparece el botón de reiniciar
+  off.click(off.q('[aria-label="Ajustes"]')); const on1 = off.q('[aria-label="Más allá del B1"] [data-v="1"]'); assert.ok(on1); off.click(on1);
+  assert.ok(off.q('#restart'), 'pide reiniciar para aplicar'); assert.equal(JSON.parse(off.w.localStorage.getItem('dg.ui')).beyond, true);
+  // arranque con el ajuste: el motor trae los ítems extra y se pueden jugar
+  const on = boot(211, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })) });
+  assert.ok(on.eng.store.byId[beyond[0].id], 'con el ajuste, cargado');
+  assert.equal(Object.keys(on.eng.store.byId).length - Object.keys(off.eng.store.byId).length, beyond.length);
+  // progreso de un ítem extra sobrevive a arrancar sin el ajuste y se recupera al volver a activarlo
+  const a = boot(212, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })) });
+  a.click(a.q('[data-level="B1"]')); assert.ok(toItem(a, it => /^beyond-/.test(it.source), 'wortschatz', 30), 'sale un ítem extra'); a.answer(false); const saved = a.w.localStorage.getItem('dg.progress'); assert.ok(saved);
+  const antes = JSON.parse(saved), idsExtra = Object.keys(antes.items).filter(id => beyond.some(x => x.id === id)); assert.ok(idsExtra.length >= 1, 'se jugó algún ítem extra');
+  const b = boot(213, { before: w => { w.localStorage.setItem('dg.progress', saved); w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false })); } });   // sin el ajuste
+  assert.ok(b.q('.hero'), 'arranca sin el ajuste con progreso de ítems que no están cargados');
+  b.chooseModule('verben', 10); b.start(); b.answer(true); b.next();   // fuerza un guardado
+  const despues = b.stored(); idsExtra.forEach(id => assert.ok(despues.items[id], 'progreso conservado: ' + id));
+  const c = boot(214, { before: w => { w.localStorage.setItem('dg.progress', JSON.stringify(despues)); w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })); } });
+  assert.ok(idsExtra.every(id => c.eng.state().items[id]), 'al reactivarlo, el progreso sigue ahí');
+});
+
+test('Mis palabras: añadir una palabra (≈10 s), entra al repaso en caliente, se guarda, sobrevive al reinicio, se quita con su progreso y viaja en la copia de seguridad', async () => {
+  const u = boot(220); u.click(u.q('#palabras')); assert.equal(u.S().screen, 'palabras');
+  const add = (de, es) => { u.q('#mw-de').value = de; u.q('#mw-es').value = es; u.click(u.q('#mw-add')); };
+  add('', 'ardilla'); assert.equal(u.qa('.mw-row').length, 0, 'sin alemán no se añade');
+  add('das Eichhörnchen', 'la ardilla'); assert.equal(u.qa('.mw-row').length, 1); assert.equal(u.q('.mw-row .en').textContent, 'la ardilla');
+  add('das  eichhörnchen', 'x'); assert.equal(u.qa('.mw-row').length, 1, 'duplicado rechazado');
+  const raw = JSON.parse(u.w.localStorage.getItem('dg.words')); assert.equal(raw.words.length, 1); assert.equal(raw.words[0].de, 'das Eichhörnchen');
+  // entra en el motor sin reiniciar y sale en una sesión de Wortschatz
+  const id = raw.words[0].id; assert.ok(u.eng.store.byId['mw-' + id + '-es-de']);
+  u.click(u.q('[aria-label="Volver"]')); assert.equal(u.q('#palabras .badge').textContent, '1');
+  u.click(u.q('#palabras')); u.click(u.q('#mw-practice')); assert.equal(u.S().screen, 'session', 'practicar mis palabras arranca una sesión');
+  assert.ok(u.S().cur.item.id.startsWith('mw-' + id), 'sólo salen mis palabras'); assert.equal(u.S().session.length(), 3);
+  u.answer(false); assert.ok(u.stored().errors[u.S().cur.item.id], 'el fallo se guarda como cualquier otro');
+  // la copia de seguridad la lleva
+  u.click(u.q('[aria-label="Terminar sesión"]')); u.click(u.q('.dock .btn.secondary')); const pkg = (u.click(u.q('[aria-label="Ajustes"]')), u.click(u.q('#export-btn')), JSON.parse(u.w.DGUI.app.lastExport.text));
+  assert.equal(pkg.misPalabras.length, 1); assert.ok(pkg.state && pkg.checksum, 'el checksum del motor no cambia');
+  // reinicio: arranca con la palabra cargada
+  const v = boot(221, { before: w => { w.localStorage.setItem('dg.words', JSON.stringify(raw)); } }); assert.ok(v.eng.store.byId['mw-' + id + '-es-de']);
+  // importar en un dispositivo limpio la restaura
+  const x = boot(222); x.click(x.q('[aria-label="Ajustes"]')); fileInput(x, JSON.stringify(pkg), 'copia.json'); assert.ok(await waitFor(() => x.q('#confirm-import'))); x.click(x.q('#confirm-import'));
+  assert.ok(x.eng.store.byId['mw-' + id + '-es-de'], 'la palabra se restauró con la copia'); assert.equal(JSON.parse(x.w.localStorage.getItem('dg.words')).words.length, 1);
+  // quitar: desaparece la palabra y su progreso
+  u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#palabras')); u.click(u.q('.mw-del'));
+  assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mw-' + id + '-es-de'], undefined); assert.equal(JSON.parse(u.w.localStorage.getItem('dg.words')).words.length, 0);
+  assert.equal(Object.keys(u.stored().errors).filter(k => k.startsWith('mw-' + id)).length, 0, 'sin restos de progreso');
+});
+
+test('Consulta · hojas A2 y B1: dos grupos nuevos con los temas de gramática de esas hojas (sin TELC), ordenados de forma natural y con su cápsula', () => {
+  const nA2 = Object.keys(REGLAS).filter(k => k.startsWith('sa2:')).length, nB1 = Object.keys(REGLAS).filter(k => k.startsWith('sb1:')).length;
+  assert.ok(nA2 >= 40 && nB1 >= 50, nA2 + '/' + nB1);
+  assert.ok(!/telc/i.test(JSON.stringify(Object.keys(REGLAS).filter(k => /^(sa2|sb1):/.test(k)).map(k => REGLAS[k].titulo))), 'sin temas TELC');
+  const u = boot(230); u.click(u.q('#consulta'));
+  u.click(u.q('[data-group="sa2"]')); const ids = u.qa('.erow').map(r => r.dataset.concept); assert.equal(ids.length, nA2); assert.ok(ids.every(k => k.startsWith('sa2:')));
+  assert.ok(ids.indexOf('sa2:g1t2') < ids.indexOf('sa2:g1t10'), 'orden natural: g1t2 antes que g1t10');
+  u.click(u.q('[data-group="sb1"]')); assert.equal(u.qa('.erow').length, nB1);
+  u.click(u.q('[data-concept="sb1:g1-1-5"]')); const cap = u.q('[role="dialog"] .capsule'); assert.ok(cap && /obwohl/.test(cap.textContent));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null);
+});
+
+test('Modo Casa: teclas 1–4 eligen la opción y Enter continúa; no actúan con un panel abierto ni sobre un botón enfocado; las opciones llevan su número', () => {
+  const u = boot(240), key = (k, target) => (target || u.d.body).dispatchEvent(new u.w.KeyboardEvent('keydown', { key: k, bubbles: true, cancelable: true }));
+  u.chooseModule('verben', 10); u.start();
+  for (let i = 0; i < 30 && u.S().cur.spec.kind !== 'choice'; i++) { u.answer(true); u.next(); }
+  assert.equal(u.S().cur.spec.kind, 'choice'); const opts = u.qa('.options .opt'); assert.ok(opts.length >= 2); assert.deepEqual(opts.map(b => b.dataset.k), opts.map((_, i) => String(i + 1)));
+  // un botón enfocado se maneja solo (Enter lo pulsa el navegador): el atajo no lo duplica
+  const first = u.q('.options .opt'); key('1', first); assert.equal(u.q('.fb'), null, 'con el foco en un botón no actúa');
+  const wrongK = u.qa('.options .opt').find(b => b.dataset.opt !== u.S().cur.item.answer).dataset.k; key(wrongK); assert.ok(u.q('.fb.bad'), 'la tecla ' + wrongK + ' respondió (mal a propósito)');
+  const posAns = u.S().session.position(); key(wrongK); assert.ok(u.q('.fb') && u.S().session.position() === posAns, 'una 2.ª pulsación no responde otra vez');
+  // con un panel abierto, Enter no avanza
+  u.click(u.q('#rule')); assert.ok(u.q('[role="dialog"]')); key('Enter'); assert.ok(u.q('.fb') && u.S().session.position() === posAns, 'panel abierto: sin efecto');
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' }));
+  key('Enter'); assert.equal(u.q('.fb'), null, 'Enter pasó a la siguiente'); assert.ok(u.S().cur.view && !u.S().cur.fb);
+});
+
+test('Sprechen: apagado por defecto; si se activa (y hay voz) el resumen ofrece ≤5 frases para repetir en voz alta con 🔊 y «Lo dije», sin escribir progreso extra', () => {
+  const voice = w => { w.__spoken = []; w.speechSynthesis = { speak: x => w.__spoken.push(x.text), cancel() {}, getVoices: () => [{ lang: 'de-DE', name: 'Test', default: true }] }; w.SpeechSynthesisUtterance = function (t) { this.text = t; }; };
+  const run = (seed, ui, withVoice) => { const u = boot(seed, { before: w => { w.localStorage.setItem('dg.ui', JSON.stringify(Object.assign({ auto: false }, ui))); if (withVoice) voice(w); } }); u.chooseModule('verben', 10); u.start(); while (u.S().screen === 'session') { u.answer(u.S().session.position() % 3 !== 0); u.next(); } return u; };
+  assert.equal(run(250, {}, true).q('#sprechen'), null, 'apagado por defecto');
+  assert.equal(run(251, { sprechen: true }, false).q('#sprechen'), null, 'sin voz no se ofrece');
+  const u = run(252, { sprechen: true }, true), rows = u.qa('#sprechen .say-row'); assert.ok(rows.length >= 1 && rows.length <= 5, String(rows.length));
+  const first = rows[0], txt = first.querySelector('.say-t').textContent; u.click(first.querySelector('.say-b')); assert.equal(u.w.__spoken[u.w.__spoken.length - 1], txt);
+  const said = first.querySelector('.said'); u.click(said); assert.equal(said.getAttribute('aria-pressed'), 'true'); assert.match(said.textContent, /✓/);
+  const antes = JSON.stringify(u.stored()); u.click(said); assert.equal(JSON.stringify(u.stored()), antes, 'marcar «Lo dije» no toca el progreso');
+  assert.equal(new Set(rows.map(r => r.querySelector('.say-t').textContent)).size, rows.length, 'sin frases repetidas');
+});
+
+test('Mis frases: escribir una frase propia, ordenarla con fichas (con su traducción), sobrevivir al reinicio, viajar en la copia y quitarla con su progreso', async () => {
+  const u = boot(260); u.click(u.q('#frases')); assert.equal(u.S().screen, 'frases');
+  const add = (de, es) => { u.q('#mf-de').value = de; u.q('#mf-es').value = es; u.click(u.q('#mf-add')); };
+  add('Hallo Welt', 'x'); assert.equal(u.qa('.mw-row').length, 0, 'menos de 3 palabras: rechazada');
+  add('ich lerne jeden tag Deutsch', 'Aprendo alemán cada día'); assert.equal(u.qa('.mw-row').length, 1); assert.equal(u.q('.mw-row .el').textContent, 'Ich lerne jeden tag Deutsch.');
+  add('Ich lerne jeden tag Deutsch.', 'otra vez'); assert.equal(u.qa('.mw-row').length, 1, 'duplicado rechazado');
+  const raw = JSON.parse(u.w.localStorage.getItem('dg.frases')), id = raw.frases[0].id; assert.ok(u.eng.store.byId['mf-' + id + '-order']);
+  u.click(u.q('#mf-practice')); assert.equal(u.S().screen, 'session'); assert.equal(u.S().cur.item.id, 'mf-' + id + '-order');
+  assert.match(u.q('.p-tr').textContent, /Aprendo alemán/); u.answer(true); assert.ok(u.q('.fb.ok'), 'ordenada con fichas: correcta');
+  u.next(); u.click(u.q('.dock .btn.secondary'));   // resumen → inicio
+  const pkg = (u.click(u.q('[aria-label="Ajustes"]')), u.click(u.q('#export-btn')), JSON.parse(u.w.DGUI.app.lastExport.text)); assert.equal(pkg.misFrases.length, 1);
+  assert.ok(boot(261, { before: w => w.localStorage.setItem('dg.frases', JSON.stringify(raw)) }).eng.store.byId['mf-' + id + '-order'], 'tras reiniciar sigue cargada');
+  const x = boot(262); x.click(x.q('[aria-label="Ajustes"]')); fileInput(x, JSON.stringify(pkg), 'copia.json'); assert.ok(await waitFor(() => x.q('#confirm-import'))); x.click(x.q('#confirm-import'));
+  assert.ok(x.eng.store.byId['mf-' + id + '-order'], 'la copia la restaura'); assert.equal(JSON.parse(x.w.localStorage.getItem('dg.frases')).frases.length, 1);
+  u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#frases')); u.click(u.q('.mw-del'));
+  assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mf-' + id + '-order'], undefined); assert.equal(Object.keys(u.stored().items).filter(k => k.startsWith('mf-' + id)).length, 0);
+});
+
+test('Verben: cada ejercicio muestra el significado del verbo («= aprender») y todos los verbos del contenido tienen significado', () => {
+  const V = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'verbos-es.json'), 'utf8')).verbos;
+  const lemmas = new Set(['verben', 'gramatica'].flatMap(f => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', f + '.json'), 'utf8')).map(i => i.lemma)));
+  [...lemmas].forEach(l => assert.ok(V[l] && V[l].length >= 2, 'sin significado: ' + l)); const t = JSON.stringify(V); assert.equal(t, t.normalize('NFC'));
+  assert.equal(V.lernen, 'aprender'); assert.equal(V.verlassen, 'dejar, abandonar');
+  const u = boot(270); u.click(u.q('[data-level="B1"]')); u.chooseModule('verben', 30); u.start(); let n = 0;
+  for (let i = 0; i < 25 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item; if (it.module === 'verben') { const el = u.q('.p-es'); assert.ok(el, 'sin significado en ' + it.id); assert.equal(el.textContent, '= ' + V[it.lemma]); n++; }
+    u.answer(true); u.next();
+  }
+  assert.ok(n >= 15, 'ejercicios de verbos revisados: ' + n);
+});
+
+test('Accesibilidad de idioma: el texto alemán lleva lang="de" y el español lang="es" (el lector de pantalla usa la voz correcta)', () => {
+  const u = boot(280), F = u.w.DGUI.fmt;
+  assert.equal(F.langOf({ module: 'wortschatz', skill: 'es-de', prompt: 'perro' }, 'prompt'), 'es'); assert.equal(F.langOf({ module: 'wortschatz', skill: 'es-de' }, 'options'), 'de');
+  assert.equal(F.langOf({ module: 'wortschatz', skill: 'de-es', prompt: 'Hund' }, 'prompt'), 'de'); assert.equal(F.langOf({ module: 'wortschatz', skill: 'de-es' }, 'options'), 'es');
+  assert.equal(F.langOf({ module: 'satzbau', skill: 'trampa', prompt: '¿Cuál es correcta?' }, 'options'), 'de'); assert.equal(F.langOf({ module: 'satzbau', type: 'order', prompt: 'Ordena la frase' }, 'prompt'), null);
+  u.chooseModule('wortschatz', 30); u.start(); const seen = {};
+  for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item;
+    if ((it.skill === 'es-de' || it.skill === 'de-es') && !seen[it.skill] && u.q('.options')) {
+      seen[it.skill] = true; const pl = it.skill === 'es-de' ? 'es' : 'de', ol = it.skill === 'es-de' ? 'de' : 'es';
+      assert.equal(u.q('.qbody').getAttribute('lang'), pl, it.skill + ' enunciado'); assert.equal(u.q('.options').getAttribute('lang'), ol, it.skill + ' opciones');
+    }
+    u.answer(true); u.next();
+  }
+  assert.ok(seen['es-de'] || seen['de-es'], 'se comprobó al menos una dirección');
+  const v = boot(281); v.chooseModule('verben', 10); v.start(); assert.equal(v.q('.qbody').getAttribute('lang'), 'de');
+});
+
+test('R1 · Gramática B1: tarjeta fija en Inicio que fija B1 en Verben/Deklination/Satzbau y arranca una mezcla; aviso único tras ≥8 sesiones que no reaparece al descartarlo', () => {
+  const u = boot(290); assert.ok(u.q('#b1'), 'tarjeta fija'); assert.equal(u.q('#b1-nudge'), null, 'sin aviso al principio');
+  u.click(u.q('#b1')); assert.equal(u.S().screen, 'session'); ['verben', 'deklination', 'satzbau'].forEach(m => assert.equal(u.eng.levelOf(m), 'B1', m));
+  const mods = new Set(); for (let i = 0; i < 20 && u.S().screen === 'session'; i++) { mods.add(u.S().cur.item.module); u.answer(true); u.next(); }
+  assert.ok([...mods].every(m => ['verben', 'deklination', 'satzbau'].includes(m)), [...mods].join()); assert.ok(u.eng.levelOf('artikel') !== 'B1', 'no cambia los demás módulos');
+  // aviso: simula ≥8 sesiones en A1
+  const v = boot(291, { before: w => { /* sin progreso previo */ } }); const st = v.eng.state(); st.stats.sessions = 9; v.eng.progress.save();
+  v.w.DGUI.app.go('home'); assert.ok(v.q('#b1-nudge'), 'aviso tras 8+ sesiones'); v.click(v.q('#b1-no')); assert.equal(v.q('#b1-nudge'), null); assert.equal(JSON.parse(v.w.localStorage.getItem('dg.ui')).b1nudge, true);
+  v.w.DGUI.app.go('home'); assert.equal(v.q('#b1-nudge'), null, 'descartado: no vuelve');
+});
+
+test('R4 · Inicio: «Seguir» retoma la última sesión (módulo o mezcla B1) y el Inicio queda en tres bloques', () => {
+  const u = boot(292); assert.equal(u.q('#continue'), null, 'sin historial no hay «Seguir»');
+  assert.deepEqual(u.qa('.sec-h').map(e => e.textContent), ['Un módulo', 'Repaso', 'Mi material']);
+  u.chooseModule('artikel', 10); u.start(); u.answer(true); u.next(); u.click(u.q('[aria-label="Terminar sesión"]')); u.click(u.q('.dock .btn.secondary'));
+  assert.match(u.q('#continue').textContent, /Artikel/); u.click(u.q('#continue')); assert.equal(u.S().screen, 'session'); assert.equal(u.S().cur.item.module, 'artikel');
+});
+
+test('R2 · Mi progreso: estadísticas reales, semana por días y avance por módulo; el diario se actualiza una vez por sesión', () => {
+  const u = boot(293); u.click(u.q('#progreso')); assert.equal(u.S().screen, 'progreso'); assert.equal(u.q('#pg-acc strong').textContent, '—'); assert.equal(u.qa('.pg-day').length, 7); assert.equal(u.qa('.pg-mod').length, 7);
+  u.click(u.q('[aria-label="Volver"]')); u.chooseModule('verben', 10); u.start(); for (let i = 0; i < 30 && u.S().screen === 'session'; i++) { u.answer(i % 4 !== 0); u.next(); }
+  const daily = JSON.parse(u.w.localStorage.getItem('dg.ui')).daily, total = Object.values(daily).reduce((a, b) => a + b, 0); assert.ok(total >= 10, 'ejercicios del día guardados: ' + total);
+  u.click(u.q('.dock .btn.secondary')); u.click(u.q('#progreso')); assert.match(u.q('#pg-acc strong').textContent, /\d+ %/); assert.match(u.q('.pg-week').getAttribute('aria-label'), /\d/);
+  assert.ok(Number(u.q('.pg-day:last-child small').textContent) >= 10, 'hoy aparece en la última barra'); assert.match(u.q('.pg-mod[data-module="verben"] .en').textContent, /vist(o|os) de/);
+});
+
+test('R3 · Celebración: una sesión limpia de ≥10 muestra el momento especial (aviso accesible); con errores no', () => {
+  const clean = boot(294); clean.chooseModule('artikel', 10); clean.start(); while (clean.S().screen === 'session') { clean.answer(true); clean.next(); }
+  assert.ok(clean.q('#celebrate') && clean.q('#celebrate').getAttribute('role') === 'status');
+  const dirty = boot(295, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, ret: { streak: 1, best: 1, last: null, perdon: null, badges: { primera: '2026-01-01' } } })) }); dirty.chooseModule('artikel', 10); dirty.start(); let i = 0; while (dirty.S().screen === 'session') { dirty.answer(i++ % 2 === 0); dirty.next(); }
+  assert.equal(dirty.q('#celebrate'), null, 'con errores, y sin logro nuevo, no hay celebración');
+});
+
+test('R5 · Ajustes agrupado: 4 bloques plegables, «Práctica» abierto y todo el contenido sigue alcanzable', () => {
+  const u = boot(296); u.click(u.q('[aria-label="Ajustes"]')); const g = u.qa('details.set-grp'); assert.equal(g.length, 4);
+  assert.ok(g[0].open && !g[1].open, 'sólo el primero abierto'); assert.ok(g[0].querySelector('[aria-label="Nivel"]') && g[1].querySelector('#test-voice') && g[2].querySelector('#export-btn'));
 });

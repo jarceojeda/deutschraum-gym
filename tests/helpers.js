@@ -11,7 +11,7 @@ function newEngine(opts) {
   const { data, concepts } = dataset();
   const clock = opts.clock || manualClock();
   const storage = opts.storage || memStorage();
-  const eng = DG.engine.createEngine({ data: opts.data || data, concepts, storage, clock, rng: DG.rng.create(opts.seed == null ? 1234 : opts.seed), config: opts.config, schedulerConfig: opts.schedulerConfig });
+  const eng = DG.engine.createEngine({ data: opts.data || data, concepts, storage, clock, rng: DG.rng.create(opts.seed == null ? 1234 : opts.seed), config: opts.config, keepIds: opts.keepIds, schedulerConfig: opts.schedulerConfig });
   return { eng, clock, storage };
 }
 // Respuesta «del alumno» para un ítem (correcta o deliberadamente mala).

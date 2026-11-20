@@ -31,26 +31,31 @@ const vocab = content.vocab.filter(v => v.es && nfc(v.es) && !['letter', 'number
 
 // ---- Vocabulario de las clases (docs/fuentes/aleman-markups/NNN-*.md, tabla de la sección 2) para A2 y B1 ----
 // Sólo palabra alemana + significado + categoría gramatical. NO se usan los ejemplos de las clases. Clases B2/C1: fuera del alcance (SPEC: A1→B1).
+// Modo «--beyond»: sólo vocabulario de las clases B2/C1 (opcional «Más allá del B1»), a data/wortschatz-beyond.json; el motor las trata como B1 y la UI sólo las carga si el ajuste está activo.
+const BEYOND = process.argv.includes('--beyond');
 function loadNotesVocab() {
   const dir = path.join(root, 'docs', 'fuentes', 'aleman-markups');
   if (!fs.existsSync(dir)) { console.log('(sin docs/fuentes/aleman-markups: Wortschatz solo con la referencia 2.4.4)'); return []; }
   const kindOf = c => /^sustantivo/i.test(c) ? 'noun' : /^verbo/i.test(c) ? 'verb' : /^adjetivo/i.test(c) ? 'adjective' : /^adverbio/i.test(c) ? 'adverb' : /^preposici/i.test(c) ? 'preposition' : /^(conjunci|conector)/i.test(c) ? 'connector' : /^pronombre/i.test(c) ? 'pronoun' : 'other';
   const clean = x => nfc(x).replace(/\*\*/g, '').replace(/`/g, '').replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
-  const out = [], order = { A1: 0, A2: 1, B1: 2 };
+  const out = [], order = BEYOND ? { B2: 0, C1: 1 } : { A1: 0, A2: 1, B1: 2 };
   // (se lee con .normalize('NFC') y no con nfc(): nfc() aplana los saltos de línea y destruiría las tablas)
-  const files = fs.readdirSync(dir).filter(f => /^\d{3}-.*\.md$/.test(f)).map(f => { const t = fs.readFileSync(path.join(dir, f), 'utf8').normalize('NFC'); return { f, t, lvl: (/^level:\s*"?(A1|A2|B1)\b/m.exec(t) || [])[1] }; })
+  const files = fs.readdirSync(dir).filter(f => /^\d{3}-.*\.md$/.test(f)).map(f => { const t = fs.readFileSync(path.join(dir, f), 'utf8').normalize('NFC'); return { f, t, lvl: (BEYOND ? /^level:\s*"?(B2|C1)\b/m : /^level:\s*"?(A1|A2|B1)\b/m).exec(t) ? (BEYOND ? /^level:\s*"?(B2|C1)\b/m : /^level:\s*"?(A1|A2|B1)\b/m).exec(t)[1] : undefined }; })
     .filter(x => x.lvl).sort((a, b) => order[a.lvl] - order[b.lvl] || a.f.localeCompare(b.f));
   files.forEach(({ f, t, lvl }) => {
     const sec = (t.split(/^## 2\./m)[1] || '').split(/^## 3\./m)[0];
     sec.split('\n').filter(l => /^\|/.test(l) && !/^\|\s*:?-/.test(l) && !/Alemán \(mit/.test(l)).forEach((l, i) => {
       const c = l.split('|').slice(1, -1).map(clean); if (c.length < 3) return;
       let de = c[0], es = c[1].replace(/\s*;\s*/g, ' / '); const kind = kindOf(c[2]);
+      // columnas intercambiadas en algunas tablas (alemán ↔ español): un verbo reflexivo español en la columna alemana → se intercambian
+      if (/(arse|erse|irse)$/.test(de.replace(/\s*\([^)]*\)/g, '')) && !/(arse|erse|irse)$/.test(es) && /^[a-zäöüß]+(en|ln|rn)?( (\+ Akk\.|\/ [a-zäöüß]+))?$/.test(es)) { const t = de; de = es; es = t; }
+      if (/^(sí|no)(?![a-zñáéíóú])/i.test(es) && c[0] !== 'ja' && c[0] !== 'nein') return;   // marcas «sí / no» de tablas de reflexivos: no son traducciones
       if (!de || !es || /[\/…]|\.\.\./.test(de) || /\.\.\./.test(es) || /\{\{/.test(de + es)) return;
       if (kind === 'noun') { if (!/^(der|die|das)\s+\S/.test(de)) return; de = de.replace(/,.*$/, '').trim(); }
       else if (kind === 'verb') de = de.replace(/,.*$/, '').replace(/\s*\([^)]*\)/g, '').trim();
       else de = de.replace(/\s*\([^)]*\)/g, '').trim();
       if (!de || de.length > 30 || /[,;:]/.test(de)) return;
-      out.push({ id: 'md' + f.slice(0, 3) + '-' + i, de: nfc(de), word: nfc(de.replace(/^(der|die|das)\s+/, '')), es: cleanEs(es), kind, cat: 'md' + f.slice(0, 3), example: null, article: null, level: lvl, fromNotes: true });
+      out.push({ id: 'md' + f.slice(0, 3) + '-' + i, de: nfc(de), word: nfc(de.replace(/^(der|die|das)\s+/, '')), es: cleanEs(es), kind, cat: 'md' + f.slice(0, 3), example: null, article: null, level: BEYOND ? 'B1' : lvl, fromNotes: true });
     });
   });
   return out;
@@ -58,7 +63,7 @@ function loadNotesVocab() {
 
 // ---------------- Wortschatz ----------------
 // A1 de la referencia 2.4.4 + A1/A2/B1 de las clases (sin duplicar palabras alemanas: gana la primera aparición, de menor a mayor nivel)
-{ const nv = loadNotesVocab(); console.log('vocabulario de las clases:', nv.length, 'filas válidas'); const seen = new Set(vocab.map(v => v.de.toLowerCase())); nv.forEach(v => { const k = v.de.toLowerCase(); if (!seen.has(k)) { seen.add(k); vocab.push(v); } }); }
+{ const nv = loadNotesVocab(); console.log('vocabulario de las clases:', nv.length, 'filas válidas'); if (BEYOND) vocab.length = 0; const seen = new Set(vocab.map(v => v.de.toLowerCase())); if (BEYOND) JSON.parse(fs.readFileSync(path.join(root, 'data', 'wortschatz.json'), 'utf8')).forEach(i => seen.add(String(i.lemma || '').toLowerCase())); nv.forEach(v => { const k = v.de.toLowerCase(), w = String(v.word).toLowerCase(); if (!seen.has(k) && !(BEYOND && seen.has(w))) { seen.add(k); if (BEYOND) seen.add(w); vocab.push(v); } }); }
 const items = [];
 const byKind = {}; vocab.forEach(v => { (byKind[v.kind] = byKind[v.kind] || []).push(v); });
 const esGroups = {}; vocab.forEach(v => { (esGroups[v.kind + '|' + v.es] = esGroups[v.kind + '|' + v.es] || []).push(v); });
@@ -72,7 +77,7 @@ function pickDistractors(v, field, n, r, sameCat, exclude) {
   return out;
 }
 function mk(v, skill, extra) {
-  return Object.assign({ id: 'wz-' + v.id + '-' + skill, module: 'wortschatz', level: v.level || 'A1', type: 'cloze', skill, pool: skill, errorTag: 'vocab:' + skill, conceptIds: [], source: v.fromNotes ? 'clase-' + v.cat.slice(2) : 'a1-2.4.4', lemma: v.word }, extra);
+  return Object.assign({ id: 'wz-' + v.id + '-' + skill, module: 'wortschatz', level: v.level || 'A1', type: 'cloze', skill, pool: skill, errorTag: 'vocab:' + skill, conceptIds: [], source: v.fromNotes ? (BEYOND ? 'beyond-clase-' : 'clase-') + v.cat.slice(2) : 'a1-2.4.4', lemma: v.word }, extra);
 }
 vocab.forEach(v => {
   const r = rng(v.id);
@@ -121,8 +126,9 @@ let ti = 0;
     errorTag: 'satzbau:umformen', conceptIds: (t.conceptIds || []).slice(0, 2), source: 'a1-2.4.4' });
 });
 
-fs.writeFileSync(path.join(root, 'data', 'wortschatz.json'), JSON.stringify(items, null, 1) + '\n');
-fs.writeFileSync(path.join(root, 'data', 'satzbau.json'), JSON.stringify(sat, null, 1) + '\n');
+{ const k = {}, keep = items.filter(i => { const key = i.skill + '|' + i.prompt + '|' + i.answer; if (k[key]) return false; k[key] = 1; return true; }); items.length = 0; keep.forEach(i => items.push(i)); }   // sin ejercicios idénticos
+if (BEYOND) fs.writeFileSync(path.join(root, 'data', 'wortschatz-beyond.json'), JSON.stringify(items, null, 1) + '\n');
+else { fs.writeFileSync(path.join(root, 'data', 'wortschatz.json'), JSON.stringify(items, null, 1) + '\n'); fs.writeFileSync(path.join(root, 'data', 'satzbau.json'), JSON.stringify(sat, null, 1) + '\n'); }
 
 // Validación con el motor (0 errores obligatorio)
 const concepts = JSON.parse(fs.readFileSync(path.join(root, 'data', 'concepts.json'), 'utf8'));

@@ -28,7 +28,7 @@
   // spec (dgui-variants) + item → { answerEl, dockEl }. cb: {onSubmit(resp, extra), onGiveUp(), rnd, tap()}
   I.mount = function (spec, item, cb) {
     switch (spec.kind) {
-      case 'choice': return choice(spec, cb);
+      case 'choice': return choice(spec, cb, item);
       case 'blocks': return blocks(spec, cb);
       case 'match': return match(spec, cb);
       case 'ending': return ending(spec, cb);
@@ -40,13 +40,13 @@
   };
   function tapFx(cb) { if (cb.tap) cb.tap(); }
 
-  function choice(spec, cb) {
-    var done = false, n = spec.options.length;
-    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
-    spec.options.forEach(function (o) {
+  function choice(spec, cb, item) {
+    var done = false, n = spec.options.length, optLang = F.langOf(item, 'options');
+    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 3 && spec.options.every(function (o) { return String(o).length <= 7; }) ? '.cols3' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones', lang: optLang || null });
+    spec.options.forEach(function (o, oi) {
       var badge = F.genderBadge(o, false);
       var noun = !badge && /^(der|die|das)\s+\S/i.test(o);   // «der Name»: artículo con color y forma
-      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : '') + (noun ? '.noun' : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', noun ? F.rich(o) : o)));
+      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : '') + (noun ? '.noun' : ''), { type: 'button', 'data-opt': o, 'data-k': String(oi + 1), onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', noun ? F.rich(o) : o)));
     });
     var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
     return { answerEl: null, dockEl: h('div.dock-in', grid, skip) };
@@ -182,6 +182,7 @@
   function text(spec, item, cb) {
     var input = h('input.field', { type: 'text', id: 'answer', autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false', lang: 'de', enterkeyhint: 'done', 'aria-label': 'Tu respuesta', value: spec.prefill || '' });
     var done = false;
+    try { if (g.matchMedia && g.matchMedia('(pointer:fine)').matches) g.setTimeout(function () { input.focus(); }, 0); } catch (e) { /* sin foco automático */ }   // Modo Casa: el cursor ya está en el campo
     function submit() { var v = U.nfc(input.value).trim(); if (done || !v) return; done = true; cb.onSubmit(v); }
     input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
     var keys = h('div.umlauts', ['ä', 'ö', 'ü', 'ß'].map(function (c) {

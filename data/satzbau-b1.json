@@ -1,0 +1,4637 @@
+[
+ {
+  "id": "sb2-001",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Hoy me quedo en casa porque estoy enfermo.",
+  "answer": "Ich bleibe heute zu Hause, weil ich krank bin.",
+  "accept": [
+   "Ich bleibe heute zu Hause, weil ich krank bin."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "heute",
+   "zu",
+   "Hause",
+   ",",
+   "weil",
+   "ich",
+   "krank",
+   "bin",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-002",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Hoy me quedo en casa porque estoy enfermo.",
+  "answer": "Weil ich krank bin, bleibe ich heute zu Hause.",
+  "accept": [
+   "Weil ich krank bin, bleibe ich heute zu Hause."
+  ],
+  "tiles": [
+   "Weil",
+   "ich",
+   "krank",
+   "bin",
+   ",",
+   "bleibe",
+   "ich",
+   "heute",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-003",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Tomamos el bus porque el coche está descompuesto.",
+  "answer": "Wir nehmen den Bus, weil das Auto kaputt ist.",
+  "accept": [
+   "Wir nehmen den Bus, weil das Auto kaputt ist."
+  ],
+  "tiles": [
+   "Wir",
+   "nehmen",
+   "den",
+   "Bus",
+   ",",
+   "weil",
+   "das",
+   "Auto",
+   "kaputt",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-004",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Tomamos el bus porque el coche está descompuesto.",
+  "answer": "Weil das Auto kaputt ist, nehmen wir den Bus.",
+  "accept": [
+   "Weil das Auto kaputt ist, nehmen wir den Bus."
+  ],
+  "tiles": [
+   "Weil",
+   "das",
+   "Auto",
+   "kaputt",
+   "ist",
+   ",",
+   "nehmen",
+   "wir",
+   "den",
+   "Bus",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-005",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Estudia alemán cada día porque quiere trabajar en Viena.",
+  "answer": "Sie lernt jeden Tag Deutsch, weil sie in Wien arbeiten möchte.",
+  "accept": [
+   "Sie lernt jeden Tag Deutsch, weil sie in Wien arbeiten möchte."
+  ],
+  "tiles": [
+   "Sie",
+   "lernt",
+   "jeden",
+   "Tag",
+   "Deutsch",
+   ",",
+   "weil",
+   "sie",
+   "in",
+   "Wien",
+   "arbeiten",
+   "möchte",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-006",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Estudia alemán cada día porque quiere trabajar en Viena.",
+  "answer": "Weil sie in Wien arbeiten möchte, lernt sie jeden Tag Deutsch.",
+  "accept": [
+   "Weil sie in Wien arbeiten möchte, lernt sie jeden Tag Deutsch."
+  ],
+  "tiles": [
+   "Weil",
+   "sie",
+   "in",
+   "Wien",
+   "arbeiten",
+   "möchte",
+   ",",
+   "lernt",
+   "sie",
+   "jeden",
+   "Tag",
+   "Deutsch",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-007",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Se acuesta temprano porque mañana debe levantarse temprano.",
+  "answer": "Er geht früh ins Bett, weil er morgen früh aufstehen muss.",
+  "accept": [
+   "Er geht früh ins Bett, weil er morgen früh aufstehen muss."
+  ],
+  "tiles": [
+   "Er",
+   "geht",
+   "früh",
+   "ins",
+   "Bett",
+   ",",
+   "weil",
+   "er",
+   "morgen",
+   "früh",
+   "aufstehen",
+   "muss",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-008",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Se acuesta temprano porque mañana debe levantarse temprano.",
+  "answer": "Weil er morgen früh aufstehen muss, geht er früh ins Bett.",
+  "accept": [
+   "Weil er morgen früh aufstehen muss, geht er früh ins Bett."
+  ],
+  "tiles": [
+   "Weil",
+   "er",
+   "morgen",
+   "früh",
+   "aufstehen",
+   "muss",
+   ",",
+   "geht",
+   "er",
+   "früh",
+   "ins",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-009",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Bebo mucha agua porque hoy hace mucho calor.",
+  "answer": "Ich trinke viel Wasser, weil es heute so heiß ist.",
+  "accept": [
+   "Ich trinke viel Wasser, weil es heute so heiß ist."
+  ],
+  "tiles": [
+   "Ich",
+   "trinke",
+   "viel",
+   "Wasser",
+   ",",
+   "weil",
+   "es",
+   "heute",
+   "so",
+   "heiß",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-010",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Bebo mucha agua porque hoy hace mucho calor.",
+  "answer": "Weil es heute so heiß ist, trinke ich viel Wasser.",
+  "accept": [
+   "Weil es heute so heiß ist, trinke ich viel Wasser."
+  ],
+  "tiles": [
+   "Weil",
+   "es",
+   "heute",
+   "so",
+   "heiß",
+   "ist",
+   ",",
+   "trinke",
+   "ich",
+   "viel",
+   "Wasser",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-011",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Comemos en casa porque el restaurante cerró.",
+  "answer": "Wir essen zu Hause, weil das Restaurant geschlossen hat.",
+  "accept": [
+   "Wir essen zu Hause, weil das Restaurant geschlossen hat."
+  ],
+  "tiles": [
+   "Wir",
+   "essen",
+   "zu",
+   "Hause",
+   ",",
+   "weil",
+   "das",
+   "Restaurant",
+   "geschlossen",
+   "hat",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-012",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Comemos en casa porque el restaurante cerró.",
+  "answer": "Weil das Restaurant geschlossen hat, essen wir zu Hause.",
+  "accept": [
+   "Weil das Restaurant geschlossen hat, essen wir zu Hause."
+  ],
+  "tiles": [
+   "Weil",
+   "das",
+   "Restaurant",
+   "geschlossen",
+   "hat",
+   ",",
+   "essen",
+   "wir",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-013",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Llegas tarde porque el tren se retrasó.",
+  "answer": "Du kommst zu spät, weil der Zug Verspätung hatte.",
+  "accept": [
+   "Du kommst zu spät, weil der Zug Verspätung hatte."
+  ],
+  "tiles": [
+   "Du",
+   "kommst",
+   "zu",
+   "spät",
+   ",",
+   "weil",
+   "der",
+   "Zug",
+   "Verspätung",
+   "hatte",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-014",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Llegas tarde porque el tren se retrasó.",
+  "answer": "Weil der Zug Verspätung hatte, kommst du zu spät.",
+  "accept": [
+   "Weil der Zug Verspätung hatte, kommst du zu spät."
+  ],
+  "tiles": [
+   "Weil",
+   "der",
+   "Zug",
+   "Verspätung",
+   "hatte",
+   ",",
+   "kommst",
+   "du",
+   "zu",
+   "spät",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-015",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Compran un sofá nuevo porque el viejo es muy pequeño.",
+  "answer": "Sie kaufen ein neues Sofa, weil das alte zu klein ist.",
+  "accept": [
+   "Sie kaufen ein neues Sofa, weil das alte zu klein ist."
+  ],
+  "tiles": [
+   "Sie",
+   "kaufen",
+   "ein",
+   "neues",
+   "Sofa",
+   ",",
+   "weil",
+   "das",
+   "alte",
+   "zu",
+   "klein",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-016",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Compran un sofá nuevo porque el viejo es muy pequeño.",
+  "answer": "Weil das alte zu klein ist, kaufen sie ein neues Sofa.",
+  "accept": [
+   "Weil das alte zu klein ist, kaufen sie ein neues Sofa."
+  ],
+  "tiles": [
+   "Weil",
+   "das",
+   "alte",
+   "zu",
+   "klein",
+   "ist",
+   ",",
+   "kaufen",
+   "sie",
+   "ein",
+   "neues",
+   "Sofa",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-017",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Te llamo más tarde porque ahora no tengo tiempo.",
+  "answer": "Ich rufe dich später an, weil ich jetzt keine Zeit habe.",
+  "accept": [
+   "Ich rufe dich später an, weil ich jetzt keine Zeit habe."
+  ],
+  "tiles": [
+   "Ich",
+   "rufe",
+   "dich",
+   "später",
+   "an",
+   ",",
+   "weil",
+   "ich",
+   "jetzt",
+   "keine",
+   "Zeit",
+   "habe",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-018",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Te llamo más tarde porque ahora no tengo tiempo.",
+  "answer": "Weil ich jetzt keine Zeit habe, rufe ich dich später an.",
+  "accept": [
+   "Weil ich jetzt keine Zeit habe, rufe ich dich später an."
+  ],
+  "tiles": [
+   "Weil",
+   "ich",
+   "jetzt",
+   "keine",
+   "Zeit",
+   "habe",
+   ",",
+   "rufe",
+   "ich",
+   "dich",
+   "später",
+   "an",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-019",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final",
+  "translation": "Se queda en la cama porque no se siente bien.",
+  "answer": "Er bleibt im Bett, weil er sich nicht gut fühlt.",
+  "accept": [
+   "Er bleibt im Bett, weil er sich nicht gut fühlt."
+  ],
+  "tiles": [
+   "Er",
+   "bleibt",
+   "im",
+   "Bett",
+   ",",
+   "weil",
+   "er",
+   "sich",
+   "nicht",
+   "gut",
+   "fühlt",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-020",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-weil",
+  "pool": "nebensatz-weil",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «weil»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Se queda en la cama porque no se siente bien.",
+  "answer": "Weil er sich nicht gut fühlt, bleibt er im Bett.",
+  "accept": [
+   "Weil er sich nicht gut fühlt, bleibt er im Bett."
+  ],
+  "tiles": [
+   "Weil",
+   "er",
+   "sich",
+   "nicht",
+   "gut",
+   "fühlt",
+   ",",
+   "bleibt",
+   "er",
+   "im",
+   "Bett",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-weil",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-021",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Me quedo en casa cuando llueve.",
+  "answer": "Ich bleibe zu Hause, wenn es regnet.",
+  "accept": [
+   "Ich bleibe zu Hause, wenn es regnet."
+  ],
+  "tiles": [
+   "Ich",
+   "bleibe",
+   "zu",
+   "Hause",
+   ",",
+   "wenn",
+   "es",
+   "regnet",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-022",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Me quedo en casa cuando llueve.",
+  "answer": "Wenn es regnet, bleibe ich zu Hause.",
+  "accept": [
+   "Wenn es regnet, bleibe ich zu Hause."
+  ],
+  "tiles": [
+   "Wenn",
+   "es",
+   "regnet",
+   ",",
+   "bleibe",
+   "ich",
+   "zu",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-023",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Salimos a pasear cuando brilla el sol.",
+  "answer": "Wir gehen spazieren, wenn die Sonne scheint.",
+  "accept": [
+   "Wir gehen spazieren, wenn die Sonne scheint."
+  ],
+  "tiles": [
+   "Wir",
+   "gehen",
+   "spazieren",
+   ",",
+   "wenn",
+   "die",
+   "Sonne",
+   "scheint",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-024",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Salimos a pasear cuando brilla el sol.",
+  "answer": "Wenn die Sonne scheint, gehen wir spazieren.",
+  "accept": [
+   "Wenn die Sonne scheint, gehen wir spazieren."
+  ],
+  "tiles": [
+   "Wenn",
+   "die",
+   "Sonne",
+   "scheint",
+   ",",
+   "gehen",
+   "wir",
+   "spazieren",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-025",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Te llamo cuando estoy en casa.",
+  "answer": "Ich rufe dich an, wenn ich zu Hause bin.",
+  "accept": [
+   "Ich rufe dich an, wenn ich zu Hause bin."
+  ],
+  "tiles": [
+   "Ich",
+   "rufe",
+   "dich",
+   "an",
+   ",",
+   "wenn",
+   "ich",
+   "zu",
+   "Hause",
+   "bin",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-026",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Te llamo cuando estoy en casa.",
+  "answer": "Wenn ich zu Hause bin, rufe ich dich an.",
+  "accept": [
+   "Wenn ich zu Hause bin, rufe ich dich an."
+  ],
+  "tiles": [
+   "Wenn",
+   "ich",
+   "zu",
+   "Hause",
+   "bin",
+   ",",
+   "rufe",
+   "ich",
+   "dich",
+   "an",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-027",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Toma un té cuando está cansada.",
+  "answer": "Sie trinkt einen Tee, wenn sie müde ist.",
+  "accept": [
+   "Sie trinkt einen Tee, wenn sie müde ist."
+  ],
+  "tiles": [
+   "Sie",
+   "trinkt",
+   "einen",
+   "Tee",
+   ",",
+   "wenn",
+   "sie",
+   "müde",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-028",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Toma un té cuando está cansada.",
+  "answer": "Wenn sie müde ist, trinkt sie einen Tee.",
+  "accept": [
+   "Wenn sie müde ist, trinkt sie einen Tee."
+  ],
+  "tiles": [
+   "Wenn",
+   "sie",
+   "müde",
+   "ist",
+   ",",
+   "trinkt",
+   "sie",
+   "einen",
+   "Tee",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-029",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Va en bicicleta cuando hace buen tiempo.",
+  "answer": "Er fährt mit dem Fahrrad, wenn das Wetter schön ist.",
+  "accept": [
+   "Er fährt mit dem Fahrrad, wenn das Wetter schön ist."
+  ],
+  "tiles": [
+   "Er",
+   "fährt",
+   "mit",
+   "dem",
+   "Fahrrad",
+   ",",
+   "wenn",
+   "das",
+   "Wetter",
+   "schön",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-030",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Va en bicicleta cuando hace buen tiempo.",
+  "answer": "Wenn das Wetter schön ist, fährt er mit dem Fahrrad.",
+  "accept": [
+   "Wenn das Wetter schön ist, fährt er mit dem Fahrrad."
+  ],
+  "tiles": [
+   "Wenn",
+   "das",
+   "Wetter",
+   "schön",
+   "ist",
+   ",",
+   "fährt",
+   "er",
+   "mit",
+   "dem",
+   "Fahrrad",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-031",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Cocinamos juntos cuando vienen amigos de visita.",
+  "answer": "Wir kochen zusammen, wenn Freunde zu Besuch kommen.",
+  "accept": [
+   "Wir kochen zusammen, wenn Freunde zu Besuch kommen."
+  ],
+  "tiles": [
+   "Wir",
+   "kochen",
+   "zusammen",
+   ",",
+   "wenn",
+   "Freunde",
+   "zu",
+   "Besuch",
+   "kommen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-032",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Cocinamos juntos cuando vienen amigos de visita.",
+  "answer": "Wenn Freunde zu Besuch kommen, kochen wir zusammen.",
+  "accept": [
+   "Wenn Freunde zu Besuch kommen, kochen wir zusammen."
+  ],
+  "tiles": [
+   "Wenn",
+   "Freunde",
+   "zu",
+   "Besuch",
+   "kommen",
+   ",",
+   "kochen",
+   "wir",
+   "zusammen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-033",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Llevo un paraguas cuando el cielo se ve gris.",
+  "answer": "Ich nehme einen Regenschirm mit, wenn der Himmel grau aussieht.",
+  "accept": [
+   "Ich nehme einen Regenschirm mit, wenn der Himmel grau aussieht."
+  ],
+  "tiles": [
+   "Ich",
+   "nehme",
+   "einen",
+   "Regenschirm",
+   "mit",
+   ",",
+   "wenn",
+   "der",
+   "Himmel",
+   "grau",
+   "aussieht",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-034",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Llevo un paraguas cuando el cielo se ve gris.",
+  "answer": "Wenn der Himmel grau aussieht, nehme ich einen Regenschirm mit.",
+  "accept": [
+   "Wenn der Himmel grau aussieht, nehme ich einen Regenschirm mit."
+  ],
+  "tiles": [
+   "Wenn",
+   "der",
+   "Himmel",
+   "grau",
+   "aussieht",
+   ",",
+   "nehme",
+   "ich",
+   "einen",
+   "Regenschirm",
+   "mit",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-035",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final",
+  "translation": "Puedes visitarme si tienes ganas.",
+  "answer": "Du kannst mich besuchen, wenn du Lust hast.",
+  "accept": [
+   "Du kannst mich besuchen, wenn du Lust hast."
+  ],
+  "tiles": [
+   "Du",
+   "kannst",
+   "mich",
+   "besuchen",
+   ",",
+   "wenn",
+   "du",
+   "Lust",
+   "hast",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-036",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "nebensatz-wenn",
+  "pool": "nebensatz-wenn",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «wenn»: el verbo conjugado va al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Puedes visitarme si tienes ganas.",
+  "answer": "Wenn du Lust hast, kannst du mich besuchen.",
+  "accept": [
+   "Wenn du Lust hast, kannst du mich besuchen."
+  ],
+  "tiles": [
+   "Wenn",
+   "du",
+   "Lust",
+   "hast",
+   ",",
+   "kannst",
+   "du",
+   "mich",
+   "besuchen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-wenn",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-037",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Voy al trabajo aunque tengo fiebre.",
+  "answer": "Ich gehe zur Arbeit, obwohl ich Fieber habe.",
+  "accept": [
+   "Ich gehe zur Arbeit, obwohl ich Fieber habe."
+  ],
+  "tiles": [
+   "Ich",
+   "gehe",
+   "zur",
+   "Arbeit",
+   ",",
+   "obwohl",
+   "ich",
+   "Fieber",
+   "habe",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-038",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Voy al trabajo aunque tengo fiebre.",
+  "answer": "Obwohl ich Fieber habe, gehe ich zur Arbeit.",
+  "accept": [
+   "Obwohl ich Fieber habe, gehe ich zur Arbeit."
+  ],
+  "tiles": [
+   "Obwohl",
+   "ich",
+   "Fieber",
+   "habe",
+   ",",
+   "gehe",
+   "ich",
+   "zur",
+   "Arbeit",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-039",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Jugamos afuera aunque hace frío.",
+  "answer": "Wir spielen draußen, obwohl es kalt ist.",
+  "accept": [
+   "Wir spielen draußen, obwohl es kalt ist."
+  ],
+  "tiles": [
+   "Wir",
+   "spielen",
+   "draußen",
+   ",",
+   "obwohl",
+   "es",
+   "kalt",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-040",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Jugamos afuera aunque hace frío.",
+  "answer": "Obwohl es kalt ist, spielen wir draußen.",
+  "accept": [
+   "Obwohl es kalt ist, spielen wir draußen."
+  ],
+  "tiles": [
+   "Obwohl",
+   "es",
+   "kalt",
+   "ist",
+   ",",
+   "spielen",
+   "wir",
+   "draußen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-041",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Compra el coche aunque es muy caro.",
+  "answer": "Er kauft das Auto, obwohl es sehr teuer ist.",
+  "accept": [
+   "Er kauft das Auto, obwohl es sehr teuer ist."
+  ],
+  "tiles": [
+   "Er",
+   "kauft",
+   "das",
+   "Auto",
+   ",",
+   "obwohl",
+   "es",
+   "sehr",
+   "teuer",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-042",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Compra el coche aunque es muy caro.",
+  "answer": "Obwohl es sehr teuer ist, kauft er das Auto.",
+  "accept": [
+   "Obwohl es sehr teuer ist, kauft er das Auto."
+  ],
+  "tiles": [
+   "Obwohl",
+   "es",
+   "sehr",
+   "teuer",
+   "ist",
+   ",",
+   "kauft",
+   "er",
+   "das",
+   "Auto",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-043",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Sigue estudiando aunque ya está cansada.",
+  "answer": "Sie lernt weiter, obwohl sie schon müde ist.",
+  "accept": [
+   "Sie lernt weiter, obwohl sie schon müde ist."
+  ],
+  "tiles": [
+   "Sie",
+   "lernt",
+   "weiter",
+   ",",
+   "obwohl",
+   "sie",
+   "schon",
+   "müde",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-044",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Sigue estudiando aunque ya está cansada.",
+  "answer": "Obwohl sie schon müde ist, lernt sie weiter.",
+  "accept": [
+   "Obwohl sie schon müde ist, lernt sie weiter."
+  ],
+  "tiles": [
+   "Obwohl",
+   "sie",
+   "schon",
+   "müde",
+   "ist",
+   ",",
+   "lernt",
+   "sie",
+   "weiter",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-045",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Como otro trozo de pastel aunque ya no tengo hambre.",
+  "answer": "Ich esse noch ein Stück Kuchen, obwohl ich keinen Hunger mehr habe.",
+  "accept": [
+   "Ich esse noch ein Stück Kuchen, obwohl ich keinen Hunger mehr habe."
+  ],
+  "tiles": [
+   "Ich",
+   "esse",
+   "noch",
+   "ein",
+   "Stück",
+   "Kuchen",
+   ",",
+   "obwohl",
+   "ich",
+   "keinen",
+   "Hunger",
+   "mehr",
+   "habe",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-046",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Como otro trozo de pastel aunque ya no tengo hambre.",
+  "answer": "Obwohl ich keinen Hunger mehr habe, esse ich noch ein Stück Kuchen.",
+  "accept": [
+   "Obwohl ich keinen Hunger mehr habe, esse ich noch ein Stück Kuchen."
+  ],
+  "tiles": [
+   "Obwohl",
+   "ich",
+   "keinen",
+   "Hunger",
+   "mehr",
+   "habe",
+   ",",
+   "esse",
+   "ich",
+   "noch",
+   "ein",
+   "Stück",
+   "Kuchen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-047",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Nos vamos de vacaciones aunque tenemos poco dinero.",
+  "answer": "Wir fahren in den Urlaub, obwohl wir wenig Geld haben.",
+  "accept": [
+   "Wir fahren in den Urlaub, obwohl wir wenig Geld haben."
+  ],
+  "tiles": [
+   "Wir",
+   "fahren",
+   "in",
+   "den",
+   "Urlaub",
+   ",",
+   "obwohl",
+   "wir",
+   "wenig",
+   "Geld",
+   "haben",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-048",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Nos vamos de vacaciones aunque tenemos poco dinero.",
+  "answer": "Obwohl wir wenig Geld haben, fahren wir in den Urlaub.",
+  "accept": [
+   "Obwohl wir wenig Geld haben, fahren wir in den Urlaub."
+  ],
+  "tiles": [
+   "Obwohl",
+   "wir",
+   "wenig",
+   "Geld",
+   "haben",
+   ",",
+   "fahren",
+   "wir",
+   "in",
+   "den",
+   "Urlaub",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-049",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Viene a la fiesta aunque no conoce a nadie.",
+  "answer": "Er kommt zur Party, obwohl er niemanden kennt.",
+  "accept": [
+   "Er kommt zur Party, obwohl er niemanden kennt."
+  ],
+  "tiles": [
+   "Er",
+   "kommt",
+   "zur",
+   "Party",
+   ",",
+   "obwohl",
+   "er",
+   "niemanden",
+   "kennt",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-050",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Viene a la fiesta aunque no conoce a nadie.",
+  "answer": "Obwohl er niemanden kennt, kommt er zur Party.",
+  "accept": [
+   "Obwohl er niemanden kennt, kommt er zur Party."
+  ],
+  "tiles": [
+   "Obwohl",
+   "er",
+   "niemanden",
+   "kennt",
+   ",",
+   "kommt",
+   "er",
+   "zur",
+   "Party",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-051",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final",
+  "translation": "Siempre sonríes aunque tienes mucho estrés.",
+  "answer": "Du lächelst immer, obwohl du viel Stress hast.",
+  "accept": [
+   "Du lächelst immer, obwohl du viel Stress hast."
+  ],
+  "tiles": [
+   "Du",
+   "lächelst",
+   "immer",
+   ",",
+   "obwohl",
+   "du",
+   "viel",
+   "Stress",
+   "hast",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-052",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-obwohl",
+  "pool": "nebensatz-obwohl",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «obwohl»: concesión, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Siempre sonríes aunque tienes mucho estrés.",
+  "answer": "Obwohl du viel Stress hast, lächelst du immer.",
+  "accept": [
+   "Obwohl du viel Stress hast, lächelst du immer."
+  ],
+  "tiles": [
+   "Obwohl",
+   "du",
+   "viel",
+   "Stress",
+   "hast",
+   ",",
+   "lächelst",
+   "du",
+   "immer",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-obwohl",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-053",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Lo explico otra vez para que lo entiendas.",
+  "answer": "Ich erkläre es noch einmal, damit du es verstehst.",
+  "accept": [
+   "Ich erkläre es noch einmal, damit du es verstehst."
+  ],
+  "tiles": [
+   "Ich",
+   "erkläre",
+   "es",
+   "noch",
+   "einmal",
+   ",",
+   "damit",
+   "du",
+   "es",
+   "verstehst",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-054",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Lo explico otra vez para que lo entiendas.",
+  "answer": "Damit du es verstehst, erkläre ich es noch einmal.",
+  "accept": [
+   "Damit du es verstehst, erkläre ich es noch einmal."
+  ],
+  "tiles": [
+   "Damit",
+   "du",
+   "es",
+   "verstehst",
+   ",",
+   "erkläre",
+   "ich",
+   "es",
+   "noch",
+   "einmal",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-055",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Hablamos despacio para que todos nos entiendan.",
+  "answer": "Wir sprechen langsam, damit uns alle verstehen.",
+  "accept": [
+   "Wir sprechen langsam, damit uns alle verstehen."
+  ],
+  "tiles": [
+   "Wir",
+   "sprechen",
+   "langsam",
+   ",",
+   "damit",
+   "uns",
+   "alle",
+   "verstehen",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-056",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Hablamos despacio para que todos nos entiendan.",
+  "answer": "Damit uns alle verstehen, sprechen wir langsam.",
+  "accept": [
+   "Damit uns alle verstehen, sprechen wir langsam."
+  ],
+  "tiles": [
+   "Damit",
+   "uns",
+   "alle",
+   "verstehen",
+   ",",
+   "sprechen",
+   "wir",
+   "langsam",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-057",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Lo anota todo para no olvidar nada.",
+  "answer": "Sie schreibt alles auf, damit sie nichts vergisst.",
+  "accept": [
+   "Sie schreibt alles auf, damit sie nichts vergisst."
+  ],
+  "tiles": [
+   "Sie",
+   "schreibt",
+   "alles",
+   "auf",
+   ",",
+   "damit",
+   "sie",
+   "nichts",
+   "vergisst",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-058",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Lo anota todo para no olvidar nada.",
+  "answer": "Damit sie nichts vergisst, schreibt sie alles auf.",
+  "accept": [
+   "Damit sie nichts vergisst, schreibt sie alles auf."
+  ],
+  "tiles": [
+   "Damit",
+   "sie",
+   "nichts",
+   "vergisst",
+   ",",
+   "schreibt",
+   "sie",
+   "alles",
+   "auf",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-059",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Pone el despertador para levantarse puntual.",
+  "answer": "Er stellt den Wecker, damit er pünktlich aufsteht.",
+  "accept": [
+   "Er stellt den Wecker, damit er pünktlich aufsteht."
+  ],
+  "tiles": [
+   "Er",
+   "stellt",
+   "den",
+   "Wecker",
+   ",",
+   "damit",
+   "er",
+   "pünktlich",
+   "aufsteht",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-060",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Pone el despertador para levantarse puntual.",
+  "answer": "Damit er pünktlich aufsteht, stellt er den Wecker.",
+  "accept": [
+   "Damit er pünktlich aufsteht, stellt er den Wecker."
+  ],
+  "tiles": [
+   "Damit",
+   "er",
+   "pünktlich",
+   "aufsteht",
+   ",",
+   "stellt",
+   "er",
+   "den",
+   "Wecker",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-061",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Te mando el plan para que sepas todo.",
+  "answer": "Ich schicke dir den Plan, damit du alles weißt.",
+  "accept": [
+   "Ich schicke dir den Plan, damit du alles weißt."
+  ],
+  "tiles": [
+   "Ich",
+   "schicke",
+   "dir",
+   "den",
+   "Plan",
+   ",",
+   "damit",
+   "du",
+   "alles",
+   "weißt",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-062",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Te mando el plan para que sepas todo.",
+  "answer": "Damit du alles weißt, schicke ich dir den Plan.",
+  "accept": [
+   "Damit du alles weißt, schicke ich dir den Plan."
+  ],
+  "tiles": [
+   "Damit",
+   "du",
+   "alles",
+   "weißt",
+   ",",
+   "schicke",
+   "ich",
+   "dir",
+   "den",
+   "Plan",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-063",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final",
+  "translation": "Compramos pan y leche para que los niños puedan desayunar.",
+  "answer": "Wir kaufen Brot und Milch, damit die Kinder frühstücken können.",
+  "accept": [
+   "Wir kaufen Brot und Milch, damit die Kinder frühstücken können."
+  ],
+  "tiles": [
+   "Wir",
+   "kaufen",
+   "Brot",
+   "und",
+   "Milch",
+   ",",
+   "damit",
+   "die",
+   "Kinder",
+   "frühstücken",
+   "können",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-064",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-damit",
+  "pool": "nebensatz-damit",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «damit»: finalidad, verbo conjugado al final · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Compramos pan y leche para que los niños puedan desayunar.",
+  "answer": "Damit die Kinder frühstücken können, kaufen wir Brot und Milch.",
+  "accept": [
+   "Damit die Kinder frühstücken können, kaufen wir Brot und Milch."
+  ],
+  "tiles": [
+   "Damit",
+   "die",
+   "Kinder",
+   "frühstücken",
+   "können",
+   ",",
+   "kaufen",
+   "wir",
+   "Brot",
+   "und",
+   "Milch",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-damit",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-065",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Salí a pasear después de haber comido.",
+  "answer": "Ich ging spazieren, nachdem ich gegessen hatte.",
+  "accept": [
+   "Ich ging spazieren, nachdem ich gegessen hatte."
+  ],
+  "tiles": [
+   "Ich",
+   "ging",
+   "spazieren",
+   ",",
+   "nachdem",
+   "ich",
+   "gegessen",
+   "hatte",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-066",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Salí a pasear después de haber comido.",
+  "answer": "Nachdem ich gegessen hatte, ging ich spazieren.",
+  "accept": [
+   "Nachdem ich gegessen hatte, ging ich spazieren."
+  ],
+  "tiles": [
+   "Nachdem",
+   "ich",
+   "gegessen",
+   "hatte",
+   ",",
+   "ging",
+   "ich",
+   "spazieren",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-067",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Nos fuimos a casa después de que terminó la película.",
+  "answer": "Wir gingen nach Hause, nachdem der Film zu Ende gewesen war.",
+  "accept": [
+   "Wir gingen nach Hause, nachdem der Film zu Ende gewesen war."
+  ],
+  "tiles": [
+   "Wir",
+   "gingen",
+   "nach",
+   "Hause",
+   ",",
+   "nachdem",
+   "der",
+   "Film",
+   "zu",
+   "Ende",
+   "gewesen",
+   "war",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-068",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Nos fuimos a casa después de que terminó la película.",
+  "answer": "Nachdem der Film zu Ende gewesen war, gingen wir nach Hause.",
+  "accept": [
+   "Nachdem der Film zu Ende gewesen war, gingen wir nach Hause."
+  ],
+  "tiles": [
+   "Nachdem",
+   "der",
+   "Film",
+   "zu",
+   "Ende",
+   "gewesen",
+   "war",
+   ",",
+   "gingen",
+   "wir",
+   "nach",
+   "Hause",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-069",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Llamó a su madre después de haber llegado.",
+  "answer": "Sie rief ihre Mutter an, nachdem sie angekommen war.",
+  "accept": [
+   "Sie rief ihre Mutter an, nachdem sie angekommen war."
+  ],
+  "tiles": [
+   "Sie",
+   "rief",
+   "ihre",
+   "Mutter",
+   "an",
+   ",",
+   "nachdem",
+   "sie",
+   "angekommen",
+   "war",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-070",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Llamó a su madre después de haber llegado.",
+  "answer": "Nachdem sie angekommen war, rief sie ihre Mutter an.",
+  "accept": [
+   "Nachdem sie angekommen war, rief sie ihre Mutter an."
+  ],
+  "tiles": [
+   "Nachdem",
+   "sie",
+   "angekommen",
+   "war",
+   ",",
+   "rief",
+   "sie",
+   "ihre",
+   "Mutter",
+   "an",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-071",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Se durmió enseguida después de haber leído el libro.",
+  "answer": "Er schlief sofort ein, nachdem er das Buch gelesen hatte.",
+  "accept": [
+   "Er schlief sofort ein, nachdem er das Buch gelesen hatte."
+  ],
+  "tiles": [
+   "Er",
+   "schlief",
+   "sofort",
+   "ein",
+   ",",
+   "nachdem",
+   "er",
+   "das",
+   "Buch",
+   "gelesen",
+   "hatte",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-072",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Se durmió enseguida después de haber leído el libro.",
+  "answer": "Nachdem er das Buch gelesen hatte, schlief er sofort ein.",
+  "accept": [
+   "Nachdem er das Buch gelesen hatte, schlief er sofort ein."
+  ],
+  "tiles": [
+   "Nachdem",
+   "er",
+   "das",
+   "Buch",
+   "gelesen",
+   "hatte",
+   ",",
+   "schlief",
+   "er",
+   "sofort",
+   "ein",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-073",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Me duché rápido después de haber hecho deporte.",
+  "answer": "Ich duschte kurz, nachdem ich Sport gemacht hatte.",
+  "accept": [
+   "Ich duschte kurz, nachdem ich Sport gemacht hatte."
+  ],
+  "tiles": [
+   "Ich",
+   "duschte",
+   "kurz",
+   ",",
+   "nachdem",
+   "ich",
+   "Sport",
+   "gemacht",
+   "hatte",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-074",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Me duché rápido después de haber hecho deporte.",
+  "answer": "Nachdem ich Sport gemacht hatte, duschte ich kurz.",
+  "accept": [
+   "Nachdem ich Sport gemacht hatte, duschte ich kurz."
+  ],
+  "tiles": [
+   "Nachdem",
+   "ich",
+   "Sport",
+   "gemacht",
+   "hatte",
+   ",",
+   "duschte",
+   "ich",
+   "kurz",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-075",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final)",
+  "translation": "Tomamos un café después de haber hecho las compras.",
+  "answer": "Wir tranken einen Kaffee, nachdem wir eingekauft hatten.",
+  "accept": [
+   "Wir tranken einen Kaffee, nachdem wir eingekauft hatten."
+  ],
+  "tiles": [
+   "Wir",
+   "tranken",
+   "einen",
+   "Kaffee",
+   ",",
+   "nachdem",
+   "wir",
+   "eingekauft",
+   "hatten",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-076",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "nebensatz-nachdem",
+  "pool": "nebensatz-nachdem",
+  "prompt": "Ordena la frase",
+  "hint": "Nebensatz con «nachdem»: Plusquamperfekt en la subordinada (hatte/war + Partizip II al final) · empieza por la subordinada: el verbo de la principal va justo después de la coma",
+  "translation": "Tomamos un café después de haber hecho las compras.",
+  "answer": "Nachdem wir eingekauft hatten, tranken wir einen Kaffee.",
+  "accept": [
+   "Nachdem wir eingekauft hatten, tranken wir einen Kaffee."
+  ],
+  "tiles": [
+   "Nachdem",
+   "wir",
+   "eingekauft",
+   "hatten",
+   ",",
+   "tranken",
+   "wir",
+   "einen",
+   "Kaffee",
+   "."
+  ],
+  "errorTag": "satzbau:nebensatz-nachdem",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-077",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Ayer vi una película.",
+  "answer": "Ich habe gestern einen Film gesehen.",
+  "accept": [
+   "Ich habe gestern einen Film gesehen."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "gestern",
+   "einen",
+   "Film",
+   "gesehen",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-078",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "El fin de semana viajamos a Hamburgo.",
+  "answer": "Wir sind am Wochenende nach Hamburg gefahren.",
+  "accept": [
+   "Wir sind am Wochenende nach Hamburg gefahren."
+  ],
+  "tiles": [
+   "Wir",
+   "sind",
+   "am",
+   "Wochenende",
+   "nach",
+   "Hamburg",
+   "gefahren",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-079",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Le regaló un libro a su amiga.",
+  "answer": "Sie hat ihrer Freundin ein Buch geschenkt.",
+  "accept": [
+   "Sie hat ihrer Freundin ein Buch geschenkt."
+  ],
+  "tiles": [
+   "Sie",
+   "hat",
+   "ihrer",
+   "Freundin",
+   "ein",
+   "Buch",
+   "geschenkt",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-080",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Hoy se levantó temprano.",
+  "answer": "Er ist heute früh aufgestanden.",
+  "accept": [
+   "Er ist heute früh aufgestanden."
+  ],
+  "tiles": [
+   "Er",
+   "ist",
+   "heute",
+   "früh",
+   "aufgestanden",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-081",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "¿Ya cocinaste la cena?",
+  "answer": "Hast du schon das Abendessen gekocht?",
+  "accept": [
+   "Hast du schon das Abendessen gekocht?"
+  ],
+  "tiles": [
+   "Hast",
+   "du",
+   "schon",
+   "das",
+   "Abendessen",
+   "gekocht",
+   "?"
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-082",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Olvidé mis llaves en casa.",
+  "answer": "Ich habe meine Schlüssel zu Hause vergessen.",
+  "accept": [
+   "Ich habe meine Schlüssel zu Hause vergessen."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "meine",
+   "Schlüssel",
+   "zu",
+   "Hause",
+   "vergessen",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-083",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Esperamos mucho el bus.",
+  "answer": "Wir haben lange auf den Bus gewartet.",
+  "accept": [
+   "Wir haben lange auf den Bus gewartet."
+  ],
+  "tiles": [
+   "Wir",
+   "haben",
+   "lange",
+   "auf",
+   "den",
+   "Bus",
+   "gewartet",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-084",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Los niños corrieron en el parque.",
+  "answer": "Die Kinder sind im Park gelaufen.",
+  "accept": [
+   "Die Kinder sind im Park gelaufen."
+  ],
+  "tiles": [
+   "Die",
+   "Kinder",
+   "sind",
+   "im",
+   "Park",
+   "gelaufen",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-085",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Trabajé todo el día.",
+  "answer": "Ich habe den ganzen Tag gearbeitet.",
+  "accept": [
+   "Ich habe den ganzen Tag gearbeitet."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "den",
+   "ganzen",
+   "Tag",
+   "gearbeitet",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-086",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "perfekt",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Perfekt: haben/sein en 2.ª posición y Partizip II al final",
+  "translation": "Me ayudó mucho.",
+  "answer": "Er hat mir sehr geholfen.",
+  "accept": [
+   "Er hat mir sehr geholfen."
+  ],
+  "tiles": [
+   "Er",
+   "hat",
+   "mir",
+   "sehr",
+   "geholfen",
+   "."
+  ],
+  "errorTag": "satzbau:perfekt",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-087",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Hoy debo levantarme temprano.",
+  "answer": "Ich muss heute früh aufstehen.",
+  "accept": [
+   "Ich muss heute früh aufstehen."
+  ],
+  "tiles": [
+   "Ich",
+   "muss",
+   "heute",
+   "früh",
+   "aufstehen",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-088",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "¿Puedes ayudarme, por favor?",
+  "answer": "Kannst du mir bitte helfen?",
+  "accept": [
+   "Kannst du mir bitte helfen?"
+  ],
+  "tiles": [
+   "Kannst",
+   "du",
+   "mir",
+   "bitte",
+   "helfen",
+   "?"
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-089",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Queremos viajar a Italia en verano.",
+  "answer": "Wir wollen im Sommer nach Italien reisen.",
+  "accept": [
+   "Wir wollen im Sommer nach Italien reisen."
+  ],
+  "tiles": [
+   "Wir",
+   "wollen",
+   "im",
+   "Sommer",
+   "nach",
+   "Italien",
+   "reisen",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-090",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Aquí no puedes estacionar.",
+  "answer": "Du darfst hier nicht parken.",
+  "accept": [
+   "Du darfst hier nicht parken."
+  ],
+  "tiles": [
+   "Du",
+   "darfst",
+   "hier",
+   "nicht",
+   "parken",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-091",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Ella debe ir mañana al médico.",
+  "answer": "Sie soll morgen zum Arzt gehen.",
+  "accept": [
+   "Sie soll morgen zum Arzt gehen."
+  ],
+  "tiles": [
+   "Sie",
+   "soll",
+   "morgen",
+   "zum",
+   "Arzt",
+   "gehen",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-092",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Quisiera reservar una mesa para dos personas.",
+  "answer": "Ich möchte einen Tisch für zwei Personen reservieren.",
+  "accept": [
+   "Ich möchte einen Tisch für zwei Personen reservieren."
+  ],
+  "tiles": [
+   "Ich",
+   "möchte",
+   "einen",
+   "Tisch",
+   "für",
+   "zwei",
+   "Personen",
+   "reservieren",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-093",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Sabe tocar muy bien la guitarra.",
+  "answer": "Er kann sehr gut Gitarre spielen.",
+  "accept": [
+   "Er kann sehr gut Gitarre spielen."
+  ],
+  "tiles": [
+   "Er",
+   "kann",
+   "sehr",
+   "gut",
+   "Gitarre",
+   "spielen",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-094",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Todavía tenemos que comprar leche.",
+  "answer": "Wir müssen noch Milch kaufen.",
+  "accept": [
+   "Wir müssen noch Milch kaufen."
+  ],
+  "tiles": [
+   "Wir",
+   "müssen",
+   "noch",
+   "Milch",
+   "kaufen",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-095",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "¿Puedo abrir la ventana?",
+  "answer": "Darf ich das Fenster öffnen?",
+  "accept": [
+   "Darf ich das Fenster öffnen?"
+  ],
+  "tiles": [
+   "Darf",
+   "ich",
+   "das",
+   "Fenster",
+   "öffnen",
+   "?"
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-096",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "modal",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Modalverb en 2.ª posición e infinitivo al final",
+  "translation": "Deben estar callados.",
+  "answer": "Ihr sollt leise sein.",
+  "accept": [
+   "Ihr sollt leise sein."
+  ],
+  "tiles": [
+   "Ihr",
+   "sollt",
+   "leise",
+   "sein",
+   "."
+  ],
+  "errorTag": "satzbau:modal",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-097",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Llamo a mi madre cada domingo.",
+  "answer": "Ich rufe meine Mutter jeden Sonntag an.",
+  "accept": [
+   "Ich rufe meine Mutter jeden Sonntag an."
+  ],
+  "tiles": [
+   "Ich",
+   "rufe",
+   "meine",
+   "Mutter",
+   "jeden",
+   "Sonntag",
+   "an",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-098",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "El tren llega a las ocho.",
+  "answer": "Der Zug kommt um acht Uhr an.",
+  "accept": [
+   "Der Zug kommt um acht Uhr an."
+  ],
+  "tiles": [
+   "Der",
+   "Zug",
+   "kommt",
+   "um",
+   "acht",
+   "Uhr",
+   "an",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-099",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Siempre se levanta muy temprano.",
+  "answer": "Er steht immer sehr früh auf.",
+  "accept": [
+   "Er steht immer sehr früh auf."
+  ],
+  "tiles": [
+   "Er",
+   "steht",
+   "immer",
+   "sehr",
+   "früh",
+   "auf",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-100",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Hacemos las compras el sábado en el supermercado.",
+  "answer": "Wir kaufen am Samstag im Supermarkt ein.",
+  "accept": [
+   "Wir kaufen am Samstag im Supermarkt ein."
+  ],
+  "tiles": [
+   "Wir",
+   "kaufen",
+   "am",
+   "Samstag",
+   "im",
+   "Supermarkt",
+   "ein",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-101",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Ella apaga la luz.",
+  "answer": "Sie macht das Licht aus.",
+  "accept": [
+   "Sie macht das Licht aus."
+  ],
+  "tiles": [
+   "Sie",
+   "macht",
+   "das",
+   "Licht",
+   "aus",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-102",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Ahora ordeno mi cuarto.",
+  "answer": "Ich räume jetzt mein Zimmer auf.",
+  "accept": [
+   "Ich räume jetzt mein Zimmer auf."
+  ],
+  "tiles": [
+   "Ich",
+   "räume",
+   "jetzt",
+   "mein",
+   "Zimmer",
+   "auf",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-103",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "El bus sale enseguida.",
+  "answer": "Der Bus fährt gleich ab.",
+  "accept": [
+   "Der Bus fährt gleich ab."
+  ],
+  "tiles": [
+   "Der",
+   "Bus",
+   "fährt",
+   "gleich",
+   "ab",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-104",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "¿Vienes mañana con nosotros?",
+  "answer": "Kommst du morgen mit?",
+  "accept": [
+   "Kommst du morgen mit?"
+  ],
+  "tiles": [
+   "Kommst",
+   "du",
+   "morgen",
+   "mit",
+   "?"
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-105",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Por la noche me gusta ver televisión.",
+  "answer": "Ich sehe abends gern fern.",
+  "accept": [
+   "Ich sehe abends gern fern."
+  ],
+  "tiles": [
+   "Ich",
+   "sehe",
+   "abends",
+   "gern",
+   "fern",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-106",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "trennbar",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Verbo separable: el prefijo va al final",
+  "translation": "Invitamos a nuestros vecinos a comer.",
+  "answer": "Wir laden unsere Nachbarn zum Essen ein.",
+  "accept": [
+   "Wir laden unsere Nachbarn zum Essen ein."
+  ],
+  "tiles": [
+   "Wir",
+   "laden",
+   "unsere",
+   "Nachbarn",
+   "zum",
+   "Essen",
+   "ein",
+   "."
+  ],
+  "errorTag": "satzbau:trennbar",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-107",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "Le doy el libro a mi hermana.",
+  "answer": "Ich gebe meiner Schwester das Buch.",
+  "accept": [
+   "Ich gebe meiner Schwester das Buch."
+  ],
+  "tiles": [
+   "Ich",
+   "gebe",
+   "meiner",
+   "Schwester",
+   "das",
+   "Buch",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-108",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "Le muestra su habitación al huésped.",
+  "answer": "Er zeigt dem Gast sein Zimmer.",
+  "accept": [
+   "Er zeigt dem Gast sein Zimmer."
+  ],
+  "tiles": [
+   "Er",
+   "zeigt",
+   "dem",
+   "Gast",
+   "sein",
+   "Zimmer",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-109",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "Le regalamos flores a nuestra abuela.",
+  "answer": "Wir schenken unserer Oma Blumen.",
+  "accept": [
+   "Wir schenken unserer Oma Blumen."
+  ],
+  "tiles": [
+   "Wir",
+   "schenken",
+   "unserer",
+   "Oma",
+   "Blumen",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-110",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "Le manda un correo a su jefe.",
+  "answer": "Sie schickt ihrem Chef eine E-Mail.",
+  "accept": [
+   "Sie schickt ihrem Chef eine E-Mail."
+  ],
+  "tiles": [
+   "Sie",
+   "schickt",
+   "ihrem",
+   "Chef",
+   "eine",
+   "E-Mail",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-111",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "Se lo doy mañana.",
+  "answer": "Ich gebe es ihr morgen.",
+  "accept": [
+   "Ich gebe es ihr morgen."
+  ],
+  "tiles": [
+   "Ich",
+   "gebe",
+   "es",
+   "ihr",
+   "morgen",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-112",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "objekte",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Dativ antes que Akkusativ si ambos son sustantivos; el pronombre va antes",
+  "translation": "El mesero le trae la carta a los huéspedes.",
+  "answer": "Der Kellner bringt den Gästen die Speisekarte.",
+  "accept": [
+   "Der Kellner bringt den Gästen die Speisekarte."
+  ],
+  "tiles": [
+   "Der",
+   "Kellner",
+   "bringt",
+   "den",
+   "Gästen",
+   "die",
+   "Speisekarte",
+   "."
+  ],
+  "errorTag": "satzbau:objekte",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-113",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "No tengo ganas de cocinar hoy.",
+  "answer": "Ich habe keine Lust, heute zu kochen.",
+  "accept": [
+   "Ich habe keine Lust, heute zu kochen."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "keine",
+   "Lust",
+   ",",
+   "heute",
+   "zu",
+   "kochen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-114",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Es importante practicar cada día.",
+  "answer": "Es ist wichtig, jeden Tag zu üben.",
+  "accept": [
+   "Es ist wichtig, jeden Tag zu üben."
+  ],
+  "tiles": [
+   "Es",
+   "ist",
+   "wichtig",
+   ",",
+   "jeden",
+   "Tag",
+   "zu",
+   "üben",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-115",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Olvidó cerrar la puerta con llave.",
+  "answer": "Er hat vergessen, die Tür abzuschließen.",
+  "accept": [
+   "Er hat vergessen, die Tür abzuschließen."
+  ],
+  "tiles": [
+   "Er",
+   "hat",
+   "vergessen",
+   ",",
+   "die",
+   "Tür",
+   "abzuschließen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-116",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Intento levantarme más temprano.",
+  "answer": "Ich versuche, früher aufzustehen.",
+  "accept": [
+   "Ich versuche, früher aufzustehen."
+  ],
+  "tiles": [
+   "Ich",
+   "versuche",
+   ",",
+   "früher",
+   "aufzustehen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-117",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Empezó a aprender español.",
+  "answer": "Sie hat angefangen, Spanisch zu lernen.",
+  "accept": [
+   "Sie hat angefangen, Spanisch zu lernen."
+  ],
+  "tiles": [
+   "Sie",
+   "hat",
+   "angefangen",
+   ",",
+   "Spanisch",
+   "zu",
+   "lernen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-118",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Nos alegra conocerle.",
+  "answer": "Wir freuen uns, Sie kennenzulernen.",
+  "accept": [
+   "Wir freuen uns, Sie kennenzulernen."
+  ],
+  "tiles": [
+   "Wir",
+   "freuen",
+   "uns",
+   ",",
+   "Sie",
+   "kennenzulernen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-119",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Es lindo viajar con amigos.",
+  "answer": "Es ist schön, mit Freunden zu reisen.",
+  "accept": [
+   "Es ist schön, mit Freunden zu reisen."
+  ],
+  "tiles": [
+   "Es",
+   "ist",
+   "schön",
+   ",",
+   "mit",
+   "Freunden",
+   "zu",
+   "reisen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-120",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "zuinf",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Infinitiv con «zu»: va al final, antes del verbo (con separables: «auf-zu-stehen»)",
+  "translation": "Pienso mudarme el próximo año.",
+  "answer": "Ich habe vor, nächstes Jahr umzuziehen.",
+  "accept": [
+   "Ich habe vor, nächstes Jahr umzuziehen."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "vor",
+   ",",
+   "nächstes",
+   "Jahr",
+   "umzuziehen",
+   "."
+  ],
+  "errorTag": "satzbau:zuinf",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-121",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "No sé si viene hoy.",
+  "answer": "Ich weiß nicht, ob er heute kommt.",
+  "accept": [
+   "Ich weiß nicht, ob er heute kommt."
+  ],
+  "tiles": [
+   "Ich",
+   "weiß",
+   "nicht",
+   ",",
+   "ob",
+   "er",
+   "heute",
+   "kommt",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-122",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "¿Puedes decirme dónde está la estación?",
+  "answer": "Kannst du mir sagen, wo der Bahnhof ist?",
+  "accept": [
+   "Kannst du mir sagen, wo der Bahnhof ist?"
+  ],
+  "tiles": [
+   "Kannst",
+   "du",
+   "mir",
+   "sagen",
+   ",",
+   "wo",
+   "der",
+   "Bahnhof",
+   "ist",
+   "?"
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-123",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "Me pregunto por qué se fue tan temprano.",
+  "answer": "Ich frage mich, warum sie so früh gegangen ist.",
+  "accept": [
+   "Ich frage mich, warum sie so früh gegangen ist."
+  ],
+  "tiles": [
+   "Ich",
+   "frage",
+   "mich",
+   ",",
+   "warum",
+   "sie",
+   "so",
+   "früh",
+   "gegangen",
+   "ist",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-124",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "¿Sabe cuándo sale el próximo tren?",
+  "answer": "Wissen Sie, wann der nächste Zug fährt?",
+  "accept": [
+   "Wissen Sie, wann der nächste Zug fährt?"
+  ],
+  "tiles": [
+   "Wissen",
+   "Sie",
+   ",",
+   "wann",
+   "der",
+   "nächste",
+   "Zug",
+   "fährt",
+   "?"
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-125",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "Quiere saber si tenemos tiempo.",
+  "answer": "Er möchte wissen, ob wir Zeit haben.",
+  "accept": [
+   "Er möchte wissen, ob wir Zeit haben."
+  ],
+  "tiles": [
+   "Er",
+   "möchte",
+   "wissen",
+   ",",
+   "ob",
+   "wir",
+   "Zeit",
+   "haben",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-126",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "Dime, por favor, cómo te llamas.",
+  "answer": "Sag mir bitte, wie du heißt.",
+  "accept": [
+   "Sag mir bitte, wie du heißt."
+  ],
+  "tiles": [
+   "Sag",
+   "mir",
+   "bitte",
+   ",",
+   "wie",
+   "du",
+   "heißt",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-127",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "No tengo idea de quién lo hizo.",
+  "answer": "Ich habe keine Ahnung, wer das gemacht hat.",
+  "accept": [
+   "Ich habe keine Ahnung, wer das gemacht hat."
+  ],
+  "tiles": [
+   "Ich",
+   "habe",
+   "keine",
+   "Ahnung",
+   ",",
+   "wer",
+   "das",
+   "gemacht",
+   "hat",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-128",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "indfrage",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Pregunta indirecta: «ob» o palabra W, y el verbo al final",
+  "translation": "Pregunta cuánto cuesta eso.",
+  "answer": "Sie fragt, was das kostet.",
+  "accept": [
+   "Sie fragt, was das kostet."
+  ],
+  "tiles": [
+   "Sie",
+   "fragt",
+   ",",
+   "was",
+   "das",
+   "kostet",
+   "."
+  ],
+  "errorTag": "satzbau:indfrage",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-129",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "El hombre que vive allí es mi profesor.",
+  "answer": "Der Mann, der dort wohnt, ist mein Lehrer.",
+  "accept": [
+   "Der Mann, der dort wohnt, ist mein Lehrer."
+  ],
+  "tiles": [
+   "Der",
+   "Mann",
+   ",",
+   "der",
+   "dort",
+   "wohnt",
+   ",",
+   "ist",
+   "mein",
+   "Lehrer",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-130",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "La mujer que está sentada a mi lado es de Chile.",
+  "answer": "Die Frau, die neben mir sitzt, kommt aus Chile.",
+  "accept": [
+   "Die Frau, die neben mir sitzt, kommt aus Chile."
+  ],
+  "tiles": [
+   "Die",
+   "Frau",
+   ",",
+   "die",
+   "neben",
+   "mir",
+   "sitzt",
+   ",",
+   "kommt",
+   "aus",
+   "Chile",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-131",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "El libro que leí fue emocionante.",
+  "answer": "Das Buch, das ich gelesen habe, war spannend.",
+  "accept": [
+   "Das Buch, das ich gelesen habe, war spannend."
+  ],
+  "tiles": [
+   "Das",
+   "Buch",
+   ",",
+   "das",
+   "ich",
+   "gelesen",
+   "habe",
+   ",",
+   "war",
+   "spannend",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-132",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "La película que vimos ayer fue divertida.",
+  "answer": "Der Film, den wir gestern gesehen haben, war lustig.",
+  "accept": [
+   "Der Film, den wir gestern gesehen haben, war lustig."
+  ],
+  "tiles": [
+   "Der",
+   "Film",
+   ",",
+   "den",
+   "wir",
+   "gestern",
+   "gesehen",
+   "haben",
+   ",",
+   "war",
+   "lustig",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-133",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "Los niños a los que ayudé dan las gracias.",
+  "answer": "Die Kinder, denen ich geholfen habe, sagen danke.",
+  "accept": [
+   "Die Kinder, denen ich geholfen habe, sagen danke."
+  ],
+  "tiles": [
+   "Die",
+   "Kinder",
+   ",",
+   "denen",
+   "ich",
+   "geholfen",
+   "habe",
+   ",",
+   "sagen",
+   "danke",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-134",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "Esta es la ciudad en la que nací.",
+  "answer": "Das ist die Stadt, in der ich geboren bin.",
+  "accept": [
+   "Das ist die Stadt, in der ich geboren bin."
+  ],
+  "tiles": [
+   "Das",
+   "ist",
+   "die",
+   "Stadt",
+   ",",
+   "in",
+   "der",
+   "ich",
+   "geboren",
+   "bin",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-135",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "El vecino cuyo perro ladra es amable.",
+  "answer": "Der Nachbar, dessen Hund bellt, ist nett.",
+  "accept": [
+   "Der Nachbar, dessen Hund bellt, ist nett."
+  ],
+  "tiles": [
+   "Der",
+   "Nachbar",
+   ",",
+   "dessen",
+   "Hund",
+   "bellt",
+   ",",
+   "ist",
+   "nett",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-136",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "relativ",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Relativsatz entre comas: el relativo concuerda con su antecedente y el verbo va al final",
+  "translation": "La bolsa que compré es muy pequeña.",
+  "answer": "Die Tasche, die ich gekauft habe, ist zu klein.",
+  "accept": [
+   "Die Tasche, die ich gekauft habe, ist zu klein."
+  ],
+  "tiles": [
+   "Die",
+   "Tasche",
+   ",",
+   "die",
+   "ich",
+   "gekauft",
+   "habe",
+   ",",
+   "ist",
+   "zu",
+   "klein",
+   "."
+  ],
+  "errorTag": "satzbau:relativ",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-137",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "La casa se está construyendo ahora.",
+  "answer": "Das Haus wird gerade gebaut.",
+  "accept": [
+   "Das Haus wird gerade gebaut."
+  ],
+  "tiles": [
+   "Das",
+   "Haus",
+   "wird",
+   "gerade",
+   "gebaut",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-138",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "La puerta fue reparada por el conserje.",
+  "answer": "Die Tür wurde von dem Hausmeister repariert.",
+  "accept": [
+   "Die Tür wurde von dem Hausmeister repariert."
+  ],
+  "tiles": [
+   "Die",
+   "Tür",
+   "wurde",
+   "von",
+   "dem",
+   "Hausmeister",
+   "repariert",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-139",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "El pastel se hornea en el horno.",
+  "answer": "Der Kuchen wird im Ofen gebacken.",
+  "accept": [
+   "Der Kuchen wird im Ofen gebacken."
+  ],
+  "tiles": [
+   "Der",
+   "Kuchen",
+   "wird",
+   "im",
+   "Ofen",
+   "gebacken",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-140",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "Aquí no se fuma.",
+  "answer": "Hier wird nicht geraucht.",
+  "accept": [
+   "Hier wird nicht geraucht."
+  ],
+  "tiles": [
+   "Hier",
+   "wird",
+   "nicht",
+   "geraucht",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-141",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "Las cartas fueron enviadas ayer.",
+  "answer": "Die Briefe wurden gestern geschickt.",
+  "accept": [
+   "Die Briefe wurden gestern geschickt."
+  ],
+  "tiles": [
+   "Die",
+   "Briefe",
+   "wurden",
+   "gestern",
+   "geschickt",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-142",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "La ventana se abre cada mañana.",
+  "answer": "Das Fenster wird jeden Morgen geöffnet.",
+  "accept": [
+   "Das Fenster wird jeden Morgen geöffnet."
+  ],
+  "tiles": [
+   "Das",
+   "Fenster",
+   "wird",
+   "jeden",
+   "Morgen",
+   "geöffnet",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-143",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "Nos invitan a la fiesta.",
+  "answer": "Wir werden zur Party eingeladen.",
+  "accept": [
+   "Wir werden zur Party eingeladen."
+  ],
+  "tiles": [
+   "Wir",
+   "werden",
+   "zur",
+   "Party",
+   "eingeladen",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-144",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "passiv",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Passiv: werden + Partizip II al final",
+  "translation": "La cuenta ya fue pagada.",
+  "answer": "Die Rechnung wurde schon bezahlt.",
+  "accept": [
+   "Die Rechnung wurde schon bezahlt."
+  ],
+  "tiles": [
+   "Die",
+   "Rechnung",
+   "wurde",
+   "schon",
+   "bezahlt",
+   "."
+  ],
+  "errorTag": "satzbau:passiv",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-145",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Si tuviera tiempo, viajaría más.",
+  "answer": "Wenn ich Zeit hätte, würde ich mehr reisen.",
+  "accept": [
+   "Wenn ich Zeit hätte, würde ich mehr reisen."
+  ],
+  "tiles": [
+   "Wenn",
+   "ich",
+   "Zeit",
+   "hätte",
+   ",",
+   "würde",
+   "ich",
+   "mehr",
+   "reisen",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-146",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Me gustaría comer un helado.",
+  "answer": "Ich würde gern ein Eis essen.",
+  "accept": [
+   "Ich würde gern ein Eis essen."
+  ],
+  "tiles": [
+   "Ich",
+   "würde",
+   "gern",
+   "ein",
+   "Eis",
+   "essen",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-147",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Si él estuviera aquí, cocinaríamos juntos.",
+  "answer": "Wenn er hier wäre, würden wir zusammen kochen.",
+  "accept": [
+   "Wenn er hier wäre, würden wir zusammen kochen."
+  ],
+  "tiles": [
+   "Wenn",
+   "er",
+   "hier",
+   "wäre",
+   ",",
+   "würden",
+   "wir",
+   "zusammen",
+   "kochen",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-148",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "¿Podrías ayudarme, por favor?",
+  "answer": "Könntest du mir bitte helfen?",
+  "accept": [
+   "Könntest du mir bitte helfen?"
+  ],
+  "tiles": [
+   "Könntest",
+   "du",
+   "mir",
+   "bitte",
+   "helfen",
+   "?"
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-149",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "En tu lugar yo saldría más temprano.",
+  "answer": "An deiner Stelle würde ich früher losgehen.",
+  "accept": [
+   "An deiner Stelle würde ich früher losgehen."
+  ],
+  "tiles": [
+   "An",
+   "deiner",
+   "Stelle",
+   "würde",
+   "ich",
+   "früher",
+   "losgehen",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-150",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Quisiera una taza de café.",
+  "answer": "Ich hätte gern eine Tasse Kaffee.",
+  "accept": [
+   "Ich hätte gern eine Tasse Kaffee."
+  ],
+  "tiles": [
+   "Ich",
+   "hätte",
+   "gern",
+   "eine",
+   "Tasse",
+   "Kaffee",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-151",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Si tuviéramos más dinero, compraríamos una casa.",
+  "answer": "Wenn wir mehr Geld hätten, würden wir ein Haus kaufen.",
+  "accept": [
+   "Wenn wir mehr Geld hätten, würden wir ein Haus kaufen."
+  ],
+  "tiles": [
+   "Wenn",
+   "wir",
+   "mehr",
+   "Geld",
+   "hätten",
+   ",",
+   "würden",
+   "wir",
+   "ein",
+   "Haus",
+   "kaufen",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-152",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "order",
+  "skill": "konj2",
+  "pool": "satz-b1",
+  "prompt": "Ordena la frase",
+  "hint": "Konjunktiv II: würde + infinitivo al final, o la forma propia (hätte, wäre)",
+  "translation": "Sería lindo que pudieras venir.",
+  "answer": "Es wäre schön, wenn du kommen könntest.",
+  "accept": [
+   "Es wäre schön, wenn du kommen könntest."
+  ],
+  "tiles": [
+   "Es",
+   "wäre",
+   "schön",
+   ",",
+   "wenn",
+   "du",
+   "kommen",
+   "könntest",
+   "."
+  ],
+  "errorTag": "satzbau:konj2",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-153",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "Mi hermano es más alto que yo.",
+  "answer": "Mein Bruder ist größer als ich.",
+  "accept": [
+   "Mein Bruder ist größer als ich."
+  ],
+  "tiles": [
+   "Mein",
+   "Bruder",
+   "ist",
+   "größer",
+   "als",
+   "ich",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-154",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "Este libro es más interesante que el otro.",
+  "answer": "Dieses Buch ist interessanter als das andere.",
+  "accept": [
+   "Dieses Buch ist interessanter als das andere."
+  ],
+  "tiles": [
+   "Dieses",
+   "Buch",
+   "ist",
+   "interessanter",
+   "als",
+   "das",
+   "andere",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-155",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "En verano hace más calor que en primavera.",
+  "answer": "Im Sommer ist es wärmer als im Frühling.",
+  "accept": [
+   "Im Sommer ist es wärmer als im Frühling."
+  ],
+  "tiles": [
+   "Im",
+   "Sommer",
+   "ist",
+   "es",
+   "wärmer",
+   "als",
+   "im",
+   "Frühling",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-156",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "Ella corre más rápido de todos.",
+  "answer": "Sie läuft am schnellsten von allen.",
+  "accept": [
+   "Sie läuft am schnellsten von allen."
+  ],
+  "tiles": [
+   "Sie",
+   "läuft",
+   "am",
+   "schnellsten",
+   "von",
+   "allen",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-157",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "Prefiero nadar a correr.",
+  "answer": "Ich schwimme lieber als ich laufe.",
+  "accept": [
+   "Ich schwimme lieber als ich laufe."
+  ],
+  "tiles": [
+   "Ich",
+   "schwimme",
+   "lieber",
+   "als",
+   "ich",
+   "laufe",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ },
+ {
+  "id": "sb2-158",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "order",
+  "skill": "vergleich",
+  "pool": "satz-a2",
+  "prompt": "Ordena la frase",
+  "hint": "Comparación: Komparativ + «als» · Superlativ con «am»",
+  "translation": "Es el mejor pastel del mundo.",
+  "answer": "Das ist der beste Kuchen der Welt.",
+  "accept": [
+   "Das ist der beste Kuchen der Welt."
+  ],
+  "tiles": [
+   "Das",
+   "ist",
+   "der",
+   "beste",
+   "Kuchen",
+   "der",
+   "Welt",
+   "."
+  ],
+  "errorTag": "satzbau:vergleich",
+  "conceptIds": [],
+  "source": "gen-satzbau-b1"
+ }
+]

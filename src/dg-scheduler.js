@@ -95,6 +95,17 @@
       entries.push({ id: it.id, unit: it.unit, module: it.module, skillId: it.skillId, level: it.level, type: it.type, bucket: bucket, cls: cls });
     }
 
+    /* ---- kind 'ids': sesión sólo con los ítems pedidos («Practicar mis palabras») ---- */
+    if (kind === 'ids') {
+      var asked = (req.ids || []).filter(function (id, i, a) { return a.indexOf(id) === i && store.byId[id] && levelOK(store.byId[id]); });
+      // lo menos visto primero (intentos, luego el último uso más antiguo); el azar sólo desempata
+      var keyed = rng.shuffle(asked).map(function (id) { var s = st.items[id]; return { id: id, a: s ? s.a || 0 : 0, ls: s ? s.ls || 0 : 0 }; });
+      keyed.sort(function (x, y) { return x.a - y.a || x.ls - y.ls; });
+      keyed.slice(0, size).forEach(function (x) { take(store.byId[x.id], 'current', 'new'); });
+      if (!entries.length) warnings.push({ code: 'NO_ITEMS', msg: 'No hay ejercicios para esas palabras.' });
+      return { sessionNo: sessionNo, kind: kind, size: size, items: rng.shuffle(entries), warnings: warnings, notes: notes, carry: {}, composition: { error: 0, current: entries.length, easier: 0, up: 0, fallback: 0, cls: { new: entries.length, due: 0, learning: 0, future: 0, error: 0 } }, modulePlan: {} };
+    }
+
     /* ---- 1. cola de errores ---- */
     var errList = [];
     Object.keys(st.errors).forEach(function (id) {

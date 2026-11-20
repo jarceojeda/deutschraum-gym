@@ -17,14 +17,38 @@
     var cfg = Object.assign({}, CFG, opts.config || {});
     var clock = opts.clock || { now: function () { return Date.now(); } };
     var rng = opts.rng || DG.rng.create();
-    var store = Items.createStore(opts.data || []);
+    var rawAll = (opts.data || []).slice();
+    var store = Items.createStore(rawAll);
     var progress = P.create({ storage: opts.storage || null, key: opts.key, clock: clock });
     progress.load();
-    var reconciled = progress.reconcile(store);
+    var reconciled = progress.reconcile(store, opts.keepIds);
 
     var engine = { store: store, progress: progress, rng: rng, clock: clock, cfg: cfg, reconciled: reconciled };
     function state() { return progress.state; }
     engine.state = state;
+
+    /* Contenido del usuario en caliente («Mis palabras»). addItems valida los nuevos por separado (sin exigir el tamaño mínimo de pool, que sólo
+       tiene sentido para los datos oficiales) y no añade NADA si alguno falla o repite un id. removeItems quita ítems y su progreso. */
+    function rebuild() { store = Items.createStore(rawAll); engine.store = store; }
+    engine.addItems = function (list) {
+      list = list || []; var errors = [], seen = Object.create(null);
+      list.forEach(function (raw) { if (!raw || !raw.id) { errors.push({ code: 'missing-field', id: null, msg: 'ítem sin id' }); return; } if (store.byId[raw.id] || seen[raw.id]) errors.push({ code: 'dup-id', id: raw.id, msg: 'id ya existente' }); seen[raw.id] = true; });
+      if (list.length) {
+        var rep = Items.validate(Items.createStore(list), { concepts: opts.concepts });
+        rep.errors.forEach(function (e) { if (e.code !== 'pool-too-small') errors.push(e); });
+      }
+      if (errors.length || !list.length) return { added: 0, errors: errors };
+      list.forEach(function (raw) { rawAll.push(raw); }); rebuild();
+      return { added: list.length, errors: [] };
+    };
+    engine.removeItems = function (ids) {
+      var del = Object.create(null); (ids || []).forEach(function (id) { del[id] = true; });
+      var before = rawAll.length; rawAll = rawAll.filter(function (raw) { return !del[raw.id]; }); rebuild();
+      var st = state(); Object.keys(del).forEach(function (id) { delete st.items[id]; delete st.errors[id]; delete st.units[id]; });
+      st.history.forEach(function (h) { h.ids = h.ids.filter(function (id) { return !del[id]; }); });
+      var sv = progress.save() || {};
+      return Object.assign({ removed: before - rawAll.length }, sv);
+    };
 
     engine.validate = function () { return Items.validate(store, { concepts: opts.concepts }); };
 

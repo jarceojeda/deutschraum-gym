@@ -107,4 +107,53 @@ Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `doc
 - **Ideas pendientes (de la charla sobre Grammatik aktiv):** ciclo Verstehen→Üben→Sprechen por concepto, preguntas-respuesta en cadena (Wo?/Wohin?), «completar solo la terminación» (gut__), «Mis palabras», frases personalizadas, cruce del temario por capítulos A1–B1.
 - Pruebas: ver `npm test` (UI en `tests/ui-*.test.js`; `ui-variedad` con 2 `todo` a propósito).
 
-## Etapas 4–6 — PENDIENTES
+## Etapas — estado real (reordenado)
+Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 4 y 5 hechas en lo esencial; **4b Gramática B1 hecha en lo esencial (rama etapa4-gramatica, pendiente de PR)**; 4c/5b pendientes; **6 (auditoría) al final**.
+
+
+## Etapa 4b · Gramática B1 — qué se añadió (honesto)
+| Pieza | Dónde | Datos | Generador |
+|---|---|---|---|
+| Plusquamperfekt, Futur I, Imperativ, Konjunktiv II, Passiv (Präsens y Präteritum) | módulo Verben (6 personas; imperativo du/ihr/Sie) | `data/gramatica.json` (1.767) | `tools/gen-gramatica.js` |
+| Relativpronomen (+ tabla propia s11-6) y Komparativ/Superlativ | Deklination | `data/relativ.json` (102), `data/steigerung.json` (90) | `tools/gen-relativ.js`, `tools/gen-steigerung.js` |
+| TeKaMoLo (ordenar) y «Trampas» («¿Cuál es correcta?») | Satzbau | `data/tekamolo.json` (96), `data/trampas.json` (53, escritas a mano) | `tools/gen-tekamolo.js`, `tools/gen-trampas.js` |
+| Pronunciación (38; 🔊 pronuncia `lemma`, la palabra de ejemplo) | Wortschatz | `data/pronunciacion.json` | `tools/gen-pronunciacion.js` |
+| Biblioteca de clases (51 fichas de sólo lectura) | Consulta → «Biblioteca» | `ui/reglas.json` → `biblioteca` | `tools/extract-reglas-md.js` |
+| «Más allá del B1» (vocabulario B2/C1, 696 ítems; **apagado por defecto**, ajuste que se aplica al reiniciar) | Wortschatz | `data/wortschatz-beyond.json` | `tools/gen-wortschatz-satzbau.js --beyond` |
+
+- **Motor sin cambios.** Todo entra por los módulos existentes; las habilidades nuevas llevan etiqueta (`ui/dgui-rules.js`), cápsula (`md:verben-*`, `md:relativpronomen`, `md:steigerung`, `md:tekamolo`, `md:pronunciacion`; fórmulas propias en `PROPIAS` de `tools/extract-reglas-md.js`) y errores típicos de las clases.
+- **Los ejercicios B1 sólo salen con el botón B1** (nivel). Los de «Más allá» se cargan sólo con el ajuste activo; apagarlo no borra el progreso (los ítems vuelven al reactivarlo).
+- El motor sólo conserva campos conocidos de un ítem (`lemma`, `explanation`, `hint`…); por eso Pronunciación usa `lemma` como palabra de ejemplo para el 🔊.
+- Guardia nueva: `tests/data-prompts.test.js` (ningún ítem pierde su enunciado; el validador del motor no lo exige).
+- **Peso del HTML: 5,45 MB** (tope 6 MB). Quedan ≈0,5 MB de margen; el siguiente bloque grande de datos obligaría a recortar (p. ej. cargar «Más allá» como archivo aparte).
+- Límites conocidos: algunas frases de TeKaMoLo generadas son semánticamente raras («lerne wegen des Wetters»); las trampas de Komparativ/Superlativ son formas plausibles pero generadas; las cápsulas de Passiv/Relativ/Komparativ/TeKaMoLo/Pronunciación se verifican con pruebas de interfaz, no con revisión de una persona hispanohablante nativa.
+
+
+## Etapa 4c · «Mis palabras» (hecha) y datos definitivos (pendiente, depende de ti)
+- **«Mis palabras» (hecha):** pantalla en Inicio → «Mis palabras». Escribes alemán (con artículo si es sustantivo) + español; entra al Wortschatz con ES→DE, DE→ES y escribir, se guarda en `dg.words`, viaja en la copia de seguridad (campo `misPalabras`, fuera de `state`, el checksum no cambia) y se restaura al importar. «Practicar mis palabras» arranca una sesión sólo con ellas. Máx. 300. Código: `ui/dgui-palabras.js`.
+- **Cambios de motor (con prueba que falla antes y pasa después):** `engine.addItems / removeItems` (contenido del usuario en caliente; valida sin exigir pool mínimo), `startSession({kind:'ids', ids})` (sesión sólo con esos ítems; lo menos visto primero) y `keepIds` en `createEngine/reconcile` (no poda el progreso de contenido opcional no cargado).
+- **Bug corregido:** al apagar «Más allá del B1» el motor podaba el progreso de esos ítems; ahora se conserva (prueba en `tests/ui-jsdom.test.js` y `tests/engine.test.js`).
+- **Los datos definitivos del pipeline (Wortschatz 1.139 / Satzbau 216) NO están en el repositorio:** no hay nada que sustituir hasta que los subas. Siguen en uso las primeras versiones generadas.
+
+
+## Etapa 5b · Modo Casa, Sprechen, hojas A2/B1 y «Mis frases» (hecha en lo esencial)
+- **Modo Casa (laptop):** atajos en sesión (teclas 1–6 = opción, Enter = comprobar/continuar; no actúan con un panel abierto, escribiendo ni con un botón enfocado); las opciones muestran su número con puntero fino; en «Escribir» el cursor ya queda en el campo; columna algo más ancha ≥900 px. Sin `:hover` (las consultas usan `pointer:fine`, el test lo exige).
+- **Sprechen:** ajuste («Sprechen al terminar», apagado por defecto). Al final de la sesión, ≤5 frases para repetir con 🔊 y «Lo dije» (sólo visual, no escribe progreso). Necesita voz alemana.
+- **Consulta:** grupos «A2 · hoja» (53) y «B1 · hoja» (67) con los temas de gramática de las hojas `telc_a2/b1` (sin TELC ni vocabulario/escritura), orden natural. Sin ejercicios propios (ids `sa2:`/`sb1:`).
+- **Mis frases:** frases propias de 3–12 palabras + significado; aparecen en Satzbau como «Ordena tu frase» (con traducción), se practican aparte, viajan en la copia (`misFrases`) y se quitan con su progreso. Máx. 100.
+- **Ciclo Verstehen→Üben→Sprechen:** Verstehen = cápsula (ya existía), Üben = ejercicios, Sprechen = el paso nuevo opcional.
+- Límite honesto: los atajos y el foco automático están probados en jsdom, no en un navegador de escritorio real; el diseño ancho no tiene capturas.
+
+
+## Etapa 4c (cierre) · hueco de datos Satzbau A2/B1 y significado de los verbos
+- **Datos definitivos del pipeline: no existen para el usuario**, así que se llenó el hueco con contenido propio. Wortschatz ya tenía miles de ítems (referencia + clases A2/B1 + opcional B2/C1); lo que faltaba era **Satzbau más allá de A1**: `data/satzbau-b1.json` (158 frases A2/B1 propias, `tools/gen-satzbau-b1.js`): subordinadas weil/wenn/obwohl/damit/nachdem en las dos órdenes (con inversión), Perfekt, Modalverben, verbos separables, Dativ+Akkusativ, Infinitiv con zu, preguntas indirectas, Relativsatz, Passiv, Konjunktiv II y comparación. Cada una con pista de estructura y traducción.
+- **Significado del verbo** en todos los ejercicios de Verben («= aprender» bajo la consigna): `ui/verbos-es.json` (263 verbos; 183 salen del Wortschatz y 80 son una tabla propia en `tools/gen-verbos-es.js`, con correcciones manuales). Prueba: todo verbo del contenido tiene significado.
+- Límite: traducciones y significados escritos/derivados sin revisión de una persona nativa; algunos verbos tienen varios sentidos y se muestra el más común.
+
+
+## Etapa 6 · Auditoría (hecha)
+Informe completo en `docs/AUDITORIA.md`. Corregido: columnas intercambiadas y marcas «sí/no» en Wortschatz, duplicados, contraste (claro y toast oscuro), `lang="de"/"es"`, foco, copia de Ajustes. Abierto: R1–R7 (puerta al B1, panel de progreso, etc.) y los puntos A1–A4 de `data/verben.json`.
+
+
+## Seguimiento de la auditoría (R1–R7)
+Implementado: puerta al B1 (tarjeta + aviso), Mi progreso, celebración, Inicio en 3 bloques con «Seguir», Ajustes plegable. R6 y R7 se dejaron como están por decisión razonada (ver `docs/AUDITORIA.md` §7).

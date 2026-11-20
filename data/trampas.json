@@ -1,0 +1,1226 @@
+[
+ {
+  "id": "tr-001",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Heute gehe ich ins Kino.",
+  "accept": [
+   "Heute gehe ich ins Kino."
+  ],
+  "options": [
+   "Heute gehe ich ins Kino.",
+   "Heute ich gehe ins Kino."
+  ],
+  "explanation": "El verbo conjugado va siempre en 2.ª posición: si empiezas con «Heute», sigue el verbo.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-002",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Morgen lerne ich Deutsch.",
+  "accept": [
+   "Morgen lerne ich Deutsch."
+  ],
+  "options": [
+   "Morgen ich lerne Deutsch.",
+   "Morgen lerne ich Deutsch."
+  ],
+  "explanation": "Verbo en posición 2: tras «Morgen» viene «lerne».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-003",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ihr seid müde.",
+  "accept": [
+   "Ihr seid müde."
+  ],
+  "options": [
+   "Ihr sind müde.",
+   "Ihr seit müde.",
+   "Ihr seid müde."
+  ],
+  "explanation": "Con «ihr», sein es «seid».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-004",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er hat keinen Hund.",
+  "accept": [
+   "Er hat keinen Hund."
+  ],
+  "options": [
+   "Er hat keinen Hund.",
+   "Er hat nicht Hund.",
+   "Er hat kein Hund."
+  ],
+  "explanation": "Con sustantivos se niega con «kein-», y en Akkusativ masculino es «keinen».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-005",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe keine Zeit.",
+  "accept": [
+   "Ich habe keine Zeit."
+  ],
+  "options": [
+   "Ich habe keine Zeit.",
+   "Ich habe nicht Zeit."
+  ],
+  "explanation": "Negar un sustantivo sin artículo o con indefinido: «kein-», no «nicht».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-006",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich esse nie Fleisch.",
+  "accept": [
+   "Ich esse nie Fleisch."
+  ],
+  "options": [
+   "Ich esse nicht nie Fleisch.",
+   "Ich esse nie Fleisch."
+  ],
+  "explanation": "«nie» ya niega: no se añade «nicht».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-007",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Das ist mein Bruder.",
+  "accept": [
+   "Das ist mein Bruder."
+  ],
+  "options": [
+   "Das ist mein Bruder.",
+   "Das ist meine Bruder."
+  ],
+  "explanation": "El posesivo concuerda con el género del sustantivo: Bruder es masculino → mein.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-008",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich komme aus Mexiko.",
+  "accept": [
+   "Ich komme aus Mexiko."
+  ],
+  "options": [
+   "Ich komme von Mexiko.",
+   "Ich komme aus Mexiko."
+  ],
+  "explanation": "Procedencia con país: «aus», no «von».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-009",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Sie heißt Anna.",
+  "accept": [
+   "Sie heißt Anna."
+  ],
+  "options": [
+   "Sie heißt Anna.",
+   "Sie heißen Anna."
+  ],
+  "explanation": "Con «sie» (ella) el verbo termina en -t: heißt.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-010",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir wohnen in Berlin.",
+  "accept": [
+   "Wir wohnen in Berlin."
+  ],
+  "options": [
+   "Wir wohnt in Berlin.",
+   "Wir wohnen in Berlin."
+  ],
+  "explanation": "Con «wir» el verbo va en infinitivo: wohnen.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-011",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe Hunger.",
+  "accept": [
+   "Ich habe Hunger."
+  ],
+  "options": [
+   "Ich habe Hunger.",
+   "Ich bin Hunger."
+  ],
+  "explanation": "Hunger haben (no sein), como «tener hambre».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-012",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bin 25 Jahre alt.",
+  "accept": [
+   "Ich bin 25 Jahre alt."
+  ],
+  "options": [
+   "Ich habe 25 Jahre.",
+   "Ich bin 25 Jahre alt."
+  ],
+  "explanation": "La edad se dice con sein + alt, no con haben.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-013",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich möchte einen Kaffee.",
+  "accept": [
+   "Ich möchte einen Kaffee."
+  ],
+  "options": [
+   "Ich möchte einen Kaffee.",
+   "Ich möchte ein Kaffee."
+  ],
+  "explanation": "Akkusativ masculino: einen.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-014",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Der Tisch ist groß.",
+  "accept": [
+   "Der Tisch ist groß."
+  ],
+  "options": [
+   "Die Tisch ist groß.",
+   "Der Tisch ist groß."
+  ],
+  "explanation": "Tisch es masculino: der.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-015",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Die Kinder spielen im Garten.",
+  "accept": [
+   "Die Kinder spielen im Garten."
+  ],
+  "options": [
+   "Die Kinder spielen im Garten.",
+   "Die Kinder spielt im Garten."
+  ],
+  "explanation": "Sujeto plural: spielen.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-016",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich fahre mit dem Bus.",
+  "accept": [
+   "Ich fahre mit dem Bus."
+  ],
+  "options": [
+   "Ich fahre mit dem Bus.",
+   "Ich fahre mit den Bus.",
+   "Ich fahre mit der Bus."
+  ],
+  "explanation": "«mit» siempre lleva Dativ: dem Bus.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-017",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er liest ein Buch.",
+  "accept": [
+   "Er liest ein Buch."
+  ],
+  "options": [
+   "Er liest ein Buch.",
+   "Er lesst ein Buch."
+  ],
+  "explanation": "lesen cambia e→ie con er/sie/es: liest.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-018",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Du fährst nach Hause.",
+  "accept": [
+   "Du fährst nach Hause."
+  ],
+  "options": [
+   "Du fahrst nach Hause.",
+   "Du fährst nach Hause."
+  ],
+  "explanation": "fahren lleva umlaut con du/er: fährst.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-019",
+  "module": "satzbau",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich nehme den Zug.",
+  "accept": [
+   "Ich nehme den Zug."
+  ],
+  "options": [
+   "Ich nehme den Zug.",
+   "Ich nimme den Zug."
+  ],
+  "explanation": "nehmen: ich nehme (el cambio de raíz sólo es con du/er).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-020",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe Deutsch gelernt.",
+  "accept": [
+   "Ich habe Deutsch gelernt."
+  ],
+  "options": [
+   "Ich habe gelernt Deutsch.",
+   "Ich habe Deutsch gelernt."
+  ],
+  "explanation": "En el Perfekt el participio va al final.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-021",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er hat das Auto gekauft.",
+  "accept": [
+   "Er hat das Auto gekauft."
+  ],
+  "options": [
+   "Er hat das Auto gekauft.",
+   "Er hat gekauft das Auto."
+  ],
+  "explanation": "Participio II al final de la oración.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-022",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe das Buch gelesen.",
+  "accept": [
+   "Ich habe das Buch gelesen."
+  ],
+  "options": [
+   "Ich habe das Buch gelest.",
+   "Ich habe das Buch gelesen."
+  ],
+  "explanation": "lesen es irregular: gelesen (no gelest).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-023",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Sie hat Medizin studiert.",
+  "accept": [
+   "Sie hat Medizin studiert."
+  ],
+  "options": [
+   "Sie hat Medizin studiert.",
+   "Sie hat Medizin gestudiert."
+  ],
+  "explanation": "Los verbos en -ieren no llevan ge-.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-024",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe die Prüfung verstanden.",
+  "accept": [
+   "Ich habe die Prüfung verstanden."
+  ],
+  "options": [
+   "Ich habe die Prüfung geverstanden.",
+   "Ich habe die Prüfung verstanden."
+  ],
+  "explanation": "Prefijo inseparable (ver-): sin ge-.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-025",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er ist früh aufgestanden.",
+  "accept": [
+   "Er ist früh aufgestanden."
+  ],
+  "options": [
+   "Er ist früh aufgestanden.",
+   "Er ist früh geaufstanden."
+  ],
+  "explanation": "Con prefijo separable, ge- va entre prefijo y verbo: auf-ge-standen.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-026",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bin nach Berlin gefahren.",
+  "accept": [
+   "Ich bin nach Berlin gefahren."
+  ],
+  "options": [
+   "Ich habe nach Berlin gefahren.",
+   "Ich bin nach Berlin gefahren."
+  ],
+  "explanation": "Verbos de movimiento a un destino usan sein.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-027",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Wir sind gestern zu Hause geblieben.",
+  "accept": [
+   "Wir sind gestern zu Hause geblieben."
+  ],
+  "options": [
+   "Wir sind gestern zu Hause geblieben.",
+   "Wir haben gestern zu Hause geblieben."
+  ],
+  "explanation": "bleiben forma el Perfekt con sein.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-028",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich putze mir die Zähne.",
+  "accept": [
+   "Ich putze mir die Zähne."
+  ],
+  "options": [
+   "Ich putze mich die Zähne.",
+   "Ich putze mir die Zähne."
+  ],
+  "explanation": "Con complemento directo (die Zähne) el reflexivo va en Dativ: mir.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-029",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich freue mich auf das Wochenende.",
+  "accept": [
+   "Ich freue mich auf das Wochenende."
+  ],
+  "options": [
+   "Ich freue mich auf das Wochenende.",
+   "Ich freue mich über das Wochenende."
+  ],
+  "explanation": "Ilusión por algo futuro: «sich freuen auf»; «über» es por algo presente o ya ocurrido.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-030",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich warte auf den Bus.",
+  "accept": [
+   "Ich warte auf den Bus."
+  ],
+  "options": [
+   "Ich warte für den Bus.",
+   "Ich warte an den Bus.",
+   "Ich warte auf den Bus."
+  ],
+  "explanation": "warten + auf + Akkusativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-031",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich interessiere mich für Musik.",
+  "accept": [
+   "Ich interessiere mich für Musik."
+  ],
+  "options": [
+   "Ich interessiere mich für Musik.",
+   "Ich interessiere mich an Musik."
+  ],
+  "explanation": "sich interessieren + für.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-032",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Das Buch liegt auf dem Tisch.",
+  "accept": [
+   "Das Buch liegt auf dem Tisch."
+  ],
+  "options": [
+   "Das Buch liegt auf den Tisch.",
+   "Das Buch liegt auf dem Tisch."
+  ],
+  "explanation": "Wo? (posición) → Dativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-033",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich lege das Buch auf den Tisch.",
+  "accept": [
+   "Ich lege das Buch auf den Tisch."
+  ],
+  "options": [
+   "Ich lege das Buch auf den Tisch.",
+   "Ich lege das Buch auf dem Tisch."
+  ],
+  "explanation": "Wohin? (movimiento) → Akkusativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-034",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe zu Hause, weil ich krank bin.",
+  "accept": [
+   "Ich bleibe zu Hause, weil ich krank bin."
+  ],
+  "options": [
+   "Ich bleibe zu Hause, weil ich bin krank.",
+   "Ich bleibe zu Hause, weil ich krank bin."
+  ],
+  "explanation": "Tras «weil» el verbo conjugado va al final.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-035",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich bleibe zu Hause, denn ich bin krank.",
+  "accept": [
+   "Ich bleibe zu Hause, denn ich bin krank."
+  ],
+  "options": [
+   "Ich bleibe zu Hause, denn ich bin krank.",
+   "Ich bleibe zu Hause, denn ich krank bin."
+  ],
+  "explanation": "Tras «denn» el orden no cambia (verbo en 2.ª posición).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-036",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Wenn es regnet, bleibe ich zu Hause.",
+  "accept": [
+   "Wenn es regnet, bleibe ich zu Hause."
+  ],
+  "options": [
+   "Wenn es regnet, ich bleibe zu Hause.",
+   "Wenn es regnet, bleibe ich zu Hause."
+  ],
+  "explanation": "Si empieza la subordinada, el verbo de la principal va justo después de la coma.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-037",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Die Frau, die dort steht, ist meine Lehrerin.",
+  "accept": [
+   "Die Frau, die dort steht, ist meine Lehrerin."
+  ],
+  "options": [
+   "Die Frau, die dort steht, ist meine Lehrerin.",
+   "Die Frau, der dort steht, ist meine Lehrerin."
+  ],
+  "explanation": "El relativo toma el género de su antecedente: Frau → die.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-038",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er schenkt seiner Mutter Blumen.",
+  "accept": [
+   "Er schenkt seiner Mutter Blumen."
+  ],
+  "options": [
+   "Er schenkt seine Mutter Blumen.",
+   "Er schenkt seiner Mutter Blumen."
+  ],
+  "explanation": "La persona que recibe va en Dativ: seiner Mutter.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-039",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Das Kleid gefällt mir.",
+  "accept": [
+   "Das Kleid gefällt mir."
+  ],
+  "options": [
+   "Das Kleid gefällt mir.",
+   "Das Kleid gefällt mich."
+  ],
+  "explanation": "gefallen se usa con Dativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-040",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er hilft dem Kind.",
+  "accept": [
+   "Er hilft dem Kind."
+  ],
+  "options": [
+   "Er hilft das Kind.",
+   "Er hilft dem Kind."
+  ],
+  "explanation": "helfen exige Dativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-041",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Der Student kommt aus Spanien.",
+  "accept": [
+   "Der Student kommt aus Spanien."
+  ],
+  "options": [
+   "Der Student kommt aus Spanien.",
+   "Der Studente kommt aus Spanien."
+  ],
+  "explanation": "Es «Student» (masculino débil).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-042",
+  "module": "satzbau",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich gebe dem Studenten das Buch.",
+  "accept": [
+   "Ich gebe dem Studenten das Buch."
+  ],
+  "options": [
+   "Ich gebe dem Student das Buch.",
+   "Ich gebe dem Studenten das Buch."
+  ],
+  "explanation": "Los masculinos débiles añaden -en fuera del Nominativ.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-043",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Als ich ein Kind war, spielte ich viel draußen.",
+  "accept": [
+   "Als ich ein Kind war, spielte ich viel draußen."
+  ],
+  "options": [
+   "Als ich ein Kind war, spielte ich viel draußen.",
+   "Wenn ich ein Kind war, spielte ich viel draußen."
+  ],
+  "explanation": "Un hecho pasado único o un periodo concreto: «als», no «wenn».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-044",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Nachdem ich gegessen hatte, ging ich spazieren.",
+  "accept": [
+   "Nachdem ich gegessen hatte, ging ich spazieren."
+  ],
+  "options": [
+   "Nachdem ich gegessen hatte, ich ging spazieren.",
+   "Nachdem ich gegessen hatte, ging ich spazieren."
+  ],
+  "explanation": "Tras la subordinada, la principal empieza con el verbo.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-045",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Sie war schon gegangen, als ich ankam.",
+  "accept": [
+   "Sie war schon gegangen, als ich ankam."
+  ],
+  "options": [
+   "Sie war schon gegangen, als ich ankam.",
+   "Sie hatte schon gegangen, als ich ankam."
+  ],
+  "explanation": "gehen es de movimiento: Plusquamperfekt con war.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-046",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich hätte gern einen Tee.",
+  "accept": [
+   "Ich hätte gern einen Tee."
+  ],
+  "options": [
+   "Ich würde gern einen Tee haben.",
+   "Ich hätte gern einen Tee."
+  ],
+  "explanation": "Con haben y sein se usa la forma propia: hätte, wäre (no würde + haben).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-047",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Wenn ich Zeit hätte, würde ich reisen.",
+  "accept": [
+   "Wenn ich Zeit hätte, würde ich reisen."
+  ],
+  "options": [
+   "Wenn ich Zeit hätte, würde ich reisen.",
+   "Wenn ich Zeit habe, würde ich reisen."
+  ],
+  "explanation": "Condición irreal: Konjunktiv II en las dos partes.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-048",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Das Haus wurde 1950 gebaut.",
+  "accept": [
+   "Das Haus wurde 1950 gebaut."
+  ],
+  "options": [
+   "Das Haus war 1950 gebaut.",
+   "Das Haus wurde 1950 gebaut."
+  ],
+  "explanation": "Passiv de proceso: werden (Präteritum: wurde) + Partizip II.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-049",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich habe arbeiten müssen.",
+  "accept": [
+   "Ich habe arbeiten müssen."
+  ],
+  "options": [
+   "Ich habe arbeiten müssen.",
+   "Ich habe arbeiten gemusst."
+  ],
+  "explanation": "Con otro infinitivo, el modal va en infinitivo (doble infinitivo).",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-050",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Er sagte, dass er müde sei.",
+  "accept": [
+   "Er sagte, dass er müde sei."
+  ],
+  "options": [
+   "Er sagte, dass er ist müde.",
+   "Er sagte, dass er müde sei."
+  ],
+  "explanation": "Tras «dass» el verbo va al final.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-051",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Ich frage mich, ob er kommt.",
+  "accept": [
+   "Ich frage mich, ob er kommt."
+  ],
+  "options": [
+   "Ich frage mich, ob er kommt.",
+   "Ich frage mich, ob kommt er."
+  ],
+  "explanation": "Pregunta indirecta con «ob»: verbo al final.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-052",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Trotzdem gehe ich hin.",
+  "accept": [
+   "Trotzdem gehe ich hin."
+  ],
+  "options": [
+   "Trotzdem ich gehe hin.",
+   "Trotzdem gehe ich hin."
+  ],
+  "explanation": "«trotzdem» ocupa la posición 1: el verbo sigue en 2.ª.",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ },
+ {
+  "id": "tr-053",
+  "module": "satzbau",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "trampa",
+  "pool": "trampa",
+  "prompt": "¿Cuál es correcta?",
+  "hint": "",
+  "translation": "",
+  "answer": "Der Mann, dem ich geholfen habe, ist nett.",
+  "accept": [
+   "Der Mann, dem ich geholfen habe, ist nett."
+  ],
+  "options": [
+   "Der Mann, der ich geholfen habe, ist nett.",
+   "Der Mann, dem ich geholfen habe, ist nett.",
+   "Der Mann, den ich geholfen habe, ist nett."
+  ],
+  "explanation": "helfen pide Dativ: el relativo masculino es «dem».",
+  "errorTag": "satzbau:trampa",
+  "conceptIds": [],
+  "source": "gen-trampas"
+ }
+]

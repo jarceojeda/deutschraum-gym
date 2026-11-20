@@ -1,0 +1,2858 @@
+[
+ {
+  "id": "rp-001",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Mann, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "dem",
+   "das",
+   "der",
+   "dessen"
+  ],
+  "explanation": "Mann es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-002",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Mann, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "den",
+   "dessen",
+   "deren",
+   "denen"
+  ],
+  "explanation": "Mann es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-003",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Mann, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "denen",
+   "dem",
+   "dessen",
+   "die"
+  ],
+  "explanation": "Mann es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-004",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Mann, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "den",
+   "die",
+   "der",
+   "dem"
+  ],
+  "explanation": "Mann es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-005",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Mann, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "die",
+   "dem",
+   "den",
+   "dessen"
+  ],
+  "explanation": "Mann es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-006",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Freund, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "der",
+   "dem",
+   "deren",
+   "dessen"
+  ],
+  "explanation": "Freund es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-007",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Freund, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "denen",
+   "dem",
+   "den",
+   "dessen"
+  ],
+  "explanation": "Freund es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-008",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Freund, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "die",
+   "dessen",
+   "den",
+   "der"
+  ],
+  "explanation": "Freund es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-009",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Freund, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "denen",
+   "das",
+   "deren"
+  ],
+  "explanation": "Freund es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-010",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Freund, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "denen",
+   "den",
+   "der"
+  ],
+  "explanation": "Freund es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-011",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Lehrer, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "dem",
+   "deren",
+   "dessen",
+   "der"
+  ],
+  "explanation": "Lehrer es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-012",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Lehrer, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "dem",
+   "der",
+   "die",
+   "den"
+  ],
+  "explanation": "Lehrer es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-013",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Lehrer, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "dem",
+   "den",
+   "die",
+   "dessen"
+  ],
+  "explanation": "Lehrer es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-014",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Lehrer, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "das",
+   "denen",
+   "dem",
+   "den"
+  ],
+  "explanation": "Lehrer es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-015",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Lehrer, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "die",
+   "denen",
+   "der"
+  ],
+  "explanation": "Lehrer es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-016",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Nachbar, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "den",
+   "der",
+   "deren",
+   "die"
+  ],
+  "explanation": "Nachbar es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-017",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Nachbar, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "der",
+   "dessen",
+   "dem",
+   "den"
+  ],
+  "explanation": "Nachbar es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-018",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Nachbar, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "der",
+   "das",
+   "die",
+   "dessen"
+  ],
+  "explanation": "Nachbar es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-019",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Nachbar, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "die",
+   "der",
+   "denen"
+  ],
+  "explanation": "Nachbar es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-020",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Nachbar, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "der",
+   "dessen",
+   "den"
+  ],
+  "explanation": "Nachbar es masculino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-021",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Film, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "den",
+   "deren",
+   "der",
+   "die"
+  ],
+  "explanation": "Film es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-022",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Film, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "den",
+   "der",
+   "dem",
+   "das"
+  ],
+  "explanation": "Film es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-023",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Film, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "dessen",
+   "deren",
+   "die",
+   "dem"
+  ],
+  "explanation": "Film es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-024",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Garten, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "der",
+   "den",
+   "dem",
+   "das"
+  ],
+  "explanation": "Garten es masculino singular; en la subordinada: sujeto → Nominativ → der.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-025",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Garten, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "den",
+  "accept": [
+   "den"
+  ],
+  "options": [
+   "den",
+   "das",
+   "die",
+   "deren"
+  ],
+  "explanation": "Garten es masculino singular; en la subordinada: objeto directo → Akkusativ → den.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-026",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Der Garten, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "die",
+   "dem",
+   "dessen",
+   "deren"
+  ],
+  "explanation": "Garten es masculino singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-027",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Frau, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "die",
+   "den",
+   "deren"
+  ],
+  "explanation": "Frau es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-028",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Frau, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "dessen",
+   "das",
+   "die",
+   "denen"
+  ],
+  "explanation": "Frau es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-029",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Frau, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "dessen",
+   "deren",
+   "dem",
+   "das"
+  ],
+  "explanation": "Frau es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-030",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Frau, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "dem",
+   "den",
+   "der",
+   "denen"
+  ],
+  "explanation": "Frau es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-031",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Frau, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "denen",
+   "das",
+   "der",
+   "dessen"
+  ],
+  "explanation": "Frau es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-032",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freundin, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "den",
+   "deren",
+   "die",
+   "dem"
+  ],
+  "explanation": "Freundin es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-033",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freundin, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "den",
+   "dem",
+   "denen"
+  ],
+  "explanation": "Freundin es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-034",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freundin, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "der",
+   "die",
+   "deren",
+   "das"
+  ],
+  "explanation": "Freundin es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-035",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freundin, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "der",
+   "denen",
+   "die",
+   "deren"
+  ],
+  "explanation": "Freundin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-036",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freundin, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "dessen",
+   "dem",
+   "die",
+   "der"
+  ],
+  "explanation": "Freundin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-037",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Lehrerin, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "dessen",
+   "denen",
+   "das"
+  ],
+  "explanation": "Lehrerin es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-038",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Lehrerin, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "der",
+   "den",
+   "deren"
+  ],
+  "explanation": "Lehrerin es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-039",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Lehrerin, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "den",
+   "der",
+   "die",
+   "deren"
+  ],
+  "explanation": "Lehrerin es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-040",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Lehrerin, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "dessen",
+   "denen",
+   "der",
+   "dem"
+  ],
+  "explanation": "Lehrerin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-041",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Lehrerin, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "denen",
+   "das",
+   "die",
+   "der"
+  ],
+  "explanation": "Lehrerin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-042",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Nachbarin, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "der",
+   "dem",
+   "denen",
+   "die"
+  ],
+  "explanation": "Nachbarin es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-043",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Nachbarin, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "dem",
+   "den",
+   "das",
+   "die"
+  ],
+  "explanation": "Nachbarin es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-044",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Nachbarin, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "deren",
+   "das",
+   "dessen",
+   "denen"
+  ],
+  "explanation": "Nachbarin es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-045",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Nachbarin, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "die",
+   "der",
+   "dem",
+   "dessen"
+  ],
+  "explanation": "Nachbarin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-046",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Nachbarin, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "der",
+   "denen",
+   "dessen",
+   "die"
+  ],
+  "explanation": "Nachbarin es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-047",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Stadt, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "den",
+   "die",
+   "dem"
+  ],
+  "explanation": "Stadt es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-048",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Stadt, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "deren",
+   "die",
+   "der"
+  ],
+  "explanation": "Stadt es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-049",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Stadt, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "das",
+   "denen",
+   "die",
+   "deren"
+  ],
+  "explanation": "Stadt es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-050",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Stadt, in ___ ich wohne, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "denen",
+   "der",
+   "das",
+   "den"
+  ],
+  "explanation": "Stadt es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-051",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Wohnung, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "denen",
+   "dem",
+   "dessen",
+   "die"
+  ],
+  "explanation": "Wohnung es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-052",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Wohnung, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "dem",
+   "der",
+   "den",
+   "die"
+  ],
+  "explanation": "Wohnung es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-053",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Wohnung, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "das",
+   "den",
+   "denen",
+   "deren"
+  ],
+  "explanation": "Wohnung es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-054",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Wohnung, in ___ ich wohne, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "der",
+  "accept": [
+   "der"
+  ],
+  "options": [
+   "das",
+   "deren",
+   "die",
+   "der"
+  ],
+  "explanation": "Wohnung es femenino singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → der.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-055",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Tasche, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "dem",
+   "das",
+   "deren"
+  ],
+  "explanation": "Tasche es femenino singular; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-056",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Tasche, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "deren",
+   "die",
+   "dessen"
+  ],
+  "explanation": "Tasche es femenino singular; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-057",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Tasche, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "denen",
+   "der",
+   "die",
+   "deren"
+  ],
+  "explanation": "Tasche es femenino singular; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-058",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Kind, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "das",
+   "den",
+   "denen",
+   "der"
+  ],
+  "explanation": "Kind es neutro singular; en la subordinada: sujeto → Nominativ → das.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-059",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Kind, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "dem",
+   "das",
+   "dessen",
+   "deren"
+  ],
+  "explanation": "Kind es neutro singular; en la subordinada: objeto directo → Akkusativ → das.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-060",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Kind, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "dessen",
+   "deren",
+   "das",
+   "die"
+  ],
+  "explanation": "Kind es neutro singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-061",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Kind, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "deren",
+   "die",
+   "den",
+   "dem"
+  ],
+  "explanation": "Kind es neutro singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-062",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Kind, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "deren",
+   "den",
+   "dem",
+   "das"
+  ],
+  "explanation": "Kind es neutro singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-063",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Mädchen, ___ dort wohnt, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "das",
+   "deren",
+   "denen",
+   "dessen"
+  ],
+  "explanation": "Mädchen es neutro singular; en la subordinada: sujeto → Nominativ → das.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-064",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Mädchen, ___ ich gestern gesehen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "der",
+   "die",
+   "das",
+   "dessen"
+  ],
+  "explanation": "Mädchen es neutro singular; en la subordinada: objeto directo → Akkusativ → das.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-065",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Mädchen, ___ Name ich vergessen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "deren",
+   "den",
+   "die",
+   "dessen"
+  ],
+  "explanation": "Mädchen es neutro singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-066",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Mädchen, ___ ich gestern geholfen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dem",
+   "die",
+   "deren",
+   "dessen"
+  ],
+  "explanation": "Mädchen es neutro singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-067",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Mädchen, mit ___ ich gestern gesprochen habe, ist nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "das",
+   "dem",
+   "dessen",
+   "denen"
+  ],
+  "explanation": "Mädchen es neutro singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-068",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Haus, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "die",
+   "das",
+   "dem",
+   "den"
+  ],
+  "explanation": "Haus es neutro singular; en la subordinada: sujeto → Nominativ → das.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-069",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Haus, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "denen",
+   "deren",
+   "den",
+   "das"
+  ],
+  "explanation": "Haus es neutro singular; en la subordinada: objeto directo → Akkusativ → das.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-070",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Haus, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "dessen",
+   "die",
+   "denen",
+   "deren"
+  ],
+  "explanation": "Haus es neutro singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-071",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Haus, in ___ ich wohne, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dem",
+  "accept": [
+   "dem"
+  ],
+  "options": [
+   "dessen",
+   "deren",
+   "das",
+   "dem"
+  ],
+  "explanation": "Haus es neutro singular; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → dem.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-072",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Buch, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "das",
+   "dem",
+   "dessen",
+   "der"
+  ],
+  "explanation": "Buch es neutro singular; en la subordinada: sujeto → Nominativ → das.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-073",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Buch, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "denen",
+   "dem",
+   "den",
+   "das"
+  ],
+  "explanation": "Buch es neutro singular; en la subordinada: objeto directo → Akkusativ → das.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-074",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Buch, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "dessen",
+   "deren",
+   "das",
+   "dem"
+  ],
+  "explanation": "Buch es neutro singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-075",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Auto, ___ dort liegt, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "das",
+   "der",
+   "denen",
+   "den"
+  ],
+  "explanation": "Auto es neutro singular; en la subordinada: sujeto → Nominativ → das.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-076",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Auto, ___ ich gestern gesehen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "das",
+  "accept": [
+   "das"
+  ],
+  "options": [
+   "der",
+   "dessen",
+   "dem",
+   "das"
+  ],
+  "explanation": "Auto es neutro singular; en la subordinada: objeto directo → Akkusativ → das.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-077",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Das Auto, ___ Name ich vergessen habe, ist schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "dessen",
+  "accept": [
+   "dessen"
+  ],
+  "options": [
+   "die",
+   "den",
+   "dessen",
+   "der"
+  ],
+  "explanation": "Auto es neutro singular; en la subordinada: posesión → Genitiv → dessen.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-078",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Leute, ___ dort wohnen, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "den",
+   "die",
+   "dem",
+   "das"
+  ],
+  "explanation": "Leute es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-079",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Leute, ___ ich gestern gesehen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "deren",
+   "denen",
+   "dessen",
+   "die"
+  ],
+  "explanation": "Leute es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-080",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Leute, ___ Name ich vergessen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "der",
+   "den",
+   "denen",
+   "deren"
+  ],
+  "explanation": "Leute es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-081",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Leute, ___ ich gestern geholfen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "das",
+   "denen",
+   "den",
+   "die"
+  ],
+  "explanation": "Leute es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-082",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Leute, mit ___ ich gestern gesprochen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "denen",
+   "die",
+   "deren",
+   "den"
+  ],
+  "explanation": "Leute es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-083",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Kinder, ___ dort wohnen, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "denen",
+   "dem",
+   "die"
+  ],
+  "explanation": "Kinder es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-084",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Kinder, ___ ich gestern gesehen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "deren",
+   "die",
+   "das",
+   "denen"
+  ],
+  "explanation": "Kinder es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-085",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Kinder, ___ Name ich vergessen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "das",
+   "deren",
+   "den",
+   "der"
+  ],
+  "explanation": "Kinder es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-086",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Kinder, ___ ich gestern geholfen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "denen",
+   "dem",
+   "das",
+   "die"
+  ],
+  "explanation": "Kinder es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-087",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Kinder, mit ___ ich gestern gesprochen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "dem",
+   "den",
+   "denen",
+   "dessen"
+  ],
+  "explanation": "Kinder es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-088",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freunde, ___ dort wohnen, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "deren",
+   "dessen",
+   "denen"
+  ],
+  "explanation": "Freunde es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-089",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freunde, ___ ich gestern gesehen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "dem",
+   "die",
+   "das",
+   "denen"
+  ],
+  "explanation": "Freunde es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-090",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freunde, ___ Name ich vergessen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "die",
+   "denen",
+   "der",
+   "deren"
+  ],
+  "explanation": "Freunde es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-091",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freunde, ___ ich gestern geholfen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "denen",
+   "der",
+   "das",
+   "dem"
+  ],
+  "explanation": "Freunde es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-092",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Freunde, mit ___ ich gestern gesprochen habe, sind nett.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "denen",
+   "dessen",
+   "deren",
+   "dem"
+  ],
+  "explanation": "Freunde es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-093",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Häuser, ___ dort liegen, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "den",
+   "deren",
+   "dem"
+  ],
+  "explanation": "Häuser es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-094",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Häuser, ___ ich gestern gesehen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "deren",
+   "den",
+   "dessen"
+  ],
+  "explanation": "Häuser es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-095",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Häuser, ___ Name ich vergessen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "deren",
+   "der",
+   "das",
+   "den"
+  ],
+  "explanation": "Häuser es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-096",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Häuser, in ___ ich wohne, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "denen",
+  "accept": [
+   "denen"
+  ],
+  "options": [
+   "dessen",
+   "denen",
+   "den",
+   "deren"
+  ],
+  "explanation": "Häuser es plural; en la subordinada: objeto indirecto/preposición con Dativ → Dativ → denen.",
+  "case": "dative",
+  "errorTag": "case:dative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-097",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Bücher, ___ dort liegen, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "den",
+   "die",
+   "der",
+   "dessen"
+  ],
+  "explanation": "Bücher es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-098",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Bücher, ___ ich gestern gesehen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "der",
+   "den",
+   "die"
+  ],
+  "explanation": "Bücher es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-099",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Bücher, ___ Name ich vergessen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "deren",
+   "den",
+   "das",
+   "dessen"
+  ],
+  "explanation": "Bücher es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-100",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Filme, ___ dort liegen, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "die",
+   "den",
+   "dem",
+   "denen"
+  ],
+  "explanation": "Filme es plural; en la subordinada: sujeto → Nominativ → die.",
+  "case": "nominative",
+  "errorTag": "case:nominative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-101",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Filme, ___ ich gestern gesehen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "die",
+  "accept": [
+   "die"
+  ],
+  "options": [
+   "das",
+   "den",
+   "die",
+   "dem"
+  ],
+  "explanation": "Filme es plural; en la subordinada: objeto directo → Akkusativ → die.",
+  "case": "accusative",
+  "errorTag": "case:accusative:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ },
+ {
+  "id": "rp-102",
+  "module": "deklination",
+  "level": "B1",
+  "type": "cloze",
+  "skill": "relativpronomen",
+  "pool": "relativpronomen",
+  "prompt": "Die Filme, ___ Name ich vergessen habe, sind schön.",
+  "hint": "",
+  "translation": "",
+  "answer": "deren",
+  "accept": [
+   "deren"
+  ],
+  "options": [
+   "die",
+   "dem",
+   "den",
+   "deren"
+  ],
+  "explanation": "Filme es plural; en la subordinada: posesión → Genitiv → deren.",
+  "case": "genitive",
+  "errorTag": "case:genitive:relative",
+  "conceptIds": [
+   "md:relativpronomen"
+  ],
+  "source": "gen-relativ"
+ }
+]

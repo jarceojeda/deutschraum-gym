@@ -5,7 +5,7 @@ App de alemán A1→B1 (vanilla JS, sin frameworks ni backend, localStorage, IIF
 ## Lee antes de actuar
 1. `docs/SPEC-deutschraum-gym.md` — fuente de verdad del diseño.
 2. `docs/ESTADO.md` — qué está hecho, decisiones, API del motor, avisos honestos.
-3. `docs/PROMPTS-etapas.md` — qué toca en cada etapa (etapa 3 hecha; siguiente: etapa 4).
+3. `docs/PROMPTS-etapas.md` — estado real de las etapas (3, 3b, 4 y 5 hechas en lo esencial; 4b «Gramática B1» hecha en lo esencial (rama etapa4-gramatica); la auditoría 6 va al final).
 
 ## Comandos
 - `npm ci` · `npm test` (≈235 pruebas, ≈3 min) · `npm run test:fast` (sin simulaciones) · `npm run bundle` · `node tools/make-report.js` · `npm run build:ui` (genera `dist/deutschraum-gym.html` y la PWA: `dist/index.html`, `sw.js`, manifest e iconos) · `NODE_PATH=$(npm root -g) node tools/check-pwa.js` (comprobación real de la PWA sin red).

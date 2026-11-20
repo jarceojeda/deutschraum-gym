@@ -51,3 +51,13 @@ test('el motor sirve Wortschatz y Satzbau (módulo y Viaje combinado de 7 módul
   while (!s.done()) { const v = s.view(); assert.equal(v.input, 'tiles'); const it = s.currentItem(); s.answer(it.tiles.slice(), { mode: 'touch' }); }
   assert.equal(s.summary().correct, 12);
 });
+
+test('auditoría: sin columnas intercambiadas ni marcas «sí/no» convertidas en traducción, y sin ejercicios idénticos (Wortschatz normal y «Más allá»)', () => {
+  const B = D('wortschatz-beyond.json');
+  [wz, B].forEach(list => {
+    const es = list.filter(i => i.skill === 'es-de');
+    assert.deepEqual(es.filter(i => /^(sí|no)(, posible|\s*\(.*\))?$/.test(i.prompt) && !/^(ja|nein|nicht|doch)$/.test(i.answer)).map(i => i.id), [], 'marcas sí/no como traducción');
+    assert.deepEqual(es.filter(i => !/^(der|die|das) /.test(i.answer) && /(arse|erse|irse)$/.test(i.answer)).map(i => i.id), [], 'respuesta alemana que es un reflexivo español (columnas intercambiadas)');
+    const seen = new Set(); list.forEach(i => { const k = i.skill + '|' + i.prompt + '|' + i.answer; assert.ok(!seen.has(k), 'duplicado ' + i.id); seen.add(k); });
+  });
+});
