@@ -16,6 +16,7 @@ function build() {
   const html = rd('ui/index.html')
     .replace('/*__CSS__*/', () => rd('ui/style.css'))
     .replace('/*__DATA__*/', () => safe(JSON.stringify(data)))
+    .replace('/*__BEYOND__*/', () => safe(JSON.stringify(JSON.parse(rd('data/wortschatz-beyond.json')))))
     .replace('/*__CONCEPTS__*/', () => safe(JSON.stringify(concepts)))
     .replace('/*__REGLAS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/reglas.json')))))
     .replace('/*__TABLAS__*/', () => safe(JSON.stringify(JSON.parse(rd('ui/tablas.json')))))

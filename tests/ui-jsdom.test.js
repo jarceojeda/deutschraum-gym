@@ -1123,3 +1123,22 @@ test('P2 · Pronunciación: Wortschatz la sirve con su etiqueta, tras fallar mue
   }
   assert.ok(ok, 'ninguna pregunta de pronunciación servida');
 });
+
+test('Más allá del B1: apagado por defecto (ningún ítem B2/C1 en el motor); con el ajuste sale vocabulario extra; el ajuste pide reiniciar y el progreso no se pierde al apagarlo', () => {
+  const beyond = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'wortschatz-beyond.json'), 'utf8'));
+  assert.ok(beyond.length > 500 && beyond.every(i => i.module === 'wortschatz' && /^beyond-clase-\d{3}$/.test(i.source) && i.level === 'B1'));
+  const off = boot(210); assert.equal(Object.keys(off.eng.store.byId).filter(id => /^wz-md0(1[2-9]|[2-5]\d)/.test(id) && beyond.some(b => b.id === id)).length, 0);
+  assert.ok(!off.eng.store.byId[beyond[0].id], 'por defecto no está cargado');
+  // activar en ajustes → aparece el botón de reiniciar
+  off.click(off.q('[aria-label="Ajustes"]')); const on1 = off.q('[aria-label="Más allá del B1"] [data-v="1"]'); assert.ok(on1); off.click(on1);
+  assert.ok(off.q('#restart'), 'pide reiniciar para aplicar'); assert.equal(JSON.parse(off.w.localStorage.getItem('dg.ui')).beyond, true);
+  // arranque con el ajuste: el motor trae los ítems extra y se pueden jugar
+  const on = boot(211, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })) });
+  assert.ok(on.eng.store.byId[beyond[0].id], 'con el ajuste, cargado');
+  assert.equal(Object.keys(on.eng.store.byId).length - Object.keys(off.eng.store.byId).length, beyond.length);
+  // progreso de un ítem extra sobrevive a arrancar sin el ajuste y se recupera al volver a activarlo
+  const a = boot(212, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })) });
+  a.chooseModule('wortschatz', 10); a.start(); a.answer(false); const saved = a.w.localStorage.getItem('dg.progress'); assert.ok(saved);
+  const b = boot(213, { before: w => { w.localStorage.setItem('dg.progress', saved); } });   // sin el ajuste
+  assert.ok(b.q('.hero'), 'arranca sin el ajuste con progreso de ítems que no están cargados');
+});

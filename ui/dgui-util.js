@@ -36,7 +36,7 @@
   };
   // Preferencias de la UI (clave aparte del progreso del motor).
   U.prefs = function (storage) {
-    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true, ladder: true };
+    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true, ladder: true, beyond: false };
     try { var raw = storage && storage.getItem(KEY); if (raw) cur = Object.assign(cur, JSON.parse(raw)); } catch (e) { /* ignora */ }
     return {
       get: function (k) { return cur[k]; },

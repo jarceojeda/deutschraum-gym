@@ -9,11 +9,13 @@
   var reglasEl = doc.getElementById('dg-reglas'), reglasAll = reglasEl ? JSON.parse(reglasEl.textContent) : {}, reglas = reglasAll.reglas || {}, biblioteca = reglasAll.biblioteca || [];
   var tablasEl = doc.getElementById('dg-tablas'), tablas = tablasEl ? (JSON.parse(tablasEl.textContent).tablas || {}) : {};
   var sufEl = doc.getElementById('dg-sufijos'), sufijos = sufEl ? (JSON.parse(sufEl.textContent).sufijos || []) : [];
-  var opts = { data: json('dg-data'), concepts: json('dg-concepts'), storage: storage };
+  var prefs = D.util.prefs(storage), beyondOn = prefs.get('beyond') === true;   // «Más allá del B1»: vocabulario B2/C1 opcional, apagado por defecto (se aplica al reiniciar)
+  var data = json('dg-data'); if (beyondOn && doc.getElementById('dg-beyond')) data = data.concat(json('dg-beyond'));
+  var opts = { data: data, concepts: json('dg-concepts'), storage: storage };
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd, autoMs: cfg.autoMs });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
   if (!cfg.noPwa) D.pwa.init(g);
 })(typeof globalThis !== 'undefined' ? globalThis : this);

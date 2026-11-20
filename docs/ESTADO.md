@@ -108,4 +108,22 @@ Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `doc
 - Pruebas: ver `npm test` (UI en `tests/ui-*.test.js`; `ui-variedad` con 2 `todo` a propósito).
 
 ## Etapas — estado real (reordenado)
-Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 4 y 5 hechas en lo esencial; **4b Gramática B1 en curso**; 4c/5b pendientes; **6 (auditoría) al final**.
+Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 4 y 5 hechas en lo esencial; **4b Gramática B1 hecha en lo esencial (rama etapa4-gramatica, pendiente de PR)**; 4c/5b pendientes; **6 (auditoría) al final**.
+
+
+## Etapa 4b · Gramática B1 — qué se añadió (honesto)
+| Pieza | Dónde | Datos | Generador |
+|---|---|---|---|
+| Plusquamperfekt, Futur I, Imperativ, Konjunktiv II, Passiv (Präsens y Präteritum) | módulo Verben (6 personas; imperativo du/ihr/Sie) | `data/gramatica.json` (1.767) | `tools/gen-gramatica.js` |
+| Relativpronomen (+ tabla propia s11-6) y Komparativ/Superlativ | Deklination | `data/relativ.json` (102), `data/steigerung.json` (90) | `tools/gen-relativ.js`, `tools/gen-steigerung.js` |
+| TeKaMoLo (ordenar) y «Trampas» («¿Cuál es correcta?») | Satzbau | `data/tekamolo.json` (96), `data/trampas.json` (53, escritas a mano) | `tools/gen-tekamolo.js`, `tools/gen-trampas.js` |
+| Pronunciación (38; 🔊 pronuncia `lemma`, la palabra de ejemplo) | Wortschatz | `data/pronunciacion.json` | `tools/gen-pronunciacion.js` |
+| Biblioteca de clases (51 fichas de sólo lectura) | Consulta → «Biblioteca» | `ui/reglas.json` → `biblioteca` | `tools/extract-reglas-md.js` |
+| «Más allá del B1» (vocabulario B2/C1, 696 ítems; **apagado por defecto**, ajuste que se aplica al reiniciar) | Wortschatz | `data/wortschatz-beyond.json` | `tools/gen-wortschatz-satzbau.js --beyond` |
+
+- **Motor sin cambios.** Todo entra por los módulos existentes; las habilidades nuevas llevan etiqueta (`ui/dgui-rules.js`), cápsula (`md:verben-*`, `md:relativpronomen`, `md:steigerung`, `md:tekamolo`, `md:pronunciacion`; fórmulas propias en `PROPIAS` de `tools/extract-reglas-md.js`) y errores típicos de las clases.
+- **Los ejercicios B1 sólo salen con el botón B1** (nivel). Los de «Más allá» se cargan sólo con el ajuste activo; apagarlo no borra el progreso (los ítems vuelven al reactivarlo).
+- El motor sólo conserva campos conocidos de un ítem (`lemma`, `explanation`, `hint`…); por eso Pronunciación usa `lemma` como palabra de ejemplo para el 🔊.
+- Guardia nueva: `tests/data-prompts.test.js` (ningún ítem pierde su enunciado; el validador del motor no lo exige).
+- **Peso del HTML: 5,45 MB** (tope 6 MB). Quedan ≈0,5 MB de margen; el siguiente bloque grande de datos obligaría a recortar (p. ej. cargar «Más allá» como archivo aparte).
+- Límites conocidos: algunas frases de TeKaMoLo generadas son semánticamente raras («lerne wegen des Wetters»); las trampas de Komparativ/Superlativ son formas plausibles pero generadas; las cápsulas de Passiv/Relativ/Komparativ/TeKaMoLo/Pronunciación se verifican con pruebas de interfaz, no con revisión de una persona hispanohablante nativa.
