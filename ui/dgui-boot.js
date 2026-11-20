@@ -1,0 +1,15 @@
+/* dgui-boot.js — arranque: lee los datos incrustados, crea el motor con localStorage y monta la interfaz. */
+(function (g) {
+  'use strict';
+  var D = g.DGUI, doc = g.document;
+  function json(id) { return JSON.parse(doc.getElementById(id).textContent); }
+  var cfg = g.DGUI_CONFIG || {};
+  var storage = null, ok = false;
+  try { storage = g.localStorage; var k = 'dg.probe'; storage.setItem(k, '1'); storage.removeItem(k); ok = true; } catch (e) { storage = null; }
+  var opts = { data: json('dg-data'), concepts: json('dg-concepts'), storage: storage };
+  if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
+  var engine = g.DG.engine.createEngine(opts);
+  var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd });
+  g.DGUI.engine = engine;
+})(typeof globalThis !== 'undefined' ? globalThis : this);

@@ -5,10 +5,10 @@ App de alemán A1→B1 (vanilla JS, sin frameworks ni backend, localStorage, IIF
 ## Lee antes de actuar
 1. `docs/SPEC-deutschraum-gym.md` — fuente de verdad del diseño.
 2. `docs/ESTADO.md` — qué está hecho, decisiones, API del motor, avisos honestos.
-3. `docs/PROMPTS-etapas.md` — qué toca en cada etapa (ahora: etapa 3 = interfaz base + Verben, Artikel, Deklination).
+3. `docs/PROMPTS-etapas.md` — qué toca en cada etapa (etapa 3 hecha; siguiente: etapa 4).
 
 ## Comandos
-- `npm ci` · `npm test` (138 pruebas, ≈70 s) · `npm run test:fast` (sin simulaciones) · `npm run bundle` · `node tools/make-report.js`.
+- `npm ci` · `npm test` (154 pruebas, ≈75 s) · `npm run test:fast` (sin simulaciones) · `npm run bundle` · `node tools/make-report.js` · `npm run build:ui` (genera `dist/deutschraum-gym.html`).
 - `npm test` regenera `dist/dg-engine.bundle.js`; si cambia `src/`, commitea también el bundle.
 
 ## Reglas del proyecto

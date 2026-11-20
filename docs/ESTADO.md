@@ -56,6 +56,27 @@ Módulos: rng (mulberry32 / crypto, sin depender de la fecha), text (NFC, transl
 - Entrada `letters` (verbos/plurales/transform sin `options`): la UI genera las fichas y envía array de letras (se unen sin espacios; en `order` sí con espacios) o texto. En `minimal-pair` las opciones son sólo las dos respuestas.
 - Sin semilla el azar viene de `crypto.getRandomValues`; con semilla es determinista (sólo pruebas).
 
-## Etapa 3 · Interfaz base + Verben, Artikel, Deklination — PENDIENTE (siguiente)
-Prompt en `docs/PROMPTS-etapas.md`. Ramas sugeridas: `etapa3-ui`.
+## Etapa 3 · Interfaz base + Verben, Artikel, Deklination — HECHA
+**154 pruebas, 154 OK** (138 del motor + 16 de UI en `tests/ui-jsdom.test.js`). Entregable: `dist/deutschraum-gym.html` (≈2,2 MB, autocontenido: CSS + motor + UI + datos de los 3 módulos + concepts; sin recursos externos). `npm run build:ui` lo regenera (también regenera el bundle del motor). Capturas a 390×844 en `docs/capturas/` (`NODE_PATH=$(npm root -g) node tools/screenshots.js`; necesita Playwright del sistema, no es dependencia del proyecto).
+
+### Qué hay
+- `ui/` (IIFE, vanilla): `dgui-util` (nodos, tema, vibración), `dgui-rules` (explicación de una línea y panel «ver regla»), `dgui-inputs` (opciones, banco de letras, fichas, par mínimo), `dgui-app` (pantallas), `dgui-boot`, `style.css`, `index.html` (plantilla). `tools/build.js` los junta.
+- Pantallas: inicio (módulo + 10/20/30 ejercicios), sesión, resumen («hoy aprendiste X que ayer no sabías», rescatados, errores por tipo, cambios de nivel) y ajustes (tope de nivel, tema sistema/claro/oscuro, vibración).
+- Modo Tren: opciones con distractores (view `choice`); banco de letras para lo que no trae `options` (respuesta + 3 distractores, p. ej. ä↔a, ß↔s; se envía un **array** de letras, o texto si la respuesta lleva espacios, p. ej. «den Kindern»); fichas para `order` y par mínimo ya implementados pero sin datos que los usen hasta la etapa 4.
+- Artikel: der ■ azul, die ● roja, das ▲ verde (color + forma + palabra).
+- Fallo: banner con la respuesta, explicación de una línea y «Ver regla» (panel inferior, Escape/«Entendido» lo cierran). «No sé» = `giveUp()`.
+- `saveError`: aviso amarillo sin bloquear, desaparece si un guardado posterior funciona. `plan.warnings`: se listan al empezar. Si `localStorage` no está disponible se avisa en el inicio.
+
+### Decisiones
+- **Texto de la regla:** `data/concepts.json` sólo trae títulos (`title`), sin cuerpo; `explanation` sólo existe en Deklination (422/436). El panel muestra: título(s) del concepto, `explanation` si hay, tabla de conjugación de la unidad (Verben), 4 ejemplos del mismo tema, y una nota honesta cuando falta el texto. Para Verben/Artikel la «línea» se deriva (concepto + persona/lema → forma, o pista del ítem + respuesta).
+- Tamaños de sesión 10/20/30 ejercicios (los de «minutos» llegan con el viaje combinado, etapa 4). La sesión puede alargarse por reintentos del motor.
+- Tocar una opción responde de inmediato (una mano, rápido); el fallo se ve en el banner, no hay confirmación previa.
+- Preferencias de UI en `dg.ui` (aparte de `dg.progress`). No se tocó `src/` ni `data/`.
+
+### Límites / pendiente
+- **Falta el texto real de las reglas** (cheat sheets) para el panel: viene en la etapa 5 (pestaña de consulta). Hace falta aportar `explanation` para Verben/Artikel o los textos por concepto.
+- No hay «completar sólo la terminación» ni Modo Casa (etapa 5), ni «Mis errores»/viaje combinado (etapa 4), ni TTS, ni PWA/service worker/manifest (etapa 5), ni exportar/importar en la UI (el motor ya lo tiene).
+- **Progreso en el teléfono:** abierto como archivo local, Chrome puede no conservar `localStorage` entre sesiones según cómo se abra; para uso real conviene la URL hospedada de la etapa 5.
+- La prueba de ä/ö/ü/ß depende de que el sorteo los saque: la prueba recorre hasta 12 sesiones con semilla fija.
+
 ## Etapas 4–6 — PENDIENTES
