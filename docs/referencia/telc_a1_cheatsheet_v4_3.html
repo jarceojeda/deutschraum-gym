@@ -1,0 +1,1620 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="#183A37" name="theme-color"/>
+<title>TELC Deutsch A1 · Cheat Sheet</title>
+<style>
+:root{
+  --ink:#182321;
+  --muted:#66736f;
+  --paper:#f3f0e8;
+  --surface:#fffdf8;
+  --line:#dad8cf;
+
+  --main:#183a37;
+  --main2:#24554f;
+  --main-soft:#e7efec;
+
+  --violet:#674ea7;
+  --violet-soft:#f0ecf8;
+
+  --green:#2e755d;
+  --green-soft:#e9f3ee;
+
+  --red:#b8533f;
+  --red-soft:#f8eae6;
+
+  --amber:#a87516;
+  --amber-soft:#fbf2dc;
+
+  --blue:#33658a;
+  --blue-soft:#e8f0f6;
+
+  --shadow:0 8px 26px rgba(24,35,33,.07);
+  --r-xl:24px;
+  --r-lg:18px;
+  --r-md:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  font-size:16px;
+  line-height:1.48;
+  -webkit-font-smoothing:antialiased;
+}
+button,input{font:inherit}
+a{color:inherit}
+.appbar{
+  position:sticky;top:0;z-index:30;
+  padding:calc(8px + env(safe-area-inset-top)) 12px 8px;
+  background:rgba(243,240,232,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(24,35,33,.08);
+}
+.appbar-inner{
+  max-width:470px;margin:auto;
+  display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center;
+}
+.icon-btn{
+  width:44px;height:44px;border:0;border-radius:14px;
+  background:var(--surface);color:var(--main);box-shadow:0 2px 10px rgba(24,35,33,.07);
+  display:grid;place-items:center;font-size:19px;font-weight:900;cursor:pointer;
+}
+.app-title{text-align:center;min-width:0}
+.app-title strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--main)}
+#currentSection{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.progress{height:3px;background:#dedbd3;margin:7px auto 0;max-width:470px;border-radius:999px;overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--main),var(--violet));transition:width .12s linear}
+
+.shell{max-width:470px;margin:auto;padding:14px 12px calc(96px + env(safe-area-inset-bottom))}
+.hero{
+  background:linear-gradient(145deg,var(--main) 0%,#244a46 72%,#2f5a55 100%);
+  color:#fff;border-radius:28px;padding:24px 20px 22px;margin-bottom:14px;box-shadow:var(--shadow);
+}
+.eyebrow{font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;opacity:.75}
+.hero h1{font-size:30px;line-height:1.03;letter-spacing:-.04em;margin:8px 0 8px}
+.hero p{margin:0;font-size:15px;opacity:.9}
+.hero .note{margin-top:13px;padding:10px 12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.08);border-radius:14px;font-size:13px}
+
+.mental-map{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:18px 16px;margin-bottom:14px;
+}
+.mental-map h2{font-size:20px;margin:0 0 5px;color:var(--main)}
+.mental-map>p{margin:0 0 13px;color:var(--muted);font-size:14px}
+.pillars{display:grid;gap:8px}
+.pillar-link{
+  display:grid;grid-template-columns:40px 1fr 20px;align-items:center;gap:10px;
+  border:1px solid #e3e0d7;background:#f8f6f0;border-radius:15px;padding:10px;text-decoration:none;
+}
+.pillar-link .n{
+  width:40px;height:40px;border-radius:13px;background:var(--main);color:white;display:grid;place-items:center;font-weight:900;
+}
+.pillar-link strong{display:block;color:var(--main);font-size:14px}
+.pillar-link small{display:block;color:var(--muted);font-size:12px;margin-top:1px}
+.pillar-link .arrow{color:var(--muted);font-size:19px}
+
+.chapter{
+  scroll-margin-top:94px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);
+  margin:0 0 14px;overflow:hidden;box-shadow:0 4px 18px rgba(24,35,33,.035);
+}
+.chapter-head{padding:18px 16px 15px;border-bottom:1px solid var(--line)}
+.chapter-kicker{font-size:11px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+.chapter h2{margin:0;color:var(--main);font-size:23px;line-height:1.08;letter-spacing:-.03em}
+.chapter-head p{margin:7px 0 0;color:var(--muted);font-size:14px}
+.chapter-question{
+  margin-top:12px;background:var(--main-soft);border:1px solid #cfe0db;border-radius:14px;padding:10px 11px;
+  font-size:13px;color:var(--main);font-weight:750;
+}
+.chapter-body{padding:4px 16px 16px}
+
+.topic{
+  padding:16px 0 2px;
+  border-bottom:1px solid #e7e4db;
+  scroll-margin-top:94px;
+}
+.topic:last-child{border-bottom:0}
+.topic h3{
+  margin:0 0 9px;font-size:18px;line-height:1.17;color:var(--ink);letter-spacing:-.015em;
+}
+.topic h4{font-size:15px;margin:14px 0 7px;color:var(--ink)}
+.topic p{margin:7px 0}
+
+.label{
+  display:inline-flex;align-items:center;
+  font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+  border-radius:999px;padding:4px 7px;margin-bottom:6px;
+}
+.lab-rule{background:var(--main-soft);color:var(--main)}
+.lab-formula{background:var(--violet-soft);color:var(--violet)}
+.lab-example{background:var(--green-soft);color:var(--green)}
+.lab-warn{background:var(--red-soft);color:var(--red)}
+.lab-memory{background:var(--amber-soft);color:#855f17}
+
+.box{
+  border:1px solid transparent;border-radius:var(--r-md);padding:11px 12px;margin:8px 0;
+}
+.rule{background:var(--main-soft);border-color:#cfe0db}
+.formula{background:var(--violet-soft);border-color:#ddd2ee}
+.example{background:var(--green-soft);border-color:#cce2d8}
+.warning{background:var(--red-soft);border-color:#efccc3}
+.memory{background:var(--amber-soft);border-color:#ead9ab}
+.formula code{font-family:"SFMono-Regular",Consolas,monospace;color:#513782;font-size:14px;font-weight:850;white-space:normal}
+.good{color:var(--green);font-weight:850}
+.bad{color:var(--red);font-weight:850}
+
+.transform{
+  display:grid;grid-template-columns:1fr 28px 1fr;gap:7px;align-items:center;margin:8px 0;
+}
+.t-card{
+  border:1px solid var(--line);background:#faf8f2;border-radius:13px;padding:10px;min-width:0;
+}
+.t-card small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.06em;font-weight:800;margin-bottom:3px}
+.t-card b{display:block;font-size:14px;overflow-wrap:anywhere}
+.t-arrow{display:grid;place-items:center;color:var(--violet);font-weight:900;font-size:18px}
+
+.flow{
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0;
+}
+.flow span{
+  border:1px solid var(--line);background:#faf8f2;border-radius:10px;padding:6px 8px;font-size:12px;font-weight:800;
+}
+.flow i{font-style:normal;color:var(--violet);font-weight:900}
+
+.table{
+  width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;
+  margin:9px 0;font-size:12.5px;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+}
+.table th,.table td{padding:7px 5px;border-bottom:1px solid var(--line);overflow-wrap:anywhere;vertical-align:top}
+.table th{background:#f1efe8;color:#3f4c48;text-align:left;font-size:11.5px}
+.table tr:last-child td{border-bottom:0}
+.table.center th,.table.center td{text-align:center}
+.table.center th:first-child,.table.center td:first-child{text-align:left}
+.table strong{color:var(--main)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:8px 0}
+.mini{
+  border:1px solid var(--line);background:#faf8f2;border-radius:12px;padding:9px 10px;
+}
+.mini small{display:block;color:var(--muted);font-size:10px;margin-bottom:2px}
+.mini b{font-size:13px;color:var(--ink)}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.tags span{background:#f0eee7;border:1px solid #e3e0d8;border-radius:9px;padding:5px 7px;font-size:11.5px;font-weight:750}
+
+.memory-strip{
+  margin:11px 0 5px;padding:10px 12px;border-left:4px solid var(--amber);background:var(--amber-soft);border-radius:0 12px 12px 0;
+  font-size:13px;
+}
+.memory-strip b{color:#7b5817}
+
+.back-inline{
+  display:flex;justify-content:flex-end;padding:13px 0 1px;
+}
+.back-inline button{border:0;background:transparent;color:var(--main);font-weight:850;font-size:13px;cursor:pointer;padding:5px 0}
+
+.final-review{
+  background:var(--main);color:white;border-radius:24px;padding:18px 16px;margin-top:14px;
+}
+.final-review h2{font-size:21px;margin:0 0 8px}
+.final-review p{margin:0;opacity:.9;font-size:14px}
+.final-review .final-grid{display:grid;gap:7px;margin-top:13px}
+.final-review .frow{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:13px;padding:9px 10px;font-size:13px}
+.credit{margin:12px 0 2px;text-align:center;color:var(--muted);font-size:12px}
+
+.fab{
+  position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:25;
+  min-height:50px;border:0;border-radius:18px;padding:0 16px;background:var(--main);color:#fff;
+  font-weight:850;box-shadow:0 11px 28px rgba(24,58,55,.3);display:flex;align-items:center;gap:8px;cursor:pointer;
+}
+.fab span{font-size:14px}
+
+dialog{
+  border:0;padding:0;background:transparent;width:min(100% - 16px,470px);max-height:calc(100dvh - 20px);
+}
+dialog::backdrop{background:rgba(12,22,20,.48);backdrop-filter:blur(3px)}
+.sheet{
+  background:var(--surface);border-radius:26px 26px 18px 18px;max-height:calc(100dvh - 20px);
+  display:flex;flex-direction:column;box-shadow:0 22px 60px rgba(0,0,0,.24);
+}
+.sheet-head{
+  padding:16px 16px 11px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 44px;gap:8px;align-items:center
+}
+.sheet-head h2{margin:0;color:var(--main);font-size:21px}
+.search{
+  margin:10px 16px 8px;width:calc(100% - 32px);height:44px;border:1px solid var(--line);border-radius:13px;padding:0 12px;
+  background:#f7f5ef;color:var(--ink);outline:none;
+}
+.search:focus{border-color:var(--main);box-shadow:0 0 0 3px rgba(24,58,55,.11)}
+.index-list{overflow:auto;padding:4px 10px 18px}
+.index-group{padding:8px 7px 4px;color:var(--muted);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
+.index-list a{
+  display:grid;grid-template-columns:32px 1fr;gap:9px;align-items:center;text-decoration:none;
+  min-height:44px;padding:5px 7px;border-radius:12px;
+}
+.index-list a:active{background:var(--main-soft)}
+.index-list a b{
+  display:grid;place-items:center;width:29px;height:29px;background:#efede6;border-radius:9px;color:var(--main);font-size:11px
+}
+.index-list a span{font-size:13.5px;font-weight:730}
+.index-list a[hidden],.index-group[hidden]{display:none}
+
+
+.human-formula{
+  display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin:6px 0 3px;
+}
+.human-formula .slot{
+  border-radius:10px;padding:6px 8px;font-size:11.5px;font-weight:850;line-height:1.15;
+  border:1px solid #d9d4e8;background:#f8f5fc;color:#503879;
+}
+.human-formula .slot.core{
+  background:var(--formula-soft);border-color:#d8cbed;color:var(--formula);
+}
+.human-formula .op{color:var(--formula);font-weight:950;font-size:14px}
+.tech{
+  display:block;color:var(--muted);font-size:10.5px;margin:2px 1px 7px;
+}
+.tech code{font-family:"SFMono-Regular",Consolas,monospace;font-size:10.5px}
+.mode-map{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);
+  padding:16px;margin-bottom:14px;
+}
+.mode-map h2{font-size:18px;margin:0 0 4px;color:var(--main)}
+.mode-map>p{margin:0 0 11px;color:var(--muted);font-size:13px}
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mode-card{
+  text-decoration:none;border:1px solid var(--line);border-radius:15px;padding:12px 10px;background:#faf8f2;
+}
+.mode-card strong{display:block;font-size:14px;color:var(--main);margin-bottom:3px}
+.mode-card small{display:block;color:var(--muted);font-size:11.5px;line-height:1.25}
+.vocab-goals{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+.vocab-goals span{
+  background:var(--blue-soft);border:1px solid #cfdfeb;color:var(--blue);
+  border-radius:999px;padding:5px 8px;font-size:11.5px;font-weight:780;
+}
+.word-group{margin:10px 0}
+.word-group h4{margin:0 0 5px;font-size:13px;color:var(--main);letter-spacing:.01em}
+.words{display:flex;flex-wrap:wrap;gap:5px}
+.words span{
+  background:#f6f4ee;border:1px solid #e3e0d8;border-radius:9px;padding:5px 7px;
+  font-size:11.2px;line-height:1.2
+}
+.scene{
+  border:1px solid #cfe0db;background:var(--green-soft);border-radius:14px;padding:10px 11px;margin:8px 0;
+}
+.scene b{color:var(--green)}
+.scene p{margin:4px 0;font-size:12.5px}
+.grammar-hook{
+  border-left:4px solid var(--violet);background:var(--violet-soft);
+  border-radius:0 12px 12px 0;padding:9px 10px;margin:8px 0;font-size:12px
+}
+.grammar-hook a{color:var(--violet);font-weight:850;text-decoration:none}
+.can-do{
+  background:var(--amber-soft);border:1px solid #ead9ab;border-radius:13px;padding:9px 10px;margin-top:8px
+}
+.can-do strong{display:block;color:#7b5817;font-size:12px;margin-bottom:4px}
+.can-do div{font-size:11.5px;margin:3px 0}
+
+
+.formula-stack{
+  background:var(--violet-soft);
+  border-color:#d8cbed;
+  padding:9px 10px;
+}
+.formula-stack .human-formula{
+  margin:0 0 4px;
+}
+.formula-stack .slot{
+  background:#fffdfd;
+}
+.formula-stack .slot.core{
+  background:#efe8fb;
+}
+.formula-stack .tech{
+  display:block;
+  margin:2px 1px 0;
+  color:#5c4b80;
+  font-size:10.5px;
+}
+.formula-stack .tech code{
+  color:#5c4b80;
+}
+
+@media(max-width:370px){
+  body{font-size:15px}
+  .shell{padding-left:9px;padding-right:9px}
+  .chapter-body,.chapter-head{padding-left:13px;padding-right:13px}
+  .table{font-size:11.5px}
+  .transform{grid-template-columns:1fr 24px 1fr}
+}
+@media print{body{display:none}}
+
+/* V4.2 audit: one visual language for every formula */
+.formula-stack{
+  background:#eee7f8;
+  border-color:#d4c5eb;
+  padding:10px 10px 9px;
+}
+.formula-stack::before{
+  content:"FÓRMULA";
+  display:block;
+  color:var(--violet);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:.09em;
+  margin-bottom:6px;
+}
+.formula-stack .human-formula{margin:0 0 4px}
+.formula-stack .slot{
+  background:rgba(255,255,255,.66);
+  border-color:#d5c8e7;
+}
+.formula-stack .slot.core{
+  background:#dfd2f2;
+  border-color:#cbb8e7;
+}
+.formula-stack .tech{
+  display:block;
+  margin:5px 1px 0;
+  color:#5b4a79;
+  font-size:10.5px;
+}
+.formula-stack .tech code{color:#5b4a79}
+
+
+/* ── Dark mode ───────────────────────────────────────────── */
+.theme-fab{
+  position:fixed;
+  left:14px;
+  bottom:calc(16px + env(safe-area-inset-bottom));
+  z-index:25;
+  width:50px;
+  height:50px;
+  border:0;
+  border-radius:18px;
+  background:var(--surface);
+  color:var(--main);
+  border:1px solid var(--line);
+  box-shadow:0 11px 28px rgba(24,58,55,.18);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  font-size:20px;
+  font-weight:900;
+}
+.theme-fab:active{transform:translateY(1px)}
+
+html[data-theme="dark"]{
+  color-scheme:dark;
+
+  --ink:#eef4f1;
+  --muted:#a7b5b0;
+  --paper:#101513;
+  --surface:#171e1c;
+  --line:#34403c;
+
+  --main:#74c1b2;
+  --main2:#5ba697;
+  --main-soft:#1c332e;
+
+  --violet:#c4a6f4;
+  --violet-soft:#2d2638;
+
+  --green:#79c9a7;
+  --green-soft:#1b3028;
+
+  --red:#f09b86;
+  --red-soft:#392421;
+
+  --amber:#e4b75a;
+  --amber-soft:#382f1d;
+
+  --blue:#8dbbdd;
+  --blue-soft:#1c2d39;
+
+  --shadow:0 10px 30px rgba(0,0,0,.30);
+}
+
+html[data-theme="dark"] .appbar{
+  background:rgba(16,21,19,.94);
+  border-bottom-color:rgba(255,255,255,.08);
+}
+html[data-theme="dark"] .hero{
+  background:linear-gradient(145deg,#173934 0%,#214b44 72%,#28564e 100%);
+}
+html[data-theme="dark"] .progress{background:#2b3431}
+html[data-theme="dark"] .pillar-link,
+html[data-theme="dark"] .mode-card,
+html[data-theme="dark"] .quick-rule,
+html[data-theme="dark"] .pair,
+html[data-theme="dark"] .mini,
+html[data-theme="dark"] .mini-card,
+html[data-theme="dark"] .t-card,
+html[data-theme="dark"] .words span,
+html[data-theme="dark"] .tags span,
+html[data-theme="dark"] .inline-tags span,
+html[data-theme="dark"] .flow span{
+  background:#1c2421;
+  border-color:#35413d;
+}
+html[data-theme="dark"] .table th{background:#202825;color:#cbd5d1}
+html[data-theme="dark"] .table,
+html[data-theme="dark"] .table th,
+html[data-theme="dark"] .table td{border-color:#35413d}
+html[data-theme="dark"] .search{background:#1d2522;color:var(--ink)}
+html[data-theme="dark"] .index-list a:active{background:var(--main-soft)}
+html[data-theme="dark"] .index-list a b{background:#222b28;color:var(--main)}
+html[data-theme="dark"] .formula-stack .slot{
+  background:rgba(20,17,25,.34);
+  border-color:#554668;
+}
+html[data-theme="dark"] .formula-stack .slot.core{
+  background:#443657;
+  border-color:#68527f;
+}
+html[data-theme="dark"] .formula-stack .tech,
+html[data-theme="dark"] .formula-stack .tech code{color:#d1bdf0}
+html[data-theme="dark"] .word-subtitle{color:#a7b5b0}
+html[data-theme="dark"] dialog::backdrop{background:rgba(0,0,0,.62)}
+
+.word-subtitle{
+  flex-basis:100%;
+  margin:5px 0 1px;
+  font-size:11px;
+  color:var(--muted);
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  font-weight:900;
+}
+.number-words{margin-bottom:5px}
+</style>
+</head>
+<body>
+<header class="appbar" id="top">
+<div class="appbar-inner">
+<button aria-label="Abrir índice" class="icon-btn" onclick="openIndex()" type="button">☰</button>
+<div class="app-title">
+<strong>TELC A1 · Cheat Sheet</strong>
+<span id="currentSection">Inicio</span>
+</div>
+<button aria-label="Volver arriba" class="icon-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button">↑</button>
+</div>
+<div class="progress"><i id="progressBar"></i></div>
+</header>
+<main class="shell">
+<section class="hero">
+<div class="eyebrow">TELC Deutsch A1</div>
+<h1>A1 como sistema,<br/>no como lista.</h1>
+<p>Gramática para construir lo que quieres decir; vocabulario para resolver situaciones reales. Primero entiende la idea, después memoriza el patrón.</p>
+<div class="note">Usa dos mapas: <strong>GRAMMATIK</strong> = cómo construir la frase; <strong>WORTSCHATZ</strong> = qué decir en una situación.</div>
+</section>
+<section class="mode-map">
+<h2>Dos mapas, un mismo A1</h2>
+<p>Elige según lo que necesitas en ese momento.</p>
+<div class="mode-grid">
+<a class="mode-card" href="#c1"><strong>GRAMMATIK</strong><small>¿Cómo construyo correctamente lo que quiero decir?</small></a>
+<a class="mode-card" href="#vocab-map"><strong>WORTSCHATZ</strong><small>¿Qué necesito decir en esta situación?</small></a>
+</div>
+</section>
+<section class="mental-map">
+<h2>GRAMMATIK · Las 6 decisiones</h2>
+<p>Todo el contenido cuelga de estas seis preguntas.</p>
+<div class="pillars">
+<a class="pillar-link" href="#c1"><span class="n">1</span><span><strong>¿Cómo construyo la frase?</strong><small>Orden, preguntas, presente, sein/haben</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#c2"><span class="n">2</span><span><strong>¿Tengo dos partes verbales?</strong><small>Pinza, separables, modales, möchten, imperativo</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#c3"><span class="n">3</span><span><strong>¿Qué le pasa al sustantivo?</strong><small>Género, plural, casos, artículos, pronombres, posesivos</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#c4"><span class="n">4</span><span><strong>¿Dónde / cuándo ocurre?</strong><small>Preposiciones, Wo/Wohin/Woher, tiempo</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#c5"><span class="n">5</span><span><strong>¿Estoy hablando del pasado?</strong><small>Perfekt, Partizip II, haben/sein, war/hatte</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#c6"><span class="n">6</span><span><strong>¿Quiero comparar o conectar?</strong><small>dieser/welcher, comparación, conectores, fechas</small></span><span class="arrow">›</span></a>
+</div>
+</section>
+<!-- CHAPTER 1 -->
+<section class="chapter" data-title="1 · Construir la frase" id="c1">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 1</div>
+<h2>¿Cómo construyo la frase?</h2>
+<p>Antes de pensar en casos o artículos, fija la arquitectura básica.</p>
+<div class="chapter-question">Pregunta mental: <strong>¿Es una afirmación, una W-Frage o una pregunta de sí/no?</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="V₂ · oración principal" id="t1">
+<h3>La regla madre: V₂</h3>
+<div class="label lab-rule">Regla</div>
+<div class="box rule">En una oración principal, el <strong>verbo conjugado va en posición 2</strong>.</div>
+<div class="label lab-formula">Fórmula</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">LO PRIMERO</span><span class="op">+</span><span class="slot core">VERBO CONJUGADO</span><span class="op">+</span><span class="slot">RESTO</span></div><small class="tech">Atajo técnico: <code>Elemento 1 + V₂ + ...</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Base</small><b>Ich arbeite heute.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Tiempo primero</small><b>Heute arbeite ich.</b></div>
+</div>
+<div class="memory-strip"><b>Recuerda:</b> “posición” no significa “palabra”. <em>Am Montag</em> cuenta como una sola posición.</div>
+<div class="box warning"><span class="bad">✗ Heute ich arbeite.</span><br/><span class="good">✓ Heute arbeite ich.</span></div>
+</article>
+<article class="topic" data-title="Preguntas · W / sí-no" id="t2">
+<h3>Preguntas: dos patrones</h3>
+<h4>W-Frage</h4>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">PALABRA DE PREGUNTA</span><span class="op">+</span><span class="slot core">VERBO</span><span class="op">+</span><span class="slot">PERSONA + RESTO</span></div><small class="tech">Atajo técnico: <code>W-Wort + V + S + ... ?</code></small></div>
+<div class="box example">Wo <strong>wohnst du</strong>? · Wann <strong>kommst du</strong>? · Wie <strong>heißt du</strong>? · Woher <strong>kommst du</strong>?</div>
+<div class="grid2">
+<div class="mini"><small>wer?</small><b>quién</b></div><div class="mini"><small>was?</small><b>qué</b></div>
+<div class="mini"><small>wo?</small><b>dónde</b></div><div class="mini"><small>woher?</small><b>de dónde</b></div>
+<div class="mini"><small>wohin?</small><b>hacia dónde</b></div><div class="mini"><small>wann?</small><b>cuándo</b></div>
+<div class="mini"><small>wie?</small><b>cómo</b></div><div class="mini"><small>warum?</small><b>por qué</b></div>
+<div class="mini"><small>wie viel?</small><b>cuánto</b></div><div class="mini"><small>wie viele?</small><b>cuántos</b></div>
+</div>
+<div class="box memory"><strong>Wer kommt heute?</strong> → aquí <em>wer</em> ya es el sujeto.</div>
+<h4>Ja-/Nein-Frage</h4>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">VERBO</span><span class="op">+</span><span class="slot core">PERSONA</span><span class="op">+</span><span class="slot">RESTO</span></div><small class="tech">Atajo técnico: <code>V + S + ... ?</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Afirmación</small><b>Du wohnst in Köln.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Pregunta</small><b>Wohnst du in Köln?</b></div>
+</div>
+<div class="memory-strip"><b>3 formas:</b> Aussage → V₂ · W-Frage → W + V · Ja/Nein → V₁.</div>
+</article>
+<article class="topic" data-title="Präsens · conjugación" id="t3">
+<h3>Präsens: construir la forma del verbo</h3>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">RAÍZ DEL VERBO</span><span class="op">+</span><span class="slot core">TERMINACIÓN DE LA PERSONA</span></div>
+<small class="tech">Atajo técnico: <code>Stamm + Endung</code></small>
+</div>
+<table class="table center">
+<tr><th>Persona</th><th>Fin</th><th>machen</th></tr>
+<tr><td>ich</td><td>-e</td><td>mache</td></tr>
+<tr><td>du</td><td>-st</td><td>machst</td></tr>
+<tr><td>er/sie/es</td><td>-t</td><td>macht</td></tr>
+<tr><td>wir</td><td>-en</td><td>machen</td></tr>
+<tr><td>ihr</td><td>-t</td><td>macht</td></tr>
+<tr><td>sie/Sie</td><td>-en</td><td>machen</td></tr>
+</table>
+<div class="memory-strip"><b>Fórmula automática:</b> -e · -st · -t · -en · -t · -en</div>
+<h4>Raíz en -t / -d / -tm / -chn / -ffn</h4>
+<div class="flow"><span>terminación difícil de pronunciar</span><i>→</i><span>aparece una e</span></div>
+<div class="box example">arbeiten → du arbeit<strong>est</strong> · er arbeit<strong>et</strong><br/>finden → du find<strong>est</strong> · öffnen → du öffn<strong>est</strong> · rechnen → du rechn<strong>est</strong></div>
+<h4>Raíz en -s / -ß / -z / -tz</h4>
+<div class="flow"><span>du</span><i>→</i><span>no añadimos otra s</span></div>
+<div class="box example">heißen → du <strong>heißt</strong> · tanzen → du <strong>tanzt</strong> · putzen → du <strong>putzt</strong></div>
+<h4>Verbos en -eln</h4>
+<div class="flow"><span>ich</span><i>→</i><span>suele caer una e</span></div>
+<div class="box example">sammeln → ich <strong>sammle</strong> · klingeln → ich <strong>klingle</strong></div>
+</article>
+<article class="topic" data-title="Vokalwechsel" id="t4">
+<h3>Vokalwechsel: solo vigila dos personas</h3>
+<div class="box rule">El cambio de vocal aparece en <strong>du + er/sie/es</strong>.</div>
+<table class="table">
+<tr><th>Patrón</th><th>Ejemplos</th></tr>
+<tr><td><strong>e → i</strong></td><td>sprechen→sprichst · nehmen→nimmst · essen→isst · geben→gibst · helfen→hilfst</td></tr>
+<tr><td><strong>e → ie</strong></td><td>lesen→liest · sehen→siehst</td></tr>
+<tr><td><strong>a → ä</strong></td><td>fahren→fährst · schlafen→schläfst</td></tr>
+</table>
+<div class="transform">
+<div class="t-card"><small>ich</small><b>ich fahre</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>du</small><b>du fährst</b></div>
+</div>
+<div class="box warning">No todos los verbos con <em>a/e</em> cambian: machen → du <strong>machst</strong>.</div>
+</article>
+<article class="topic" data-title="sein + haben" id="t5">
+<h3>sein + haben: dos verbos que no se negocian</h3>
+<table class="table center">
+<tr><th>Persona</th><th>sein</th><th>haben</th></tr>
+<tr><td>ich</td><td><strong>bin</strong></td><td><strong>habe</strong></td></tr>
+<tr><td>du</td><td>bist</td><td>hast</td></tr><tr><td>er/sie/es</td><td>ist</td><td>hat</td></tr>
+<tr><td>wir</td><td>sind</td><td>haben</td></tr><tr><td>ihr</td><td>seid</td><td>habt</td></tr>
+<tr><td>sie/Sie</td><td>sind</td><td>haben</td></tr>
+</table>
+<div class="box example">Ich <strong>bin</strong> müde. · Wir <strong>sind</strong> in Köln.<br/>Ich <strong>habe</strong> Zeit. · Er <strong>hat</strong> ein Auto.</div>
+</article>
+<article class="topic" data-title="Personalpronomen · Nominativ" id="t6">
+<h3>¿Quién hace la acción? · Personalpronomen</h3>
+<table class="table center">
+<tr><th>Persona</th><th>Pronombre</th></tr>
+<tr><td>1ª sg.</td><td>ich</td></tr><tr><td>2ª sg.</td><td>du</td></tr>
+<tr><td>3ª masc.</td><td>er</td></tr><tr><td>3ª fem.</td><td>sie</td></tr><tr><td>3ª neut.</td><td>es</td></tr>
+<tr><td>1ª pl.</td><td>wir</td></tr><tr><td>2ª pl.</td><td>ihr</td></tr><tr><td>3ª pl.</td><td>sie</td></tr>
+<tr><td>formal</td><td><strong>Sie</strong></td></tr>
+</table>
+<div class="memory-strip"><b>sie / sie / Sie:</b> ella · ellos/ellas · usted/ustedes formal. <strong>Sie formal siempre con mayúscula.</strong></div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- CHAPTER 2 -->
+<section class="chapter" data-title="2 · Dos partes verbales" id="c2">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 2</div>
+<h2>¿Tengo dos partes verbales?</h2>
+<p>Si la respuesta es sí, aparece una de las ideas más útiles de A1: la <strong>pinza verbal</strong>.</p>
+<div class="chapter-question">Pregunta mental: <strong>¿Tengo prefijo separado, modal + infinitivo o auxiliar + participio?</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="Satzklammer · la pinza" id="t7">
+<h3>Una sola idea explica tres estructuras</h3>
+<div class="flow"><span>VERBO CONJUGADO</span><i>…</i><span>INFORMACIÓN</span><i>…</i><span>PARTE FINAL</span></div>
+<table class="table">
+<tr><th>Tipo</th><th>Fórmula</th><th>Ejemplo</th></tr>
+<tr><td>Separable</td><td>V₂ … prefijo</td><td>Ich <strong>stehe</strong> früh <strong>auf</strong>.</td></tr>
+<tr><td>Modal</td><td>Modal₂ … INF</td><td>Ich <strong>muss</strong> heute <strong>arbeiten</strong>.</td></tr>
+<tr><td>Perfekt</td><td>haben/sein₂ … Partizip</td><td>Ich <strong>habe</strong> heute <strong>gearbeitet</strong>.</td></tr>
+</table>
+<div class="memory-strip"><b>No memorices tres reglas separadas.</b> Memoriza una: <strong>dos piezas verbales abrazan la oración.</strong></div>
+</article>
+<article class="topic" data-title="Trennbare Verben" id="t8">
+<h3>Trennbare Verben · el prefijo se va al final</h3>
+<div class="tags"><span>aufstehen</span><span>anrufen</span><span>einkaufen</span><span>anfangen</span><span>fernsehen</span></div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">VERBO CONJUGADO</span><span class="op">+</span><span class="slot core">INFORMACIÓN</span><span class="op">+</span><span class="slot">PREFIJO</span></div><small class="tech">Atajo técnico: <code>V₂ + ... + Präfix</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Infinitivo</small><b>aufstehen</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Oración</small><b>Ich stehe um 7 Uhr auf.</b></div>
+</div>
+<div class="box warning"><span class="bad">✗ Ich muss stehe früh auf.</span><br/><span class="good">✓ Ich muss früh aufstehen.</span><br/><small>Con modal, vuelve el infinitivo completo.</small></div>
+</article>
+<article class="topic" data-title="Modalverben" id="t9">
+<h3>Modalverben · cambia la intención, no la arquitectura</h3>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">QUIÉN</span><span class="op">+</span>
+<span class="slot core">MODAL</span><span class="op">+</span>
+<span class="slot">RESTO</span><span class="op">+</span>
+<span class="slot core">ACCIÓN AL FINAL</span>
+</div>
+<small class="tech">Atajo técnico: <code>S + Modal + ... + Infinitiv</code></small>
+</div>
+<div class="transform">
+<div class="t-card"><small>Sin modal</small><b>Ich spreche Deutsch.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Con modal</small><b>Ich kann Deutsch sprechen.</b></div>
+</div>
+<table class="table center">
+<tr><th></th><th>ich</th><th>du</th><th>er/sie/es</th><th>wir</th><th>ihr</th><th>sie/Sie</th></tr>
+<tr><td><strong>können</strong></td><td>kann</td><td>kannst</td><td>kann</td><td>können</td><td>könnt</td><td>können</td></tr>
+<tr><td><strong>müssen</strong></td><td>muss</td><td>musst</td><td>muss</td><td>müssen</td><td>müsst</td><td>müssen</td></tr>
+<tr><td><strong>dürfen</strong></td><td>darf</td><td>darfst</td><td>darf</td><td>dürfen</td><td>dürft</td><td>dürfen</td></tr>
+<tr><td><strong>sollen</strong></td><td>soll</td><td>sollst</td><td>soll</td><td>sollen</td><td>sollt</td><td>sollen</td></tr>
+<tr><td><strong>wollen</strong></td><td>will</td><td>willst</td><td>will</td><td>wollen</td><td>wollt</td><td>wollen</td></tr>
+</table>
+<div class="memory-strip"><b>Patrón potente:</b> en muchos modales, <strong>ich = er/sie/es</strong>.</div>
+</article>
+<article class="topic" data-title="mögen · gern · möchten" id="t10">
+<h3>mögen · gern · möchten: tres ideas distintas</h3>
+<table class="table">
+<tr><th>Quiero decir…</th><th>Patrón</th><th>Ejemplo</th></tr>
+<tr><td>“Me gusta X”</td><td>mögen + N</td><td>Ich <strong>mag Kaffee</strong>.</td></tr>
+<tr><td>“Me gusta hacer X”</td><td>V + gern</td><td>Ich <strong>trinke gern</strong> Kaffee.</td></tr>
+<tr><td>“Quisiera…”</td><td>möchten</td><td>Ich <strong>möchte</strong> einen Kaffee.</td></tr>
+</table>
+<div class="grid2">
+<div class="mini"><small>ich</small><b>mag / möchte</b></div><div class="mini"><small>du</small><b>magst / möchtest</b></div>
+<div class="mini"><small>er/sie/es</small><b>mag / möchte</b></div><div class="mini"><small>wir</small><b>mögen / möchten</b></div>
+<div class="mini"><small>ihr</small><b>mögt / möchtet</b></div><div class="mini"><small>sie/Sie</small><b>mögen / möchten</b></div>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">QUIÉN</span><span class="op">+</span>
+<span class="slot core">möchten</span><span class="op">+</span>
+<span class="slot">RESTO</span><span class="op">+</span>
+<span class="slot core">ACCIÓN AL FINAL</span>
+</div>
+<small class="tech">Atajo técnico: <code>S + möchten + ... + Infinitiv</code></small>
+</div>
+<div class="box example">Ich <strong>möchte</strong> Deutsch <strong>lernen</strong>.</div>
+</article>
+<article class="topic" data-title="Imperativ" id="t11">
+<h3>Imperativ · quitar el sujeto</h3>
+<table class="table">
+<tr><th>Persona</th><th>Cómo pensarlo</th><th>Ejemplo</th></tr>
+<tr><td><strong>Sie</strong></td><td>Infinitivo + Sie</td><td>Kommen Sie!</td></tr>
+<tr><td><strong>ihr</strong></td><td>forma de ihr sin ihr</td><td>Kommt!</td></tr>
+<tr><td><strong>du</strong></td><td>forma corta sin du</td><td>Komm!</td></tr>
+</table>
+<div class="box example">nehmen → <strong>Nimm!</strong> · lesen → <strong>Lies!</strong> · essen → <strong>Iss!</strong> · sein → <strong>Sei!</strong></div>
+<div class="box example">Separables: <strong>Steh auf!</strong> · <strong>Ruf mich an!</strong></div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- CHAPTER 3 -->
+<section class="chapter" data-title="3 · Sustantivos y casos" id="c3">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 3</div>
+<h2>¿Qué le pasa al sustantivo?</h2>
+<p>Aquí es donde alemán cambia artículos y pronombres. No empieces por la tabla: empieza por el <strong>trigger</strong>.</p>
+<div class="chapter-question">Pregunta mental: <strong>¿Qué género tiene? → ¿qué caso exige el verbo/preposición? → ¿qué forma toca?</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="Nomen · género y plural" id="t12">
+<h3>Aprende el sustantivo como un paquete</h3>
+<div class="transform">
+<div class="t-card"><small>No</small><b>Tisch</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Sí</small><b>der Tisch · die Tische</b></div>
+</div>
+<div class="grid2">
+<div class="mini"><small>masculino</small><b>der</b></div><div class="mini"><small>femenino</small><b>die</b></div>
+<div class="mini"><small>neutro</small><b>das</b></div><div class="mini"><small>plural</small><b>die</b></div>
+</div>
+<table class="table">
+<tr><th>Plural</th><th>Ejemplo</th></tr>
+<tr><td>-e</td><td>Tisch → Tische</td></tr><tr><td>-(e)n</td><td>Frau → Frauen</td></tr>
+<tr><td>-er</td><td>Kind → Kinder</td></tr><tr><td>-s</td><td>Auto → Autos</td></tr>
+<tr><td>∅</td><td>Lehrer → Lehrer</td></tr><tr><td>+ Umlaut</td><td>Buch → Bücher</td></tr>
+</table>
+<div class="memory-strip"><b>Pistas:</b> die: -ung/-heit/-keit/-schaft/-ei · das: -chen/-lein · der: días, meses, estaciones.</div>
+</article>
+<article class="topic" data-title="Komposita" id="t13">
+<h3>Komposita · mira siempre la última palabra</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">PALABRA</span><span class="op">+</span><span class="slot core">SUSTANTIVO FINAL</span><span class="op">=</span><span class="slot">NUEVO SUSTANTIVO</span></div><small class="tech">Atajo técnico: <code>Palabra + sustantivo final = nuevo sustantivo</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Partes</small><b>Kurs + Buch</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Resultado</small><b>das Kursbuch</b></div>
+</div>
+<div class="memory-strip"><b>Superregla:</b> la última palabra decide el género y normalmente también el patrón básico del plural.</div>
+</article>
+<article class="topic" data-title="Nom · Akk · Dat" id="t14">
+<h3>Los 3 casos de A1</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">VERBO / PREPOSICIÓN</span><span class="op">+</span><span class="slot core">CASO QUE EXIGE</span><span class="op">+</span><span class="slot">FORMA CORRECTA</span></div><small class="tech">Atajo técnico: <code>Trigger → Kasus → Form</code></small></div>
+<table class="table">
+<tr><th>Caso</th><th>Cómo pensarlo</th><th>Ejemplo</th></tr>
+<tr><td><strong>Nom.</strong></td><td>normalmente sujeto</td><td><strong>Der Mann</strong> arbeitet.</td></tr>
+<tr><td><strong>Akk.</strong></td><td>lo exigen muchos verbos</td><td>Ich sehe <strong>den Mann</strong>.</td></tr>
+<tr><td><strong>Dat.</strong></td><td>lo exigen verbos/preposiciones</td><td>Ich fahre mit <strong>dem Bus</strong>.</td></tr>
+</table>
+<div class="memory-strip"><b>Aprende chunks:</b> sehen + Akk · helfen + Dat · mit + Dat.</div>
+</article>
+<article class="topic" data-title="Artículos · patrón central" id="t15">
+<h3>La tabla importa, pero el patrón importa más</h3>
+<h4>Bestimmter Artikel</h4>
+<table class="table center">
+<tr><th></th><th>M</th><th>F</th><th>N</th><th>PL</th></tr>
+<tr><td>Nom.</td><td><strong>der</strong></td><td>die</td><td>das</td><td>die</td></tr>
+<tr><td>Akk.</td><td><strong>den</strong></td><td>die</td><td>das</td><td>die</td></tr>
+<tr><td>Dat.</td><td><strong>dem</strong></td><td>der</td><td>dem</td><td>den</td></tr>
+</table>
+<h4>Unbestimmter Artikel</h4>
+<table class="table center">
+<tr><th></th><th>M</th><th>F</th><th>N</th></tr>
+<tr><td>Nom.</td><td><strong>ein</strong></td><td>eine</td><td>ein</td></tr>
+<tr><td>Akk.</td><td><strong>einen</strong></td><td>eine</td><td>ein</td></tr>
+<tr><td>Dat.</td><td><strong>einem</strong></td><td>einer</td><td>einem</td></tr>
+</table>
+<div class="transform">
+<div class="t-card"><small>Nominativ</small><b>der Mann</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Akkusativ</small><b>den Mann</b></div>
+</div>
+<div class="transform">
+<div class="t-card"><small>Nominativ</small><b>ein Kaffee</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Akkusativ</small><b>einen Kaffee</b></div>
+</div>
+<div class="memory-strip"><b>Regla de alto rendimiento:</b> en Akkusativ comparado con Nominativ, <strong>solo cambia el masculino</strong>.</div>
+</article>
+<article class="topic" data-title="Dativ plural" id="t16">
+<h3>Dativ plural · dos cambios a la vez</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">den</span><span class="op">+</span><span class="slot core">PLURAL</span><span class="op">+</span><span class="slot">normalmente + n</span></div><small class="tech">Atajo técnico: <code>den + Plural + meist -n</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Plural</small><b>die Kinder</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Dativ</small><b>den Kindern</b></div>
+</div>
+<div class="box warning">Si el plural ya termina en <strong>-n/-en</strong> o <strong>-s</strong>, normalmente no añades otra <em>n</em>: den Frauen · den Autos.</div>
+</article>
+<article class="topic" data-title="Verb → Kasus" id="t17">
+<h3>El verbo decide el caso</h3>
+<h4>+ Akkusativ</h4>
+<div class="tags">
+<span>anrufen</span><span>bekommen</span><span>brauchen</span><span>(ein)kaufen</span><span>einladen</span>
+<span>essen</span><span>fragen</span><span>haben</span><span>hören</span><span>kochen</span><span>machen</span>
+<span>nehmen</span><span>sehen</span><span>suchen</span><span>treffen</span><span>trinken</span><span>verstehen</span>
+</div>
+<div class="box example">Ich brauche <strong>einen Termin</strong>. · Ich sehe <strong>den Mann</strong>. · Ich lade <strong>meine Freundin</strong> ein.</div>
+<h4>+ Dativ</h4>
+<div class="tags"><span>antworten</span><span>gefallen</span><span>helfen</span><span>passen</span><span>schmecken</span></div>
+<div class="box example">Ich helfe <strong>dir</strong>. · Die Hose gefällt <strong>mir</strong>. · Ich antworte <strong>ihm</strong>.</div>
+<h4>Dativ + Akkusativ</h4>
+<div class="tags"><span>erklären</span><span>erzählen</span><span>bringen</span><span>geben</span><span>sagen</span><span>schenken</span><span>zeigen</span></div>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">A QUIÉN</span><span class="op">+</span><span class="slot core">QUÉ COSA</span>
+</div>
+<small class="tech">Atajo técnico: <code>Persona = Dat. + cosa = Akk.</code></small>
+</div>
+<div class="transform">
+<div class="t-card"><small>Persona · Dat.</small><b>dir</b></div>
+<div class="t-arrow">+</div>
+<div class="t-card"><small>Cosa · Akk.</small><b>einen Kaffee</b></div>
+</div>
+<div class="box example">Ich gebe <strong>dir einen Kaffee</strong>.</div>
+<h4>Chunks con preposición</h4>
+<div class="tags"><span>warten auf + Akk.</span><span>telefonieren mit + Dat.</span></div>
+<div class="box example">Ich warte <strong>auf den Bus</strong>. · Ich telefoniere <strong>mit meiner Schwester</strong>.</div>
+</article>
+<article class="topic" data-title="Pronombres · Dativ" id="t18">
+<h3>Cuando la persona ya no necesita sustantivo</h3>
+<table class="table center">
+<tr><th>Nom.</th><th>Dat.</th></tr>
+<tr><td>ich</td><td>mir</td></tr><tr><td>du</td><td>dir</td></tr>
+<tr><td>er</td><td>ihm</td></tr><tr><td>sie</td><td>ihr</td></tr><tr><td>es</td><td>ihm</td></tr>
+<tr><td>wir</td><td>uns</td></tr><tr><td>ihr</td><td>euch</td></tr><tr><td>sie</td><td>ihnen</td></tr><tr><td>Sie</td><td>Ihnen</td></tr>
+</table>
+<div class="transform">
+<div class="t-card"><small>Con nombre</small><b>Ich helfe dem Mann.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Con pronombre</small><b>Ich helfe ihm.</b></div>
+</div>
+</article>
+<article class="topic" data-title="Possessivartikel" id="t19">
+<h3>Possessivartikel · primero identifica al dueño</h3>
+<div class="grid2">
+<div class="mini"><small>ich</small><b>mein-</b></div><div class="mini"><small>du</small><b>dein-</b></div>
+<div class="mini"><small>er / es</small><b>sein-</b></div><div class="mini"><small>sie</small><b>ihr-</b></div>
+<div class="mini"><small>wir</small><b>unser-</b></div><div class="mini"><small>ihr</small><b>euer-</b></div>
+<div class="mini"><small>sie</small><b>ihr-</b></div><div class="mini"><small>Sie</small><b>Ihr-</b></div>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">MASC. / NEUTRO</span><span class="op">→</span><span class="slot core">RAÍZ</span>
+</div>
+<div class="human-formula">
+<span class="slot">FEM. / PLURAL</span><span class="op">→</span><span class="slot core">RAÍZ + -e</span>
+</div>
+<small class="tech">Atajo técnico: <code>Nom.: M/N → base · F/PL → base + -e</code></small>
+</div>
+<div class="box example">mein Vater · mein Kind · <strong>meine</strong> Mutter · <strong>meine</strong> Freunde</div>
+<div class="transform">
+<div class="t-card"><small>Nom. masc.</small><b>mein Freund</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Akk. masc.</small><b>meinen Freund</b></div>
+</div>
+<div class="memory-strip"><b>euer:</b> euer Vater · eure Mutter · euren Vater.</div>
+</article>
+<article class="topic" data-title="nicht vs kein" id="t20">
+<h3>Negación: primero pregunta qué estás negando</h3>
+<div class="flow"><span>¿Sustantivo tipo ein/eine?</span><i>→</i><span><strong>KEIN</strong></span></div>
+<div class="flow"><span>¿Otra cosa?</span><i>→</i><span><strong>normalmente NICHT</strong></span></div>
+<h4>kein</h4>
+<div class="transform">
+<div class="t-card"><small>Afirmación</small><b>Ich habe ein Auto.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Negación</small><b>Ich habe kein Auto.</b></div>
+</div>
+<div class="box example">Ich trinke <strong>keinen Kaffee</strong>. · Ich habe <strong>keine Zeit</strong>.</div>
+<table class="table center">
+<tr><th></th><th>M</th><th>F</th><th>N</th><th>PL</th></tr>
+<tr><td>Nom.</td><td>kein</td><td>keine</td><td>kein</td><td>keine</td></tr>
+<tr><td>Akk.</td><td><strong>keinen</strong></td><td>keine</td><td>kein</td><td>keine</td></tr>
+<tr><td>Dat.</td><td>keinem</td><td>keiner</td><td>keinem</td><td>keinen</td></tr>
+</table>
+<h4>nicht</h4>
+<div class="box example">Das ist <strong>nicht teuer</strong>.<br/>Ich wohne <strong>nicht in Bonn</strong>.<br/>Ich arbeite heute <strong>nicht</strong>.<br/>Ich kann heute <strong>nicht kommen</strong>.</div>
+<div class="box warning">La posición exacta de <em>nicht</em> depende de qué estás negando. No memorices una única posición universal.</div>
+</article>
+<article class="topic" data-title="Familias · patrón -en" id="t21">
+<h3>Una sola familia explica muchas terminaciones</h3>
+<h4>Familia der</h4>
+<div class="flow"><span>der</span><i>→</i><span>den</span><span>dieser</span><i>→</i><span>diesen</span><span>welcher</span><i>→</i><span>welchen</span></div>
+<h4>Familia ein</h4>
+<div class="flow"><span>ein</span><i>→</i><span>einen</span><span>kein</span><i>→</i><span>keinen</span><span>mein</span><i>→</i><span>meinen</span></div>
+<div class="memory-strip"><b>Superfórmula:</b> <strong>MASCULINO AKKUSATIV → busca -en.</strong></div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- CHAPTER 4 -->
+<section class="chapter" data-title="4 · Lugar y tiempo" id="c4">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 4</div>
+<h2>¿Dónde / cuándo ocurre?</h2>
+<p>En vez de memorizar preposiciones sueltas, agrúpalas por la pregunta que responden.</p>
+<div class="chapter-question">Pregunta mental: <strong>Woher? → Wo? → Wohin? / ¿hora, día, mes o rango?</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="Preposiciones + Dativ" id="t22">
+<h3>Preposiciones frecuentes que piden Dativ</h3>
+<div class="grid2">
+<div class="mini"><small>mit + Dat.</small><b>mit dem Bus</b></div><div class="mini"><small>zu + Dat.</small><b>zum Arzt</b></div>
+<div class="mini"><small>bei + Dat.</small><b>beim Arzt</b></div><div class="mini"><small>aus + Dat.</small><b>aus der Schweiz</b></div>
+<div class="mini"><small>von + Dat.</small><b>vom Bahnhof</b></div>
+</div>
+<div class="memory-strip"><b>Contracciones:</b> zu+dem=zum · zu+der=zur · bei+dem=beim · von+dem=vom.</div>
+</article>
+<article class="topic" data-title="Woher · Wo · Wohin" id="t23">
+<h3>Woher? · Wo? · Wohin?</h3>
+<table class="table">
+<tr><th>Pregunta</th><th>Patrón A1</th><th>Ejemplo</th></tr>
+<tr><td><strong>Woher?</strong></td><td>aus + origen</td><td>Ich komme <strong>aus Chile</strong>.</td></tr>
+<tr><td><strong>Wo?</strong></td><td>ubicación</td><td>Ich bin <strong>im Büro</strong>.</td></tr>
+<tr><td><strong>Wohin?</strong></td><td>nach / zu</td><td>nach Berlin · zum Arzt</td></tr>
+</table>
+<div class="transform">
+<div class="t-card"><small>Wo?</small><b>zu Hause</b></div>
+<div class="t-arrow">↔</div>
+<div class="t-card"><small>Wohin?</small><b>nach Hause</b></div>
+</div>
+<div class="memory-strip"><b>nach:</b> ciudad/país sin artículo → nach Berlin, nach Deutschland.<br/><b>zu + Dat:</b> persona/institución → zum Arzt, zur Apotheke.</div>
+</article>
+<article class="topic" data-title="in / an · ubicación" id="t24">
+<h3>in / an: aprende primero el uso de ubicación</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">¿DÓNDE?</span><span class="op">+</span><span class="slot core">in / an</span><span class="op">+</span><span class="slot">DATIV</span></div><small class="tech">Atajo técnico: <code>Wo? → in/an + Dat.</code></small></div>
+<div class="box example">Ich bin <strong>im Supermarkt</strong>. · Ich bin <strong>in der Apotheke</strong>. · Ich bin <strong>am Bahnhof</strong>.</div>
+<div class="box warning"><strong>in</strong> y <strong>an</strong> no llevan siempre Dativ en alemán. Aquí estás aprendiendo el patrón A1 de <strong>ubicación</strong>.</div>
+</article>
+<article class="topic" data-title="Lokale Präpositionen" id="t25">
+<h3>Lokale Präpositionen · aprende la imagen</h3>
+<div class="grid2">
+<div class="mini"><small>in</small><b>dentro</b></div><div class="mini"><small>an</small><b>junto a / en</b></div>
+<div class="mini"><small>auf</small><b>sobre</b></div><div class="mini"><small>vor</small><b>delante de</b></div>
+<div class="mini"><small>hinter</small><b>detrás de</b></div><div class="mini"><small>neben</small><b>al lado de</b></div>
+<div class="mini"><small>unter</small><b>debajo de</b></div><div class="mini"><small>über</small><b>encima de</b></div>
+<div class="mini"><small>zwischen</small><b>entre</b></div><div class="mini"><small>gegenüber</small><b>enfrente</b></div>
+</div>
+<div class="box example">Die Bank ist <strong>neben dem Supermarkt</strong>.<br/>Der Bus steht <strong>vor dem Bahnhof</strong>.<br/>Die Apotheke ist <strong>gegenüber dem Supermarkt</strong>.</div>
+</article>
+<article class="topic" data-title="Contracciones" id="t26">
+<h3>Contracciones · memorízalas como palabras</h3>
+<table class="table">
+<tr><th>Completa</th><th>Contracción</th></tr>
+<tr><td>an + dem</td><td><strong>am</strong></td></tr><tr><td>in + dem</td><td><strong>im</strong></td></tr>
+<tr><td>bei + dem</td><td><strong>beim</strong></td></tr><tr><td>von + dem</td><td><strong>vom</strong></td></tr>
+<tr><td>zu + dem</td><td><strong>zum</strong></td></tr><tr><td>zu + der</td><td><strong>zur</strong></td></tr>
+</table>
+<div class="box example">am Montag · im Büro · beim Arzt · vom Bahnhof · zum Arzt · zur Apotheke</div>
+</article>
+<article class="topic" data-title="Tiempo · um / am / im" id="t27">
+<h3>Tiempo: tres preposiciones, tres escalas</h3>
+<div class="flow"><span>um</span><i>→</i><span>hora</span></div>
+<div class="flow"><span>am</span><i>→</i><span>día / fecha</span></div>
+<div class="flow"><span>im</span><i>→</i><span>mes / estación</span></div>
+<div class="box example">um 8 Uhr · am Montag · am fünften Mai · im August · im Sommer</div>
+<div class="memory-strip"><b>Mnemotecnia:</b> para estas expresiones de tiempo: <strong>um = hora · am = día/fecha · im = mes/estación</strong>.</div>
+</article>
+<article class="topic" data-title="Frecuencia" id="t28">
+<h3>Frecuencia · dónde colocarla</h3>
+<div class="box memory"><strong>immer → oft → manchmal → selten → nie</strong></div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">PERSONA</span><span class="op">+</span><span class="slot core">VERBO</span><span class="op">+</span><span class="slot">FRECUENCIA</span></div><small class="tech">Atajo técnico: <code>S + V + Häufigkeit + ...</code></small></div>
+<div class="box example">Ich gehe <strong>oft</strong> ins Kino. · Ich arbeite <strong>manchmal</strong> zu Hause.</div>
+<div class="transform">
+<div class="t-card"><small>Normal</small><b>Ich arbeite heute.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Tiempo primero</small><b>Heute arbeite ich.</b></div>
+</div>
+</article>
+<article class="topic" data-title="Tiempo · von/bis · vor/nach" id="t29">
+<h3>Rangos y relación temporal</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">von</span><span class="op">+</span><span class="slot core">INICIO</span><span class="op">+</span><span class="slot">bis + FIN</span></div><small class="tech">Atajo técnico: <code>von + inicio + bis + fin</code></small></div>
+<div class="box example">von Montag bis Freitag · von 9 bis 17 Uhr</div>
+<div class="box example"><strong>nach + Dat.</strong> → nach der Arbeit · nach dem Kurs<br/><strong>vor + Dat.</strong> → vor dem Kurs · vor einem Jahr</div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- CHAPTER 5 -->
+<section class="chapter" data-title="5 · Hablar del pasado" id="c5">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 5</div>
+<h2>¿Estoy hablando del pasado?</h2>
+<p>En A1, el pasado se entiende mejor como una nueva aplicación de la pinza verbal.</p>
+<div class="chapter-question">Pregunta mental: <strong>¿Necesito Perfekt? → auxiliar → Partizip II.</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="Perfekt · fórmula" id="t30">
+<h3>Perfekt · la misma pinza de antes</h3>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">QUIÉN</span><span class="op">+</span>
+<span class="slot core">haben / sein</span><span class="op">+</span>
+<span class="slot">RESTO</span><span class="op">+</span>
+<span class="slot core">QUÉ PASÓ · AL FINAL</span>
+</div>
+<small class="tech">Atajo técnico: <code>S + haben/sein + ... + Partizip II</code></small>
+</div>
+<div class="transform">
+<div class="t-card"><small>Presente</small><b>Ich arbeite heute.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Pasado</small><b>Ich habe heute gearbeitet.</b></div>
+</div>
+<div class="box example">Ich <strong>habe</strong> gestern <strong>gearbeitet</strong>.<br/>Ich <strong>bin</strong> nach Bonn <strong>gefahren</strong>.</div>
+</article>
+<article class="topic" data-title="Partizip II · construirlo" id="t31">
+<h3>Partizip II · primero identifica el tipo de verbo</h3>
+<table class="table">
+<tr><th>Tipo</th><th>Patrón</th><th>Ejemplo</th></tr>
+<tr><td>Regular</td><td>ge + raíz + t</td><td>machen → <strong>gemacht</strong></td></tr>
+<tr><td>Pronunciación</td><td>ge + raíz + et</td><td>arbeiten → <strong>gearbeitet</strong></td></tr>
+<tr><td>Irregular</td><td>frecuente ge + … + en</td><td>fahren → <strong>gefahren</strong></td></tr>
+<tr><td>-ieren</td><td>sin ge-</td><td>studieren → <strong>studiert</strong></td></tr>
+<tr><td>Prefijo inseparable</td><td>sin ge-</td><td>besuchen → <strong>besucht</strong></td></tr>
+<tr><td>Separable</td><td>prefijo + ge + verbo</td><td>anrufen → <strong>angerufen</strong></td></tr>
+</table>
+<div class="tags"><span>be-</span><span>emp-</span><span>ent-</span><span>er-</span><span>ge-</span><span>miss-</span><span>ver-</span><span>zer-</span></div>
+<div class="box warning">Los irregulares no se pueden deducir siempre. Aprende su Partizip II.</div>
+</article>
+<article class="topic" data-title="haben o sein" id="t32">
+<h3>¿Qué auxiliar uso?</h3>
+<div class="flow"><span>La mayoría</span><i>→</i><span><strong>haben</strong></span></div>
+<div class="flow"><span>Movimiento/cambio</span><i>→</i><span><strong>frecuentemente sein</strong></span></div>
+<div class="box example">arbeiten → <strong>hat gearbeitet</strong><br/>essen → <strong>hat gegessen</strong><br/>gehen → <strong>ist gegangen</strong><br/>fahren → <strong>ist gefahren</strong></div>
+<div class="memory-strip"><b>Mejor hábito:</b> aprende siempre <strong>Infinitiv + auxiliar + Partizip II</strong>.</div>
+</article>
+<article class="topic" data-title="Preguntas en Perfekt" id="t33">
+<h3>Las preguntas no cambian de lógica</h3>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">PREGUNTA</span><span class="op">+</span>
+<span class="slot core">haben / sein</span><span class="op">+</span>
+<span class="slot">QUIÉN + RESTO</span><span class="op">+</span>
+<span class="slot core">QUÉ PASÓ · AL FINAL</span>
+</div>
+<small class="tech">Atajo técnico: <code>W + Aux + S + ... + Partizip II?</code></small>
+</div>
+<div class="box example">Was <strong>hast du</strong> gestern <strong>gemacht</strong>?</div>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot core">haben / sein</span><span class="op">+</span>
+<span class="slot">QUIÉN + RESTO</span><span class="op">+</span>
+<span class="slot core">QUÉ PASÓ · AL FINAL</span>
+</div>
+<small class="tech">Atajo técnico: <code>Aux + S + ... + Partizip II?</code></small>
+</div>
+<div class="box example"><strong>Bist du</strong> nach Bonn <strong>gefahren</strong>?</div>
+</article>
+<article class="topic" data-title="war + hatte" id="t34">
+<h3>sein/haben en pasado: war + hatte</h3>
+<table class="table center">
+<tr><th>Persona</th><th>sein</th><th>haben</th></tr>
+<tr><td>ich</td><td><strong>war</strong></td><td><strong>hatte</strong></td></tr>
+<tr><td>du</td><td>warst</td><td>hattest</td></tr><tr><td>er/sie/es</td><td>war</td><td>hatte</td></tr>
+<tr><td>wir</td><td>waren</td><td>hatten</td></tr><tr><td>ihr</td><td>wart</td><td>hattet</td></tr>
+<tr><td>sie/Sie</td><td>waren</td><td>hatten</td></tr>
+</table>
+<div class="box example">Gestern <strong>war</strong> ich müde. · Ich <strong>hatte</strong> keine Zeit.</div>
+<div class="memory-strip"><b>Uso A1:</b> para <em>sein</em> y <em>haben</em>, <strong>war / hatte</strong> son normalmente las formas más naturales para hablar del pasado.</div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- CHAPTER 6 -->
+<section class="chapter" data-title="6 · Comparar y conectar" id="c6">
+<div class="chapter-head">
+<div class="chapter-kicker">Decisión 6</div>
+<h2>¿Quiero comparar o conectar?</h2>
+<p>Estas estructuras amplían la oración cuando la base ya está clara.</p>
+<div class="chapter-question">Pregunta mental: <strong>¿Estoy eligiendo, comparando, ordenando en el tiempo o uniendo ideas?</strong></div>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="welcher + dieser" id="t35">
+<h3>welcher + dieser: reutiliza el patrón de der</h3>
+<table class="table center">
+<tr><th>welcher</th><th>M</th><th>F</th><th>N</th><th>PL</th></tr>
+<tr><td>Nom.</td><td>welcher</td><td>welche</td><td>welches</td><td>welche</td></tr>
+<tr><td>Akk.</td><td><strong>welchen</strong></td><td>welche</td><td>welches</td><td>welche</td></tr>
+</table>
+<table class="table center">
+<tr><th>dieser</th><th>M</th><th>F</th><th>N</th><th>PL</th></tr>
+<tr><td>Nom.</td><td>dieser</td><td>diese</td><td>dieses</td><td>diese</td></tr>
+<tr><td>Akk.</td><td><strong>diesen</strong></td><td>diese</td><td>dieses</td><td>diese</td></tr>
+</table>
+<div class="transform">
+<div class="t-card"><small>Nom.</small><b>dieser Pullover</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Akk.</small><b>diesen Pullover</b></div>
+</div>
+</article>
+<article class="topic" data-title="Komparativ + Superlativ" id="t36">
+<h3>Comparar: piensa en una escala de 3 niveles</h3>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">NORMAL</span><span class="op">→</span>
+<span class="slot core">MÁS ...</span><span class="op">→</span>
+<span class="slot">EL MÁS ...</span>
+</div>
+<small class="tech">Atajo técnico: <code>Adjektiv → Komparativ → Superlativ</code></small>
+</div>
+<div class="flow"><span>schnell</span><i>→</i><span>schneller</span><i>→</i><span>am schnellsten</span></div>
+<div class="box formula formula-stack">
+<div class="human-formula">
+<span class="slot">COSA A</span><span class="op">+</span>
+<span class="slot core">sein + MÁS ...</span><span class="op">+</span>
+<span class="slot">als + COSA B</span>
+</div>
+<small class="tech">Atajo técnico: <code>A + sein + Komparativ + als + B</code></small>
+</div>
+<div class="box example">Der Zug ist <strong>schneller als</strong> der Bus.</div>
+<div class="memory-strip"><b>Memoriza estas 3 series:</b><br/>gut → besser → am besten<br/>viel → mehr → am meisten<br/>gern → lieber → am liebsten</div>
+</article>
+<article class="topic" data-title="Ordinalzahlen + Datum" id="t37">
+<h3>Ordinalzahlen + fecha: una misma transformación</h3>
+<div class="flow"><span>1–19</span><i>→</i><span>número + -te</span></div>
+<div class="flow"><span>20+</span><i>→</i><span>número + -ste</span></div>
+<div class="box example">vierte · zehnte · zwanzigste · dreißigste</div>
+<div class="memory-strip"><b>Irregulares útiles:</b> erste · zweite · dritte · siebte · achte.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">am</span><span class="op">+</span><span class="slot core">NÚMERO EN -ten/-sten</span><span class="op">+</span><span class="slot">MES</span></div><small class="tech">Atajo técnico: <code>am + Ordinalzahl im Dativ + Monat</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Número</small><b>18. August</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Hablado</small><b>am achtzehnten August</b></div>
+</div>
+</article>
+<article class="topic" data-title="und · aber · oder" id="t38">
+<h3>und / aber / oder: la nueva oración conserva su orden normal</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">IDEA 1</span><span class="op">+</span><span class="slot core">und / aber / oder</span><span class="op">+</span><span class="slot">PERSONA + VERBO + IDEA 2</span></div><small class="tech">Atajo técnico: <code>..., und/aber/oder + S + V + ...</code></small></div>
+<div class="box example">Ich wohne in Köln <strong>und</strong> ich arbeite in Bonn.<br/>Ich komme, <strong>aber ich bin</strong> spät.<br/>Kaffee <strong>oder</strong> Tee?</div>
+</article>
+<article class="topic" data-title="dann · V₂" id="t39">
+<h3>dann: no es como und/aber/oder</h3>
+<div class="box rule"><strong>dann ocupa la posición 1</strong>, por eso el verbo viene inmediatamente después.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">dann</span><span class="op">+</span><span class="slot core">VERBO</span><span class="op">+</span><span class="slot">PERSONA + RESTO</span></div><small class="tech">Atajo técnico: <code>Dann + V + S + ...</code></small></div>
+<div class="transform">
+<div class="t-card"><small>Idea 1</small><b>Ich arbeite.</b></div>
+<div class="t-arrow">→</div>
+<div class="t-card"><small>Idea 2</small><b>Dann gehe ich nach Hause.</b></div>
+</div>
+<div class="box warning"><span class="bad">✗ Dann ich gehe …</span><br/><span class="good">✓ Dann gehe ich …</span></div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="mental-map" id="vocab-map">
+<h2>WORTSCHATZ · 7 Situationen</h2>
+<p>No aprendas listas sueltas. Aprende qué necesitas <strong>hacer</strong> en cada situación.</p>
+<div class="pillars">
+<a class="pillar-link" href="#v1"><span class="n">A</span><span><strong>Ich &amp; Menschen</strong><small>Datos personales · familia · relaciones</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v2"><span class="n">B</span><span><strong>Mein Tag</strong><small>Tiempo · rutina · ocio · escuela · trabajo</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v3"><span class="n">C</span><span><strong>Essen · Kaufen · Kleidung</strong><small>Comida · compras · restaurante · ropa</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v4"><span class="n">D</span><span><strong>Zu Hause &amp; Umgebung</strong><small>Vivienda · muebles · naturaleza · clima</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v5"><span class="n">E</span><span><strong>Unterwegs</strong><small>Transporte · viajes · direcciones</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v6"><span class="n">F</span><span><strong>Alltag erledigen</strong><small>Servicios · instituciones · comunicación</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#v7"><span class="n">G</span><span><strong>Gesundheit &amp; Wohlbefinden</strong><small>Cuerpo · síntomas · médico · bienestar</small></span><span class="arrow">›</span></a>
+</div>
+<div class="memory-strip"><b>Cómo leer Wörter:</b> <strong>der Tisch · -e</strong> = plural <em>die Tische</em>. <strong>der Koffer · –</strong> = plural sin cambio.</div>
+<div class="ruleline"></div>
+<h3 style="margin:0 0 8px;color:var(--main);font-size:16px">Werkzeugkasten · sirve para cualquier tema</h3>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">INFORMACIÓN</span><span class="op">→</span><span class="slot core">Wo? · Wann? · Wie viel? · Welche(r/s)?</span></div>
+<small class="tech">Atajo técnico: <code>W-Frage = W-Wort + Verb + ...?</code></small>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">PEDIR ALGO</span><span class="op">→</span><span class="slot core">Kann ich bitte ... haben?</span></div>
+<small class="tech">Atajo técnico: <code>können + ... + Infinitiv</code></small>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">PEDIR UNA ACCIÓN</span><span class="op">→</span><span class="slot core">Können Sie bitte ...?</span></div>
+<small class="tech">Atajo técnico: <code>Können Sie + ... + Infinitiv?</code></small>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">PROPONER</span><span class="op">→</span><span class="slot core">Wollen wir ...?</span></div>
+<small class="tech">Atajo técnico: <code>wollen + ... + Infinitiv</code></small>
+</div>
+<div class="box example"><strong>Responder:</strong> Ja, gern. · Natürlich. · Gute Idee. · Leider nicht. · Tut mir leid.</div>
+</section>
+<section class="chapter" data-title="Wortschatz A · Ich &amp; Menschen" id="v1">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation A</div><h2>Ich &amp; Menschen</h2><p>Presentarte, hablar de tu familia y describir a personas cercanas.</p><div class="chapter-question">Pregunta mental: <strong>¿Quién soy? ¿Quién es esta persona? ¿Qué relación tenemos?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v1t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>presentarme</span><span>decir edad y origen</span><span>decir idiomas y profesión</span><span>hablar de familia</span><span>decir estado civil</span></div></article>
+<article class="topic" data-title="Satzbausteine · moldes reutilizables" id="v1t2"><h3>Satzbausteine · moldes reutilizables</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich heiße</span><span class="op">+</span><span class="slot core">NOMBRE</span></div></div><div class="box example">Ich heiße Jorge.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich bin</span><span class="op">+</span><span class="slot core">EDAD</span><span class="op">+</span><span class="slot">Jahre alt</span></div></div><div class="box example">Ich bin 35 Jahre alt.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich komme aus</span><span class="op">+</span><span class="slot core">PAÍS</span></div></div><div class="box example">Ich komme aus Chile.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich spreche</span><span class="op">+</span><span class="slot core">IDIOMA(S)</span></div></div><div class="box example">Ich spreche Spanisch und Englisch.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Das ist</span><span class="op">+</span><span class="slot core">mein/meine + PERSONA</span></div></div><div class="box example">Das ist meine Schwester.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich bin</span><span class="op">+</span><span class="slot core">BERUF</span></div>
+<small class="tech">Atajo técnico: <code>sein + Beruf (normalmente sin artículo)</code></small>
+</div>
+<div class="box example">Ich bin Ingenieur. · Ich bin Lehrerin.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Meine Adresse ist</span><span class="op">+</span><span class="slot core">ADRESSE</span></div>
+<small class="tech">Atajo técnico: <code>Possessivartikel + Nomen + sein</code></small>
+</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich bin</span><span class="op">+</span><span class="slot core">ledig / verheiratet / geschieden</span></div>
+<small class="tech">Atajo técnico: <code>sein + Adjektiv</code></small>
+</div>
+<div class="box memory"><strong>Buchstabieren:</strong> Können Sie das bitte buchstabieren? → J-O-R-G-E.</div>
+</article>
+<article class="topic" data-title="Wörter · por familias" id="v1t3"><h3>Wörter · por familias</h3>
+<div class="word-group"><h4>Datos personales</h4><div class="words"><span>der Name · -n</span><span>der Vorname · -n</span><span>der Nachname · -n</span><span>die Adresse · -n</span><span>das Land · Länder</span><span>die Sprache · -n</span><span>der Beruf · -e</span></div></div>
+<div class="word-group"><h4>Familie</h4><div class="words"><span>die Mutter · Mütter</span><span>der Vater · Väter</span><span>die Eltern</span><span>die Schwester · -n</span><span>der Bruder · Brüder</span><span>die Großmutter · Großmütter</span><span>der Großvater · Großväter</span><span>das Kind · -er</span></div></div>
+<div class="word-group"><h4>Beziehungen</h4><div class="words"><span>der Freund · -e</span><span>die Freundin · -nen</span><span>der Mann · Männer</span><span>die Frau · Frauen</span><span>ledig</span><span>verheiratet</span></div></div>
+<div class="word-group"><h4>Berufe · ejemplos frecuentes</h4><div class="words">
+<span>der Lehrer · – / die Lehrerin · -nen</span>
+<span>der Verkäufer · – / die Verkäuferin · -nen</span>
+<span>der Arzt · Ärzte / die Ärztin · -nen</span>
+<span>der Fahrer · – / die Fahrerin · -nen</span>
+<span>der Koch · Köche / die Köchin · -nen</span>
+<span>der Ingenieur · -e / die Ingenieurin · -nen</span>
+</div></div>
+<div class="word-group"><h4>Formular</h4><div class="words">
+<span>die Nationalität · -en</span><span>die Straße · -n</span><span>die Hausnummer · -n</span><span>die Postleitzahl · -en</span><span>die Telefonnummer · -n</span>
+</div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Kennenlernen" id="v1t4"><h3>Mini-Szene · Kennenlernen</h3><div class="scene"><p><b>A:</b> Wie heißen Sie?</p><p><b>B:</b> Ich heiße Jorge Arce.</p><p><b>A:</b> Woher kommen Sie?</p><p><b>B:</b> Aus Chile.</p><p><b>A:</b> Welche Sprachen sprechen Sie?</p><p><b>B:</b> Spanisch, Englisch und ein bisschen Deutsch.</p></div><div class="grammar-hook">↗ Grammatik: <a href="#t2">W-Fragen</a> · <a href="#t5">sein/haben</a> · <a href="#t19">Possessivartikel</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ dich in 4–5 Sätzen vorstellen</div><div>□ zwei Familienmitglieder beschreiben</div><div>□ nach Name, Herkunft und Sprache fragen</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz B · Mein Tag" id="v2">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation B</div><h2>Mein Tag</h2><p>Hablar de horarios, rutina, ocio, estudio y trabajo.</p><div class="chapter-question">Pregunta mental: <strong>¿Qué hago? ¿Cuándo? ¿Con qué frecuencia? ¿Dónde?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v2t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>decir la hora</span><span>describir rutina</span><span>hablar de hobbies</span><span>decir horario laboral</span><span>entender instrucciones de clase</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v2t2">
+<h3>Satzbausteine</h3>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">um + HORA</span><span class="op">+</span><span class="slot core">VERBO CONJUGADO</span><span class="op">+</span><span class="slot">QUIÉN + RESTO</span></div>
+<small class="tech">Atajo técnico: <code>Zeit in Position 1 → Verb in Position 2</code></small>
+</div>
+<div class="box example">Um 7 Uhr stehe ich auf.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">am + DÍA</span><span class="op">+</span><span class="slot core">VERBO CONJUGADO</span><span class="op">+</span><span class="slot">QUIÉN + RESTO</span></div>
+<small class="tech">Atajo técnico: <code>Zeit in Position 1 → Verb in Position 2</code></small>
+</div>
+<div class="box example">Am Montag arbeite ich in Bonn.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">QUIÉN</span><span class="op">+</span><span class="slot core">VERBO</span><span class="op">+</span><span class="slot">gern + RESTO</span></div>
+<small class="tech">Atajo técnico: <code>S + V + gern + ...</code></small>
+</div>
+<div class="box example">Ich mache gern Sport. · Ich höre gern Musik.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich arbeite</span><span class="op">+</span><span class="slot core">von + INICIO + bis + FIN</span></div>
+<small class="tech">Atajo técnico: <code>von ... bis ...</code></small>
+</div>
+<div class="box example">Ich arbeite von 9 bis 17 Uhr.</div>
+</article>
+<article class="topic" data-title="Wörter" id="v2t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Tagesablauf</h4><div class="words"><span>aufstehen</span><span>frühstücken</span><span>arbeiten</span><span>lernen</span><span>Mittag essen</span><span>einkaufen</span><span>kochen</span><span>schlafen</span></div></div>
+<div class="word-group"><h4>Freizeit</h4><div class="words"><span>Sport machen</span><span>Musik hören</span><span>lesen</span><span>fernsehen</span><span>reisen</span><span>Freunde treffen</span><span>spazieren gehen</span></div></div>
+<div class="word-group"><h4>Schule &amp; Lernen</h4><div class="words"><span>das Buch · Bücher</span><span>der Stift · -e</span><span>der Bleistift · -e</span><span>die Tafel · -n</span><span>der Kurs · -e</span><span>die Aufgabe · -n</span><span>lesen</span><span>schreiben</span><span>hören</span><span>sprechen</span></div></div>
+<div class="word-group"><h4>Arbeit</h4><div class="words"><span>das Büro · -s</span><span>das Krankenhaus · Krankenhäuser</span><span>die Schule · -n</span><span>der Kollege · -n</span><span>die Kollegin · -nen</span><span>die Pause · -n</span></div></div>
+<div class="word-group"><h4>Zahlen · patrón útil</h4>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">UNIDAD</span><span class="op">+</span><span class="slot core">und</span><span class="op">+</span><span class="slot">DECENA</span></div>
+<small class="tech">Atajo técnico: <code>21–99: Einer + und + Zehner</code></small>
+</div>
+<div class="words"><h5 class="word-subtitle">0–20</h5><div class="words number-words"><span>0 null</span><span>1 eins</span><span>2 zwei</span><span>3 drei</span><span>4 vier</span><span>5 fünf</span><span>6 sechs</span><span>7 sieben</span><span>8 acht</span><span>9 neun</span><span>10 zehn</span><span>11 elf</span><span>12 zwölf</span><span>13 dreizehn</span><span>14 vierzehn</span><span>15 fünfzehn</span><span>16 sechzehn</span><span>17 siebzehn</span><span>18 achtzehn</span><span>19 neunzehn</span><span>20 zwanzig</span></div><h5 class="word-subtitle">Decenas</h5><div class="words number-words"><span>30 dreißig</span><span>40 vierzig</span><span>50 fünfzig</span><span>60 sechzig</span><span>70 siebzig</span><span>80 achtzig</span><span>90 neunzig</span></div><h5 class="word-subtitle">Grandes</h5><div class="words number-words"><span>100 hundert</span><span>1.000 tausend</span></div></div>
+<div class="box example">21 = <strong>einundzwanzig</strong> · 35 = <strong>fünfunddreißig</strong> · 98 = <strong>achtundneunzig</strong><br/><small>Ojo con las formas que cambian: <strong>sechzehn · siebzehn · sechzig · siebzig · dreißig</strong>.</small></div>
+</div>
+<div class="word-group"><h4>Wochentage</h4><div class="words"><span>Montag</span><span>Dienstag</span><span>Mittwoch</span><span>Donnerstag</span><span>Freitag</span><span>Samstag</span><span>Sonntag</span></div></div>
+<div class="word-group"><h4>Monate</h4><div class="words"><span>Januar</span><span>Februar</span><span>März</span><span>April</span><span>Mai</span><span>Juni</span><span>Juli</span><span>August</span><span>September</span><span>Oktober</span><span>November</span><span>Dezember</span></div></div>
+<div class="word-group"><h4>Berufe &amp; Arbeitsplatz</h4><div class="words"><span>die Arbeit</span><span>der Arbeitsplatz · Arbeitsplätze</span><span>die Arbeitszeit · -en</span><span>der Chef · -s</span><span>die Chefin · -nen</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Mein Montag" id="v2t4"><h3>Mini-Szene · Mein Montag</h3><div class="scene">
+<p>Am Montag stehe ich um 7 Uhr auf.</p>
+<p>Um 9 Uhr fange ich mit der Arbeit an.</p>
+<p>Nach der Arbeit mache ich manchmal Sport.</p>
+<p>Am Abend lerne ich Deutsch.</p>
+</div><div class="grammar-hook">↗ Grammatik: <a href="#t1">V₂</a> · <a href="#t8">trennbare Verben</a> · <a href="#t28">Frecuencia</a> · <a href="#t27">um/am/im</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ tu rutina de mañana en 4 frases</div><div>□ decir a qué hora trabajas</div><div>□ decir 3 hobbies y con qué frecuencia</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz C · Essen · Kaufen · Kleidung" id="v3">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation C</div><h2>Essen · Kaufen · Kleidung</h2><p>Pedir, comprar, preguntar precios, elegir talla y color.</p><div class="chapter-question">Pregunta mental: <strong>¿Qué quiero? ¿Cuánto cuesta? ¿Cuál elijo?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v3t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>pedir comida</span><span>preguntar precio</span><span>comprar cantidades</span><span>elegir ropa</span><span>decir talla y color</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v3t2"><h3>Satzbausteine</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich möchte</span><span class="op">+</span><span class="slot core">LO QUE QUIERO</span></div></div><div class="box example">Ich möchte einen Kaffee.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Wie viel kostet</span><span class="op">+</span><span class="slot core">LA COSA</span><span class="op">+</span><span class="slot">?</span></div></div><div class="box example">Wie viel kostet die Jacke?</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Haben Sie</span><span class="op">+</span><span class="slot core">PRODUCTO</span><span class="op">+</span><span class="slot">?</span></div></div><div class="box example">Haben Sie Mineralwasser?</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich nehme</span><span class="op">+</span><span class="slot core">ESTE/ESTA + PRODUCTO</span></div></div><div class="box example">Ich nehme diesen Pullover.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich möchte</span><span class="op">+</span><span class="slot core">MENGE</span><span class="op">+</span><span class="slot">PRODUKT</span></div>
+<small class="tech">Atajo técnico: <code>Mengenangabe + Nomen</code></small>
+</div>
+<div class="box example">Ich möchte ein Kilo Äpfel. · Eine Flasche Wasser, bitte.</div>
+</article>
+<article class="topic" data-title="Wörter" id="v3t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Getränke</h4><div class="words"><span>das Wasser</span><span>der Kaffee · -s</span><span>der Tee · -s</span><span>der Saft · Säfte</span><span>die Milch</span></div></div>
+<div class="word-group"><h4>Essen</h4><div class="words"><span>das Brot · -e</span><span>der Käse</span><span>das Fleisch</span><span>der Salat · -e</span><span>der Apfel · Äpfel</span><span>die Banane · -n</span><span>das Gemüse</span><span>das Obst</span></div></div>
+<div class="word-group"><h4>Im Restaurant / Laden</h4><div class="words"><span>die Speisekarte · -n</span><span>die Rechnung · -en</span><span>der Preis · -e</span><span>bezahlen</span><span>bestellen</span><span>kosten</span><span>teuer</span><span>billig</span><span>lecker</span></div></div>
+<div class="word-group"><h4>Kleidung &amp; Farben</h4><div class="words"><span>die Hose · -n</span><span>das T-Shirt · -s</span><span>der Pullover · -</span><span>die Jacke · -n</span><span>der Schuh · -e</span><span>die Größe · -n</span><span>schwarz</span><span>weiß</span><span>blau</span><span>rot</span><span>grün</span><span>grau</span></div></div>
+<div class="word-group"><h4>Mengen</h4><div class="words"><span>ein Kilo</span><span>500 Gramm</span><span>eine Flasche · -n</span><span>eine Packung · -en</span><span>ein Stück · -e</span><span>ein Liter · –</span></div></div>
+<div class="word-group"><h4>Accessoires</h4><div class="words"><span>die Tasche · -n</span><span>die Mütze · -n</span><span>der Gürtel · –</span><span>die Brille · -n</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Im Geschäft" id="v3t4"><h3>Mini-Szene · Im Geschäft</h3><div class="scene"><p><b>A:</b> Welchen Pullover möchten Sie?</p><p><b>B:</b> Ich nehme diesen Pullover.</p><p><b>A:</b> Welche Farbe?</p><p><b>B:</b> Blau, bitte. Wie viel kostet er?</p><p><b>A:</b> 30 Euro.</p></div><div class="grammar-hook">↗ Grammatik: <a href="#t10">möchten</a> · <a href="#t15">Akkusativ</a> · <a href="#t35">welcher/dieser</a> · <a href="#t36">Komparativ</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ una bebida y una comida pedir</div><div>□ preguntar cuánto cuesta algo</div><div>□ elegir una prenda, talla y color</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz D · Zu Hause &amp; Umgebung" id="v4">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation D</div><h2>Zu Hause &amp; Umgebung</h2><p>Describir tu vivienda, lo que hay alrededor, naturaleza y clima.</p><div class="chapter-question">Pregunta mental: <strong>¿Qué hay? ¿Dónde está? ¿Cómo es el lugar o el clima?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v4t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>describir vivienda</span><span>nombrar habitaciones</span><span>ubicar objetos</span><span>hablar del entorno</span><span>decir el clima</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v4t2"><h3>Satzbausteine</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich wohne in</span><span class="op">+</span><span class="slot core">LUGAR / TIPO DE VIVIENDA</span></div></div><div class="box example">Ich wohne in einer Wohnung in Köln.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Es gibt</span><span class="op">+</span><span class="slot core">QUÉ HAY · AKKUSATIV</span></div>
+<small class="tech">Atajo técnico: <code>es gibt + Akk.</code></small>
+</div><div class="box example">Es gibt <strong>einen Balkon</strong> und <strong>zwei Schlafzimmer</strong>.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Die/Der/Das ... ist</span><span class="op">+</span><span class="slot core">PREPOSICIÓN + LUGAR</span></div></div><div class="box example">Der Tisch ist neben dem Fenster.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Heute ist es</span><span class="op">+</span><span class="slot core">CLIMA</span></div></div><div class="box example">Heute ist es kalt und windig.</div>
+</article>
+<article class="topic" data-title="Wörter" id="v4t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Wohnung</h4><div class="words"><span>die Wohnung · -en</span><span>das Haus · Häuser</span><span>das Zimmer · -</span><span>das Wohnzimmer · -</span><span>das Schlafzimmer · -</span><span>die Küche · -n</span><span>das Bad · Bäder</span><span>der Balkon · -e</span></div></div>
+<div class="word-group"><h4>Möbel</h4><div class="words"><span>der Tisch · -e</span><span>der Stuhl · Stühle</span><span>das Bett · -en</span><span>der Schrank · Schränke</span><span>das Sofa · -s</span><span>die Lampe · -n</span></div></div>
+<div class="word-group"><h4>Natur &amp; Umwelt</h4><div class="words"><span>die Stadt · Städte</span><span>das Land</span><span>der Berg · -e</span><span>das Meer · -e</span><span>der Baum · Bäume</span><span>der Park · -s</span><span>der Hund · -e</span><span>die Katze · -n</span><span>das Feld · -er</span><span>der Wald · Wälder</span></div></div>
+<div class="word-group"><h4>Wetter</h4><div class="words"><span>sonnig</span><span>bewölkt</span><span>regnerisch</span><span>windig</span><span>warm</span><span>kalt</span><span>der Regen</span><span>die Sonne</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Meine Wohnung" id="v4t4"><h3>Mini-Szene · Meine Wohnung</h3><div class="scene">
+<p>Ich wohne in einer Wohnung. Die Wohnung ist klein.</p>
+<p>Das Wohnzimmer ist neben der Küche.</p>
+<p>Vor dem Haus ist ein Park.</p>
+<p>Heute ist es sonnig, aber kalt.</p>
+</div><div class="grammar-hook">↗ Grammatik: <a href="#t24">in/an + Dativ</a> · <a href="#t25">lokale Präpositionen</a> · <a href="#t15">Artículos</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ describir tu vivienda en 4 frases</div><div>□ ubicar 3 muebles</div><div>□ describir el clima de hoy</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz E · Unterwegs" id="v5">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation E</div><h2>Unterwegs</h2><p>Moverte por la ciudad, usar transporte y pedir indicaciones.</p><div class="chapter-question">Pregunta mental: <strong>¿Dónde estoy? ¿Adónde voy? ¿Cómo llego?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v5t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>nombrar transporte</span><span>preguntar camino</span><span>entender derecha/izquierda</span><span>decir destino</span><span>hablar de viaje</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v5t2"><h3>Satzbausteine</h3>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Wie komme ich</span><span class="op">+</span><span class="slot core">ZUM/ZUR + LUGAR</span><span class="op">+</span><span class="slot">?</span></div></div><div class="box example">Wie komme ich zum Bahnhof?</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Fahren Sie</span><span class="op">+</span><span class="slot core">RICHTUNG / MITTEL</span></div></div><div class="box example">Fahren Sie mit dem Bus.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Gehen Sie</span><span class="op">+</span><span class="slot core">RICHTUNG</span></div></div><div class="box example">Gehen Sie geradeaus und dann links.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich fahre</span><span class="op">+</span><span class="slot core">nach + STADT/LAND</span></div></div><div class="box example">Ich fahre nach Berlin.</div>
+</article>
+<article class="topic" data-title="Wörter" id="v5t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Transport</h4><div class="words"><span>der Bus · -se</span><span>die Bahn · -en</span><span>der Zug · Züge</span><span>die Straßenbahn · -en</span><span>das Auto · -s</span><span>das Fahrrad · Fahrräder</span><span>zu Fuß</span></div></div>
+<div class="word-group"><h4>Orte</h4><div class="words"><span>der Bahnhof · Bahnhöfe</span><span>die Haltestelle · -n</span><span>der Flughafen · Flughäfen</span><span>die Straße · -n</span><span>die Kreuzung · -en</span><span>das Hotel · -s</span></div></div>
+<div class="word-group"><h4>Richtung</h4><div class="words"><span>links</span><span>rechts</span><span>geradeaus</span><span>hier</span><span>dort</span><span>nah</span><span>weit</span></div></div>
+<div class="word-group"><h4>Reise</h4><div class="words"><span>reisen</span><span>fahren</span><span>fliegen</span><span>ankommen</span><span>abfahren</span><span>das Ticket · -s</span><span>der Koffer · -</span><span>die Fahrkarte · -n</span><span>die Abfahrt · -en</span><span>die Ankunft · Ankünfte</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Nach dem Weg fragen" id="v5t4"><h3>Mini-Szene · Nach dem Weg fragen</h3><div class="scene">
+<p><b>A:</b> Entschuldigung, wie komme ich zum Bahnhof?</p>
+<p><b>B:</b> Gehen Sie geradeaus. Dann links.</p>
+<p><b>A:</b> Ist es weit?</p>
+<p><b>B:</b> Nein, nur ungefähr fünf Minuten.</p>
+</div><div class="grammar-hook">↗ Grammatik: <a href="#t23">Wo/Wohin/Woher</a> · <a href="#t11">Imperativ</a> · <a href="#t22">mit/zu + Dativ</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ preguntar cómo llegar al Bahnhof</div><div>□ dar dos instrucciones sencillas</div><div>□ decir cómo viajas a otra ciudad</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz F · Alltag erledigen" id="v6">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation F</div><h2>Alltag erledigen</h2><p>Resolver trámites sencillos y comunicarte por teléfono, correo o internet.</p><div class="chapter-question">Pregunta mental: <strong>¿Qué necesito hacer? ¿Qué necesito pedir o entregar?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v6t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>ir al correo</span><span>hacer algo en el banco</span><span>pedir ayuda</span><span>usar teléfono</span><span>hablar de email/internet</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v6t2">
+<h3>Satzbausteine</h3>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich möchte</span><span class="op">+</span><span class="slot">OBJETO</span><span class="op">+</span><span class="slot core">ACCIÓN AL FINAL</span></div>
+<small class="tech">Atajo técnico: <code>S + möchten + ... + Infinitiv</code></small>
+</div>
+<div class="box example">Ich möchte dieses Paket nach Spanien schicken.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Ich brauche</span><span class="op">+</span><span class="slot core">COSA / AYUDA</span></div>
+<small class="tech">Atajo técnico: <code>brauchen + Akk.</code></small>
+</div>
+<div class="box example">Ich brauche eine Briefmarke.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Können Sie bitte</span><span class="op">+</span><span class="slot">RESTO</span><span class="op">+</span><span class="slot core">ACCIÓN AL FINAL</span></div>
+<small class="tech">Atajo técnico: <code>Können Sie + ... + Infinitiv?</code></small>
+</div>
+<div class="box example">Können Sie bitte das wiederholen? · Können Sie mir bitte helfen?</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Meine Telefonnummer ist</span><span class="op">+</span><span class="slot core">NÚMERO</span></div>
+<small class="tech">Atajo técnico: <code>sein + Zahl</code></small>
+</div>
+</article>
+<article class="topic" data-title="Wörter" id="v6t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Post</h4><div class="words"><span>die Post</span><span>der Brief · -e</span><span>die Briefmarke · -n</span><span>das Paket · -e</span><span>schicken</span><span>bekommen</span></div></div>
+<div class="word-group"><h4>Bank / Behörde / Polizei</h4><div class="words"><span>die Bank · -en</span><span>das Konto · Konten</span><span>das Geld</span><span>die Polizei</span><span>das Formular · -e</span><span>der Ausweis · -e</span><span>unterschreiben</span><span>zahlen</span><span>das Amt · Ämter</span><span>das Bürgerbüro · -s</span><span>das Rathaus · Rathäuser</span></div></div>
+<div class="word-group"><h4>Kommunikation</h4><div class="words"><span>das Telefon · -e</span><span>die Telefonnummer · -n</span><span>anrufen</span><span>die E-Mail · -s</span><span>das Internet</span><span>die Nachricht · -en</span><span>die Zeitung · -en</span><span>das Radio · -s</span><span>der Fernseher · -</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Auf der Post" id="v6t4"><h3>Mini-Szene · Auf der Post</h3><div class="scene"><p><b>A:</b> Guten Tag. Was möchten Sie?</p><p><b>B:</b> Ich möchte dieses Paket nach Spanien schicken.</p><p><b>A:</b> Brauchen Sie Briefmarken?</p><p><b>B:</b> Nein, danke.</p></div><div class="grammar-hook">↗ Grammatik: <a href="#t10">möchten</a> · <a href="#t17">Verben + Fälle</a> · <a href="#t9">können</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ pedir un servicio en el correo</div><div>□ dar tu teléfono</div><div>□ pedir ayuda formalmente</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<section class="chapter" data-title="Wortschatz G · Gesundheit &amp; Wohlbefinden" id="v7">
+<div class="chapter-head"><div class="chapter-kicker">Wortschatz · Situation G</div><h2>Gesundheit &amp; Wohlbefinden</h2><p>Decir cómo te sientes, qué te duele y qué necesitas.</p><div class="chapter-question">Pregunta mental: <strong>¿Cómo estoy? ¿Dónde me duele? ¿Qué necesito hacer?</strong></div></div>
+<div class="chapter-body">
+<article class="topic" data-title="¿Qué debo poder hacer?" id="v7t1"><h3>¿Qué debo poder hacer?</h3><div class="vocab-goals"><span>decir cómo me siento</span><span>nombrar partes del cuerpo</span><span>describir síntomas básicos</span><span>ir al médico/farmacia</span></div></article>
+<article class="topic" data-title="Satzbausteine" id="v7t2"><h3>Satzbausteine</h3>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">Mir geht es</span><span class="op">+</span><span class="slot core">gut / nicht gut / schlecht</span></div>
+<small class="tech">Atajo técnico: <code>mir + gehen + es</code></small>
+</div><div class="box example">Mir geht es nicht gut.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich habe</span><span class="op">+</span><span class="slot core">SÍNTOMA</span></div></div><div class="box example">Ich habe Kopfschmerzen.</div>
+<div class="box formula formula-stack">
+<div class="human-formula"><span class="slot">MEIN/MEINE + 1 PARTE</span><span class="op">+</span><span class="slot core">tut weh</span></div>
+<small class="tech">Atajo técnico: <code>Singular → tut weh</code></small>
+<div class="human-formula"><span class="slot">MEINE + VARIAS PARTES</span><span class="op">+</span><span class="slot core">tun weh</span></div>
+<small class="tech">Atajo técnico: <code>Plural → tun weh</code></small>
+</div><div class="box example">Mein Rücken <strong>tut weh</strong>. · Meine Beine <strong>tun weh</strong>.</div>
+<div class="box formula formula-stack"><div class="human-formula"><span class="slot">Ich brauche</span><span class="op">+</span><span class="slot core">TERMIN / MEDIZIN</span></div></div><div class="box example">Ich brauche einen Termin.</div>
+</article>
+<article class="topic" data-title="Wörter" id="v7t3"><h3>Wörter</h3>
+<div class="word-group"><h4>Körper</h4><div class="words"><span>der Kopf · Köpfe</span><span>das Auge · -n</span><span>das Ohr · -en</span><span>der Mund · Münder</span><span>der Bauch · Bäuche</span><span>der Rücken · -</span><span>der Arm · -e</span><span>das Bein · -e</span><span>die Hand · Hände</span></div></div>
+<div class="word-group"><h4>Beschwerden</h4><div class="words"><span>krank</span><span>müde</span><span>Schmerzen haben</span><span>Kopfschmerzen</span><span>Bauchschmerzen</span><span>Fieber haben</span><span>Husten haben</span></div></div>
+<div class="word-group"><h4>Beim Arzt</h4><div class="words"><span>der Arzt · Ärzte</span><span>die Ärztin · -nen</span><span>die Apotheke · -n</span><span>der Termin · -e</span><span>die Medizin</span><span>die Tablette · -n</span><span>helfen</span><span>trinken</span><span>schlafen</span></div></div>
+</article>
+<article class="topic" data-title="Mini-Szene · Beim Arzt" id="v7t4"><h3>Mini-Szene · Beim Arzt</h3><div class="scene"><p><b>A:</b> Was fehlt Ihnen?</p><p><b>B:</b> Mir geht es nicht gut. Ich habe Kopfschmerzen.</p><p><b>A:</b> Haben Sie Fieber?</p><p><b>B:</b> Nein.</p><p><b>A:</b> Sie sollen viel trinken und schlafen.</p></div><div class="grammar-hook">↗ Grammatik: <a href="#t18">Dativpronomen</a> · <a href="#t9">sollen</a> · <a href="#t17">helfen + Dativ</a></div><div class="can-do"><strong>KANNST DU...?</strong><div>□ decir dos síntomas</div><div>□ decir qué parte del cuerpo te duele</div><div>□ pedir una cita</div></div></article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<!-- FINAL REVIEW -->
+<section class="chapter" data-title="Repaso final" id="c7">
+<div class="chapter-head">
+<div class="chapter-kicker">Repaso</div>
+<h2>Mapa mental final</h2>
+<p>Si puedes recorrer estas preguntas de memoria, el cheat sheet ya está funcionando como sistema.</p>
+</div>
+<div class="chapter-body">
+<article class="topic" data-title="Árbol de decisiones final" id="t40">
+<h3>Construye cualquier oración A1 así</h3>
+<div class="box memory"><strong>1.</strong> ¿Afirmación, W-Frage o sí/no?<br/><strong>2.</strong> ¿Una pieza verbal o pinza?<br/><strong>3.</strong> ¿Hay sustantivo? → género + plural<br/><strong>4.</strong> ¿Qué caso exige el trigger?<br/><strong>5.</strong> ¿Lugar/tiempo?<br/><strong>6.</strong> ¿Pasado?<br/><strong>7.</strong> ¿Comparo o conecto?</div>
+</article>
+<article class="topic" data-title="Errores que debes detectar" id="t41">
+<h3>Errores que deberían “sonar mal” inmediatamente</h3>
+<div class="box warning"><span class="bad">✗ Heute ich arbeite.</span><br/><span class="good">✓ Heute arbeite ich.</span></div>
+<div class="box warning"><span class="bad">✗ Ich kann spreche Deutsch.</span><br/><span class="good">✓ Ich kann Deutsch sprechen.</span></div>
+<div class="box warning"><span class="bad">✗ Ich muss stehe früh auf.</span><br/><span class="good">✓ Ich muss früh aufstehen.</span></div>
+<div class="box warning"><span class="bad">✗ Ich sehe der Mann.</span><br/><span class="good">✓ Ich sehe den Mann.</span></div>
+<div class="box warning"><span class="bad">✗ Ich kaufe ein Kaffee.</span><br/><span class="good">✓ Ich kaufe einen Kaffee.</span></div>
+<div class="box warning"><span class="bad">✗ mit der Bus</span><br/><span class="good">✓ mit dem Bus</span></div>
+<div class="box warning"><span class="bad">✗ Ich habe nicht Auto.</span><br/><span class="good">✓ Ich habe kein Auto.</span></div>
+<div class="box warning"><span class="bad">✗ Ich bin gestern gearbeitet.</span><br/><span class="good">✓ Ich habe gestern gearbeitet.</span></div>
+<div class="box warning"><span class="bad">✗ Ich habe nach Bonn gefahren.</span><br/><span class="good">✓ Ich bin nach Bonn gefahren.</span></div>
+<div class="box warning"><span class="bad">✗ Ich habe gestudiert.</span><br/><span class="good">✓ Ich habe studiert.</span></div>
+<div class="box warning"><span class="bad">✗ Dann ich gehe nach Hause.</span><br/><span class="good">✓ Dann gehe ich nach Hause.</span></div>
+<div class="box warning"><span class="bad">✗ am drei Mai</span><br/><span class="good">✓ am dritten Mai</span></div>
+</article>
+<article class="topic" data-title="Prioridad de memoria" id="t42">
+<h3>Qué debe quedar automático primero</h3>
+<h4>Nivel 1 · automático</h4>
+<div class="tags"><span>V₂</span><span>W + V + S</span><span>V + S?</span><span>-e/-st/-t/-en/-t/-en</span><span>sein/haben</span><span>Modal + INF</span><span>der→den</span><span>ein→einen</span><span>mit + Dat</span><span>nicht vs kein</span></div>
+<h4>Nivel 2 · muy familiar</h4>
+<div class="tags"><span>Satzklammer</span><span>Trennbare Verben</span><span>Nom/Akk/Dat</span><span>Dativpronomen</span><span>Possessivartikel</span><span>Imperativ</span><span>Wo/Wohin/Woher</span></div>
+<h4>Nivel 3 · poder usarlo</h4>
+<div class="tags"><span>Perfekt</span><span>Partizip II</span><span>haben/sein</span><span>war/hatte</span><span>welcher/dieser</span><span>Komparativ</span><span>Ordinalzahlen</span><span>Fechas</span></div>
+</article>
+<div class="back-inline"><button onclick="openIndex()">☰ Índice</button></div>
+</div>
+</section>
+<div class="final-review">
+<h2>La idea central</h2>
+<p>No son reglas y palabras aisladas. Son unas pocas decisiones y situaciones que se repiten.</p>
+<div class="final-grid">
+<div class="frow"><strong>Gramática</strong> → ¿cómo construyo correctamente la idea?</div>
+<div class="frow"><strong>Dos piezas verbales</strong> → usa la pinza.</div>
+<div class="frow"><strong>Sustantivo</strong> → género → caso → forma.</div>
+<div class="frow"><strong>Lugar/tiempo</strong> → pregunta correcta → preposición.</div>
+<div class="frow"><strong>Pasado</strong> → auxiliar + Partizip II.</div>
+<div class="frow"><strong>Vocabulario</strong> → ¿qué necesito decir en esta situación?</div>
+</div>
+</div>
+<div class="credit">Hecho por Jorge Arce Ojeda</div>
+</main>
+<button aria-label="Activar modo oscuro" class="theme-fab" id="themeToggle" title="Cambiar tema" type="button">☾</button><button aria-label="Abrir índice" class="fab" onclick="openIndex()" type="button"><b>☰</b><span>Índice</span></button>
+<dialog id="indexDialog">
+<div class="sheet">
+<div class="sheet-head">
+<div><div class="eyebrow" style="color:var(--muted)">Navegación</div><h2>Índice</h2></div>
+<button aria-label="Cerrar índice" class="icon-btn" onclick="closeIndex()" type="button">×</button>
+</div>
+<input autocomplete="off" class="search" id="indexSearch" placeholder="Buscar tema… por ejemplo: Perfekt" type="search"/>
+<nav class="index-list" id="indexList"></nav>
+</div>
+</dialog>
+<script>
+const chapters=[...document.querySelectorAll('.chapter')];
+const topics=[...document.querySelectorAll('.topic')];
+const indexList=document.getElementById('indexList');
+const dialog=document.getElementById('indexDialog');
+const search=document.getElementById('indexSearch');
+const current=document.getElementById('currentSection');
+const progress=document.getElementById('progressBar');
+
+const themeToggle=document.getElementById('themeToggle');
+const themeMeta=document.querySelector('meta[name="theme-color"]');
+const THEME_KEY='telc-a1-theme';
+
+function preferredTheme(){
+  const saved=localStorage.getItem(THEME_KEY);
+  if(saved==='dark'||saved==='light') return saved;
+  return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+function applyTheme(theme, persist=false){
+  document.documentElement.dataset.theme=theme;
+  const dark=theme==='dark';
+  themeToggle.textContent=dark?'☀':'☾';
+  themeToggle.setAttribute('aria-label',dark?'Activar modo claro':'Activar modo oscuro');
+  themeToggle.title=dark?'Modo claro':'Modo oscuro';
+  if(themeMeta) themeMeta.setAttribute('content',dark?'#101513':'#183A37');
+  if(persist) localStorage.setItem(THEME_KEY,theme);
+}
+applyTheme(preferredTheme());
+themeToggle.addEventListener('click',()=>{
+  const next=document.documentElement.dataset.theme==='dark'?'light':'dark';
+  applyTheme(next,true);
+});
+
+
+function chapterLabel(chapter){
+  if(/^c[1-6]$/.test(chapter.id)) return chapter.id.slice(1);
+  if(/^v[1-7]$/.test(chapter.id)) return String.fromCharCode(64 + Number(chapter.id.slice(1)));
+  if(chapter.id==='c7') return 'R';
+  return '•';
+}
+
+chapters.forEach((chapter,ci)=>{
+  const label=chapterLabel(chapter);
+  const group=document.createElement('div');
+  group.className='index-group';
+  group.textContent=chapter.dataset.title;
+  group.dataset.group='g'+ci;
+  indexList.appendChild(group);
+
+  const innerTopics=[...chapter.querySelectorAll('.topic')];
+  if(innerTopics.length===0){
+    const a=document.createElement('a');
+    a.href='#'+chapter.id;
+    a.dataset.search=(chapter.dataset.title+' '+chapter.innerText).toLowerCase();
+    a.dataset.group='g'+ci;
+    a.innerHTML=`<b>${label}</b><span>${chapter.dataset.title}</span>`;
+    a.addEventListener('click',closeIndex);
+    indexList.appendChild(a);
+  }else{
+    innerTopics.forEach((t,ti)=>{
+      const a=document.createElement('a');
+      a.href='#'+t.id;
+      a.dataset.search=(chapter.dataset.title+' '+t.dataset.title+' '+t.innerText).toLowerCase();
+      a.dataset.group='g'+ci;
+      a.innerHTML=`<b>${label}.${ti+1}</b><span>${t.dataset.title}</span>`;
+      a.addEventListener('click',closeIndex);
+      indexList.appendChild(a);
+    });
+  }
+});
+
+function openIndex(focusSearch=false){
+  if(!dialog.open) dialog.showModal();
+  if(focusSearch) setTimeout(()=>search.focus({preventScroll:true}),30);
+}
+function closeIndex(){ if(dialog.open) dialog.close(); }
+
+dialog.addEventListener('click',e=>{
+  const r=dialog.getBoundingClientRect();
+  if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) closeIndex();
+});
+
+search.addEventListener('input',()=>{
+  const q=search.value.trim().toLowerCase();
+  const links=[...indexList.querySelectorAll('a')];
+  links.forEach(a=>a.hidden=q && !a.dataset.search.includes(q));
+  [...indexList.querySelectorAll('.index-group')].forEach(g=>{
+    const groupLinks=links.filter(a=>a.dataset.group===g.dataset.group);
+    g.hidden=q && groupLinks.every(a=>a.hidden);
+  });
+});
+
+const observer=new IntersectionObserver(entries=>{
+  if(window.scrollY < 420){
+    current.textContent='Inicio';
+    return;
+  }
+  const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>Math.abs(a.boundingClientRect.top)-Math.abs(b.boundingClientRect.top));
+  if(visible[0]) current.textContent=visible[0].target.dataset.title;
+},{rootMargin:'-82px 0px -70% 0px',threshold:[0,.1,.4]});
+
+[...chapters,...topics].forEach(el=>observer.observe(el));
+
+function updateProgress(){
+  const d=document.documentElement;
+  const max=d.scrollHeight-d.clientHeight;
+  progress.style.width=(max>0?Math.min(100,(d.scrollTop/max)*100):0)+'%';
+  if(d.scrollTop < 420) current.textContent='Inicio';
+}
+addEventListener('scroll',updateProgress,{passive:true});
+updateProgress();
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeIndex();
+  if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openIndex(true);}
+});
+</script>
+</body>
+</html>

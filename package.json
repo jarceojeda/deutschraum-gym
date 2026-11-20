@@ -7,7 +7,8 @@
     "bundle": "node tools/bundle.js",
     "test": "node tools/bundle.js && node --test --test-reporter=spec --test-concurrency=1 \"tests/*.test.js\"",
     "test:fast": "node --test --test-reporter=spec --test-concurrency=1 --test-skip-pattern=SIM \"tests/*.test.js\"",
-    "sim": "node sim/simulate.js"
+    "sim": "node sim/simulate.js",
+    "build:ui": "node tools/build.js"
   },
   "devDependencies": {
     "jsdom": "^31.0.1"
