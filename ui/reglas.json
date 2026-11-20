@@ -779,6 +779,34 @@
     "antes": "ich gehe",
     "despues": "ich **würde** gehen"
    }
+  },
+  "md:verben-passiv": {
+   "titulo": "Passiv (Präsens)",
+   "errores": [
+    "**Proceso:** **werden + Partizip II**.",
+    "**Estado:** **sein + Partizip II**.",
+    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
+   ],
+   "formula": "werden (Präsens) + PARTIZIP II al final",
+   "regla": "**El sujeto recibe la acción.** werden se conjuga (werde · wirst · wird · werden · werdet · werden) y el participio va al final. Para el proceso no se usa haben.",
+   "ejemplo": {
+    "antes": "Er repariert das Auto.",
+    "despues": "Das Auto **wird repariert**."
+   }
+  },
+  "md:verben-passiv-praeteritum": {
+   "titulo": "Passiv (Präteritum)",
+   "errores": [
+    "**Proceso:** **werden + Partizip II**.",
+    "**Estado:** **sein + Partizip II**.",
+    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
+   ],
+   "formula": "wurde (Präteritum de werden) + PARTIZIP II",
+   "regla": "**Passiv en pasado:** wurde · wurdest · wurde · wurden · wurdet · wurden + participio. Con werden es un proceso; «war gebaut» describe un estado.",
+   "ejemplo": {
+    "antes": "Man baute das Haus.",
+    "despues": "Das Haus **wurde** gebaut."
+   }
   }
  }
 }

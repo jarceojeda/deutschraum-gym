@@ -121,6 +121,17 @@ Object.keys(KII).forEach(l => {
   });
 });
 
+
+// ---- 5) Passiv (B1): werden/wurde + Partizip II (sólo verbos transitivos, lista propia) ----
+const WURDE = ['wurde', 'wurdest', 'wurde', 'wurden', 'wurdet', 'wurden'], HABEN = ['habe', 'hast', 'hat', 'haben', 'habt', 'haben'];
+const TRANSITIVOS = 'sehen besuchen kaufen lesen schreiben essen trinken öffnen schließen machen nehmen finden bringen rufen fragen einladen abholen anrufen aufräumen mitnehmen suchen bezahlen kochen waschen putzen reparieren treffen verstehen vergessen lernen sprechen hören zeigen schicken bestellen tragen geben'.split(' ');
+const transitivos = usable.filter(v => TRANSITIVOS.includes(v.lemma));
+transitivos.forEach(v => PERSONS.forEach((p, k) => {
+  const a1 = WERDEN[k] + ' ' + v.pii, r1 = rng(v.lemma + 'pa' + k);
+  add(v, 'passiv', 'B1', p, a1, opts(a1, [a1], [WERDEN[k] + ' ' + v.lemma, HABEN[k] + ' ' + v.pii, WERDEN[(k + 3) % 6] + ' ' + v.pii, WERDEN[(k + 1) % 6] + ' ' + v.pii], r1));
+  const a2 = WURDE[k] + ' ' + v.pii, r2 = rng(v.lemma + 'pp' + k);
+  add(v, 'passiv-praeteritum', 'B1', p, a2, opts(a2, [a2], [HABEN[k] + ' ' + v.pii, WURDE[k] + ' ' + v.lemma, WERDEN[k] + ' ' + v.pii, WURDE[(k + 3) % 6] + ' ' + v.pii, WURDE[(k + 1) % 6] + ' ' + v.pii], r2));
+}));
 fs.writeFileSync(path.join(root, 'data', 'gramatica.json'), JSON.stringify(items, null, 1) + '\n');
 const concepts = JSON.parse(fs.readFileSync(path.join(root, 'data', 'concepts.json'), 'utf8'));
 const store = DG.items.createStore(verben.concat(items)), rep = DG.items.validate(store, { concepts });

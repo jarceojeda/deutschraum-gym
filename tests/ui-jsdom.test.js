@@ -1023,7 +1023,7 @@ test('PWA · service worker activo → «Sin conexión: lista»; una versión nu
 });
 
 test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv II con etiqueta propia y, tras fallar, su cápsula (sin la del Präsens)', () => {
-  const etiquetas = { plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II' };
+  const etiquetas = { plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II', passiv: 'Passiv (Präsens)', 'passiv-praeteritum': 'Passiv (Präteritum)' };
   const vistos = {};
   for (let seed = 90; seed < 100 && Object.keys(vistos).length < 4; seed++) {
     const u = boot(seed); u.chooseModule('verben', 30); u.start();

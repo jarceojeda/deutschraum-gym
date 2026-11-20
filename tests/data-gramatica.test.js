@@ -11,7 +11,7 @@ test('validan con el motor: 0 errores, ids únicos, NFC, cuatro habilidades nuev
   assert.deepEqual(rep.errors, []);
   assert.equal(new Set(G.map(i => i.id)).size, G.length);
   const t = JSON.stringify(G); assert.equal(t, t.normalize('NFC'));
-  assert.deepEqual([...new Set(G.map(i => i.skill))].sort(), ['futur', 'imperativ', 'konjunktiv2', 'plusquamperfekt']);
+  assert.deepEqual([...new Set(G.map(i => i.skill))].sort(), ['futur', 'imperativ', 'konjunktiv2', 'passiv', 'passiv-praeteritum', 'plusquamperfekt']);
   assert.ok(G.every(i => i.module === 'verben' && i.options.filter(o => i.accept.includes(o)).length >= 1));
 });
 
@@ -31,6 +31,9 @@ test('formas correctas conocidas (derivadas de los datos propios, comprobadas a 
   assert.equal(ans('gehen', 'plusquamperfekt', 'ich').answer, 'war gegangen');
   assert.equal(ans('essen', 'plusquamperfekt', 'wir').answer, 'hatten gegessen');
   assert.equal(ans('gehen', 'konjunktiv2', 'ich').answer, 'würde gehen');
+  assert.equal(ans('kaufen', 'passiv', 'wir').answer, 'werden gekauft');
+  assert.equal(ans('sehen', 'passiv-praeteritum', 'er / sie / es').answer, 'wurde gesehen');
+  assert.equal(ans('einladen', 'passiv', 'ich').answer, 'werde eingeladen');
 });
 
 test('trampas: sin duplicados, ninguna otra opción es válida y ninguna es basura (palabras inventadas con -t sobre el lema)', () => {
