@@ -31,7 +31,7 @@
     'praep-artikel': 'Preposición + artículo', 'praep-zeit': 'Preposición de tiempo', 'verb-praeposition': 'Verbo + preposición', 'verb-praeposition-artikel': 'Verbo + prep. + artículo',
     'konnektor-wahl': 'Elige el conector', 'weil-vorn': 'weil al inicio', 'wenn-vorn': 'wenn al inicio', 'obwohl-vorn': 'obwohl al inicio', 'transform-weil': 'Une con weil', 'transform-deshalb': 'Une con deshalb',
     'als-wenn-ob': 'als / wenn / ob', 'aber-sondern': 'aber / sondern', 'adverb-konnektor': 'Adverbio conector', doppelkonnektor: 'Conector doble', 'nebensatz-b1': 'Nebensatz', partikel: 'Partícula modal', 'adverb-gradpartikel': 'Partícula de grado' };
-  var SKILL_WS = { 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
+  var SKILL_WS = { pronunciacion: 'Pronunciación', 'es-de': 'ES → DE', 'de-es': 'DE → ES', contexto: 'En contexto', produccion: 'Escribir la palabra',
     aussagesatz: 'Frase afirmativa', 'w-frage': 'W-Frage', 'ja-nein-frage': 'Pregunta sí / no', umformen: 'Transformar la frase', tekamolo: 'TeKaMoLo', trampa: '¿Cuál es correcta?' };
   var SKILL_DEK = { relativpronomen: 'Pronombre relativo', komparativ: 'Komparativ', superlativ: 'Superlativ', 'kasus-article': 'Artículo y caso', 'kasus-possessive_article': 'Posesivo', 'kasus-possessive_pronoun': 'Posesivo', 'kasus-adjective': 'Adjetivo', 'kasus-personal_pronoun': 'Pronombre personal',
     'kasus-predicate_noun': 'Nominativ', 'kasus-dative_plural': 'Dativ plural', 'kasus-two_way_preposition': 'Wechselpräposition', 'dativ-plural': 'Dativ plural', 'genitiv-noun': 'Genitiv',

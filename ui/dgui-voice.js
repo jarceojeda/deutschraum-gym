@@ -8,6 +8,7 @@
 
   // Qué se pronuncia al oír un ejercicio ya resuelto (siempre la forma CORRECTA del ítem).
   V.spokenText = function (item) {
+    if (item.skill === 'pronunciacion' && item.lemma) return String(item.lemma);   // la respuesta es una explicación en español: se pronuncia la palabra de ejemplo (lemma)
     var a = String(item.answer || '').trim();
     if (item.module === 'verben') return item.person && PRON[item.person] ? PRON[item.person] + ' ' + a : a;
     if (item.module === 'artikel') {

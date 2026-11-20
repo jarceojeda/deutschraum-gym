@@ -536,7 +536,7 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
@@ -1104,4 +1104,22 @@ test('Biblioteca: Consulta → «Biblioteca» lista una ficha por clase (sin eje
   u.click(u.q('[data-clase="18"]')); const dlg = u.q('[role="dialog"]');
   assert.ok(dlg && /TeKaMoLo/.test(dlg.textContent) && dlg.querySelectorAll('.bib-p li').length >= 3 && dlg.querySelector('details[open]'));
   u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null, 'consultar no escribe progreso');
+});
+
+test('P2 · Pronunciación: Wortschatz la sirve con su etiqueta, tras fallar muestra la explicación y la cápsula, y 🔊 habla la palabra de ejemplo (lemma)', () => {
+  let ok = false;
+  for (let seed = 200; seed < 230 && !ok; seed++) {
+    const spoken = [];
+    const u = boot(seed, { before: w => { w.speechSynthesis = { speak: x => spoken.push(x.text), cancel() {}, getVoices: () => [{ lang: 'de-DE', name: 'Test', default: true }], onvoiceschanged: null, addEventListener() {} }; w.SpeechSynthesisUtterance = function (t) { this.text = t; }; } });
+    u.chooseModule('wortschatz', 30); u.start();
+    for (let i = 0; i < 80 && u.S().screen === 'session' && !ok; i++) {
+      const it = u.S().cur.item;
+      if (it.skill === 'pronunciacion') {
+        u.answer(false); assert.equal(u.q('.fb-line').textContent, it.explanation);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:pronunciacion');
+        const say = u.q('#say'); if (say) { u.click(say); assert.equal(spoken[spoken.length - 1], it.lemma); } ok = true;
+      } else { u.answer(true); u.next(); }
+    }
+  }
+  assert.ok(ok, 'ninguna pregunta de pronunciación servida');
 });

@@ -1,0 +1,1066 @@
+[
+ {
+  "id": "pr-001",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "bei",
+  "prompt": "¿Cómo suena «ei» en «bei»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/aɪ̯/ (como «ai» en «baile»)",
+  "accept": [
+   "/aɪ̯/ (como «ai» en «baile»)"
+  ],
+  "options": [
+   "/iː/ (una «i» larga)",
+   "/eɪ̯/ (como «ei» en «rey»)",
+   "/aɪ̯/ (como «ai» en «baile»)",
+   "/ɔʏ̯/ (como «oi» en «hoy»)"
+  ],
+  "explanation": "«ei» y «ai» suenan /aɪ̯/: bei, Datei.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-002",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Euro",
+  "prompt": "¿Cómo suena «eu» en «Euro»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ɔʏ̯/ (como «oi» en «hoy»)",
+  "accept": [
+   "/ɔʏ̯/ (como «oi» en «hoy»)"
+  ],
+  "options": [
+   "/aɪ̯/ (como «ai» en «baile»)",
+   "/oː/ (una «o» larga)",
+   "/eu̯/ (como «eu» en «Europa»)",
+   "/ɔʏ̯/ (como «oi» en «hoy»)"
+  ],
+  "explanation": "«eu» y «äu» suenan /ɔʏ̯/: Euro, Häuser.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-003",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "protestieren",
+  "prompt": "¿Cómo suena «ie» en «protestieren»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/iː/ (una «i» larga)",
+  "accept": [
+   "/iː/ (una «i» larga)"
+  ],
+  "options": [
+   "/aɪ̯/ (como «ai» en «baile»)",
+   "/iː/ (una «i» larga)",
+   "/ɪə/ (como «ia» en «tía»)",
+   "/eː/ (una «e» larga)"
+  ],
+  "explanation": "«ie» es una «i» larga: lieben, protestieren.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-004",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Übung",
+  "prompt": "¿Cuál es el sonido de «ü» en «Übung»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/yː/ (labios en «u», lengua en «i»)",
+  "accept": [
+   "/yː/ (labios en «u», lengua en «i»)"
+  ],
+  "options": [
+   "/oː/ (como la «o» española)",
+   "/uː/ (como la «u» española)",
+   "/yː/ (labios en «u», lengua en «i»)",
+   "/iː/ (como la «i» española)"
+  ],
+  "explanation": "«ü» se dice con los labios de «u» y la lengua de «i».",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-005",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Brötchen",
+  "prompt": "¿Cuál es el sonido de «ö» en «Brötchen»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/øː/ o /œ/ (labios en «o», lengua en «e»)",
+  "accept": [
+   "/øː/ o /œ/ (labios en «o», lengua en «e»)"
+  ],
+  "options": [
+   "/øː/ o /œ/ (labios en «o», lengua en «e»)",
+   "/uː/ (como la «u» española)",
+   "/eː/ (como la «e» española)",
+   "/oː/ (como la «o» española)"
+  ],
+  "explanation": "«ö» se dice con los labios de «o» y la lengua de «e».",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-006",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Äpfel",
+  "prompt": "¿Cuál es el sonido de «ä» en «Äpfel»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ɛ/ (como una «e» abierta)",
+  "accept": [
+   "/ɛ/ (como una «e» abierta)"
+  ],
+  "options": [
+   "/aː/ (como la «a» española)",
+   "/øː/ (como «ö»)",
+   "/uː/ (como la «u» española)",
+   "/ɛ/ (como una «e» abierta)"
+  ],
+  "explanation": "«ä» suena como «e» abierta: Äpfel, Männer.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-007",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Urlaub",
+  "prompt": "¿Cómo suena la «b» final de «Urlaub»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/p/",
+  "accept": [
+   "/p/"
+  ],
+  "options": [
+   "/p/",
+   "/f/",
+   "/b/",
+   "/v/"
+  ],
+  "explanation": "Al final de sílaba, b/d/g se ensordecen: b → p.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-008",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Mund",
+  "prompt": "¿Cómo suena la «d» final de «Mund»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/t/",
+  "accept": [
+   "/t/"
+  ],
+  "options": [
+   "/ð/",
+   "/d/",
+   "/t/",
+   "/θ/"
+  ],
+  "explanation": "Al final de sílaba, d → t.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-009",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Ausflug",
+  "prompt": "¿Cómo suena la «g» final de «Ausflug»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/k/",
+  "accept": [
+   "/k/"
+  ],
+  "options": [
+   "/g/",
+   "/ʃ/",
+   "/k/",
+   "/x/"
+  ],
+  "explanation": "Al final de sílaba, g → k.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-010",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Wohnung",
+  "prompt": "¿Cómo suena «-ung» en «Wohnung»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ʊŋ/ (la «g» no se oye aparte)",
+  "accept": [
+   "/ʊŋ/ (la «g» no se oye aparte)"
+  ],
+  "options": [
+   "/ʊŋg/ (se oye la «g»)",
+   "/ʊnk/",
+   "/ʊŋ/ (la «g» no se oye aparte)",
+   "/ʊnx/"
+  ],
+  "explanation": "«ng» es una sola «n» nasal /ŋ/.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-011",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Ahnung",
+  "prompt": "¿Qué hace la «h» de «Ahnung»?",
+  "hint": "",
+  "translation": "",
+  "answer": "Alarga la vocal y no se pronuncia",
+  "accept": [
+   "Alarga la vocal y no se pronuncia"
+  ],
+  "options": [
+   "Se pronuncia como «g»",
+   "Se pronuncia fuerte como «j»",
+   "Acorta la vocal",
+   "Alarga la vocal y no se pronuncia"
+  ],
+  "explanation": "La «h» después de vocal es muda y alarga: sehen, Ahnung.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-012",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Schiff",
+  "prompt": "¿Cómo suena «sch» en «Schiff»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ʃ/ (como «ch» en «chico» suave, sin «t»)",
+  "accept": [
+   "/ʃ/ (como «ch» en «chico» suave, sin «t»)"
+  ],
+  "options": [
+   "/s/ + /k/",
+   "/ʃ/ (como «ch» en «chico» suave, sin «t»)",
+   "/tʃ/ (como «ch» en «chico»)",
+   "/x/ (como «j»)"
+  ],
+  "explanation": "«sch» = /ʃ/ (es el sonido de «shh»).",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-013",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Delphin",
+  "prompt": "¿Cómo suena «ph» en «Delphin»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/f/",
+  "accept": [
+   "/f/"
+  ],
+  "options": [
+   "/ʃ/",
+   "/p/",
+   "/pf/",
+   "/f/"
+  ],
+  "explanation": "«ph» suena como «f».",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-014",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Fluss",
+  "prompt": "¿Qué indica «ss» en «Fluss»?",
+  "hint": "",
+  "translation": "",
+  "answer": "Que la vocal anterior es corta",
+  "accept": [
+   "Que la vocal anterior es corta"
+  ],
+  "options": [
+   "Que la vocal anterior es corta",
+   "Que la «s» es sonora",
+   "Que la vocal anterior es larga",
+   "Que se pronuncia /ʃ/"
+  ],
+  "explanation": "«ss» tras vocal corta; «ß» tras vocal larga o diptongo.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-015",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Fuß",
+  "prompt": "¿Qué indica «ß» en «Fuß»?",
+  "hint": "",
+  "translation": "",
+  "answer": "Que la vocal anterior es larga",
+  "accept": [
+   "Que la vocal anterior es larga"
+  ],
+  "options": [
+   "Que se pronuncia /ts/",
+   "Que se pronuncia /ʃ/",
+   "Que la vocal anterior es corta",
+   "Que la vocal anterior es larga"
+  ],
+  "explanation": "«ß» (sorda) aparece tras vocal larga o diptongo: Fuß, groß, heißen.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-016",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Brötchen",
+  "prompt": "¿Cómo suena el sufijo «-chen» en «Brötchen»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/çən/ (aire entre lengua y paladar)",
+  "accept": [
+   "/çən/ (aire entre lengua y paladar)"
+  ],
+  "options": [
+   "/ʃən/ (como «sh»)",
+   "/çən/ (aire entre lengua y paladar)",
+   "/kən/ (como «k»)",
+   "/tʃən/ (como «ch» en «chico»)"
+  ],
+  "explanation": "«ch» tras e/i/ö/ü… suena /ç/ (suave); tras a/o/u/au suena /x/ (como «j»).",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-017",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Buch",
+  "prompt": "¿Cómo suena «ch» en «Buch»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/x/ (como la «j» española, más suave)",
+  "accept": [
+   "/x/ (como la «j» española, más suave)"
+  ],
+  "options": [
+   "/k/",
+   "/tʃ/ (como «ch» en «chico»)",
+   "/ç/ (suave, como en «ich»)",
+   "/x/ (como la «j» española, más suave)"
+  ],
+  "explanation": "Tras a, o, u, au → /x/; tras e, i, ä, ö, ü, ei, eu → /ç/.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-018",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "ich",
+  "prompt": "¿Cómo suena «ch» en «ich»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ç/ (suave, aire por la lengua)",
+  "accept": [
+   "/ç/ (suave, aire por la lengua)"
+  ],
+  "options": [
+   "/k/",
+   "/ç/ (suave, aire por la lengua)",
+   "/tʃ/ (como «ch» en «chico»)",
+   "/x/ (como la «j» española)"
+  ],
+  "explanation": "Tras i, e, ä, ö, ü, ei, eu → /ç/.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-019",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Sonne",
+  "prompt": "¿Cómo suena «s» al principio de «Sonne»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/z/ (sonora, como «z» inglesa)",
+  "accept": [
+   "/z/ (sonora, como «z» inglesa)"
+  ],
+  "options": [
+   "/s/ (sorda, como la «s» española)",
+   "/ts/",
+   "/ʃ/",
+   "/z/ (sonora, como «z» inglesa)"
+  ],
+  "explanation": "«s» antes de vocal es sonora /z/; «ß» y «ss» son sordas.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-020",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Zeit",
+  "prompt": "¿Cómo suena «z» en «Zeit»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ts/",
+  "accept": [
+   "/ts/"
+  ],
+  "options": [
+   "/z/",
+   "/ts/",
+   "/θ/ (como la «z» de España)",
+   "/s/"
+  ],
+  "explanation": "«z» siempre es /ts/: Zeit, zehn, Herz.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-021",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Vater",
+  "prompt": "¿Cómo suena «v» en «Vater»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/f/",
+  "accept": [
+   "/f/"
+  ],
+  "options": [
+   "/v/ (como la «v» inglesa)",
+   "/b/",
+   "/f/",
+   "/w/"
+  ],
+  "explanation": "En palabras alemanas «v» suena /f/: Vater, vier, viel.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-022",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Wasser",
+  "prompt": "¿Cómo suena «w» en «Wasser»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/v/ (como la «v» inglesa)",
+  "accept": [
+   "/v/ (como la «v» inglesa)"
+  ],
+  "options": [
+   "/w/ (como «u» en «huevo»)",
+   "/v/ (como la «v» inglesa)",
+   "/f/",
+   "/b/"
+  ],
+  "explanation": "«w» suena /v/: Wasser, wohnen.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-023",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "ja",
+  "prompt": "¿Cómo suena «j» en «ja»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/j/ (como «y» en «yo»)",
+  "accept": [
+   "/j/ (como «y» en «yo»)"
+  ],
+  "options": [
+   "/x/ (como la «j» española)",
+   "/dʒ/",
+   "/ʒ/",
+   "/j/ (como «y» en «yo»)"
+  ],
+  "explanation": "«j» suena como «y»: ja, Jahr.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-024",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Quelle",
+  "prompt": "¿Cómo suena «qu» en «Quelle»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/kv/",
+  "accept": [
+   "/kv/"
+  ],
+  "options": [
+   "/kw/ (como «cu» en «cuadro»)",
+   "/kv/",
+   "/ɡ/",
+   "/k/ (como en «que»)"
+  ],
+  "explanation": "«qu» = /kv/: Quelle, bequem.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-025",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "sprechen",
+  "prompt": "¿Cómo suena «sp» al principio de «sprechen»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ʃp/",
+  "accept": [
+   "/ʃp/"
+  ],
+  "options": [
+   "/sp/",
+   "/zp/",
+   "/ʃb/",
+   "/ʃp/"
+  ],
+  "explanation": "Al principio de sílaba, «sp» y «st» suenan /ʃp/ /ʃt/: sprechen, Straße, verstehen.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-026",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Straße",
+  "prompt": "¿Cómo suena «st» al principio de «Straße»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/ʃt/",
+  "accept": [
+   "/ʃt/"
+  ],
+  "options": [
+   "/ʃt/",
+   "/ts/",
+   "/st/",
+   "/zt/"
+  ],
+  "explanation": "Al principio de palabra o raíz, «st» = /ʃt/.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-027",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Museum",
+  "prompt": "¿Dónde va el acento en «Museum»?",
+  "hint": "",
+  "translation": "",
+  "answer": "En la segunda sílaba: Mu-SE-um",
+  "accept": [
+   "En la segunda sílaba: Mu-SE-um"
+  ],
+  "options": [
+   "Todas por igual",
+   "En la última: Mu-se-UM",
+   "En la segunda sílaba: Mu-SE-um",
+   "En la primera: MU-se-um"
+  ],
+  "explanation": "Muchas palabras de origen latino acentúan la penúltima: Museum, Student.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-028",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "besuchen",
+  "prompt": "¿Dónde va el acento en «besuchen»?",
+  "hint": "",
+  "translation": "",
+  "answer": "En la raíz: be-SU-chen",
+  "accept": [
+   "En la raíz: be-SU-chen"
+  ],
+  "options": [
+   "En la última: be-su-CHEN",
+   "En la raíz: be-SU-chen",
+   "No hay acento",
+   "En el prefijo: BE-su-chen"
+  ],
+  "explanation": "Los prefijos inseparables (be-, ge-, ver-, zer-, ent-, er-) no llevan el acento.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-029",
+  "module": "wortschatz",
+  "level": "A1",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "aufstehen",
+  "prompt": "¿Dónde va el acento en «aufstehen»?",
+  "hint": "",
+  "translation": "",
+  "answer": "En el prefijo separable: AUF-ste-hen",
+  "accept": [
+   "En el prefijo separable: AUF-ste-hen"
+  ],
+  "options": [
+   "En la última: auf-ste-HEN",
+   "En el prefijo separable: AUF-ste-hen",
+   "En la raíz: auf-STE-hen",
+   "No hay acento"
+  ],
+  "explanation": "El prefijo separable lleva el acento: AUF-stehen, AN-rufen.",
+  "errorTag": "pronunciacion:regla",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-030",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "schön",
+  "prompt": "¿Qué palabra suena /ʃøːn/?",
+  "hint": "",
+  "translation": "",
+  "answer": "schön",
+  "accept": [
+   "schön"
+  ],
+  "options": [
+   "schön",
+   "scheon",
+   "schon",
+   "Schon"
+  ],
+  "explanation": "/ʃøːn/ = «schön» (bonito); «schon» (ya) suena /ʃoːn/.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-031",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "schon",
+  "prompt": "¿Qué palabra suena /ʃoːn/?",
+  "hint": "",
+  "translation": "",
+  "answer": "schon",
+  "accept": [
+   "schon"
+  ],
+  "options": [
+   "schonn",
+   "schön",
+   "schon",
+   "schoen"
+  ],
+  "explanation": "/ʃoːn/ = «schon» (ya).",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-032",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Staat",
+  "prompt": "¿Cuál suena con vocal LARGA?",
+  "hint": "",
+  "translation": "",
+  "answer": "Staat",
+  "accept": [
+   "Staat"
+  ],
+  "options": [
+   "Staat",
+   "Stadt",
+   "Stamm",
+   "Stand"
+  ],
+  "explanation": "«aa» alarga: Staat /ʃtaːt/; «Stadt» tiene vocal corta /ʃtat/.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-033",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Bett",
+  "prompt": "¿Cuál suena con vocal CORTA?",
+  "hint": "",
+  "translation": "",
+  "answer": "Bett",
+  "accept": [
+   "Bett"
+  ],
+  "options": [
+   "Beet",
+   "Tee",
+   "Bett",
+   "Boot"
+  ],
+  "explanation": "«tt» tras vocal: corta. «ee», «oo» y «h» alargan.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-034",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Übung",
+  "prompt": "¿Qué grafía tiene el sonido /yː/ largo?",
+  "hint": "",
+  "translation": "",
+  "answer": "Übung",
+  "accept": [
+   "Übung"
+  ],
+  "options": [
+   "Unfall",
+   "Uhr",
+   "Ufer",
+   "Übung"
+  ],
+  "explanation": "«ü» + «h»/consonante simple suele ser largo: Übung, Tür.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-035",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Familie",
+  "prompt": "¿En qué palabra el «ie» NO es /iː/?",
+  "hint": "",
+  "translation": "",
+  "answer": "Familie",
+  "accept": [
+   "Familie"
+  ],
+  "options": [
+   "Familie",
+   "Liebe",
+   "Brief",
+   "Spiel"
+  ],
+  "explanation": "En palabras como Familie, Studie… «ie» final suena /jə/. En el resto «ie» = /iː/.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-036",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "fünf",
+  "prompt": "¿Cuál de estas palabras lleva /ʏ/ corto?",
+  "hint": "",
+  "translation": "",
+  "answer": "fünf",
+  "accept": [
+   "fünf"
+  ],
+  "options": [
+   "Tür",
+   "Übung",
+   "fünf",
+   "früh"
+  ],
+  "explanation": "«ü» ante dos consonantes suele ser corta: fünf, Hütte.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-037",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Lehrer",
+  "prompt": "¿Cómo se pronuncia «r» al final de «Lehrer»?",
+  "hint": "",
+  "translation": "",
+  "answer": "Como una «a» suave /ɐ/",
+  "accept": [
+   "Como una «a» suave /ɐ/"
+  ],
+  "options": [
+   "No se pronuncia nada",
+   "Como la «r» simple española",
+   "Como una «a» suave /ɐ/",
+   "Como «rr» fuerte española"
+  ],
+  "explanation": "La «r» final tras vocal se vocaliza: Lehrer /ˈleːʁɐ/, Vater.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ },
+ {
+  "id": "pr-038",
+  "module": "wortschatz",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "pronunciacion",
+  "pool": "pronunciacion",
+  "lemma": "Tisch",
+  "prompt": "¿Cuál es la pronunciación aproximada de «Tisch»?",
+  "hint": "",
+  "translation": "",
+  "answer": "/tɪʃ/",
+  "accept": [
+   "/tɪʃ/"
+  ],
+  "options": [
+   "/tɪs/",
+   "/tɪtʃ/",
+   "/tɪx/",
+   "/tɪʃ/"
+  ],
+  "explanation": "«sch» = /ʃ/: Tisch, Fisch.",
+  "errorTag": "pronunciacion:palabra",
+  "conceptIds": [
+   "md:pronunciacion"
+  ],
+  "source": "gen-pronunciacion"
+ }
+]

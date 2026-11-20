@@ -10,7 +10,7 @@ const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 const safe = s => s.replace(/<(\/script|!--)/gi, '\\u003c$1');
 function build() {
   require('./bundle.js');          // el HTML siempre lleva el motor al día
-  const data = [].concat(...MODULES.concat(['gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo']).map(m => JSON.parse(rd('data/' + m + '.json'))));
+  const data = [].concat(...MODULES.concat(['gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion']).map(m => JSON.parse(rd('data/' + m + '.json'))));
   const concepts = JSON.parse(rd('data/concepts.json'));
   const ui = 'window.DGUI = window.DGUI || {};\n' + UI_ORDER.map(n => '/* ===== ' + n + '.js ===== */\n' + rd('ui/' + n + '.js')).join('\n');
   const html = rd('ui/index.html')

@@ -849,6 +849,14 @@
     "antes": "dónde · cómo · cuándo",
     "despues": "**heute** · **mit dem Zug** · **nach Berlin**"
    }
+  },
+  "md:pronunciacion": {
+   "titulo": "Pronunciación: reglas básicas",
+   "errores": [
+    "eu y äu representan el mismo diptongo: /ɔʏ̯/.",
+    "La j alemana no se pronuncia como la jota española, sino como /j/, similar a la «y» de «yo».",
+    "La h inicial es aspirada; no equivale exactamente a la jota española."
+   ]
   }
  },
  "biblioteca": [
