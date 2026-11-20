@@ -6,7 +6,7 @@
   var R = {};
   var PERSON = { ich: 'ich', du: 'du', er_sie_es: 'er/sie/es', wir: 'wir', ihr: 'ihr', sie_Sie: 'sie/Sie' };
   var PERSON_ORDER = ['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'sie_Sie'];
-  var SKILL = { praesens: 'Präsens', praeteritum: 'Präteritum', 'partizip-ii': 'Partizip II', hilfsverb: 'haben / sein', genero: 'Género', plural: 'Plural', indefinido: 'Artículo indefinido' };
+  var SKILL = { praesens: 'Präsens', praeteritum: 'Präteritum', 'partizip-ii': 'Partizip II', hilfsverb: 'haben / sein', plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II', genero: 'Género', plural: 'Plural', indefinido: 'Artículo indefinido' };
   var TAG = { 'verb:praesens': 'Präsens', 'verb:praeteritum': 'Präteritum', 'verb:partizip': 'Partizip II', 'verb:aux': 'haben / sein', 'artikel:genero': 'Género (der/die/das)', 'artikel:plural': 'Plural', 'artikel:indefinido': 'Artículo indefinido' };
   var CASE = { nominative: 'Nominativ', accusative: 'Akkusativ', dative: 'Dativ', genitive: 'Genitiv' };
   var SUB = { possessive_article: 'posesivo', possessive_pronoun: 'posesivo', predicate_noun: 'predicado', two_way_preposition: 'Wechselpräposition', article: 'artículo', adjective: 'adjetivo',
@@ -40,7 +40,7 @@
   R.skillLabel = function (s) { return SKILL[s] || SKILL_DEK[s] || SKILL_PK[s] || SKILL_WS[s] || String(s || '').replace(/[-_]+/g, ' ').replace(/^./, function (c) { return c.toUpperCase(); }); };
 
   // Cápsula que corresponde a un ítem. En VERBOS sólo vale la regla de SU tiempo (nunca la del Präsens en un Präteritum): sin ella, hueco.
-  var VERB_PREF = { praesens: ['cs:t3', 'md:verben-praesens'], praeteritum: ['md:verben-praeteritum'], 'partizip-ii': ['md:verben-partizip'], hilfsverb: ['cs:t5', 'md:verben-partizip'] };
+  var VERB_PREF = { praesens: ['cs:t3', 'md:verben-praesens'], praeteritum: ['md:verben-praeteritum'], 'partizip-ii': ['md:verben-partizip'], hilfsverb: ['cs:t5', 'md:verben-partizip'], plusquamperfekt: ['md:verben-plusquamperfekt'], futur: ['md:verben-futur'], imperativ: ['md:verben-imperativ'], konjunktiv2: ['md:verben-konjunktiv2'] };
   R.pickCapsule = function (item, reglas) {
     var ids = item.conceptIds || [], i;
     if (item.module === 'verben') {

@@ -536,7 +536,7 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
@@ -1020,4 +1020,23 @@ test('PWA · service worker activo → «Sin conexión: lista»; una versión nu
   const before = u.w.localStorage.getItem('dg.progress'); listeners.controllerchange();
   await waitFor(() => u.q('.toast.ok')); assert.match(u.q('.toast').textContent, /versión nueva/);
   assert.equal(u.w.localStorage.getItem('dg.progress'), before, 'el progreso no cambia al actualizar'); assert.equal(u.S().screen, 'settings', 'no recarga ni cambia de pantalla');
+});
+
+test('G · Gramática B1: la UI sirve Plusquamperfekt/Futur/Imperativ/Konjunktiv II con etiqueta propia y, tras fallar, su cápsula (sin la del Präsens)', () => {
+  const etiquetas = { plusquamperfekt: 'Plusquamperfekt', futur: 'Futur I', imperativ: 'Imperativ', konjunktiv2: 'Konjunktiv II' };
+  const vistos = {};
+  for (let seed = 90; seed < 100 && Object.keys(vistos).length < 4; seed++) {
+    const u = boot(seed); u.chooseModule('verben', 30); u.start();
+    for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
+      const it = u.S().cur.item;
+      if (etiquetas[it.skill] && !vistos[it.skill]) {
+        vistos[it.skill] = true; u.answer(false);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap, it.skill + ': cápsula tras fallar');
+        assert.equal(cap.dataset.concept, 'md:verben-' + it.skill);
+        assert.ok(u.q('.fb.bad').textContent.length > 0);
+      } else u.answer(true);
+      u.next();
+    }
+  }
+  assert.ok(Object.keys(vistos).length >= 2, 'habilidades nuevas vistas: ' + Object.keys(vistos).join());
 });

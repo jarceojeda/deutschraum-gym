@@ -10,7 +10,7 @@ const nfc = s => String(s || '').normalize('NFC');
 // concepto → clases (números). Mapeo por tema; sólo asociaciones claras.
 const MAP = {
   // conceptos sin cápsula hasta ahora
-  'md:verben-praesens': [7], 'md:verben-praeteritum': [8], 'md:verben-partizip': [30], 'md:satzbau-v2': [10], 'md:satzbau-fragen': [22, 24],
+  'md:verben-praesens': [7], 'md:verben-praeteritum': [8], 'md:verben-partizip': [30], 'md:verben-plusquamperfekt': [31], 'md:verben-futur': [32], 'md:verben-imperativ': [29], 'md:verben-konjunktiv2': [49], 'md:satzbau-v2': [10], 'md:satzbau-fragen': [22, 24],
   'md:indefinitpronomen': [39], 'b1:genitiv-praepositionen': [12], 'a24:accprep': [4], 'dm:s8-3': [14], 'md:konnektoren-doppel': [47],
   // conceptos con cápsula de las hojas: se enriquecen con errores típicos
   'cs:t1': [10], 'cs:t2': [22, 24], 'cs:t3': [7], 'cs:t8': [33], 'cs:t11': [29], 'cs:t14': [3], 'cs:t15': [4], 'cs:t19': [6], 'cs:t20': [23],
@@ -45,7 +45,7 @@ function readNote(n) {
 }
 
 // títulos propios cuando una cápsula junta varias clases o el de la clase no describe el concepto
-const TITLES = { 'a2:wechselpraepositionen': 'Wechselpräpositionen: Wo? / Wohin?', 'cs:t26': 'Contracciones: zum, zur, im, am…', 'a2:praeposition-dat': 'Preposiciones con Dativ', 'a2:praeposition-acc': 'Preposiciones con Akkusativ', 'a2:praeposition-gen': 'Preposiciones con Genitiv', 'a2:verben-mit-praepositionen': 'Verbos con preposición', 'b1:verben-mit-praepositionen': 'Verbos con preposición', 'a2:konnektoren': 'Conectores: aber, denn, und, sondern, oder', 'a2:nebensaetze': 'Nebensätze: el verbo va al final', 'b1:konnektoren': 'Conectores B1: deshalb, trotzdem, damit…', 'b1:indirekte-fragen': 'Preguntas indirectas: ob y W-Wort', 'md:satzbau-fragen': 'Preguntas: cerradas y abiertas', 'md:verben-partizip': 'Perfekt y Partizip II', 'md:verben-praeteritum': 'Präteritum', 'md:verben-praesens': 'Präsens' };
+const TITLES = { 'a2:wechselpraepositionen': 'Wechselpräpositionen: Wo? / Wohin?', 'cs:t26': 'Contracciones: zum, zur, im, am…', 'a2:praeposition-dat': 'Preposiciones con Dativ', 'a2:praeposition-acc': 'Preposiciones con Akkusativ', 'a2:praeposition-gen': 'Preposiciones con Genitiv', 'a2:verben-mit-praepositionen': 'Verbos con preposición', 'b1:verben-mit-praepositionen': 'Verbos con preposición', 'a2:konnektoren': 'Conectores: aber, denn, und, sondern, oder', 'a2:nebensaetze': 'Nebensätze: el verbo va al final', 'b1:konnektoren': 'Conectores B1: deshalb, trotzdem, damit…', 'b1:indirekte-fragen': 'Preguntas indirectas: ob y W-Wort', 'md:satzbau-fragen': 'Preguntas: cerradas y abiertas', 'md:verben-partizip': 'Perfekt y Partizip II', 'md:verben-praeteritum': 'Präteritum', 'md:verben-praesens': 'Präsens', 'md:verben-plusquamperfekt': 'Plusquamperfekt', 'md:verben-futur': 'Futur I', 'md:verben-imperativ': 'Imperativ', 'md:verben-konjunktiv2': 'Konjunktiv II' };
 const file = path.join(root, 'ui', 'reglas.json');
 const data = JSON.parse(fs.readFileSync(file, 'utf8'));
 let added = 0, created = 0, enriched = 0;
@@ -67,6 +67,14 @@ Object.keys(MAP2).forEach(cid => {
   if (data.reglas[cid]) { data.reglas[cid].errores = errores; enriched++; } else { data.reglas[cid] = { titulo: TITLES[cid] || notes[0].title, errores }; created++; }
   added += errores.length;
 });
+// fórmulas propias (texto original) de las habilidades de Gramática B1: se suman a la cápsula con los errores típicos
+const PROPIAS = {
+  'md:verben-plusquamperfekt': { formula: 'hatte / war (Präteritum) + PARTIZIP II', regla: '**Pasado del pasado.** Mismo auxiliar que en el Perfekt (haben o sein), pero en Präteritum: hatte, hattest… / war, warst…', ejemplo: { antes: 'ich habe gegessen', despues: 'ich **hatte** gegessen' } },
+  'md:verben-futur': { formula: 'werden (Präsens) + INFINITIVO al final', regla: '**werden** se conjuga: werde · wirst · wird · werden · werdet · werden. El verbo principal va en infinitivo, al final.', ejemplo: { antes: 'ich lerne', despues: 'ich **werde** lernen' } },
+  'md:verben-imperativ': { formula: 'du: raíz · ihr: forma de ihr · Sie: infinitivo + Sie', regla: '**du** pierde -st (komm!), los verbos con e→i(e) cambian la raíz (nimm!, lies!) y no llevan umlaut (fahr!). **ihr** = su forma de presente. **Sie** = infinitivo + Sie.', ejemplo: { antes: 'du kommst', despues: '**komm!**' } },
+  'md:verben-konjunktiv2': { formula: 'würde + INFINITIVO al final', regla: '**würde**: würde · würdest · würde · würden · würdet · würden. Sein, haben y los modales tienen forma propia (wäre, hätte, könnte, müsste…).', ejemplo: { antes: 'ich gehe', despues: 'ich **würde** gehen' } }
+};
+Object.keys(PROPIAS).forEach(cid => { if (data.reglas[cid]) Object.assign(data.reglas[cid], PROPIAS[cid]); });
 // alias: los conceptos de un solo ítem (a24:prep-NNN) apuntan a la cápsula de su tipo (por la etiqueta del ítem)
 const CASE = { acc: ['für', 'fur', 'ohne', 'durch', 'um', 'gegen', 'bis', 'entlang'], dat: ['mit', 'aus', 'nach', 'bei', 'seit', 'von', 'zu', 'gegenüber', 'ab', 'außer'], gen: ['statt', 'wegen', 'trotz', 'während'] };
 let alias = 0;

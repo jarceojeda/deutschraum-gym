@@ -723,6 +723,62 @@
   },
   "a24:prep-040": {
    "alias": "cs:t26"
+  },
+  "md:verben-plusquamperfekt": {
+   "titulo": "Plusquamperfekt",
+   "errores": [
+    "**Plusquamperfekt = pasado anterior:** necesita explícita o implícitamente otro punto de referencia pasado.",
+    "**Auxiliar en Präteritum:** **hatte / war**, no **habe / bin**.",
+    "**Participio al final:** **Ich hatte schon gegessen.**"
+   ],
+   "formula": "hatte / war (Präteritum) + PARTIZIP II",
+   "regla": "**Pasado del pasado.** Mismo auxiliar que en el Perfekt (haben o sein), pero en Präteritum: hatte, hattest… / war, warst…",
+   "ejemplo": {
+    "antes": "ich habe gegessen",
+    "despues": "ich **hatte** gegessen"
+   }
+  },
+  "md:verben-futur": {
+   "titulo": "Futur I",
+   "errores": [
+    "**Infinitivo al final:** **Ich werde morgen arbeiten**, no *Ich werde arbeiten morgen* como orden neutro.",
+    "**werden no significa automáticamente querer:** **Ich werde arbeiten** = trabajaré; **Ich will arbeiten** = quiero trabajar.",
+    "**El Präsens puede expresar futuro:** **Morgen arbeite ich** es completamente correcto."
+   ],
+   "formula": "werden (Präsens) + INFINITIVO al final",
+   "regla": "**werden** se conjuga: werde · wirst · wird · werden · werdet · werden. El verbo principal va en infinitivo, al final.",
+   "ejemplo": {
+    "antes": "ich lerne",
+    "despues": "ich **werde** lernen"
+   }
+  },
+  "md:verben-imperativ": {
+   "titulo": "Imperativ",
+   "errores": [
+    "**du e ihr se omiten:** **Komm!**, no *Komm du!* salvo que se quiera contrastar o enfatizar.",
+    "**Sie permanece:** **Kommen Sie!**, no *Kommen!*, cuando se trata formalmente a alguien.",
+    "**Sie formal va en mayúscula:** **Schreiben Sie Ihre Fragen.**"
+   ],
+   "formula": "du: raíz · ihr: forma de ihr · Sie: infinitivo + Sie",
+   "regla": "**du** pierde -st (komm!), los verbos con e→i(e) cambian la raíz (nimm!, lies!) y no llevan umlaut (fahr!). **ihr** = su forma de presente. **Sie** = infinitivo + Sie.",
+   "ejemplo": {
+    "antes": "du kommst",
+    "despues": "**komm!**"
+   }
+  },
+  "md:verben-konjunktiv2": {
+   "titulo": "Konjunktiv II",
+   "errores": [
+    "no traduzcas mecánicamente cada subjuntivo español con Konjunktiv II; el sistema alemán tiene usos propios.",
+    "usa **hätte/wäre + Partizip II** para la irrealidad pasada, no normalmente **würde + Partizip II + haben/sein**.",
+    "con modales en pasado se emplean dos infinitivos: **hätte arbeiten müssen**."
+   ],
+   "formula": "würde + INFINITIVO al final",
+   "regla": "**würde**: würde · würdest · würde · würden · würdet · würden. Sein, haben y los modales tienen forma propia (wäre, hätte, könnte, müsste…).",
+   "ejemplo": {
+    "antes": "ich gehe",
+    "despues": "ich **würde** gehen"
+   }
   }
  }
 }
