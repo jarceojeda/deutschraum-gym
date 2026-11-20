@@ -1138,7 +1138,39 @@ test('Más allá del B1: apagado por defecto (ningún ítem B2/C1 en el motor); 
   assert.equal(Object.keys(on.eng.store.byId).length - Object.keys(off.eng.store.byId).length, beyond.length);
   // progreso de un ítem extra sobrevive a arrancar sin el ajuste y se recupera al volver a activarlo
   const a = boot(212, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })) });
-  a.chooseModule('wortschatz', 10); a.start(); a.answer(false); const saved = a.w.localStorage.getItem('dg.progress'); assert.ok(saved);
-  const b = boot(213, { before: w => { w.localStorage.setItem('dg.progress', saved); } });   // sin el ajuste
+  a.click(a.q('[data-level="B1"]')); assert.ok(toItem(a, it => /^beyond-/.test(it.source), 'wortschatz', 30), 'sale un ítem extra'); a.answer(false); const saved = a.w.localStorage.getItem('dg.progress'); assert.ok(saved);
+  const antes = JSON.parse(saved), idsExtra = Object.keys(antes.items).filter(id => beyond.some(x => x.id === id)); assert.ok(idsExtra.length >= 1, 'se jugó algún ítem extra');
+  const b = boot(213, { before: w => { w.localStorage.setItem('dg.progress', saved); w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false })); } });   // sin el ajuste
   assert.ok(b.q('.hero'), 'arranca sin el ajuste con progreso de ítems que no están cargados');
+  b.chooseModule('verben', 10); b.start(); b.answer(true); b.next();   // fuerza un guardado
+  const despues = b.stored(); idsExtra.forEach(id => assert.ok(despues.items[id], 'progreso conservado: ' + id));
+  const c = boot(214, { before: w => { w.localStorage.setItem('dg.progress', JSON.stringify(despues)); w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, beyond: true })); } });
+  assert.ok(idsExtra.every(id => c.eng.state().items[id]), 'al reactivarlo, el progreso sigue ahí');
+});
+
+test('Mis palabras: añadir una palabra (≈10 s), entra al repaso en caliente, se guarda, sobrevive al reinicio, se quita con su progreso y viaja en la copia de seguridad', async () => {
+  const u = boot(220); u.click(u.q('#palabras')); assert.equal(u.S().screen, 'palabras');
+  const add = (de, es) => { u.q('#mw-de').value = de; u.q('#mw-es').value = es; u.click(u.q('#mw-add')); };
+  add('', 'ardilla'); assert.equal(u.qa('.mw-row').length, 0, 'sin alemán no se añade');
+  add('das Eichhörnchen', 'la ardilla'); assert.equal(u.qa('.mw-row').length, 1); assert.equal(u.q('.mw-row .en').textContent, 'la ardilla');
+  add('das  eichhörnchen', 'x'); assert.equal(u.qa('.mw-row').length, 1, 'duplicado rechazado');
+  const raw = JSON.parse(u.w.localStorage.getItem('dg.words')); assert.equal(raw.words.length, 1); assert.equal(raw.words[0].de, 'das Eichhörnchen');
+  // entra en el motor sin reiniciar y sale en una sesión de Wortschatz
+  const id = raw.words[0].id; assert.ok(u.eng.store.byId['mw-' + id + '-es-de']);
+  u.click(u.q('[aria-label="Volver"]')); assert.equal(u.q('#palabras .badge').textContent, '1');
+  u.click(u.q('#palabras')); u.click(u.q('#mw-practice')); assert.equal(u.S().screen, 'session', 'practicar mis palabras arranca una sesión');
+  assert.ok(u.S().cur.item.id.startsWith('mw-' + id), 'sólo salen mis palabras'); assert.equal(u.S().session.length(), 3);
+  u.answer(false); assert.ok(u.stored().errors[u.S().cur.item.id], 'el fallo se guarda como cualquier otro');
+  // la copia de seguridad la lleva
+  u.click(u.q('[aria-label="Terminar sesión"]')); u.click(u.q('.dock .btn.secondary')); const pkg = (u.click(u.q('[aria-label="Ajustes"]')), u.click(u.q('#export-btn')), JSON.parse(u.w.DGUI.app.lastExport.text));
+  assert.equal(pkg.misPalabras.length, 1); assert.ok(pkg.state && pkg.checksum, 'el checksum del motor no cambia');
+  // reinicio: arranca con la palabra cargada
+  const v = boot(221, { before: w => { w.localStorage.setItem('dg.words', JSON.stringify(raw)); } }); assert.ok(v.eng.store.byId['mw-' + id + '-es-de']);
+  // importar en un dispositivo limpio la restaura
+  const x = boot(222); x.click(x.q('[aria-label="Ajustes"]')); fileInput(x, JSON.stringify(pkg), 'copia.json'); assert.ok(await waitFor(() => x.q('#confirm-import'))); x.click(x.q('#confirm-import'));
+  assert.ok(x.eng.store.byId['mw-' + id + '-es-de'], 'la palabra se restauró con la copia'); assert.equal(JSON.parse(x.w.localStorage.getItem('dg.words')).words.length, 1);
+  // quitar: desaparece la palabra y su progreso
+  u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#palabras')); u.click(u.q('.mw-del'));
+  assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mw-' + id + '-es-de'], undefined); assert.equal(JSON.parse(u.w.localStorage.getItem('dg.words')).words.length, 0);
+  assert.equal(Object.keys(u.stored().errors).filter(k => k.startsWith('mw-' + id)).length, 0, 'sin restos de progreso');
 });

@@ -127,3 +127,10 @@ Ver el cuadro «Estado REAL de las etapas» en `docs/PROMPTS-etapas.md`: 3, 3b, 
 - Guardia nueva: `tests/data-prompts.test.js` (ningún ítem pierde su enunciado; el validador del motor no lo exige).
 - **Peso del HTML: 5,45 MB** (tope 6 MB). Quedan ≈0,5 MB de margen; el siguiente bloque grande de datos obligaría a recortar (p. ej. cargar «Más allá» como archivo aparte).
 - Límites conocidos: algunas frases de TeKaMoLo generadas son semánticamente raras («lerne wegen des Wetters»); las trampas de Komparativ/Superlativ son formas plausibles pero generadas; las cápsulas de Passiv/Relativ/Komparativ/TeKaMoLo/Pronunciación se verifican con pruebas de interfaz, no con revisión de una persona hispanohablante nativa.
+
+
+## Etapa 4c · «Mis palabras» (hecha) y datos definitivos (pendiente, depende de ti)
+- **«Mis palabras» (hecha):** pantalla en Inicio → «Mis palabras». Escribes alemán (con artículo si es sustantivo) + español; entra al Wortschatz con ES→DE, DE→ES y escribir, se guarda en `dg.words`, viaja en la copia de seguridad (campo `misPalabras`, fuera de `state`, el checksum no cambia) y se restaura al importar. «Practicar mis palabras» arranca una sesión sólo con ellas. Máx. 300. Código: `ui/dgui-palabras.js`.
+- **Cambios de motor (con prueba que falla antes y pasa después):** `engine.addItems / removeItems` (contenido del usuario en caliente; valida sin exigir pool mínimo), `startSession({kind:'ids', ids})` (sesión sólo con esos ítems; lo menos visto primero) y `keepIds` en `createEngine/reconcile` (no poda el progreso de contenido opcional no cargado).
+- **Bug corregido:** al apagar «Más allá del B1» el motor podaba el progreso de esos ítems; ahora se conserva (prueba en `tests/ui-jsdom.test.js` y `tests/engine.test.js`).
+- **Los datos definitivos del pipeline (Wortschatz 1.139 / Satzbau 216) NO están en el repositorio:** no hay nada que sustituir hasta que los subas. Siguen en uso las primeras versiones generadas.

@@ -3,7 +3,7 @@
 //   dist/manifest.webmanifest, dist/sw.js (caché versionada por el hash del HTML) y dist/icons/ (PNG versionados; ver tools/gen-icons.js).
 const fs = require('fs'), path = require('path'), crypto = require('crypto');
 const root = path.join(__dirname, '..');
-const UI_ORDER = ['dgui-util', 'dgui-fmt', 'dgui-rules', 'dgui-retention', 'dgui-tablas', 'dgui-sufijos', 'dgui-voice', 'dgui-variants', 'dgui-inputs', 'dgui-pwa', 'dgui-app', 'dgui-boot'];
+const UI_ORDER = ['dgui-util', 'dgui-fmt', 'dgui-rules', 'dgui-retention', 'dgui-tablas', 'dgui-sufijos', 'dgui-voice', 'dgui-palabras', 'dgui-variants', 'dgui-inputs', 'dgui-pwa', 'dgui-app', 'dgui-boot'];
 const MODULES = ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'wortschatz', 'satzbau'];
 const rd = f => fs.readFileSync(path.join(root, f), 'utf8');
 // Dentro de <script> no puede aparecer «</script» ni «<!--»: se escapan con < (JSON y JS siguen siendo válidos).

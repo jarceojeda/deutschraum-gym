@@ -161,3 +161,7 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 .fb-suf{margin-top:10px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--das) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--das) 30%,var(--line));font-size:14.5px}.fb-suf .art{font-size:.92em}
 .sheet-f .btn{width:100%}
+.mw-l{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:12px 0 4px}
+.mw-in{width:100%;font:inherit;font-size:18px;min-height:52px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0 14px}
+.mw-in:focus{outline:3px solid var(--accent);border-color:var(--brand)}
+.mw-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px}.mw-row .en{grid-column:1}.mw-row .mw-del{grid-row:1 / span 2;grid-column:2;min-height:48px}

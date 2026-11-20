@@ -131,13 +131,15 @@
     };
 
     // Quita referencias a ítems/unidades que ya no existen (tras actualizar el contenido).
-    self.reconcile = function (store) {
+    self.reconcile = function (store, keepIds) {
+      // keepIds: ids de contenido OPCIONAL que hoy no está cargado (p. ej. «Más allá del B1» apagado): se conservan para que su progreso vuelva al reactivarlo.
+      var keep = Object.create(null); (keepIds || []).forEach(function (id) { keep[id] = true; });
       var st = self.state, removed = { items: 0, errors: 0, units: 0, history: 0 };
-      Object.keys(st.items).forEach(function (id) { if (!store.byId[id]) { delete st.items[id]; removed.items++; } });
-      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id]) { delete st.errors[id]; removed.errors++; } });
-      Object.keys(st.units).forEach(function (u) { if (!store.units[u]) { delete st.units[u]; removed.units++; } });
+      Object.keys(st.items).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.items[id]; removed.items++; } });
+      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.errors[id]; removed.errors++; } });
+      Object.keys(st.units).forEach(function (u) { if (!store.units[u] && !keep[u]) { delete st.units[u]; removed.units++; } });
       st.history.forEach(function (h) {
-        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id]; }); removed.history += n - h.ids.length;
+        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id] || !!keep[id]; }); removed.history += n - h.ids.length;
       });
       return removed;
     };

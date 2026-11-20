@@ -177,6 +177,10 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 .fb-suf{margin-top:10px;padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--das) 9%,var(--surface));border:1px solid color-mix(in srgb,var(--das) 30%,var(--line));font-size:14.5px}.fb-suf .art{font-size:.92em}
 .sheet-f .btn{width:100%}
+.mw-l{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:12px 0 4px}
+.mw-in{width:100%;font:inherit;font-size:18px;min-height:52px;border:2px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:0 14px}
+.mw-in:focus{outline:3px solid var(--accent);border-color:var(--brand)}
+.mw-row{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px}.mw-row .en{grid-column:1}.mw-row .mw-del{grid-row:1 / span 2;grid-column:2;min-height:48px}
 
 </style>
 </head>
@@ -1284,13 +1288,15 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
     };
 
     // Quita referencias a ítems/unidades que ya no existen (tras actualizar el contenido).
-    self.reconcile = function (store) {
+    self.reconcile = function (store, keepIds) {
+      // keepIds: ids de contenido OPCIONAL que hoy no está cargado (p. ej. «Más allá del B1» apagado): se conservan para que su progreso vuelva al reactivarlo.
+      var keep = Object.create(null); (keepIds || []).forEach(function (id) { keep[id] = true; });
       var st = self.state, removed = { items: 0, errors: 0, units: 0, history: 0 };
-      Object.keys(st.items).forEach(function (id) { if (!store.byId[id]) { delete st.items[id]; removed.items++; } });
-      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id]) { delete st.errors[id]; removed.errors++; } });
-      Object.keys(st.units).forEach(function (u) { if (!store.units[u]) { delete st.units[u]; removed.units++; } });
+      Object.keys(st.items).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.items[id]; removed.items++; } });
+      Object.keys(st.errors).forEach(function (id) { if (!store.byId[id] && !keep[id]) { delete st.errors[id]; removed.errors++; } });
+      Object.keys(st.units).forEach(function (u) { if (!store.units[u] && !keep[u]) { delete st.units[u]; removed.units++; } });
       st.history.forEach(function (h) {
-        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id]; }); removed.history += n - h.ids.length;
+        var n = h.ids.length; h.ids = h.ids.filter(function (id) { return !!store.byId[id] || !!keep[id]; }); removed.history += n - h.ids.length;
       });
       return removed;
     };
@@ -1399,6 +1405,17 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
       typeCount[it.type] = (typeCount[it.type] || 0) + 1;
       cellUsed[it.skillId] = (cellUsed[it.skillId] || 0) + 1;   // los errores obligatorios también ocupan cuota
       entries.push({ id: it.id, unit: it.unit, module: it.module, skillId: it.skillId, level: it.level, type: it.type, bucket: bucket, cls: cls });
+    }
+
+    /* ---- kind 'ids': sesión sólo con los ítems pedidos («Practicar mis palabras») ---- */
+    if (kind === 'ids') {
+      var asked = (req.ids || []).filter(function (id, i, a) { return a.indexOf(id) === i && store.byId[id] && levelOK(store.byId[id]); });
+      // lo menos visto primero (intentos, luego el último uso más antiguo); el azar sólo desempata
+      var keyed = rng.shuffle(asked).map(function (id) { var s = st.items[id]; return { id: id, a: s ? s.a || 0 : 0, ls: s ? s.ls || 0 : 0 }; });
+      keyed.sort(function (x, y) { return x.a - y.a || x.ls - y.ls; });
+      keyed.slice(0, size).forEach(function (x) { take(store.byId[x.id], 'current', 'new'); });
+      if (!entries.length) warnings.push({ code: 'NO_ITEMS', msg: 'No hay ejercicios para esas palabras.' });
+      return { sessionNo: sessionNo, kind: kind, size: size, items: rng.shuffle(entries), warnings: warnings, notes: notes, carry: {}, composition: { error: 0, current: entries.length, easier: 0, up: 0, fallback: 0, cls: { new: entries.length, due: 0, learning: 0, future: 0, error: 0 } }, modulePlan: {} };
     }
 
     /* ---- 1. cola de errores ---- */
@@ -1733,14 +1750,38 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
     var cfg = Object.assign({}, CFG, opts.config || {});
     var clock = opts.clock || { now: function () { return Date.now(); } };
     var rng = opts.rng || DG.rng.create();
-    var store = Items.createStore(opts.data || []);
+    var rawAll = (opts.data || []).slice();
+    var store = Items.createStore(rawAll);
     var progress = P.create({ storage: opts.storage || null, key: opts.key, clock: clock });
     progress.load();
-    var reconciled = progress.reconcile(store);
+    var reconciled = progress.reconcile(store, opts.keepIds);
 
     var engine = { store: store, progress: progress, rng: rng, clock: clock, cfg: cfg, reconciled: reconciled };
     function state() { return progress.state; }
     engine.state = state;
+
+    /* Contenido del usuario en caliente («Mis palabras»). addItems valida los nuevos por separado (sin exigir el tamaño mínimo de pool, que sólo
+       tiene sentido para los datos oficiales) y no añade NADA si alguno falla o repite un id. removeItems quita ítems y su progreso. */
+    function rebuild() { store = Items.createStore(rawAll); engine.store = store; }
+    engine.addItems = function (list) {
+      list = list || []; var errors = [], seen = Object.create(null);
+      list.forEach(function (raw) { if (!raw || !raw.id) { errors.push({ code: 'missing-field', id: null, msg: 'ítem sin id' }); return; } if (store.byId[raw.id] || seen[raw.id]) errors.push({ code: 'dup-id', id: raw.id, msg: 'id ya existente' }); seen[raw.id] = true; });
+      if (list.length) {
+        var rep = Items.validate(Items.createStore(list), { concepts: opts.concepts });
+        rep.errors.forEach(function (e) { if (e.code !== 'pool-too-small') errors.push(e); });
+      }
+      if (errors.length || !list.length) return { added: 0, errors: errors };
+      list.forEach(function (raw) { rawAll.push(raw); }); rebuild();
+      return { added: list.length, errors: [] };
+    };
+    engine.removeItems = function (ids) {
+      var del = Object.create(null); (ids || []).forEach(function (id) { del[id] = true; });
+      var before = rawAll.length; rawAll = rawAll.filter(function (raw) { return !del[raw.id]; }); rebuild();
+      var st = state(); Object.keys(del).forEach(function (id) { delete st.items[id]; delete st.errors[id]; delete st.units[id]; });
+      st.history.forEach(function (h) { h.ids = h.ids.filter(function (id) { return !del[id]; }); });
+      var sv = progress.save() || {};
+      return Object.assign({ removed: before - rawAll.length }, sv);
+    };
 
     engine.validate = function () { return Items.validate(store, { concepts: opts.concepts }); };
 
@@ -2404,6 +2445,69 @@ window.DGUI = window.DGUI || {};
   if (typeof module === 'object' && module.exports) module.exports = V;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
+/* ===== dgui-palabras.js ===== */
+/* dgui-palabras.js — «Mis palabras»: palabras propias del alumno (alemán + español) que entran al Wortschatz con ES→DE, DE→ES y escribir.
+ * Sin DOM; se prueba en Node. Las palabras se guardan aparte del progreso (clave dg.words) y el motor las recibe como ítems (engine.addItems).
+ * Los distractores salen del Wortschatz ya cargado (mismo tipo: con artículo si la palabra es un sustantivo). */
+(function (g) {
+  'use strict';
+  var P = {}, KEY = 'dg.words', MAXW = 300, SKILLS = ['es-de', 'de-es', 'produccion'];
+  var ART = /^(der|die|das)\s+\S/i;
+  function nfc(s) { return String(s == null ? '' : s).normalize('NFC').replace(/\s+/g, ' ').trim(); }
+  function seeded(s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return function () { h = Math.imul(h ^ (h >>> 15), 2246822507) >>> 0; return h / 4294967296; }; }
+  function shuffle(a, r) { return a.map(function (x) { return [r(), x]; }).sort(function (x, y) { return x[0] - y[0]; }).map(function (x) { return x[1]; }); }
+  P.isNoun = function (de) { return ART.test(de); };
+  P.lemma = function (de) { return de.replace(/^(der|die|das)\s+/i, ''); };
+  // Valida y normaliza lo que escribió el alumno. Devuelve {ok, word} o {ok:false, error}.
+  P.parse = function (de, es, existing) {
+    de = nfc(de); es = nfc(es);
+    if (!de || !es) return { ok: false, error: 'Escribe la palabra en alemán y su significado.' };
+    if (de.length > 40 || es.length > 60) return { ok: false, error: 'Es demasiado largo: usa una palabra o una expresión corta.' };
+    if (/[<>{}]/.test(de + es)) return { ok: false, error: 'Hay caracteres no permitidos.' };
+    de = de.replace(/^(Der|Die|Das)\s+/, function (m) { return m.toLowerCase(); });
+    if (/^(der|die|das)$/i.test(de)) return { ok: false, error: 'Falta la palabra después del artículo.' };
+    var k = de.toLowerCase();
+    if ((existing || []).some(function (w) { return w.de.toLowerCase() === k; })) return { ok: false, error: 'Esa palabra ya está en tu lista.' };
+    if ((existing || []).length >= MAXW) return { ok: false, error: 'Tu lista llegó al máximo de ' + MAXW + ' palabras.' };
+    return { ok: true, word: { de: de, es: es } };
+  };
+  P.newId = function (existing, now) { var n = (now || Date.now()).toString(36), i = 0, id; do { id = n + (i ? '-' + i : ''); i++; } while ((existing || []).some(function (w) { return w.id === id; })); return id; };
+  P.itemIds = function (word) { return SKILLS.map(function (s) { return 'mw-' + word.id + '-' + s; }); };
+  // Distractores: respuestas de ítems del Wortschatz (es-de → alemán, de-es → español) de la misma forma (con/sin artículo).
+  function pool(data, skill, wantArt) {
+    var art = skill === 'es-de' ? function (x) { return ART.test(x); } : function (x) { return /^(el|la|los|las|un|una)\s/i.test(x); }, out = {};
+    data.forEach(function (it) { if (it.module === 'wortschatz' && it.skill === skill && it.answer && art(it.answer) === wantArt) out[it.answer] = true; });
+    return Object.keys(out);
+  }
+  P.make = function (word, data, others) {
+    var noun = P.isNoun(word.de), lemma = P.lemma(word.de), items = [], own = (others || []);
+    var esArt = /^(el|la|los|las|un|una)\s/i.test(word.es);
+    function mk(skill, prompt, answer, options) {
+      return { id: 'mw-' + word.id + '-' + skill, module: 'wortschatz', level: 'A1', type: 'cloze', skill: skill, pool: skill, prompt: prompt, hint: '', translation: '', answer: answer, accept: [answer],
+        options: options, errorTag: 'vocab:' + skill, conceptIds: [], source: 'mis-palabras', lemma: lemma };
+    }
+    function opts(skill, answer, wantArt, ownVals) {
+      var r = seeded(word.id + skill), cand = shuffle(ownVals.concat(pool(data, skill, wantArt)), r).filter(function (x, i, a) { return x !== answer && a.indexOf(x) === i; });
+      return cand.length >= 3 ? shuffle([answer].concat(cand.slice(0, 3)), r) : null;
+    }
+    var o1 = opts('es-de', word.de, noun, own.filter(function (w) { return P.isNoun(w.de) === noun; }).map(function (w) { return w.de; }));
+    var o2 = opts('de-es', word.es, esArt, own.filter(function (w) { return /^(el|la|los|las|un|una)\s/i.test(w.es) === esArt; }).map(function (w) { return w.es; }));
+    if (o1) items.push(mk('es-de', word.es, word.de, o1));
+    if (o2) items.push(mk('de-es', word.de, word.es, o2));
+    if (word.de.length <= 24) items.push(mk('produccion', word.es, word.de, []));
+    return items;
+  };
+  P.makeAll = function (words, data) { var out = []; words.forEach(function (w) { P.make(w, data, words.filter(function (x) { return x.id !== w.id; })).forEach(function (i) { out.push(i); }); }); return out; };
+  P.load = function (storage) {
+    try { var raw = storage && storage.getItem(KEY); if (!raw) return []; var j = JSON.parse(raw); var a = j && Array.isArray(j.words) ? j.words : [];
+      return a.filter(function (w) { return w && typeof w.id === 'string' && typeof w.de === 'string' && typeof w.es === 'string'; }).map(function (w) { return { id: w.id, de: nfc(w.de), es: nfc(w.es) }; }); } catch (e) { return []; }
+  };
+  P.save = function (storage, words) { try { storage.setItem(KEY, JSON.stringify({ v: 1, words: words })); return true; } catch (e) { return false; } };
+  P.KEY = KEY; P.MAX = MAXW;
+  g.DGUI = g.DGUI || {}; g.DGUI.palabras = P;
+  if (typeof module === 'object' && module.exports) module.exports = P;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
 /* ===== dgui-variants.js ===== */
 /* dgui-variants.js — decide CÓMO se responde cada ejercicio por toques (sin DOM, probado en Node).
  * Parte siempre de item (motor) + view() (motor) y del almacén; no toca el SRS: el resultado sigue entrando por
@@ -2937,6 +3041,8 @@ window.DGUI = window.DGUI || {};
         h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
       var rc = ret.current(), chip = rc.streak > 0 ? h('span.streak-chip' + (rc.today ? '.done' : ''), { id: 'streak', title: rc.today ? 'Hoy ya practicaste' : 'Practica hoy para mantenerla' }, h('span', { 'aria-hidden': 'true' }, '◆ '), rc.streak + (rc.streak === 1 ? ' día' : ' días')) : null;
       var refCard = h('button.card.errs.ref', { type: 'button', id: 'consulta', onclick: function () { consulta('all'); } }, h('span.mi', { 'aria-hidden': 'true' }, '≡'), h('span.mt', h('strong', 'Consulta de reglas'), h('span', 'Fórmulas y tiras de memoria, sin ejercicios')), h('span.go', { 'aria-hidden': 'true' }, '›'));
+      var nw = (ctx.words || []).length;
+      var wordsCard = h('button.card.errs', { type: 'button', id: 'palabras', onclick: palabras }, h('span.mi', { 'aria-hidden': 'true' }, '＋'), h('span.mt', h('strong', 'Mis palabras'), h('span', nw ? nw + ' propias en tu repaso' : 'Añade una palabra tuya en unos segundos')), nw ? h('span.badge', String(nw)) : h('span.go', { 'aria-hidden': 'true' }, '›'));
       var mapCard = h('button.card.errs', { type: 'button', id: 'emap', onclick: errmap }, h('span.mi', { 'aria-hidden': 'true' }, '▦'), h('span.mt', h('strong', 'Mapa de errores'), h('span', 'Qué tipos fallas más: Dativ plural, Präteritum…')), h('span.go', { 'aria-hidden': 'true' }, '›'));
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), [chip, iconBtn('Ajustes', '⚙', settings)],
         [storageBanner(),
@@ -2945,7 +3051,7 @@ window.DGUI = window.DGUI || {};
             h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, lvMode, function (v) { chooseLevel(v); home(); }, 'level')),
             h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
             h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
-          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, mapCard, h('h2.sec-h', 'Consulta'), refCard, h('h2.sec-h', 'Mi vocabulario'), wordsCard, SOON.length ? h('h2.sec-h', 'Próximamente') : null, SOON.length ? soonList : null], null);
     }
 
     /* ---------- sesión ---------- */
@@ -2955,6 +3061,7 @@ window.DGUI = window.DGUI || {};
       S.mode = req.mode; S.lastSpec = null;
       if (kind === 'module') req.modules = [S.module];
       if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
+      if (kind === 'ids') req.ids = S.ids = o.ids || S.ids || [];   // «Practicar mis palabras»
       try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
       if (!s || !s.length()) { toast('No hay ejercicios para esta sesión. ' + (s && s.warnings && s.warnings.length ? WARN[s.warnings[0].code] || '' : 'Revisa el nivel en Ajustes.')); return; }
       S.kind = kind; S.session = s; S.saveError = null; S.answeredAny = false;
@@ -3268,10 +3375,38 @@ window.DGUI = window.DGUI || {};
     }
     api.consulta = consulta;
 
+    /* ---------- Mis palabras ---------- */
+    function palabras(msg) {
+      S.screen = 'palabras'; var W = D.palabras, list = ctx.words = ctx.words || [];
+      var inDe = h('input.mw-in', { type: 'text', id: 'mw-de', autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false', lang: 'de', placeholder: 'der Hund', 'aria-label': 'Palabra en alemán (con artículo si es sustantivo)', maxlength: '40' });
+      var inEs = h('input.mw-in', { type: 'text', id: 'mw-es', autocomplete: 'off', lang: 'es', placeholder: 'el perro', 'aria-label': 'Significado en español', maxlength: '60' });
+      function add() {
+        var r = W.parse(inDe.value, inEs.value, list); if (!r.ok) { palabras(); toast(r.error, 'warn'); return; }
+        var w = Object.assign({ id: W.newId(list, win.Date.now()) }, r.word), items = W.make(w, eng.store.all.length ? eng.store.all : [], list);
+        if (!items.length) { palabras(); toast('No pude preparar ejercicios con esa palabra.', 'warn'); return; }
+        var res = eng.addItems(items); if (!res.added) { palabras(); toast('No se pudo añadir: ' + ((res.errors[0] && res.errors[0].msg) || 'error'), 'warn'); return; }
+        list.push(w); var saved = W.save(ctx.storage, list); palabras(); toast(saved ? 'Añadida: ' + w.de + ' · ya entra en tu repaso.' : 'Añadida, pero este navegador no pudo guardarla.', saved ? 'ok' : 'warn');
+      }
+      function remove(w) {
+        eng.removeItems(W.itemIds(w)); ctx.words = list = list.filter(function (x) { return x.id !== w.id; }); W.save(ctx.storage, list); palabras(); toast('Quitada: ' + w.de, 'info');
+      }
+      inEs.addEventListener('keydown', function (e) { if (e.key === 'Enter') add(); });
+      var rows = list.length ? h('div.emap', list.slice().reverse().map(function (w) {
+        return h('div.erow.mw-row', { 'data-word': w.id }, h('span.el', F.rich(w.de, {})), h('span.en', w.es), h('button.btn.ghost.mw-del', { type: 'button', 'aria-label': 'Quitar ' + w.de, onclick: function () { remove(w); } }, 'Quitar'));
+      })) : h('p.hint', 'Aún no hay palabras. Escribe una arriba: entra al Wortschatz con ES→DE, DE→ES y escribirla.');
+      shell('Mis palabras', [iconBtn('Volver', '←', home), brand('Mis palabras', list.length + ' / ' + W.MAX)], null,
+        [h('p.hint', 'Los sustantivos con artículo (der / die / das). Entran al Wortschatz junto al resto; se guardan en tu copia de seguridad.'),
+          h('label.mw-l', { for: 'mw-de' }, 'Alemán'), inDe, h('label.mw-l', { for: 'mw-es' }, 'Español'), inEs,
+          h('button.btn.primary.big', { type: 'button', id: 'mw-add', onclick: add }, 'Añadir a mi repaso'),
+          list.length ? h('button.btn.secondary.big', { type: 'button', id: 'mw-practice', onclick: function () { start({ kind: 'ids', ids: [].concat.apply([], list.map(W.itemIds)).filter(function (id) { return !!eng.store.byId[id]; }) }); } }, 'Practicar mis palabras (' + list.length + ')') : null, h('h2.sec-h', 'Tu lista'), rows],
+        [h('div.dock-in', h('button.btn.secondary.big', { type: 'button', onclick: home }, 'Listo'))]);
+    }
+    api.palabras = palabras;
+
     /* ---------- copia de seguridad ---------- */
     var IMPORT_ERR = { NOT_JSON: 'Ese archivo no es una copia válida.', NOT_BACKUP: 'No es una copia de Deutschraum Gym.', CHECKSUM: 'La copia está alterada o incompleta: no se cambió nada.', MIGRATION: 'La copia es de una versión que no entiendo: no se cambió nada.', SAVE: 'No pude guardar la copia (almacenamiento lleno o bloqueado).' };
     function exportBackup() {
-      var text = eng.exportJSON(), d = new win.Date(win.Date.now()), pad = function (n) { return (n < 10 ? '0' : '') + n; };
+      var text = withWords(eng.exportJSON()), d = new win.Date(win.Date.now()), pad = function (n) { return (n < 10 ? '0' : '') + n; };
       var name = 'deutschraum-gym-' + d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + '.json';
       api.lastExport = { name: name, text: text };
       try {
@@ -3280,10 +3415,21 @@ window.DGUI = window.DGUI || {};
         toast('Copia guardada: ' + name, 'ok');
       } catch (e) { toast('No pude crear el archivo en este navegador.', 'warn'); }
     }
+    // «Mis palabras» viajan en la copia de seguridad como campo aparte (fuera de `state`, así el checksum del motor no cambia).
+    function withWords(text) { try { var pkg = JSON.parse(text); if ((ctx.words || []).length) pkg.misPalabras = ctx.words; return JSON.stringify(pkg); } catch (e) { return text; } }
+    function restoreWords(text) {
+      var pkg; try { pkg = JSON.parse(text); } catch (e) { return; }
+      if (!pkg || !Array.isArray(pkg.misPalabras)) return;
+      var W = D.palabras, mine = ctx.words || [], ok = [];
+      pkg.misPalabras.forEach(function (w) { if (w && typeof w.id === 'string' && typeof w.de === 'string' && typeof w.es === 'string' && !mine.some(function (m) { return m.id === w.id; }) && !mine.some(function (m) { return m.de.toLowerCase() === w.de.toLowerCase(); })) { var p = W.parse(w.de, w.es, []); if (p.ok) ok.push({ id: w.id, de: p.word.de, es: p.word.es }); } });
+      ok.forEach(function (w) { var r = eng.addItems(W.make(w, eng.store.all, mine.concat(ok))); if (r.added) mine.push(w); });
+      ctx.words = mine; W.save(ctx.storage, mine);
+    }
     function applyImport(text) {
+      restoreWords(text);
       var r = eng.importJSON(text);
       if (!r.ok) { toast(IMPORT_ERR[r.code] || 'No se pudo importar la copia.', 'warn'); return r; }
-      eng.progress.reconcile(eng.store);          // quita ítems que ya no existen en esta versión
+      eng.progress.reconcile(eng.store, ctx.keepIds);          // quita ítems que ya no existen en esta versión
       settings(); toast('Copia importada: ' + (eng.state().stats.sessions || 0) + ' sesiones.', 'ok'); return r;   // primero repintar (shell limpia la raíz), luego el aviso
     }
     function askImport(text, filename) {
@@ -3390,12 +3536,15 @@ window.DGUI = window.DGUI || {};
   var tablasEl = doc.getElementById('dg-tablas'), tablas = tablasEl ? (JSON.parse(tablasEl.textContent).tablas || {}) : {};
   var sufEl = doc.getElementById('dg-sufijos'), sufijos = sufEl ? (JSON.parse(sufEl.textContent).sufijos || []) : [];
   var prefs = D.util.prefs(storage), beyondOn = prefs.get('beyond') === true;   // «Más allá del B1»: vocabulario B2/C1 opcional, apagado por defecto (se aplica al reiniciar)
-  var data = json('dg-data'); if (beyondOn && doc.getElementById('dg-beyond')) data = data.concat(json('dg-beyond'));
-  var opts = { data: data, concepts: json('dg-concepts'), storage: storage };
+  var data = json('dg-data'), beyond = doc.getElementById('dg-beyond') ? json('dg-beyond') : [], keepIds = [];
+  if (beyondOn) data = data.concat(beyond); else keepIds = beyond.map(function (i) { return i.id; });   // apagado: se cargan sin ejercicios, pero su progreso NO se poda
+  var words = D.palabras.load(storage);   // «Mis palabras»: ítems propios del alumno
+  if (words.length) data = data.concat(D.palabras.makeAll(words, data));
+  var opts = { data: data, concepts: json('dg-concepts'), storage: storage, keepIds: keepIds };
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, rnd: rnd, autoMs: cfg.autoMs });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, reglas: reglas, biblioteca: biblioteca, tablas: tablas, sufijos: sufijos, storageOk: ok, prefs: prefs, beyondOn: beyondOn, words: words, storage: storage, keepIds: keepIds, rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
   if (!cfg.noPwa) D.pwa.init(g);
 })(typeof globalThis !== 'undefined' ? globalThis : this);
