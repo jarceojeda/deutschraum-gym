@@ -18,7 +18,7 @@
     while (extra.length < 3 && i < pool.length) { if (low.indexOf(pool[i]) < 0) extra.push(pool[i]); i++; }
     for (i = 0; extra.length < 3; i++) extra.push(pool[i % pool.length]);
     bank = bank.concat(extra.slice(0, 3));
-    if (chars.indexOf(' ') >= 0) bank.push(' ');
+    chars.forEach(function (c) { if (c === ' ') bank.push(' '); });   // una ficha de espacio por cada espacio de la respuesta
     return U.shuffle(bank, rnd).map(function (c, k) { return { id: k, ch: c }; });
   };
 

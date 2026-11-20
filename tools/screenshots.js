@@ -31,6 +31,10 @@ const { chromium } = require('playwright');
   };
   let { p, ctx } = await page('light');
   await shot(p, '01-inicio');
+  await p.evaluate(() => { document.querySelector('.main').scrollTop = 99999; }); await shot(p, '01b-inicio-modulos');
+  await p.evaluate(() => { document.querySelector('.main').scrollTop = 0; });
+  await p.click('[data-size="30"]'); await p.click('[data-level="A1"]'); await p.click('#mix'); await shot(p, '01c-viaje-combinado');
+  await p.click('[aria-label="Terminar sesión"]'); await p.click('[data-level="B1"]');
   for (const m of ['verben', 'artikel', 'deklination']) {
     await p.click('[data-size="30"]'); await p.click('.card[data-module="' + m + '"]');
     if (m === 'artikel') await toGenero(p);

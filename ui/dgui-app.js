@@ -9,6 +9,13 @@
     { id: 'deklination', icon: 'D', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' }
   ];
   var SIZES = [{ n: 10, label: '10' }, { n: 20, label: '20' }, { n: 30, label: '30' }];
+  var SOON = [
+    { id: 'praepositionen', icon: 'P', name: 'Präpositionen', desc: 'Wo? / Wohin?, contracciones, verbos con preposición' },
+    { id: 'konnektoren', icon: 'K', name: 'Konnektoren', desc: 'weil, dass, wenn… y partículas modales' },
+    { id: 'wortschatz', icon: 'W', name: 'Wortschatz', desc: 'Vocabulario por situaciones y «Mis palabras»' },
+    { id: 'satzbau', icon: 'S', name: 'Satzbau', desc: 'Ordenar frases: V₂, TeKaMoLo, verbo final' }
+  ];
+  var LEVELS = [['B1', 'Auto'], ['A1', 'A1'], ['A2', 'A2']];   // Auto = rampa ascendente del motor hasta B1; A1/A2 = tope
   var WARN = {
     NO_ERRORS: 'No hay errores pendientes que repasar.', ERRORS_NOT_READY: 'Tus errores aún no están listos para repasar (hace falta esperar unas horas).',
     NO_MODULES: 'No hay módulo elegido.', POOL_UNDER_MIN: 'Hay pocos ejercicios disponibles en este módulo con tu tope de nivel.',
@@ -42,35 +49,52 @@
     function iconBtn(label, glyph, fn) { return h('button.btn.ghost.icon', { type: 'button', 'aria-label': label, onclick: fn }, glyph); }
 
     /* ---------- inicio ---------- */
+    function chipRow(label, opts, cur, fn, attr) {
+      return h('div.chips', { role: 'radiogroup', 'aria-label': label }, opts.map(function (o) {
+        var a = { type: 'button', role: 'radio', 'aria-checked': String(cur) === String(o[0]) ? 'true' : 'false', onclick: function () { fn(o[0]); } };
+        a['data-' + attr] = o[0];
+        return h('button.chip' + (String(cur) === String(o[0]) ? '.on' : ''), a, o[1]);
+      }));
+    }
+    function setCap(v) { eng.setLevelCap(v); eng.progress.save(); }
     function home() {
       S.screen = 'home'; S.session = null; S.cur = null;
-      var list = h('div.cards');
+      var list = h('div.cards'), cap = eng.state().settings.levelCap;
       MODULES.forEach(function (m) {
-        list.appendChild(h('button.card', { type: 'button', 'data-module': m.id, onclick: function () { S.module = m.id; prefs.set('module', m.id); start(); } },
+        list.appendChild(h('button.card', { type: 'button', 'data-module': m.id, onclick: function () { S.module = m.id; prefs.set('module', m.id); start({ kind: 'module' }); } },
           h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Nivel ' + eng.levelOf(m.id)), h('span.go', { 'aria-hidden': 'true' }, '›')));
       });
-      var chips = h('div.chips', { role: 'radiogroup', 'aria-label': 'Tamaño de sesión' });
-      SIZES.forEach(function (z) {
-        chips.appendChild(h('button.chip' + (S.size === z.n ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': S.size === z.n ? 'true' : 'false', 'data-size': z.n,
-          onclick: function () { S.size = z.n; prefs.set('size', z.n); home(); } }, z.label));
+      var soonList = h('div.cards');
+      SOON.forEach(function (m) {
+        soonList.appendChild(h('button.card.soon', { type: 'button', disabled: true, 'aria-disabled': 'true', 'data-soon': m.id },
+          h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Próximamente')));
       });
       var nerr = eng.errorQueue().length;
+      var errCard = h('button.card.errs', { type: 'button', id: 'errors', disabled: !nerr, 'data-errors': nerr, onclick: function () { start({ kind: 'errors' }); } },
+        h('span.mi', { 'aria-hidden': 'true' }, '↺'), h('span.mt', h('strong', 'Mis errores'), h('span', nerr ? 'Rehacer lo que fallaste: ' + nerr + ' pendientes' : 'Aún no hay errores que rehacer')), nerr ? h('span.badge', String(nerr)) : null);
       shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), iconBtn('Ajustes', '⚙', settings),
         [storageBanner(),
-          h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo.'), h('div.group', h('p.glabel', 'Ejercicios por sesión'), chips)),
-          h('h2.sec-h', 'Módulos'), list, nerr ? h('p.hint', 'Errores pendientes: ' + nerr + '. Entran solos en tus próximas sesiones.') : null], null);
+          h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo o mezcla todo.'),
+            h('div.group', h('p.glabel', 'Ejercicios por sesión'), chipRow('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = v; prefs.set('size', v); home(); }, 'size')),
+            h('div.group', h('p.glabel', 'Nivel · Auto sube solo de A1 a B1'), chipRow('Nivel', LEVELS, cap, function (v) { setCap(v); home(); }, 'level')),
+            h('div.group', h('p.glabel', 'Cómo respondes'), chipRow('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); home(); }, 'entry')),
+            h('button.btn.big.cta', { type: 'button', id: 'mix', onclick: function () { start({ kind: 'mix' }); } }, 'Viaje combinado ›')),
+          h('h2.sec-h', 'Un módulo'), list, h('h2.sec-h', 'Repaso'), errCard, h('h2.sec-h', 'Próximamente'), soonList], null);
     }
 
     /* ---------- sesión ---------- */
-    function start() {
-      var s;
-      try { s = eng.startSession({ kind: 'module', modules: [S.module], size: S.size, mode: 'touch' }); }
-      catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
-      if (!s || !s.length()) { toast('No hay ejercicios para esta sesión. ' + (s && s.warnings && s.warnings.length ? WARN[s.warnings[0].code] || '' : 'Revisa el tope de nivel en Ajustes.')); return; }
-      S.session = s; S.saveError = null; S.answeredAny = false;
+    function start(o) {
+      o = o || {}; var kind = o.kind || S.kind || 'module';
+      var s, req = { kind: kind, size: S.size, mode: prefs.get('entry') === 'write' ? 'write' : 'touch' };
+      if (kind === 'module') req.modules = [S.module];
+      if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
+      try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
+      if (!s || !s.length()) { toast('No hay ejercicios para esta sesión. ' + (s && s.warnings && s.warnings.length ? WARN[s.warnings[0].code] || '' : 'Revisa el nivel en Ajustes.')); return; }
+      S.kind = kind; S.session = s; S.saveError = null; S.answeredAny = false;
       S.warnings = (s.warnings || []).map(function (w) { return { code: w.code, msg: WARN[w.code] || w.code }; });
       question();
     }
+    function modName(id) { return MODULES.filter(function (m) { return m.id === id; })[0].name; }
     function toast(msg) {
       var t = h('div.toast', { role: 'status' }, msg); root.appendChild(t);
       win.setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4000);
@@ -99,7 +123,7 @@
       var bar = h('div.progress', { role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(s.length()), 'aria-valuenow': String(pos) }, h('div.progress-fill', { style: 'width:' + Math.round(100 * pos / s.length()) + '%' }));
       var auto = h('button.auto-chip', { type: 'button', id: 'auto', 'aria-pressed': prefs.get('auto') ? 'true' : 'false', 'aria-label': 'Avance automático al acertar', onclick: function () { prefs.set('auto', !prefs.get('auto')); this.setAttribute('aria-pressed', prefs.get('auto') ? 'true' : 'false'); } }, 'Auto');
       return shell('', iconBtn('Terminar sesión', '✕', endEarly), [bar, h('span.count', pos + '/' + s.length()), auto],
-        [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.module);
+        [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.cur && S.cur.item ? S.cur.item.module : S.module);
     }
     function question(note) {
       var s = S.session; S.screen = 'session';
@@ -107,7 +131,7 @@
       var v = s.view(), item = s.currentItem();
       S.cur = { view: v, item: item, fb: null };
       var inp = I.mount(v, item, { rnd: ctx.rnd, onSubmit: function (resp) { submit(resp); }, onGiveUp: giveUp });
-      var tags = h('div.tags', h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
+      var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
       sessionFrame([h('div.qcard', tags, promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
     function submit(resp) {
@@ -194,7 +218,7 @@
       if (tags.length) blocks.push(h('div.sum-card', h('strong', 'Errores por tipo'), h('ul.tagl', tags.map(function (t) { return h('li', h('span', D.rules.tagLabel(t)), h('span.n', String(sm.errorsByTag[t]))); }))));
       else if (sm.answered) blocks.push(h('div.sum-card', h('strong', 'Sin errores. Muy bien.')));
       (sm.levelChanges || []).forEach(function (c) { blocks.push(h('div.sum-card', h('strong', (c.change === 'promote' || c.to > c.from ? 'Subiste de nivel' : 'Cambio de nivel') + ': ' + c.module + ' ' + c.from + ' → ' + c.to))); });
-      shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: start }, 'Otra sesión')))], 'summary');
+      shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: function () { start({}); } }, 'Otra sesión')))], 'summary');
     }
 
     /* ---------- ajustes ---------- */
@@ -207,8 +231,9 @@
         }));
       }
       shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
-        h('section.set', h('h2', 'Tope de nivel'), h('p.hint', 'No verás ejercicios por encima de este nivel.'),
-          seg('Tope de nivel', [['A1', 'A1'], ['A2', 'A2'], ['B1', 'B1']], st.levelCap, function (v) { eng.setLevelCap(v); eng.progress.save(); })),
+        h('section.set', h('h2', 'Nivel'), h('p.hint', 'Auto: empiezas en A1 y el motor sube solo hasta B1. A1 o A2 ponen un tope.'),
+          seg('Nivel', LEVELS, st.levelCap, setCap)),
+        h('section.set', h('h2', 'Entrada'), seg('Entrada', [['touch', 'Toques'], ['write', 'Escribir']], prefs.get('entry'), function (v) { prefs.set('entry', v); })),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),
         h('section.set', h('h2', 'Vibración suave'), seg('Vibración', [['1', 'Sí'], ['0', 'No']], prefs.get('vibrate') ? '1' : '0', function (v) { prefs.set('vibrate', v === '1'); })),
         h('p.hint', 'El movimiento reducido del sistema se respeta automáticamente' + (reducedMotion() ? ' (activo ahora).' : '.'))

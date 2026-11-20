@@ -258,3 +258,69 @@ test('el resumen muestra «aprendiste», rescatados y errores por tipo tras una 
   playSession(u, 'artikel', 10, () => true);
   assert.ok(/Hoy aprendiste \d+ cosas? que ayer no sabías/.test(u.q('.sum-card.learn').textContent));
 });
+
+/* ---------- Bloque B: pantalla de inicio ---------- */
+test('B · inicio: Viaje combinado, 3 módulos activos y 4 «Próximamente» deshabilitados, errores sin pendientes', () => {
+  const u = boot(41);
+  assert.ok(u.q('#mix'), 'botón Viaje combinado');
+  assert.deepEqual(u.qa('.card[data-module]').map(c => c.dataset.module), ['verben', 'artikel', 'deklination']);
+  assert.ok(u.qa('.card[data-module]').every(c => !c.disabled));
+  const soon = u.qa('.card.soon');
+  assert.deepEqual(soon.map(c => c.dataset.soon), ['praepositionen', 'konnektoren', 'wortschatz', 'satzbau']);
+  assert.ok(soon.every(c => c.disabled && c.getAttribute('aria-disabled') === 'true' && /Próximamente/.test(c.textContent)));
+  assert.equal(u.q('#errors').disabled, true, 'sin errores todavía');
+  soon.forEach(c => u.click(c));
+  assert.equal(u.S().screen, 'home', 'una tarjeta deshabilitada no abre nada');
+});
+
+test('B · Viaje combinado mezcla módulos y el appbar toma el color del módulo de cada ejercicio', () => {
+  const u = boot(42);
+  u.click(u.q('[data-size="30"]')); u.click(u.q('#mix'));
+  assert.equal(u.S().kind, 'mix');
+  const mods = new Set(), bars = new Set();
+  while (u.S().screen === 'session') {
+    mods.add(u.S().cur.item.module); bars.add(u.q('.appbar').dataset.module);
+    assert.equal(u.q('.appbar').dataset.module, u.S().cur.item.module);
+    u.answer(true); u.next();
+  }
+  assert.ok(mods.size >= 2, 'mezcla de módulos: ' + [...mods]);
+  assert.deepEqual([...bars].sort(), [...mods].sort());
+  assert.equal(u.stored().sessionCounter, 1);
+});
+
+test('B · nivel: Auto (B1) / A1 / A2 se guarda en el motor y filtra los ejercicios', () => {
+  const u = boot(43);
+  assert.equal(u.q('[data-level="B1"]').getAttribute('aria-checked'), 'true', 'por defecto Auto');
+  u.click(u.q('[data-level="A1"]'));
+  assert.equal(u.stored().settings.levelCap, 'A1');
+  assert.equal(u.q('[data-level="A1"]').getAttribute('aria-checked'), 'true');
+  u.click(u.q('[data-size="20"]')); u.click(u.q('#mix'));
+  while (u.S().screen === 'session') { assert.equal(u.S().cur.item.level, 'A1'); u.answer(true); u.next(); }
+  u.click(u.q('.dock .btn.secondary'));
+  u.click(u.q('[data-level="B1"]')); assert.equal(u.stored().settings.levelCap, 'B1');
+});
+
+test('B · tamaño de sesión y entrada (Toques/Escribir) persisten en dg.ui', () => {
+  const u = boot(44);
+  u.click(u.q('[data-size="30"]')); u.click(u.q('[data-entry="write"]'));
+  const ui = JSON.parse(u.w.localStorage.getItem('dg.ui'));
+  assert.equal(ui.size, 30); assert.equal(ui.entry, 'write');
+  assert.equal(u.q('[data-size="30"]').getAttribute('aria-checked'), 'true');
+});
+
+test('B · «Mis errores» se activa tras fallar y lanza kind:errors (o avisa si aún no toca)', () => {
+  const u = boot(45);
+  playSession(u, 'verben', 10, (it, i) => i % 2 === 0);
+  u.click(u.q('.dock .btn.secondary'));
+  const b = u.q('#errors'); assert.equal(b.disabled, false); assert.ok(Number(b.dataset.errors) > 0);
+  u.click(b);
+  assert.ok(u.S().screen === 'session' || u.q('.toast'), 'o empieza la sesión de errores o avisa sin bloquear');
+});
+
+test('A/B · objetivos táctiles: el CSS exige >=48 px en botones, chips, tarjetas y fichas', () => {
+  const css = fs.readFileSync(path.join(__dirname, '..', 'ui', 'style.css'), 'utf8');
+  const minH = sel => { const m = new RegExp('(?:^|\\})' + sel.replace(/[.]/g, '\\.') + '\\{[^}]*min-height:(\\d+)px', 'm').exec(css); return m ? +m[1] : null; };
+  ['.btn', '.chip', '.card', '.auto-chip', '.btn.opt'].forEach(sel => assert.ok(minH(sel) >= 48, sel + ' min-height ' + minH(sel)));
+  assert.ok(/\.btn\.tile\{[^}]*min-height:5\d/.test(css));
+  assert.ok(!/:hover/.test(css), 'sin hover: todo es táctil');
+});
