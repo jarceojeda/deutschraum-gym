@@ -151,3 +151,6 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .tbl-cap{display:flex;align-items:center;justify-content:space-between}.btn.reveal{min-height:48px;font-size:13px;padding:0 12px;text-transform:none;letter-spacing:0;border:1px solid var(--line)}
 .fb-table{display:flex;flex-direction:column;gap:10px;margin-top:10px}.chain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.chain li{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .chain .n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-size:12px}.chain .k{color:var(--muted)}
+
+.endstem{display:flex;align-items:baseline;justify-content:center;gap:4px;font-size:34px;font-weight:800;padding:14px 8px;border:2px dashed var(--line);border-radius:16px;background:var(--surface-2)}.endstem .endslot{color:var(--module,var(--brand));border-bottom:3px solid var(--module,var(--brand));letter-spacing:.15em}
+.btn.opt.end{font-size:22px}

@@ -25,6 +25,7 @@ const reglas = require('../ui/reglas.json').reglas;
       const rec = (rem, used) => { if (!rem) return []; for (const bl of spec.blocks) { if (used.has(bl.id)) continue; const hit = spec.joiner ? (rem === bl.t || rem.startsWith(bl.t + ' ')) : rem.startsWith(bl.t); if (!hit) continue; const r = rec(spec.joiner ? rem.slice(bl.t.length + (rem === bl.t ? 0 : 1)) : rem.slice(bl.t.length), new Set(used).add(bl.id)); if (r) return [bl].concat(r); } return null; };
       for (const bl of rec(item.answer, new Set())) await p.locator('.bank .tile:not([disabled])[data-block="' + bl.t + '"]').first().click(); return check();
     }
+    if (spec.kind === 'ending') { const right = item.answer.slice(spec.stem.length) || '(vacío)'; await p.locator('.options [data-end="' + right + '"]').click(); return; }
     if (spec.kind === 'pair') { await p.locator('[data-pair="wo"][data-opt="' + item.wo.answer + '"]').click(); await p.locator('[data-pair="wohin"][data-opt="' + item.wohin.answer + '"]').click(); return check(); }
     if (spec.kind === 'tiles') {
       const T = item.tiles.slice(), rec = (rem, used) => { if (rem === '') return []; for (let i = 0; i < T.length; i++) { if (used.has(i) || !rem.startsWith(T[i])) continue; const r = rec(rem.slice(T[i].length).replace(/^ /, ''), new Set(used).add(i)); if (r) return [T[i]].concat(r); } return null; };
@@ -111,6 +112,20 @@ const reglas = require('../ui/reglas.json').reglas;
       }
       await ctx.close();
     }
+  }
+  if (block === 'I') {
+    const setTagsM = (p, mod, st) => p.evaluate(a => { DGUI.engine.store.all.filter(i => i.module === a.mod).forEach(i => { DGUI.engine.state().tags[i.errorTag] = Object.assign({}, a.st); }); }, { mod, st });
+    for (const [name, mod, st, kind, scheme] of [['01-ayuda-opciones-verbo', 'verben', { n: 0, f: 0 }, 'choice', 'light'], ['02-media-terminacion-plural', 'artikel', { n: 8, f: 1 }, 'ending', 'light'], ['03-media-terminacion-verbo', 'verben', { n: 8, f: 1 }, 'ending', 'dark'], ['04-dominado-letras-verbo', 'verben', { n: 30, f: 0 }, 'letters', 'light']]) {
+      const { p, ctx } = await page(scheme, { auto: false, size: 30 });
+      await setTagsM(p, mod, st); await p.click('.card[data-module="' + mod + '"]');
+      if (await until(p, c => c.spec.kind === kind && (kind !== 'choice' || c.item.skill === 'praesens') && (mod !== 'artikel' || c.item.skill === 'plural'))) {
+        await shot(p, name);
+        if (kind === 'ending') { await solve(p, false); await shot(p, name.replace(/^0(\d)/, '0$1b')); }
+      }
+      await ctx.close();
+    }
+    const { p, ctx } = await page('light', { auto: false, size: 10 });
+    await p.click('[aria-label="Ajustes"]'); await p.evaluate(() => { document.querySelector('.main').scrollTop = 520; }); await shot(p, '05-ajustes-ayuda-que-se-retira'); await ctx.close();
   }
   await b.close();
 })().catch(e => { console.error(e); process.exit(1); });

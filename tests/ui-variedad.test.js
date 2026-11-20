@@ -26,6 +26,7 @@ function jugar(seed, horasEntreSesiones) {
       const rec = (rem, used) => { if (!rem) return []; for (const b of spec.blocks) { if (used.has(b.id)) continue; const hit = spec.joiner ? (rem === b.t || rem.startsWith(b.t + ' ')) : rem.startsWith(b.t); if (!hit) continue; const r = rec(spec.joiner ? rem.slice(b.t.length + (rem === b.t ? 0 : 1)) : rem.slice(b.t.length), new Set(used).add(b.id)); if (r) return [b].concat(r); } return null; };
       rec(item.answer, new Set()).forEach(b => click(qa('.bank .tile').find(x => !x.disabled && x.dataset.block === b.t && !x.classList.contains('is-used')))); return check();
     }
+    if (spec.kind === 'ending') return click(qa('.options [data-end]').find(b => b.dataset.end === (item.answer.slice(spec.stem.length) || '(vacío)')));
     if (spec.kind === 'pair') { click(qa('[data-pair="wo"]').find(b => b.dataset.opt === item.wo.answer)); click(qa('[data-pair="wohin"]').find(b => b.dataset.opt === item.wohin.answer)); return check(); }
     if (spec.kind === 'tiles') {
       const T = item.tiles.slice(), rec = (rem, used) => { if (rem === '') return []; for (let i = 0; i < T.length; i++) { if (used.has(i) || !rem.startsWith(T[i])) continue; const r = rec(rem.slice(T[i].length).replace(/^ /, ''), new Set(used).add(i)); if (r) return [T[i]].concat(r); } return null; };

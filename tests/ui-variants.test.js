@@ -90,3 +90,58 @@ test('umlaut(): plural con diéresis plausible', () => {
   assert.equal(V.umlaut('Haus'), 'Häus'); assert.equal(V.umlaut('Mutter'), 'Mütter'); assert.equal(V.umlaut('Kind'), 'Kind');
   assert.equal(V.umlaut('Baum'), 'Bäum'); assert.equal(V.umlaut('Buch'), 'Büch');
 });
+
+/* ---------- Escalera de ayuda que se retira y «completar solo la terminación» ---------- */
+const LEVELS = ['ayuda', 'media', 'dominado'];
+function solvable(spec, it, view) {
+  const acc = new Set(it.accept.concat(it.answer));
+  if (spec.kind === 'choice') assert.ok(spec.options.includes(it.answer), it.id);
+  else if (spec.kind === 'blocks') assert.ok(canBuild(spec.blocks, it.answer, spec.joiner), it.id);
+  else if (spec.kind === 'match') assert.equal(spec.rows.find(x => x.target).expected, it.answer);
+  else if (spec.kind === 'ending') {
+    assert.ok(spec.options.length >= 2 && spec.options.length <= 6, it.id + ' n=' + spec.options.length);
+    assert.equal(spec.options.filter(o => spec.stem + o.v === it.answer).length, 1, it.id + ': exactamente una terminación correcta');
+    assert.equal(new Set(spec.options.map(o => o.v)).size, spec.options.length, it.id + ' repetidas');
+    spec.options.forEach(o => assert.equal(o.t, o.v === '' ? '—' : '-' + o.v));
+    spec.options.filter(o => spec.stem + o.v !== it.answer).forEach(o => assert.ok(!acc.has(spec.stem + o.v), it.id + ': distractor aceptado ' + spec.stem + o.v));
+  } else if (spec.kind === 'letters') assert.ok(it.type === 'cloze' && String(it.answer).length <= 24, it.id);
+}
+
+test('escalera: en los 3 niveles cada ejercicio de los 5 módulos sigue teniendo variante resoluble (incl. terminación y letras)', () => {
+  const seen = { ayuda: {}, media: {}, dominado: {} };
+  LEVELS.forEach(level => items.forEach(it => {
+    const view = DG.items.view(it, 'touch', rng), spec = V.pick(it, view, { store, rnd: r, mode: 'touch', level });
+    solvable(spec, it, view); seen[level][spec.kind] = (seen[level][spec.kind] || 0) + 1;
+  }));
+  assert.ok(seen.media.ending > 800, JSON.stringify(seen.media));   // 2.689 ítems con terminación × ≈35-40 % de peso en el nivel medio assert.ok(seen.dominado.letters > 1000, JSON.stringify(seen.dominado)); assert.equal(seen.ayuda.letters || 0, 0, 'con ayuda máxima no hay letras sueltas');
+});
+
+test('escalera: a medida que se domina, menos opciones y más letras (monotonía en verbos conjugados y plurales)', () => {
+  const share = (filter, level, kind) => { const l = items.filter(filter); let n = 0; for (let k = 0; k < 4; k++) l.forEach(it => { if (V.pick(it, DG.items.view(it, 'touch', rng), { store, rnd: r, mode: 'touch', level }).kind === kind) n++; }); return n / (4 * l.length); };
+  const fin = i => i.module === 'verben' && i.person && (i.skill === 'praesens' || i.skill === 'praeteritum'), plu = i => i.module === 'artikel' && i.skill === 'plural';
+  [fin, plu].forEach(f => {
+    const c = LEVELS.map(l => share(f, l, 'choice')), le = LEVELS.map(l => share(f, l, 'letters'));
+    assert.ok(c[0] > c[1] && c[1] > c[2] - 1e-9, 'choice debe bajar: ' + c); assert.ok(le[0] === 0 && le[1] === 0 && le[2] > 0.3, 'letters sube al dominar: ' + le);
+  });
+  assert.ok(share(fin, 'media', 'ending') > 0.2 && share(fin, 'media', 'blocks') > 0.2, 'en el nivel medio dominan terminación y bloques');
+});
+
+test('terminación: plurales (322), Dativ plural y verbos conjugados (≥2.300) se resuelven eligiendo SOLO la terminación', () => {
+  let pl = 0, dp = 0, vb = 0;
+  items.forEach(it => { const sp = V.endingSpec(it, r); if (!sp) return; solvable(sp, it); if (it.skill === 'plural') pl++; else if (it.skill === 'dativ-plural') dp++; else vb++; });
+  assert.equal(pl, 322); assert.ok(dp >= 30, 'dativ plural ' + dp); assert.ok(vb >= 2300, 'verbos ' + vb);
+  const z = items.find(i => i.skill === 'plural' && i.answer === 'Zimmer'); const sp = V.endingSpec(z, () => 0.3);
+  assert.equal(sp.stem, 'Zimmer'); assert.ok(sp.options.some(o => o.v === '' && o.t === '—'));
+  assert.equal(V.endingSpec(items.find(i => i.skill === 'plural' && /^[A-Z][a-z]*[äöü]/.test(i.answer) && i.answer.indexOf(i.lemma) !== 0), r), null, 'plurales con diéresis: no es sólo terminación');
+});
+
+test('sin level (ayuda apagada) el reparto clásico no usa terminación ni letras en verbos', () => {
+  const v = items.find(i => i.module === 'verben' && i.skill === 'praesens' && i.person === 'du' && store.units[i.unit].length === 6), ks = new Set();
+  for (let i = 0; i < 100; i++) ks.add(V.pick(v, DG.items.view(v, 'touch', rng), { store, rnd: r, mode: 'touch' }).kind);
+  assert.deepEqual([...ks].sort(), ['blocks', 'choice', 'match']);
+});
+
+test('ladderLevel: <5 intentos ayuda; ≥20 con ≥85 % dominado; el resto media (acumulado por errorTag)', () => {
+  assert.equal(V.ladderLevel(undefined), 'ayuda'); assert.equal(V.ladderLevel({ n: 4, f: 0 }), 'ayuda'); assert.equal(V.ladderLevel({ n: 5, f: 5 }), 'media');
+  assert.equal(V.ladderLevel({ n: 19, f: 0 }), 'media'); assert.equal(V.ladderLevel({ n: 20, f: 0 }), 'dominado'); assert.equal(V.ladderLevel({ n: 20, f: 3 }), 'dominado'); assert.equal(V.ladderLevel({ n: 20, f: 4 }), 'media');
+});

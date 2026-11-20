@@ -160,6 +160,9 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .fb-table{display:flex;flex-direction:column;gap:10px;margin-top:10px}.chain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}.chain li{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .chain .n{display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-size:12px}.chain .k{color:var(--muted)}
 
+.endstem{display:flex;align-items:baseline;justify-content:center;gap:4px;font-size:34px;font-weight:800;padding:14px 8px;border:2px dashed var(--line);border-radius:16px;background:var(--surface-2)}.endstem .endslot{color:var(--module,var(--brand));border-bottom:3px solid var(--module,var(--brand));letter-spacing:.15em}
+.btn.opt.end{font-size:22px}
+
 </style>
 </head>
 <body>
@@ -1965,7 +1968,7 @@ window.DGUI = window.DGUI || {};
   };
   // Preferencias de la UI (clave aparte del progreso del motor).
   U.prefs = function (storage) {
-    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true };
+    var KEY = 'dg.ui', cur = { theme: 'auto', vibrate: true, auto: true, entry: 'touch', level: 'auto', ruleFirst: true, voice: 'off', tables: true, ladder: true };
     try { var raw = storage && storage.getItem(KEY); if (raw) cur = Object.assign(cur, JSON.parse(raw)); } catch (e) { /* ignora */ }
     return {
       get: function (k) { return cur[k]; },
@@ -2436,13 +2439,66 @@ window.DGUI = window.DGUI || {};
     return { kind: 'blocks', label: 'Ordena las palabras', blocks: mkBlocks(words.concat(dis), r), joiner: ' ', parts: words.length };
   }
 
+  // ---- Terminación: la raíz ya está escrita, se elige SOLO la terminación (resp = raíz + terminación) ----
+  var PLURAL_END = ['', 'e', 'en', 'n', 'er', 's', 'nen'], DATPL_END = ['', 'n', 'en', 's'];
+  function endOpts(correct, all, n, r) {
+    var opts = [correct].concat(pickN(all.filter(function (e) { return e !== correct; }), n - 1, r));
+    return shuffle(opts, r).map(function (e) { return { v: e, t: e === '' ? '—' : '-' + e }; });
+  }
+  function endingSpec(item, r) {
+    var a = String(item.answer), stem, end, all, label = 'Completa la terminación';
+    if (item.module === 'artikel' && item.skill === 'plural' && item.lemma && a.indexOf(item.lemma) === 0 && PLURAL_END.indexOf(a.slice(item.lemma.length)) >= 0) {
+      stem = item.lemma; end = a.slice(stem.length); all = PLURAL_END;
+    } else if (item.skill === 'dativ-plural') {
+      var m = /\(\s*(?:die\s+)?([^()\s]+)\s*\)\s*$/.exec(String(item.prompt)); if (!m || a.indexOf(m[1]) !== 0 || DATPL_END.indexOf(a.slice(m[1].length)) < 0) return null;
+      stem = m[1]; end = a.slice(stem.length); all = DATPL_END;
+    } else if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+      var sp = splitFinite(item); if (!sp) return null; stem = sp.stem; end = sp.end; all = sp.all;
+    } else return null;
+    var ok = notAccepted(item);   // ninguna terminación distractora puede dar otra forma aceptada (p. ej. genosst / genossest)
+    all = all.filter(function (e) { return e === end || ok(stem + e); });
+    return { kind: 'ending', label: label, stem: stem, options: endOpts(end, all, Math.min(all.length, 6), r) };
+  }
+
+  // Escalera de ayuda que se retira: choice (reconocer entre formas) → bloques / terminación → letras sueltas.
+  // ctx.level: 'ayuda' | 'media' | 'dominado' (según el dominio del errorTag). Sin ctx.level: reparto clásico sin terminación ni letras.
+  // Nivel de la escalera según los intentos acumulados de ese errorTag (más exigente que el de las tablas: los tags de verbos son amplios,
+  // y a los 6 aciertos de «verb:praesens» aún no se domina el tiempo entero): <5 intentos → ayuda; ≥20 con ≥85 % → dominado; entre medias → media.
+  V.ladderLevel = function (stats) {
+    var n = stats ? stats.n : 0, f = stats ? stats.f : 0;
+    if (n >= 20 && (n - f) / n >= 0.85) return 'dominado';
+    return n < 5 ? 'ayuda' : 'media';
+  };
+  var LADDER = {
+    finite: { ayuda: { choice: 4, match: 2, ending: 2.5, blocks: 0.5 }, media: { blocks: 3, ending: 3, match: 2, choice: 1 }, dominado: { letters: 3, blocks: 2, match: 1.5, ending: 1 } },
+    pii: { ayuda: { choice: 3, blocks: 1 }, media: { blocks: 3, choice: 1 }, dominado: { letters: 3, blocks: 1 } },
+    plural: { ayuda: { choice: 1 }, media: { ending: 3, choice: 1 }, dominado: { letters: 3, ending: 1 } },
+    datpl: { ayuda: { choice: 1 }, media: { ending: 3, choice: 1 }, dominado: { letters: 3, ending: 1 } }
+  };
+  function ladderPick(family, level, avail, last, r) {
+    var w = LADDER[family][level] || LADDER[family].ayuda;
+    var list = Object.keys(w).filter(function (k) { return avail[k] && k !== last; }).map(function (k) { return [k, w[k]]; });
+    if (!list.length) list = Object.keys(w).filter(function (k) { return avail[k]; }).map(function (k) { return [k, w[k]]; });
+    return list.length ? avail[weighted(list, r)] : null;
+  }
+  function lettersSpec() { return { kind: 'letters', label: 'Arma la respuesta con letras' }; }
+
   // spec para el ejercicio actual. ctx: {store, rnd, mode:'touch'|'write', last:{kind}}
   V.pick = function (item, view, ctx) {
     var r = rnd(ctx), store = ctx.store, last = ctx.last && ctx.last.kind, spec = null;
     if (ctx.mode === 'write') return { kind: 'text', label: 'Escribe la respuesta' };
     if (view.input === 'tiles') return { kind: 'tiles', label: 'Ordena las fichas', tiles: view.tiles };
     if (view.input === 'pair') return { kind: 'pair', label: 'Wo? / Wohin?', parts: view.parts };
-    if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+    var lv = ctx.level;
+    if (lv && item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+      spec = ladderPick('finite', lv, { choice: verbChoice(item, store, r), blocks: verbBlocks(item, store, r), match: verbMatch(item, store, r), ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.module === 'verben' && item.skill === 'partizip-ii') {
+      spec = ladderPick('pii', lv, { choice: piiChoice(item, store, r), blocks: verbBlocks(item, store, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.module === 'artikel' && item.skill === 'plural') {
+      spec = ladderPick('plural', lv, { choice: pluralChoice(item, r), ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.skill === 'dativ-plural' && view.input === 'choice') {
+      spec = ladderPick('datpl', lv, { choice: { kind: 'choice', label: 'Elige la opción', options: view.options }, ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
       var gens = { choice: verbChoice, blocks: verbBlocks, match: verbMatch }, avail = {};
       Object.keys(gens).forEach(function (k) { avail[k] = gens[k](item, store, r); });
       var list = [['choice', 3], ['blocks', 2.5], ['match', 2]].filter(function (x) { return avail[x[0]] && x[0] !== last; });
@@ -2467,7 +2523,7 @@ window.DGUI = window.DGUI || {};
     var rows = spec.rows.map(function (x) { return { key: x.key, label: x.label, expected: x.expected, given: values[x.key], ok: values[x.key] === x.expected, target: x.target }; });
     return { response: values[spec.targetKey], rows: rows };
   };
-  V.PLABEL = PLABEL; V.PERSONS = PERSONS; V.umlaut = umlaut; V.splitFinite = splitFinite; V.splitPii = splitPii;
+  V.endingSpec = endingSpec; V.PLABEL = PLABEL; V.PERSONS = PERSONS; V.umlaut = umlaut; V.splitFinite = splitFinite; V.splitPii = splitPii;
   g.DGUI = g.DGUI || {}; g.DGUI.variants = V;
   if (typeof module === 'object' && module.exports) module.exports = V;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
@@ -2506,6 +2562,7 @@ window.DGUI = window.DGUI || {};
       case 'choice': return choice(spec, cb);
       case 'blocks': return blocks(spec, cb);
       case 'match': return match(spec, cb);
+      case 'ending': return ending(spec, cb);
       case 'tiles': return tiles(spec, cb);
       case 'pair': return pair(spec, cb);
       case 'text': return text(spec, item, cb);
@@ -2580,6 +2637,17 @@ window.DGUI = window.DGUI || {};
     draw();
     var note = h('p.hint.center', '★ marca la fila que cuenta para tu progreso; las demás son práctica.');
     return { answerEl: h('div.paradigm-wrap', rowsEl, note), dockEl: h('div.dock-in', bankEl, h('div.row', skip, check)) };
+  }
+
+  // Terminación: la raíz ya está puesta; un toque en la terminación envía raíz + terminación.
+  function ending(spec, cb) {
+    var done = false, n = spec.options.length;
+    var grid = h('div.options' + (n > 4 ? '.cols3' : '.cols2'), { role: 'group', 'aria-label': 'Terminación' });
+    spec.options.forEach(function (o) {
+      grid.appendChild(h('button.btn.opt.end', { type: 'button', 'data-end': o.v === '' ? '(vacío)' : o.v, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(spec.stem + o.v); } }, o.t));
+    });
+    var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
+    return { answerEl: h('div.endstem', { 'aria-label': 'Raíz: ' + spec.stem }, h('span.stem', spec.stem), h('span.endslot', '＿＿')), dockEl: h('div.dock-in', grid, skip) };
   }
 
   function letters(spec, item, cb) {
@@ -2844,12 +2912,17 @@ window.DGUI = window.DGUI || {};
       return shell('', iconBtn('Terminar sesión', '✕', endEarly), [bar, h('span.count', pos + '/' + s.length()), auto],
         [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.cur && S.cur.item ? S.cur.item.module : S.module);
     }
+    // Escalera de ayuda: nivel del tipo de error según los intentos acumulados (variants.ladderLevel). Apagable en Ajustes.
+    function ladderLevel(item) {
+      if (prefs.get('ladder') === false) return undefined;
+      return D.variants.ladderLevel((eng.state().tags || {})[item.errorTag]);
+    }
     function question(note, again) {
       var s = S.session; S.screen = 'session'; cancelAuto();
       if (s.done()) return summary();
       var v = s.view(), item = s.currentItem();
       // «Casi»: se vuelve a pintar el MISMO ejercicio y la misma variante (sin barajar otra vez), con lo escrito.
-      var spec = again ? again.spec : D.variants.pick(item, v, { store: eng.store, rnd: ctx.rnd, mode: S.mode, last: S.lastSpec });
+      var spec = again ? again.spec : D.variants.pick(item, v, { store: eng.store, rnd: ctx.rnd, mode: S.mode, last: S.lastSpec, level: ladderLevel(item) });
       if (again && again.prefill != null) spec = Object.assign({}, spec, { prefill: again.prefill });
       S.lastSpec = spec;
       S.cur = { view: v, item: item, spec: spec, fb: null };
@@ -3109,6 +3182,7 @@ window.DGUI = window.DGUI || {};
         h('section.set', h('h2', 'Tamaño de sesión por defecto'), seg('Tamaño de sesión', SIZES.map(function (z) { return [z.n, z.label]; }), S.size, function (v) { S.size = Number(v); prefs.set('size', S.size); })),
         h('section.set', h('h2', 'Avance automático al acertar'), h('p.hint', 'Pasa solo al siguiente tras un acierto; al fallar nunca.'), seg('Avance automático', [['1', 'Sí'], ['0', 'No']], prefs.get('auto') ? '1' : '0', function (v) { prefs.set('auto', v === '1'); })),
         h('section.set', h('h2', 'Regla visible al empezar un tema'), h('p.hint', 'Muestra la regla mientras aprendes y la oculta al dominarla.'), seg('Regla visible', [['1', 'Sí'], ['0', 'No']], prefs.get('ruleFirst') === false ? '0' : '1', function (v) { prefs.set('ruleFirst', v === '1'); })),
+        h('section.set', h('h2', 'Ayuda que se retira'), h('p.hint', 'Al empezar un tipo: opciones. Luego bloques y terminaciones. Al dominarlo: letras sueltas. Apagado: mezcla clásica.'), seg('Ayuda que se retira', [['1', 'Sí'], ['0', 'No']], prefs.get('ladder') === false ? '0' : '1', function (v) { prefs.set('ladder', v === '1'); })),
         h('section.set', h('h2', 'Tablas de ayuda en Deklination'), h('p.hint', 'Tabla completa al empezar un tipo, media tabla después y ninguna al dominarlo. Tras fallar siempre ves la casilla.'), seg('Tablas de ayuda', [['1', 'Sí'], ['0', 'No']], prefs.get('tables') === false ? '0' : '1', function (v) { prefs.set('tables', v === '1'); })),
         h('section.set', h('h2', 'Voz alemana'), h('p.hint', 'de-DE a velocidad 0,85. Siempre puedes pulsar 🔊 tras responder.'),
           seg('Voz', [['off', 'Manual'], ['auto', 'Al responder']], prefs.get('voice'), function (v) { prefs.set('voice', v); }),

@@ -71,6 +71,10 @@ function boot(seed, opts) {
         click(chip);
       }
       check();
+    } else if (spec.kind === 'ending') {
+      const right = item.answer.slice(spec.stem.length) || '(vacío)', btns = qa('.options [data-end]');
+      assert.ok(btns.some(b => b.dataset.end === right), 'la terminación correcta está entre las opciones');
+      click(ok ? btns.find(b => b.dataset.end === right) : btns.find(b => b.dataset.end !== right));
     } else if (spec.kind === 'tiles') {
       if (!ok) { click(qa('.bank .tile').find(b => !b.disabled)); return check(); }
       solveTiles(item).forEach(t => click(qa('.bank .tile').find(b => !b.disabled && b.textContent === t))); check();
@@ -850,4 +854,48 @@ test('Tablas · se retiran con el uso: de tabla completa a media y a ninguna seg
   assert.equal(u.qa('.tbl-slot tr.masked').length, 0, 'completa');
   tags[tag] = { n: 3, f: 0 }; assert.equal(T.level(tags[tag]), 'media'); tags[tag] = { n: 6, f: 0 }; assert.equal(T.level(tags[tag]), 'ninguna');
   u.click(u.q('[aria-label="Terminar sesión"]'));
+});
+
+/* ---------- Escalera de ayuda y «solo la terminación» ---------- */
+function setTagsFor(u, mod, st) { u.eng.store.all.filter(i => i.module === mod).forEach(i => { u.eng.state().tags[i.errorTag] = Object.assign({}, st); }); }
+function kindsOfVerbs(u, st, n) {
+  setTagsFor(u, 'verben', st); u.chooseModule('verben', 30); u.start(); const kinds = {};
+  for (let i = 0; i < (n || 30) && u.S().screen === 'session'; i++) { const it = u.S().cur.item; if (it.person && /praesens|praeteritum/.test(it.skill)) { const k = u.S().cur.spec.kind; kinds[k] = (kinds[k] || 0) + 1; } u.answer(true); u.next(); }
+  return kinds;
+}
+
+test('Escalera · tema nuevo: nunca letras sueltas; dominado: nunca opciones de formas; en medio, terminaciones y bloques', () => {
+  const nuevo = kindsOfVerbs(boot(150), { n: 0, f: 0 }, 14),   // 14 respuestas: aún lejos de los 20 intentos que piden «dominado»
+     dom = kindsOfVerbs(boot(151), { n: 30, f: 0 }), medio = kindsOfVerbs(boot(152), { n: 8, f: 1 });
+  assert.equal(nuevo.letters || 0, 0, JSON.stringify(nuevo)); assert.ok((nuevo.choice || 0) > 0, JSON.stringify(nuevo));
+  assert.equal(dom.choice || 0, 0, JSON.stringify(dom)); assert.ok((dom.letters || 0) > 0, JSON.stringify(dom));
+  assert.ok((medio.ending || 0) + (medio.blocks || 0) > (medio.choice || 0), JSON.stringify(medio));
+});
+
+test('Terminación · la raíz queda puesta, se elige sólo la terminación y se envía raíz + terminación (texto)', () => {
+  const u = boot(153); setTagsFor(u, 'artikel', { n: 8, f: 1 });
+  assert.ok(toKind(u, 'ending', 'artikel'), 'salió una terminación');
+  const { item, spec } = u.S().cur, sent = [], sess = u.S().session, orig = sess.answer; sess.answer = function (r, o) { sent.push(r); return orig.call(sess, r, o); };
+  assert.equal(u.q('.endstem .stem').textContent, spec.stem); assert.ok(u.qa('.options [data-end]').length >= 2 && u.qa('.options [data-end]').length <= 6);
+  assert.equal(u.q('.bank'), null, 'sin banco de letras'); assert.ok(u.qa('.options .btn.opt').every(b => b.getBoundingClientRect ? true : true));
+  u.answer(false); assert.equal(typeof sent[0], 'string'); assert.ok(sent[0].startsWith(spec.stem) && sent[0] !== item.answer);
+  assert.ok(u.q('.fb.bad .fb-ans').textContent.includes(item.answer)); assert.ok(u.stored().errors[item.id], 'el fallo se guarda');
+  u.next(); while (u.S().screen === 'session' && u.S().cur.spec.kind !== 'ending') { u.answer(true); u.next(); }
+  if (u.S().screen === 'session') { const it2 = u.S().cur.item; u.answer(true); assert.equal(sent[sent.length - 1], it2.answer); assert.ok(u.q('.fb.ok')); }
+});
+
+test('Escalera · «Ayuda que se retira» apagada: reparto clásico (sin terminación ni letras); se guarda en Ajustes', () => {
+  const u = boot(154, { before: w => w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false, ladder: false })) });
+  const k = kindsOfVerbs(u, { n: 0, f: 0 }, 40); assert.equal((k.ending || 0) + (k.letters || 0), 0, JSON.stringify(k));
+  const s = boot(155); s.click(s.q('[aria-label="Ajustes"]')); s.click(s.q('[aria-label="Ayuda que se retira"] [data-v="0"]'));
+  assert.equal(JSON.parse(s.w.localStorage.getItem('dg.ui')).ladder, false);
+});
+
+test('Escalera · tras dominar el tipo, las letras sueltas funcionan (ä/ö/ü/ß incluidos) y puntúan', () => {
+  const u = boot(156); setTagsFor(u, 'verben', { n: 30, f: 0 }); u.chooseModule('verben', 30); u.start(); let um = 0, letters = 0;
+  for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
+    const it = u.S().cur.item, k = u.S().cur.spec.kind; u.answer(true); assert.ok(u.q('.fb.ok'), k + ' ' + it.answer);
+    if (k === 'letters') { letters++; if (/[äöüß]/.test(it.answer)) um++; } u.next();
+  }
+  assert.ok(letters > 3, 'salieron letras: ' + letters);
 });

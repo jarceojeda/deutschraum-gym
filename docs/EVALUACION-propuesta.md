@@ -59,11 +59,11 @@ Muestreo ponderado sin reemplazo, memoria de sesiones y cuotas: **Hecho en el mo
 | Propuesta | Estado | Notas |
 |---|---|---|
 | URL gratis + PWA offline (service worker) | Pendiente (etapa 5) | Mantengo la recomendación. Ya se probó que un HTML suelto puede perder el progreso, por eso la copia de seguridad ya existe. Necesita: `manifest`, `sw.js`, iconos y activar GitHub Pages (decisión tuya). |
-| Escalera «opciones → banco de letras → solo la terminación» | Parcial | Existen opciones, bloques raíz+terminación y banco de letras, pero **no se retiran de forma progresiva** según el dominio. «Completar solo la terminación» como variante propia (p. ej. `gut__` → -en/-er) es viable para las ~120 terminaciones de adjetivos de Deklination: Pendiente. |
+| Escalera «opciones → banco de letras → solo la terminación» | **Hecho** | Variante «solo la terminación» (322 plurales, Dativ plural, ~2.300 formas de verbo) y retirada progresiva por dominio del tipo de error: opciones → bloques/terminación → letras. Las ~120 terminaciones de adjetivos de Deklination ya eran de elegir solo la terminación (opciones del dato). Apagable en Ajustes. |
 | Modo Casa (teclado completo para la laptop) | Parcial | «Escribir» ya existe (opcional); un Modo Casa pensado para laptop (atajos, Enter) queda para la etapa 5. |
 
 ## Propuesta de orden (si quieres seguir)
 1. ~~Andamiaje de tablas en Deklination~~ (hecho).
-2. Variante «completar solo la terminación» + retirada progresiva de la ayuda (opciones → bloques → letras).
+2. ~~Variante «completar solo la terminación» + retirada progresiva de la ayuda~~ (hecho).
 3. PWA + URL gratis (etapa 5) y calibrar los tamaños de sesión en minutos con uso real.
 4. Wortschatz/Satzbau cuando lleguen los datos; «Mis palabras» con cambio de motor.

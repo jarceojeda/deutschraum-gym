@@ -31,6 +31,7 @@
       case 'choice': return choice(spec, cb);
       case 'blocks': return blocks(spec, cb);
       case 'match': return match(spec, cb);
+      case 'ending': return ending(spec, cb);
       case 'tiles': return tiles(spec, cb);
       case 'pair': return pair(spec, cb);
       case 'text': return text(spec, item, cb);
@@ -105,6 +106,17 @@
     draw();
     var note = h('p.hint.center', '★ marca la fila que cuenta para tu progreso; las demás son práctica.');
     return { answerEl: h('div.paradigm-wrap', rowsEl, note), dockEl: h('div.dock-in', bankEl, h('div.row', skip, check)) };
+  }
+
+  // Terminación: la raíz ya está puesta; un toque en la terminación envía raíz + terminación.
+  function ending(spec, cb) {
+    var done = false, n = spec.options.length;
+    var grid = h('div.options' + (n > 4 ? '.cols3' : '.cols2'), { role: 'group', 'aria-label': 'Terminación' });
+    spec.options.forEach(function (o) {
+      grid.appendChild(h('button.btn.opt.end', { type: 'button', 'data-end': o.v === '' ? '(vacío)' : o.v, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(spec.stem + o.v); } }, o.t));
+    });
+    var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
+    return { answerEl: h('div.endstem', { 'aria-label': 'Raíz: ' + spec.stem }, h('span.stem', spec.stem), h('span.endslot', '＿＿')), dockEl: h('div.dock-in', grid, skip) };
   }
 
   function letters(spec, item, cb) {

@@ -38,6 +38,8 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 30 | Präpositionen y Konnektoren (módulos 4 y 5 de la propuesta) | Par mínimo Wo?/Wohin? y fichas para ordenar con datos y motor existentes; transformaciones por palabras con conectores como distractores | HECHO (ahora) |
 | 32 | Andamiaje que se retira: tabla completa → media tabla → ninguna (Deklination) | `ui/dgui-tablas.js` + `ui/tablas.json` (§11 de la guía): 191 ítems con tabla; retirada por dominio del `errorTag` (<3 intentos completa, ≥6 y ≥85 % ninguna); tras fallar siempre tabla con la casilla marcada. Se apaga en Ajustes | HECHO |
 | 33 | Motor de 4 movimientos (caso → casilla → quién lleva la señal → cola del sustantivo) | Cadena **caso → casilla → forma** tras fallar (pasos con dato). «Quién lleva la señal» y «cola del sustantivo» no existen como dato en `data/` | PARCIAL |
+| 34 | «Completar solo la terminación» (`gut__`) | Variante `ending`: la raíz queda puesta y se elige solo la terminación (`-en`, `-n`, `—`…). Aplica a 322 plurales, los Dativ plural y ~2.300 formas de verbos conjugados; envía raíz + terminación al motor | HECHO |
+| 35 | Escalera de ayuda que se retira (opciones → bloques/terminación → letras) | Por intentos acumulados del `errorTag`: <5 ayuda (opciones, emparejado), 5–19 o <85 % media (bloques, terminación), ≥20 con ≥85 % dominado (letras sueltas). Se apaga en Ajustes («Ayuda que se retira») | HECHO |
 | 31 | Pestaña de consulta separada de los ejercicios | «Consulta de reglas»: 62 temas de `reglas.json`, solo lectura | HECHO (parcial: faltan cheat sheets A2/B1) |
 
 Evaluación completa de la propuesta de la charla inicial: `docs/EVALUACION-propuesta.md`.

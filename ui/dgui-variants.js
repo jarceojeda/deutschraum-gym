@@ -107,13 +107,66 @@
     return { kind: 'blocks', label: 'Ordena las palabras', blocks: mkBlocks(words.concat(dis), r), joiner: ' ', parts: words.length };
   }
 
+  // ---- Terminación: la raíz ya está escrita, se elige SOLO la terminación (resp = raíz + terminación) ----
+  var PLURAL_END = ['', 'e', 'en', 'n', 'er', 's', 'nen'], DATPL_END = ['', 'n', 'en', 's'];
+  function endOpts(correct, all, n, r) {
+    var opts = [correct].concat(pickN(all.filter(function (e) { return e !== correct; }), n - 1, r));
+    return shuffle(opts, r).map(function (e) { return { v: e, t: e === '' ? '—' : '-' + e }; });
+  }
+  function endingSpec(item, r) {
+    var a = String(item.answer), stem, end, all, label = 'Completa la terminación';
+    if (item.module === 'artikel' && item.skill === 'plural' && item.lemma && a.indexOf(item.lemma) === 0 && PLURAL_END.indexOf(a.slice(item.lemma.length)) >= 0) {
+      stem = item.lemma; end = a.slice(stem.length); all = PLURAL_END;
+    } else if (item.skill === 'dativ-plural') {
+      var m = /\(\s*(?:die\s+)?([^()\s]+)\s*\)\s*$/.exec(String(item.prompt)); if (!m || a.indexOf(m[1]) !== 0 || DATPL_END.indexOf(a.slice(m[1].length)) < 0) return null;
+      stem = m[1]; end = a.slice(stem.length); all = DATPL_END;
+    } else if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+      var sp = splitFinite(item); if (!sp) return null; stem = sp.stem; end = sp.end; all = sp.all;
+    } else return null;
+    var ok = notAccepted(item);   // ninguna terminación distractora puede dar otra forma aceptada (p. ej. genosst / genossest)
+    all = all.filter(function (e) { return e === end || ok(stem + e); });
+    return { kind: 'ending', label: label, stem: stem, options: endOpts(end, all, Math.min(all.length, 6), r) };
+  }
+
+  // Escalera de ayuda que se retira: choice (reconocer entre formas) → bloques / terminación → letras sueltas.
+  // ctx.level: 'ayuda' | 'media' | 'dominado' (según el dominio del errorTag). Sin ctx.level: reparto clásico sin terminación ni letras.
+  // Nivel de la escalera según los intentos acumulados de ese errorTag (más exigente que el de las tablas: los tags de verbos son amplios,
+  // y a los 6 aciertos de «verb:praesens» aún no se domina el tiempo entero): <5 intentos → ayuda; ≥20 con ≥85 % → dominado; entre medias → media.
+  V.ladderLevel = function (stats) {
+    var n = stats ? stats.n : 0, f = stats ? stats.f : 0;
+    if (n >= 20 && (n - f) / n >= 0.85) return 'dominado';
+    return n < 5 ? 'ayuda' : 'media';
+  };
+  var LADDER = {
+    finite: { ayuda: { choice: 4, match: 2, ending: 2.5, blocks: 0.5 }, media: { blocks: 3, ending: 3, match: 2, choice: 1 }, dominado: { letters: 3, blocks: 2, match: 1.5, ending: 1 } },
+    pii: { ayuda: { choice: 3, blocks: 1 }, media: { blocks: 3, choice: 1 }, dominado: { letters: 3, blocks: 1 } },
+    plural: { ayuda: { choice: 1 }, media: { ending: 3, choice: 1 }, dominado: { letters: 3, ending: 1 } },
+    datpl: { ayuda: { choice: 1 }, media: { ending: 3, choice: 1 }, dominado: { letters: 3, ending: 1 } }
+  };
+  function ladderPick(family, level, avail, last, r) {
+    var w = LADDER[family][level] || LADDER[family].ayuda;
+    var list = Object.keys(w).filter(function (k) { return avail[k] && k !== last; }).map(function (k) { return [k, w[k]]; });
+    if (!list.length) list = Object.keys(w).filter(function (k) { return avail[k]; }).map(function (k) { return [k, w[k]]; });
+    return list.length ? avail[weighted(list, r)] : null;
+  }
+  function lettersSpec() { return { kind: 'letters', label: 'Arma la respuesta con letras' }; }
+
   // spec para el ejercicio actual. ctx: {store, rnd, mode:'touch'|'write', last:{kind}}
   V.pick = function (item, view, ctx) {
     var r = rnd(ctx), store = ctx.store, last = ctx.last && ctx.last.kind, spec = null;
     if (ctx.mode === 'write') return { kind: 'text', label: 'Escribe la respuesta' };
     if (view.input === 'tiles') return { kind: 'tiles', label: 'Ordena las fichas', tiles: view.tiles };
     if (view.input === 'pair') return { kind: 'pair', label: 'Wo? / Wohin?', parts: view.parts };
-    if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+    var lv = ctx.level;
+    if (lv && item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+      spec = ladderPick('finite', lv, { choice: verbChoice(item, store, r), blocks: verbBlocks(item, store, r), match: verbMatch(item, store, r), ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.module === 'verben' && item.skill === 'partizip-ii') {
+      spec = ladderPick('pii', lv, { choice: piiChoice(item, store, r), blocks: verbBlocks(item, store, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.module === 'artikel' && item.skill === 'plural') {
+      spec = ladderPick('plural', lv, { choice: pluralChoice(item, r), ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (lv && item.skill === 'dativ-plural' && view.input === 'choice') {
+      spec = ladderPick('datpl', lv, { choice: { kind: 'choice', label: 'Elige la opción', options: view.options }, ending: endingSpec(item, r), letters: lettersSpec() }, last, r);
+    } else if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
       var gens = { choice: verbChoice, blocks: verbBlocks, match: verbMatch }, avail = {};
       Object.keys(gens).forEach(function (k) { avail[k] = gens[k](item, store, r); });
       var list = [['choice', 3], ['blocks', 2.5], ['match', 2]].filter(function (x) { return avail[x[0]] && x[0] !== last; });
@@ -138,7 +191,7 @@
     var rows = spec.rows.map(function (x) { return { key: x.key, label: x.label, expected: x.expected, given: values[x.key], ok: values[x.key] === x.expected, target: x.target }; });
     return { response: values[spec.targetKey], rows: rows };
   };
-  V.PLABEL = PLABEL; V.PERSONS = PERSONS; V.umlaut = umlaut; V.splitFinite = splitFinite; V.splitPii = splitPii;
+  V.endingSpec = endingSpec; V.PLABEL = PLABEL; V.PERSONS = PERSONS; V.umlaut = umlaut; V.splitFinite = splitFinite; V.splitPii = splitPii;
   g.DGUI = g.DGUI || {}; g.DGUI.variants = V;
   if (typeof module === 'object' && module.exports) module.exports = V;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
