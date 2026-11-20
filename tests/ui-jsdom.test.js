@@ -25,8 +25,9 @@ function boot(seed, opts) {
   const click = el => { assert.ok(el, 'botón no encontrado'); el.dispatchEvent(new w.MouseEvent('click', { bubbles: true })); };
   const stored = () => JSON.parse(w.localStorage.getItem('dg.progress'));
   const S = () => w.DGUI.app.state;
-  const chooseModule = (m, n) => { click(q('[data-module="' + m + '"]')); if (n) click(q('[data-size="' + n + '"]')); };
-  const start = () => click(q('#start'));
+  let pending = 'verben';
+  const chooseModule = (m, n) => { pending = m; if (n) click(q('[data-size="' + n + '"]')); };
+  const start = () => click(q('.card[data-module="' + pending + '"]'));
   // Responde el ejercicio actual PULSANDO la interfaz (opciones o banco de letras).
   function answer(ok) {
     const item = S().cur.item, v = S().cur.view;
@@ -181,7 +182,7 @@ test('fichas para ordenar: tocar arma la frase y envía el array de fichas', () 
   assert.equal(JSON.stringify(got), JSON.stringify([['Ich', 'trinke', 'Kaffee']]));
 });
 
-test('Artikel: der/die/das con color Y forma (■ ● ▲), no sólo color', () => {
+test('Artikel: der/die/das con color Y forma (● ◆ ⬢), no sólo color', () => {
   const u = boot(2); u.chooseModule('artikel', 30); u.start();
   let found = null;
   for (let i = 0; i < 30 && u.S().screen === 'session'; i++) {
@@ -190,9 +191,9 @@ test('Artikel: der/die/das con color Y forma (■ ● ▲), no sólo color', () 
   }
   assert.ok(found && found.length === 3, 'ejercicio de género con 3 opciones');
   const shapes = found.map(b => b.querySelector('.shape') && b.querySelector('.shape').textContent).sort().join('');
-  assert.equal(shapes, ['■', '●', '▲'].sort().join(''));
-  assert.ok(found.every(b => /art-(der|die|das)/.test(b.className) && b.querySelector('.lbl').textContent.length >= 3));
-  const m = { der: '■', die: '●', das: '▲' }; found.forEach(b => assert.equal(b.querySelector('.shape').textContent, m[b.dataset.opt]));
+  assert.equal(shapes, ['●', '◆', '⬢'].sort().join(''));
+  assert.ok(found.every(b => /g-(der|die|das)/.test(b.className) && b.querySelector('.lbl').textContent.length >= 3));
+  const m = { der: '●', die: '◆', das: '⬢' }; found.forEach(b => assert.equal(b.querySelector('.shape').textContent, m[b.dataset.opt]));
 });
 
 test('view() no se muta: la misma vista (congelada) sirve para pintar, equivocarse y volver a pintar', () => {

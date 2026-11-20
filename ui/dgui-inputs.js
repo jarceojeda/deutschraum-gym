@@ -5,13 +5,7 @@
 (function (g) {
   'use strict';
   var U = g.DGUI.util, h = U.h, I = {};
-  var ART = { der: { cls: 'art-der', shape: '■' }, die: { cls: 'art-die', shape: '●' }, das: { cls: 'art-das', shape: '▲' } };
-  // Artículo con color Y forma (no sólo color): der ■ azul · die ● rojo · das ▲ verde.
-  I.artikelBadge = function (word, withText) {
-    var a = ART[String(word).toLowerCase()]; if (!a) return null;
-    return h('span.art.' + a.cls, h('span.shape', { 'aria-hidden': 'true' }, a.shape), withText === false ? null : h('span.word', word));
-  };
-  I.artClass = function (word) { var a = ART[String(word).toLowerCase()]; return a ? a.cls : ''; };
+  var F = g.DGUI.fmt;
 
   var CONFUSE = { 'ä': 'a', 'ö': 'o', 'ü': 'u', 'ß': 's', 'a': 'ä', 'o': 'ö', 'u': 'ü', 's': 'ß' };
   var FILL = 'enrtsmdlhg'.split('');
@@ -42,8 +36,8 @@
     var done = false;
     var grid = h('div.options' + (view.options.length > 4 ? '.cols2' : view.options.length === 2 ? '.row2' : '.cols1'), { role: 'group', 'aria-label': 'Opciones' });
     view.options.forEach(function (o) {
-      var badge = I.artikelBadge(o, false);
-      grid.appendChild(h('button.btn.opt' + (badge ? '.' + I.artClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; cb.onSubmit(o); } }, badge, h('span.lbl', o)));
+      var badge = F.genderBadge(o, false);
+      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; cb.onSubmit(o); } }, badge, h('span.lbl', o)));
     });
     return { answerEl: null, dockEl: grid };
   }

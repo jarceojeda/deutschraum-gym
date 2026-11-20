@@ -2,11 +2,11 @@
  * mount(root, {win, engine, concepts, storageOk, prefs, rnd}) → controlador (go, state) para pruebas. */
 (function (g) {
   'use strict';
-  var D = g.DGUI, U = D.util, h = U.h, I = D.inputs;
+  var D = g.DGUI, U = D.util, h = U.h, I = D.inputs, F = D.fmt;
   var MODULES = [
-    { id: 'verben', name: 'Verben', desc: 'Conjugar con toques: Präsens, Präteritum, Partizip II, haben/sein' },
-    { id: 'artikel', name: 'Artikel', desc: 'Género con color y forma, plural, artículo indefinido' },
-    { id: 'deklination', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' }
+    { id: 'verben', icon: 'V', name: 'Verben', desc: 'Conjugar con toques: Präsens, Präteritum, Partizip II, haben/sein' },
+    { id: 'artikel', icon: 'A', name: 'Artikel', desc: 'Género con color y forma, plural, artículo indefinido' },
+    { id: 'deklination', icon: 'D', name: 'Deklination', desc: 'Caso, artículo y terminaciones: Akk, Dat, Gen, N-Deklination' }
   ];
   var SIZES = [{ n: 10, label: '10' }, { n: 20, label: '20' }, { n: 30, label: '30' }];
   var WARN = {
@@ -28,37 +28,37 @@
       return S.saveError ? h('div.notice.warn', { role: 'status' }, 'No se pudo guardar tu progreso (almacenamiento lleno o bloqueado). Puedes seguir practicando, pero esta sesión podría perderse si cierras la pestaña.') : null;
     }
     function storageBanner() { return ctx.storageOk ? null : h('div.notice.warn', { role: 'status' }, 'Este navegador no deja guardar datos: tu progreso no se conservará al cerrar.'); }
-    function shell(title, left, right, mainChildren, dockChildren, cls) {
+    function shell(title, left, right, mainChildren, dockChildren, cls, module) {
       U.clear(root);
       root.className = 'app ' + (cls || '');
+      var bar = h('header.appbar' + (module ? '.sess' : ''), module ? { 'data-module': module } : null, left, right);
       var main = h('main.main', { id: 'main', tabindex: '-1' }, mainChildren);
-      root.appendChild(h('header.top', left, h('h1.title', title), right || h('span.spacer')));
-      root.appendChild(main);
-      var dock = h('footer.dock', dockChildren);
-      root.appendChild(dock);
-      return { main: main, dock: dock };
+      root.appendChild(bar); root.appendChild(main);
+      var dock = null;
+      if (dockChildren && dockChildren.length) { dock = h('footer.dock', dockChildren); root.appendChild(dock); }
+      return { main: main, dock: dock, bar: bar };
     }
+    function brand(title, sub) { return h('div.brand', h('span.brand-mark', { 'aria-hidden': 'true' }, 'D'), h('div.brand-t', h('strong', title), sub ? h('small', sub) : null)); }
     function iconBtn(label, glyph, fn) { return h('button.btn.ghost.icon', { type: 'button', 'aria-label': label, onclick: fn }, glyph); }
 
     /* ---------- inicio ---------- */
     function home() {
       S.screen = 'home'; S.session = null; S.cur = null;
-      var list = h('div.cards', { role: 'radiogroup', 'aria-label': 'Módulo' });
+      var list = h('div.cards');
       MODULES.forEach(function (m) {
-        var on = S.module === m.id, lvl = eng.levelOf(m.id);
-        list.appendChild(h('button.card' + (on ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': on ? 'true' : 'false', 'data-module': m.id,
-          onclick: function () { S.module = m.id; prefs.set('module', m.id); home(); } },
-          h('span.card-h', h('span.card-name', m.name), h('span.badge', 'Nivel ' + lvl)), h('span.card-d', m.desc)));
+        list.appendChild(h('button.card', { type: 'button', 'data-module': m.id, onclick: function () { S.module = m.id; prefs.set('module', m.id); start(); } },
+          h('span.mi', { 'aria-hidden': 'true' }, m.icon), h('span.mt', h('strong', m.name), h('span', m.desc)), h('span.badge', 'Nivel ' + eng.levelOf(m.id)), h('span.go', { 'aria-hidden': 'true' }, '›')));
       });
       var chips = h('div.chips', { role: 'radiogroup', 'aria-label': 'Tamaño de sesión' });
       SIZES.forEach(function (z) {
         chips.appendChild(h('button.chip' + (S.size === z.n ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': S.size === z.n ? 'true' : 'false', 'data-size': z.n,
-          onclick: function () { S.size = z.n; prefs.set('size', z.n); home(); } }, z.label + ' ejercicios'));
+          onclick: function () { S.size = z.n; prefs.set('size', z.n); home(); } }, z.label));
       });
       var nerr = eng.errorQueue().length;
-      shell('Deutschraum Gym', h('span.spacer'), iconBtn('Ajustes', '⚙', settings),
-        [storageBanner(), h('p.lead', 'Elige qué practicar'), list, nerr ? h('p.hint', 'Errores pendientes: ' + nerr + '. Entran solos en tus próximas sesiones.') : null],
-        [h('div.dock-in', chips, h('button.btn.primary.big', { type: 'button', id: 'start', onclick: start }, 'Empezar'))]);
+      shell('Deutschraum Gym', brand('Deutschraum Gym', 'Modo Tren'), iconBtn('Ajustes', '⚙', settings),
+        [storageBanner(),
+          h('section.hero', h('p.eyebrow', 'Modo Tren'), h('h1', 'Practica unos minutos'), h('p', 'Toques, una mano. Elige un módulo.'), h('div.group', h('p.glabel', 'Ejercicios por sesión'), chips)),
+          h('h2.sec-h', 'Módulos'), list, nerr ? h('p.hint', 'Errores pendientes: ' + nerr + '. Entran solos en tus próximas sesiones.') : null], null);
     }
 
     /* ---------- sesión ---------- */
@@ -76,7 +76,7 @@
       win.setTimeout(function () { if (t.parentNode) t.parentNode.removeChild(t); }, 4000);
     }
     function promptNode(v, item) {
-      var box = h('div.prompt');
+      var box = h('div.qbody');
       var parts = String(v.prompt).split(' · ');
       if (v.module === 'verben' && parts.length === 3) {
         box.appendChild(h('div.p-big', parts[0]));
@@ -85,10 +85,10 @@
         box.appendChild(h('div.p-big', h('span.blank', '___'), ' ', v.prompt));
       } else if (v.module === 'artikel') {
         var m = /^(der|die|das)\s+(.*)$/i.exec(v.prompt);
-        box.appendChild(h('div.p-big', m ? [I.artikelBadge(m[1]), ' ', m[2]] : v.prompt));
+        box.appendChild(h('div.p-big', m ? [F.genderBadge(m[1]), ' ', m[2]] : v.prompt));
       } else {
         var segs = String(v.prompt).split(/_{2,}/);
-        box.appendChild(h('div.p-big.p-sent', segs.reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(sg); return acc; }, [])));
+        box.appendChild(h('div.p-big.p-sent', segs.reduce(function (acc, sg, i) { if (i) acc.push(h('span.blank', '___')); acc.push(F.rich(sg)); return acc; }, [])));
       }
       if (v.showTranslation && v.translation) box.appendChild(h('div.p-tr', '“' + v.translation + '”'));
       if (v.hint) box.appendChild(h('div.p-hint', v.hint));
@@ -97,10 +97,9 @@
     function sessionFrame(mainChildren, dockNode) {
       var s = S.session, pos = Math.min(s.position() + (S.cur && S.cur.fb ? 1 : 0), s.length());
       var bar = h('div.progress', { role: 'progressbar', 'aria-valuemin': '0', 'aria-valuemax': String(s.length()), 'aria-valuenow': String(pos) }, h('div.progress-fill', { style: 'width:' + Math.round(100 * pos / s.length()) + '%' }));
-      var parts = shell(MODULES.filter(function (m) { return m.id === S.module; })[0].name,
-        iconBtn('Terminar sesión', '✕', endEarly), h('span.count', pos + '/' + s.length()),
-        [bar, saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session');
-      return parts;
+      var auto = h('button.auto-chip', { type: 'button', id: 'auto', 'aria-pressed': prefs.get('auto') ? 'true' : 'false', 'aria-label': 'Avance automático al acertar', onclick: function () { prefs.set('auto', !prefs.get('auto')); this.setAttribute('aria-pressed', prefs.get('auto') ? 'true' : 'false'); } }, 'Auto');
+      return shell('', iconBtn('Terminar sesión', '✕', endEarly), [bar, h('span.count', pos + '/' + s.length()), auto],
+        [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.module);
     }
     function question(note) {
       var s = S.session; S.screen = 'session';
@@ -109,7 +108,7 @@
       S.cur = { view: v, item: item, fb: null };
       var inp = I.mount(v, item, { rnd: ctx.rnd, onSubmit: function (resp) { submit(resp); }, onGiveUp: giveUp });
       var tags = h('div.tags', h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
-      sessionFrame([tags, promptNode(v, item), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
+      sessionFrame([h('div.qcard', tags, promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
     function submit(resp) {
       var s = S.session, item = S.cur.item, v = S.cur.view;
@@ -137,20 +136,21 @@
       var s = S.session, item = f.item;
       S.cur.fb = f;
       var body = [];
+      var ck = F.caseOf(item), ansNodes = F.rich(expectedText(item), { case: ck }), cb = ck ? F.caseBadge(ck) : null;
       if (f.ok) {
-        body.push(h('div.fb.ok', { role: 'status' }, h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null, ' ', h('span.fb-ans', expectedText(item))));
+        body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null),
+          h('div.fb-ans', ansNodes), cb));
       } else {
-        var art = I.artikelBadge(item.answer);
         body.push(h('div.fb.bad', { role: 'status' },
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
-          h('div.fb-ans', art || expectedText(item)),
+          h('div.fb-ans', ansNodes), cb,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
       var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: function () { if (f.out.finished || s.done()) summary(); else question(); } }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
       var dock = h('div.dock-in', h('div.row', f.ok ? null : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
-      var q = h('div.prompt.dim', promptNode(f.view, item));
+      var q = h('div.qcard.still', promptNode(f.view, item));
       sessionFrame([q].concat(body), dock);
       var nb = root.querySelector('#next'); if (nb && nb.focus) nb.focus({ preventScroll: true });
     }
@@ -194,7 +194,7 @@
       if (tags.length) blocks.push(h('div.sum-card', h('strong', 'Errores por tipo'), h('ul.tagl', tags.map(function (t) { return h('li', h('span', D.rules.tagLabel(t)), h('span.n', String(sm.errorsByTag[t]))); }))));
       else if (sm.answered) blocks.push(h('div.sum-card', h('strong', 'Sin errores. Muy bien.')));
       (sm.levelChanges || []).forEach(function (c) { blocks.push(h('div.sum-card', h('strong', (c.change === 'promote' || c.to > c.from ? 'Subiste de nivel' : 'Cambio de nivel') + ': ' + c.module + ' ' + c.from + ' → ' + c.to))); });
-      shell('Resumen', h('span.spacer'), h('span.spacer'), [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: start }, 'Otra sesión')))], 'summary');
+      shell('Resumen', brand('Resumen', 'Sesión terminada'), null, [saveBanner(), blocks], [h('div.dock-in', h('div.row', h('button.btn.secondary', { type: 'button', onclick: home }, 'Inicio'), h('button.btn.primary.big', { type: 'button', id: 'again', onclick: start }, 'Otra sesión')))], 'summary');
     }
 
     /* ---------- ajustes ---------- */
@@ -206,7 +206,7 @@
           return h('button.chip' + (cur === o[0] ? '.on' : ''), { type: 'button', role: 'radio', 'aria-checked': cur === o[0] ? 'true' : 'false', 'data-v': o[0], onclick: function () { fn(o[0]); settings(); } }, o[1]);
         }));
       }
-      shell('Ajustes', iconBtn('Volver', '←', home), h('span.spacer'), [
+      shell('Ajustes', [iconBtn('Volver', '←', home), brand('Ajustes')], null, [
         h('section.set', h('h2', 'Tope de nivel'), h('p.hint', 'No verás ejercicios por encima de este nivel.'),
           seg('Tope de nivel', [['A1', 'A1'], ['A2', 'A2'], ['B1', 'B1']], st.levelCap, function (v) { eng.setLevelCap(v); eng.progress.save(); })),
         h('section.set', h('h2', 'Tema'), seg('Tema', [['auto', 'Sistema'], ['light', 'Claro'], ['dark', 'Oscuro']], theme, function (v) { prefs.set('theme', v); U.applyTheme(doc, v); })),

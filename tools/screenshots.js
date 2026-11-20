@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
     const ctx = await b.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: scheme, hasTouch: true, isMobile: true });
     const p = await ctx.newPage(); await p.goto(file); return { p, ctx };
   }
-  const shot = (p, n) => p.screenshot({ path: path.join(out, n + '.png') });
+  const shot = async (p, n) => { await p.waitForTimeout(350); return p.screenshot({ path: path.join(out, n + '.png') }); };
   // Responde usando la interfaz (la API de estado de la UI sólo sirve para saber cuál es la respuesta).
   const ans = async (p, ok) => {
     const { item, view } = await p.evaluate(() => ({ item: DGUI.app.state.cur.item, view: DGUI.app.state.cur.view }));
@@ -32,18 +32,18 @@ const { chromium } = require('playwright');
   let { p, ctx } = await page('light');
   await shot(p, '01-inicio');
   for (const m of ['verben', 'artikel', 'deklination']) {
-    await p.click('[data-module="' + m + '"]'); await p.click('[data-size="30"]'); await p.click('#start');
+    await p.click('[data-size="30"]'); await p.click('.card[data-module="' + m + '"]');
     if (m === 'artikel') await toGenero(p);
     await shot(p, '02-sesion-' + m);
     await ans(p, false); await shot(p, '03-error-' + m);
     if (m === 'verben') { await p.click('#rule'); await shot(p, '04-regla-verben'); await p.keyboard.press('Escape'); }
     await p.click('#next'); await p.click('[aria-label="Terminar sesión"]'); await p.click('.dock .btn.secondary');
   }
-  await p.click('[data-module="verben"]'); await p.click('[data-size="10"]'); await p.click('#start');
+  await p.click('[data-size="10"]'); await p.click('.card[data-module="verben"]');
   for (let i = 0; (await p.evaluate(() => DGUI.app.state.screen)) === 'session' && i < 60; i++) { await ans(p, i % 3 !== 0); await p.click('#next'); }
   await shot(p, '05-resumen'); await ctx.close();
   ({ p, ctx } = await page('dark'));
-  await p.click('[data-module="artikel"]'); await p.click('[data-size="30"]'); await p.click('#start');
+  await p.click('[data-size="30"]'); await p.click('.card[data-module="artikel"]');
   await toGenero(p);
   await shot(p, '06-oscuro-artikel'); await ans(p, false); await shot(p, '07-oscuro-error');
   const r = await p.evaluate(() => ({ sw: document.documentElement.scrollWidth, cw: document.documentElement.clientWidth, minBtn: Math.min(...Array.from(document.querySelectorAll('.dock .btn')).map(x => x.getBoundingClientRect().height)) }));
