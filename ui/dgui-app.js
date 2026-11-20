@@ -86,6 +86,7 @@
     function start(o) {
       o = o || {}; var kind = o.kind || S.kind || 'module';
       var s, req = { kind: kind, size: S.size, mode: prefs.get('entry') === 'write' ? 'write' : 'touch' };
+      S.mode = req.mode; S.lastSpec = null;
       if (kind === 'module') req.modules = [S.module];
       if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
       try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
@@ -125,60 +126,77 @@
       return shell('', iconBtn('Terminar sesión', '✕', endEarly), [bar, h('span.count', pos + '/' + s.length()), auto],
         [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.cur && S.cur.item ? S.cur.item.module : S.module);
     }
-    function question(note) {
-      var s = S.session; S.screen = 'session';
+    function question(note, again) {
+      var s = S.session; S.screen = 'session'; cancelAuto();
       if (s.done()) return summary();
       var v = s.view(), item = s.currentItem();
-      S.cur = { view: v, item: item, fb: null };
-      var inp = I.mount(v, item, { rnd: ctx.rnd, onSubmit: function (resp) { submit(resp); }, onGiveUp: giveUp });
+      // «Casi»: se vuelve a pintar el MISMO ejercicio y la misma variante (sin barajar otra vez), con lo escrito.
+      var spec = again ? again.spec : D.variants.pick(item, v, { store: eng.store, rnd: ctx.rnd, mode: S.mode, last: S.lastSpec });
+      if (again && again.prefill != null) spec = Object.assign({}, spec, { prefill: again.prefill });
+      S.lastSpec = spec;
+      S.cur = { view: v, item: item, spec: spec, fb: null };
+      var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(8); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
       var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
-      sessionFrame([h('div.qcard', tags, promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
+      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
-    function submit(resp) {
-      var s = S.session, item = S.cur.item, v = S.cur.view;
+    function submit(resp, extra) {
+      var s = S.session, item = S.cur.item, v = S.cur.view, spec = S.cur.spec;
       var out;
-      try { out = s.answer(resp, { mode: 'touch' }); } catch (e) { toast('Error: ' + e.message); return; }
+      try { out = s.answer(resp, { mode: S.mode }); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
       if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
-      if (out.almost) { buzz(10); return question('Casi. Revisa tu respuesta e inténtalo otra vez.'); }
+      if (out.almost) { buzz([10, 30, 10]); return question('Casi. Revisa una letra e inténtalo otra vez.', { spec: spec, prefill: typeof resp === 'string' ? resp : '' }); }
       var ok = out.evaluation.verdict === 'correct';
       buzz(ok ? 12 : [30, 40, 30]);
-      feedback({ ok: ok, out: out, item: item, view: v, resp: resp, gaveUp: false });
+      feedback({ ok: ok, out: out, item: item, view: v, resp: resp, gaveUp: false, extra: extra, spec: spec });
     }
     function giveUp() {
       var s = S.session, item = S.cur.item, v = S.cur.view, out;
       try { out = s.giveUp(); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
       if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
-      feedback({ ok: false, out: out, item: item, view: v, resp: null, gaveUp: true });
+      feedback({ ok: false, out: out, item: item, view: v, resp: null, gaveUp: true, spec: S.cur.spec });
     }
     function expectedText(item) {
       if (item.type === 'minimal-pair') return item.wo.answer + ' / ' + item.wohin.answer;
       return item.answer;
     }
+    function cancelAuto() { if (S.timer) { win.clearTimeout(S.timer); S.timer = 0; } }
+    function paradigmNode(rows) {
+      return h('div.paradigm.result', { 'aria-label': 'Resultado por persona' }, rows.map(function (r) {
+        return h('div.prow.' + (r.ok ? 'ok' : 'bad') + (r.target ? '.target' : ''), h('span.plabel', r.label, r.target ? ' ★' : ''),
+          h('span.pres', h('strong', r.ok ? r.expected : r.expected), r.ok ? null : h('s', r.given == null ? '—' : r.given), h('span.mark', { 'aria-hidden': 'true' }, r.ok ? '✓' : '✗')));
+      }));
+    }
     function feedback(f) {
       var s = S.session, item = f.item;
-      S.cur.fb = f;
+      S.cur.fb = f; cancelAuto();
       var body = [];
       var ck = F.caseOf(item), ansNodes = F.rich(expectedText(item), { case: ck }), cb = ck ? F.caseBadge(ck) : null;
+      var autoOn = f.ok && prefs.get('auto') && !(f.out.finished || s.done()), ms = ctx.autoMs == null ? 1400 : ctx.autoMs;
+      var par = f.extra && f.extra.rows ? paradigmNode(f.extra.rows) : null;
       if (f.ok) {
         body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null),
-          h('div.fb-ans', ansNodes), cb));
+          par ? null : h('div.fb-ans', ansNodes), cb, par, autoOn ? h('div.autobar', { style: '--auto-ms:' + ms + 'ms' }, h('i')) : null));
       } else {
         body.push(h('div.fb.bad', { role: 'status' },
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
-          h('div.fb-ans', ansNodes), cb,
+          par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
-      var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: function () { if (f.out.finished || s.done()) summary(); else question(); } }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
-      var dock = h('div.dock-in', h('div.row', f.ok ? null : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
+      var go = function () { cancelAuto(); if (f.out.finished || s.done()) summary(); else question(); };
+      var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: go }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
+      var pause = autoOn ? h('button.btn.secondary', { type: 'button', id: 'pause', onclick: function () { cancelAuto(); var bar = root.querySelector('.autobar'); if (bar) bar.parentNode.removeChild(bar); this.parentNode.removeChild(this); } }, '⏸ Pausar') : null;
+      var dock = h('div.dock-in', h('div.row', f.ok ? pause : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
       var q = h('div.qcard.still', promptNode(f.view, item));
       sessionFrame([q].concat(body), dock);
       var nb = root.querySelector('#next'); if (nb && nb.focus) nb.focus({ preventScroll: true });
+      if (autoOn) S.timer = win.setTimeout(go, ms);
     }
     function endEarly() {
+      cancelAuto();
       if (S.session && S.answeredAny) summary(); else { if (S.session) S.session.finish(); home(); }
     }
 
@@ -204,6 +222,7 @@
 
     /* ---------- resumen ---------- */
     function summary() {
+      cancelAuto();
       var s = S.session, sm = s.finish();
       S.screen = 'summary'; S.summary = sm;
       if (sm.saveError) S.saveError = sm.saveError;

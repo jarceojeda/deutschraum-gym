@@ -1,5 +1,5 @@
 /* Pruebas de la UI sobre el HTML FINAL (dist/deutschraum-gym.html) en jsdom: se pulsan botones reales y se inspecciona localStorage. */
-const test = require('node:test'), assert = require('node:assert/strict');
+const test = require('node:test'), { after } = require('node:test'), assert = require('node:assert/strict');
 const fs = require('fs'), path = require('path');
 const { JSDOM } = require('jsdom');
 const { build } = require('../tools/build.js');
@@ -7,10 +7,15 @@ const { build } = require('../tools/build.js');
 const HTML_PATH = build();
 const HTML = fs.readFileSync(HTML_PATH, 'utf8');
 
+const DOMS = [];
+after(() => DOMS.forEach(d => { try { d.window.close(); } catch (e) { /* ya cerrada */ } }));
 function boot(seed, opts) {
   opts = opts || {};
   const dom = new JSDOM(HTML, { runScripts: 'dangerously', url: 'http://localhost/', pretendToBeVisual: true,
-    beforeParse(w) { w.DGUI_CONFIG = { seed: seed == null ? 11 : seed }; if (opts.before) opts.before(w); } });
+    beforeParse(w) { w.DGUI_CONFIG = Object.assign({ seed: seed == null ? 11 : seed, autoMs: 1400 }, opts.cfg);
+      if (!opts.auto) w.localStorage.setItem('dg.ui', JSON.stringify({ auto: false }));   // sin temporizadores colgados: el avance automático se prueba aparte
+      if (opts.before) opts.before(w); } });
+  DOMS.push(dom);
   const w = dom.window, d = w.document;
   // Toda vista que entregue el motor llega CONGELADA: si la UI intentara mutarla, 'use strict' lanzaría.
   const eng = w.DGUI.engine, orig = eng.startSession;
@@ -28,21 +33,49 @@ function boot(seed, opts) {
   let pending = 'verben';
   const chooseModule = (m, n) => { pending = m; if (n) click(q('[data-size="' + n + '"]')); };
   const start = () => click(q('.card[data-module="' + pending + '"]'));
-  // Responde el ejercicio actual PULSANDO la interfaz (opciones o banco de letras).
+  // Responde el ejercicio actual PULSANDO la interfaz, según la variante (spec) que haya elegido la UI.
+  const btnText = (sel, t) => qa(sel).find(b => !b.disabled && b.textContent === t);
+  function buildBlocks(blocks, target, joiner) {   // DFS: secuencia de bloques que forma exactamente la respuesta
+    const rec = (rem, used) => {
+      if (rem === '') return [];
+      for (const b of blocks) {
+        if (used.has(b.id)) continue;
+        const t = joiner ? (rem === b.t || rem.startsWith(b.t + joiner) ? b.t : null) : (rem.startsWith(b.t) ? b.t : null);
+        if (t == null) continue;
+        const rest = joiner ? rem.slice(t.length + (rem === t ? 0 : 1)) : rem.slice(t.length);
+        const r = rec(rest, new Set(used).add(b.id)); if (r) return [b.t].concat(r);
+      }
+      return null;
+    };
+    return rec(target, new Set());
+  }
   function answer(ok) {
-    const item = S().cur.item, v = S().cur.view;
-    if (v.input === 'choice') {
+    const { item, spec } = S().cur, check = () => click(qa('.dock .btn.primary')[0]);
+    if (spec.kind === 'choice') {
       const opts = qa('.options .btn.opt');
+      assert.ok(opts.some(b => b.dataset.opt === item.answer), 'la opción correcta debe estar entre las opciones');
       click(ok ? opts.find(b => b.dataset.opt === item.answer) : opts.find(b => b.dataset.opt !== item.answer));
+    } else if (spec.kind === 'blocks') {
+      if (!ok) { click(qa('.bank .tile').find(b => !b.disabled)); return check(); }
+      const seq = buildBlocks(spec.blocks, item.answer, spec.joiner); assert.ok(seq, 'bloques no forman ' + item.answer);
+      seq.forEach(t => click(btnText('.bank .tile', t))); check();
+    } else if (spec.kind === 'match') {
+      const order = ok ? spec.rows : spec.rows.filter(r => !r.target).concat(spec.rows.filter(r => r.target));
+      for (const r of order) {
+        click(q('[data-row="' + r.key + '"]'));                       // fila activa
+        const wrongHere = !ok && r.target;
+        const chip = qa('.bank .tile').find(b => !b.disabled && (wrongHere ? b.textContent !== r.expected : b.textContent === r.expected));
+        if (!chip) { assert.ok(wrongHere, 'ficha para ' + r.label); return click(qa('.dock .btn.ghost').find(b => b.textContent === 'No sé')); }
+        click(chip);
+      }
+      check();
+    } else if (spec.kind === 'text') {
+      const inp = q('#answer'); inp.value = ok ? item.answer : 'zzzz'; check();
     } else {
       const chars = Array.from(item.answer.normalize('NFC'));
-      if (!ok) { click(qa('.bank .tile').find(b => !b.disabled)); click(qa('.dock .btn.primary')[0]); return; }   // una sola letra: nunca es la respuesta
-      chars.forEach(c => {
-        const label = c === ' ' ? '␣' : c;
-        const t = qa('.bank .tile').find(b => !b.disabled && b.textContent === label);
-        assert.ok(t, 'ficha ' + c + ' ausente del banco'); click(t);
-      });
-      click(qa('.dock .btn.primary')[0]);
+      if (!ok) { click(qa('.bank .tile').find(b => !b.disabled)); return check(); }
+      chars.forEach(c => { const t = btnText('.bank .tile', c === ' ' ? '␣' : c); assert.ok(t, 'ficha ' + c + ' ausente del banco'); click(t); });
+      check();
     }
   }
   const next = () => click(q('#next'));
@@ -103,7 +136,7 @@ test('fallo deliberado: explicación de una línea, «ver regla» abre y cierra 
     u.answer(false);
     assert.ok(u.q('.fb.bad'), mod + ': banner de error');
     assert.ok(u.q('.fb-line').textContent.trim().length > 3, mod + ': explicación de una línea');
-    assert.ok(u.q('.fb-ans').textContent.includes(item.answer), 'muestra la respuesta correcta');
+    assert.ok(u.q('.fb-ans, .paradigm.result').textContent.includes(item.answer), 'muestra la respuesta correcta');
     assert.ok(u.stored().errors[item.id], mod + ': error guardado ya, antes de terminar');
     u.click(u.q('#rule'));
     const dlg = u.q('[role="dialog"]');
@@ -118,24 +151,29 @@ test('fallo deliberado: explicación de una línea, «ver regla» abre y cierra 
   }
 });
 
-test('giveUp («No sé»): muestra la respuesta, cuenta como fallo y se guarda', () => {
+test('giveUp («No sé»): existe en cada variante, muestra la respuesta, cuenta como fallo y se guarda', () => {
   const u = boot(8);
-  u.chooseModule('verben', 10); u.start();
-  const item = u.S().cur.item;
-  assert.equal(u.S().cur.view.input, 'letters');
-  u.click(Array.from(u.d.querySelectorAll('.dock .btn.ghost')).find(b => b.textContent === 'No sé'));
-  assert.ok(u.q('.fb.bad') && u.q('.fb-ans').textContent.includes(item.answer));
-  assert.ok(u.stored().errors[item.id]);
-  assert.equal(u.stored().items[item.id].a, 1);
+  u.chooseModule('verben', 30); u.start();
+  const kinds = new Set();
+  for (let i = 0; i < 12 && u.S().screen === 'session'; i++) {
+    const item = u.S().cur.item, kind = u.S().cur.spec.kind;
+    if (!kinds.has(kind)) {
+      kinds.add(kind);
+      u.click(u.qa('.dock .btn.ghost').find(b => b.textContent === 'No sé'));
+      assert.ok(u.q('.fb.bad') && u.q('.fb-ans, .paradigm.result'), kind + ': muestra la respuesta');
+      assert.ok(u.stored().errors[item.id], kind + ': giveUp es un fallo guardado');
+      assert.equal(u.stored().items[item.id].a, 1);
+    } else u.answer(true);
+    u.next();
+  }
+  assert.ok(kinds.size >= 2, 'se probaron varias variantes: ' + [...kinds]);
 });
 
-test('letras: se envía un array (sin espacios) y sólo texto si la respuesta lleva espacios; ä/ö/ü/ß correctas', () => {
+test('respuestas por toques: texto unido (bloques/opciones/emparejado) o array de letras; ä/ö/ü/ß correctas', () => {
   const u = boot(33);
-  const calls = [];
-  const seenUml = [];
-  u.chooseModule('verben', 30);
-  for (let n = 0; n < 12 && seenUml.length < 3; n++) {
-    u.start();
+  const calls = [], seenUml = [];
+  for (let n = 0; n < 14 && seenUml.length < 3; n++) {
+    u.chooseModule('verben', 30); u.start();
     const s = u.S().session, orig = s.answer;
     s.answer = function (r, o) { calls.push(r); return orig.call(s, r, o); };
     while (u.S().screen === 'session') {
@@ -145,17 +183,13 @@ test('letras: se envía un array (sin espacios) y sólo texto si la respuesta ll
       u.next();
     }
     u.click(u.q('#again').parentNode.firstChild);   // Inicio
-    u.chooseModule('verben', 30);
   }
-  assert.ok(seenUml.length >= 1, 'no salió ninguna respuesta con diéresis/ß en 12 sesiones');
-  seenUml.forEach(x => assert.ok(x.ok, x.item.answer + ' debió dar correcto con el banco de letras'));
-  assert.ok(calls.some(Array.isArray) && calls.filter(Array.isArray).every(a => a.every(c => c.length >= 1 && !/\s/.test(c))));
+  assert.ok(seenUml.length >= 1, 'no salió ninguna respuesta con diéresis/ß en 14 sesiones');
+  seenUml.forEach(x => assert.ok(x.ok, x.item.answer + ' debió dar correcto'));
+  assert.ok(calls.some(r => typeof r === 'string'));
+  assert.ok(calls.filter(Array.isArray).every(a => a.every(c => c.length >= 1 && !/\s/.test(c))), 'si se manda array, son letras sueltas sin espacios');
   const u2 = boot(34); u2.chooseModule('deklination', 30); u2.start();
-  const c2 = []; for (let i = 0; i < 30 && u2.S().screen === 'session'; i++) {
-    const s = u2.S().session, o = s.answer; s.answer = function (r, a) { c2.push(r); return o.call(s, r, a); };
-    u2.answer(true); u2.next();
-  }
-  c2.filter(r => typeof r === 'string').forEach(r => assert.ok(r.length > 0));
+  for (let i = 0; i < 30 && u2.S().screen === 'session'; i++) { u2.answer(true); assert.ok(u2.q('.fb.ok'), 'deklination ' + u2.S().cur.spec.kind + ' ' + u2.S().cur.item.answer); u2.next(); }
 });
 
 test('banco de letras: contiene todas las letras de la respuesta + distractores (ä con a, ß con s)', () => {
@@ -173,7 +207,7 @@ test('fichas para ordenar: tocar arma la frase y envía el array de fichas', () 
   const { w, d } = boot();
   w.DGUI.util.doc = d;
   const got = [];
-  const view = { input: 'tiles', tiles: ['trinke', 'Ich', 'Kaffee'] };
+  const view = { kind: 'tiles', tiles: ['trinke', 'Ich', 'Kaffee'] };
   const m = w.DGUI.inputs.mount(view, { answer: 'Ich trinke Kaffee' }, { onSubmit: r => got.push(r), onGiveUp() {} });
   d.body.appendChild(m.answerEl); d.body.appendChild(m.dockEl);
   const tap = t => Array.from(d.querySelectorAll('.bank .tile')).find(b => !b.disabled && b.textContent === t).dispatchEvent(new w.MouseEvent('click', { bubbles: true }));
@@ -323,4 +357,145 @@ test('A/B · objetivos táctiles: el CSS exige >=48 px en botones, chips, tarjet
   ['.btn', '.chip', '.card', '.auto-chip', '.btn.opt'].forEach(sel => assert.ok(minH(sel) >= 48, sel + ' min-height ' + minH(sel)));
   assert.ok(/\.btn\.tile\{[^}]*min-height:5\d/.test(css));
   assert.ok(!/:hover/.test(css), 'sin hover: todo es táctil');
+});
+
+/* ---------- Bloque C: ejercicios por toque ---------- */
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+function toKind(u, kind, mod, size) {   // juega (bien) hasta que aparezca una variante concreta
+  u.chooseModule(mod, size || 30); u.start();
+  for (let i = 0; i < 60 && u.S().screen === 'session'; i++) { if (u.S().cur.spec.kind === kind) return true; u.answer(true); u.next(); }
+  return false;
+}
+
+test('C · avance automático: tras acertar avanza solo; al fallar nunca; «Pausar» y el chip Auto lo detienen', async () => {
+  const u = boot(60, { cfg: { autoMs: 30 }, auto: true });
+  u.chooseModule('verben', 30); u.start();
+  const pos0 = u.S().session.position();
+  u.answer(true);
+  assert.ok(u.q('.autobar') && u.q('#pause'), 'barra de avance y botón Pausar');
+  await sleep(120);
+  assert.ok(!u.S().cur.fb && u.S().session.position() === pos0 + 1, 'avanzó solo al siguiente ejercicio');
+  u.answer(false); assert.equal(u.q('.autobar'), null); await sleep(120);
+  assert.ok(u.q('#next') && u.S().cur.fb, 'un fallo no avanza solo');
+  u.next(); u.answer(true); u.click(u.q('#pause')); await sleep(120);
+  assert.ok(u.S().cur.fb && u.q('#next'), 'Pausar detiene el avance');
+  u.next(); u.click(u.q('#auto'));
+  assert.equal(u.q('#auto').getAttribute('aria-pressed'), 'false'); assert.equal(JSON.parse(u.w.localStorage.getItem('dg.ui')).auto, false);
+  u.answer(true); assert.equal(u.q('.autobar'), null, 'con Auto apagado no hay avance automático'); await sleep(100); assert.ok(u.S().cur.fb);
+});
+
+test('C · el último ejercicio no se auto-avanza: queda «Ver resumen»', async () => {
+  const u = boot(61, { cfg: { autoMs: 20 }, auto: true });
+  u.chooseModule('artikel', 10); u.start();
+  for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+    const last = u.S().session.position() === u.S().session.length() - 1;
+    u.answer(true);
+    if (last) { assert.equal(u.q('.autobar'), null); assert.equal(u.q('#next').textContent, 'Ver resumen'); u.next(); break; }
+    await sleep(50);
+    if (u.S().cur.fb) u.next();
+  }
+  assert.equal(u.S().screen, 'summary');
+});
+
+test('C · bloques: tocar coloca, tocar el bloque colocado lo devuelve, y se envía el texto unido', () => {
+  const u = boot(62); assert.ok(toKind(u, 'blocks', 'verben'), 'salió una variante de bloques');
+  const { item } = u.S().cur, sent = [];
+  const sess = u.S().session, orig = sess.answer; sess.answer = function (r, o) { sent.push(r); return orig.call(sess, r, o); };
+  const first = u.qa('.bank .tile')[0], t = first.dataset.block;
+  u.click(first); assert.ok(u.q('.slots .placed') && u.q('.slots .placed').textContent.startsWith(t));
+  u.click(u.q('.slots .placed')); assert.equal(u.q('.slots .placed'), null, 'devuelto al banco');
+  assert.equal(u.qa('.bank .tile').filter(b => b.disabled).length, 0);
+  u.answer(true);
+  assert.equal(typeof sent[0], 'string'); assert.equal(sent[0], item.answer);
+  assert.ok(u.q('.fb.ok'));
+});
+
+test('C · emparejado rápido: sólo la fila ★ se envía al motor; las demás filas se corrigen en pantalla sin puntuar', () => {
+  const u = boot(63); assert.ok(toKind(u, 'match', 'verben'), 'salió el emparejado');
+  const { item, spec } = u.S().cur, sent = [];
+  const sess = u.S().session, orig = sess.answer; sess.answer = function (r, o) { sent.push(r); return orig.call(sess, r, o); };
+  assert.ok(u.qa('.prow').length >= 6 && u.q('.prow.target'));
+  assert.ok(u.qa('.dock .btn.primary')[0].disabled, 'Comprobar espera a que todas las filas estén llenas');
+  // la fila ★ y las demás bien, salvo una (no ★) que se rellena con una ficha de más (trampa)
+  const other = spec.rows.find(r => !r.target);
+  const order = spec.rows.filter(r => r.key !== other.key).concat([other]);
+  order.forEach(r => {
+    u.click(u.q('[data-row="' + r.key + '"]'));
+    const free = u.qa('.bank .tile').filter(b => !b.disabled);
+    const chip = r.key === other.key ? (free.find(b => b.textContent !== r.expected) || free[0]) : free.find(b => b.textContent === r.expected);
+    u.click(chip);
+  });
+  u.click(u.qa('.dock .btn.primary')[0]);
+  assert.deepEqual(sent, [item.answer], 'al motor sólo llega la forma de la fila ★');
+  assert.ok(u.q('.fb.ok'), 'el motor lo cuenta como acierto');
+  assert.equal(u.stored().errors[item.id], undefined);
+  assert.ok(u.q('.paradigm.result .prow'), 'resultado por persona en pantalla');
+});
+
+test('C · modo «Escribir»: campo de texto + teclas ä ö ü ß, sin banco de letras', () => {
+  const u = boot(64); u.click(u.q('[data-entry="write"]'));
+  u.chooseModule('verben', 30); u.start();
+  assert.equal(u.S().cur.spec.kind, 'text'); assert.ok(u.q('#answer')); assert.equal(u.q('.bank'), null);
+  assert.deepEqual(u.qa('.umlauts .key').map(b => b.dataset.key), ['ä', 'ö', 'ü', 'ß']);
+  u.q('#answer').value = 'sch'; u.click(u.q('[data-key="ä"]')); u.click(u.q('[data-key="ß"]'));
+  assert.equal(u.q('#answer').value, 'schäß');
+  u.q('#answer').value = ''; u.click(u.qa('.dock .btn.primary')[0]); assert.equal(u.q('.fb'), null, 'vacío no se envía');
+});
+
+test('C · modo «Escribir»: sesión completa, error deliberado y estado de localStorage', () => {
+  const u = boot(65); u.click(u.q('[data-entry="write"]'));
+  const seen = playSession(u, 'verben', 10, (it, i) => i % 3 !== 1);
+  assert.ok(seen.length >= 10 && u.S().screen === 'summary');
+  const j = u.stored(); assert.equal(j.sessionCounter, 1);
+  assert.ok(seen.filter(s => !s.ok).some(f => j.errors[f.item.id]));
+});
+
+test('C · «casi»: una errata en una transformación pide reintentar sin registrar todavía el fallo', () => {
+  const typo = it => { const w = it.answer.split(' '), k = w.findIndex(x => x.length >= 5); if (k < 0) return null; w[k] = w[k].slice(0, -2) + w[k].slice(-1) + w[k].slice(-2, -1); return w.join(' '); };
+  let found = null;
+  for (let seed = 70; seed < 100 && !found; seed++) {
+    const u = boot(seed); u.click(u.q('[data-entry="write"]'));
+    u.chooseModule('deklination', 30); u.start();
+    for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+      const it = u.S().cur.item, t = it.type === 'transform' ? typo(it) : null;
+      // sólo ítems en los que el evaluador (motor) da «almost» para esa errata: se prueba la UI, no el evaluador
+      if (t && u.w.DG.evaluator.evaluate(it, t, { mode: 'write' }).verdict === 'almost') { found = { u, it, t }; break; }
+      u.answer(true); u.next();
+    }
+  }
+  assert.ok(found, 'apareció una transformación con errata «casi»');
+  const { u, it, t } = found, pos = u.S().session.position();
+  u.q('#answer').value = t; u.click(u.qa('.dock .btn.primary')[0]);
+  assert.ok(/Casi/.test(u.q('.notice').textContent), 'aviso «Casi»');
+  assert.equal(u.S().session.position(), pos, 'sigue en el mismo ejercicio');
+  assert.equal(u.q('#answer').value, t, 'conserva lo escrito');
+  assert.equal(u.stored().errors[it.id], undefined, 'todavía no es un fallo');
+  u.q('#answer').value = it.answer; u.click(u.qa('.dock .btn.primary')[0]);
+  assert.ok(u.q('.fb.ok'));
+});
+
+test('C · rescate: acertar tras ≥16 h un ejercicio fallado muestra «Rescatada» y lo saca de la cola', () => {
+  const u = boot(66); let now = Date.now() + 1e6; u.w.Date.now = () => now;
+  playSession(u, 'artikel', 10, () => false);
+  u.click(u.q('.dock .btn.secondary'));
+  assert.ok(Object.keys(u.stored().errors).length > 0);
+  now += 17 * 3600e3;
+  u.click(u.q('#errors')); assert.equal(u.S().kind, 'errors'); assert.equal(u.S().screen, 'session');
+  const id = u.S().cur.item.id; u.answer(true);
+  assert.ok(u.q('.badge.rescue'), 'insignia Rescatada');
+  assert.equal(u.stored().errors[id], undefined, 'sale de la cola');
+});
+
+test('C · Artikel: el plural se elige entre 4 opciones plausibles y la correcta está entre ellas', () => {
+  const u = boot(67); u.chooseModule('artikel', 30); u.start(); let seen = false;
+  for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+    if (u.S().cur.item.skill === 'plural') { const o = u.qa('.options .btn.opt').map(b => b.dataset.opt); assert.ok(o.includes(u.S().cur.item.answer) && o.length === 4); seen = true; break; }
+    u.answer(true); u.next();
+  }
+  assert.ok(seen, 'salió un plural');
+});
+
+test('C · sin teclado en Modo Tren: ningún <input> durante la sesión', () => {
+  const u = boot(68); u.chooseModule('verben', 30); u.start();
+  for (let i = 0; i < 8; i++) { assert.equal(u.qa('input').length, 0); u.answer(true); u.next(); }
 });

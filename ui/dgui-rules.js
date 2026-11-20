@@ -26,7 +26,9 @@
       store.all.forEach(function (it) { (it.conceptIds || []).forEach(function (c) { var k = it.module + '|' + c; (byConcept[k] = byConcept[k] || []).push(it); }); });
       return byConcept;
     }
-    function titles(item) { return (item.conceptIds || []).map(function (id) { return cmap[id] && cmap[id].title; }).filter(Boolean); }
+    // Algunos títulos de concepts.json son códigos internos («a1 v5»): no se muestran.
+    function goodTitle(t) { return !!t && t.length >= 8 && /[a-zäöüß]{4,}/i.test(t) && !/^[a-z]\d+(\s+[a-z]?\d+)*$/i.test(t.trim()); }
+    function titles(item) { return (item.conceptIds || []).map(function (id) { return cmap[id] && cmap[id].title; }).filter(goodTitle); }
 
     // Una línea: `explanation` del dato; si no hay (Verben/Artikel), una línea derivada de lo que sí tiene el ítem.
     function oneLine(item) {

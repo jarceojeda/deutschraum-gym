@@ -79,4 +79,13 @@ Módulos: rng (mulberry32 / crypto, sin depender de la fecha), text (NFC, transl
 - **Progreso en el teléfono:** abierto como archivo local, Chrome puede no conservar `localStorage` entre sesiones según cómo se abra; para uso real conviene la URL hospedada de la etapa 5.
 - La prueba de ä/ö/ü/ß depende de que el sorteo los saque: la prueba recorre hasta 12 sesiones con semilla fija.
 
+## Etapa 3b · Paridad de UX con la 1.9.0 — EN CURSO (bloques A, B, C hechos; D, E, F esperan confirmación)
+Detalle y estado por función en `docs/UX-PARIDAD.md`. Capturas 390×844 en `docs/capturas/A`, `B`, `C`.
+- **A** (sistema visual): tokens de la 1.9.0, tema sistema/claro/oscuro, appbar, hero, tarjetas; género der ● die ◆ das ⬢ (plural ▲) y caso N/A/D/G con forma o letra (`ui/dgui-fmt.js`).
+- **B** (inicio): Viaje combinado, 3 módulos, 4 «Próximamente» deshabilitados, «Mis errores», tamaño 10/20/30, nivel Auto/A1/A2 (`setLevelCap`) y entrada Toques/Escribir.
+- **C** (sesión): `ui/dgui-variants.js` (sin DOM) elige cómo se responde: opciones, bloques (raíz+terminación, ge-+raíz+terminación, palabras), emparejado de 6 personas (+ Partizip II) y plural por opciones; modo opcional «Escribir» con teclas ä ö ü ß y «casi»; avance automático tras acertar (Pausar / chip Auto); rescate con insignia. Todo entra por `answer()/giveUp()`; no se tocó `src/` ni `data/`.
+- **Límites declarados:** (1) en el emparejado **solo la fila ★ puntúa** (el motor puntúa 1 unidad = 1 ítem); las otras filas se corrigen en pantalla sin registrarse. (2) **Infinitivo↔significado no se puede**: `verben.json` no trae traducción (0 de 3.662). (3) Los textos de regla siguen siendo los de la etapa 3 hasta el bloque D.
+- **Hallazgo del motor (no se relajó):** 30 sesiones seguidas con 8 h entre sesiones dan 111 ejercicios distintos de 300 (37 %), 21 % de solape con la sesión siguiente y «du» ≈ 33 % de las personas. Pasa lo pedido (misma unidad ≤2 seguidas, 3 módulos, 6 personas), pero los límites estrictos (≥75 % distintos, ≤15 % solape, persona ≤30 %) fallan y están como pruebas `todo` en `tests/ui-variedad.test.js`. Causas probables: paso de aprendizaje de 1 h, cupo de nuevas ≈1,3/sesión y pesos ×3 de du/er (ver «Avisos honestos»). Decide el usuario.
+- Pruebas: 179 (177 OK + 2 `todo` de variedad estricta). Nuevas: `tests/ui-variants.test.js` (todas las variantes sobre los ~5.400 ítems reales) y `tests/ui-variedad.test.js`; la UI jsdom pasa de 16 a 32 pruebas.
+
 ## Etapas 4–6 — PENDIENTES

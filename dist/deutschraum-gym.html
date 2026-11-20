@@ -113,6 +113,20 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .main>*{flex-shrink:0}
 .card.soon{min-height:56px;padding-top:8px;padding-bottom:8px}.card.soon .mt span{display:none}.card.soon .mi{width:38px;height:38px;font-size:15px}.card.soon .mt strong{font-size:16px}
 
+.center{text-align:center}
+.btn.tile.is-used{opacity:.4;border-style:dashed}.btn.tile.placed{border-color:var(--brand);background:var(--brand-soft);display:inline-flex;align-items:center;gap:8px}.chip-x{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.1);font-size:14px;line-height:1}
+.paradigm-wrap{display:flex;flex-direction:column;gap:6px}
+.paradigm{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 12px}
+.prow{display:grid;grid-template-columns:minmax(96px,1fr) minmax(0,1.4fr);gap:10px;align-items:center;min-height:50px;border-bottom:1px solid var(--line);padding:2px 0}.prow:last-child{border-bottom:0}
+.prow .plabel{font-weight:700;color:var(--muted)}.prow.target .plabel{color:var(--ink)}.prow .star{color:var(--accent)}
+.prow.active{background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:12px}
+.btn.slotbtn{min-height:48px;width:100%;font-size:18px;border-style:dashed;background:var(--surface-2)}.btn.slotbtn.filled{border-style:solid;background:var(--brand-soft);border-color:var(--brand)}
+.paradigm.result{background:transparent;border:0;padding:0;margin-top:8px}.prow.ok .pres strong{color:var(--success)}.prow.bad .pres strong{color:var(--danger)}
+.pres{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pres s{color:var(--muted)}.pres .mark{margin-left:auto;font-weight:900}
+.write{padding:6px 0}.field{width:100%;font:inherit;font-size:24px;font-weight:700;text-align:center;min-height:60px;border:2px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);padding:0 14px}
+.field:focus{outline:3px solid var(--accent);border-color:var(--brand)}
+.umlauts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.btn.key{font-size:22px;min-height:52px}
+
 </style>
 </head>
 <body>
@@ -2011,7 +2025,9 @@ window.DGUI = window.DGUI || {};
       store.all.forEach(function (it) { (it.conceptIds || []).forEach(function (c) { var k = it.module + '|' + c; (byConcept[k] = byConcept[k] || []).push(it); }); });
       return byConcept;
     }
-    function titles(item) { return (item.conceptIds || []).map(function (id) { return cmap[id] && cmap[id].title; }).filter(Boolean); }
+    // Algunos títulos de concepts.json son códigos internos («a1 v5»): no se muestran.
+    function goodTitle(t) { return !!t && t.length >= 8 && /[a-zäöüß]{4,}/i.test(t) && !/^[a-z]\d+(\s+[a-z]?\d+)*$/i.test(t.trim()); }
+    function titles(item) { return (item.conceptIds || []).map(function (id) { return cmap[id] && cmap[id].title; }).filter(goodTitle); }
 
     // Una línea: `explanation` del dato; si no hay (Verben/Artikel), una línea derivada de lo que sí tiene el ítem.
     function oneLine(item) {
@@ -2047,6 +2063,147 @@ window.DGUI = window.DGUI || {};
   g.DGUI = g.DGUI || {}; g.DGUI.rules = R;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
+/* ===== dgui-variants.js ===== */
+/* dgui-variants.js — decide CÓMO se responde cada ejercicio por toques (sin DOM, probado en Node).
+ * Parte siempre de item (motor) + view() (motor) y del almacén; no toca el SRS: el resultado sigue entrando por
+ * session.answer(). Tipos de spec:
+ *   choice  {options}                      → respuesta = texto de la opción
+ *   blocks  {blocks:[{id,t}], joiner}      → respuesta = bloques tocados, unidos con joiner
+ *   match   {rows, bank, targetKey}        → paradigma de formas; SOLO la fila de targetKey se envía al motor
+ *   letters / tiles / pair / text          → banco de letras, fichas de orden, par mínimo y escritura (modo «Escribir»)
+ * Las distractoras nunca incluyen una forma aceptada (item.accept). */
+(function (g) {
+  'use strict';
+  var V = {};
+  var PERSONS = ['ich', 'du', 'er_sie_es', 'wir', 'ihr', 'sie_Sie'];
+  var PLABEL = { ich: 'ich', du: 'du', er_sie_es: 'er / sie / es', wir: 'wir', ihr: 'ihr', sie_Sie: 'sie / Sie' };
+  var END_PRES = { ich: ['e'], du: ['est', 'st'], er_sie_es: ['et', 't'], wir: ['en', 'n'], ihr: ['et', 't'], sie_Sie: ['en', 'n'] };
+  var END_PRET = { ich: ['ete', 'te'], du: ['etest', 'test', 'est', 'st'], er_sie_es: ['ete', 'te'], wir: ['eten', 'ten', 'en'], ihr: ['etet', 'tet', 'et', 't'], sie_Sie: ['eten', 'ten', 'en'] };
+  var ALL_END_PRES = ['e', 'st', 'est', 't', 'et', 'en', 'n'], ALL_END_PRET = ['te', 'test', 'ten', 'tet', 'ete', 'st', 'en', 't'];
+  var ARTICLES = ['der', 'die', 'das', 'den', 'dem', 'des', 'ein', 'eine', 'einen', 'einem', 'einer', 'eines'];
+
+  function rnd(ctx) { return ctx && ctx.rnd ? ctx.rnd : Math.random; }
+  function shuffle(arr, r) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(r() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function uniq(arr) { var seen = {}; return arr.filter(function (x) { if (!x || seen[x]) return false; seen[x] = 1; return true; }); }
+  function pickN(arr, n, r) { return shuffle(arr, r).slice(0, n); }
+  function weighted(list, r) { var tot = list.reduce(function (a, x) { return a + x[1]; }, 0), t = r() * tot; for (var i = 0; i < list.length; i++) { t -= list[i][1]; if (t < 0) return list[i][0]; } return list[list.length - 1][0]; }
+  function notAccepted(item) { var acc = {}; (item.accept || [item.answer]).forEach(function (a) { acc[a] = 1; }); acc[item.answer] = 1; return function (x) { return !acc[x]; }; }
+  function mkBlocks(texts, r) { return shuffle(texts, r).map(function (t, i) { return { id: i, t: t }; }); }
+  function stemOf(lemma) { return String(lemma || '').replace(/(en|n)$/, ''); }
+
+  // ---- Verben ----
+  function siblings(item, store) { return (store.units[item.unit] || []).filter(function (x) { return x.person; }); }
+  function verbChoice(item, store, r) {
+    var ok = notAccepted(item), forms = uniq(siblings(item, store).filter(function (x) { return x.person !== item.person; }).map(function (x) { return x.answer; })).filter(ok);
+    var traps = forms.length >= 3 ? [] : [item.lemma].filter(ok);
+    var pool = uniq(forms.concat(traps));
+    if (pool.length < 1) return null;
+    return { kind: 'choice', label: 'Elige la forma correcta', options: shuffle([item.answer].concat(pickN(pool, 3, r)), r) };
+  }
+  function splitFinite(item) {
+    var table = item.skill === 'praeteritum' ? END_PRET : END_PRES, ends = table[item.person] || [], a = item.answer;
+    for (var i = 0; i < ends.length; i++) {
+      if (a.length - ends[i].length >= 2 && a.slice(a.length - ends[i].length) === ends[i]) return { stem: a.slice(0, a.length - ends[i].length), end: ends[i], all: item.skill === 'praeteritum' ? ALL_END_PRET : ALL_END_PRES };
+    }
+    return null;
+  }
+  function splitPii(item) {
+    var m = /^((?:[a-zäöüß]+?)?ge)([a-zäöüß]+?)(en|t|et)$/.exec(item.answer);
+    return m ? { pre: m[1], stem: m[2], end: m[3], all: ['t', 'en', 'et'] } : null;
+  }
+  function verbBlocks(item, store, r) {
+    var p = item.skill === 'partizip-ii' ? splitPii(item) : splitFinite(item);
+    if (!p) return null;
+    var chunks = p.pre ? [p.pre, p.stem, p.end] : [p.stem, p.end];
+    var dis = pickN(p.all.filter(function (e) { return e !== p.end; }), 2, r);
+    var inf = stemOf(item.lemma);
+    if (p.pre) { var pre0 = p.pre.slice(0, -2); if (pre0 && item.lemma.indexOf(pre0) === 0) inf = stemOf(item.lemma.slice(pre0.length)); }
+    if (inf && inf !== p.stem && inf.length >= 2) dis.push(inf);
+    else if (p.pre && p.pre !== 'ge') dis.push('ge');          // separable: tentar sin prefijo
+    return { kind: 'blocks', label: 'Arma la forma con bloques', blocks: mkBlocks(chunks.concat(dis.filter(function (d) { return chunks.indexOf(d) < 0; })), r), joiner: '', parts: chunks.length };
+  }
+  function piiChoice(item, store, r) {
+    var a = item.answer, ok = notAccepted(item), stem = stemOf(item.lemma), c = [];
+    var p = splitPii(item);
+    if (p) { ['t', 'en', 'et'].forEach(function (e) { if (e !== p.end) c.push(p.pre + p.stem + e); }); c.push(p.pre.slice(0, -2) + p.stem + p.end, p.pre + stem + p.end, item.lemma); }
+    else { if (/t$/.test(a)) c.push(a.replace(/t$/, 'en'), 'ge' + a, a.replace(/t$/, 'et')); else c.push(a.replace(/en$/, 't'), 'ge' + a, a.replace(/en$/, 'et')); c.push(item.lemma); }
+    var pool = uniq(c.filter(ok)); if (pool.length < 2) return null;
+    return { kind: 'choice', label: 'Elige el Partizip II', options: shuffle([a].concat(pickN(pool, 3, r)), r) };
+  }
+  function verbMatch(item, store, r) {
+    var sib = siblings(item, store), by = {};
+    sib.forEach(function (x) { by[x.person] = x; });
+    var persons = PERSONS.filter(function (p) { return by[p]; });
+    if (persons.length < 6) return null;                               // impersonales: sin paradigma completo
+    var rows = persons.map(function (p) { return { key: p, label: PLABEL[p], expected: by[p].answer, target: p === item.person }; });
+    var piiUnit = item.unit.replace(/\|[^|]+$/, '|partizip-ii'), pii = (store.units[piiUnit] || [])[0];
+    if (pii && item.skill === 'praesens') rows.push({ key: 'pii', label: 'Partizip II', expected: pii.answer, target: false });
+    var other = item.unit.replace(/\|[^|]+$/, '|' + (item.skill === 'praesens' ? 'praeteritum' : 'praesens')), have = rows.map(function (x) { return x.expected; });
+    var traps = pickN(uniq((store.units[other] || []).map(function (x) { return x.answer; }).filter(function (x) { return have.indexOf(x) < 0; })), 2, r);
+    return { kind: 'match', label: 'Empareja las formas', rows: rows, targetKey: item.person, bank: mkBlocks(have.concat(traps), r) };
+  }
+
+  // ---- Artikel: plural ----
+  function umlaut(w) {
+    var m = /^(.*)(au)([^aou]*)$/i.exec(w); if (m) return m[1] + 'äu' + m[3];
+    m = /^(.*)([aou])([^aou]*)$/i.exec(w); if (!m) return w;
+    return m[1] + ({ a: 'ä', o: 'ö', u: 'ü', A: 'Ä', O: 'Ö', U: 'Ü' })[m[2]] + m[3];
+  }
+  function pluralChoice(item, r) {
+    var w = item.lemma; if (!w) return null;
+    var ok = notAccepted(item), u = umlaut(w), c = [w, w + 'e', w + 'en', w + 'n', w + 'er', w + 's', w + 'nen'];
+    if (u !== w) c.push(u, u + 'e', u + 'er', u + 'n');
+    var pool = uniq(c.filter(ok)); if (pool.length < 2) return null;
+    return { kind: 'choice', label: 'Elige el plural', options: shuffle([item.answer].concat(pickN(pool, 3, r)), r) };
+  }
+
+  // ---- Deklination: transformaciones por palabras ----
+  function wordBlocks(item, r) {
+    var words = item.answer.split(/\s+/).filter(Boolean); if (words.length < 2) return null;
+    var dis = [];
+    words.forEach(function (w) { if (ARTICLES.indexOf(w.toLowerCase()) >= 0) pickN(ARTICLES.filter(function (x) { return x !== w.toLowerCase() && words.indexOf(x) < 0; }), 1, r).forEach(function (x) { dis.push(x); }); });
+    var noun = words[words.length - 1];
+    dis.push(/n$/.test(noun) ? noun.slice(0, -1) : noun + 'n');
+    dis = uniq(dis).filter(function (d) { return words.indexOf(d) < 0; }).slice(0, 3);
+    return { kind: 'blocks', label: 'Ordena las palabras', blocks: mkBlocks(words.concat(dis), r), joiner: ' ', parts: words.length };
+  }
+
+  // spec para el ejercicio actual. ctx: {store, rnd, mode:'touch'|'write', last:{kind}}
+  V.pick = function (item, view, ctx) {
+    var r = rnd(ctx), store = ctx.store, last = ctx.last && ctx.last.kind, spec = null;
+    if (ctx.mode === 'write') return { kind: 'text', label: 'Escribe la respuesta' };
+    if (view.input === 'tiles') return { kind: 'tiles', label: 'Ordena las fichas', tiles: view.tiles };
+    if (view.input === 'pair') return { kind: 'pair', label: 'Wo? / Wohin?', parts: view.parts };
+    if (item.module === 'verben' && item.person && (item.skill === 'praesens' || item.skill === 'praeteritum')) {
+      var gens = { choice: verbChoice, blocks: verbBlocks, match: verbMatch }, avail = {};
+      Object.keys(gens).forEach(function (k) { avail[k] = gens[k](item, store, r); });
+      var list = [['choice', 3], ['blocks', 2.5], ['match', 2]].filter(function (x) { return avail[x[0]] && x[0] !== last; });
+      if (!list.length) list = [['choice', 1], ['blocks', 1], ['match', 1]].filter(function (x) { return avail[x[0]]; });
+      spec = list.length ? avail[weighted(list, r)] : null;
+    } else if (item.module === 'verben' && item.skill === 'partizip-ii') {
+      var b = verbBlocks(item, store, r), c = piiChoice(item, store, r);
+      spec = b && c ? (last === 'blocks' || r() < 0.5 ? c : b) : (b || c);
+    } else if (view.input === 'choice') {
+      var opts = view.options;
+      if (opts.length > 6) opts = shuffle([item.answer].concat(pickN(opts.filter(function (o) { return o !== item.answer; }), 5, r)), r);   // máximo 6 para una mano
+      spec = { kind: 'choice', label: item.skill === 'genero' ? '¿der, die o das?' : 'Elige la opción', options: opts };
+    } else if (item.module === 'artikel' && item.skill === 'plural') {
+      spec = pluralChoice(item, r);
+    } else if (item.module === 'deklination' && item.type === 'transform') {
+      spec = wordBlocks(item, r);
+    }
+    return spec || { kind: 'letters', label: 'Arma la respuesta con letras' };
+  };
+  // Respuesta que se manda al motor, y detalle extra (sólo match) para pintar en pantalla.
+  V.gradeMatch = function (spec, values) {
+    var rows = spec.rows.map(function (x) { return { key: x.key, label: x.label, expected: x.expected, given: values[x.key], ok: values[x.key] === x.expected, target: x.target }; });
+    return { response: values[spec.targetKey], rows: rows };
+  };
+  V.PLABEL = PLABEL; V.PERSONS = PERSONS; V.umlaut = umlaut; V.splitFinite = splitFinite; V.splitPii = splitPii;
+  g.DGUI = g.DGUI || {}; g.DGUI.variants = V;
+  if (typeof module === 'object' && module.exports) module.exports = V;
+})(typeof globalThis !== 'undefined' ? globalThis : this);
+
 /* ===== dgui-inputs.js ===== */
 /* dgui-inputs.js — entradas por toques (Modo Tren): opciones con distractores, banco de letras, fichas para ordenar.
  * mount(view, item, cb) → { answerEl, dockEl }. cb.onSubmit(respuesta) recibe: string (opción), array de letras o array de fichas.
@@ -2073,47 +2230,105 @@ window.DGUI = window.DGUI || {};
   };
 
   function btn(cls, label, fn, extra) { return h('button.btn.' + cls, Object.assign({ type: 'button', onclick: fn }, extra || {}), label); }
+  function tap(win) { try { if (win && win.navigator && win.navigator.vibrate) win.navigator.vibrate(8); } catch (e) { /* ignora */ } }
 
-  I.mount = function (view, item, cb) {
-    var rnd = cb.rnd;
-    if (view.input === 'choice') return choice(view, cb);
-    if (view.input === 'tiles') return tiles(view, cb);
-    if (view.input === 'pair') return pair(view, cb);
-    return letters(view, item, cb, rnd);
+  // spec (dgui-variants) + item → { answerEl, dockEl }. cb: {onSubmit(resp, extra), onGiveUp(), rnd, tap()}
+  I.mount = function (spec, item, cb) {
+    switch (spec.kind) {
+      case 'choice': return choice(spec, cb);
+      case 'blocks': return blocks(spec, cb);
+      case 'match': return match(spec, cb);
+      case 'tiles': return tiles(spec, cb);
+      case 'pair': return pair(spec, cb);
+      case 'text': return text(spec, item, cb);
+      default: return letters(spec, item, cb);
+    }
   };
+  function tapFx(cb) { if (cb.tap) cb.tap(); }
 
-  function choice(view, cb) {
-    var done = false;
-    var grid = h('div.options' + (view.options.length > 4 ? '.cols2' : view.options.length === 2 ? '.row2' : '.cols1'), { role: 'group', 'aria-label': 'Opciones' });
-    view.options.forEach(function (o) {
+  function choice(spec, cb) {
+    var done = false, n = spec.options.length;
+    var grid = h('div.options' + (n > 4 ? '.cols2' : n === 3 && spec.options.every(function (o) { return F.GENDER[String(o).toLowerCase()]; }) ? '.cols1' : n === 2 ? '.row2' : '.cols2'), { role: 'group', 'aria-label': 'Opciones' });
+    spec.options.forEach(function (o) {
       var badge = F.genderBadge(o, false);
-      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; cb.onSubmit(o); } }, badge, h('span.lbl', o)));
+      grid.appendChild(h('button.btn.opt' + (badge ? '.' + F.genderClass(o) : ''), { type: 'button', 'data-opt': o, onclick: function () { if (done) return; done = true; tapFx(cb); cb.onSubmit(o); } }, badge, h('span.lbl', o)));
     });
-    return { answerEl: null, dockEl: grid };
+    var skip = btn('ghost', 'No sé', function () { if (done) return; done = true; cb.onGiveUp(); });
+    return { answerEl: null, dockEl: h('div.dock-in', grid, skip) };
   }
 
-  function letters(view, item, cb, rnd) {
-    var bank = I.letterBank(item.answer, rnd), picked = [];     // picked: ids de ficha en orden
-    var spaced = /\s/.test(item.answer);
-    var slots = h('div.slots', { 'aria-live': 'polite', 'aria-label': 'Tu respuesta' });
-    var bankEl = h('div.bank', { role: 'group', 'aria-label': 'Letras' });
-    var check = btn('primary', 'Comprobar', function () { submit(); }, { disabled: true });
-    var back = btn('ghost.icon', '⌫', function () { picked.pop(); draw(); }, { 'aria-label': 'Borrar última letra', disabled: true });
+  // Bloques tocables: se arma la respuesta tocando (tocar un bloque colocado lo devuelve).
+  function blocks(spec, cb) {
+    var picked = [], done = false;
+    var line = h('div.slots.tiles-line', { 'aria-live': 'polite', 'aria-label': 'Tu respuesta' }), bankEl = h('div.bank', { role: 'group', 'aria-label': 'Bloques' });
+    var check = btn('primary', 'Comprobar', function () { if (done || !picked.length) return; done = true; cb.onSubmit(picked.map(function (id) { return byId(id).t; }).join(spec.joiner)); }, { disabled: true });
     var skip = btn('ghost', 'No sé', function () { cb.onGiveUp(); });
-    var done = false;
-    function chOf(id) { return bank.filter(function (b) { return b.id === id; })[0].ch; }
-    function submit() {
-      if (done || !picked.length) return; done = true;
-      var arr = picked.map(chOf);
-      cb.onSubmit(spaced ? arr.join('') : arr);
+    function byId(id) { return spec.blocks.filter(function (b) { return b.id === id; })[0]; }
+    function draw() {
+      U.clear(line); U.clear(bankEl);
+      if (!picked.length) line.appendChild(h('span.placeholder', 'Toca los bloques en orden'));
+      picked.forEach(function (id) { line.appendChild(h('button.btn.tile.wide.placed', { type: 'button', disabled: done, 'aria-label': byId(id).t + ' (quitar)', onclick: function () { if (done) return; tapFx(cb); picked.splice(picked.indexOf(id), 1); draw(); } }, byId(id).t, h('span.chip-x', { 'aria-hidden': 'true' }, '×'))); });
+      spec.blocks.forEach(function (b) { bankEl.appendChild(h('button.btn.tile.wide' + (picked.indexOf(b.id) >= 0 ? '.is-used' : ''), { type: 'button', 'data-block': b.t, disabled: picked.indexOf(b.id) >= 0 || done, onclick: function () { tapFx(cb); picked.push(b.id); draw(); } }, b.t)); });
+      check.disabled = !picked.length || done;
     }
+    draw();
+    return { answerEl: line, dockEl: h('div.dock-in', bankEl, h('div.row', skip, check)) };
+  }
+
+  // Emparejado rápido: filas (persona → forma) + banco de formas. Toca una forma: va a la fila activa.
+  function match(spec, cb) {
+    var vals = {}, chipOf = {}, active = firstEmpty(), done = false;     // vals: key → texto; chipOf: key → id de ficha
+    var rowsEl = h('div.paradigm', { role: 'group', 'aria-label': 'Formas por persona' }), bankEl = h('div.bank', { role: 'group', 'aria-label': 'Formas' });
+    var check = btn('primary', 'Comprobar', function () { submit(); }, { disabled: true });
+    var skip = btn('ghost', 'No sé', function () { cb.onGiveUp(); });
+    function firstEmpty() { for (var i = 0; i < spec.rows.length; i++) if (vals[spec.rows[i].key] == null) return spec.rows[i].key; return null; }
+    function usedIds() { return Object.keys(chipOf).map(function (k) { return chipOf[k]; }); }
+    function submit() {
+      if (done || firstEmpty() !== null) return; done = true;
+      var gr = g.DGUI.variants.gradeMatch(spec, vals); draw(); cb.onSubmit(gr.response, { rows: gr.rows });
+    }
+    function draw() {
+      U.clear(rowsEl); U.clear(bankEl);
+      spec.rows.forEach(function (r) {
+        var filled = vals[r.key] != null, isAct = active === r.key;
+        rowsEl.appendChild(h('div.prow' + (isAct ? '.active' : '') + (r.target ? '.target' : ''),
+          h('span.plabel', r.label, r.target ? h('span.star', { 'aria-label': 'esta fila cuenta' }, ' ★') : null),
+          h('button.btn.slotbtn' + (filled ? '.filled' : ''), { type: 'button', 'data-row': r.key, disabled: done, onclick: function () {
+            if (done) return; tapFx(cb);
+            if (filled) { delete vals[r.key]; delete chipOf[r.key]; }
+            active = r.key; draw();
+          } }, filled ? vals[r.key] : '—')));
+      });
+      var used = usedIds();
+      spec.bank.forEach(function (b) {
+        bankEl.appendChild(h('button.btn.tile.wide' + (used.indexOf(b.id) >= 0 ? '.is-used' : ''), { type: 'button', 'data-chip': b.t, disabled: used.indexOf(b.id) >= 0 || done || active == null, onclick: function () {
+          if (done || active == null) return; tapFx(cb);
+          vals[active] = b.t; chipOf[active] = b.id; active = firstEmpty(); draw();
+        } }, b.t));
+      });
+      check.disabled = done || firstEmpty() !== null;
+      var act = rowsEl.querySelector('.prow.active'); if (act && act.scrollIntoView) { try { act.scrollIntoView({ block: 'nearest' }); } catch (e) { /* ignora */ } }
+    }
+    draw();
+    var note = h('p.hint.center', '★ marca la fila que cuenta para tu progreso; las demás son práctica.');
+    return { answerEl: h('div.paradigm-wrap', rowsEl, note), dockEl: h('div.dock-in', bankEl, h('div.row', skip, check)) };
+  }
+
+  function letters(spec, item, cb) {
+    var bank = I.letterBank(item.answer, cb.rnd), picked = [], spaced = /\s/.test(item.answer), done = false;
+    var slots = h('div.slots', { 'aria-live': 'polite', 'aria-label': 'Tu respuesta' }), bankEl = h('div.bank', { role: 'group', 'aria-label': 'Letras' });
+    var check = btn('primary', 'Comprobar', function () { submit(); }, { disabled: true });
+    var back = btn('ghost.icon', '⌫', function () { tapFx(cb); picked.pop(); draw(); }, { 'aria-label': 'Borrar última letra', disabled: true });
+    var skip = btn('ghost', 'No sé', function () { cb.onGiveUp(); });
+    function chOf(id) { return bank.filter(function (b) { return b.id === id; })[0].ch; }
+    function submit() { if (done || !picked.length) return; done = true; var arr = picked.map(chOf); cb.onSubmit(spaced ? arr.join('') : arr); }
     function draw() {
       U.clear(slots); U.clear(bankEl);
       if (!picked.length) slots.appendChild(h('span.placeholder', 'Toca las letras'));
       picked.forEach(function (id) { var c = chOf(id); slots.appendChild(h('span.slot', c === ' ' ? '␣' : c)); });
       bank.forEach(function (b) {
         var used = picked.indexOf(b.id) >= 0;
-        bankEl.appendChild(h('button.btn.tile', { type: 'button', disabled: used || done, 'aria-label': b.ch === ' ' ? 'espacio' : b.ch, onclick: function () { picked.push(b.id); draw(); } }, b.ch === ' ' ? '␣' : b.ch));
+        bankEl.appendChild(h('button.btn.tile', { type: 'button', disabled: used || done, 'aria-label': b.ch === ' ' ? 'espacio' : b.ch, onclick: function () { tapFx(cb); picked.push(b.id); draw(); } }, b.ch === ' ' ? '␣' : b.ch));
       });
       check.disabled = !picked.length || done; back.disabled = !picked.length || done;
     }
@@ -2121,8 +2336,8 @@ window.DGUI = window.DGUI || {};
     return { answerEl: slots, dockEl: h('div.dock-in', bankEl, h('div.row', skip, back, check)) };
   }
 
-  function tiles(view, cb) {
-    var src = view.tiles.map(function (t, i) { return { id: i, t: t }; }), picked = [], done = false;
+  function tiles(spec, cb) {
+    var src = spec.tiles.map(function (t, i) { return { id: i, t: t }; }), picked = [], done = false;
     var line = h('div.slots.tiles-line', { 'aria-live': 'polite', 'aria-label': 'Tu frase' }), bankEl = h('div.bank');
     var check = btn('primary', 'Comprobar', function () { if (done || !picked.length) return; done = true; cb.onSubmit(picked.map(function (id) { return src[id].t; })); }, { disabled: true });
     var skip = btn('ghost', 'No sé', function () { cb.onGiveUp(); });
@@ -2138,10 +2353,10 @@ window.DGUI = window.DGUI || {};
   }
 
   // Par mínimo (Präpositionen, etapa 4): dos preguntas, una elección por pregunta.
-  function pair(view, cb) {
+  function pair(spec, cb) {
     var sel = {}, wrap = h('div.dock-in');
     var check = btn('primary', 'Comprobar', function () { cb.onSubmit(sel); }, { disabled: true });
-    view.parts.forEach(function (p) {
+    spec.parts.forEach(function (p) {
       var row = h('div.options.row2', { role: 'group', 'aria-label': p.question });
       p.choices.forEach(function (c) {
         var b = h('button.btn.opt', { type: 'button', onclick: function () { sel[p.key] = c; Array.prototype.forEach.call(row.children, function (x) { x.classList.toggle('on', x === b); }); check.disabled = !(sel.wo && sel.wohin); } }, c);
@@ -2152,6 +2367,22 @@ window.DGUI = window.DGUI || {};
     wrap.appendChild(h('div.row', btn('ghost', 'No sé', function () { cb.onGiveUp(); }), check));
     return { answerEl: null, dockEl: wrap };
   }
+
+  // Modo opcional «Escribir»: campo de texto + fila ä ö ü ß (toques de >=48 px).
+  function text(spec, item, cb) {
+    var input = h('input.field', { type: 'text', id: 'answer', autocomplete: 'off', autocapitalize: 'none', autocorrect: 'off', spellcheck: 'false', lang: 'de', enterkeyhint: 'done', 'aria-label': 'Tu respuesta', value: spec.prefill || '' });
+    var done = false;
+    function submit() { var v = U.nfc(input.value).trim(); if (done || !v) return; done = true; cb.onSubmit(v); }
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); submit(); } });
+    var keys = h('div.umlauts', ['ä', 'ö', 'ü', 'ß'].map(function (c) {
+      return h('button.btn.key', { type: 'button', 'data-key': c, 'aria-label': 'Insertar ' + c, onclick: function () {
+        var st = input.selectionStart == null ? input.value.length : input.selectionStart, en = input.selectionEnd == null ? st : input.selectionEnd;
+        input.value = input.value.slice(0, st) + c + input.value.slice(en); try { input.setSelectionRange(st + 1, st + 1); } catch (e) { /* ignora */ } input.focus();
+      } }, c);
+    }));
+    return { answerEl: h('div.write', input), dockEl: h('div.dock-in', keys, h('div.row', btn('ghost', 'No sé', function () { cb.onGiveUp(); }), btn('primary', 'Comprobar', submit))) };
+  }
+  I.tap = tap;
   g.DGUI.inputs = I;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 
@@ -2244,6 +2475,7 @@ window.DGUI = window.DGUI || {};
     function start(o) {
       o = o || {}; var kind = o.kind || S.kind || 'module';
       var s, req = { kind: kind, size: S.size, mode: prefs.get('entry') === 'write' ? 'write' : 'touch' };
+      S.mode = req.mode; S.lastSpec = null;
       if (kind === 'module') req.modules = [S.module];
       if (kind === 'mix') req.modules = MODULES.map(function (m) { return m.id; });
       try { s = eng.startSession(req); } catch (e) { S.warnings = [{ code: 'ERROR', msg: String(e && e.message || e) }]; }
@@ -2283,60 +2515,77 @@ window.DGUI = window.DGUI || {};
       return shell('', iconBtn('Terminar sesión', '✕', endEarly), [bar, h('span.count', pos + '/' + s.length()), auto],
         [saveBanner(), S.warnings.length && s.position() === 0 && !S.answeredAny ? h('div.notice', { role: 'status' }, S.warnings.map(function (w) { return h('div', w.msg); })) : null].concat(mainChildren), [dockNode], 'in-session', S.cur && S.cur.item ? S.cur.item.module : S.module);
     }
-    function question(note) {
-      var s = S.session; S.screen = 'session';
+    function question(note, again) {
+      var s = S.session; S.screen = 'session'; cancelAuto();
       if (s.done()) return summary();
       var v = s.view(), item = s.currentItem();
-      S.cur = { view: v, item: item, fb: null };
-      var inp = I.mount(v, item, { rnd: ctx.rnd, onSubmit: function (resp) { submit(resp); }, onGiveUp: giveUp });
+      // «Casi»: se vuelve a pintar el MISMO ejercicio y la misma variante (sin barajar otra vez), con lo escrito.
+      var spec = again ? again.spec : D.variants.pick(item, v, { store: eng.store, rnd: ctx.rnd, mode: S.mode, last: S.lastSpec });
+      if (again && again.prefill != null) spec = Object.assign({}, spec, { prefill: again.prefill });
+      S.lastSpec = spec;
+      S.cur = { view: v, item: item, spec: spec, fb: null };
+      var inp = I.mount(spec, item, { rnd: ctx.rnd, tap: function () { buzz(8); }, onSubmit: function (resp, extra) { submit(resp, extra); }, onGiveUp: giveUp });
       var tags = h('div.tags', S.kind === 'module' ? null : h('span.tag.mod', modName(v.module)), h('span.tag', D.rules.skillLabel(v.skill)), h('span.tag', v.level), v.retry ? h('span.tag.retry', 'Otra vez') : null);
-      sessionFrame([h('div.qcard', tags, promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
+      sessionFrame([h('div.qcard', tags, h('p.qkind', spec.label || ''), promptNode(v, item)), inp.answerEl, note ? h('div.notice', { role: 'status' }, note) : null], inp.dockEl);
     }
-    function submit(resp) {
-      var s = S.session, item = S.cur.item, v = S.cur.view;
+    function submit(resp, extra) {
+      var s = S.session, item = S.cur.item, v = S.cur.view, spec = S.cur.spec;
       var out;
-      try { out = s.answer(resp, { mode: 'touch' }); } catch (e) { toast('Error: ' + e.message); return; }
+      try { out = s.answer(resp, { mode: S.mode }); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
       if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
-      if (out.almost) { buzz(10); return question('Casi. Revisa tu respuesta e inténtalo otra vez.'); }
+      if (out.almost) { buzz([10, 30, 10]); return question('Casi. Revisa una letra e inténtalo otra vez.', { spec: spec, prefill: typeof resp === 'string' ? resp : '' }); }
       var ok = out.evaluation.verdict === 'correct';
       buzz(ok ? 12 : [30, 40, 30]);
-      feedback({ ok: ok, out: out, item: item, view: v, resp: resp, gaveUp: false });
+      feedback({ ok: ok, out: out, item: item, view: v, resp: resp, gaveUp: false, extra: extra, spec: spec });
     }
     function giveUp() {
       var s = S.session, item = S.cur.item, v = S.cur.view, out;
       try { out = s.giveUp(); } catch (e) { toast('Error: ' + e.message); return; }
       S.answeredAny = true;
       if (out.saveError) S.saveError = out.saveError; else if (S.saveError) S.saveError = null;
-      feedback({ ok: false, out: out, item: item, view: v, resp: null, gaveUp: true });
+      feedback({ ok: false, out: out, item: item, view: v, resp: null, gaveUp: true, spec: S.cur.spec });
     }
     function expectedText(item) {
       if (item.type === 'minimal-pair') return item.wo.answer + ' / ' + item.wohin.answer;
       return item.answer;
     }
+    function cancelAuto() { if (S.timer) { win.clearTimeout(S.timer); S.timer = 0; } }
+    function paradigmNode(rows) {
+      return h('div.paradigm.result', { 'aria-label': 'Resultado por persona' }, rows.map(function (r) {
+        return h('div.prow.' + (r.ok ? 'ok' : 'bad') + (r.target ? '.target' : ''), h('span.plabel', r.label, r.target ? ' ★' : ''),
+          h('span.pres', h('strong', r.ok ? r.expected : r.expected), r.ok ? null : h('s', r.given == null ? '—' : r.given), h('span.mark', { 'aria-hidden': 'true' }, r.ok ? '✓' : '✗')));
+      }));
+    }
     function feedback(f) {
       var s = S.session, item = f.item;
-      S.cur.fb = f;
+      S.cur.fb = f; cancelAuto();
       var body = [];
       var ck = F.caseOf(item), ansNodes = F.rich(expectedText(item), { case: ck }), cb = ck ? F.caseBadge(ck) : null;
+      var autoOn = f.ok && prefs.get('auto') && !(f.out.finished || s.done()), ms = ctx.autoMs == null ? 1400 : ctx.autoMs;
+      var par = f.extra && f.extra.rows ? paradigmNode(f.extra.rows) : null;
       if (f.ok) {
         body.push(h('div.fb.ok', { role: 'status' }, h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✓'), h('strong', '¡Correcto!'), f.out.rescued ? h('span.badge.rescue', 'Rescatada: la fallabas antes') : null),
-          h('div.fb-ans', ansNodes), cb));
+          par ? null : h('div.fb-ans', ansNodes), cb, par, autoOn ? h('div.autobar', { style: '--auto-ms:' + ms + 'ms' }, h('i')) : null));
       } else {
         body.push(h('div.fb.bad', { role: 'status' },
           h('div.fb-h', h('span.fb-ico', { 'aria-hidden': 'true' }, '✗'), h('strong', f.gaveUp ? 'Respuesta' : 'No era esa')),
-          h('div.fb-ans', ansNodes), cb,
+          par ? null : h('div.fb-ans', ansNodes), cb, par,
           !f.gaveUp && f.resp ? h('div.fb-yours', 'Tu respuesta: ' + (Array.isArray(f.resp) ? f.resp.join(item.type === 'order' ? ' ' : '') : typeof f.resp === 'object' ? JSON.stringify(f.resp) : f.resp)) : null,
           h('div.fb-line', rules.oneLine(item)),
           f.out.retryScheduled ? h('div.fb-retry', 'Volverá a salir en unos ejercicios.') : null));
       }
-      var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: function () { if (f.out.finished || s.done()) summary(); else question(); } }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
-      var dock = h('div.dock-in', h('div.row', f.ok ? null : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
+      var go = function () { cancelAuto(); if (f.out.finished || s.done()) summary(); else question(); };
+      var next = h('button.btn.primary.big', { type: 'button', id: 'next', onclick: go }, f.out.finished || s.done() ? 'Ver resumen' : 'Siguiente');
+      var pause = autoOn ? h('button.btn.secondary', { type: 'button', id: 'pause', onclick: function () { cancelAuto(); var bar = root.querySelector('.autobar'); if (bar) bar.parentNode.removeChild(bar); this.parentNode.removeChild(this); } }, '⏸ Pausar') : null;
+      var dock = h('div.dock-in', h('div.row', f.ok ? pause : h('button.btn.secondary', { type: 'button', id: 'rule', onclick: function () { openRule(item); } }, 'Ver regla'), next));
       var q = h('div.qcard.still', promptNode(f.view, item));
       sessionFrame([q].concat(body), dock);
       var nb = root.querySelector('#next'); if (nb && nb.focus) nb.focus({ preventScroll: true });
+      if (autoOn) S.timer = win.setTimeout(go, ms);
     }
     function endEarly() {
+      cancelAuto();
       if (S.session && S.answeredAny) summary(); else { if (S.session) S.session.finish(); home(); }
     }
 
@@ -2362,6 +2611,7 @@ window.DGUI = window.DGUI || {};
 
     /* ---------- resumen ---------- */
     function summary() {
+      cancelAuto();
       var s = S.session, sm = s.finish();
       S.screen = 'summary'; S.summary = sm;
       if (sm.saveError) S.saveError = sm.saveError;
@@ -2419,7 +2669,7 @@ window.DGUI = window.DGUI || {};
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
 })(typeof globalThis !== 'undefined' ? globalThis : this);
 

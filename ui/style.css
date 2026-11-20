@@ -104,3 +104,17 @@ button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .hero .chip{font-size:15px}
 .main>*{flex-shrink:0}
 .card.soon{min-height:56px;padding-top:8px;padding-bottom:8px}.card.soon .mt span{display:none}.card.soon .mi{width:38px;height:38px;font-size:15px}.card.soon .mt strong{font-size:16px}
+
+.center{text-align:center}
+.btn.tile.is-used{opacity:.4;border-style:dashed}.btn.tile.placed{border-color:var(--brand);background:var(--brand-soft);display:inline-flex;align-items:center;gap:8px}.chip-x{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:50%;background:rgba(0,0,0,.1);font-size:14px;line-height:1}
+.paradigm-wrap{display:flex;flex-direction:column;gap:6px}
+.paradigm{display:flex;flex-direction:column;gap:2px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:6px 12px}
+.prow{display:grid;grid-template-columns:minmax(96px,1fr) minmax(0,1.4fr);gap:10px;align-items:center;min-height:50px;border-bottom:1px solid var(--line);padding:2px 0}.prow:last-child{border-bottom:0}
+.prow .plabel{font-weight:700;color:var(--muted)}.prow.target .plabel{color:var(--ink)}.prow .star{color:var(--accent)}
+.prow.active{background:color-mix(in srgb,var(--accent) 12%,transparent);border-radius:12px}
+.btn.slotbtn{min-height:48px;width:100%;font-size:18px;border-style:dashed;background:var(--surface-2)}.btn.slotbtn.filled{border-style:solid;background:var(--brand-soft);border-color:var(--brand)}
+.paradigm.result{background:transparent;border:0;padding:0;margin-top:8px}.prow.ok .pres strong{color:var(--success)}.prow.bad .pres strong{color:var(--danger)}
+.pres{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.pres s{color:var(--muted)}.pres .mark{margin-left:auto;font-weight:900}
+.write{padding:6px 0}.field{width:100%;font:inherit;font-size:24px;font-weight:700;text-align:center;min-height:60px;border:2px solid var(--line);border-radius:16px;background:var(--surface);color:var(--ink);padding:0 14px}
+.field:focus{outline:3px solid var(--accent);border-color:var(--brand)}
+.umlauts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.btn.key{font-size:22px;min-height:52px}

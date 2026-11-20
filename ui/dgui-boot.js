@@ -10,6 +10,6 @@
   if (cfg.seed != null) opts.rng = g.DG.rng.create(cfg.seed);
   var engine = g.DG.engine.createEngine(opts);
   var rnd = cfg.seed != null ? g.DG.rng.create(cfg.seed + 1).next : null;
-  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd });
+  g.DGUI.app = D.mount(doc.getElementById('app'), { win: g, engine: engine, concepts: opts.concepts, storageOk: ok, prefs: D.util.prefs(storage), rnd: rnd, autoMs: cfg.autoMs });
   g.DGUI.engine = engine;
 })(typeof globalThis !== 'undefined' ? globalThis : this);

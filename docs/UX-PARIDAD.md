@@ -21,19 +21,22 @@ Estados: **HECHO** · **EN CURSO** (este punto de control: bloques A, B, C) · *
 | 14 | «Casi» con tolerancia | Solo existe en modo «Escribir» (el evaluador táctil es exacto): veredicto `almost` → «Casi, revisa y reintenta» (1 reintento, lo da el motor) | C · HECHO |
 | 15 | Rescate de errores | Insignia «Rescatada» (`out.rescued`) y botón «Mis errores» (`kind:'errors'`) en inicio | C · HECHO |
 | 16 | Botones de confianza «Lo sabía / Dudé / Adiviné» | **DESCARTADO por ahora:** el motor no recibe confianza (nota SRS 3 `fast` pendiente, ESTADO.md). Se evalúa con el motor | DESCARTADO |
-| 17 | Haptics (`navigator.vibrate`: tap 8, ok 14, milestone, warning, fallo) | Ya hay ok/fallo; se añaden tap/milestone/warning | E · PENDIENTE (básico HECHO) |
+| 17 | Haptics (`navigator.vibrate`: tap 8, ok 14, milestone, warning, fallo) | Hecho: tap/ok/«casi»/fallo (respeta reduced-motion y el ajuste de vibración); falta milestone | tap 8 ms (bloques, filas, letras), acierto 12, «casi» y fallo ya hechos; milestone y warning · E · PENDIENTE |
 | 18 | Toast | Ya hay toast; se unifican mensajes | E · PENDIENTE (básico HECHO) |
 | 19 | Racha, XP, niveles, logros | Racha con perdón y logros sobrios (sin XP/niveles); estado en `dg.ui`, no en el motor | E · PENDIENTE |
 | 20 | Resumen de sesión | Hecho en etapa 3; se añade «qué falló y por qué» con la cápsula de regla | E · PENDIENTE |
 | 21 | Cápsula de regla («memory-strip», «formula», antes→después, `decisionChain`, tablas de referencia) | `ui/reglas.json` por `conceptId`; el hueco queda vacío si no hay regla (no se inventa) | D · PENDIENTE |
 | 22 | Botón «¿por qué?» bajo demanda | Mismo contenido que 21, también antes de responder (tras el control) | D · PENDIENTE |
 | 23 | TTS de-DE rate 0,85 (`speakGerman`, `autoAudio`) | `speechSynthesis`, `lang=de-DE`, `rate=0.85`, voz alemana si existe; apagado por defecto | F · PENDIENTE |
-| 24 | Ajustes (tema, auto-avance, audio, sesión por defecto) | Ya: tope de nivel, tema, vibración. Se añaden voz y tamaño por defecto | F · PENDIENTE (parcial HECHO) |
-| 25 | `safe-area`, `100dvh`, `touch-action`, objetivos ≥48 px, sin hover | Obligatorio en todo; prueba automática de tamaño mínimo (≥48 px) en jsdom + captura 390×844 | A/C · HECHO |
+| 24 | Ajustes (tema, auto-avance, audio, sesión por defecto) | Ya: nivel (Auto/A1/A2), entrada (Toques/Escribir), tema, vibración; el chip Auto de la sesión. Faltan voz y tamaño por defecto | F · PENDIENTE (parcial HECHO) |
+| 25 | `safe-area`, `100dvh`, `touch-action`, objetivos ≥48 px, sin hover | Prueba jsdom del CSS (≥48 px, sin `:hover`) + medición real en Chromium 390×844: el botón activo más bajo mide 48 px | A/C · HECHO |
 | 26 | `prefers-reduced-motion` | Anula animaciones y transiciones (también la barra de avance automático) | A · HECHO |
 | 27 | Reanudar sesión (`resume-banner`) | El motor no persiste sesiones abiertas (`startSession` no escribe). No se reanuda; lo respondido sí queda guardado | DESCARTADO (limitación del motor) |
 | 28 | Backup exportar/importar, `requestPersistence`, IndexedDB | Etapa 5 (el motor ya tiene `exportJSON/importJSON`) | Etapa 5 |
 | 29 | Teclado de umlauts en respuestas escritas | Fila ä ö ü ß (≥48 px) en el modo «Escribir» | C · HECHO |
+
+## Variedad (queja de la 1.9: «repetía siempre lo mismo»)
+`tests/ui-variedad.test.js` juega 30 sesiones seguidas del Viaje combinado pulsando la UI. **Pasa** lo pedido (misma unidad ≤2 veces seguidas, los 3 módulos, las 6 personas verbales, las 3 variantes de verbos). **No pasan los límites estrictos** (≥75 % de ejercicios distintos, ≤15 % de solape con la sesión siguiente, ninguna persona >30 %): con 8 h entre sesiones salen 111 ejercicios distintos de 300 (37 %), 21 % de solape y «du» ≈ 33 %. Son dos pruebas `todo` (visibles, no relajadas). Causa probable en el motor: paso de aprendizaje de 1 h (lo nuevo vuelve en cada sesión), cupo de nuevas ≈1,3 unidades/sesión y pesos ×3 de du/er en verbos difíciles. Decisión pendiente del usuario.
 
 ## Descartado a propósito (TELC / fuera del alcance — SPEC §1)
 - **Hören, Lesen, Schreiben, Sprechen** (módulos `hoeren`, `lesen`, `schreiben`, `sprechen`, `listeningQuestion`, `readingQuestion`, `speakingQuestion`, `writingQuestion`): la meta es B1 de gramática/vocabulario; eso se estudia aparte con libros.
