@@ -3,6 +3,8 @@
  "fuentes": [
   "aleman_declination_master_mobile_v1_1.html",
   "telc_a1_cheatsheet_v4_3.html (solo gramática)",
+  "telc_a2_cheatsheet_v1_2.html (solo gramática)",
+  "telc_b1_cheatsheet_v1_1.html (solo gramática)",
   "docs/fuentes/aleman-markups/NNN-*.md (§5 errores comunes)"
  ],
  "reglas": {
@@ -472,6 +474,621 @@
     "despues": "Dann gehe ich nach Hause."
    }
   },
+  "sa2:g1t1": {
+   "titulo": "La idea madre · 3 familias de orden",
+   "regla": "**MEMORY:** No memorices seis reglas aisladas. Primero identifica la **familia de orden**."
+  },
+  "sa2:g1t2": {
+   "titulo": "Familia 1 · orden normal",
+   "formula": "IDEA 1 + CONECTOR + QUIÉN + VERBO + RESTO",
+   "regla": "**MEMORY:denn** puede dar una razón, pero NO manda el verbo al final."
+  },
+  "sa2:g1t4": {
+   "titulo": "Familia 2 · deshalb / trotzdem",
+   "formula": "CONECTOR + VERBO + QUIÉN + RESTO",
+   "regla": "**MEMORY:deshalb / trotzdem** ocupan la posición 1 → el verbo viene inmediatamente después."
+  },
+  "sa2:g1t4b": {
+   "titulo": "Frontera · trotzdem ↔ obwohl",
+   "regla": "**MEMORY:** Expresan contraste parecido, pero la arquitectura cambia: **trotzdem** abre una Hauptsatz; **obwohl** abre una Nebensatz con verbo final."
+  },
+  "sa2:g1t5": {
+   "titulo": "Familia 3 · Nebensatz → verbo final",
+   "formula": "CONECTOR + QUIÉN + RESTO + VERBO CONJUGADO · AL FINAL",
+   "regla": "**MEMORY:** Después de **weil / dass / wenn...**, guarda el verbo conjugado para el final."
+  },
+  "sa2:g1t7": {
+   "titulo": "dass · decir qué pienso / sé / creo",
+   "formula": "LO QUE PIENSO / SÉ + dass + CONTENIDO + VERBO AL FINAL",
+   "regla": "**MEMORY:weil** responde ¿POR QUÉ? · **dass** introduce ¿QUÉ pienso/sé/creo?"
+  },
+  "sa2:g1t8": {
+   "titulo": "wenn · condición / situación",
+   "formula": "wenn + CONDICIÓN / SITUACIÓN + VERBO AL FINAL"
+  },
+  "sa2:g1t9": {
+   "titulo": "Nebensatz primero · después viene el verbo",
+   "formula": "NEBENSATZ COMPLETA + VERBO PRINCIPAL + QUIÉN + RESTO",
+   "regla": "**MEMORY:** Toda la Nebensatz cuenta como un gran bloque en posición 1. Después de la coma: **VERBO**.",
+   "ejemplo": {
+    "antes": "Ich bleibe zu Hause, weil ich krank bin.",
+    "despues": "Weil ich krank bin, **bleibe ich** zu Hause."
+   }
+  },
+  "sa2:g1t10": {
+   "titulo": "Nebensatz + Modal / Perfekt",
+   "regla": "**MEMORY:** En la Nebensatz, el verbo separable conjugado queda **junto al final**: **aufstehen → ... weil ich aufstehe**. No se escribe ✗ auf ... stehe."
+  },
+  "sa2:g1t12": {
+   "titulo": "Pregunta directa → pregunta indirecta",
+   "formula": "PREGUNTA INTRODUCTORIA + W-WORT + RESTO + VERBO AL FINAL",
+   "ejemplo": {
+    "antes": "Wo ist die Apotheke?",
+    "despues": "Können Sie mir sagen, **wo die Apotheke ist**?"
+   }
+  },
+  "sa2:g1t13": {
+   "titulo": "Sí / no → ob",
+   "formula": "NO HAY W-WORT + ob + RESTO + VERBO AL FINAL",
+   "ejemplo": {
+    "antes": "Ist die Apotheke offen?",
+    "despues": "Wissen Sie, **ob die Apotheke offen ist**?"
+   }
+  },
+  "sa2:g1t14": {
+   "titulo": "BAU ES UM · retrieval",
+   "regla": "Ich muss morgen arbeiten. Ich kann nicht kommen. · Une con **weil**."
+  },
+  "sa2:g2t1": {
+   "titulo": "El mapa del pasado A2",
+   "regla": "**MEMORY:** Es una **ruta segura de estudio**, no una ley absoluta de cuándo un alemán puede usar cada tiempo."
+  },
+  "sa2:g2t2": {
+   "titulo": "Perfekt · REUSE, ahora para narrar",
+   "regla": "**MEMORY:** El salto A2 es **una frase pasada → pequeña narración**."
+  },
+  "sa2:g2t4": {
+   "titulo": "Modalverben im Präteritum",
+   "formula": "QUIÉN + MODAL EN PASADO + RESTO + ACCIÓN AL FINAL",
+   "regla": "**MEMORY:** können → **konnte** · müssen → **musste** · dürfen → **durfte**: pierden el Umlaut."
+  },
+  "sa2:g2t5": {
+   "titulo": "Präteritum regular",
+   "formula": "RAÍZ + -te- + TERMINACIÓN",
+   "regla": "**MEMORY:** Con raíces como **arbeit-**, aparece una **e** extra para pronunciar la forma con facilidad."
+  },
+  "sa2:g2t6": {
+   "titulo": "Präteritum irregular · repertorio útil",
+   "regla": "**MEMORY:** Aprende los irregulares como **Infinitiv → Präteritum → Perfekt**. No queremos una lista de 50 verbos."
+  },
+  "sa2:g2t8": {
+   "titulo": "Contar una secuencia",
+   "regla": "**MEMORY:** Marcador temporal en posición 1 → **V₂**."
+  },
+  "sa2:g2t9": {
+   "titulo": "Zeit-Werkzeugkasten · gegen / über / seit / ab",
+   "regla": "**MEMORY:** Con **seit**, si la situación continúa ahora, el alemán normalmente mantiene el **Präsens**."
+  },
+  "sa2:g2t10": {
+   "titulo": "Mini-narración · la meta real",
+   "regla": "Wir wollten ins Kino gehen. Der Film war ausverkauft. Wir gingen in ein Restaurant. · Conecta la consecuencia."
+  },
+  "sa2:g3t1": {
+   "titulo": "La idea madre · busca el trigger",
+   "regla": "**MEMORY:** La terminación es el **resultado final**, no el comienzo del razonamiento."
+  },
+  "sa2:g3t2": {
+   "titulo": "Reflexivpronomen · Akkusativ",
+   "regla": "**MEMORY:** Muchos verbos se aprenden con **sich** incluido: **sich interessieren, sich freuen, sich treffen**."
+  },
+  "sa2:g3t3": {
+   "titulo": "Reflexivpronomen · Dativ",
+   "ejemplo": {
+    "antes": "Ich wasche **mich**.",
+    "despues": "Ich wasche **mir die Hände**."
+   }
+  },
+  "sa2:g3t4": {
+   "titulo": "Verb + Präposition · aprende el chunk",
+   "regla": "**MEMORY:** No traduzcas la preposición palabra por palabra. Aprende **verbo + preposición + caso** como una unidad."
+  },
+  "sa2:g3t6": {
+   "titulo": "Preguntar por cosa o persona",
+   "regla": "**MEMORY:** Con vocal: **worauf / woran / worüber**. Con consonante: **womit / wofür / wovon**."
+  },
+  "sa2:g3t7": {
+   "titulo": "Wechselpräpositionen · Wo? ↔ Wohin?",
+   "ejemplo": {
+    "antes": "Das Buch liegt **auf dem Tisch**.",
+    "despues": "Ich lege das Buch **auf den Tisch**."
+   }
+  },
+  "sa2:g3t8": {
+   "titulo": "No: “movimiento = Akkusativ”",
+   "regla": "**MEMORY:** La pregunta no es “¿hay movimiento?”. Es **¿DÓNDE ocurre? o ¿ADÓNDE cambia?**",
+   "ejemplo": {
+    "antes": "Ich laufe **im Park**.",
+    "despues": "Wo? Ich laufe **in den Park**."
+   }
+  },
+  "sa2:g3t9": {
+   "titulo": "Contracciones · ubicación ↔ destino",
+   "ejemplo": {
+    "antes": "Ich bin **im Kino**.",
+    "despues": "Ich gehe **ins Kino**. Ich lege das Handy **aufs Bett**."
+   }
+  },
+  "sa2:g3t10": {
+   "titulo": "Posición ↔ colocar",
+   "regla": "**MEMORY:** En **Ich setze mich auf den Stuhl** se cruzan reflexivo + cambio de posición + Akkusativ.",
+   "ejemplo": {
+    "antes": "Die Flasche **steht** auf dem Tisch.",
+    "despues": "Ich **stelle** sie auf den Tisch. Das Buch **liegt** auf dem Tisch."
+   }
+  },
+  "sa2:g3t11": {
+   "titulo": "Dativ + Akkusativ · a quién + qué",
+   "formula": "QUIÉN + ACCIÓN + A QUIÉN · DAT + QUÉ · AKK"
+  },
+  "sa2:g3t12": {
+   "titulo": "Familias en Dativ · reutiliza terminaciones",
+   "regla": "**MEMORY:** Aquí se cruzan tres familias A2: **mein-/kein-**, **dies-** y la pregunta **welch-?**. No necesitas tres tablas separadas."
+  },
+  "sa2:g3t14": {
+   "titulo": "BAU ES UM · retrieval",
+   "regla": "Das Buch liegt auf dem Tisch. · Ahora tú lo pones allí."
+  },
+  "sa2:g4t1": {
+   "titulo": "Describir · adjetivo fuera o dentro",
+   "regla": "**MEMORY:Después de sein → sin terminación.** Delante del sustantivo → el adjetivo necesita terminación.",
+   "ejemplo": {
+    "antes": "Die Wohnung ist **groß**.",
+    "despues": "Das ist eine **große Wohnung**."
+   }
+  },
+  "sa2:g4t2": {
+   "titulo": "Adjektivdeklination · familia der",
+   "regla": "**MEMORY:** Familia **der** → el adjetivo es **muy frecuentemente -en**. El pequeño bloque -e está concentrado en Nom. singular y Akk. F/N."
+  },
+  "sa2:g4t3": {
+   "titulo": "Adjektivdeklination · familia ein / mein / kein",
+   "regla": "* ein no tiene plural; aquí se muestra el patrón con mein-."
+  },
+  "sa2:g4t4": {
+   "titulo": "Determinante → pronombre · no repetir",
+   "regla": "**MEMORY:** No es una familia nueva: son las mismas formas de **dieser**, ahora sin sustantivo.",
+   "ejemplo": {
+    "antes": "Welchen Pullover möchtest du?",
+    "despues": "**Diesen.** Welche Jacke gefällt dir?"
+   }
+  },
+  "sa2:g4t5": {
+   "titulo": "Possessivpronomen · de quién es",
+   "regla": "**MEMORY:** Para A2 basta dominar primero este uso sencillo en Nominativ; no abrimos otra mega-tabla de todos los casos.",
+   "ejemplo": {
+    "antes": "Das ist **mein Pullover**.",
+    "despues": "Das ist **meiner**."
+   }
+  },
+  "sa2:g4t6": {
+   "titulo": "Indefinitpronomen · por significado",
+   "regla": "**MEMORY:** Aprende **viel-/jed-/all-** primero en estos usos de Nominativ; el objetivo A2 es reconocer la familia y producir ejemplos frecuentes."
+  },
+  "sa2:g4t7": {
+   "titulo": "Comparar · so ... wie / als",
+   "regla": "**MEMORY:** A1 ya conoce el Komparativ. A2 añade una comparación muy útil de **igualdad: so ... wie**."
+  },
+  "sa2:g4t8": {
+   "titulo": "Relativsatz · añadir información",
+   "formula": "PERSONA / COSA + RELATIVPRONOMEN + INFORMACIÓN EXTRA + VERBO AL FINAL",
+   "regla": "**MEMORY:** La mecánica de **verbo final** ya vive en G1. Aquí solo decides el pronombre relativo.",
+   "ejemplo": {
+    "antes": "Das ist der Mann. Der Mann arbeitet hier.",
+    "despues": "Das ist der Mann, **der hier arbeitet**."
+   }
+  },
+  "sa2:g4t9": {
+   "titulo": "Relativpronomen · Nom ↔ Akk",
+   "regla": "**MEMORY:** El caso se decide **dentro de la Relativsatz**, no por el caso del sustantivo en la Hauptsatz."
+  },
+  "sa2:g4t11": {
+   "titulo": "BAU ES UM · retrieval",
+   "regla": "Ich spreche mit einem Mann + nett"
+  },
+  "sa2:g5t1": {
+   "titulo": "El mini-sistema de intención",
+   "regla": "**MEMORY:** No aprendas primero “Konjunktiv II”. Aprende **INTENCIÓN → HERRAMIENTA**."
+  },
+  "sa2:g5t2": {
+   "titulo": "sollte · consejo, no obligación",
+   "formula": "QUIÉN + sollte + RESTO + ACCIÓN AL FINAL",
+   "ejemplo": {
+    "antes": "Du **musst** mehr schlafen.",
+    "despues": "Du **solltest** mehr schlafen."
+   }
+  },
+  "sa2:g5t3": {
+   "titulo": "könnte · propuesta suave",
+   "formula": "QUIÉN + könnte + RESTO + ACCIÓN AL FINAL",
+   "ejemplo": {
+    "antes": "Wir **können** ins Kino gehen.",
+    "despues": "Wir **könnten** ins Kino gehen."
+   }
+  },
+  "sa2:g5t4": {
+   "titulo": "Wie wäre es mit ...?",
+   "formula": "Wie wäre es mit + SUSTANTIVO · DATIV"
+  },
+  "sa2:g5t5": {
+   "titulo": "Pedir con más cortesía",
+   "formula": "Könnten Sie + RESTO + ACCIÓN AL FINAL?",
+   "ejemplo": {
+    "antes": "**Können Sie** mir helfen?",
+    "despues": "**Könnten Sie** mir helfen?"
+   }
+  },
+  "sa2:g5t6": {
+   "titulo": "hätte gern ↔ würde gern",
+   "regla": "**MEMORY:möchte** sigue siendo correcto. A2 solo añade más opciones."
+  },
+  "sa2:g5t7": {
+   "titulo": "Opinión + razón",
+   "regla": "**MEMORY:** A2 no necesita una argumentación B1. **Opinión + una razón** ya es una gran mejora."
+  },
+  "sa2:g5t8": {
+   "titulo": "Negociar · propuesta → acuerdo",
+   "regla": "**MEMORY:** El patrón **NO → POR QUÉ → EN CAMBIO...** sirve en planes, trabajo, viajes, vivienda y servicios."
+  },
+  "sa2:g5t9": {
+   "titulo": "Reparar la conversación",
+   "regla": "**MEMORY:** No entender algo **no termina la conversación**. Tu siguiente acción es repararla."
+  },
+  "sa2:g5t11": {
+   "titulo": "BAU ES UM · retrieval",
+   "regla": "Du musst mehr schlafen. · Hazlo consejo."
+  },
+  "sa2:gpt1": {
+   "titulo": "Aktiv → Passiv · cambiar el foco",
+   "formula": "COSA AFECTADA + WERDEN + RESTO + QUÉ OCURRE · AL FINAL",
+   "regla": "**MEMORY:** El Passiv es una **transformación de foco**, no una sexta macrodecisión.",
+   "ejemplo": {
+    "antes": "Die Firma repariert **das Auto**.",
+    "despues": "**Das Auto** wird repariert."
+   }
+  },
+  "sb1:g1-1-1": {
+   "titulo": "1.1 · El mapa maestro de relaciones",
+   "regla": "No memorices cada conector como una regla aislada."
+  },
+  "sb1:g1-1-2": {
+   "titulo": "1.2 · Razón · weil / denn / da",
+   "formula": "Fórmula humana RESULTADO ← RAZÓN weil / da → verbo final denn → orden normal",
+   "regla": "**MEMORY:** Para producir B1 seguro, weil sigue siendo tu opción principal. da amplía tu repertorio, no reemplaza weil."
+  },
+  "sb1:g1-1-3": {
+   "titulo": "1.3 · Consecuencia · deshalb / deswegen / darum / daher",
+   "formula": "Fórmula humana CAUSA → CONSECUENCIA CONECTOR EN POSICIÓN 1 → VERBO INMEDIATAMENTE DESPUÉS Deshalb muss ich ... Deswegen kann sie ... Darum nehme ich ... Daher ist es ...",
+   "regla": "**CONECTOR EN POSICIÓN 1 → VERBO INMEDIATAMENTE DESPUÉS**"
+  },
+  "sb1:g1-1-3b": {
+   "titulo": "1.3b · Consecuencia como Nebensatz · sodass / so ... dass",
+   "formula": "Fórmula humana HECHO / INTENSIDAD → RESULTADO sodass → introduce directamente la consecuencia. so ... dass → primero marca el grado y luego su consecuencia. ambos → verbo final en la Nebensatz.",
+   "regla": "**MEMORY:** deshalb/deswegen/darum/daher abren una Hauptsatz; sodass/so ... dass construyen una Nebensatz."
+  },
+  "sb1:g1-1-4": {
+   "titulo": "1.4 · Contraste simple · aber / dagegen",
+   "formula": "Fórmula humana OPCIÓN / HECHO A ↔︎ OPCIÓN / HECHO B",
+   "regla": "dagegen sirve para colocar una opción frente a otra:"
+  },
+  "sb1:g1-1-4b": {
+   "titulo": "1.4b · während · contraste entre dos realidades",
+   "formula": "Fórmula humana A ES ASÍ ↔︎ B ES DIFERENTE MEMORY: El contexto decide si während significa “mientras” o “mientras que”.",
+   "regla": "**MEMORY:** El contexto decide si während significa “mientras” o “mientras que”."
+  },
+  "sb1:g1-1-5": {
+   "titulo": "1.5 · Concesión · trotzdem ↔ obwohl",
+   "regla": "**MEMORY:** obwohl no cambia la relación. Cambia la arquitectura.",
+   "ejemplo": {
+    "antes": "trotzdem + V2",
+    "despues": "obwohl + Vfinal"
+   }
+  },
+  "sb1:g1-1-6": {
+   "titulo": "1.6 · Concesión equilibrada · zwar ... aber",
+   "formula": "Fórmula humana SÍ, X ES VERDAD → PERO Y TAMBIÉN IMPORTA Es ideal para B1 porque permite reconocer un punto antes de añadir el propio. Online-Kurse sind zwar flexibel, aber mir fehlt der persönliche Kontakt.",
+   "regla": "**SÍ, X ES VERDAD → PERO Y TAMBIÉN IMPORTA**"
+  },
+  "sb1:g1-1-7": {
+   "titulo": "1.7 · Condición real · wenn / falls",
+   "formula": "Fórmula humana SI OCURRE X → ENTONCES Y wenn es más general. falls enfatiza que X es una posibilidad.",
+   "regla": "falls = “en caso de que / si ocurre”."
+  },
+  "sb1:g1-1-8": {
+   "titulo": "1.8 · Consecuencia si NO ocurre · sonst / andernfalls",
+   "formula": "Fórmula humana HAZ X → SI NO → CONSECUENCIA",
+   "regla": "**HAZ X → SI NO → CONSECUENCIA**"
+  },
+  "sb1:g1-1-9": {
+   "titulo": "1.9 · Finalidad · damit ↔ um ... zu",
+   "formula": "Fórmula humana ACCIÓN → ¿PARA QUÉ? → OBJETIVO MEMORY: Si ya dominas esto desde A2, B1 lo reutiliza dentro de textos más largos.",
+   "regla": "**MEMORY:** Si ya dominas esto desde A2, B1 lo reutiliza dentro de textos más largos."
+  },
+  "sb1:g1-1-10": {
+   "titulo": "1.10 · Método · indem",
+   "formula": "Fórmula humana RESULTADO → ¿CÓMO? → MÉTODO No confundir con damit. Ich lerne jeden Tag, damit ich die Prüfung bestehe. Ich lerne neue Wörter, indem ich sie in Sätzen benutze.",
+   "regla": "**RESULTADO → ¿CÓMO? → MÉTODO**"
+  },
+  "sb1:g1-1-11": {
+   "titulo": "1.11 · Alternativas · entweder ... oder",
+   "formula": "Fórmula humana OPCIÓN A O OPCIÓN B"
+  },
+  "sb1:g1-1-12": {
+   "titulo": "1.12 · Dos aspectos positivos · sowohl ... als auch",
+   "formula": "Fórmula humana A Y TAMBIÉN B"
+  },
+  "sb1:g1-1-13": {
+   "titulo": "1.13 · Añadir con énfasis · nicht nur ... sondern auch",
+   "formula": "Fórmula humana NO SOLO A → TAMBIÉN B",
+   "regla": "**NO SOLO A → TAMBIÉN B**"
+  },
+  "sb1:g1-1-14": {
+   "titulo": "1.14 · Negar dos opciones · weder ... noch",
+   "formula": "Fórmula humana NI A NI B"
+  },
+  "sb1:g1-1-15": {
+   "titulo": "1.15 · Relación proporcional · je ... desto / umso",
+   "formula": "Fórmula humana CUANTO MÁS X → TANTO MÁS Y Atajo técnico: je + Komparativ + Nebensatz, desto/umso + Komparativ + V2 No necesitas producir estructuras sofisticadas. Memoriza 2–3 patrones frecuentes.",
+   "regla": "**CUANTO MÁS X → TANTO MÁS Y**"
+  },
+  "sb1:g2-2-1": {
+   "titulo": "2.1 · La línea temporal B1",
+   "regla": "Necesitas mostrar relaciones entre acontecimientos.",
+   "ejemplo": {
+    "antes": "gestern",
+    "despues": "dann"
+   }
+  },
+  "sb1:g2-2-2": {
+   "titulo": "2.2 · Narrar · Perfekt y Präteritum",
+   "regla": "**MEMORY:** B1 productivo no significa convertir cada historia oral en una novela escrita en Präteritum."
+  },
+  "sb1:g2-2-3": {
+   "titulo": "2.3 · bevor · primero X, después Y",
+   "formula": "Fórmula humana ANTES DE B → OCURRE A",
+   "regla": "**ANTES DE B → OCURRE A**"
+  },
+  "sb1:g2-2-3b": {
+   "titulo": "2.3b · bis · hasta que llega un límite",
+   "formula": "Fórmula humana ACCIÓN / ESTADO → CONTINÚA HASTA X MEMORY: bis marca el punto final de una duración o espera.",
+   "regla": "**MEMORY:** bis marca el punto final de una duración o espera."
+  },
+  "sb1:g2-2-4": {
+   "titulo": "2.4 · während · dos cosas al mismo tiempo",
+   "formula": "Fórmula humana A OCURRE MIENTRAS B OCURRE",
+   "regla": "**A OCURRE MIENTRAS B OCURRE**"
+  },
+  "sb1:g2-2-5": {
+   "titulo": "2.5 · nachdem · primero una acción, luego otra",
+   "formula": "Fórmula humana YA HABÍA OCURRIDO X → DESPUÉS OCURRIÓ Y nachdem suele combinarse naturalmente con una relación clara de anterioridad.",
+   "regla": "**YA HABÍA OCURRIDO X → DESPUÉS OCURRIÓ Y**"
+  },
+  "sb1:g2-2-6": {
+   "titulo": "2.6 · Plusquamperfekt · el pasado del pasado",
+   "regla": "**MEMORY:** No lo uses para “sonar avanzado”. Úsalo cuando realmente necesitas mostrar qué ocurrió primero."
+  },
+  "sb1:g2-2-7": {
+   "titulo": "2.7 · seit / seitdem · desde un punto anterior hasta ahora",
+   "formula": "Fórmula humana DESDE QUE EMPEZÓ X → Y CONTINÚA O SIGUE SIENDO RELEVANTE seit y seitdem pueden introducir una Nebensatz temporal. seitdem enfatiza con claridad la relación “desde entonces”.",
+   "regla": "**DESDE QUE EMPEZÓ X → Y CONTINÚA O SIGUE SIENDO RELEVANTE**"
+  },
+  "sb1:g2-2-8": {
+   "titulo": "2.8 · Organizar una historia",
+   "regla": "No memorices veinte conectores. Aprende bloques funcionales."
+  },
+  "sb1:g2-2-9": {
+   "titulo": "2.9 · Futuro · presente primero, Futur I cuando aporta algo",
+   "formula": "Fórmula WERDEN + ... + INFINITIV Útil para: predicción; intención con cierta distancia; futuro cuando quieres marcarlo explícitamente. No necesitas usar Futur I cada vez que hablas del futuro.",
+   "regla": "Muchas veces el alemán usa Präsens:"
+  },
+  "sb1:g3-3-1": {
+   "titulo": "3.1 · YA SABES · Konjunktiv II como cortesía e intención",
+   "regla": "B1 descubre que las mismas herramientas sirven para algo mayor:"
+  },
+  "sb1:g3-3-2": {
+   "titulo": "3.2 · Condición real vs hipotética",
+   "formula": "Fórmula humana SI LA REALIDAD FUERA X → ENTONCES PASARÍA Y Atajo: wenn + KII ..., würde + Infinitiv",
+   "regla": "La condición es posible y abierta."
+  },
+  "sb1:g3-3-3": {
+   "titulo": "3.3 · hätte / wäre",
+   "regla": "Para haben y sein, usa directamente:"
+  },
+  "sb1:g3-3-4": {
+   "titulo": "3.4 · würde + Infinitiv",
+   "formula": "Fórmula WÜRDE + ... + INFINITIV Es la gran herramienta productiva para muchos verbos.",
+   "regla": "**WÜRDE + ... + INFINITIV**"
+  },
+  "sb1:g3-3-5": {
+   "titulo": "3.5 · könnte / sollte como posibilidad o recomendación",
+   "regla": "En B1 la diferencia importa:"
+  },
+  "sb1:g3-3-6": {
+   "titulo": "3.6 · Deseos y situaciones ideales",
+   "regla": "**wäre gern + estado / lugar / rol**"
+  },
+  "sb1:g3-3-7": {
+   "titulo": "3.7 · Hipótesis útiles para B1",
+   "regla": "Estas estructuras son especialmente útiles para:"
+  },
+  "sb1:g3-3-7b": {
+   "titulo": "3.7b · Irreale Vergangenheit · imaginar un pasado diferente",
+   "formula": "Fórmula humana SI EL PASADO HUBIERA SIDO X → EL RESULTADO HABRÍA SIDO Y Atajo: wenn + hätte/wäre + Partizip II, hätte/wäre + Partizip II Wenn ich mehr gelernt hätte, hätte ich die Prüfung bestanden.",
+   "regla": "**MEMORY:** No necesitas automatizar estas formas al nivel de wenn ich Zeit hätte, würde ich .... Debes entenderlas y poder producir modelos simples."
+  },
+  "sb1:g3-3-8": {
+   "titulo": "3.8 · BAU ES UM · REALIDAD",
+   "regla": "→ imagina otra realidad:"
+  },
+  "sb1:g4-4-1": {
+   "titulo": "4.1 · La gran idea",
+   "regla": "B1 necesita cohesión."
+  },
+  "sb1:g4-4-2": {
+   "titulo": "4.2 · Relativsatz Dativ",
+   "regla": "**MEMORY:** El caso se decide dentro de la Relativsatz."
+  },
+  "sb1:g4-4-3": {
+   "titulo": "4.3 · Relativsatz + Präposition",
+   "formula": "Fórmula humana SUSTANTIVO → PREPOSICIÓN QUE EXIGE LA RELACIÓN + PRONOMBRE RELATIVO Ejemplo: mit + Dat die Kollegin → mit der",
+   "regla": "**SUSTANTIVO → PREPOSICIÓN QUE EXIGE LA RELACIÓN + PRONOMBRE RELATIVO**",
+   "ejemplo": {
+    "antes": "mit + Dat die Kollegin",
+    "despues": "mit **der**"
+   }
+  },
+  "sb1:g4-4-3b": {
+   "titulo": "4.3b · Eingeschobener Relativsatz · abrir y cerrar el paréntesis",
+   "formula": "Fórmula humana HAUPTSATZ → ABRO INFORMACIÓN EXTRA → CIERRO → CONTINÚO LA HAUPTSATZ",
+   "regla": "**MEMORY:** Hay dos comas porque el Relativsatz queda metido dentro de la oración principal. Al terminarlo, recupera la Hauptsatz."
+  },
+  "sb1:g4-4-4": {
+   "titulo": "4.4 · Relativsatz Genitiv",
+   "formula": "Fórmula humana PERSONA / COSA → CUYO / CUYA ... No necesitas producirlo constantemente. Sí debes reconocerlo y poder usar modelos simples.",
+   "regla": "M/N → **dessen** F/PL → **deren**"
+  },
+  "sb1:g4-4-5": {
+   "titulo": "4.5 · Relativos con wo / wohin / woher / was",
+   "regla": "Con antecedente concreto, también son muy útiles las construcciones con preposición + relativo:"
+  },
+  "sb1:g4-4-6": {
+   "titulo": "4.6 · Präpositionaladverbien · darüber / darauf / davon ...",
+   "formula": "Superfórmula COSA / IDEA → DA(R) + PREPOSICIÓN PERSONA → PREPOSICIÓN + PRONOMBRE Ich spreche darüber. Ich spreche mit ihm. No digas: ✗ mit darüber",
+   "regla": "**COSA / IDEA → DA(R) + PREPOSICIÓN**"
+  },
+  "sb1:g4-4-7": {
+   "titulo": "4.7 · Infinitiv mit zu · una acción como bloque",
+   "formula": "Fórmula humana IDEA PRINCIPAL → ACCIÓN DEPENDIENTE CON ZU No es una segunda frase completa.",
+   "regla": "**IDEA PRINCIPAL → ACCIÓN DEPENDIENTE CON ZU**"
+  },
+  "sb1:g4-4-8": {
+   "titulo": "4.8 · zu con verbos separables",
+   "regla": "**MEMORY:** zu entra entre prefijo y verbo:",
+   "ejemplo": {
+    "antes": "anrufen",
+    "despues": "anzurufen einkaufen"
+   }
+  },
+  "sb1:g4-4-10": {
+   "titulo": "4.10 · Indirekte Fragen",
+   "regla": "Úsalas como herramienta de cortesía y cohesión:"
+  },
+  "sb1:g4-4-11": {
+   "titulo": "4.11 · Genitiv · pertenencia y relación",
+   "regla": "**MEMORY:** Genitiv visible en el determinante → el adjetivo suele ir en **-en**."
+  },
+  "sb1:g4-4-12": {
+   "titulo": "4.12 · Partizip como adjetivo",
+   "regla": "Útil para reconocer textos y condensar información."
+  },
+  "sb1:g4-4-13": {
+   "titulo": "4.13 · lassen",
+   "formula": "Fórmula LASSEN + OBJETO / PERSONA + ... + INFINITIV Aprende primero los chunks frecuentes.",
+   "regla": "**LASSEN + OBJETO / PERSONA + ... + INFINITIV**"
+  },
+  "sb1:g4-4-13b": {
+   "titulo": "4.13b · Indefinitpronomen · alguien / nadie / algo / ninguno",
+   "regla": "**MEMORY:** Aquí vuelve a funcionar el sistema de casos: Nom → Akk → Dat."
+  },
+  "sb1:g4-4-13c": {
+   "titulo": "4.13c · irgend- · información deliberadamente imprecisa",
+   "regla": "**MEMORY:** irgend- dice: existe, pero no importa o no sé exactamente cuál.",
+   "ejemplo": {
+    "antes": "**irgendjemand / irgendwer**",
+    "despues": "alguna persona **irgendetwas / irgendwas**"
+   }
+  },
+  "sb1:g4-4-13d": {
+   "titulo": "4.13d · N-Deklination · algunos masculinos ganan -n/-en",
+   "formula": "Fórmula humana MASCULINO N-Deklination + NO Nom.Sg. → -(e)n No memorices una lista interminable. Aprende primero los sustantivos frecuentes como chunk.",
+   "regla": "Hay un grupo frecuente de sustantivos masculinos que, excepto en Nominativ Singular, normalmente añaden -n/-en.",
+   "ejemplo": {
+    "antes": "der Mensch",
+    "despues": "den Menschen der Kollege"
+   }
+  },
+  "sb1:g4-4-13e": {
+   "titulo": "4.13e · Adjetivo comparado dentro del sustantivo",
+   "regla": "**COMPARATIVO / SUPERLATIVO FUNCIONA COMO ADJETIVO → TAMBIÉN SE DECLINA**"
+  },
+  "sb1:g4-4-13f": {
+   "titulo": "4.13f · Gradpartikeln · graduar lo que dices",
+   "formula": "Fórmula humana IDEA → ¿CON QUÉ INTENSIDAD? Esto ayuda especialmente al opinar y comparar: Ich finde Homeoffice ziemlich praktisch, aber nicht für jeden Beruf.",
+   "regla": "Sirven para hacer el alemán menos binario."
+  },
+  "sb1:g4-4-13g": {
+   "titulo": "4.13g · Verbo como sustantivo",
+   "regla": "El infinitivo puede convertirse en sustantivo neutro:",
+   "ejemplo": {
+    "antes": "lernen",
+    "despues": "**das Lernen** lesen"
+   }
+  },
+  "sb1:g4-4-13h": {
+   "titulo": "4.13h · Adjetivos y participios nominalizados",
+   "regla": "Cuando el sustantivo se entiende por el contexto, el adjetivo puede ocupar su lugar y se escribe con mayúscula:"
+  },
+  "sb1:g4-4-13i": {
+   "titulo": "4.13i · Es en primera posición · organizar la frase",
+   "regla": "**MEMORY:** Para producción B1, es gibt ... es CORE reutilizable; el es puramente organizador es sobre todo reconocimiento/expansión."
+  },
+  "sb1:g4-4-13j": {
+   "titulo": "4.13j · Localizar con más precisión · um ... herum / an ... entlang",
+   "regla": "Apréndelos como patrones completos, no como nuevas tablas de casos."
+  },
+  "sb1:g4-4-13k": {
+   "titulo": "4.13k · Diminutiv · -chen / -lein",
+   "regla": "Dos ideas suficientes para B1:",
+   "ejemplo": {
+    "antes": "der Schrank",
+    "despues": "das **Schränkchen** die Kanne"
+   }
+  },
+  "sb1:g4-4-13l": {
+   "titulo": "4.13l · brauchen + zu · “no hace falta”",
+   "formula": "Fórmula humana NO ES NECESARIO HACER X → NICHT BRAUCHEN + ZU Con verbo separable: Du brauchst mich nicht anzurufen.",
+   "regla": "Con negación o limitación:"
+  },
+  "sb1:g4-4-14": {
+   "titulo": "4.14 · BAU ES UM · DESARROLLAR",
+   "regla": "→ no repetir das Problem"
+  },
+  "sb1:gp-p1": {
+   "titulo": "P1 · Aktiv → Passiv",
+   "formula": "Fórmula humana OBJETO AFECTADO → NUEVO FOCO",
+   "regla": "**OBJETO AFECTADO → NUEVO FOCO**"
+  },
+  "sb1:gp-p3": {
+   "titulo": "P3 · Passiv Perfekt",
+   "formula": "Fórmula técnica sein + Partizip II + worden MEMORY: En Passiv Perfekt usa worden, no geworden. ✗ ist repariert geworden ✓ ist repariert worden",
+   "regla": "**MEMORY:** En Passiv Perfekt usa worden, no geworden."
+  },
+  "sb1:gp-p4": {
+   "titulo": "P4 · Passiv + Modalverb",
+   "formula": "Fórmula humana ALGO → MODAL → ... → HECHO / ACCIÓN → WERDEN Atajo: S + Modal + ... + Partizip II + werden",
+   "regla": "**ALGO → MODAL → ... → HECHO / ACCIÓN → WERDEN**"
+  },
+  "sb1:gp-p5": {
+   "titulo": "P5 · von / durch",
+   "regla": "No necesitas añadir el agente si no importa."
+  },
+  "sb1:gp-p6": {
+   "titulo": "P6 · Passiv sin sujeto concreto",
+   "regla": "La acción importa más que quién la realiza."
+  },
+  "sb1:gp-p7": {
+   "titulo": "P7 · Zustandspassiv",
+   "regla": "Esto describe un estado, no el proceso de cerrar."
+  },
   "md:verben-praesens": {
    "titulo": "Präsens",
    "errores": [
@@ -495,6 +1112,126 @@
     "**Auxiliar conjugado:** **Ich bin gegangen**, pero **Wir sind gegangen**.",
     "**No todo movimiento usa sein:** **Ich habe drei Stunden getanzt**."
    ]
+  },
+  "md:verben-plusquamperfekt": {
+   "titulo": "Plusquamperfekt",
+   "errores": [
+    "**Plusquamperfekt = pasado anterior:** necesita explícita o implícitamente otro punto de referencia pasado.",
+    "**Auxiliar en Präteritum:** **hatte / war**, no **habe / bin**.",
+    "**Participio al final:** **Ich hatte schon gegessen.**"
+   ],
+   "formula": "hatte / war (Präteritum) + PARTIZIP II",
+   "regla": "**Pasado del pasado.** Mismo auxiliar que en el Perfekt (haben o sein), pero en Präteritum: hatte, hattest… / war, warst…",
+   "ejemplo": {
+    "antes": "ich habe gegessen",
+    "despues": "ich **hatte** gegessen"
+   }
+  },
+  "md:verben-futur": {
+   "titulo": "Futur I",
+   "errores": [
+    "**Infinitivo al final:** **Ich werde morgen arbeiten**, no *Ich werde arbeiten morgen* como orden neutro.",
+    "**werden no significa automáticamente querer:** **Ich werde arbeiten** = trabajaré; **Ich will arbeiten** = quiero trabajar.",
+    "**El Präsens puede expresar futuro:** **Morgen arbeite ich** es completamente correcto."
+   ],
+   "formula": "werden (Präsens) + INFINITIVO al final",
+   "regla": "**werden** se conjuga: werde · wirst · wird · werden · werdet · werden. El verbo principal va en infinitivo, al final.",
+   "ejemplo": {
+    "antes": "ich lerne",
+    "despues": "ich **werde** lernen"
+   }
+  },
+  "md:verben-imperativ": {
+   "titulo": "Imperativ",
+   "errores": [
+    "**du e ihr se omiten:** **Komm!**, no *Komm du!* salvo que se quiera contrastar o enfatizar.",
+    "**Sie permanece:** **Kommen Sie!**, no *Kommen!*, cuando se trata formalmente a alguien.",
+    "**Sie formal va en mayúscula:** **Schreiben Sie Ihre Fragen.**"
+   ],
+   "formula": "du: raíz · ihr: forma de ihr · Sie: infinitivo + Sie",
+   "regla": "**du** pierde -st (komm!), los verbos con e→i(e) cambian la raíz (nimm!, lies!) y no llevan umlaut (fahr!). **ihr** = su forma de presente. **Sie** = infinitivo + Sie.",
+   "ejemplo": {
+    "antes": "du kommst",
+    "despues": "**komm!**"
+   }
+  },
+  "md:verben-konjunktiv2": {
+   "titulo": "Konjunktiv II",
+   "errores": [
+    "no traduzcas mecánicamente cada subjuntivo español con Konjunktiv II; el sistema alemán tiene usos propios.",
+    "usa **hätte/wäre + Partizip II** para la irrealidad pasada, no normalmente **würde + Partizip II + haben/sein**.",
+    "con modales en pasado se emplean dos infinitivos: **hätte arbeiten müssen**."
+   ],
+   "formula": "würde + INFINITIVO al final",
+   "regla": "**würde**: würde · würdest · würde · würden · würdet · würden. Sein, haben y los modales tienen forma propia (wäre, hätte, könnte, müsste…).",
+   "ejemplo": {
+    "antes": "ich gehe",
+    "despues": "ich **würde** gehen"
+   }
+  },
+  "md:relativpronomen": {
+   "titulo": "Relativpronomen: der, die, das…",
+   "errores": [
+    "son **Relativpronomen**, no *Reflexivpronomen*. Los primeros conectan una relativa; los segundos remiten al sujeto.",
+    "el género y el número proceden del antecedente, pero el caso se decide dentro de la relativa.",
+    "el verbo conjugado va al final: **der die Bank überfallen hat**, no *der hat die Bank überfallen*."
+   ],
+   "formula": "GÉNERO y NÚMERO del antecedente + CASO en la subordinada",
+   "regla": "**Dos preguntas:** ¿a quién se refiere (género/número)? ¿qué función tiene dentro de la subordinada (caso)? La subordinada va entre comas y el verbo al final.",
+   "ejemplo": {
+    "antes": "der Mann + ich kenne ihn",
+    "despues": "der Mann, **den** ich kenne"
+   }
+  },
+  "md:pronunciacion": {
+   "titulo": "Pronunciación: reglas básicas",
+   "errores": [
+    "eu y äu representan el mismo diptongo: /ɔʏ̯/.",
+    "La j alemana no se pronuncia como la jota española, sino como /j/, similar a la «y» de «yo».",
+    "La h inicial es aspirada; no equivale exactamente a la jota española."
+   ]
+  },
+  "md:tekamolo": {
+   "titulo": "TeKaMoLo: orden de los complementos",
+   "errores": [
+    "TeKaMoLo significa temporal, causal, modal y local.",
+    "Si un complemento ocupa la primera posición, el verbo sigue en segunda: Heute arbeite ich ...",
+    "TeKaMoLo es el orden neutro; el contexto permite otras posiciones."
+   ],
+   "formula": "Temporal – Kausal – Modal – Lokal",
+   "regla": "**Orden neutro** de los complementos tras el verbo: cuándo → por qué → cómo → dónde. Los que no hay se saltan. Si adelantas uno, el verbo sigue en 2.ª posición.",
+   "ejemplo": {
+    "antes": "dónde · cómo · cuándo",
+    "despues": "**heute** · **mit dem Zug** · **nach Berlin**"
+   }
+  },
+  "md:verben-passiv": {
+   "titulo": "Passiv (Präsens)",
+   "errores": [
+    "**Proceso:** **werden + Partizip II**.",
+    "**Estado:** **sein + Partizip II**.",
+    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
+   ],
+   "formula": "werden (Präsens) + PARTIZIP II al final",
+   "regla": "**El sujeto recibe la acción.** werden se conjuga (werde · wirst · wird · werden · werdet · werden) y el participio va al final. Para el proceso no se usa haben.",
+   "ejemplo": {
+    "antes": "Er repariert das Auto.",
+    "despues": "Das Auto **wird repariert**."
+   }
+  },
+  "md:verben-passiv-praeteritum": {
+   "titulo": "Passiv (Präteritum)",
+   "errores": [
+    "**Proceso:** **werden + Partizip II**.",
+    "**Estado:** **sein + Partizip II**.",
+    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
+   ],
+   "formula": "wurde (Präteritum de werden) + PARTIZIP II",
+   "regla": "**Passiv en pasado:** wurde · wurdest · wurde · wurden · wurdet · wurden + participio. Con werden es un proceso; «war gebaut» describe un estado.",
+   "ejemplo": {
+    "antes": "Man baute das Haus.",
+    "despues": "Das Haus **wurde** gebaut."
+   }
   },
   "md:satzbau-v2": {
    "titulo": "La estructura básica de la oración",
@@ -551,6 +1288,20 @@
     "**sondern** no equivale siempre a “pero”; corrige un elemento previamente negado.",
     "no añadas otra negación a **weder ... noch**."
    ]
+  },
+  "md:steigerung": {
+   "titulo": "Komparativ y Superlativ",
+   "errores": [
+    "En comparaciones de igualdad usa **wie**; en superioridad usa **als**.",
+    "Se dice schneller als, no mehr schnell als ni schneller wie en alemán estándar.",
+    "No todos los adjetivos cortos con **a/o/u** reciben umlaut; aprende las formas individualmente."
+   ],
+   "formula": "KOMPARATIV: adj + -er (… als) · SUPERLATIV: am + adj + -sten",
+   "regla": "**Muchos adjetivos cortos llevan umlaut** (alt → älter → am ältesten) y los terminados en -d, -t, -s, -ß, -z añaden -e- (am ältesten, am heißesten). Irregulares: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
+   "ejemplo": {
+    "antes": "alt",
+    "despues": "älter · am **ältesten**"
+   }
   },
   "a2:wechselpraepositionen": {
    "titulo": "Wechselpräpositionen: Wo? / Wohin?",
@@ -723,140 +1474,6 @@
   },
   "a24:prep-040": {
    "alias": "cs:t26"
-  },
-  "md:verben-plusquamperfekt": {
-   "titulo": "Plusquamperfekt",
-   "errores": [
-    "**Plusquamperfekt = pasado anterior:** necesita explícita o implícitamente otro punto de referencia pasado.",
-    "**Auxiliar en Präteritum:** **hatte / war**, no **habe / bin**.",
-    "**Participio al final:** **Ich hatte schon gegessen.**"
-   ],
-   "formula": "hatte / war (Präteritum) + PARTIZIP II",
-   "regla": "**Pasado del pasado.** Mismo auxiliar que en el Perfekt (haben o sein), pero en Präteritum: hatte, hattest… / war, warst…",
-   "ejemplo": {
-    "antes": "ich habe gegessen",
-    "despues": "ich **hatte** gegessen"
-   }
-  },
-  "md:verben-futur": {
-   "titulo": "Futur I",
-   "errores": [
-    "**Infinitivo al final:** **Ich werde morgen arbeiten**, no *Ich werde arbeiten morgen* como orden neutro.",
-    "**werden no significa automáticamente querer:** **Ich werde arbeiten** = trabajaré; **Ich will arbeiten** = quiero trabajar.",
-    "**El Präsens puede expresar futuro:** **Morgen arbeite ich** es completamente correcto."
-   ],
-   "formula": "werden (Präsens) + INFINITIVO al final",
-   "regla": "**werden** se conjuga: werde · wirst · wird · werden · werdet · werden. El verbo principal va en infinitivo, al final.",
-   "ejemplo": {
-    "antes": "ich lerne",
-    "despues": "ich **werde** lernen"
-   }
-  },
-  "md:verben-imperativ": {
-   "titulo": "Imperativ",
-   "errores": [
-    "**du e ihr se omiten:** **Komm!**, no *Komm du!* salvo que se quiera contrastar o enfatizar.",
-    "**Sie permanece:** **Kommen Sie!**, no *Kommen!*, cuando se trata formalmente a alguien.",
-    "**Sie formal va en mayúscula:** **Schreiben Sie Ihre Fragen.**"
-   ],
-   "formula": "du: raíz · ihr: forma de ihr · Sie: infinitivo + Sie",
-   "regla": "**du** pierde -st (komm!), los verbos con e→i(e) cambian la raíz (nimm!, lies!) y no llevan umlaut (fahr!). **ihr** = su forma de presente. **Sie** = infinitivo + Sie.",
-   "ejemplo": {
-    "antes": "du kommst",
-    "despues": "**komm!**"
-   }
-  },
-  "md:verben-konjunktiv2": {
-   "titulo": "Konjunktiv II",
-   "errores": [
-    "no traduzcas mecánicamente cada subjuntivo español con Konjunktiv II; el sistema alemán tiene usos propios.",
-    "usa **hätte/wäre + Partizip II** para la irrealidad pasada, no normalmente **würde + Partizip II + haben/sein**.",
-    "con modales en pasado se emplean dos infinitivos: **hätte arbeiten müssen**."
-   ],
-   "formula": "würde + INFINITIVO al final",
-   "regla": "**würde**: würde · würdest · würde · würden · würdet · würden. Sein, haben y los modales tienen forma propia (wäre, hätte, könnte, müsste…).",
-   "ejemplo": {
-    "antes": "ich gehe",
-    "despues": "ich **würde** gehen"
-   }
-  },
-  "md:verben-passiv": {
-   "titulo": "Passiv (Präsens)",
-   "errores": [
-    "**Proceso:** **werden + Partizip II**.",
-    "**Estado:** **sein + Partizip II**.",
-    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
-   ],
-   "formula": "werden (Präsens) + PARTIZIP II al final",
-   "regla": "**El sujeto recibe la acción.** werden se conjuga (werde · wirst · wird · werden · werdet · werden) y el participio va al final. Para el proceso no se usa haben.",
-   "ejemplo": {
-    "antes": "Er repariert das Auto.",
-    "despues": "Das Auto **wird repariert**."
-   }
-  },
-  "md:verben-passiv-praeteritum": {
-   "titulo": "Passiv (Präteritum)",
-   "errores": [
-    "**Proceso:** **werden + Partizip II**.",
-    "**Estado:** **sein + Partizip II**.",
-    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*."
-   ],
-   "formula": "wurde (Präteritum de werden) + PARTIZIP II",
-   "regla": "**Passiv en pasado:** wurde · wurdest · wurde · wurden · wurdet · wurden + participio. Con werden es un proceso; «war gebaut» describe un estado.",
-   "ejemplo": {
-    "antes": "Man baute das Haus.",
-    "despues": "Das Haus **wurde** gebaut."
-   }
-  },
-  "md:relativpronomen": {
-   "titulo": "Relativpronomen: der, die, das…",
-   "errores": [
-    "son **Relativpronomen**, no *Reflexivpronomen*. Los primeros conectan una relativa; los segundos remiten al sujeto.",
-    "el género y el número proceden del antecedente, pero el caso se decide dentro de la relativa.",
-    "el verbo conjugado va al final: **der die Bank überfallen hat**, no *der hat die Bank überfallen*."
-   ],
-   "formula": "GÉNERO y NÚMERO del antecedente + CASO en la subordinada",
-   "regla": "**Dos preguntas:** ¿a quién se refiere (género/número)? ¿qué función tiene dentro de la subordinada (caso)? La subordinada va entre comas y el verbo al final.",
-   "ejemplo": {
-    "antes": "der Mann + ich kenne ihn",
-    "despues": "der Mann, **den** ich kenne"
-   }
-  },
-  "md:steigerung": {
-   "titulo": "Komparativ y Superlativ",
-   "errores": [
-    "En comparaciones de igualdad usa **wie**; en superioridad usa **als**.",
-    "Se dice schneller als, no mehr schnell als ni schneller wie en alemán estándar.",
-    "No todos los adjetivos cortos con **a/o/u** reciben umlaut; aprende las formas individualmente."
-   ],
-   "formula": "KOMPARATIV: adj + -er (… als) · SUPERLATIV: am + adj + -sten",
-   "regla": "**Muchos adjetivos cortos llevan umlaut** (alt → älter → am ältesten) y los terminados en -d, -t, -s, -ß, -z añaden -e- (am ältesten, am heißesten). Irregulares: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
-   "ejemplo": {
-    "antes": "alt",
-    "despues": "älter · am **ältesten**"
-   }
-  },
-  "md:tekamolo": {
-   "titulo": "TeKaMoLo: orden de los complementos",
-   "errores": [
-    "TeKaMoLo significa temporal, causal, modal y local.",
-    "Si un complemento ocupa la primera posición, el verbo sigue en segunda: Heute arbeite ich ...",
-    "TeKaMoLo es el orden neutro; el contexto permite otras posiciones."
-   ],
-   "formula": "Temporal – Kausal – Modal – Lokal",
-   "regla": "**Orden neutro** de los complementos tras el verbo: cuándo → por qué → cómo → dónde. Los que no hay se saltan. Si adelantas uno, el verbo sigue en 2.ª posición.",
-   "ejemplo": {
-    "antes": "dónde · cómo · cuándo",
-    "despues": "**heute** · **mit dem Zug** · **nach Berlin**"
-   }
-  },
-  "md:pronunciacion": {
-   "titulo": "Pronunciación: reglas básicas",
-   "errores": [
-    "eu y äu representan el mismo diptongo: /ɔʏ̯/.",
-    "La j alemana no se pronuncia como la jota española, sino como /j/, similar a la «y» de «yo».",
-    "La h inicial es aspirada; no equivale exactamente a la jota española."
-   ]
   }
  },
  "biblioteca": [

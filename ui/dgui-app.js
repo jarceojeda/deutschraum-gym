@@ -400,14 +400,12 @@
     /* ---------- consulta de reglas (separada de los ejercicios) ---------- */
     function consulta(group) {
       S.screen = 'consulta'; var all = ctx.reglas || {};
-      var num = function (k) { return k.replace(/^\D+/, '').split('-').map(Number); };
+      var natural = function (a, b) { return a.localeCompare(b, 'en', { numeric: true }); };
       var inGroup = function (k) { return group === 'all' || (group === 'md' ? /^(md|b1|a24):/.test(k) : k.indexOf(group + ':') === 0); };
-      var keys = Object.keys(all).filter(function (k) { return !all[k].alias && inGroup(k); }).sort(function (a, b) {
-        if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
-      });
+      var keys = Object.keys(all).filter(function (k) { return !all[k].alias && inGroup(k); }).sort(natural);
       var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };
       var bib = ctx.biblioteca || [];
-      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['md', 'Clases'], ['cl', 'Biblioteca']], group, function (v) { consulta(v); }, 'group');
+      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['sa2', 'A2 · hoja'], ['sb1', 'B1 · hoja'], ['md', 'Clases'], ['cl', 'Biblioteca']], group, function (v) { consulta(v); }, 'group');
       if (group === 'cl') {      // biblioteca: una ficha por clase (objetivos + errores típicos), sólo lectura
         var blist = h('div.emap', bib.map(function (c) {
           return h('button.erow', { type: 'button', 'data-clase': String(c.n), onclick: function () {

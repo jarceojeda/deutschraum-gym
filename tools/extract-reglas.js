@@ -46,7 +46,7 @@ function fromTopic(a) {
   return (r.regla || r.formula || r.ejemplo) ? r : null;
 }
 
-const reglas = {}, cov = { dm: 0, cs: 0 };
+const reglas = {}, cov = { dm: 0, cs: 0, sa2: 0, sb1: 0 };
 function leer(file, prefix, idRe, mapId) {
   const d = new JSDOM(fs.readFileSync(path.join(root, 'docs', 'referencia', file), 'utf8')).window.document;
   d.querySelectorAll('article.topic').forEach(a => {
@@ -57,8 +57,11 @@ function leer(file, prefix, idRe, mapId) {
 }
 leer('aleman_declination_master_mobile_v1_1.html', 'dm', /^s\d+-\d+$/, id => 'dm:' + id);
 leer('telc_a1_cheatsheet_v4_3.html', 'cs', /^t\d+$/, id => 'cs:' + id);
+// Hojas A2 y B1: sólo los temas de GRAMÁTICA (g1…g5, gp, reuse no); nunca TELC, vocabulario por escenas ni modelos de escritura. Sólo Consulta (sin ejercicios propios).
+leer('telc_a2_cheatsheet_v1_2.html', 'sa2', /^(g\d+t\d+b?|gpt\d+)$/, id => 'sa2:' + id);
+leer('telc_b1_cheatsheet_v1_1.html', 'sb1', /^(g\d-\d-\d+[a-z]?|gp-p\d+)$/, id => 'sb1:' + id);
 
-const out = { version: 1, fuentes: ['aleman_declination_master_mobile_v1_1.html', 'telc_a1_cheatsheet_v4_3.html (solo gramática)'], reglas };
+const out = { version: 1, fuentes: ['aleman_declination_master_mobile_v1_1.html', 'telc_a1_cheatsheet_v4_3.html (solo gramática)', 'telc_a2_cheatsheet_v1_2.html (solo gramática)', 'telc_b1_cheatsheet_v1_1.html (solo gramática)'], reglas };
 fs.writeFileSync(path.join(root, 'ui', 'reglas.json'), JSON.stringify(out, null, 1) + '\n');
 
 // Cobertura sobre los conceptos que usan los 3 módulos de la UI

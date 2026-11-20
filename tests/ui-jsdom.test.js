@@ -539,7 +539,7 @@ test('D · reglas.json: sólo texto copiado de las hojas y de los errores comune
   const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ', 'steigerung', 'tekamolo', 'pronunciacion'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
-    const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
+    const r = REGLAS[k]; if (!/^(sa2|sb1):/.test(k)) assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');   // sa2/sb1: temas de las hojas A2/B1, sólo para la Consulta (sin ejercicios propios)
     if (r.alias) { assert.ok(REGLAS[r.alias] && !REGLAS[r.alias].alias, k + ': el alias debe apuntar a una cápsula real'); return; }
     assert.ok(r.regla || r.formula || r.ejemplo || (r.errores && r.errores.length), k + ' vacío');
     if (r.errores) { assert.ok(r.errores.length >= 1 && r.errores.length <= 3, k); r.errores.forEach(e => assert.ok(e.length >= 25 && e.length <= 200, k + ': ' + e)); }
@@ -1173,4 +1173,16 @@ test('Mis palabras: añadir una palabra (≈10 s), entra al repaso en caliente, 
   u.click(u.q('[aria-label="Volver"]')); u.click(u.q('#palabras')); u.click(u.q('.mw-del'));
   assert.equal(u.qa('.mw-row').length, 0); assert.equal(u.eng.store.byId['mw-' + id + '-es-de'], undefined); assert.equal(JSON.parse(u.w.localStorage.getItem('dg.words')).words.length, 0);
   assert.equal(Object.keys(u.stored().errors).filter(k => k.startsWith('mw-' + id)).length, 0, 'sin restos de progreso');
+});
+
+test('Consulta · hojas A2 y B1: dos grupos nuevos con los temas de gramática de esas hojas (sin TELC), ordenados de forma natural y con su cápsula', () => {
+  const nA2 = Object.keys(REGLAS).filter(k => k.startsWith('sa2:')).length, nB1 = Object.keys(REGLAS).filter(k => k.startsWith('sb1:')).length;
+  assert.ok(nA2 >= 40 && nB1 >= 50, nA2 + '/' + nB1);
+  assert.ok(!/telc/i.test(JSON.stringify(Object.keys(REGLAS).filter(k => /^(sa2|sb1):/.test(k)).map(k => REGLAS[k].titulo))), 'sin temas TELC');
+  const u = boot(230); u.click(u.q('#consulta'));
+  u.click(u.q('[data-group="sa2"]')); const ids = u.qa('.erow').map(r => r.dataset.concept); assert.equal(ids.length, nA2); assert.ok(ids.every(k => k.startsWith('sa2:')));
+  assert.ok(ids.indexOf('sa2:g1t2') < ids.indexOf('sa2:g1t10'), 'orden natural: g1t2 antes que g1t10');
+  u.click(u.q('[data-group="sb1"]')); assert.equal(u.qa('.erow').length, nB1);
+  u.click(u.q('[data-concept="sb1:g1-1-5"]')); const cap = u.q('[role="dialog"] .capsule'); assert.ok(cap && /obwohl/.test(cap.textContent));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null);
 });
