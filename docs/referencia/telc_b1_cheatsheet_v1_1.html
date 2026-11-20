@@ -1,0 +1,2783 @@
+<!DOCTYPE html>
+
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#183A37" name="theme-color"/><title>TELC Deutsch B1 · Cheat Sheet · v1.1 Audited</title><style>
+:root{
+  --ink:#182321;--muted:#66736f;--paper:#f3f0e8;--surface:#fffdf8;--surface2:#faf8f2;--line:#dad8cf;
+  --main:#183a37;--main2:#24554f;--main-soft:#e7efec;
+  --violet:#674ea7;--violet-soft:#eee7f8;--violet-strong:#dfd2f2;
+  --green:#2e755d;--green-soft:#e9f3ee;--red:#b8533f;--red-soft:#f8eae6;
+  --amber:#a87516;--amber-soft:#fbf2dc;--blue:#33658a;--blue-soft:#e8f0f6;
+  --shadow:0 8px 26px rgba(24,35,33,.07);--r-xl:24px;--r-lg:18px;--r-md:14px;
+}
+*{box-sizing:border-box;min-width:0}html{scroll-behavior:smooth;scroll-padding-top:94px;max-width:100%;overflow-x:hidden}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;max-width:100%;overflow-x:hidden}
+button,input{font:inherit}a{color:inherit}.appbar{position:sticky;top:0;z-index:30;padding:calc(8px + env(safe-area-inset-top)) 12px 8px;background:rgba(243,240,232,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(24,35,33,.08)}
+.appbar-inner{max-width:480px;margin:auto;display:grid;grid-template-columns:44px 1fr 44px;gap:8px;align-items:center}.icon-btn{width:44px;height:44px;border:0;border-radius:14px;background:var(--surface);color:var(--main);box-shadow:0 2px 10px rgba(24,35,33,.07);display:grid;place-items:center;font-size:19px;font-weight:900;cursor:pointer}.app-title{text-align:center;min-width:0}.app-title strong{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--main)}#currentSection{display:block;font-size:12px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.progress{height:3px;background:#dedbd3;margin:7px auto 0;max-width:480px;border-radius:999px;overflow:hidden}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--main),var(--violet));transition:width .12s linear}
+.shell{max-width:480px;margin:auto;padding:14px 12px calc(100px + env(safe-area-inset-bottom))}.hero{background:linear-gradient(145deg,var(--main) 0%,#244a46 72%,#2f5a55 100%);color:#fff;border-radius:28px;padding:24px 20px 20px;margin-bottom:14px;box-shadow:var(--shadow)}.eyebrow{font-size:10.5px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;opacity:.76}.hero h1{font-size:31px;line-height:1.02;letter-spacing:-.04em;margin:8px 0 9px}.hero>p{margin:0;font-size:14.5px;opacity:.92}.hero-ladder{display:grid;grid-template-columns:1fr 18px 1fr 18px 1fr;gap:3px;align-items:center;margin-top:15px}.hero-ladder div{padding:8px 6px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.07);border-radius:12px;text-align:center}.hero-ladder div.active{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.26)}.hero-ladder b{display:block;font-size:11px;letter-spacing:.08em}.hero-ladder span{display:block;font-size:9.5px;line-height:1.2;opacity:.88}.hero-ladder i{font-style:normal;text-align:center;font-weight:900;opacity:.7}
+.mode-map,.mental-map{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:17px 15px;margin-bottom:14px}.mode-map h2,.mental-map h2{font-size:19px;margin:0 0 5px;color:var(--main);letter-spacing:-.02em}.mode-map>p,.mental-map>p{margin:0 0 12px;color:var(--muted);font-size:13px}.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.mode-card{text-decoration:none;border:1px solid var(--line);border-radius:15px;padding:11px 10px;background:var(--surface2)}.mode-card strong{display:block;font-size:12.5px;color:var(--main);margin-bottom:2px}.mode-card small{display:block;color:var(--muted);font-size:10.5px;line-height:1.25}.pillars{display:grid;gap:7px}.pillar-link{display:grid;grid-template-columns:38px 1fr 17px;align-items:center;gap:9px;border:1px solid #e3e0d7;background:var(--surface2);border-radius:15px;padding:9px;text-decoration:none}.pillar-link .n{width:38px;height:38px;border-radius:12px;background:var(--main);color:white;display:grid;place-items:center;font-weight:900;font-size:12px}.pillar-link strong{display:block;color:var(--main);font-size:13px;line-height:1.2}.pillar-link small{display:block;color:var(--muted);font-size:10.7px;margin-top:2px;line-height:1.25}.pillar-link .arrow{color:var(--muted);font-size:18px}.priority-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px}.priority-card{border:1px solid var(--line);border-radius:13px;padding:9px;background:var(--surface2)}.priority-card b{display:block;font-size:12px;margin-top:5px}.priority-card small{display:block;color:var(--muted);font-size:10px;margin-top:1px}.priority-card:last-child{grid-column:1/-1}
+.chapter{scroll-margin-top:94px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);margin:0 0 14px;overflow:hidden;box-shadow:0 4px 18px rgba(24,35,33,.035)}.chapter-head{padding:18px 15px 14px;border-bottom:1px solid var(--line)}.chapter-kicker{font-size:10px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}.chapter h2{margin:0;color:var(--main);font-size:22px;line-height:1.08;letter-spacing:-.03em}.chapter-question{margin-top:11px;background:var(--main-soft);border:1px solid #cfe0db;border-radius:13px;padding:9px 10px;font-size:12.2px;color:var(--main)}.apply-links{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-top:9px}.apply-links>span{font-size:9px;font-weight:900;letter-spacing:.07em;color:var(--blue)}.apply-links a{font-size:10.5px;text-decoration:none;background:var(--blue-soft);border:1px solid #cfdfeb;color:var(--blue);padding:4px 6px;border-radius:8px;font-weight:750}.chapter-body{padding:3px 15px 15px}.chapter-intro{padding:13px 0 4px;border-bottom:1px solid var(--line)}.topic{padding:15px 0 3px;border-bottom:1px solid #e7e4db;scroll-margin-top:94px}.topic:last-of-type{border-bottom:0}.topic>h3{margin:0 0 8px;font-size:17.5px;line-height:1.18;color:var(--ink);letter-spacing:-.015em}.topic p{margin:7px 0;font-size:13.2px}.topic li{font-size:12.8px}.topic strong{font-weight:850}.topic code{font-family:"SFMono-Regular",Consolas,monospace;font-size:.92em;white-space:normal;overflow-wrap:anywhere}.micro-head{font-size:12px;margin:12px 0 5px;color:var(--main);letter-spacing:.01em}.micro-head:not(.bridge-head):not(.micro-formula-head):not(.can-head):not(.grammar-head){text-transform:none}.priority-row{display:flex;flex-wrap:wrap;gap:5px;margin:6px 0 9px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:4px 7px;font-size:9px;font-weight:950;letter-spacing:.065em;text-transform:uppercase;border:1px solid transparent}.badge-core{background:var(--main-soft);color:var(--main);border-color:#cfe0db}.badge-regular{background:var(--blue-soft);color:var(--blue);border-color:#cfdfeb}.badge-expand{background:var(--violet-soft);color:var(--violet);border-color:#d8cbed}.badge-reuse{background:var(--green-soft);color:var(--green);border-color:#cce2d8}.badge-recognition,.badge-transfer{background:#f1efe8;color:#655f54;border-color:#ddd8ce}.badge-b1{background:var(--red-soft);color:var(--red);border-color:#efccc3}.badge-b2{background:var(--red-soft);color:var(--red);border-color:#efccc3}.badge-telc{background:var(--blue-soft);color:var(--blue);border-color:#cfdfeb}
+.example-box,.scene{margin:8px 0;padding:10px 11px;border:1px solid #cce2d8;border-radius:13px;background:var(--green-soft);font-size:12.8px}.example-box p,.scene p{margin:3px 0}.formula-panel{background:var(--violet-soft);border:1px solid #d4c5eb;border-radius:14px;padding:10px 11px;margin:8px 0;color:var(--ink)}.formula-panel .micro-formula-head{color:var(--violet);text-transform:uppercase;font-size:9px;font-weight:950;letter-spacing:.09em;margin:0 0 6px}.formula-panel p{font-weight:750}.formula-panel code{color:#513782}.mini-formula{background:var(--violet-soft);border:1px solid #d8cbed;border-radius:12px;padding:8px 9px;font-weight:850;color:#4b356f}.bridge-card{border:1px solid var(--line);border-radius:13px;padding:9px 10px;margin:7px 0;background:var(--surface2)}.bridge-card.old{background:#f5f3ed}.bridge-card.new{background:var(--main-soft);border-color:#cfe0db}.bridge-card .bridge-head{margin:0 0 5px;font-size:9px;text-transform:uppercase;letter-spacing:.075em;color:var(--muted)}.bridge-card.new .bridge-head{color:var(--main)}.bridge-card+ .bridge-card.new{position:relative;margin-top:18px}.bridge-card+ .bridge-card.new:before{content:'↓';position:absolute;left:50%;top:-18px;transform:translateX(-50%);color:var(--violet);font-weight:950}.transform-panel{border:1px solid #d8cbed;background:#f8f5fc;border-radius:13px;padding:9px 10px;margin:8px 0}.transform-panel .transform-head{margin:0 0 6px;color:var(--violet);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.transform-panel .mini-formula{margin:6px 0}.memory-strip{margin:10px 0 5px!important;padding:9px 10px;border-left:4px solid var(--amber);background:var(--amber-soft);border-radius:0 11px 11px 0;font-size:12.2px!important}.warning-box{background:var(--red-soft);border:1px solid #efccc3;border-radius:12px;padding:9px 10px}.can-do{background:var(--amber-soft);border:1px solid #ead9ab;border-radius:13px;padding:9px 10px;margin:9px 0}.can-do .can-head{margin:0 0 5px;color:#7b5817;text-transform:uppercase;font-size:9px;letter-spacing:.08em}.can-do ul{margin:4px 0 2px;padding-left:19px}.grammar-hook{border-left:4px solid var(--violet);background:var(--violet-soft);border-radius:0 11px 11px 0;padding:8px 9px;margin:8px 0}.grammar-hook .grammar-head{margin:0 0 4px;color:var(--violet);font-size:9px;text-transform:uppercase;letter-spacing:.08em}.grammar-hook a{color:var(--violet);font-weight:850;text-decoration:none}.clean-list{padding-left:19px;margin:7px 0}.clean-list li{margin:3px 0}.table-wrap{width:100%;overflow:hidden;border:1px solid var(--line);border-radius:13px;margin:8px 0}.table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:11.2px}.table th,.table td{padding:6px 5px;border-bottom:1px solid var(--line);overflow-wrap:anywhere;vertical-align:top}.table th{background:#f1efe8;color:#3f4c48;text-align:left;font-size:10.5px}.table tr:last-child td{border-bottom:0}.error-example{background:var(--red-soft)!important;border-color:#efccc3!important;border-radius:12px;padding:9px 10px}.retrieval-frag .task-number{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:var(--violet);color:white;font-size:10px;margin:10px 0 5px}.back-inline{display:flex;justify-content:flex-end;padding:12px 0 0}.back-inline button{border:0;background:transparent;color:var(--main);font-weight:850;font-size:12px;cursor:pointer;padding:5px 0}.chapter#final{background:var(--main);color:#fff;border-color:var(--main)}.chapter#final .chapter-head{border-bottom-color:rgba(255,255,255,.16)}.chapter#final h2,.chapter#final .topic>h3{color:#fff}.chapter#final .chapter-kicker{color:rgba(255,255,255,.7)}.chapter#final .chapter-question{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.15);color:#fff}.chapter#final .chapter-intro,.chapter#final .topic{border-color:rgba(255,255,255,.14)}.chapter#final p,.chapter#final li{color:#fff}.chapter#final .back-inline button{color:#fff}.credit{margin:12px 0 2px;text-align:center;color:var(--muted);font-size:12px}
+.fab{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:25;min-height:50px;border:0;border-radius:18px;padding:0 15px;background:var(--main);color:#fff;font-weight:850;box-shadow:0 11px 28px rgba(24,58,55,.3);display:flex;align-items:center;gap:7px;cursor:pointer}.fab span{font-size:13px}.theme-fab{position:fixed;left:14px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:25;width:50px;height:50px;border:1px solid var(--line);border-radius:18px;background:var(--surface);color:var(--main);box-shadow:0 11px 28px rgba(24,58,55,.18);display:grid;place-items:center;cursor:pointer;font-size:20px;font-weight:900}
+dialog{border:0;padding:0;background:transparent;width:min(100% - 16px,480px);max-height:calc(100dvh - 20px)}dialog::backdrop{background:rgba(12,22,20,.48);backdrop-filter:blur(3px)}.sheet{background:var(--surface);border-radius:26px 26px 18px 18px;max-height:calc(100dvh - 20px);display:flex;flex-direction:column;box-shadow:0 22px 60px rgba(0,0,0,.24)}.sheet-head{padding:15px 15px 10px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 44px;gap:8px;align-items:center}.sheet-head h2{margin:0;color:var(--main);font-size:21px}.search{margin:10px 15px 8px;width:calc(100% - 30px);height:44px;border:1px solid var(--line);border-radius:13px;padding:0 12px;background:#f7f5ef;color:var(--ink);outline:none}.search:focus{border-color:var(--main);box-shadow:0 0 0 3px rgba(24,58,55,.11)}.index-list{overflow:auto;padding:4px 9px 18px}.index-group{padding:8px 7px 4px;color:var(--muted);font-size:9.5px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;position:sticky;top:0;background:var(--surface);z-index:1}.index-list a{display:grid;grid-template-columns:38px 1fr;gap:8px;align-items:center;text-decoration:none;min-height:42px;padding:4px 7px;border-radius:11px}.index-list a:active{background:var(--main-soft)}.index-list a b{display:grid;place-items:center;width:35px;min-height:29px;padding:3px;background:#efede6;border-radius:9px;color:var(--main);font-size:9px}.index-list a span{font-size:12px;font-weight:730;line-height:1.2}.index-list a[hidden],.index-group[hidden]{display:none}
+html[data-theme="dark"]{color-scheme:dark;--ink:#eef4f1;--muted:#a7b5b0;--paper:#101513;--surface:#171e1c;--surface2:#1c2421;--line:#34403c;--main:#74c1b2;--main2:#5ba697;--main-soft:#1c332e;--violet:#c4a6f4;--violet-soft:#2d2638;--violet-strong:#443657;--green:#79c9a7;--green-soft:#1b3028;--red:#f09b86;--red-soft:#392421;--amber:#e4b75a;--amber-soft:#382f1d;--blue:#8dbbdd;--blue-soft:#1c2d39;--shadow:0 10px 30px rgba(0,0,0,.30)}html[data-theme="dark"] .appbar{background:rgba(16,21,19,.94);border-bottom-color:rgba(255,255,255,.08)}html[data-theme="dark"] .hero{background:linear-gradient(145deg,#173934 0%,#214b44 72%,#28564e 100%)}html[data-theme="dark"] .progress{background:#2b3431}html[data-theme="dark"] .pillar-link,html[data-theme="dark"] .mode-card,html[data-theme="dark"] .priority-card,html[data-theme="dark"] .bridge-card.old{background:#1c2421;border-color:#35413d}html[data-theme="dark"] .table th{background:#202825;color:#cbd5d1}html[data-theme="dark"] .table-wrap,html[data-theme="dark"] .table th,html[data-theme="dark"] .table td{border-color:#35413d}html[data-theme="dark"] .search{background:#1d2522;color:var(--ink)}html[data-theme="dark"] .index-list a b{background:#222b28;color:var(--main)}html[data-theme="dark"] .index-group{background:var(--surface)}html[data-theme="dark"] .formula-panel code,html[data-theme="dark"] .mini-formula{color:#d7c5f1}html[data-theme="dark"] .chapter-question,html[data-theme="dark"] .bridge-card.new,html[data-theme="dark"] .badge-core{border-color:#35514b}html[data-theme="dark"] .badge-regular{border-color:#355064}html[data-theme="dark"] .badge-expand{border-color:#554668}html[data-theme="dark"] .badge-reuse{border-color:#355044}html[data-theme="dark"] .badge-b1,html[data-theme="dark"] .badge-b2{border-color:#684039}
+@media(max-width:380px){body{font-size:15px}.shell{padding-left:9px;padding-right:9px}.chapter-body,.chapter-head{padding-left:12px;padding-right:12px}.mode-grid{grid-template-columns:1fr 1fr}.priority-cards{grid-template-columns:1fr 1fr}.table{font-size:10.5px}.hero h1{font-size:28px}}
+@media(min-width:700px){.shell{max-width:560px}.appbar-inner,.progress{max-width:560px}dialog{width:min(100% - 24px,560px)}}
+@media print{body{display:none}}
+
+
+/* ── v1.1 deep-audit fixes ───────────────────────────────── */
+.back-inline button{min-height:44px;padding:9px 4px;}
+html[data-theme="dark"] .transform-panel{
+  background:#2d2638;
+  border-color:#554668;
+  color:var(--ink);
+}
+html[data-theme="dark"] .transform-panel .transform-head{color:var(--violet);}
+html[data-theme="dark"] .can-do .can-head{color:var(--amber);}
+html[data-theme="dark"] .fab,
+html[data-theme="dark"] .pillar-link .n{
+  background:#28564e;
+  color:#fff;
+}
+html[data-theme="dark"] .chapter#final{
+  background:#28564e;
+  border-color:#28564e;
+  color:#fff;
+}
+</style></head>
+<body><header class="appbar" id="top"><div class="appbar-inner"><button aria-controls="indexDialog" aria-expanded="false" aria-label="Abrir índice" class="icon-btn" onclick="openIndex()" type="button">☰</button><div class="app-title"><strong>TELC B1 · Cheat Sheet v1.1</strong><span id="currentSection">Inicio</span></div><button aria-label="Volver arriba" class="icon-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" type="button">↑</button></div><div class="progress"><i id="progressBar"></i></div></header>
+<main class="shell">
+<section class="hero" id="home">
+<div class="eyebrow">TELC Deutsch B1 · Mobile</div>
+<h1>B1 organiza,<br/>desarrolla y sostiene.</h1>
+<p>Ya sabes construir y conectar frases. Ahora conviertes varias ideas en un discurso sencillo, coherente y capaz de avanzar.</p>
+<div class="hero-ladder"><div><b>A1</b><span>construyo la frase</span></div><i>→</i><div><b>A2</b><span>conecto y actúo</span></div><i>→</i><div class="active"><b>B1</b><span>organizo y desarrollo</span></div></div>
+</section>
+<section class="mode-map" id="maps">
+<h2>Cuatro mapas, un mismo B1</h2>
+<p>No navegas por una lista de reglas: eliges qué necesitas hacer con el discurso.</p>
+<div class="mode-grid">
+<a class="mode-card" href="#grammar-map"><strong>GRAMMATIK</strong><small>4 decisiones + Passiv</small></a>
+<a class="mode-card" href="#vocab-map"><strong>WORTSCHATZ</strong><small>7 situaciones reales</small></a>
+<a class="mode-card" href="#wt"><strong>WERKZEUG</strong><small>movimientos para sostener discurso</small></a>
+<a class="mode-card" href="#telc"><strong>TELC</strong><small>reconocer + hablar + escribir</small></a>
+</div>
+</section>
+<section class="mental-map" id="grammar-map">
+<h2>GRAMMATIK · 4 decisiones + foco</h2>
+<p>La gramática B1 se recupera desde una intención, no desde el nombre de una regla.</p>
+<div class="pillars">
+<a class="pillar-link" href="#g1"><span class="n">1</span><span><strong>¿Qué relación tienen mis ideas?</strong><small>causa · consecuencia · concesión · condición · método</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#g2"><span class="n">2</span><span><strong>¿Cómo organizo tiempo y relato?</strong><small>bevor · nachdem · während · Plusquamperfekt</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#g3"><span class="n">3</span><span><strong>¿Es real, posible o imaginado?</strong><small>hätte · wäre · würde · alternativas</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#g4"><span class="n">4</span><span><strong>¿Cómo desarrollo sin empezar de cero?</strong><small>Relativsatz · zu · darüber · Genitiv</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#gp"><span class="n">P</span><span><strong>¿Quién o qué está en foco?</strong><small>Aktiv ↔ Passiv</small></span><span class="arrow">›</span></a>
+</div>
+</section>
+<section class="mental-map" id="vocab-map">
+<h2>WORTSCHATZ · 7 situaciones</h2>
+<p>El vocabulario se aprende como acciones y conexiones que resuelven situaciones.</p>
+<div class="pillars vocab-pillars">
+<a class="pillar-link" href="#va"><span class="n">A</span><span><strong>Menschen &amp; Zusammenleben</strong><small>relaciones · conflicto · apoyo</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#vb"><span class="n">B</span><span><strong>Wohnen, Stadt &amp; Umwelt</strong><small>vivienda · barrio · sostenibilidad</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#vc"><span class="n">C</span><span><strong>Arbeit, Lernen &amp; Zukunft</strong><small>experiencia · Bewerbung · objetivos</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#vd"><span class="n">D</span><span><strong>Konsum, Geld &amp; Medien</strong><small>comparar · reclamar · vida digital</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#ve"><span class="n">E</span><span><strong>Reisen &amp; Erfahrungen</strong><small>secuencia · problemas · recomendar</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#vf"><span class="n">F</span><span><strong>Gesundheit &amp; Lebensstil</strong><small>hábitos · cambios · decisiones</small></span><span class="arrow">›</span></a>
+<a class="pillar-link" href="#vg"><span class="n">G</span><span><strong>Gesellschaft, Kultur &amp; Meinung</strong><small>postura · argumentos · perspectivas</small></span><span class="arrow">›</span></a>
+</div>
+</section>
+<section class="mental-map priority-map" id="priority-map">
+<h2>Prioridad · no todo pesa igual</h2>
+<p>B1 real, pero con presupuesto cognitivo. La etiqueta te dice cuánto debes producir.</p>
+<div class="priority-cards">
+<div class="priority-card"><span class="badge badge-reuse">REUSE</span><b>Ya viene de A2</b><small>reactivar, no reaprender</small></div>
+<div class="priority-card"><span class="badge badge-core">CORE</span><b>Automático</b><small>alto retorno productivo</small></div>
+<div class="priority-card"><span class="badge badge-regular">REGULAR</span><b>Seguro</b><small>comprender + usar sencillo</small></div>
+<div class="priority-card"><span class="badge badge-expand">EXPANSION</span><b>Compacto</b><small>B1 real, menor retorno</small></div>
+<div class="priority-card"><span class="badge badge-b2">B2 →</span><b>Frontera</b><small>reconocer, no inflar</small></div>
+</div>
+</section>
+<section class="chapter" data-label="R" data-title="La infraestructura que ya tienes" id="reuse"><div class="chapter-head"><div class="chapter-kicker">REUSE · A2 → B1</div><h2>La infraestructura que ya tienes</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué puedo reutilizar sin volver a aprenderlo?</strong></div></div><div class="chapter-body"><article class="topic" data-title="R1 · Orden verbal" id="reuse-r1"><h3>R1 · Orden verbal</h3><h4 class="micro-head">Tres familias</h4>
+<p><strong>ORDEN NORMAL</strong><br/>
+und · aber · oder · sondern · denn</p>
+<blockquote class="example-box">
+<p>Ich möchte kommen, <strong>aber ich muss arbeiten</strong>.</p>
+</blockquote>
+<p class="mini-formula"><strong>POSICIÓN 1 → VERBO 2</strong><br/>
+dann · deshalb · trotzdem · danach · deswegen</p>
+<blockquote class="example-box">
+<p>Ich bin müde. <strong>Deshalb gehe ich</strong> früh ins Bett.</p>
+</blockquote>
+<p class="mini-formula"><strong>NEBENSATZ → VERBO FINAL</strong><br/>
+weil · dass · wenn · als · ob · damit</p>
+<blockquote class="example-box">
+<p>Ich bleibe zu Hause, <strong>weil ich krank bin</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Nebensatz primero</h4>
+<blockquote class="example-box">
+<p><strong>Wenn ich Zeit habe, komme ich</strong> vorbei.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> Toda la Nebensatz ocupa la posición 1. Después de la coma viene el verbo de la Hauptsatz.</p>
+<hr/></article><article class="topic" data-title="R2 · Satzklammer" id="reuse-r2"><h3>R2 · Satzklammer</h3><h4 class="micro-head">Modal</h4>
+<blockquote class="example-box">
+<p>Ich <strong>muss</strong> heute länger <strong>arbeiten</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Perfekt</h4>
+<blockquote class="example-box">
+<p>Ich <strong>habe</strong> gestern lange <strong>gearbeitet</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Trennbares Verb</h4>
+<blockquote class="example-box">
+<p>Ich <strong>stehe</strong> jeden Tag früh <strong>auf</strong>.</p>
+</blockquote>
+<h4 class="micro-head">En Nebensatz</h4>
+<blockquote class="example-box">
+<p>..., weil ich heute länger <strong>arbeiten muss</strong>.<br/>
+..., weil ich gestern lange <strong>gearbeitet habe</strong>.<br/>
+..., weil ich jeden Tag früh <strong>aufstehe</strong>.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> En la Nebensatz, el paquete verbal se reúne al final.</p>
+<hr/></article><article class="topic" data-title="R3 · Casos y triggers" id="reuse-r3"><h3>R3 · Casos y triggers</h3><p>No empieces por la terminación. Busca el trigger.</p>
+<ul class="clean-list">
+<li><strong>mit + Dat</strong></li>
+<li><strong>für + Akk</strong></li>
+<li><strong>helfen + Dat</strong></li>
+<li><strong>jemanden fragen + Akk</strong></li>
+<li><strong>jemandem etwas geben + Dat + Akk</strong></li>
+<li><strong>sich für + Akk interessieren</strong></li>
+<li><strong>zufrieden mit + Dat</strong></li>
+</ul>
+<h4 class="micro-head">Wechselpräpositionen</h4>
+<p class="mini-formula"><strong>WO? → DATIV</strong></p>
+<blockquote class="example-box">
+<p>Das Buch liegt <strong>auf dem Tisch</strong>.</p>
+</blockquote>
+<p class="mini-formula"><strong>WOHIN? → AKKUSATIV</strong></p>
+<blockquote class="example-box">
+<p>Ich lege das Buch <strong>auf den Tisch</strong>.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="R4 · Tiempo básico" id="reuse-r4"><h3>R4 · Tiempo básico</h3><h4 class="micro-head">Perfekt</h4>
+<blockquote class="example-box">
+<p>Ich habe gestern einen Freund besucht.</p>
+</blockquote>
+<h4 class="micro-head">Präteritum frecuente</h4>
+<blockquote class="example-box">
+<p>Ich <strong>war</strong> müde.<br/>
+Ich <strong>hatte</strong> keine Zeit.<br/>
+Ich <strong>musste</strong> arbeiten.<br/>
+Ich <strong>konnte</strong> nicht kommen.</p>
+</blockquote>
+<h4 class="micro-head">als / wenn</h4>
+<p class="mini-formula"><strong>una situación única en el pasado → als</strong></p>
+<blockquote class="example-box">
+<p>Als ich klein war, wohnte ich in Chile.</p>
+</blockquote>
+<p class="mini-formula"><strong>repetición / presente / futuro / condición → wenn</strong></p>
+<blockquote class="example-box">
+<p>Wenn ich Zeit habe, gehe ich spazieren.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="R5 · Describir y evitar repetir" id="reuse-r5"><h3>R5 · Describir y evitar repetir</h3><h4 class="micro-head">Adjetivo</h4>
+<blockquote class="example-box">
+<p>ein <strong>interessantes</strong> Buch<br/>
+mit einem <strong>netten</strong> Kollegen</p>
+</blockquote>
+<h4 class="micro-head">Comparar</h4>
+<blockquote class="example-box">
+<p>Der Zug ist <strong>schneller als</strong> der Bus.<br/>
+Das Fahrrad ist <strong>am günstigsten</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Relativsatz Nom/Akk</h4>
+<blockquote class="example-box">
+<p>Das ist der Mann, <strong>der hier arbeitet</strong>.<br/>
+Das ist der Mann, <strong>den ich gestern getroffen habe</strong>.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="R6 · Intención comunicativa A2" id="reuse-r6"><h3>R6 · Intención comunicativa A2</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div><blockquote class="example-box">
+<p>Du <strong>solltest</strong> mehr schlafen.<br/>
+Wir <strong>könnten</strong> morgen fahren.<br/>
+<strong>Könnten Sie</strong> mir helfen?<br/>
+Ich <strong>hätte gern</strong> einen Kaffee.<br/>
+Ich <strong>würde gern</strong> einen Termin vereinbaren.</p>
+</blockquote>
+<p>B1 no elimina estas formas. Las integra en conversaciones y textos más largos.</p><hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="1" data-title="1 · ¿QUÉ RELACIÓN QUIERO CONSTRUIR ENTRE MIS IDEAS?" id="g1"><div class="chapter-head"><div class="chapter-kicker">GRAMMATIK · Decisión 1</div><h2>1 · ¿QUÉ RELACIÓN QUIERO CONSTRUIR ENTRE MIS IDEAS?</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué relación tienen mis ideas y qué arquitectura exige?</strong></div><div class="apply-links"><span>WORTSCHATZ ↘</span><a href="#va">Beziehungen</a><a href="#vc">Arbeit</a><a href="#vd">Konsum</a><a href="#vg">Meinung</a></div></div><div class="chapter-body"><article class="topic" data-title="1.1 · El mapa maestro de relaciones" id="g1-1-1"><h3>1.1 · El mapa maestro de relaciones</h3><p>No memorices cada conector como una regla aislada.</p>
+<div class="table-wrap"><table class="table">
+<thead>
+<tr class="header">
+<th>Quiero expresar...</th>
+<th>Herramientas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>razón</td>
+<td>weil · denn · da</td>
+</tr>
+<tr class="even">
+<td>consecuencia</td>
+<td>deshalb · deswegen · darum · daher · sodass / so ... dass</td>
+</tr>
+<tr class="odd">
+<td>contraste</td>
+<td>aber · dagegen · während (adversativo)</td>
+</tr>
+<tr class="even">
+<td>concesión</td>
+<td>trotzdem ↔︎ obwohl · zwar ... aber</td>
+</tr>
+<tr class="odd">
+<td>condición</td>
+<td>wenn · falls · sonst</td>
+</tr>
+<tr class="even">
+<td>finalidad</td>
+<td>damit · um ... zu</td>
+</tr>
+<tr class="odd">
+<td>método</td>
+<td>indem</td>
+</tr>
+<tr class="even">
+<td>alternativa</td>
+<td>entweder ... oder</td>
+</tr>
+<tr class="odd">
+<td>doble adición</td>
+<td>sowohl ... als auch · nicht nur ... sondern auch</td>
+</tr>
+<tr class="even">
+<td>doble negación</td>
+<td>weder ... noch</td>
+</tr>
+<tr class="odd">
+<td>relación proporcional</td>
+<td>je ... desto / umso</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>PREGUNTA MENTAL:</strong><br/>
+¿Qué relación existe entre IDEA 1 e IDEA 2?</p>
+<hr/></article><article class="topic" data-title="1.2 · Razón · weil / denn / da" id="g1-1-2"><h3>1.2 · Razón · weil / denn / da</h3><div class="priority-row"><span class="badge badge-core">CORE</span><span class="badge badge-reuse">REUSE</span><span class="badge badge-expand">EXPANSION</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich bleibe zu Hause, <strong>weil ich krank bin</strong>.<br/>
+Ich bleibe zu Hause, <strong>denn ich bin krank</strong>.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p><strong>Da ich morgen früh arbeiten muss, gehe ich heute nicht mit.</strong></p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>RESULTADO ← RAZÓN</strong></p>
+<ul class="clean-list">
+<li><code>weil / da</code> → verbo final</li>
+<li><code>denn</code> → orden normal</li>
+</ul>
+</div><h4 class="micro-head">¿Cuál uso?</h4>
+<p><strong>weil</strong> = estándar, muy frecuente, seguro.<br/>
+<strong>denn</strong> = razón con estructura de Hauptsatz.<br/>
+<strong>da</strong> = útil cuando la razón funciona como contexto conocido o introducción.</p>
+<blockquote class="example-box">
+<p><strong>Da der Zug heute ausfällt, müssen wir eine andere Verbindung nehmen.</strong></p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> Para producir B1 seguro, <code>weil</code> sigue siendo tu opción principal. <code>da</code> amplía tu repertorio, no reemplaza <code>weil</code>.</p>
+<hr/></article><article class="topic" data-title="1.3 · Consecuencia · deshalb / deswegen / darum / daher" id="g1-1-3"><h3>1.3 · Consecuencia · deshalb / deswegen / darum / daher</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Der Zug hat Verspätung. <strong>Deshalb komme ich später.</strong><br/>
+Ich habe meinen Schlüssel verloren. <strong>Deswegen kann ich nicht in die Wohnung.</strong><br/>
+Heute gab es weniger Verkehr. <strong>Darum waren wir schneller da.</strong><br/>
+Die Nachfrage ist gestiegen. <strong>Daher braucht die Firma mehr Personal.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>CAUSA → CONSECUENCIA</strong></p>
+<p class="mini-formula"><strong>CONECTOR EN POSICIÓN 1 → VERBO INMEDIATAMENTE DESPUÉS</strong></p>
+<blockquote class="example-box">
+<p>Deshalb <strong>muss ich</strong> ...<br/>
+Deswegen <strong>kann sie</strong> ...<br/>
+Darum <strong>nehme ich</strong> ...<br/>
+Daher <strong>ist es</strong> ...</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="1.3b · Consecuencia como Nebensatz · sodass / so ... dass" id="g1-1-3b"><h3>1.3b · Consecuencia como Nebensatz · sodass / so ... dass</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p>Die Wohnung ist sehr teuer. Deshalb können wir sie nicht nehmen.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box">
+<p>Die Wohnung ist sehr teuer, <strong>sodass wir sie nicht nehmen können</strong>.</p>
+</blockquote>
+<p>También puedes intensificar una propiedad:</p>
+<blockquote class="example-box">
+<p>Die Wohnung ist <strong>so teuer, dass wir sie nicht nehmen können</strong>.</p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>HECHO / INTENSIDAD → RESULTADO</strong></p>
+<ul class="clean-list">
+<li><code>sodass</code> → introduce directamente la consecuencia.</li>
+<li><code>so ... dass</code> → primero marca el grado y luego su consecuencia.</li>
+<li>ambos → verbo final en la Nebensatz.</li>
+</ul>
+</div><div class="transform-panel"><h4 class="micro-head transform-head">Transformación</h4>
+<blockquote class="example-box">
+<p>Es schneit stark. Deshalb fahren die Züge langsamer.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Es schneit stark, <strong>sodass die Züge langsamer fahren</strong>.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> <code>deshalb/deswegen/darum/daher</code> abren una Hauptsatz; <code>sodass/so ... dass</code> construyen una Nebensatz.</p>
+<hr/></div></article><article class="topic" data-title="1.4 · Contraste simple · aber / dagegen" id="g1-1-4"><h3>1.4 · Contraste simple · aber / dagegen</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Ich arbeite gern im Büro, <strong>aber mein Kollege arbeitet lieber zu Hause</strong>.</p>
+</blockquote>
+<p><code>dagegen</code> sirve para colocar una opción frente a otra:</p>
+<blockquote class="example-box">
+<p>Meine Schwester fährt gern mit dem Auto. <strong>Ich dagegen nehme lieber den Zug.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>OPCIÓN / HECHO A ↔︎ OPCIÓN / HECHO B</strong></p>
+<hr/></div></article><article class="topic" data-title="1.4b · während · contraste entre dos realidades" id="g1-1-4b"><h3>1.4b · während · contraste entre dos realidades</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<p>Ya conoces <code>während</code> con sentido temporal:</p>
+<blockquote class="example-box">
+<p>Während ich koche, höre ich Musik.</p>
+</blockquote><p>En B1 también puede enfrentar dos realidades:</p>
+<blockquote class="example-box">
+<p><strong>Während ich gern im Büro arbeite, arbeitet mein Kollege lieber zu Hause.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>A ES ASÍ ↔︎ B ES DIFERENTE</strong></p>
+<p class="memory-strip"><strong>MEMORY:</strong> El contexto decide si <code>während</code> significa “mientras” o “mientras que”.</p>
+<hr/></div></article><article class="topic" data-title="1.5 · Concesión · trotzdem ↔ obwohl" id="g1-1-5"><h3>1.5 · Concesión · trotzdem ↔ obwohl</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Es regnet. <strong>Trotzdem gehe ich spazieren.</strong></p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Ich gehe spazieren, <strong>obwohl es regnet</strong>.</p>
+</blockquote>
+</div><div class="transform-panel"><h4 class="micro-head transform-head">Transformación</h4>
+<p><strong>HECHO CONTRARIO A LO ESPERADO</strong></p>
+<p>ANTES:</p>
+<blockquote class="example-box">
+<p>Es regnet. Trotzdem gehe ich spazieren.</p>
+</blockquote>
+<p>CAMBIO:</p>
+<blockquote class="example-box">
+<p class="mini-formula"><code>trotzdem + V2</code> → <code>obwohl + Vfinal</code></p>
+</blockquote>
+<p>DESPUÉS:</p>
+<blockquote class="example-box">
+<p>Ich gehe spazieren, obwohl es regnet.</p>
+</blockquote>
+</div><h4 class="micro-head">Otra posición</h4>
+<blockquote class="example-box">
+<p><strong>Obwohl es regnet, gehe ich spazieren.</strong></p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> <code>obwohl</code> no cambia la relación. Cambia la arquitectura.</p>
+<hr/></article><article class="topic" data-title="1.6 · Concesión equilibrada · zwar ... aber" id="g1-1-6"><h3>1.6 · Concesión equilibrada · zwar ... aber</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Die Wohnung ist <strong>zwar klein, aber sehr hell</strong>.<br/>
+Der Kurs ist <strong>zwar teuer, aber er ist wirklich gut</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>SÍ, X ES VERDAD → PERO Y TAMBIÉN IMPORTA</strong></p>
+<p>Es ideal para B1 porque permite reconocer un punto antes de añadir el propio.</p><blockquote class="example-box">
+<p>Online-Kurse sind zwar flexibel, aber mir fehlt der persönliche Kontakt.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="1.7 · Condición real · wenn / falls" id="g1-1-7"><h3>1.7 · Condición real · wenn / falls</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p><strong>Wenn ich Zeit habe, komme ich mit.</strong></p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<p><code>falls</code> = “en caso de que / si ocurre”.</p>
+<blockquote class="example-box">
+<p><strong>Falls du später kommst, ruf mich bitte an.</strong></p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>SI OCURRE X → ENTONCES Y</strong></p>
+<p><code>wenn</code> es más general.<br/>
+<code>falls</code> enfatiza que X es una posibilidad.</p>
+<hr/></div></article><article class="topic" data-title="1.8 · Consecuencia si NO ocurre · sonst / andernfalls" id="g1-1-8">
+<h3>1.8 · Consecuencia si NO ocurre · sonst / andernfalls</h3>
+<div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box"><p>
+Du musst dich beeilen. <strong>Sonst verpasst du den Zug.</strong><br/>
+Du musst dich rechtzeitig anmelden. <strong>Andernfalls kannst du nicht teilnehmen.</strong>
+</p></blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>HAZ X → SI NO → CONSECUENCIA</strong></p></div>
+<p><strong>sonst</strong> es la opción cotidiana y muy frecuente. <strong>andernfalls</strong> expresa la misma lógica con un tono más formal/escrito.</p>
+</article><article class="topic" data-title="1.9 · Finalidad · damit ↔ um ... zu" id="g1-1-9"><h3>1.9 · Finalidad · damit ↔ um ... zu</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<h4 class="micro-head">Mismo sujeto</h4>
+<blockquote class="example-box">
+<p>Ich lerne jeden Tag, <strong>um die Prüfung zu bestehen</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Sujetos diferentes o cuando quieres expresarlo explícitamente</h4>
+<blockquote class="example-box">
+<p>Ich spreche langsam, <strong>damit du mich besser verstehst</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>ACCIÓN → ¿PARA QUÉ? → OBJETIVO</strong></p>
+<p class="memory-strip"><strong>MEMORY:</strong> Si ya dominas esto desde A2, B1 lo reutiliza dentro de textos más largos.</p><hr/></div></article><article class="topic" data-title="1.10 · Método · indem" id="g1-1-10"><h3>1.10 · Método · indem</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Man kann Geld sparen, <strong>indem man öfter zu Hause kocht</strong>.<br/>
+Ich verbessere mein Deutsch, <strong>indem ich jeden Tag ein bisschen lese</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>RESULTADO → ¿CÓMO? → MÉTODO</strong></p>
+<p class="warning-box">No confundir con <code>damit</code>.</p>
+<blockquote class="example-box">
+<p>Ich lerne jeden Tag, <strong>damit ich die Prüfung bestehe</strong>.<br/>
+Ich lerne neue Wörter, <strong>indem ich sie in Sätzen benutze</strong>.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="1.11 · Alternativas · entweder ... oder" id="g1-1-11"><h3>1.11 · Alternativas · entweder ... oder</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Wir können <strong>entweder mit dem Zug fahren oder ein Auto mieten</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p><strong>OPCIÓN A O OPCIÓN B</strong></p>
+<hr/></div></article><article class="topic" data-title="1.12 · Dos aspectos positivos · sowohl ... als auch" id="g1-1-12"><h3>1.12 · Dos aspectos positivos · sowohl ... als auch</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Die Wohnung ist <strong>sowohl günstig als auch zentral</strong>.<br/>
+Ich spreche <strong>sowohl Spanisch als auch Englisch</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p><strong>A Y TAMBIÉN B</strong></p>
+<hr/></div></article><article class="topic" data-title="1.13 · Añadir con énfasis · nicht nur ... sondern auch" id="g1-1-13"><h3>1.13 · Añadir con énfasis · nicht nur ... sondern auch</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Der Kurs ist <strong>nicht nur interessant, sondern auch sehr praktisch</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>NO SOLO A → TAMBIÉN B</strong></p>
+<hr/></div></article><article class="topic" data-title="1.14 · Negar dos opciones · weder ... noch" id="g1-1-14"><h3>1.14 · Negar dos opciones · weder ... noch</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Ich habe <strong>weder Zeit noch Geld</strong>.<br/>
+Er spricht <strong>weder Deutsch noch Englisch</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p><strong>NI A NI B</strong></p>
+<hr/></div></article><article class="topic" data-title="1.15 · Relación proporcional · je ... desto / umso" id="g1-1-15"><h3>1.15 · Relación proporcional · je ... desto / umso</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p><strong>Je mehr ich übe, desto sicherer spreche ich.</strong><br/>
+<strong>Je früher wir losfahren, umso besser.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>CUANTO MÁS X → TANTO MÁS Y</strong></p>
+<p>Atajo técnico:</p>
+<p><code>je + Komparativ + Nebensatz, desto/umso + Komparativ + V2</code></p>
+<p>No necesitas producir estructuras sofisticadas. Memoriza 2–3 patrones frecuentes.</p>
+<hr/></div></article><article class="topic" data-title="1.16 · BAU ES UM · RELACIONES" id="g1-1-16"><h3>1.16 · BAU ES UM · RELACIONES</h3><h4 class="micro-head task-number">1</h4>
+<blockquote class="example-box">
+<p>Es regnet. Trotzdem gehe ich zur Arbeit.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Ich gehe zur Arbeit, <strong>obwohl es regnet</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">2</h4>
+<blockquote class="example-box">
+<p>Ich möchte die Prüfung bestehen. Ich lerne jeden Tag.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Ich lerne jeden Tag, <strong>um die Prüfung zu bestehen</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">3</h4>
+<blockquote class="example-box">
+<p>Man kann fitter werden. Man macht regelmäßig Sport.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Man kann fitter werden, <strong>indem man regelmäßig Sport macht</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">4</h4>
+<blockquote class="example-box">
+<p>Die Wohnung ist klein. Sie ist sehr gemütlich.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Die Wohnung ist <strong>zwar klein, aber sehr gemütlich</strong>.</p>
+</blockquote>
+<div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>reconocer la relación antes de elegir el conector;</li>
+<li>transformar <code>trotzdem</code> ↔︎ <code>obwohl</code>;</li>
+<li>diferenciar razón, consecuencia, finalidad y método;</li>
+<li>usar una condición real con <code>wenn/falls</code>;</li>
+<li>construir una concesión simple con <code>zwar ... aber</code>;</li>
+<li>elegir una Doppelkonjunktion adecuada.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="2" data-title="2 · ¿CÓMO ORGANIZO EL TIEMPO Y CONSTRUYO UN RELATO?" id="g2"><div class="chapter-head"><div class="chapter-kicker">GRAMMATIK · Decisión 2</div><h2>2 · ¿CÓMO ORGANIZO EL TIEMPO Y CONSTRUYO UN RELATO?</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué ocurrió antes, después o al mismo tiempo?</strong></div><div class="apply-links"><span>WORTSCHATZ ↘</span><a href="#va">Erfahrungen</a><a href="#ve">Reisen</a><a href="#vf">Gesundheit</a></div></div><div class="chapter-body"><article class="topic" data-title="2.1 · La línea temporal B1" id="g2-2-1"><h3>2.1 · La línea temporal B1</h3><p>En B1 ya no basta:</p>
+<blockquote class="example-box">
+<p class="mini-formula">gestern → dann → danach</p>
+</blockquote>
+<p>Necesitas mostrar relaciones entre acontecimientos.</p>
+<div class="table-wrap"><table class="table">
+<thead>
+<tr class="header">
+<th>Relación</th>
+<th>Herramienta</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>antes de que</td>
+<td>bevor</td>
+</tr>
+<tr class="even">
+<td>hasta que</td>
+<td>bis</td>
+</tr>
+<tr class="odd">
+<td>después de que</td>
+<td>nachdem</td>
+</tr>
+<tr class="even">
+<td>mientras</td>
+<td>während</td>
+</tr>
+<tr class="odd">
+<td>desde que</td>
+<td>seit / seitdem</td>
+</tr>
+<tr class="even">
+<td>acontecimiento anterior a otro pasado</td>
+<td>Plusquamperfekt</td>
+</tr>
+</tbody>
+</table></div>
+<hr/></article><article class="topic" data-title="2.2 · Narrar · Perfekt y Präteritum" id="g2-2-2"><h3>2.2 · Narrar · Perfekt y Präteritum</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span><span class="badge badge-regular">REGULAR</span></div>
+<p>En conversación cotidiana:</p>
+<blockquote class="example-box">
+<p>Gestern <strong>habe ich einen Freund getroffen</strong>.</p>
+</blockquote>
+<p>Para <code>sein</code>, <code>haben</code>, modales y algunos verbos muy frecuentes, el Präteritum es normal:</p>
+<blockquote class="example-box">
+<p>Ich <strong>war</strong> müde.<br/>
+Ich <strong>hatte</strong> keine Zeit.<br/>
+Ich <strong>musste</strong> arbeiten.<br/>
+Ich <strong>konnte</strong> nicht kommen.</p>
+</blockquote>
+<p>En lectura debes reconocer mucho más Präteritum del que necesitas producir activamente.</p>
+<p class="memory-strip"><strong>MEMORY:</strong> B1 productivo no significa convertir cada historia oral en una novela escrita en Präteritum.</p>
+<hr/></article><article class="topic" data-title="2.3 · bevor · primero X, después Y" id="g2-2-3"><h3>2.3 · bevor · primero X, después Y</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p><strong>Bevor ich zur Arbeit gehe, frühstücke ich.</strong><br/>
+Ich kontrolliere die Adresse, <strong>bevor ich die E-Mail abschicke</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>ANTES DE B → OCURRE A</strong></p>
+<hr/></div></article><article class="topic" data-title="2.3b · bis · hasta que llega un límite" id="g2-2-3b"><h3>2.3b · bis · hasta que llega un límite</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Ich warte hier, <strong>bis du zurückkommst</strong>.<br/>
+Wir bleiben im Büro, <strong>bis die Arbeit fertig ist</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>ACCIÓN / ESTADO → CONTINÚA HASTA X</strong></p>
+<p class="memory-strip"><strong>MEMORY:</strong> <code>bis</code> marca el punto final de una duración o espera.</p>
+<hr/></div></article><article class="topic" data-title="2.4 · während · dos cosas al mismo tiempo" id="g2-2-4"><h3>2.4 · während · dos cosas al mismo tiempo</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p><strong>Während ich koche, höre ich Musik.</strong><br/>
+Ich habe viele neue Leute kennengelernt, <strong>während ich in Berlin gewohnt habe</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p><strong>A OCURRE MIENTRAS B OCURRE</strong></p>
+<hr/></div></article><article class="topic" data-title="2.5 · nachdem · primero una acción, luego otra" id="g2-2-5"><h3>2.5 · nachdem · primero una acción, luego otra</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p><strong>Nachdem ich gegessen hatte, bin ich spazieren gegangen.</strong></p>
+</blockquote>
+<h4 class="micro-head">Línea temporal</h4>
+<ol type="1">
+<li>essen</li>
+<li>spazieren gehen</li>
+</ol>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>YA HABÍA OCURRIDO X → DESPUÉS OCURRIÓ Y</strong></p>
+<p><code>nachdem</code> suele combinarse naturalmente con una relación clara de anterioridad.</p>
+<hr/></div></article><article class="topic" data-title="2.6 · Plusquamperfekt · el pasado del pasado" id="g2-2-6"><h3>2.6 · Plusquamperfekt · el pasado del pasado</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p>Ich <strong>habe gegessen</strong>.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box">
+<p>Ich <strong>hatte gegessen</strong>.</p>
+</blockquote>
+</div><h4 class="micro-head">Formación</h4>
+<p><strong>hatte / war + Partizip II</strong></p>
+<blockquote class="example-box">
+<p>Ich <strong>hatte den Termin vergessen</strong>.<br/>
+Sie <strong>war schon nach Hause gegangen</strong>.</p>
+</blockquote>
+<div class="transform-panel"><h4 class="micro-head transform-head">Transformación</h4>
+<blockquote class="example-box">
+<p>Ich habe meine Fahrkarte gekauft. Danach bin ich eingestiegen.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p><strong>Nachdem ich meine Fahrkarte gekauft hatte, bin ich eingestiegen.</strong></p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> No lo uses para “sonar avanzado”. Úsalo cuando realmente necesitas mostrar qué ocurrió primero.</p>
+<hr/></div></article><article class="topic" data-title="2.7 · seit / seitdem · desde un punto anterior hasta ahora" id="g2-2-7"><h3>2.7 · seit / seitdem · desde un punto anterior hasta ahora</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p><strong>Seit ich in Deutschland lebe, fahre ich häufiger mit dem Fahrrad.</strong><br/>
+<strong>Seitdem ich in Deutschland lebe, fahre ich häufiger mit dem Fahrrad.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>DESDE QUE EMPEZÓ X → Y CONTINÚA O SIGUE SIENDO RELEVANTE</strong></p>
+<p><code>seit</code> y <code>seitdem</code> pueden introducir una Nebensatz temporal. <code>seitdem</code> enfatiza con claridad la relación “desde entonces”.</p>
+<hr/></div></article><article class="topic" data-title="2.8 · Organizar una historia" id="g2-2-8"><h3>2.8 · Organizar una historia</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<p>No memorices veinte conectores. Aprende bloques funcionales.</p>
+<h4 class="micro-head">Abrir</h4>
+<blockquote class="example-box">
+<p>Letztes Wochenende ...<br/>
+Vor ein paar Tagen ...<br/>
+Als ich noch in Chile lebte, ...</p>
+</blockquote>
+<h4 class="micro-head">Ordenar</h4>
+<blockquote class="example-box">
+<p>zuerst<br/>
+dann<br/>
+danach<br/>
+später<br/>
+kurz danach<br/>
+am Ende / schließlich</p>
+</blockquote>
+<h4 class="micro-head">Mostrar simultaneidad</h4>
+<blockquote class="example-box">
+<p>während ...</p>
+</blockquote>
+<h4 class="micro-head">Mostrar anterioridad</h4>
+<blockquote class="example-box">
+<p>bevor ...<br/>
+nachdem ...</p>
+</blockquote>
+<h4 class="micro-head">Introducir un cambio</h4>
+<blockquote class="example-box">
+<p>plötzlich<br/>
+aber dann ...</p>
+</blockquote>
+<h4 class="micro-head">Cerrar / resultado</h4>
+<blockquote class="example-box">
+<p>schließlich ...<br/>
+am Ende ...<br/>
+deshalb ...</p>
+</blockquote>
+<h4 class="micro-head">Mini-relato</h4>
+<blockquote class="example-box">
+<p>Letztes Wochenende wollte ich Freunde in Hamburg besuchen. Zuerst bin ich früh zum Bahnhof gefahren. Als ich dort angekommen bin, habe ich gesehen, dass mein Zug ausfällt. Während ich nach einer anderen Verbindung gesucht habe, hat mich ein Freund angerufen. Schließlich konnte ich einen späteren Zug nehmen. Deshalb bin ich erst am Abend angekommen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="2.9 · Futuro · presente primero, Futur I cuando aporta algo" id="g2-2-9"><h3>2.9 · Futuro · presente primero, Futur I cuando aporta algo</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<p>Muchas veces el alemán usa Präsens:</p>
+<blockquote class="example-box">
+<p>Morgen <strong>fahre ich</strong> nach Berlin.<br/>
+Nächstes Jahr <strong>mache ich</strong> eine Weiterbildung.</p>
+</blockquote>
+<p>Futur I:</p>
+<blockquote class="example-box">
+<p>Ich <strong>werde</strong> nächstes Jahr wahrscheinlich eine Weiterbildung <strong>machen</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p><strong>WERDEN + ... + INFINITIV</strong></p>
+<p>Útil para:</p>
+<ul class="clean-list">
+<li>predicción;</li>
+<li>intención con cierta distancia;</li>
+<li>futuro cuando quieres marcarlo explícitamente.</li>
+</ul>
+<p>No necesitas usar Futur I cada vez que hablas del futuro.</p>
+<hr/></div></article><article class="topic" data-title="2.10 · BAU ES UM · TIEMPO" id="g2-2-10"><h3>2.10 · BAU ES UM · TIEMPO</h3><h4 class="micro-head task-number">1</h4>
+<blockquote class="example-box">
+<p>Ich habe gegessen. Danach bin ich spazieren gegangen.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Nachdem ich gegessen hatte, bin ich spazieren gegangen.</p>
+</blockquote>
+<h4 class="micro-head task-number">2</h4>
+<blockquote class="example-box">
+<p>Ich höre Podcasts. Gleichzeitig fahre ich zur Arbeit.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Während ich zur Arbeit fahre, höre ich Podcasts.</p>
+</blockquote>
+<h4 class="micro-head task-number">3</h4>
+<blockquote class="example-box">
+<p>Ich wohne in Köln. Seit diesem Zeitpunkt fahre ich oft mit dem Fahrrad.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Seitdem ich in Köln wohne, fahre ich oft mit dem Fahrrad.</p>
+</blockquote>
+<div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>ordenar cinco acontecimientos;</li>
+<li>marcar simultaneidad;</li>
+<li>distinguir <code>bevor</code> y <code>nachdem</code>;</li>
+<li>usar Plusquamperfekt cuando una acción ocurrió antes que otra;</li>
+<li>contar una experiencia sin repetir <code>dann</code> en cada frase;</li>
+<li>cerrar una historia con consecuencia o conclusión.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="3" data-title="3 · ¿HABLO DE REALIDAD, POSIBILIDAD O UNA SITUACIÓN IMAGINADA?" id="g3"><div class="chapter-head"><div class="chapter-kicker">GRAMMATIK · Decisión 3</div><h2>3 · ¿HABLO DE REALIDAD, POSIBILIDAD O UNA SITUACIÓN IMAGINADA?</h2><div class="chapter-question">Pregunta mental: <strong>¿Describo la realidad o imagino una alternativa?</strong></div><div class="apply-links"><span>WORTSCHATZ ↘</span><a href="#vc">Zukunft</a><a href="#vf">Entscheidungen</a><a href="#vg">Meinung</a></div></div><div class="chapter-body"><article class="topic" data-title="3.1 · YA SABES · Konjunktiv II como cortesía e intención" id="g3-3-1"><h3>3.1 · YA SABES · Konjunktiv II como cortesía e intención</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<blockquote class="example-box">
+<p>Könnten Sie mir helfen?<br/>
+Du solltest mehr schlafen.<br/>
+Wir könnten morgen fahren.<br/>
+Ich würde gern einen Termin vereinbaren.</p>
+</blockquote><p>B1 descubre que las mismas herramientas sirven para algo mayor:</p>
+<p><strong>imaginar una realidad diferente.</strong></p>
+<hr/></article><article class="topic" data-title="3.2 · Condición real vs hipotética" id="g3-3-2"><h3>3.2 · Condición real vs hipotética</h3><div class="bridge-card old"><h4 class="micro-head bridge-head old">REAL</h4>
+<blockquote class="example-box">
+<p>Wenn ich Zeit habe, komme ich mit.</p>
+</blockquote>
+<p>La condición es posible y abierta.</p>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">HIPOTÉTICA</h4>
+<blockquote class="example-box">
+<p>Wenn ich mehr Zeit <strong>hätte</strong>, <strong>würde ich</strong> öfter kochen.</p>
+</blockquote>
+<p>La realidad actual es diferente.</p>
+</div><div class="transform-panel"><h4 class="micro-head transform-head">Transformación</h4>
+<p>REALIDAD:</p>
+<blockquote class="example-box">
+<p>Ich habe wenig Zeit. Ich koche selten.</p>
+</blockquote>
+<p>↓ IMAGINO OTRA REALIDAD</p>
+<blockquote class="example-box">
+<p>Wenn ich mehr Zeit hätte, würde ich öfter kochen.</p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>SI LA REALIDAD FUERA X → ENTONCES PASARÍA Y</strong></p>
+<p>Atajo:</p>
+<p><code>wenn + KII ..., würde + Infinitiv</code></p>
+<hr/></div></article><article class="topic" data-title="3.3 · hätte / wäre" id="g3-3-3"><h3>3.3 · hätte / wäre</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<h4 class="micro-head">haben → hätte</h4>
+<blockquote class="example-box">
+<p>Wenn ich mehr Geld <strong>hätte</strong>, würde ich öfter reisen.</p>
+</blockquote>
+<h4 class="micro-head">sein → wäre</h4>
+<blockquote class="example-box">
+<p>Wenn die Wohnung größer <strong>wäre</strong>, würden wir sie nehmen.</p>
+</blockquote>
+<h4 class="micro-head">MEMORY</h4>
+<p>Para <code>haben</code> y <code>sein</code>, usa directamente:</p>
+<p><strong>hätte / wäre</strong></p>
+<p>No necesitas:</p>
+<blockquote class="example-box">
+<p>würde haben<br/>
+würde sein</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="3.4 · würde + Infinitiv" id="g3-3-4"><h3>3.4 · würde + Infinitiv</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Ich <strong>würde</strong> gern länger in Berlin <strong>bleiben</strong>.<br/>
+Wenn ich frei hätte, <strong>würde ich</strong> ans Meer <strong>fahren</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p><strong>WÜRDE + ... + INFINITIV</strong></p>
+<p>Es la gran herramienta productiva para muchos verbos.</p>
+<hr/></div></article><article class="topic" data-title="3.5 · könnte / sollte como posibilidad o recomendación" id="g3-3-5"><h3>3.5 · könnte / sollte como posibilidad o recomendación</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<blockquote class="example-box">
+<p>Wir <strong>könnten</strong> zuerst die Preise vergleichen.<br/>
+Du <strong>solltest</strong> vielleicht mit deinem Chef sprechen.</p>
+</blockquote><p>En B1 la diferencia importa:</p>
+<p class="mini-formula"><strong>könnte</strong> → posibilidad / propuesta<br/>
+<strong>sollte</strong> → recomendación</p>
+<hr/></article><article class="topic" data-title="3.6 · Deseos y situaciones ideales" id="g3-3-6"><h3>3.6 · Deseos y situaciones ideales</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Ich <strong>wäre gern</strong> öfter draußen.<br/>
+Ich <strong>hätte gern</strong> mehr Freizeit.<br/>
+Ich <strong>würde gern</strong> einen anderen Kurs ausprobieren.</p>
+</blockquote>
+<h4 class="micro-head">Tres herramientas</h4>
+<p><strong>wäre gern + estado / lugar / rol</strong></p>
+<blockquote class="example-box">
+<p>Ich wäre gern jetzt am Meer.</p>
+</blockquote>
+<p><strong>hätte gern + cosa</strong></p>
+<blockquote class="example-box">
+<p>Ich hätte gern mehr Zeit.</p>
+</blockquote>
+<p><strong>würde gern + acción</strong></p>
+<blockquote class="example-box">
+<p>Ich würde gern weniger arbeiten.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="3.7 · Hipótesis útiles para B1" id="g3-3-7"><h3>3.7 · Hipótesis útiles para B1</h3><blockquote class="example-box">
+<p>Wenn ich an deiner Stelle wäre, würde ich ...<br/>
+Wenn das Wetter besser wäre, könnten wir ...<br/>
+Ich würde ... wählen, weil ...<br/>
+Das wäre besser, denn ...</p>
+</blockquote>
+<p>Estas estructuras son especialmente útiles para:</p>
+<ul class="clean-list">
+<li>consejos;</li>
+<li>comparación de alternativas;</li>
+<li>negociación;</li>
+<li>discusión de planes.</li>
+</ul>
+<hr/></article><article class="topic" data-title="3.7b · Irreale Vergangenheit · imaginar un pasado diferente" id="g3-3-7b"><h3>3.7b · Irreale Vergangenheit · imaginar un pasado diferente</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span><span class="badge badge-recognition">RECOGNITION</span></div>
+<p>Esto sí pertenece a B1 en la progresión actual de TELC, pero tiene menor retorno que la hipótesis presente.</p>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">Situación real</h4>
+<blockquote class="example-box">
+<p>Ich habe den Zug verpasst. Deshalb bin ich zu spät gekommen.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">Realidad alternativa en el pasado</h4>
+<blockquote class="example-box">
+<p>Wenn ich früher losgegangen <strong>wäre</strong>, <strong>hätte ich den Zug nicht verpasst</strong>.</p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>SI EL PASADO HUBIERA SIDO X → EL RESULTADO HABRÍA SIDO Y</strong></p>
+<p>Atajo:</p>
+<p><code>wenn + hätte/wäre + Partizip II, hätte/wäre + Partizip II</code></p>
+<blockquote class="example-box">
+<p>Wenn ich mehr gelernt <strong>hätte</strong>, <strong>hätte ich die Prüfung bestanden</strong>.</p>
+</blockquote>
+</div><h4 class="micro-head">Con Modalverb · EXPANSION</h4>
+<blockquote class="example-box">
+<p>Ohne den Stau <strong>hätten wir früher ankommen können</strong>.</p>
+</blockquote>
+<p>Patrón:</p>
+<p><code>hätte + Infinitiv Vollverb + Infinitiv Modalverb</code></p>
+<h4 class="micro-head">Passiv hipotético pasado · RECOGNITION / EXPANSION</h4>
+<blockquote class="example-box">
+<p>Die Erfindung <strong>wäre fast vergessen worden</strong>.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> No necesitas automatizar estas formas al nivel de <code>wenn ich Zeit hätte, würde ich ...</code>. Debes entenderlas y poder producir modelos simples.</p>
+<hr/></article><article class="topic" data-title="3.8 · BAU ES UM · REALIDAD" id="g3-3-8"><h3>3.8 · BAU ES UM · REALIDAD</h3><h4 class="micro-head task-number">1</h4>
+<blockquote class="example-box">
+<p>Ich habe kein Auto. Deshalb fahre ich nicht ans Meer.</p>
+</blockquote>
+<p class="mini-formula">→ imagina otra realidad:</p>
+<blockquote class="example-box">
+<p>Wenn ich ein Auto hätte, würde ich ans Meer fahren.</p>
+</blockquote>
+<h4 class="micro-head task-number">2</h4>
+<blockquote class="example-box">
+<p>Die Wohnung ist zu teuer. Wir nehmen sie nicht.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Wenn die Wohnung günstiger wäre, würden wir sie nehmen.</p>
+</blockquote>
+<h4 class="micro-head task-number">3</h4>
+<blockquote class="example-box">
+<p>Du möchtest dich beruflich verändern.</p>
+</blockquote>
+<p class="mini-formula">→ consejo:</p>
+<blockquote class="example-box">
+<p>An deiner Stelle würde ich zuerst nach Weiterbildungen suchen.</p>
+</blockquote>
+<div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>distinguir condición real e hipotética;</li>
+<li>producir <code>hätte / wäre</code>;</li>
+<li>construir una frase segura con <code>würde + Infinitiv</code>;</li>
+<li>formular una alternativa;</li>
+<li>dar consejo sin sonar como una orden;</li>
+<li>comparar qué harías en dos situaciones diferentes.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="4" data-title="4 · ¿CÓMO DESARROLLO Y RETOMO INFORMACIÓN SIN EMPEZAR DE CERO?" id="g4"><div class="chapter-head"><div class="chapter-kicker">GRAMMATIK · Decisión 4</div><h2>4 · ¿CÓMO DESARROLLO Y RETOMO INFORMACIÓN SIN EMPEZAR DE CERO?</h2><div class="chapter-question">Pregunta mental: <strong>¿Puedo integrar, retomar o precisar esta información?</strong></div><div class="apply-links"><span>WORTSCHATZ ↘</span><a href="#va">Menschen</a><a href="#vc">Arbeit</a><a href="#vd">Medien</a><a href="#vg">Gesellschaft</a></div></div><div class="chapter-body"><article class="topic" data-title="4.1 · La gran idea" id="g4-4-1"><h3>4.1 · La gran idea</h3><p>B1 necesita cohesión.</p>
+<p>No siempre quieres empezar otra frase con el mismo sustantivo.</p>
+<p>ANTES:</p>
+<blockquote class="example-box">
+<p>Das ist meine Kollegin. Ich arbeite mit meiner Kollegin. Meine Kollegin kommt aus Polen.</p>
+</blockquote>
+<p>AHORA:</p>
+<blockquote class="example-box">
+<p>Das ist meine Kollegin, <strong>mit der ich arbeite</strong>. Sie kommt aus Polen.</p>
+</blockquote>
+<p>La pregunta mental:</p>
+<p><strong>¿PUEDO INTEGRAR, RETOMAR O PRECISAR ESTA INFORMACIÓN?</strong></p>
+<hr/></article><article class="topic" data-title="4.2 · Relativsatz Dativ" id="g4-4-2"><h3>4.2 · Relativsatz Dativ</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · Nom/Akk</h4>
+<blockquote class="example-box">
+<p>der Mann, <strong>der hier arbeitet</strong><br/>
+der Mann, <strong>den ich kenne</strong></p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · Dativ</h4>
+<blockquote class="example-box">
+<p>der Mann, <strong>dem ich helfe</strong><br/>
+die Frau, <strong>der ich geschrieben habe</strong></p>
+</blockquote>
+</div><h4 class="micro-head">Tabla útil</h4>
+<div class="table-wrap"><table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>M</th>
+<th>F</th>
+<th>N</th>
+<th>PL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Nom</td>
+<td>der</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr class="even">
+<td>Akk</td>
+<td>den</td>
+<td>die</td>
+<td>das</td>
+<td>die</td>
+</tr>
+<tr class="odd">
+<td>Dat</td>
+<td>dem</td>
+<td>der</td>
+<td>dem</td>
+<td>denen</td>
+</tr>
+</tbody>
+</table></div>
+<p class="memory-strip"><strong>MEMORY:</strong> El caso se decide dentro de la Relativsatz.</p>
+<blockquote class="example-box">
+<p>Das ist der Mann, <strong>dem ich helfe</strong>.</p>
+</blockquote>
+<p class="mini-formula"><code>helfen + Dat</code> → <code>dem</code>.</p>
+<hr/></article><article class="topic" data-title="4.3 · Relativsatz + Präposition" id="g4-4-3"><h3>4.3 · Relativsatz + Präposition</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Das ist die Kollegin, <strong>mit der ich arbeite</strong>.<br/>
+Das ist das Projekt, <strong>an dem ich gerade arbeite</strong>.<br/>
+Kennst du den Mann, <strong>von dem ich erzählt habe</strong>?</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>SUSTANTIVO → PREPOSICIÓN QUE EXIGE LA RELACIÓN + PRONOMBRE RELATIVO</strong></p>
+<p>Ejemplo:</p>
+<blockquote class="example-box">
+<p class="mini-formula">mit + Dat<br/>
+die Kollegin → mit <strong>der</strong></p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="4.3b · Eingeschobener Relativsatz · abrir y cerrar el paréntesis" id="g4-4-3b">
+<h3>4.3b · Eingeschobener Relativsatz · abrir y cerrar el paréntesis</h3>
+<div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box"><p>Der Mann arbeitet hier. Ich habe den Mann gestern getroffen.</p></blockquote></div>
+<div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box"><p>Der Mann, <strong>den ich gestern getroffen habe</strong>, arbeitet hier.</p></blockquote></div>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>HAUPTSATZ → ABRO INFORMACIÓN EXTRA → CIERRO → CONTINÚO LA HAUPTSATZ</strong></p></div>
+<p class="memory-strip"><strong>MEMORY:</strong> Hay dos comas porque el Relativsatz queda metido dentro de la oración principal. Al terminarlo, recupera la Hauptsatz.</p>
+</article><article class="topic" data-title="4.4 · Relativsatz Genitiv" id="g4-4-4"><h3>4.4 · Relativsatz Genitiv</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Das ist der Mann, <strong>dessen Auto gestohlen wurde</strong>.<br/>
+Das ist die Frau, <strong>deren Sohn in Berlin studiert</strong>.</p>
+</blockquote>
+<h4 class="micro-head">Formas</h4>
+<p class="mini-formula">M/N → <strong>dessen</strong><br/>
+F/PL → <strong>deren</strong></p>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>PERSONA / COSA → CUYO / CUYA ...</strong></p>
+<p>No necesitas producirlo constantemente. Sí debes reconocerlo y poder usar modelos simples.</p>
+<hr/></div></article><article class="topic" data-title="4.5 · Relativos con wo / wohin / woher / was" id="g4-4-5"><h3>4.5 · Relativos con wo / wohin / woher / was</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<h4 class="micro-head">Lugar</h4>
+<blockquote class="example-box">
+<p>Das ist der Ort, <strong>wo wir uns getroffen haben</strong>.<br/>
+Das ist die Stadt, <strong>wohin er gezogen ist</strong>.<br/>
+Das ist das Land, <strong>woher sie kommt</strong>.</p>
+</blockquote>
+<p>Con antecedente concreto, también son muy útiles las construcciones con preposición + relativo:</p>
+<blockquote class="example-box">
+<p>der Ort, <strong>an dem</strong> wir uns getroffen haben</p>
+</blockquote>
+<h4 class="micro-head">alles / etwas / nichts + was</h4>
+<blockquote class="example-box">
+<p>Das ist alles, <strong>was ich weiß</strong>.<br/>
+Gibt es etwas, <strong>was du noch brauchst</strong>?</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="4.6 · Präpositionaladverbien · darüber / darauf / davon ..." id="g4-4-6"><h3>4.6 · Präpositionaladverbien · darüber / darauf / davon ...</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · preguntar</h4>
+<blockquote class="example-box">
+<p>Worüber sprichst du?</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · retomar</h4>
+<blockquote class="example-box">
+<p><strong>Darüber</strong> möchte ich später sprechen.</p>
+</blockquote>
+<blockquote class="example-box">
+<p>Ich freue mich <strong>darauf</strong>.<br/>
+Ich denke oft <strong>daran</strong>.<br/>
+Wir sprechen <strong>davon</strong>.<br/>
+Das hängt <strong>davon</strong> ab.</p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Superfórmula</h4>
+<p class="mini-formula"><strong>COSA / IDEA → DA(R) + PREPOSICIÓN</strong></p>
+<p class="mini-formula"><strong>PERSONA → PREPOSICIÓN + PRONOMBRE</strong></p>
+<blockquote class="example-box">
+<p>Ich spreche <strong>darüber</strong>.<br/>
+Ich spreche <strong>mit ihm</strong>.</p>
+</blockquote>
+<p>No digas:</p>
+<blockquote class="example-box error-example">
+<p class="error-example">✗ mit darüber</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="4.7 · Infinitiv mit zu · una acción como bloque" id="g4-4-7"><h3>4.7 · Infinitiv mit zu · una acción como bloque</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich lerne viel, <strong>um die Prüfung zu bestehen</strong>.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Ich versuche, <strong>mehr Deutsch zu sprechen</strong>.<br/>
+Ich habe vergessen, <strong>den Termin abzusagen</strong>.<br/>
+Es ist wichtig, <strong>regelmäßig zu üben</strong>.<br/>
+Ich habe keine Lust, <strong>heute zu kochen</strong>.</p>
+</blockquote>
+</div><div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>IDEA PRINCIPAL → ACCIÓN DEPENDIENTE CON ZU</strong></p>
+<p>No es una segunda frase completa.</p>
+<hr/></div></article><article class="topic" data-title="4.8 · zu con verbos separables" id="g4-4-8"><h3>4.8 · zu con verbos separables</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p>absagen</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box">
+<p>den Termin <strong>abzusagen</strong></p>
+</blockquote>
+<blockquote class="example-box">
+<p>Ich habe vergessen, den Termin <strong>abzusagen</strong>.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> <code>zu</code> entra entre prefijo y verbo:</p>
+<blockquote class="example-box">
+<p class="mini-formula">anrufen → anzurufen<br/>
+einkaufen → einzukaufen<br/>
+mitbringen → mitzubringen</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="4.9 · ohne ... zu / statt ... zu" id="g4-4-9"><h3>4.9 · ohne ... zu / statt ... zu</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<h4 class="micro-head">ohne ... zu</h4>
+<blockquote class="example-box">
+<p>Er ist gegangen, <strong>ohne sich zu verabschieden</strong>.</p>
+</blockquote>
+<p><strong>X OCURRE SIN HACER Y</strong></p>
+<h4 class="micro-head">statt ... zu</h4>
+<blockquote class="example-box">
+<p>Sie fährt mit dem Auto, <strong>statt den Bus zu nehmen</strong>.</p>
+</blockquote>
+<p class="mini-formula"><strong>EN LUGAR DE X → Y</strong></p>
+<hr/></article><article class="topic" data-title="4.10 · Indirekte Fragen" id="g4-4-10"><h3>4.10 · Indirekte Fragen</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<blockquote class="example-box">
+<p>Wann beginnt der Kurs?</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Können Sie mir sagen, <strong>wann der Kurs beginnt</strong>?</p>
+</blockquote>
+<blockquote class="example-box">
+<p>Kommt er morgen?</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Weißt du, <strong>ob er morgen kommt</strong>?</p>
+</blockquote>
+<h4 class="micro-head">B1</h4>
+<p>Úsalas como herramienta de cortesía y cohesión:</p>
+<blockquote class="example-box">
+<p>Ich wollte fragen, ob ...<br/>
+Können Sie mir sagen, wann ...?<br/>
+Ich weiß nicht, warum ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="4.11 · Genitiv · pertenencia y relación" id="g4-4-11"><h3>4.11 · Genitiv · pertenencia y relación</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p>das Auto von meinem Bruder</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box">
+<p>das Auto <strong>meines Bruders</strong></p>
+</blockquote>
+</div><h4 class="micro-head">Artículos</h4>
+<div class="table-wrap"><table class="table">
+<thead>
+<tr class="header">
+<th></th>
+<th>M/N</th>
+<th>F/PL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>definido</td>
+<td>des</td>
+<td>der</td>
+</tr>
+<tr class="even">
+<td>indefinido</td>
+<td>eines</td>
+<td>einer</td>
+</tr>
+</tbody>
+</table></div>
+<p>Muchos sustantivos masculinos/neutros añaden <code>-s / -es</code>.</p>
+<blockquote class="example-box">
+<p>der Name <strong>des Hotels</strong><br/>
+die Wohnung <strong>meines Bruders</strong></p>
+</blockquote>
+<div class="audit-added">
+<h4 class="micro-head">Adjektivdeklination im Genitiv</h4>
+<div class="priority-row"><span class="badge badge-expand">EXPANSION</span><span class="badge badge-reuse">REUSE</span></div>
+<p>No abras una nueva tabla completa: reutiliza la declinación de adjetivos. Después de un artículo/determinante que ya marca claramente el Genitiv, el adjetivo normalmente lleva <strong>-en</strong>.</p>
+<blockquote class="example-box"><p>
+wegen <strong>des schlechten Wetters</strong><br/>
+trotz <strong>einer schwierigen Situation</strong><br/>
+während <strong>meines letzten Urlaubs</strong>
+</p></blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> Genitiv visible en el determinante → el adjetivo suele ir en <strong>-en</strong>.</p>
+</div><h4 class="micro-head">Präpositionen útiles con Genitiv</h4>
+<blockquote class="example-box">
+<p>wegen des Wetters<br/>
+trotz des Problems<br/>
+während des Urlaubs</p>
+</blockquote>
+<p>En lenguaje cotidiano también encontrarás otras construcciones. Para el cheat sheet, aprende los modelos, no una guerra normativa.</p>
+<hr/></article><article class="topic" data-title="4.12 · Partizip como adjetivo" id="g4-4-12"><h3>4.12 · Partizip como adjetivo</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<h4 class="micro-head">Acción que ocurre</h4>
+<blockquote class="example-box">
+<p>ein <strong>lachendes</strong> Kind</p>
+</blockquote>
+<h4 class="micro-head">Resultado / acción completada</h4>
+<blockquote class="example-box">
+<p>das <strong>gestohlene</strong> Fahrrad<br/>
+die <strong>geschlossene</strong> Tür</p>
+</blockquote>
+<p>Útil para reconocer textos y condensar información.</p>
+<p>No necesita convertirse en un sistema productivo grande.</p><div class="owner-note"><b>REUSE:</b> Cuando el participio funciona como adjetivo, recibe las mismas terminaciones que ya conoces: <strong>ein gestohlenes Fahrrad · mit einem gestohlenen Fahrrad</strong>.</div>
+<hr/></article><article class="topic" data-title="4.13 · lassen" id="g4-4-13"><h3>4.13 · lassen</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<h4 class="micro-head">hacer que alguien haga algo / mandar hacer</h4>
+<blockquote class="example-box">
+<p>Ich <strong>lasse mein Fahrrad reparieren</strong>.</p>
+</blockquote>
+<h4 class="micro-head">permitir</h4>
+<blockquote class="example-box">
+<p>Meine Eltern <strong>lassen mich</strong> am Wochenende länger <strong>ausgehen</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p><strong>LASSEN + OBJETO / PERSONA + ... + INFINITIV</strong></p>
+<p>Aprende primero los chunks frecuentes.</p>
+<hr/></div></article><article class="topic" data-title="4.13b · Indefinitpronomen · alguien / nadie / algo / ninguno" id="g4-4-13b"><h3>4.13b · Indefinitpronomen · alguien / nadie / algo / ninguno</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div><p>B1 amplía formas ya conocidas como <code>jemand / niemand / etwas / nichts</code>.</p>
+<h4 class="micro-head">Persona</h4>
+<blockquote class="example-box">
+<p><strong>Jemand</strong> hat angerufen.<br/>
+Ich habe <strong>niemanden</strong> gesehen.<br/>
+Ich habe mit <strong>jemandem</strong> gesprochen.</p>
+</blockquote>
+<h4 class="micro-head">Ninguno / ninguno de ellos</h4>
+<blockquote class="example-box">
+<p><strong>Keiner</strong> hatte Zeit.<br/>
+Ich kenne <strong>keinen</strong> von ihnen.<br/>
+Ich habe mit <strong>keinem</strong> gesprochen.</p>
+</blockquote>
+<div class="audit-added">
+<h4 class="micro-head">Uno / una / algunos sin repetir el sustantivo</h4>
+<blockquote class="example-box"><p>
+Hast du einen Stift? – Ja, hier ist <strong>einer</strong>.<br/>
+Brauchst du eine Tasche? – Nein, ich habe schon <strong>eine</strong>.<br/>
+Ich brauche Batterien. Hast du <strong>welche</strong>?<br/>
+Nein, ich habe <strong>keine</strong>.
+</p></blockquote>
+<p>La forma cambia según género, número y caso, igual que otros pronombres/determinantes.</p>
+</div><p class="memory-strip"><strong>MEMORY:</strong> Aquí vuelve a funcionar el sistema de casos: Nom → Akk → Dat.</p>
+<hr/></article><article class="topic" data-title="4.13c · irgend- · información deliberadamente imprecisa" id="g4-4-13c"><h3>4.13c · irgend- · información deliberadamente imprecisa</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<h4 class="micro-head">Determinante</h4>
+<blockquote class="example-box">
+<p>Ich brauche <strong>irgendeinen Stift</strong>.<br/>
+Wir treffen uns in <strong>irgendeinem Café</strong>.<br/>Hast du <strong>irgendwelche Fragen</strong>?</p>
+</blockquote>
+<h4 class="micro-head">Pronombres / adverbios</h4>
+<blockquote class="example-box">
+<p><strong>irgendjemand / irgendwer</strong> → alguna persona<br/>
+<strong>irgendetwas / irgendwas</strong> → alguna cosa<br/>
+<strong>irgendwo</strong> → en algún lugar<br/>
+<strong>irgendwann</strong> → en algún momento<br/>
+<strong>irgendwie</strong> → de alguna manera</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> <code>irgend-</code> dice: existe, pero no importa o no sé exactamente cuál.</p>
+<hr/></article><article class="topic" data-title="4.13d · N-Deklination · algunos masculinos ganan -n/-en" id="g4-4-13d"><h3>4.13d · N-Deklination · algunos masculinos ganan -n/-en</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<p>Hay un grupo frecuente de sustantivos masculinos que, excepto en Nominativ Singular, normalmente añaden <code>-n/-en</code>.</p>
+<blockquote class="example-box">
+<p>der Student<br/>
+Ich sehe <strong>den Studenten</strong>.<br/>
+Ich spreche mit <strong>dem Studenten</strong>.</p>
+</blockquote>
+<p>Frecuentes:</p>
+<blockquote class="example-box">
+<p class="mini-formula">der Mensch → den Menschen<br/>
+der Kollege → dem Kollegen<br/>
+der Kunde → den Kunden<br/>
+der Junge → mit dem Jungen<br/>
+der Herr → Herrn Müller</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>MASCULINO N-Deklination + NO Nom.Sg. → -(e)n</strong></p>
+<p>No memorices una lista interminable. Aprende primero los sustantivos frecuentes como chunk.</p>
+<hr/></div></article><article class="topic" data-title="4.13e · Adjetivo comparado dentro del sustantivo" id="g4-4-13e"><h3>4.13e · Adjetivo comparado dentro del sustantivo</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES</h4>
+<blockquote class="example-box">
+<p>Der Zug ist <strong>schneller</strong>.<br/>
+Das ist <strong>der schnellste</strong> Zug.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA</h4>
+<blockquote class="example-box">
+<p>ein <strong>schnellerer</strong> Zug<br/>
+mit einer <strong>günstigeren</strong> Verbindung<br/>
+die <strong>beste</strong> Lösung</p>
+</blockquote>
+</div><h4 class="micro-head">Idea</h4>
+<p class="mini-formula"><strong>COMPARATIVO / SUPERLATIVO FUNCIONA COMO ADJETIVO → TAMBIÉN SE DECLINA</strong></p>
+<blockquote class="example-box">
+<p>Ich suche eine <strong>günstigere Wohnung</strong>.<br/>
+Wir brauchen eine <strong>bessere Lösung</strong>.</p>
+</blockquote>
+<p>No abras una tabla nueva: reutiliza el sistema de Adjektivdeklination A2.</p>
+<hr/></article><article class="topic" data-title="4.13f · Gradpartikeln · graduar lo que dices" id="g4-4-13f"><h3>4.13f · Gradpartikeln · graduar lo que dices</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<p>Sirven para hacer el alemán menos binario.</p>
+<blockquote class="example-box">
+<p>ziemlich gut<br/>
+wirklich interessant<br/>
+total praktisch<br/>
+besonders wichtig<br/>
+gar nicht teuer<br/>
+überhaupt nicht einfach<br/>
+nicht so schlecht</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>IDEA → ¿CON QUÉ INTENSIDAD?</strong></p>
+<p>Esto ayuda especialmente al opinar y comparar:</p>
+<blockquote class="example-box">
+<p>Ich finde Homeoffice <strong>ziemlich praktisch</strong>, aber nicht für jeden Beruf.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="4.13g · Verbo como sustantivo" id="g4-4-13g"><h3>4.13g · Verbo como sustantivo</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<p>El infinitivo puede convertirse en sustantivo neutro:</p>
+<blockquote class="example-box">
+<p class="mini-formula">lernen → <strong>das Lernen</strong><br/>
+lesen → <strong>das Lesen</strong><br/>
+kochen → <strong>das Kochen</strong></p>
+</blockquote>
+<blockquote class="example-box">
+<p><strong>Beim Lernen</strong> brauche ich Ruhe.<br/>
+<strong>Das Lesen</strong> hilft mir beim Deutschlernen.</p>
+</blockquote>
+<h4 class="micro-head">MEMORY</h4>
+<p class="mini-formula"><strong>INFINITIVO COMO ACTIVIDAD → DAS + MAYÚSCULA</strong></p>
+<p>No confundas este patrón sencillo con las nominalizaciones avanzadas propias de B2.</p><hr/></article><article class="topic" data-title="4.13h · Adjetivos y participios nominalizados" id="g4-4-13h"><h3>4.13h · Adjetivos y participios nominalizados</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<p>Cuando el sustantivo se entiende por el contexto, el adjetivo puede ocupar su lugar y se escribe con mayúscula:</p>
+<blockquote class="example-box">
+<p>der Deutsche / die Deutsche<br/>
+ein Bekannter / eine Bekannte<br/>
+die Arbeitslosen<br/>
+etwas Neues<br/>
+nichts Besonderes</p>
+</blockquote>
+<p>La terminación sigue comportándose como una terminación de adjetivo.</p>
+<p>Aprende primero los chunks frecuentes; no abras un paradigma nuevo.</p>
+<hr/></article><article class="topic" data-title="4.13i · Es en primera posición · organizar la frase" id="g4-4-13i"><h3>4.13i · Es en primera posición · organizar la frase</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<p>A veces <code>es</code> ocupa la primera posición y permite presentar después la información importante:</p>
+<blockquote class="example-box">
+<p><strong>Es gibt</strong> viele Möglichkeiten.<br/>
+<strong>Es haben</strong> sich viele Menschen an der Aktion beteiligt.</p>
+</blockquote>
+<p>En estructuras del segundo tipo, <code>es</code> puede funcionar como elemento de posición inicial y desaparecer si otro elemento ocupa esa posición:</p>
+<blockquote class="example-box">
+<p>Heute haben sich viele Menschen an der Aktion beteiligt.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> Para producción B1, <code>es gibt ...</code> es CORE reutilizable; el <code>es</code> puramente organizador es sobre todo reconocimiento/expansión.</p>
+<hr/></article><article class="topic" data-title="4.13j · Localizar con más precisión · um ... herum / an ... entlang" id="g4-4-13j"><h3>4.13j · Localizar con más precisión · um ... herum / an ... entlang</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<blockquote class="example-box">
+<p>Um den Bahnhof <strong>herum</strong> gibt es viele Geschäfte.<br/>
+Wir gehen am Rhein <strong>entlang</strong>.</p>
+</blockquote>
+<p>Apréndelos como patrones completos, no como nuevas tablas de casos.</p>
+<hr/></article><article class="topic" data-title="4.13k · Diminutiv · -chen / -lein" id="g4-4-13k"><h3>4.13k · Diminutiv · -chen / -lein</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span><span class="badge badge-recognition">RECOGNITION</span></div>
+<blockquote class="example-box">
+<p class="mini-formula">der Schrank → das <strong>Schränkchen</strong><br/>
+die Kanne → das <strong>Kännchen</strong></p>
+</blockquote>
+<p>Dos ideas suficientes para B1:</p><ul class="clean-list">
+<li><code>-chen / -lein</code> expresan algo pequeño o afectivo;</li>
+<li>el resultado es <strong>neutro: das</strong>.</li>
+</ul>
+<p>No necesita ocupar más espacio.</p>
+<hr/></article><article class="topic" data-title="4.13l · brauchen + zu · “no hace falta”" id="g4-4-13l"><h3>4.13l · brauchen + zu · “no hace falta”</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<p>Con negación o limitación:</p>
+<blockquote class="example-box">
+<p>Du <strong>brauchst nicht zu kommen</strong>.<br/>
+Sie <strong>brauchen den Brief nur auszudrucken</strong>.<br/>
+Sie <strong>brauchen keine Kündigung zu schreiben</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>NO ES NECESARIO HACER X → NICHT BRAUCHEN + ZU</strong></p>
+<p>Con verbo separable:</p>
+<blockquote class="example-box">
+<p>Du brauchst mich nicht <strong>anzurufen</strong>.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="4.14 · BAU ES UM · DESARROLLAR" id="g4-4-14"><h3>4.14 · BAU ES UM · DESARROLLAR</h3><h4 class="micro-head task-number">1</h4>
+<blockquote class="example-box">
+<p>Das ist meine Kollegin. Ich arbeite mit ihr.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Das ist meine Kollegin, <strong>mit der ich arbeite</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">2</h4>
+<blockquote class="example-box">
+<p>Ich möchte mehr Deutsch sprechen. Ich versuche das.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Ich versuche, <strong>mehr Deutsch zu sprechen</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">3</h4>
+<blockquote class="example-box">
+<p>Wir sprechen über das Problem.</p>
+</blockquote>
+<p class="mini-formula">→ no repetir <code>das Problem</code></p>
+<blockquote class="example-box">
+<p>Wir sprechen <strong>darüber</strong>.</p>
+</blockquote>
+<h4 class="micro-head task-number">4</h4>
+<blockquote class="example-box">
+<p>Das Fahrrad wurde gestohlen. Das Fahrrad gehört meinem Nachbarn.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p>Das <strong>gestohlene Fahrrad</strong> gehört meinem Nachbarn.</p>
+</blockquote>
+<div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>construir Relativsatz con Dativ;</li>
+<li>construir <code>Präposition + Relativpronomen</code>;</li>
+<li>sustituir una cosa por <code>darüber/daran/darauf/...</code>;</li>
+<li>construir un <code>zu</code>-Infinitiv;</li>
+<li>colocar <code>zu</code> correctamente en un verbo separable;</li>
+<li>reconocer Genitiv;</li>
+<li>reconocer un participio usado como adjetivo.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="P" data-title="P · ¿QUIERO DESTACAR QUIÉN ACTÚA O QUÉ OCURRE?" id="gp"><div class="chapter-head"><div class="chapter-kicker">GRAMMATIK · Transformación</div><h2>P · ¿QUIERO DESTACAR QUIÉN ACTÚA O QUÉ OCURRE?</h2><div class="chapter-question">Pregunta mental: <strong>¿Importa quién actúa o qué ocurre con la cosa?</strong></div><div class="apply-links"><span>WORTSCHATZ ↘</span><a href="#vb">Wohnen</a><a href="#vd">Dienstleistungen</a><a href="#vg">Gesellschaft</a></div></div><div class="chapter-body"><article class="topic" data-title="P1 · Aktiv → Passiv" id="gp-p1"><h3>P1 · Aktiv → Passiv</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<blockquote class="example-box">
+<p>Die Firma repariert <strong>das Auto</strong>.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="example-box">
+<p><strong>Das Auto wird repariert.</strong></p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>OBJETO AFECTADO → NUEVO FOCO</strong></p>
+<hr/></div></article><article class="topic" data-title="P2 · Präsens / Präteritum" id="gp-p2"><h3>P2 · Präsens / Präteritum</h3><div class="priority-row"><span class="badge badge-reuse">REUSE</span></div>
+<blockquote class="example-box">
+<p>Die Straße <strong>wird gesperrt</strong>.<br/>
+Die Straße <strong>wurde gesperrt</strong>.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="P3 · Passiv Perfekt" id="gp-p3"><h3>P3 · Passiv Perfekt</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Die Straße <strong>ist gesperrt worden</strong>.<br/>
+Die Dokumente <strong>sind geschickt worden</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula técnica</h4>
+<p><strong>sein + Partizip II + worden</strong></p>
+<p class="memory-strip"><strong>MEMORY:</strong> En Passiv Perfekt usa <code>worden</code>, no <code>geworden</code>.</p>
+<blockquote class="example-box error-example">
+<p class="error-example">✗ ist repariert geworden<br/>
+✓ ist repariert worden</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="P4 · Passiv + Modalverb" id="gp-p4"><h3>P4 · Passiv + Modalverb</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Die Rechnung <strong>muss bezahlt werden</strong>.<br/>
+Das Formular <strong>kann online ausgefüllt werden</strong>.<br/>
+Die Regeln <strong>müssen beachtet werden</strong>.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula humana</h4>
+<p class="mini-formula"><strong>ALGO → MODAL → ... → HECHO / ACCIÓN → WERDEN</strong></p>
+<p>Atajo:</p>
+<p><code>S + Modal + ... + Partizip II + werden</code></p>
+<hr/></div></article><article class="topic" data-title="P5 · von / durch" id="gp-p5"><h3>P5 · von / durch</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<h4 class="micro-head">Persona / institución</h4>
+<blockquote class="example-box">
+<p>Das Haus wurde <strong>von einer Firma</strong> gebaut.</p>
+</blockquote>
+<h4 class="micro-head">Medio / causa</h4>
+<blockquote class="example-box">
+<p>Die Straße wurde <strong>durch den Sturm</strong> beschädigt.</p>
+</blockquote>
+<p>No necesitas añadir el agente si no importa.</p>
+<hr/></article><article class="topic" data-title="P6 · Passiv sin sujeto concreto" id="gp-p6"><h3>P6 · Passiv sin sujeto concreto</h3><div class="priority-row"><span class="badge badge-expand">EXPANSION</span></div>
+<blockquote class="example-box">
+<p><strong>Hier wird gebaut.</strong><br/>
+<strong>Es wird viel diskutiert.</strong><br/>
+In Deutschland <strong>wird viel Fahrrad gefahren</strong>.</p>
+</blockquote>
+<p>La acción importa más que quién la realiza.</p>
+<hr/></article><article class="topic" data-title="P7 · Zustandspassiv" id="gp-p7"><h3>P7 · Zustandspassiv</h3><div class="priority-row"><span class="badge badge-recognition">RECOGNITION</span><span class="badge badge-b2">B2 →</span></div>
+<blockquote class="example-box">
+<p>Die Tür <strong>ist geschlossen</strong>.</p>
+</blockquote>
+<p>Esto describe un estado, no el proceso de cerrar.</p>
+<p>En B1 basta distinguir el ejemplo básico:</p><blockquote class="example-box">
+<p>Die Tür <strong>wird geschlossen</strong>. = proceso<br/>
+Die Tür <strong>ist geschlossen</strong>. = estado</p>
+</blockquote>
+<p>No desarrollar el paradigma completo.</p>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="W" data-title="W · ¿QUÉ MOVIMIENTO COMUNICATIVO NECESITO AHORA?" id="wt"><div class="chapter-head"><div class="chapter-kicker">WERKZEUGKASTEN · Transversal</div><h2>W · ¿QUÉ MOVIMIENTO COMUNICATIVO NECESITO AHORA?</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué movimiento comunicativo necesito hacer ahora?</strong></div></div><div class="chapter-body"><div class="chapter-intro"><p>B1 no es hablar más largo por hablar más largo.</p>
+<p>Es poder mover una conversación o un texto.</p>
+<hr/></div><article class="topic" data-title="W1 · Berichten · transmitir información" id="wt-w1"><h3>W1 · Berichten · transmitir información</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>In dem Text geht es um ...<br/>
+Die Person spricht über ...<br/>
+Sie meint, dass ...<br/>
+Sie findet ... wichtig, weil ...<br/>
+Er sagt, dass ...</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p class="mini-formula"><strong>TEMA → POSTURA / INFORMACIÓN → RAZÓN / DETALLE</strong></p>
+</div><h4 class="micro-head">Seguro</h4>
+<blockquote class="example-box">
+<p>Die Person findet Homeoffice gut, weil sie dadurch Zeit spart.</p>
+</blockquote>
+<p>No inventes información que no estaba en el input.</p>
+<hr/></article><article class="topic" data-title="W2 · Positionieren · expresar mi postura" id="wt-w2"><h3>W2 · Positionieren · expresar mi postura</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<h4 class="micro-head">Neutro</h4>
+<blockquote class="example-box">
+<p>Ich finde, dass ...<br/>
+Ich glaube, dass ...<br/>
+Meiner Meinung nach ...</p>
+</blockquote>
+<h4 class="micro-head">Acuerdo</h4>
+<blockquote class="example-box">
+<p>Das sehe ich genauso.<br/>
+Da stimme ich dir zu.<br/>
+Ich bin auch der Meinung, dass ...</p>
+</blockquote>
+<h4 class="micro-head">Desacuerdo</h4>
+<blockquote class="example-box">
+<p>Ich sehe das anders.<br/>
+Da bin ich nicht ganz deiner Meinung.<br/>
+Ich verstehe den Punkt, aber ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W3 · Entwickeln · desarrollar una idea" id="wt-w3"><h3>W3 · Entwickeln · desarrollar una idea</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<p>La máquina más importante del B1:</p><p class="mini-formula"><strong>PUNTO → RAZÓN → EJEMPLO / EXPERIENCIA → CONSECUENCIA</strong></p>
+<blockquote class="example-box">
+<p>Ich finde öffentliche Verkehrsmittel wichtig, <strong>weil sie umweltfreundlicher sind</strong>.<br/>
+<strong>Zum Beispiel</strong> fahre ich jeden Tag mit der Bahn zur Arbeit.<br/>
+<strong>Dadurch</strong> brauche ich kein Auto.</p>
+</blockquote>
+<p>No necesitas siempre cuatro pasos. Pero debes poder añadir algo más después de tu primera frase.</p>
+<hr/></article><article class="topic" data-title="W4 · Ejemplificar" id="wt-w4"><h3>W4 · Ejemplificar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>zum Beispiel ...<br/>
+ein gutes Beispiel dafür ist ...<br/>
+bei mir ist es so, dass ...<br/>
+Meiner Erfahrung nach ...</p>
+</blockquote>
+<h4 class="micro-head">Modelo</h4>
+<blockquote class="example-box">
+<p>Bei mir ist es so, dass ich im Homeoffice konzentrierter arbeiten kann.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W5 · Comparar dos lados" id="wt-w5"><h3>W5 · Comparar dos lados</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Einerseits ..., andererseits ...<br/>
+Ein Vorteil ist ...<br/>
+Ein Nachteil ist ...<br/>
+Im Vergleich zu ...<br/>
+... ist besser / schlechter / praktischer als ...</p>
+</blockquote>
+<h4 class="micro-head">Concesión</h4>
+<blockquote class="example-box">
+<p>Das stimmt zwar, aber ...<br/>
+Obwohl ..., ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W6 · Reaccionar a la otra persona" id="wt-w6"><h3>W6 · Reaccionar a la otra persona</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Das stimmt.<br/>
+Da hast du recht.<br/>
+Das sehe ich ähnlich.<br/>
+Ich verstehe, was du meinst.<br/>
+Das kann sein, aber ...<br/>
+Genau. Außerdem ...<br/>
+Wirklich? Bei mir ist das anders.</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> En conversación B1, reaccionar vale más que esperar tu turno para recitar.</p><hr/></article><article class="topic" data-title="W7 · Preguntar para desarrollar" id="wt-w7"><h3>W7 · Preguntar para desarrollar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Wie siehst du das?<br/>
+Was meinst du dazu?<br/>
+Warum denkst du das?<br/>
+Hast du damit Erfahrung?<br/>
+Wie ist das bei dir?<br/>
+Was wäre für dich besser?</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W8 · Proponer + justificar" id="wt-w8"><h3>W8 · Proponer + justificar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Wir könnten ...<br/>
+Ich würde vorschlagen, dass ...<br/>
+Wie wäre es, wenn ...?<br/>
+Vielleicht wäre es besser, ...</p>
+</blockquote>
+<p>Y B1 añade:</p><blockquote class="example-box">
+<p>..., weil ...<br/>
+..., dann könnten wir ...<br/>
+..., das wäre günstiger / einfacher / praktischer.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W9 · Rechazar sin bloquear" id="wt-w9"><h3>W9 · Rechazar sin bloquear</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Die Idee ist gut, aber ...<br/>
+Das wäre möglich, allerdings ...<br/>
+Ich bin nicht sicher, ob das klappt.<br/>
+Vielleicht können wir stattdessen ...</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p class="mini-formula"><strong>REACCIÓN → PROBLEMA / RAZÓN → ALTERNATIVA</strong></p>
+<blockquote class="example-box">
+<p>Freitag wäre gut, aber ich muss bis 18 Uhr arbeiten. Vielleicht können wir uns um 19 Uhr treffen.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="W10 · Aushandeln · negociar" id="wt-w10"><h3>W10 · Aushandeln · negociar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Was wäre dir lieber?<br/>
+Dann nehmen wir ...<br/>
+Wenn wir ..., könnten wir ...<br/>
+Das wäre eine gute Lösung.<br/>
+Dann machen wir es so.<br/>
+Darauf können wir uns einigen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W11 · Aclarar" id="wt-w11"><h3>W11 · Aclarar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<h4 class="micro-head">A2 REUSE</h4>
+<blockquote class="example-box">
+<p>Wie bitte?<br/>
+Können Sie das wiederholen?<br/>
+Könnten Sie langsamer sprechen?</p>
+</blockquote>
+<h4 class="micro-head">B1</h4>
+<blockquote class="example-box">
+<p>Wie meinst du das genau?<br/>
+Was meinst du mit ...?<br/>
+Habe ich dich richtig verstanden, dass ...?<br/>
+Meinst du also, dass ...?</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="W12 · Ganar tiempo" id="wt-w12"><h3>W12 · Ganar tiempo</h3><div class="priority-row"><span class="badge badge-regular">REGULAR</span></div>
+<blockquote class="example-box">
+<p>Einen Moment, ich überlege kurz.<br/>
+Das ist eine interessante Frage.<br/>
+Also, ich denke ...<br/>
+Ich bin mir nicht ganz sicher, aber ...</p>
+</blockquote>
+<p>Esto mantiene el discurso sin llenar el espacio con errores.</p>
+<hr/></article><article class="topic" data-title="W13 · Resumir y cerrar" id="wt-w13"><h3>W13 · Resumir y cerrar</h3><div class="priority-row"><span class="badge badge-core">CORE</span></div>
+<blockquote class="example-box">
+<p>Also, wir haben zwei Möglichkeiten.<br/>
+Zusammenfassend würde ich sagen, dass ...<br/>
+Dann sind wir uns einig.<br/>
+Dann machen wir das so.</p>
+</blockquote>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="A" data-title="A · MENSCHEN, BEZIEHUNGEN &amp; ZUSAMMENLEBEN" id="va"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation A</div><h2>A · MENSCHEN, BEZIEHUNGEN &amp; ZUSAMMENLEBEN</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué pasa entre las personas y cómo reacciono?</strong></div></div><div class="chapter-body"><article class="topic" data-title="A1 · ¿Qué debo poder hacer?" id="va-a1"><h3>A1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>describir relaciones;</li>
+<li>hablar de carácter y comportamiento;</li>
+<li>explicar conflictos;</li>
+<li>reaccionar a emociones;</li>
+<li>describir convivencia;</li>
+<li>dar consejo;</li>
+<li>comparar perspectivas;</li>
+<li>contar experiencias personales;</li>
+<li>hablar de apoyo y responsabilidades.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich verstehe mich gut mit meiner Schwester.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Wir verstehen uns meistens gut, obwohl wir in manchen Dingen sehr unterschiedlich sind.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="A2 · Satzbausteine" id="va-a2"><h3>A2 · Satzbausteine</h3><h4 class="micro-head">Relación</h4>
+<blockquote class="example-box">
+<p>sich gut / schlecht mit jemandem verstehen<br/>
+Kontakt zu jemandem haben<br/>
+sich mit jemandem streiten<br/>
+sich mit jemandem versöhnen<br/>
+jemandem vertrauen<br/>
+jemanden unterstützen</p>
+</blockquote>
+<h4 class="micro-head">Conflicto</h4>
+<blockquote class="example-box">
+<p>Wir sind uns nicht einig.<br/>
+Das Problem ist, dass ...<br/>
+Ich ärgere mich darüber, dass ...<br/>
+Ich verstehe seinen / ihren Standpunkt, aber ...</p>
+</blockquote>
+<h4 class="micro-head">Consejo</h4>
+<blockquote class="example-box">
+<p>An deiner Stelle würde ich ...<br/>
+Du könntest versuchen, ...<br/>
+Vielleicht solltest du ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="A3 · Wörter &amp; Verbindungen" id="va-a3"><h3>A3 · Wörter &amp; Verbindungen</h3><h4 class="micro-head">Personen &amp; Beziehungen</h4>
+<ul class="clean-list">
+<li>die Beziehung · -en</li>
+<li>die Freundschaft · -en</li>
+<li>der Kontakt · -e</li>
+<li>der Nachbar / die Nachbarin</li>
+<li>der Kollege / die Kollegin</li>
+<li>der Bekannte / die Bekannte</li>
+<li>die Unterstützung</li>
+<li>die Verantwortung · -en</li>
+<li>das Vertrauen</li>
+<li>der Streit · -e</li>
+<li>der Konflikt · -e</li>
+</ul>
+<h4 class="micro-head">Charakter &amp; Verhalten</h4>
+<ul class="clean-list">
+<li>zuverlässig</li>
+<li>geduldig</li>
+<li>offen</li>
+<li>ehrlich</li>
+<li>hilfsbereit</li>
+<li>freundlich</li>
+<li>ruhig</li>
+<li>direkt</li>
+<li>selbstständig</li>
+<li>tolerant</li>
+<li>Rücksicht nehmen auf + Akk</li>
+<li>sich um jemanden kümmern</li>
+<li>jemandem helfen</li>
+<li>jemanden respektieren</li>
+</ul>
+<h4 class="micro-head">Gefühle</h4>
+<ul class="clean-list">
+<li>enttäuscht sein von + Dat</li>
+<li>stolz sein auf + Akk</li>
+<li>sich über etwas freuen</li>
+<li>sich auf etwas freuen</li>
+<li>sich über etwas ärgern</li>
+<li>sich Sorgen machen um + Akk</li>
+<li>Angst haben vor + Dat</li>
+</ul>
+<hr/></article><article class="topic" data-title="A4 · Mini-Szene · Konflikt in der WG" id="va-a4"><h3>A4 · Mini-Szene · Konflikt in der WG</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Wie läuft es in deiner neuen WG?<br/>
+<strong>B:</strong> Eigentlich gut, aber wir streiten manchmal über den Haushalt.<br/>
+<strong>A:</strong> Worum geht es genau?<br/>
+<strong>B:</strong> Mein Mitbewohner räumt die Küche selten auf.<br/>
+<strong>A:</strong> Hast du schon mit ihm darüber gesprochen?<br/>
+<strong>B:</strong> Ja. Ich glaube, wir brauchen klare Regeln.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Mein Mitbewohner ist nett. Er räumt nie die Küche auf.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p>Mein Mitbewohner ist <strong>zwar nett, aber er räumt nie die Küche auf</strong>.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g1-1-6">zwar ... aber</a> · <a href="#g4-4-6">darüber</a> · <a href="#g4-4-2">Relativsatz</a> · <a href="#g3-3-5">Konjunktiv II consejo</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>explicar un conflicto;</li>
+<li>mostrar las dos perspectivas;</li>
+<li>reaccionar sin atacar;</li>
+<li>proponer una solución.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="B" data-title="B · WOHNEN, STADT &amp; UMWELT" id="vb"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation B</div><h2>B · WOHNEN, STADT &amp; UMWELT</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo describo, comparo o soluciono mi entorno?</strong></div></div><div class="chapter-body"><article class="topic" data-title="B1 · ¿Qué debo poder hacer?" id="vb-b1"><h3>B1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>describir vivienda y entorno;</li>
+<li>comparar barrios o ciudades;</li>
+<li>explicar problemas domésticos;</li>
+<li>escribir al arrendador o servicio;</li>
+<li>hablar de ruido, transporte y servicios;</li>
+<li>expresar ventajas/desventajas;</li>
+<li>hablar de hábitos sostenibles;</li>
+<li>proponer mejoras en el entorno.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Meine Wohnung ist klein, aber zentral.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Obwohl meine Wohnung ziemlich klein ist, gefällt mir die Lage, weil ich fast alles zu Fuß erreichen kann.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="B2 · Satzbausteine" id="vb-b2"><h3>B2 · Satzbausteine</h3><blockquote class="example-box">
+<p>Die Wohnung liegt ...<br/>
+Die Gegend ist ...<br/>
+In der Nähe gibt es ...<br/>
+Was mir besonders gefällt, ist ...<br/>
+Ein Vorteil / Nachteil ist ...<br/>
+Ich habe ein Problem mit ...<br/>
+Seit ... funktioniert ... nicht mehr.<br/>
+Könnten Sie bitte ...?<br/>
+Es wäre gut, wenn ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="B3 · Wörter &amp; Verbindungen" id="vb-b3"><h3>B3 · Wörter &amp; Verbindungen</h3><h4 class="micro-head">Wohnen</h4>
+<ul class="clean-list">
+<li>die Miete · -n</li>
+<li>die Nebenkosten</li>
+<li>der Mietvertrag · Mietverträge</li>
+<li>der Vermieter / die Vermieterin</li>
+<li>der Mieter / die Mieterin</li>
+<li>die Wohnfläche</li>
+<li>die Heizung · -en</li>
+<li>der Aufzug · Aufzüge</li>
+<li>der Lärm</li>
+<li>die Reparatur · -en</li>
+<li>der Schaden · Schäden</li>
+<li>die Hausordnung · -en</li>
+</ul>
+<h4 class="micro-head">Stadt</h4>
+<ul class="clean-list">
+<li>das Viertel · -</li>
+<li>die Umgebung</li>
+<li>die Innenstadt</li>
+<li>der Stadtrand</li>
+<li>die Verbindung · -en</li>
+<li>die Haltestelle · -n</li>
+<li>die Grünfläche · -n</li>
+<li>die Einrichtung · -en</li>
+<li>gut angebunden sein</li>
+<li>etwas zu Fuß erreichen</li>
+</ul>
+<h4 class="micro-head">Umwelt</h4>
+<ul class="clean-list">
+<li>Müll trennen</li>
+<li>Energie sparen</li>
+<li>Strom sparen</li>
+<li>öffentliche Verkehrsmittel nutzen</li>
+<li>auf Plastik verzichten</li>
+<li>etwas wiederverwenden</li>
+<li>umweltfreundlich</li>
+<li>nachhaltig</li>
+</ul>
+<hr/></article><article class="topic" data-title="B4 · Mini-Szene · Heizung kaputt" id="vb-b4"><h3>B4 · Mini-Szene · Heizung kaputt</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Hausverwaltung Müller, guten Tag.<br/>
+<strong>B:</strong> Guten Tag. Ich rufe an, weil meine Heizung seit gestern nicht mehr funktioniert.<br/>
+<strong>A:</strong> Betrifft das die ganze Wohnung?<br/>
+<strong>B:</strong> Ja. Es wäre gut, wenn jemand möglichst bald kommen könnte.<br/>
+<strong>A:</strong> Ich gebe das an unseren Techniker weiter.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Die Heizung funktioniert nicht. Deshalb ist die Wohnung kalt.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p><strong>Weil die Heizung nicht funktioniert, ist die Wohnung kalt.</strong></p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g1-1-2">weil/deshalb</a> · <a href="#g2-2-7">seitdem</a> · <a href="#g3-3-1">KII cortesía</a> · <a href="#gp-p1">Passiv</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>describir un problema;</li>
+<li>decir desde cuándo existe;</li>
+<li>pedir una solución;</li>
+<li>comparar dos lugares;</li>
+<li>explicar una ventaja y una desventaja.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="C" data-title="C · ARBEIT, LERNEN &amp; ZUKUNFT" id="vc"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation C</div><h2>C · ARBEIT, LERNEN &amp; ZUKUNFT</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo explico experiencia, aprendizaje y objetivos?</strong></div></div><div class="chapter-body"><article class="topic" data-title="C1 · ¿Qué debo poder hacer?" id="vc-c1"><h3>C1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>describir experiencia laboral;</li>
+<li>hablar de tareas y responsabilidades;</li>
+<li>explicar qué has aprendido;</li>
+<li>hablar de Ausbildung/Studium/Kurs;</li>
+<li>formular objetivos;</li>
+<li>explicar decisiones profesionales;</li>
+<li>hablar de Bewerbung;</li>
+<li>comparar formas de trabajo y aprendizaje;</li>
+<li>expresar planes e hipótesis de futuro.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich arbeite als ...<br/>
+Ich möchte Deutsch lernen.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Ich möchte mein Deutsch verbessern, weil ich mich beruflich weiterentwickeln und später mehr Verantwortung übernehmen möchte.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="C2 · Satzbausteine" id="vc-c2"><h3>C2 · Satzbausteine</h3><h4 class="micro-head">Experiencia</h4>
+<blockquote class="example-box">
+<p>Ich arbeite seit ... als ...<br/>
+Ich bin verantwortlich für ...<br/>
+Zu meinen Aufgaben gehört ...<br/>
+Ich habe Erfahrung mit ...<br/>
+Dabei habe ich gelernt, ...</p>
+</blockquote>
+<h4 class="micro-head">Aprendizaje</h4>
+<blockquote class="example-box">
+<p>einen Kurs besuchen<br/>
+eine Prüfung bestehen<br/>
+sich auf eine Prüfung vorbereiten<br/>
+etwas üben<br/>
+Fortschritte machen<br/>
+Schwierigkeiten mit etwas haben</p>
+</blockquote>
+<h4 class="micro-head">Zukunft</h4>
+<blockquote class="example-box">
+<p>Mein Ziel ist, ...<br/>
+Ich plane, ...<br/>
+Ich würde gern ...<br/>
+In Zukunft möchte ich ...<br/>
+Wenn ich die Möglichkeit hätte, würde ich ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="C3 · Wörter &amp; Verbindungen" id="vc-c3"><h3>C3 · Wörter &amp; Verbindungen</h3><h4 class="micro-head">Arbeit</h4>
+<ul class="clean-list">
+<li>die Berufserfahrung</li>
+<li>die Aufgabe · -n</li>
+<li>die Verantwortung · -en</li>
+<li>die Stelle · -n</li>
+<li>die Bewerbung · -en</li>
+<li>der Lebenslauf · Lebensläufe</li>
+<li>das Vorstellungsgespräch · -e</li>
+<li>die Arbeitszeit · -en</li>
+<li>das Gehalt · Gehälter</li>
+<li>der Vertrag · Verträge</li>
+<li>die Weiterbildung · -en</li>
+<li>die Voraussetzung · -en</li>
+</ul>
+<h4 class="micro-head">Chunks</h4>
+<ul class="clean-list">
+<li>sich um eine Stelle bewerben</li>
+<li>eine Bewerbung schreiben</li>
+<li>Berufserfahrung sammeln</li>
+<li>Verantwortung übernehmen</li>
+<li>im Team arbeiten</li>
+<li>selbstständig arbeiten</li>
+<li>eine Aufgabe erledigen</li>
+<li>an einem Projekt arbeiten</li>
+<li>an einer Schulung teilnehmen</li>
+</ul>
+<h4 class="micro-head">Lernen</h4>
+<ul class="clean-list">
+<li>sich etwas merken</li>
+<li>etwas wiederholen</li>
+<li>sich verbessern</li>
+<li>Fehler machen</li>
+<li>aus Fehlern lernen</li>
+<li>eine Prüfung schaffen / bestehen</li>
+<li>sich auf etwas konzentrieren</li>
+</ul>
+<hr/></article><article class="topic" data-title="C4 · Mini-Szene · Weiterbildung" id="vc-c4"><h3>C4 · Mini-Szene · Weiterbildung</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Warum möchtest du den Kurs machen?<br/>
+<strong>B:</strong> Ich möchte meine Kenntnisse verbessern, weil ich bei der Arbeit neue Aufgaben übernehmen soll.<br/>
+<strong>A:</strong> Ist der Kurs berufsbegleitend?<br/>
+<strong>B:</strong> Ja. Das ist zwar anstrengend, aber ich kann weiterarbeiten.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Ich möchte mich weiterentwickeln. Deshalb mache ich einen Kurs.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p>Ich mache einen Kurs, <strong>um mich beruflich weiterzuentwickeln</strong>.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g1-1-9">um ... zu</a> · <a href="#g1-1-6">zwar ... aber</a> · <a href="#g4-4-7">Infinitiv mit zu</a> · <a href="#g3-3-2">KII hipótesis</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>describir qué haces en el trabajo;</li>
+<li>explicar una experiencia;</li>
+<li>hablar de un objetivo;</li>
+<li>justificar una decisión;</li>
+<li>explicar qué harías en una situación profesional.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="D" data-title="D · KONSUM, GELD, MEDIEN &amp; DIENSTLEISTUNGEN" id="vd"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation D</div><h2>D · KONSUM, GELD, MEDIEN &amp; DIENSTLEISTUNGEN</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo comparo, reclamo o explico un problema de servicio?</strong></div></div><div class="chapter-body"><article class="topic" data-title="D1 · ¿Qué debo poder hacer?" id="vd-d1"><h3>D1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>comparar productos y servicios;</li>
+<li>entender publicidad y ofertas;</li>
+<li>hablar de precios y calidad;</li>
+<li>reclamar;</li>
+<li>explicar un problema;</li>
+<li>pedir reembolso/cambio/solución;</li>
+<li>hablar de compras online;</li>
+<li>hablar de medios y hábitos digitales;</li>
+<li>explicar ventajas y riesgos.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Das Handy ist kaputt. Können Sie mir helfen?</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Das Gerät funktioniert seit gestern nicht mehr, obwohl ich es erst vor zwei Wochen gekauft habe.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="D2 · Satzbausteine" id="vd-d2"><h3>D2 · Satzbausteine</h3><h4 class="micro-head">Comparar</h4>
+<blockquote class="example-box">
+<p>... kostet mehr / weniger als ...<br/>
+Im Vergleich zu ...<br/>
+Das Preis-Leistungs-Verhältnis ist ...<br/>
+Mir ist wichtiger, dass ...</p>
+</blockquote>
+<h4 class="micro-head">Reclamar</h4>
+<blockquote class="example-box">
+<p>Ich möchte mich über ... beschweren.<br/>
+Leider funktioniert ... nicht.<br/>
+Ich habe ... am ... gekauft / bestellt.<br/>
+Ich möchte das Produkt umtauschen.<br/>
+Könnten Sie mir den Betrag erstatten?<br/>
+Ich wäre Ihnen dankbar, wenn ...</p>
+</blockquote>
+<h4 class="micro-head">Medien</h4>
+<blockquote class="example-box">
+<p>Nachrichten lesen<br/>
+soziale Medien nutzen<br/>
+Informationen online suchen<br/>
+etwas herunterladen<br/>
+persönliche Daten schützen<br/>
+Werbung bekommen / sehen</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="D3 · Wörter &amp; Verbindungen" id="vd-d3"><h3>D3 · Wörter &amp; Verbindungen</h3><h4 class="micro-head">Konsum</h4>
+<ul class="clean-list">
+<li>die Bestellung · -en</li>
+<li>die Lieferung · -en</li>
+<li>die Rechnung · -en</li>
+<li>die Garantie · -n</li>
+<li>der Rabatt · -e</li>
+<li>das Angebot · -e</li>
+<li>die Qualität</li>
+<li>der Preis · -e</li>
+<li>der Betrag · Beträge</li>
+<li>die Rückgabe · -n</li>
+<li>der Umtausch</li>
+</ul>
+<h4 class="micro-head">Reklamation</h4>
+<ul class="clean-list">
+<li>kaputt</li>
+<li>beschädigt</li>
+<li>falsch geliefert</li>
+<li>fehlen</li>
+<li>reklamieren</li>
+<li>sich beschweren über + Akk</li>
+<li>etwas zurückschicken</li>
+<li>etwas umtauschen</li>
+<li>Geld zurückbekommen</li>
+<li>einen Betrag erstatten</li>
+</ul>
+<h4 class="micro-head">Medien</h4>
+<ul class="clean-list">
+<li>die Nachricht · -en</li>
+<li>die Quelle · -n</li>
+<li>die Werbung</li>
+<li>der Beitrag · Beiträge</li>
+<li>der Nutzer / die Nutzerin</li>
+<li>die Daten</li>
+<li>zuverlässig</li>
+<li>privat</li>
+<li>öffentlich</li>
+</ul>
+<hr/></article><article class="topic" data-title="D4 · Mini-Szene · Reklamation" id="vd-d4"><h3>D4 · Mini-Szene · Reklamation</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Kundenservice, guten Tag.<br/>
+<strong>B:</strong> Guten Tag. Ich möchte mich über eine Bestellung beschweren.<br/>
+<strong>A:</strong> Was ist passiert?<br/>
+<strong>B:</strong> Ich habe Kopfhörer bestellt, aber das Paket war beschädigt und ein Teil fehlt.<br/>
+<strong>A:</strong> Wir können Ihnen entweder Ersatz schicken oder den Betrag erstatten.<br/>
+<strong>B:</strong> Dann hätte ich gern eine Rückerstattung.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g1-1-5">obwohl</a> · <a href="#g1-1-11">entweder ... oder</a> · <a href="#gp-p1">Passiv</a> · <a href="#g4-4-10">indirekte Frage</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>explicar qué salió mal;</li>
+<li>dar detalles relevantes;</li>
+<li>pedir una solución concreta;</li>
+<li>comparar dos ofertas;</li>
+<li>expresar una preferencia.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="E" data-title="E · UNTERWEGS, REISEN &amp; ERFAHRUNGEN" id="ve"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation E</div><h2>E · UNTERWEGS, REISEN &amp; ERFAHRUNGEN</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo cuento, comparo y resuelvo una experiencia de viaje?</strong></div></div><div class="chapter-body"><article class="topic" data-title="E1 · ¿Qué debo poder hacer?" id="ve-e1"><h3>E1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>planificar viajes;</li>
+<li>explicar retrasos y cambios;</li>
+<li>entender conexiones;</li>
+<li>comparar opciones;</li>
+<li>recomendar un lugar;</li>
+<li>contar una experiencia;</li>
+<li>hablar de alojamiento;</li>
+<li>describir problemas y soluciones;</li>
+<li>explicar qué ocurrió antes/después.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Der Zug hat Verspätung. Ich nehme eine andere Verbindung.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Nachdem mein Zug ausgefallen war, musste ich eine andere Verbindung suchen.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="E2 · Satzbausteine" id="ve-e2"><h3>E2 · Satzbausteine</h3><h4 class="micro-head">Planificar</h4>
+<blockquote class="example-box">
+<p>eine Reise planen<br/>
+eine Unterkunft buchen<br/>
+einen Zug / Flug buchen<br/>
+umsteigen müssen<br/>
+eine Verbindung suchen<br/>
+eine Reservierung machen</p>
+</blockquote>
+<h4 class="micro-head">Problemas</h4>
+<blockquote class="example-box">
+<p>Der Zug fällt aus.<br/>
+Der Flug wurde gestrichen.<br/>
+Ich habe den Anschluss verpasst.<br/>
+Mein Gepäck ist nicht angekommen.<br/>
+Die Unterkunft entspricht nicht der Beschreibung.</p>
+</blockquote>
+<h4 class="micro-head">Recomendar</h4>
+<blockquote class="example-box">
+<p>Ich kann ... besonders empfehlen.<br/>
+Es lohnt sich, ...<br/>
+Was mir dort besonders gefallen hat, war ...<br/>
+Wenn du ... magst, würde ich ... empfehlen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="E3 · Wörter &amp; Verbindungen" id="ve-e3"><h3>E3 · Wörter &amp; Verbindungen</h3><ul class="clean-list">
+<li>die Unterkunft · Unterkünfte</li>
+<li>die Jugendherberge · -n</li>
+<li>die Buchung · -en</li>
+<li>die Reservierung · -en</li>
+<li>die Verbindung · -en</li>
+<li>der Anschluss · Anschlüsse</li>
+<li>die Verspätung · -en</li>
+<li>der Ausfall · Ausfälle</li>
+<li>das Gepäck</li>
+<li>die Sehenswürdigkeit · -en</li>
+<li>die Erfahrung · -en</li>
+<li>die Reise · -n</li>
+<li>die Rückfahrt · -en</li>
+<li>die Abfahrt · -en</li>
+<li>die Ankunft · Ankünfte</li>
+</ul>
+<h4 class="micro-head">Chunks</h4>
+<ul class="clean-list">
+<li>eine Reise unternehmen</li>
+<li>eine Unterkunft buchen</li>
+<li>einen Anschluss erreichen / verpassen</li>
+<li>einen Zug nehmen</li>
+<li>umsteigen</li>
+<li>sich verirren</li>
+<li>etwas besichtigen</li>
+<li>eine gute / schlechte Erfahrung machen</li>
+</ul>
+<hr/></article><article class="topic" data-title="E4 · Mini-Szene · Zugausfall" id="ve-e4"><h3>E4 · Mini-Szene · Zugausfall</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Entschuldigung, wie komme ich heute noch nach München?<br/>
+<strong>B:</strong> Ihr Zug fällt leider aus. Sie können entweder über Frankfurt fahren oder den Zug um 15:20 Uhr nehmen.<br/>
+<strong>A:</strong> Welche Verbindung ist schneller?<br/>
+<strong>B:</strong> Über Frankfurt sind Sie etwa eine Stunde früher da.<br/>
+<strong>A:</strong> Dann nehme ich diese Verbindung.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Mein Zug ist ausgefallen. Danach habe ich eine andere Verbindung gesucht.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p>Nachdem mein Zug ausgefallen war, habe ich eine andere Verbindung gesucht.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g2-2-5">nachdem</a> · <a href="#g2-2-6">Plusquamperfekt</a> · entweder/oder · <a href="#reuse-r5">comparación</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>contar un problema durante un viaje;</li>
+<li>explicar la secuencia;</li>
+<li>comparar dos opciones;</li>
+<li>recomendar un destino con razones;</li>
+<li>negociar una alternativa.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="F" data-title="F · GESUNDHEIT, LEBENSSTIL &amp; ENTSCHEIDUNGEN" id="vf"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation F</div><h2>F · GESUNDHEIT, LEBENSSTIL &amp; ENTSCHEIDUNGEN</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo explico salud, hábitos y decisiones?</strong></div></div><div class="chapter-body"><article class="topic" data-title="F1 · ¿Qué debo poder hacer?" id="vf-f1"><h3>F1 · ¿Qué debo poder hacer?</h3><ul class="clean-list">
+<li>describir síntomas y duración;</li>
+<li>explicar qué ocurrió;</li>
+<li>entender y dar consejos sencillos;</li>
+<li>hablar de hábitos;</li>
+<li>comparar estilos de vida;</li>
+<li>hablar de alimentación, deporte, sueño y estrés;</li>
+<li>expresar objetivos;</li>
+<li>formular hipótesis sobre cambios.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich habe seit gestern Kopfschmerzen.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Seitdem ich nachts besser schlafe, bin ich tagsüber viel konzentrierter.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="F2 · Satzbausteine" id="vf-f2"><h3>F2 · Satzbausteine</h3><h4 class="micro-head">Salud</h4>
+<blockquote class="example-box">
+<p>Ich fühle mich ...<br/>
+Ich habe seit ...<br/>
+Mir tut ... weh.<br/>
+Die Beschwerden haben angefangen, als ...<br/>
+Ich sollte ...<br/>
+Der Arzt hat mir empfohlen, ...</p>
+</blockquote>
+<h4 class="micro-head">Hábitos</h4>
+<blockquote class="example-box">
+<p>regelmäßig Sport treiben<br/>
+sich gesund ernähren<br/>
+genug schlafen<br/>
+Stress vermeiden<br/>
+Pausen machen<br/>
+sich erholen<br/>
+auf etwas achten</p>
+</blockquote>
+<h4 class="micro-head">Objetivos</h4>
+<blockquote class="example-box">
+<p>Ich versuche, ...<br/>
+Ich habe angefangen, ...<br/>
+Mein Ziel ist, ...<br/>
+Wenn ich mehr Zeit hätte, würde ich ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="F3 · Wörter &amp; Verbindungen" id="vf-f3"><h3>F3 · Wörter &amp; Verbindungen</h3><ul class="clean-list">
+<li>die Gesundheit</li>
+<li>die Ernährung</li>
+<li>die Bewegung</li>
+<li>der Schlaf</li>
+<li>der Stress</li>
+<li>die Gewohnheit · -en</li>
+<li>die Untersuchung · -en</li>
+<li>die Behandlung · -en</li>
+<li>die Beschwerde · -n</li>
+<li>das Medikament · -e</li>
+<li>die Verletzung · -en</li>
+<li>die Erholung</li>
+</ul>
+<h4 class="micro-head">Chunks</h4>
+<ul class="clean-list">
+<li>sich gesund ernähren</li>
+<li>Sport treiben</li>
+<li>Medikamente nehmen</li>
+<li>sich ausruhen</li>
+<li>einen Arzttermin vereinbaren</li>
+<li>sich untersuchen lassen</li>
+<li>auf die Gesundheit achten</li>
+<li>mit etwas aufhören</li>
+<li>mit etwas anfangen</li>
+</ul>
+<hr/></article><article class="topic" data-title="F4 · Mini-Szene · Lebensstil" id="vf-f4"><h3>F4 · Mini-Szene · Lebensstil</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Du wirkst in letzter Zeit viel entspannter.<br/>
+<strong>B:</strong> Ja, ich habe angefangen, regelmäßig Sport zu machen.<br/>
+<strong>A:</strong> Hilft das wirklich gegen Stress?<br/>
+<strong>B:</strong> Bei mir schon. Seitdem ich dreimal pro Woche trainiere, schlafe ich auch besser.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Ich möchte fitter werden. Ich gehe dreimal pro Woche ins Fitnessstudio.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p>Ich gehe dreimal pro Woche ins Fitnessstudio, <strong>um fitter zu werden</strong>.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g2-2-7">seitdem</a> · <a href="#g4-4-7">Infinitiv mit zu</a> · <a href="#g1-1-9">um ... zu</a> · hipótesis</p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>explicar un hábito;</li>
+<li>describir un cambio;</li>
+<li>dar consejo;</li>
+<li>hablar de un objetivo;</li>
+<li>explicar qué cambiarías en una situación ideal.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="G" data-title="G · GESELLSCHAFT, KULTUR &amp; MEINUNG" id="vg"><div class="chapter-head"><div class="chapter-kicker">WORTSCHATZ · Situation G</div><h2>G · GESELLSCHAFT, KULTUR &amp; MEINUNG</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo resumo, opino, argumento y reacciono?</strong></div></div><div class="chapter-body"><article class="topic" data-title="G1 · ¿Qué debo poder hacer?" id="vg-g1"><h3>G1 · ¿Qué debo poder hacer?</h3><p>Este es el mundo nuevo más claramente B1.</p>
+<ul class="clean-list">
+<li>entender una opinión sencilla;</li>
+<li>resumirla;</li>
+<li>expresar tu propia postura;</li>
+<li>dar una razón;</li>
+<li>aportar un ejemplo o experiencia;</li>
+<li>comparar antes/ahora;</li>
+<li>hablar de diversidad y convivencia;</li>
+<li>hablar de medios, tecnología y vida cotidiana;</li>
+<li>discutir ventajas/desventajas;</li>
+<li>aceptar parcialmente un argumento contrario.</li>
+</ul>
+<div class="bridge-card old"><h4 class="micro-head bridge-head old">YA SABES · A2</h4>
+<blockquote class="example-box">
+<p>Ich finde soziale Medien praktisch.</p>
+</blockquote>
+</div><div class="bridge-card new"><h4 class="micro-head bridge-head new">AHORA · B1</h4>
+<blockquote class="example-box">
+<p>Ich finde soziale Medien praktisch, weil man schnell Informationen bekommt. Allerdings sollte man darauf achten, wie viel Zeit man online verbringt.</p>
+</blockquote>
+<hr/></div></article><article class="topic" data-title="G2 · Satzbausteine · Meinung" id="vg-g2"><h3>G2 · Satzbausteine · Meinung</h3><h4 class="micro-head">Introducir</h4>
+<blockquote class="example-box">
+<p>In dem Text geht es um ...<br/>
+Das Thema ist ...<br/>
+Die Person meint, dass ...</p>
+</blockquote>
+<h4 class="micro-head">Propia postura</h4>
+<blockquote class="example-box">
+<p>Meiner Meinung nach ...<br/>
+Ich persönlich finde ...<br/>
+Für mich ist besonders wichtig, dass ...</p>
+</blockquote>
+<h4 class="micro-head">Razón</h4>
+<blockquote class="example-box">
+<p>Der Hauptgrund ist, dass ...<br/>
+Das liegt daran, dass ...<br/>
+..., weil ...</p>
+</blockquote>
+<h4 class="micro-head">Ejemplo</h4>
+<blockquote class="example-box">
+<p>Zum Beispiel ...<br/>
+Bei mir ist es so, dass ...<br/>
+Meiner Erfahrung nach ...</p>
+</blockquote>
+<h4 class="micro-head">Otro lado</h4>
+<blockquote class="example-box">
+<p>Andererseits ...<br/>
+Allerdings ...<br/>
+Das stimmt zwar, aber ...<br/>
+Obwohl ..., ...</p>
+</blockquote>
+<h4 class="micro-head">Conclusión</h4>
+<blockquote class="example-box">
+<p>Deshalb denke ich, dass ...<br/>
+Insgesamt würde ich sagen, dass ...</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="G3 · Wörter &amp; Verbindungen" id="vg-g3"><h3>G3 · Wörter &amp; Verbindungen</h3><h4 class="micro-head">Gesellschaft</h4>
+<ul class="clean-list">
+<li>die Gesellschaft</li>
+<li>die Gemeinschaft · -en</li>
+<li>die Vielfalt</li>
+<li>die Integration</li>
+<li>die Erfahrung · -en</li>
+<li>die Möglichkeit · -en</li>
+<li>die Verantwortung</li>
+<li>die Regel · -n</li>
+<li>die Meinung · -en</li>
+<li>die Entscheidung · -en</li>
+<li>die Veränderung · -en</li>
+</ul>
+<h4 class="micro-head">Kultur &amp; Alltag</h4>
+<ul class="clean-list">
+<li>die Tradition · -en</li>
+<li>die Gewohnheit · -en</li>
+<li>der Unterschied · -e</li>
+<li>die Gemeinsamkeit · -en</li>
+<li>typisch</li>
+<li>unterschiedlich</li>
+<li>ähnlich</li>
+</ul>
+<h4 class="micro-head">Öffentliches Leben, Regeln &amp; aktuelle Themen</h4>
+<ul class="clean-list">
+<li>das Recht · -e</li>
+<li>die Pflicht · -en</li>
+<li>das Gesetz · -e</li>
+<li>die Regel · -n</li>
+<li>die Wahl · -en</li>
+<li>die Regierung · -en</li>
+<li>die Demokratie</li>
+<li>die Europäische Union (EU)</li>
+<li>gerecht / ungerecht</li>
+<li>erlaubt / verboten</li>
+<li>sich an Regeln halten</li>
+<li>über ein aktuelles Thema sprechen</li>
+<li>die Migration</li><li>die Einwanderung</li><li>die Gleichberechtigung</li><li>mehrsprachig</li></ul>
+<h4 class="micro-head">Medien &amp; Technologie</h4>
+<ul class="clean-list">
+<li>digitale Medien</li>
+<li>soziale Netzwerke</li>
+<li>Informationen teilen</li>
+<li>online kommunizieren</li>
+<li>Daten schützen</li>
+<li>abhängig sein von + Dat</li>
+<li>Zeit online verbringen</li>
+<li>eine Quelle prüfen</li>
+<li>die künstliche Intelligenz (KI)</li><li>die Technologie · -n</li><li>die Privatsphäre</li></ul>
+<hr/></article><article class="topic" data-title="G4 · Mini-Szene · Online oder persönlich?" id="vg-g4"><h3>G4 · Mini-Szene · Online oder persönlich?</h3><blockquote class="scene example-box">
+<p><strong>A:</strong> Ich finde Online-Unterricht viel besser, weil man Zeit spart.<br/>
+<strong>B:</strong> Das stimmt zwar, aber mir fehlt dabei der direkte Kontakt.<br/>
+<strong>A:</strong> Ja, das kann ich verstehen. Andererseits kann man von überall teilnehmen.<br/>
+<strong>B:</strong> Genau. Vielleicht wäre eine Kombination am besten.</p>
+</blockquote>
+<h4 class="micro-head">BAU ES UM</h4>
+<blockquote class="scene example-box">
+<p>Online-Unterricht ist flexibel. Der persönliche Kontakt fehlt.</p>
+</blockquote>
+<p class="mini-formula">→</p>
+<blockquote class="scene example-box">
+<p>Online-Unterricht ist <strong>zwar flexibel, aber der persönliche Kontakt fehlt</strong>.</p>
+</blockquote>
+<div class="grammar-hook"><h4 class="micro-head grammar-head">GRAMMATIK ↗</h4>
+<p><a href="#g1-1-6">zwar ... aber</a> · <a href="#g1-1-5">obwohl</a> · <a href="#g1-1-15">je ... desto</a> · <a href="#g3-3-2">KII hipótesis</a></p>
+</div><div class="can-do"><h4 class="micro-head can-head">KANNST DU...?</h4>
+<ul class="clean-list">
+<li>resumir una postura;</li>
+<li>dar tu opinión;</li>
+<li>añadir una razón;</li>
+<li>dar un ejemplo;</li>
+<li>reconocer un contraargumento;</li>
+<li>responder a la otra persona.</li>
+</ul>
+<hr/></div></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="T" data-title="TELC · reconocer, hablar y escribir" id="telc"><div class="chapter-head"><div class="chapter-kicker">TELC · Transfer lingüístico</div><h2>TELC · reconocer, hablar y escribir</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué señales debo reconocer y qué movimientos debo poder producir?</strong></div></div><div class="chapter-body"><article class="topic" data-title="T0 · Lesen, Hören &amp; Sprachbausteine · reconocer el sistema" id="telc-t0">
+<h3>T0 · Lesen, Hören &amp; Sprachbausteine · reconocer el sistema</h3>
+<div class="priority-row"><span class="badge badge-core">CORE TELC</span></div>
+<p>Esto no es una lista de trucos de examen. Es la capa receptiva del mismo sistema que produces al hablar y escribir.</p>
+<h4 class="micro-head">Lesen / Hören · reconoce relaciones</h4>
+<div class="pattern-list">
+<div class="pattern"><b>razón</b><span>weil · denn · da</span></div>
+<div class="pattern"><b>consecuencia</b><span>deshalb · deswegen · darum · daher · sodass</span></div>
+<div class="pattern"><b>contraste / concesión</b><span>aber · dagegen · obwohl · trotzdem · zwar ... aber</span></div>
+<div class="pattern"><b>tiempo</b><span>bevor · nachdem · während · seitdem · bis</span></div>
+<div class="pattern"><b>condición</b><span>wenn · falls · sonst / andernfalls</span></div>
+</div>
+<p class="memory-strip"><strong>MEMORY:</strong> No traduzcas palabra por palabra. Pregunta primero: <strong>¿qué relación está señalando?</strong></p>
+<h4 class="micro-head">Sprachbausteine · encuentra el trigger</h4>
+<div class="pattern-list">
+<div class="pattern"><b>orden</b><span>¿Hauptsatz, posición 1 o Nebensatz?</span></div>
+<div class="pattern"><b>caso</b><span>¿qué verbo o preposición exige Akk/Dat/Gen?</span></div>
+<div class="pattern"><b>terminación</b><span>¿determinante + género/número + caso?</span></div>
+<div class="pattern"><b>relativo</b><span>¿qué función cumple dentro de la Relativsatz?</span></div>
+<div class="pattern"><b>chunk</b><span>Verb + Präposition · Adjektiv + Präposition · collocation</span></div>
+</div>
+<div class="telc-transfer"><strong>TELC-TRANSFER:</strong> En recepción, tu ventaja B1 es reconocer rápido la arquitectura y la relación aunque no produzcas cada forma con la misma facilidad.</div>
+</article><article class="topic" data-title="T1 · Teil 1 · Einander kennenlernen" id="telc-t1"><h3>T1 · Teil 1 · Einander kennenlernen</h3><p>No conviertas esta parte en dos monólogos memorizados. La tarea es una conversación breve con la otra persona.</p>
+<h4 class="micro-head">Máquina segura</h4>
+<p class="mini-formula"><strong>PREGUNTA / INPUT → RESPUESTA → DETALLE → DEVOLVER LA CONVERSACIÓN</strong></p>
+<blockquote class="example-box">
+<p>Ich wohne seit einigen Jahren in Köln. Besonders gut gefällt mir, dass die Stadt sehr international ist. Außerdem kann ich schnell mit dem Zug nach Bonn fahren. <strong>Und wo wohnst du?</strong></p>
+</blockquote>
+<h4 class="micro-head">Temas transferibles</h4>
+<ul class="clean-list">
+<li>Wohnort</li>
+<li>Beruf</li>
+<li>Familie</li>
+<li>Sprachen</li>
+<li>Freizeit</li>
+<li>Lernen</li>
+<li>Deutschland</li>
+<li>Zukunft</li>
+</ul>
+<div class="owner-note"><b>REGISTRO:</b> Mantén <strong>du</strong> o <strong>Sie</strong> de forma coherente según cómo se dirijan entre ustedes. No mezcles ambos dentro del mismo intercambio.</div><h4 class="micro-head">Follow-up</h4>
+<blockquote class="example-box">
+<p>Wie ist das bei Ihnen / dir?<br/>
+Und bei dir?<br/>
+Seit wann ...?<br/>
+Warum ...?</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="T2 · Teil 2 · Über ein Thema sprechen" id="telc-t2"><h3>T2 · Teil 2 · Über ein Thema sprechen</h3><div class="priority-row"><span class="badge badge-core">CORE</span><span class="badge badge-telc">TELC</span></div>
+<p>Recibes una postura breve; tu pareja recibe otra. Primero transmites la postura, después escuchas la otra y finalmente conversan: opinión propia + experiencia + reacción.</p>
+<p>La estructura mental:</p>
+<p class="mini-formula"><strong>INPUT → POSTURA AJENA → MI POSTURA → RAZÓN → EXPERIENCIA / EJEMPLO → REACCIÓN</strong></p>
+<h4 class="micro-head">1 · Reportar</h4>
+<blockquote class="example-box">
+<p>Die Person findet, dass ...<br/>
+Sie meint, dass ...<br/>
+Für sie ist wichtig, dass ...</p>
+</blockquote>
+<h4 class="micro-head">2 · Posicionarme</h4>
+<blockquote class="example-box">
+<p>Ich sehe das ähnlich.<br/>
+Ich sehe das etwas anders.<br/>
+Meiner Meinung nach ...</p>
+</blockquote>
+<h4 class="micro-head">3 · Desarrollar</h4>
+<blockquote class="example-box">
+<p>..., weil ...<br/>
+Zum Beispiel ...<br/>
+Bei mir ist es so, dass ...</p>
+</blockquote>
+<h4 class="micro-head">4 · Darle la palabra al otro</h4>
+<blockquote class="example-box">
+<p>Wie siehst du das?<br/>
+Was meinst du dazu?<br/>
+Hast du ähnliche Erfahrungen gemacht?</p>
+</blockquote>
+<h4 class="micro-head">5 · Reaccionar</h4>
+<blockquote class="example-box">
+<p>Da hast du recht.<br/>
+Das stimmt, aber ...<br/>
+Interessant. Bei mir ist das anders.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="T3 · Teil 3 · Gemeinsam etwas planen" id="telc-t3"><h3>T3 · Teil 3 · Gemeinsam etwas planen</h3><div class="priority-row"><span class="badge badge-core">CORE</span><span class="badge badge-telc">TELC</span></div>
+<p>La tarea no es enumerar ideas: deben introducir propuestas, explicar por qué, repartir o concretar aspectos y reaccionar a lo que propone la otra persona.</p>
+<p>La máquina:</p>
+<p class="mini-formula"><strong>OBJETIVO → PROPUESTA → RAZÓN → REACCIÓN → ALTERNATIVA → DECISIÓN</strong></p>
+<h4 class="micro-head">Propuesta</h4>
+<blockquote class="example-box">
+<p>Wir könnten ...<br/>
+Wie wäre es, wenn ...?<br/>
+Ich würde vorschlagen, dass ...</p>
+</blockquote>
+<h4 class="micro-head">Razón</h4>
+<blockquote class="example-box">
+<p>Das wäre praktisch, weil ...<br/>
+Dann könnten wir ...<br/>
+Das ist günstiger / schneller / einfacher.</p>
+</blockquote>
+<h4 class="micro-head">Reacción</h4>
+<blockquote class="example-box">
+<p>Gute Idee.<br/>
+Das klingt gut.<br/>
+Ich bin nicht sicher, ob das klappt.</p>
+</blockquote>
+<h4 class="micro-head">Alternativa</h4>
+<blockquote class="example-box">
+<p>Vielleicht können wir stattdessen ...<br/>
+Was hältst du von ...?<br/>
+Dann wäre ... besser.</p>
+</blockquote>
+<h4 class="micro-head">Cierre</h4>
+<blockquote class="example-box">
+<p>Gut, dann machen wir das so.<br/>
+Dann sind wir uns einig.<br/>
+Also: Wir treffen uns ... und ...</p>
+</blockquote>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="S" data-title="S · ¿CÓMO CONVIERTO CUATRO PUNTOS EN UN TEXTO COHERENTE?" id="ws"><div class="chapter-head"><div class="chapter-kicker">SCHREIBEN · Producción</div><h2>S · ¿CÓMO CONVIERTO CUATRO PUNTOS EN UN TEXTO COHERENTE?</h2><div class="chapter-question">Pregunta mental: <strong>¿Cómo convierto varios puntos en un texto conectado?</strong></div></div><div class="chapter-body"><div class="chapter-intro"><p>B1 Schreiben no es memorizar veinte cartas.</p>
+<p>Necesitas unas pocas arquitecturas robustas.</p>
+<hr/></div><article class="topic" data-title="S1 · Máquina 1 · Auf etwas antworten" id="ws-s1"><h3>S1 · Máquina 1 · Auf etwas antworten</h3><div class="priority-row"><span class="badge badge-core">CORE</span><span class="badge badge-telc">TELC</span></div>
+<p>La tarea clásica de telc Deutsch B1 pide una e-mail personal o semiformal basada en un input y cuatro Leitpunkte. El objetivo lingüístico es convertirlos en un texto conectado, no escribir cuatro respuestas aisladas.</p>
+<p><strong>ANREDE</strong><br/>
+↓<br/>
+<strong>BEZUG / REAKTION</strong><br/>
+↓<br/>
+<strong>LEITPUNKT A + DESARROLLO</strong><br/>
+↓<br/>
+<strong>LEITPUNKT B + RAZÓN / EJEMPLO</strong><br/>
+↓<br/>
+<strong>LEITPUNKT C + D</strong><br/>
+↓<br/>
+<strong>REACCIÓN / PREGUNTA FINAL</strong><br/>
+↓<br/>
+<strong>GRUSS</strong></p>
+<h4 class="micro-head">Principio</h4>
+<p><strong>CUBRIR TODO + AGRUPAR LO QUE PERTENECE JUNTO</strong></p>
+<p>No escribir:</p>
+<blockquote class="example-box">
+<p>Erstens ... Zweitens ... Drittens ...</p>
+</blockquote>
+<p>salvo que realmente tenga sentido.</p>
+<hr/></article><article class="topic" data-title="S2 · Máquina 2 · Ein Anliegen klären" id="ws-s2"><h3>S2 · Máquina 2 · Ein Anliegen klären</h3><p class="mini-formula"><strong>POR QUÉ ESCRIBO</strong><br/>
+→ <strong>SITUACIÓN</strong><br/>
+→ <strong>DETALLE / PROBLEMA</strong><br/>
+→ <strong>LO QUE NECESITO</strong><br/>
+→ <strong>RAZÓN / PROPUESTA</strong><br/>
+→ <strong>CIERRE</strong></p>
+<p>Sirve para:</p>
+<ul class="clean-list">
+<li>Anfrage</li>
+<li>Termin</li>
+<li>Kurs</li>
+<li>Vermieter</li>
+<li>Dienstleistung</li>
+<li>Reklamation</li>
+<li>información</li>
+<li>solicitud sencilla</li>
+</ul>
+<hr/></article><article class="topic" data-title="S3 · Registro informal" id="ws-s3"><h3>S3 · Registro informal</h3><h4 class="micro-head">Anrede</h4>
+<blockquote class="example-box">
+<p>Liebe Anna,<br/>
+Lieber Tom,<br/>
+Hallo Maria,</p>
+</blockquote>
+<h4 class="micro-head">Abrir</h4>
+<blockquote class="example-box">
+<p>Vielen Dank für deine Nachricht.<br/>
+Ich habe mich sehr über deine E-Mail gefreut.<br/>
+Es tut mir leid, dass ich erst jetzt antworte.</p>
+</blockquote>
+<h4 class="micro-head">Cerrar</h4>
+<blockquote class="example-box">
+<p>Schreib mir bald.<br/>
+Ich freue mich auf deine Antwort.<br/>
+Hoffentlich sehen wir uns bald.</p>
+</blockquote>
+<h4 class="micro-head">Gruß</h4>
+<blockquote class="example-box">
+<p>Liebe Grüße<br/>
+Viele Grüße<br/>
+Bis bald</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="S4 · Registro semiformal · CORE TELC / formal sencillo · TRANSFER" id="ws-s4"><h3>S4 · Registro semiformal · CORE TELC / formal sencillo · TRANSFER</h3><h4 class="micro-head">Anrede</h4>
+<blockquote class="example-box">
+<p>Sehr geehrte Frau Müller,<br/>
+Sehr geehrter Herr Schneider,<br/>
+Guten Tag Frau Müller,</p>
+</blockquote>
+<h4 class="micro-head">Abrir</h4>
+<blockquote class="example-box">
+<p>Ich schreibe Ihnen, weil ...<br/>
+Ich interessiere mich für ...<br/>
+Ich möchte mich über ... informieren.<br/>
+Ich möchte mich über ... beschweren.</p>
+</blockquote>
+<h4 class="micro-head">Pedir</h4>
+<blockquote class="example-box">
+<p>Könnten Sie mir bitte mitteilen, ...?<br/>
+Ich würde gern wissen, ob ...<br/>
+Wäre es möglich, ...?<br/>
+Ich wäre Ihnen dankbar, wenn ...</p>
+</blockquote>
+<h4 class="micro-head">Cerrar</h4>
+<blockquote class="example-box">
+<p>Vielen Dank im Voraus.<br/>
+Ich freue mich auf Ihre Antwort.</p>
+</blockquote>
+<h4 class="micro-head">Gruß</h4>
+<blockquote class="example-box">
+<p>Mit freundlichen Grüßen</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="S5 · Cómo desarrollar un Leitpunkt" id="ws-s5"><h3>S5 · Cómo desarrollar un Leitpunkt</h3><p>No:</p>
+<blockquote class="example-box">
+<p>Ich komme am Samstag.</p>
+</blockquote>
+<p><strong>B1:</strong></p><blockquote class="example-box">
+<p>Ich komme am Samstag, <strong>weil ich am Freitag noch arbeiten muss</strong>. Wahrscheinlich bin ich gegen 15 Uhr da.</p>
+</blockquote>
+<div class="formula-panel"><h4 class="micro-head micro-formula-head">Fórmula</h4>
+<p class="mini-formula"><strong>RESPUESTA → RAZÓN / DETALLE / EJEMPLO</strong></p>
+<hr/></div></article><article class="topic" data-title="S6 · Cómo conectar párrafos" id="ws-s6"><h3>S6 · Cómo conectar párrafos</h3><h4 class="micro-head">Añadir</h4>
+<blockquote class="example-box">
+<p>außerdem<br/>
+auch<br/>
+zusätzlich</p>
+</blockquote>
+<h4 class="micro-head">Contrastar</h4>
+<blockquote class="example-box">
+<p>aber<br/>
+allerdings<br/>
+trotzdem</p>
+</blockquote>
+<h4 class="micro-head">Causa</h4>
+<blockquote class="example-box">
+<p>weil<br/>
+da</p>
+</blockquote>
+<h4 class="micro-head">Consecuencia</h4>
+<blockquote class="example-box">
+<p>deshalb<br/>
+deswegen</p>
+</blockquote>
+<h4 class="micro-head">Ejemplo</h4>
+<blockquote class="example-box">
+<p>zum Beispiel</p>
+</blockquote>
+<h4 class="micro-head">Secuencia</h4>
+<blockquote class="example-box">
+<p>zuerst<br/>
+danach<br/>
+später<br/>
+schließlich</p>
+</blockquote>
+<p class="memory-strip"><strong>MEMORY:</strong> No necesitas un conector “avanzado” por frase.</p>
+<hr/></article><article class="topic" data-title="S7 · Modelo flexible · respuesta informal" id="ws-s7"><h3>S7 · Modelo flexible · respuesta informal</h3><p><strong>Liebe Anna,</strong></p>
+<p>vielen Dank für deine Nachricht. Ich freue mich sehr, dass du im September nach Köln kommst. Am besten bleibst du ein ganzes Wochenende, weil wir dann genug Zeit haben. Am Samstag könnten wir zuerst die Altstadt besuchen und später am Rhein spazieren gehen. Wenn das Wetter schlecht ist, können wir stattdessen ins Museum gehen. Du kannst übrigens gern bei mir übernachten.</p>
+<p>Schreib mir, wann dein Zug ankommt.</p>
+<p><strong>Liebe Grüße<br/>
+Jorge</strong></p>
+<h4 class="micro-head">Qué demuestra</h4>
+<ul class="clean-list">
+<li>reacción;</li>
+<li>respuesta desarrollada;</li>
+<li>razón;</li>
+<li>propuesta;</li>
+<li>condición;</li>
+<li>alternativa;</li>
+<li>pregunta final;</li>
+<li>registro coherente.</li>
+</ul>
+<hr/></article><article class="topic" data-title="S8 · Modelo flexible · Anliegen / Reklamation" id="ws-s8"><h3>S8 · Modelo flexible · Anliegen / Reklamation</h3><p><strong>Sehr geehrte Damen und Herren,</strong></p>
+<p>ich schreibe Ihnen, weil ich vor einer Woche einen Rucksack in Ihrem Online-Shop bestellt habe. Das Paket ist gestern angekommen, aber leider ist der Reißverschluss beschädigt. Da ich den Rucksack für eine Reise nächste Woche brauche, möchte ich ihn möglichst schnell umtauschen. Könnten Sie mir bitte mitteilen, wie ich die Ware zurückschicken kann?</p>
+<p>Vielen Dank im Voraus.</p>
+<p><strong>Mit freundlichen Grüßen<br/>
+Jorge Arce</strong></p>
+<hr/></article><article class="topic" data-title="S9 · Checklist de escritura" id="ws-s9"><h3>S9 · Checklist de escritura</h3><p>Antes de terminar:</p>
+<ul class="clean-list">
+<li>¿Respondí todos los Leitpunkte?</li>
+<li>¿Cada punto tiene suficiente información?</li>
+<li>¿Agrupé ideas que pertenecen juntas?</li>
+<li>¿Mi saludo y cierre corresponden al registro?</li>
+<li>¿Usé alguna razón, consecuencia, contraste o ejemplo?</li>
+<li>¿Repetí <code>Ich</code> al principio de demasiadas frases?</li>
+<li>¿Revisé el verbo después de <code>weil/dass/wenn/obwohl</code>?</li>
+<li>¿Revisé inversión después de <code>deshalb/trotzdem/danach</code>?</li>
+<li>¿Las frases son claras aunque no sean sofisticadas?</li>
+<li>¿Mi texto parece una comunicación real y no una lista?</li>
+</ul>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="14" data-title="R · LAS 14 SUPERFÓRMULAS B1" id="rf"><div class="chapter-head"><div class="chapter-kicker">RETRIEVAL · Superfórmulas</div><h2>R · LAS 14 SUPERFÓRMULAS B1</h2><div class="chapter-question">Pregunta mental: <strong>¿Puedo recuperar el sistema desde unas pocas relaciones?</strong></div></div><div class="chapter-body"><article class="topic" data-title="1 · Razón" id="rf-1"><h3>1 · Razón</h3><p class="mini-formula"><strong>RESULTADO ← WEIL / DA ← RAZÓN</strong></p>
+<blockquote class="example-box">
+<p>Ich bleibe zu Hause, weil ich krank bin.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="2 · Consecuencia" id="rf-2"><h3>2 · Consecuencia</h3><p class="mini-formula"><strong>RAZÓN → DESHALB / DESWEGEN → RESULTADO</strong></p>
+<blockquote class="example-box">
+<p>Ich bin krank. Deshalb bleibe ich zu Hause.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="3 · Concesión" id="rf-3"><h3>3 · Concesión</h3><p class="mini-formula"><strong>X ES VERDAD → AUN ASÍ Y</strong></p>
+<blockquote class="example-box">
+<p>Obwohl es regnet, gehe ich spazieren.<br/>
+Es regnet. Trotzdem gehe ich spazieren.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="4 · Dos lados" id="rf-4"><h3>4 · Dos lados</h3><p class="mini-formula"><strong>SÍ, X → PERO Y</strong></p>
+<blockquote class="example-box">
+<p>Die Wohnung ist zwar klein, aber hell.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="5 · Consecuencia integrada" id="rf-5"><h3>5 · Consecuencia integrada</h3><p class="mini-formula"><strong>HECHO → RESULTADO EN NEBENSATZ</strong></p>
+<blockquote class="example-box">
+<p>Es regnet stark, sodass die Straßen rutschig sind.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="6 · Condición real" id="rf-6"><h3>6 · Condición real</h3><p class="mini-formula"><strong>SI X OCURRE → Y</strong></p>
+<blockquote class="example-box">
+<p>Wenn ich Zeit habe, komme ich.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="7 · Condición hipotética" id="rf-7"><h3>7 · Condición hipotética</h3><p class="mini-formula"><strong>SI LA REALIDAD FUERA X → Y PASARÍA</strong></p>
+<blockquote class="example-box">
+<p>Wenn ich mehr Zeit hätte, würde ich öfter kochen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="8 · Finalidad" id="rf-8"><h3>8 · Finalidad</h3><p class="mini-formula"><strong>ACCIÓN → PARA QUÉ</strong></p>
+<blockquote class="example-box">
+<p>Ich lerne, um die Prüfung zu bestehen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="9 · Método" id="rf-9"><h3>9 · Método</h3><p class="mini-formula"><strong>RESULTADO → CÓMO</strong></p>
+<blockquote class="example-box">
+<p>Ich lerne Wörter, indem ich sie in Sätzen benutze.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="10 · Secuencia pasada" id="rf-10"><h3>10 · Secuencia pasada</h3><p class="mini-formula"><strong>X YA HABÍA OCURRIDO → DESPUÉS Y</strong></p>
+<blockquote class="example-box">
+<p>Nachdem ich gegessen hatte, bin ich spazieren gegangen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="11 · Integrar información" id="rf-11"><h3>11 · Integrar información</h3><p class="mini-formula"><strong>SUSTANTIVO → RELATIVSATZ</strong></p>
+<blockquote class="example-box">
+<p>Das ist die Frau, mit der ich arbeite.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="12 · Acción dependiente" id="rf-12"><h3>12 · Acción dependiente</h3><p class="mini-formula"><strong>IDEA → ZU + ACCIÓN</strong></p>
+<blockquote class="example-box">
+<p>Ich versuche, mehr Deutsch zu sprechen.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="13 · Cambiar el foco" id="rf-13"><h3>13 · Cambiar el foco</h3><p class="mini-formula"><strong>QUIÉN HACE X → QUÉ OCURRE CON Y</strong></p>
+<blockquote class="example-box">
+<p>Die Firma repariert das Auto.<br/>
+Das Auto wird repariert.</p>
+</blockquote>
+<hr/></article><article class="topic" data-title="14 · Pasado alternativo" id="rf-14"><h3>14 · Pasado alternativo</h3><p class="mini-formula"><strong>SI EL PASADO HUBIERA SIDO X → Y HABRÍA CAMBIADO</strong></p>
+<blockquote class="example-box">
+<p>Wenn ich früher losgegangen wäre, hätte ich den Zug nicht verpasst.</p>
+</blockquote>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="!" data-title="Errores que deben sonar mal" id="errors"><div class="chapter-head"><div class="chapter-kicker">REPASO · Errores</div><h2>Errores que deben sonar mal</h2><div class="chapter-question">Pregunta mental: <strong>¿Estos errores ya me suenan mal?</strong></div></div><div class="chapter-body"><article class="topic" data-title="Nebensatz" id="errors-t1"><h3>Nebensatz</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ weil ich bin müde<br/>
+✓ weil ich müde bin</p>
+</blockquote></article><article class="topic" data-title="Nebensatz primero" id="errors-t2"><h3>Nebensatz primero</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Wenn ich Zeit habe, ich komme.<br/>
+✓ Wenn ich Zeit habe, komme ich.</p>
+</blockquote></article><article class="topic" data-title="deshalb / trotzdem" id="errors-t3"><h3>deshalb / trotzdem</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Deshalb ich komme später.<br/>
+✓ Deshalb komme ich später.</p>
+</blockquote></article><article class="topic" data-title="obwohl" id="errors-t4"><h3>obwohl</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ obwohl es regnet, trotzdem gehe ich<br/>
+✓ Obwohl es regnet, gehe ich.<br/>
+✓ Es regnet. Trotzdem gehe ich.</p>
+</blockquote></article><article class="topic" data-title="zu + trennbar" id="errors-t5"><h3>zu + trennbar</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ zu anrufen<br/>
+✓ anzurufen</p>
+</blockquote></article><article class="topic" data-title="Relativsatz" id="errors-t6"><h3>Relativsatz</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ die Frau, mit die ich arbeite<br/>
+✓ die Frau, mit der ich arbeite</p>
+</blockquote></article><article class="topic" data-title="Passiv + Modal" id="errors-t7"><h3>Passiv + Modal</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Das muss repariert.<br/>
+✓ Das muss repariert werden.</p>
+</blockquote></article><article class="topic" data-title="Passiv Perfekt" id="errors-t8"><h3>Passiv Perfekt</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ ist repariert geworden<br/>
+✓ ist repariert worden</p>
+</blockquote></article><article class="topic" data-title="Hypothese" id="errors-t9"><h3>Hypothese</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Wenn ich mehr Zeit habe, würde ich ...<br/>
+✓ Wenn ich mehr Zeit hätte, würde ich ...</p>
+</blockquote></article><article class="topic" data-title="Irreale Vergangenheit" id="errors-t10"><h3>Irreale Vergangenheit</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Wenn ich früher gegangen wäre, würde ich den Zug nicht verpasst.<br/>
+✓ Wenn ich früher gegangen wäre, hätte ich den Zug nicht verpasst.</p>
+</blockquote></article><article class="topic" data-title="sodass" id="errors-t11"><h3>sodass</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Es regnet stark, sodass die Straßen sind rutschig.<br/>
+✓ Es regnet stark, sodass die Straßen rutschig sind.</p>
+</blockquote></article><article class="topic" data-title="N-Deklination" id="errors-t12"><h3>N-Deklination</h3><blockquote class="example-box error-example">
+<p class="error-example">✗ Ich spreche mit dem Student.<br/>
+✓ Ich spreche mit dem Studenten.</p>
+</blockquote>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="B2" data-title="B2 → No inflar B1" id="b2"><div class="chapter-head"><div class="chapter-kicker">FRONTERA</div><h2>B2 → No inflar B1</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué reconozco sin gastar memoria B1?</strong></div></div><div class="chapter-body"><article class="topic" data-title="B2 → No inflar B1" id="b2-t1"><h3>B2 → No inflar B1</h3><p>Reconocer si aparece, pero no construir sistemas completos alrededor de:</p>
+<ul class="clean-list">
+<li>Konjunktiv I como sistema productivo de indirekte Rede;</li>
+<li>Futur II;</li>
+<li>Partizipialkonstruktionen complejas que sustituyen oraciones completas;</li>
+<li>Nominalstil como estrategia sistemática de escritura;</li>
+<li>repertorios extensos de Nomen-Verb-Verbindungen;</li>
+<li>uso subjetivo complejo de Modalverben para grados finos de certeza;</li>
+<li>Zustandspassiv como paradigma completo y sus contrastes avanzados;</li>
+<li>transformaciones sintácticas propias de lenguaje académico avanzado.</li>
+</ul>
+<p><strong>NO mandar a B2:</strong> el Konjunktiv II del pasado, incluso con Modalverb o en Passiv, aparece en la progresión B1 actual de TELC. Aquí se mantiene como <strong>EXPANSION B1</strong>, no como CORE.</p>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="✓" data-title="KANNST DU...? · B1 global" id="global"><div class="chapter-head"><div class="chapter-kicker">AUTOEVALUACIÓN</div><h2>KANNST DU...? · B1 global</h2><div class="chapter-question">Pregunta mental: <strong>¿Puedo hacer esto sin mirar la regla?</strong></div></div><div class="chapter-body"><article class="topic" data-title="Organizar" id="global-t1"><h3>Organizar</h3><ul class="clean-list">
+<li>¿puedes contar algo con principio, desarrollo y resultado?</li>
+<li>¿puedes indicar qué ocurrió antes, después y al mismo tiempo?</li>
+</ul></article><article class="topic" data-title="Relacionar" id="global-t2"><h3>Relacionar</h3><ul class="clean-list">
+<li>¿puedes explicar una razón?</li>
+<li>¿una consecuencia?</li>
+<li>¿una consecuencia integrada con <code>sodass / so ... dass</code>?</li>
+<li>¿una concesión?</li>
+<li>¿una condición?</li>
+<li>¿un método?</li>
+<li>¿una finalidad?</li>
+</ul></article><article class="topic" data-title="Desarrollar" id="global-t3"><h3>Desarrollar</h3><ul class="clean-list">
+<li>¿puedes dar una opinión + razón?</li>
+<li>¿puedes añadir un ejemplo?</li>
+<li>¿puedes mostrar una ventaja y una desventaja?</li>
+<li>¿puedes reconocer parcialmente el punto contrario?</li>
+</ul></article><article class="topic" data-title="Integrar" id="global-t4"><h3>Integrar</h3><ul class="clean-list">
+<li>¿puedes usar un Relativsatz con Dativ/preposición?</li>
+<li>¿puedes retomar una idea con darüber/daran/darauf?</li>
+<li>¿puedes usar un <code>zu</code>-Infinitiv?</li>
+</ul></article><article class="topic" data-title="Imaginar" id="global-t5"><h3>Imaginar</h3><ul class="clean-list">
+<li>¿puedes decir qué harías si la realidad fuera diferente?</li>
+<li>¿puedes entender y construir un modelo simple de pasado hipotético?</li>
+<li>¿puedes recomendar una alternativa?</li>
+</ul></article><article class="topic" data-title="Interactuar" id="global-t6"><h3>Interactuar</h3><ul class="clean-list">
+<li>¿puedes reaccionar a lo que dice otra persona?</li>
+<li>¿puedes pedir aclaración?</li>
+<li>¿puedes proponer + justificar?</li>
+<li>¿puedes rechazar + explicar + ofrecer alternativa?</li>
+<li>¿puedes cerrar un acuerdo?</li>
+</ul></article><article class="topic" data-title="Escribir" id="global-t7"><h3>Escribir</h3><ul class="clean-list">
+<li>¿puedes cubrir todos los puntos de una tarea?</li>
+<li>¿puedes conectar la información?</li>
+<li>¿puedes mantener el registro?</li>
+<li>¿puedes escribir un texto que se lea como texto y no como una lista de frases?</li>
+</ul>
+<hr/></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><section class="chapter" data-label="★" data-title="La idea central" id="final"><div class="chapter-head"><div class="chapter-kicker">CIERRE</div><h2>La idea central</h2><div class="chapter-question">Pregunta mental: <strong>¿Qué cambia realmente en B1?</strong></div></div><div class="chapter-body"><div class="chapter-intro"><p><strong>No son reglas nuevas apiladas sobre A2.</strong></p>
+<p>B1 reutiliza la arquitectura que ya conoces para hacer algo nuevo:</p><p class="mini-formula"><strong>RELACIONAR</strong><br/>
+→ sé qué relación tienen mis ideas.</p>
+<p class="mini-formula"><strong>ORGANIZAR</strong><br/>
+→ sé cómo construir tiempo y secuencia.</p>
+<p class="mini-formula"><strong>IMAGINAR</strong><br/>
+→ sé distinguir realidad y alternativa.</p>
+<p class="mini-formula"><strong>DESARROLLAR</strong><br/>
+→ puedo integrar información sin empezar de cero.</p>
+<p class="mini-formula"><strong>INTERACTUAR</strong><br/>
+→ puedo responder, justificar, negociar y mantener el discurso.</p>
+<p class="mini-formula"><strong>ESCRIBIR</strong><br/>
+→ convierto varios puntos en un texto coherente.</p>
+<hr/></div><article class="topic" data-title="Nota editorial de cobertura" id="final-t1"><h3>Nota editorial de cobertura</h3><p>Esta versión mantiene el principio de <strong>retorno cognitivo</strong>: que un contenido aparezca en la progresión B1 de TELC no significa que todos deban recibir el mismo espacio.</p>
+<p>Por eso:</p>
+<ul class="clean-list">
+<li><code>obwohl</code>, relaciones discursivas, hipótesis presente, relativos Dat/Präp., <code>zu</code>-Infinitiv y herramientas de interacción reciben alta prioridad;</li>
+<li><code>sodass</code>, Passiv con Modal, Plusquamperfekt, Genitiv, N-Deklination y otros sistemas B1 reciben tratamiento compacto;</li>
+<li>Diminutiv, <code>Erststellen-Es</code>, nominalizaciones sencillas y estructuras similares permanecen como EXPANSION;</li>
+<li>Konjunktiv II del pasado permanece dentro de B1, pero con producción controlada;</li>
+<li>el límite B2 se reserva para sistemas realmente más complejos, no para estructuras que TELC ya enseña dentro de B1.</li>
+</ul>
+<hr/>
+<p><strong>Hecho por Jorge Arce Ojeda</strong></p></article><div class="back-inline"><button onclick="openIndex()" type="button">☰ Índice</button></div></div></section><div class="credit">Hecho por Jorge Arce Ojeda</div></main>
+<button aria-label="Activar modo oscuro" class="theme-fab" id="themeToggle" title="Cambiar tema" type="button">☾</button><button aria-controls="indexDialog" aria-expanded="false" aria-label="Abrir índice" class="fab" onclick="openIndex()" type="button"><b>☰</b><span>Índice</span></button>
+<dialog aria-labelledby="indexTitle" id="indexDialog"><div class="sheet"><div class="sheet-head"><div><div class="eyebrow" style="color:var(--muted)">Navegación</div><h2 id="indexTitle">Índice B1</h2></div><button aria-label="Cerrar índice" class="icon-btn" onclick="closeIndex()" type="button">×</button></div><input aria-label="Buscar en el índice" autocomplete="off" class="search" id="indexSearch" placeholder="Buscar tema… por ejemplo: obwohl" type="search"/><nav class="index-list" id="indexList"></nav></div></dialog>
+<script>
+const chapters=[...document.querySelectorAll('.chapter')];
+const topics=[...document.querySelectorAll('.topic')];
+const indexList=document.getElementById('indexList');
+const dialog=document.getElementById('indexDialog');
+const search=document.getElementById('indexSearch');
+const current=document.getElementById('currentSection');
+const progress=document.getElementById('progressBar');
+const themeToggle=document.getElementById('themeToggle');
+const themeMeta=document.querySelector('meta[name="theme-color"]');
+const THEME_KEY='telc-b1-theme';
+function normalizeText(value){return String(value||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();}
+const menuButtons=[...document.querySelectorAll('button[aria-controls="indexDialog"]')];
+function readStoredTheme(){try{return localStorage.getItem(THEME_KEY);}catch(e){return null;}}
+function writeStoredTheme(theme){try{localStorage.setItem(THEME_KEY,theme);}catch(e){}}
+function preferredTheme(){const saved=readStoredTheme();if(saved==='dark'||saved==='light')return saved;return window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}
+function applyTheme(theme,persist=false){document.documentElement.dataset.theme=theme;const dark=theme==='dark';themeToggle.textContent=dark?'☀':'☾';themeToggle.setAttribute('aria-label',dark?'Activar modo claro':'Activar modo oscuro');themeToggle.title=dark?'Modo claro':'Modo oscuro';if(themeMeta)themeMeta.setAttribute('content',dark?'#101513':'#183A37');if(persist)writeStoredTheme(theme);}
+applyTheme(preferredTheme());themeToggle.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark',true));
+chapters.forEach((chapter,ci)=>{const label=chapter.dataset.label||'•';const group=document.createElement('div');group.className='index-group';group.textContent=chapter.dataset.title;group.dataset.group='g'+ci;indexList.appendChild(group);const inner=[...chapter.querySelectorAll('.topic')];if(!inner.length){const a=document.createElement('a');a.href='#'+chapter.id;a.dataset.search=normalizeText(chapter.dataset.title+' '+chapter.innerText);a.dataset.group='g'+ci;a.innerHTML=`<b>${label}</b><span>${chapter.dataset.title}</span>`;a.addEventListener('click',closeIndex);indexList.appendChild(a);}else{inner.forEach((t,ti)=>{const a=document.createElement('a');a.href='#'+t.id;a.dataset.search=normalizeText(chapter.dataset.title+' '+t.dataset.title+' '+t.innerText);a.dataset.group='g'+ci;const sub=t.dataset.title.match(/^([A-Z]?[0-9]+(?:\.[0-9]+[a-z]?|[0-9]*[a-z]?)?|P[0-9]+|W[0-9]+|[A-G][0-9]+|S[0-9]+|T[0-9]+)\s*·/i);a.innerHTML=`<b>${sub?sub[1]:label+'.'+(ti+1)}</b><span>${t.dataset.title}</span>`;a.addEventListener('click',closeIndex);indexList.appendChild(a);});}});
+function openIndex(focusSearch=false){if(!dialog.open)dialog.showModal();menuButtons.forEach(b=>b.setAttribute('aria-expanded','true'));if(focusSearch)setTimeout(()=>search.focus({preventScroll:true}),30);}
+function closeIndex(){if(dialog.open)dialog.close();menuButtons.forEach(b=>b.setAttribute('aria-expanded','false'));}
+dialog.addEventListener('click',e=>{const sheet=dialog.querySelector('.sheet');const r=sheet.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeIndex();});
+search.addEventListener('input',()=>{const q=normalizeText(search.value.trim());const links=[...indexList.querySelectorAll('a')];links.forEach(a=>a.hidden=Boolean(q)&&!a.dataset.search.includes(q));[...indexList.querySelectorAll('.index-group')].forEach(g=>{const gl=links.filter(a=>a.dataset.group===g.dataset.group);g.hidden=Boolean(q)&&gl.every(a=>a.hidden);});});
+const observer=new IntersectionObserver(entries=>{if(window.scrollY<380){current.textContent='Inicio';return;}const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>Math.abs(a.boundingClientRect.top)-Math.abs(b.boundingClientRect.top));if(visible[0])current.textContent=visible[0].target.dataset.title||visible[0].target.querySelector('h3,h2')?.textContent||'B1';},{rootMargin:'-82px 0px -72% 0px',threshold:[0,.1,.4]});[...chapters,...topics].forEach(el=>observer.observe(el));
+function updateProgress(){const d=document.documentElement;const max=d.scrollHeight-d.clientHeight;const y=window.scrollY||d.scrollTop||0;progress.style.width=(max>0?Math.min(100,(y/max)*100):0)+'%';if(y<380)current.textContent='Inicio';}
+addEventListener('scroll',updateProgress,{passive:true});updateProgress();
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeIndex();if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();openIndex(true);}});
+</script></body></html>
