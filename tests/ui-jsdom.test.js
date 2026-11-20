@@ -1094,3 +1094,14 @@ test('K2 · TeKaMoLo: Satzbau (B1) lo sirve para ordenar por toques y, tras fall
   }
   assert.ok(ok, 'ningún TeKaMoLo servido');
 });
+
+test('Biblioteca: Consulta → «Biblioteca» lista una ficha por clase (sin ejercicios ni progreso) y cada ficha abre sus objetivos y errores típicos', () => {
+  const BIB = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'ui', 'reglas.json'), 'utf8')).biblioteca;
+  assert.ok(BIB.length >= 50 && BIB.every(c => c.titulo && c.puntos.length >= 1 && c.puntos.every(p => p.length <= 180) && c.errores.every(e => e.length >= 25 && e.length <= 200)));
+  const t = JSON.stringify(BIB); assert.equal(t, t.normalize('NFC')); assert.ok(!/[<>]/.test(t));
+  const u = boot(172); u.click(u.q('#consulta')); u.click(u.q('[data-group="cl"]'));
+  assert.equal(u.qa('.erow').length, BIB.length); assert.equal(u.q('.bank, .options'), null);
+  u.click(u.q('[data-clase="18"]')); const dlg = u.q('[role="dialog"]');
+  assert.ok(dlg && /TeKaMoLo/.test(dlg.textContent) && dlg.querySelectorAll('.bib-p li').length >= 3 && dlg.querySelector('details[open]'));
+  u.d.dispatchEvent(new u.w.KeyboardEvent('keydown', { key: 'Escape' })); assert.equal(u.stored(), null, 'consultar no escribe progreso');
+});

@@ -403,7 +403,18 @@
         if (a[0] !== b[0]) return a[0] < b[0] ? -1 : 1; var x = num(a), y = num(b); return x[0] - y[0] || (x[1] || 0) - (y[1] || 0);
       });
       var title = function (r) { return String(r.titulo || '').replace(/^\d+\.\d+\s*·\s*/, ''); };
-      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['md', 'Clases']], group, function (v) { consulta(v); }, 'group');
+      var bib = ctx.biblioteca || [];
+      var chips = chipRow('Grupo', [['all', 'Todo'], ['dm', 'Declinación'], ['cs', 'A1 · gramática'], ['md', 'Clases'], ['cl', 'Biblioteca']], group, function (v) { consulta(v); }, 'group');
+      if (group === 'cl') {      // biblioteca: una ficha por clase (objetivos + errores típicos), sólo lectura
+        var blist = h('div.emap', bib.map(function (c) {
+          return h('button.erow', { type: 'button', 'data-clase': String(c.n), onclick: function () {
+            openSheet(c.titulo, [h('p.hint', 'Clase ' + c.n + (c.nivel ? ' · ' + c.nivel : '')), h('ul.bib-p', c.puntos.map(function (p) { return h('li', F.md(p)); })),
+              c.errores.length ? h('details.cap-err', { open: true }, h('summary', 'Errores típicos (' + c.errores.length + ')'), h('ul', c.errores.map(function (e) { return h('li', F.md(e)); }))) : null], 'Clase'); } },
+            h('span.el', c.titulo), h('span.en', 'Clase ' + c.n + (c.nivel ? ' · ' + c.nivel : '')));
+        }));
+        return shell('Consulta', [iconBtn('Volver', '←', home), brand('Biblioteca de clases', bib.length + ' clases')], null,
+          [chips, h('p.hint', 'Solo lectura: resumen de cada clase. No cuenta como práctica.'), blist], [h('div.dock-in', h('button.btn.primary.big', { type: 'button', onclick: home }, 'Volver'))]);
+      }
       var list = h('div.emap', keys.map(function (k) {
         var r = all[k], first = r.regla ? r.regla.replace(/\*\*/g, '') : (r.formula || (r.errores && r.errores[0] ? r.errores[0].replace(/\*\*/g, '') : ''));
         return h('button.erow', { type: 'button', 'data-concept': k, onclick: function () { openSheet(title(r), [capsuleNode(Object.assign({ id: k }, r), { open: true })], 'Regla'); } },

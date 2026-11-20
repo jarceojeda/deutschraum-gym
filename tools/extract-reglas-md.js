@@ -94,5 +94,16 @@ JSON.parse(fs.readFileSync(path.join(root, 'data', 'praepositionen.json'), 'utf8
 }));
 console.log('alias a24:prep-*:', alias);
 data.fuentes = Array.from(new Set((data.fuentes || []).concat(['docs/fuentes/aleman-markups/NNN-*.md (§5 errores comunes)'])));
+// Biblioteca: una ficha por clase (título, nivel, objetivos de la lección y errores típicos) para la Consulta. Sólo lectura; no copia ejemplos ni tarjetas Q&A.
+data.biblioteca = fs.readdirSync(dir).filter(x => /^\d{3}-/.test(x)).sort().map(f => {
+  const t = nfc(fs.readFileSync(path.join(dir, f), 'utf8')), n = Number(f.slice(0, 3));
+  const title = (/^title:\s*"([^"]*)"/m.exec(t) || [])[1] || f, nivel = (/^level:\s*"([^"]*)"/m.exec(t) || [])[1] || '';
+  const clean = b => b.replace(/^[-*]\s*/, '').replace(/`([^`]+)`/g, '$1').replace(/\s+/g, ' ').trim();
+  const sec1 = (t.split(/^## 1\./m)[1] || '').split(/^## 2\./m)[0];
+  const puntos = sec1.split('\n').filter(l => /^- /.test(l)).map(clean).filter(b => b.length >= 12 && b.length <= 180).slice(0, 6);
+  const nt = readNote(n);
+  return { n, titulo: title.replace(/^(El|La|Los|Las)\s+/i, m => m), nivel, puntos, errores: (nt ? nt.bullets : []).slice(0, 5) };
+});
+console.log('biblioteca: ' + data.biblioteca.length + ' clases');
 fs.writeFileSync(file, JSON.stringify(data, null, 1) + '\n');
 console.log('conceptos con errores típicos:', enriched + created, '(nuevas cápsulas ' + created + ', enriquecidas ' + enriched + ') · viñetas copiadas:', added);

@@ -850,5 +850,1009 @@
     "despues": "**heute** · **mit dem Zug** · **nach Berlin**"
    }
   }
- }
+ },
+ "biblioteca": [
+  {
+   "n": 1,
+   "titulo": "Pronunciación en alemán",
+   "nivel": "A1",
+   "puntos": [
+    "Reconocer y pronunciar los principales diptongos y las vocales con Umlaut.",
+    "Identificar los sonidos consonánticos característicos del alemán.",
+    "Aplicar reglas básicas de acentuación y ensordecimiento final.",
+    "Practicar palabras de dificultad progresiva.",
+    "Desarrollar la pronunciación mediante escucha, repetición y autoevaluación."
+   ],
+   "errores": [
+    "eu y äu representan el mismo diptongo: /ɔʏ̯/.",
+    "La j alemana no se pronuncia como la jota española, sino como /j/, similar a la «y» de «yo».",
+    "La h inicial es aspirada; no equivale exactamente a la jota española.",
+    "La w alemana se pronuncia /v/, mientras que la v suele pronunciarse /f/ en palabras de origen alemán.",
+    "ss y ß representan /s/. Generalmente, ss sigue a una vocal corta y ß a una vocal larga o un diptongo."
+   ]
+  },
+  {
+   "n": 2,
+   "titulo": "Personalpronomen: nominativo, acusativo y dativo",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer los pronombres personales alemanes en nominativo, acusativo y dativo.",
+    "Elegir el caso según la función del pronombre en la oración.",
+    "Sustituir sustantivos y grupos nominales por el pronombre adecuado.",
+    "Usar correctamente el tratamiento formal **Sie / Sie / Ihnen**.",
+    "Ordenar los complementos de acusativo y dativo.",
+    "Emplear **es** como pronombre neutro y en oraciones impersonales."
+   ],
+   "errores": [
+    "**sie** puede significar «ella», «ellos» o «ellas»; **Sie** significa «usted» o «ustedes».",
+    "**ihr** puede ser pronombre personal, determinante posesivo o pronombre posesivo. El contexto determina su función.",
+    "No confundas **ihnen** («a ellos/as») con **Ihnen** («a usted/es»).",
+    "No elijas el pronombre según la traducción española; comprueba el género y el número del sustantivo alemán.",
+    "**danken**, **folgen**, **gefallen** y **helfen** rigen dativo."
+   ]
+  },
+  {
+   "n": 3,
+   "titulo": "El caso nominativo",
+   "nivel": "A1",
+   "puntos": [
+    "Reconocer el nominativo como caso del sujeto.",
+    "Identificar el predicativo en nominativo con **sein**, **werden** y **bleiben**.",
+    "Usar artículos determinados, indeterminados y negativos en nominativo.",
+    "Emplear correctamente los determinantes posesivos.",
+    "Declinar adjetivos en nominativo con y sin determinante."
+   ],
+   "errores": [
+    "no confundas el nominativo masculino **der** con el acusativo masculino **den**.",
+    "después de **sein**, **werden** y **bleiben**, un sustantivo predicativo se mantiene en nominativo.",
+    "no existe el artículo indeterminado plural; evita construcciones como *eine Wohnungen.",
+    "**euer** pierde una e al recibir ciertas terminaciones: **eure**, no *euere en el uso estándar habitual.",
+    "el posesivo concuerda con el objeto poseído: **sein Bruder**, pero **seine Schwester**."
+   ]
+  },
+  {
+   "n": 4,
+   "titulo": "El caso acusativo",
+   "nivel": "A1",
+   "puntos": [
+    "Reconocer el acusativo como caso habitual del objeto directo.",
+    "Distinguir el sujeto en nominativo del objeto en acusativo.",
+    "Declinar pronombres, artículos, posesivos y adjetivos en acusativo.",
+    "Identificar verbos frecuentes que exigen acusativo.",
+    "Usar las preposiciones de acusativo más importantes del nivel A1.",
+    "Evitar errores frecuentes, especialmente en el masculino singular."
+   ],
+   "errores": [
+    "en acusativo masculino: der → den, ein → einen, kein → keinen.",
+    "el pronombre masculino cambia de **er** a **ihn**, no a *ihm; **ihm** es dativo.",
+    "**Gemüse** se usa normalmente como sustantivo colectivo neutro singular: **das Gemüse**, no *die Gemüse.",
+    "**lieben** significa «amar» o «encantar»; no equivale en todos los contextos al verbo español «querer».",
+    "**fragen** rige acusativo para la persona: **Ich frage ihn**."
+   ]
+  },
+  {
+   "n": 5,
+   "titulo": "Verbos y preposiciones que rigen acusativo",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer verbos frecuentes que pueden llevar un objeto en acusativo.",
+    "Distinguir verbos separables, inseparables, irregulares y reflexivos.",
+    "Usar correctamente **bis, durch, entlang, für, gegen, ohne, um** y **wider**.",
+    "Aplicar el acusativo a sustantivos, pronombres y expresiones de uso cotidiano.",
+    "Consolidar el vocabulario del bloque con artículos y plurales corregidos."
+   ],
+   "errores": [
+    "**das Gemüse** es normalmente neutro singular colectivo, no die Gemüse.",
+    "se escribe **das Gesetz**, no das Gesetzt.",
+    "el plural correcto es **viele Geschichten**, no viele Geschichte.",
+    "en alemán estándar es más natural **den Weg kennen** que den Weg wissen.",
+    "**die Brille** es singular gramatical aunque se traduzca como «las gafas»."
+   ]
+  },
+  {
+   "n": 6,
+   "titulo": "Possessivartikel und Possessivpronomen",
+   "nivel": "A2",
+   "puntos": [
+    "Distinguir los determinantes posesivos de los pronombres posesivos.",
+    "Elegir la raíz posesiva según la persona que posee.",
+    "Declinar el posesivo según el género, número y caso del elemento poseído.",
+    "Preguntar y responder de quién es algo mediante **wessen**, **von wem** y **gehören**.",
+    "Resolver ejercicios de posesivos en nominativo, acusativo y dativo."
+   ],
+   "errores": [
+    "el posesivo concuerda con lo poseído, no con el sexo de quien posee o habla.",
+    "**ihr** puede significar «su, de ella» o «su, de ellos/as»; el contexto lo aclara.",
+    "**Ihr** con mayúscula expresa posesión formal: **Ihr Bruder**.",
+    "**euer** cambia a **eure**, **euren**, **eurem** o **eurer** al recibir terminación.",
+    "no confundas el determinante **mein Auto** con el pronombre **meins**."
+   ]
+  },
+  {
+   "n": 7,
+   "titulo": "El tiempo verbal Präsens",
+   "nivel": "A1",
+   "puntos": [
+    "Comprender los usos principales del **Präsens** alemán.",
+    "Conjugar verbos regulares en presente.",
+    "Memorizar la conjugación de **sein** y **haben**.",
+    "Aplicar reglas ortográficas y reconocer cambios vocálicos.",
+    "Expresar hábitos, hechos actuales, situaciones permanentes y acciones en curso.",
+    "Hablar de un futuro cercano mediante el presente y una expresión temporal."
+   ],
+   "errores": [
+    "el verbo conjugado ocupa normalmente la segunda posición en una oración enunciativa.",
+    "la terminación de **ihr** es -t, no -en: **ihr lernt**.",
+    "**ihr seid** pertenece a sein; no se dice *ihr sind.",
+    "el cambio vocálico aparece solo en **du** y **er / sie / es**: **du liest**, pero **ihr lest**.",
+    "con **seit**, una acción que continúa se expresa en presente: **Ich wohne seit einem Jahr hier**."
+   ]
+  },
+  {
+   "n": 8,
+   "titulo": "El tiempo verbal Präteritum",
+   "nivel": "B1",
+   "puntos": [
+    "Comprender el uso del **Präteritum** para hablar del pasado.",
+    "Diferenciar su uso del **Perfekt** en registros escritos y orales.",
+    "Conjugar verbos regulares, fuertes y mixtos.",
+    "Memorizar el Präteritum de **sein**, **haben** y los verbos modales.",
+    "Reconocer formas frecuentes como **war**, **hatte**, **ging**, **fuhr** y **wusste**.",
+    "Comprender narraciones y producir frases sencillas sobre hechos pasados."
+   ],
+   "errores": [
+    "no añadas -te a los verbos fuertes: **ging**, no *gingte.",
+    "los verbos mixtos cambian la raíz y añaden -te: **brachte**, **dachte**, **wusste**.",
+    "la forma estándar es **du lasest**; **ihr last** corresponde a la segunda persona plural.",
+    "**ihr wart** es Präteritum de sein; **ihr wartet** es Präsens de warten.",
+    "los modales pierden el Umlaut: **musste**, **konnte**, **durfte**."
+   ]
+  },
+  {
+   "n": 9,
+   "titulo": "Lista de verbos irregulares",
+   "nivel": "B1",
+   "puntos": [
+    "Reconocer las formas principales de los verbos irregulares alemanes.",
+    "Relacionar infinitivo, cambio vocálico en Präsens, Präteritum y Partizip II.",
+    "Elegir correctamente **haben** o **sein** para formar el Perfekt.",
+    "Distinguir verbos fuertes, mixtos y verbos con variantes según el significado.",
+    "Priorizar las formas más frecuentes para la comprensión y producción en nivel A1."
+   ],
+   "errores": [
+    "el PDF repetía **hängen**; aquí se distinguen correctamente sus dos paradigmas.",
+    "**schaffen** cambia de conjugación según signifique «conseguir» o «crear».",
+    "**erschrecken** es fuerte como intransitivo y débil como transitivo.",
+    "no todos los verbos de movimiento usan siempre **sein**; un uso transitivo puede exigir **haben**.",
+    "**sinken** significa «hundirse» o «descender», no simplemente «hundir» transitivo."
+   ]
+  },
+  {
+   "n": 10,
+   "titulo": "La estructura básica de la oración",
+   "nivel": "A1",
+   "puntos": [
+    "Construir oraciones principales simples en alemán.",
+    "Aplicar la regla del verbo conjugado en segunda posición.",
+    "Distinguir una posición sintáctica de una palabra individual.",
+    "Colocar diferentes elementos en la primera posición para dar énfasis.",
+    "Reconocer la inversión entre sujeto y otros elementos.",
+    "Formar la pinza verbal con auxiliares, modales y verbos principales."
+   ],
+   "errores": [
+    "V2 significa segunda posición sintáctica, no necesariamente segunda palabra.",
+    "si un complemento ocupa la posición 1, el sujeto no puede permanecer delante del verbo: **Heute fahre ich**, no *Heute ich fahre.",
+    "con un modal, el infinitivo va al final: **Ich muss arbeiten**.",
+    "en Perfekt, el participio va normalmente al final: **Ich habe das verstanden**.",
+    "el sujeto puede omitirse en coordinaciones con sujeto compartido y en imperativos informales."
+   ]
+  },
+  {
+   "n": 11,
+   "titulo": "El caso dativo: verbos y preposiciones",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer el dativo y formular la pregunta **Wem?**.",
+    "Declinar pronombres personales, determinantes, posesivos y adjetivos en dativo.",
+    "Usar correctamente verbos frecuentes que rigen dativo.",
+    "Emplear las preposiciones de dativo **ab, aus, bei, mit, nach, seit, von** y **zu**.",
+    "Distinguir estructuras como **Mir gefällt ...**, en las que la persona aparece en dativo."
+   ],
+   "errores": [
+    "No traduzcas el dativo mecánicamente como «a + persona». El verbo o la preposición determinan el caso.",
+    "Se dice Ich helfe dir, no Ich helfe dich.",
+    "En Mir gefällt das Buch, **das Buch** es el sujeto nominativo y **mir** es dativo.",
+    "Añade **-n** al sustantivo en dativo plural cuando corresponda: mit den Kindern.",
+    "seit se usa para una situación que comenzó en el pasado y continúa: Ich wohne seit einem Jahr hier."
+   ]
+  },
+  {
+   "n": 12,
+   "titulo": "El caso genitivo: posesión, preposiciones y verbos",
+   "nivel": "B2",
+   "puntos": [
+    "Reconocer el genitivo y formular la pregunta **Wessen?**.",
+    "Expresar pertenencia con genitivo, nombres propios y la alternativa **von + Dativ**.",
+    "Declinar artículos, posesivos y adjetivos en genitivo.",
+    "Aplicar correctamente **-(e)s** a sustantivos masculinos y neutros.",
+    "Identificar preposiciones y verbos formales que rigen genitivo.",
+    "Diferenciar el alemán cotidiano de estructuras formales, literarias o anticuadas."
+   ],
+   "errores": [
+    "Masculino y neutro usan **des/eines** y el sustantivo suele añadir **-(e)s**: des Kindes.",
+    "Femenino y plural usan **der/einer**, sin añadir **-(e)s** al sustantivo: der Frau, der Kinder.",
+    "No añadas apóstrofo ante la **-s** de un nombre propio: Petras Auto, no Petra's Auto.",
+    "des Studenten pertenece a la declinación débil; no se dice des Students.",
+    "En conversación, von + Dativ es frecuente, pero conviene reconocer el genitivo en textos."
+   ]
+  },
+  {
+   "n": 13,
+   "titulo": "Ejemplos de oraciones con los cuatro casos",
+   "nivel": "B1",
+   "puntos": [
+    "Identificar la función del nominativo, acusativo, dativo y genitivo dentro de una oración.",
+    "Analizar oraciones con destinatario en dativo y objeto directo en acusativo.",
+    "Reconocer complementos de posesión en genitivo dentro de grupos nominales.",
+    "Distinguir el caso de un grupo completo de los casos que aparecen dentro de él.",
+    "Aplicar el orden básico de los complementos sin confundirlo con una regla absolutamente fija."
+   ],
+   "errores": [
+    "En meinem Vater se usa dativo; en meines Vaters se usa genitivo.",
+    "gehören rige dativo: Die Uhr gehört der Schwester, no die Schwester.",
+    "En dem Vater meiner Freundin, **dem Vater** es dativo y **meiner Freundin** es genitivo.",
+    "El plural dativo suele añadir **-n**: unseren Großeltern, seinen Studenten.",
+    "El masculino acusativo lleva **-en** en determinante y adjetivo: einen roten Ball."
+   ]
+  },
+  {
+   "n": 14,
+   "titulo": "La N-Deklination: sustantivos masculinos débiles",
+   "nivel": "B1",
+   "puntos": [
+    "Reconocer los sustantivos masculinos de la **N-Deklination** o declinación débil.",
+    "Añadir correctamente **-n** o **-en** en acusativo, dativo y genitivo singular.",
+    "Distinguir el singular declinado del plural mediante el artículo y el contexto.",
+    "Identificar grupos frecuentes: personas, profesiones, nacionalidades y animales.",
+    "Diferenciar la declinación débil pura de la declinación mixta.",
+    "Aprender la forma especial de **das Herz**."
+   ],
+   "errores": [
+    "Se dice Ich sehe den Studenten, no den Student.",
+    "El genitivo débil estándar es des Präsidenten, no des Präsidentens.",
+    "der Bär forma den Bären, dem Bären y des Bären; no se añade **-s**.",
+    "der Name es mixto: den Namen, pero des Namens.",
+    "das Herz mantiene la forma simple en acusativo: Ich höre das Herz."
+   ]
+  },
+  {
+   "n": 15,
+   "titulo": "Posición de los complementos en acusativo y dativo",
+   "nivel": "B1",
+   "puntos": [
+    "Ordenar complementos en dativo y acusativo dentro de una oración.",
+    "Distinguir entre complementos expresados mediante sustantivos y pronombres.",
+    "Aplicar las tres reglas básicas del orden **Dat./Akk.**.",
+    "Sustituir objetos por sus pronombres personales correspondientes.",
+    "Reconocer cambios de orden motivados por información conocida o énfasis.",
+    "Resolver y corregir ejercicios de traducción con ambos casos."
+   ],
+   "errores": [
+    "Con dos sustantivos, usa normalmente dativo antes de acusativo: dem Kind einen Ball.",
+    "Con dos pronombres, invierte ese orden: ihn ihm, no ihm ihn.",
+    "El pronombre **es** representa sustantivos neutros: das Geschenk → es.",
+    "**ihn** es acusativo masculino; **ihm** es dativo masculino o neutro.",
+    "**ihnen** significa «a ellos/as»; **Ihnen** con mayúscula es formal."
+   ]
+  },
+  {
+   "n": 16,
+   "titulo": "Wechselpräpositionen: acusativo o dativo",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer las nueve **Wechselpräpositionen**.",
+    "Elegir acusativo para expresar destino, dirección o cambio de posición.",
+    "Elegir dativo para expresar una ubicación sin cambio de lugar.",
+    "Formular y responder las preguntas **Wohin?** y **Wo?**.",
+    "Distinguir pares verbales como **legen/liegen**, **stellen/stehen** y **setzen/sitzen**.",
+    "Utilizar correctamente varios usos temporales de estas preposiciones."
+   ],
+   "errores": [
+    "No memorices “movimiento = acusativo”. Pregunta si hay destino (**Wohin?**) o ubicación (**Wo?**).",
+    "Ich gehe im Park significa que camino dentro del parque; Ich gehe in den Park significa que voy hacia el parque.",
+    "legen lleva normalmente un destino; liegen describe una posición.",
+    "El dativo plural añade normalmente **-n**: zwischen den Frauen.",
+    "Los meses se escriben con minúscula en español, pero con mayúscula en alemán: im September."
+   ]
+  },
+  {
+   "n": 17,
+   "titulo": "Adjetivos: tipos, formación y grados",
+   "nivel": "B1",
+   "puntos": [
+    "Distinguir adjetivos predicativos, adverbiales y atributivos.",
+    "Reconocer cuándo un adjetivo permanece invariable y cuándo debe declinarse.",
+    "Aplicar terminaciones básicas con artículo determinado, palabras tipo **ein** y sin artículo.",
+    "Formar adjetivos frecuentes a partir de sustantivos y verbos.",
+    "Construir comparaciones de igualdad, superioridad e inferioridad.",
+    "Formar el superlativo predicativo/adverbial y el superlativo atributivo."
+   ],
+   "errores": [
+    "Los adjetivos predicativos y adverbiales no se declinan: Das Haus ist groß; Er spricht laut.",
+    "Los atributivos van delante del sustantivo: die alte Stadt, no die Stadt alte.",
+    "Un adjetivo atributivo puede aparecer sin artículo: laute Musik, gute Bücher.",
+    "En comparaciones de igualdad usa **wie**; en superioridad usa **als**.",
+    "Se dice schneller als, no mehr schnell als ni schneller wie en alemán estándar."
+   ]
+  },
+  {
+   "n": 18,
+   "titulo": "TeKaMoLo: orden de los complementos",
+   "nivel": "B1",
+   "puntos": [
+    "Ordenar complementos temporales, causales, modales y locales.",
+    "Formular las preguntas **Wann?**, **Warum?**, **Wie?** y **Wo/Wohin?**.",
+    "Mantener el verbo conjugado en segunda posición al adelantar un complemento.",
+    "Integrar objetos en acusativo y dativo dentro de oraciones largas.",
+    "Distinguir entre orden neutro y orden enfático.",
+    "Resolver los ejercicios con variantes naturales y gramaticalmente correctas."
+   ],
+   "errores": [
+    "TeKaMoLo significa temporal, causal, modal y local.",
+    "Si un complemento ocupa la primera posición, el verbo sigue en segunda: Heute arbeite ich ...",
+    "TeKaMoLo es el orden neutro; el contexto permite otras posiciones.",
+    "Los pronombres personales suelen aparecer antes que los sustantivos y complementos largos.",
+    "Con dos sustantivos, el dativo suele preceder al acusativo."
+   ]
+  },
+  {
+   "n": 19,
+   "titulo": "La regla ADUSO: conjunciones en posición cero",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer las conjunciones coordinantes de la regla **ADUSO**.",
+    "Unir dos oraciones principales sin alterar la posición del verbo.",
+    "Diferenciar **aber/doch**, **denn**, **und**, **sondern** y **oder**.",
+    "Aplicar correctamente la negación previa necesaria para **sondern**.",
+    "Distinguir **denn** de **weil** y **also**.",
+    "Utilizar correctamente la coma entre oraciones coordinadas."
+   ],
+   "errores": [
+    "ADUSO significa **aber, denn, und, sondern, oder**.",
+    "La conjunción ocupa posición cero; después empieza una oración principal normal.",
+    "denn mantiene el verbo en segunda posición; weil envía el verbo al final.",
+    "Usa sondern solo después de una negación.",
+    "aber expresa contraste; no necesita una negación previa."
+   ]
+  },
+  {
+   "n": 20,
+   "titulo": "Sustantivación de verbos",
+   "nivel": "B1",
+   "puntos": [
+    "Convertir un infinitivo alemán en sustantivo.",
+    "Aplicar correctamente la mayúscula inicial y el artículo neutro **das**.",
+    "Formar expresiones con **zum + infinitivo sustantivado**.",
+    "Crear compuestos frecuentes como **das Kofferpacken** o **das Tennisspielen**.",
+    "Distinguir un verbo sustantivado de un infinitivo verbal normal.",
+    "Reconocer cuándo existe un sustantivo léxico más habitual."
+   ],
+   "errores": [
+    "Los infinitivos sustantivados se escriben con mayúscula: das Lesen.",
+    "Siempre son neutros: das Rauchen, das Schwimmen.",
+    "Después de zum, la nominalización lleva mayúscula: zum Essen.",
+    "No escribas mayúscula si sigue siendo verbo: Du kannst das sehen.",
+    "Se dice meinen Koffer packen, no mein Koffer packen."
+   ]
+  },
+  {
+   "n": 21,
+   "titulo": "Sustantivación de adjetivos",
+   "nivel": "B2",
+   "puntos": [
+    "Convertir adjetivos en sustantivos para designar personas o conceptos.",
+    "Escribir los adjetivos sustantivados con mayúscula.",
+    "Declinar estas formas según género, número, caso y determinante.",
+    "Usar el neutro abstracto: **das Gute**, **etwas Neues**, **nichts Wichtiges**.",
+    "Distinguir sustantivación de derivación con **-heit, -keit** e **-igkeit**.",
+    "Reconocer cuándo una palabra sigue siendo un adjetivo predicativo."
+   ],
+   "errores": [
+    "Los adjetivos sustantivados se escriben con mayúscula: die Bekannte.",
+    "Conservan las terminaciones de los adjetivos: ein Bekannter, einen Bekannten.",
+    "Después de etwas y nichts se usa frecuentemente **-es**: etwas Neues.",
+    "Un adjetivo tras sein sigue en minúscula: Er ist sympathisch.",
+    "die Freundlichkeit es un sustantivo derivado, no un adjetivo declinado."
+   ]
+  },
+  {
+   "n": 22,
+   "titulo": "Formación de preguntas cerradas",
+   "nivel": "A1",
+   "puntos": [
+    "Formar preguntas cerradas o preguntas de sí/no.",
+    "Colocar el verbo conjugado en primera posición.",
+    "Mantener el infinitivo, participio o prefijo separable al final.",
+    "Transformar afirmaciones en preguntas informales y formales.",
+    "Adaptar pronombres personales, posesivos y reflexivos al interlocutor.",
+    "Responder con **ja**, **nein** y **doch**."
+   ],
+   "errores": [
+    "La pregunta cerrada neutral comienza con el verbo conjugado.",
+    "Con Perfekt, solo el auxiliar pasa al principio; el participio queda al final.",
+    "Con un modal, el infinitivo permanece al final.",
+    "Con un verbo separable, el prefijo permanece al final: Kommst du mit?",
+    "Adapta el posesivo: mein → dein o Ihr."
+   ]
+  },
+  {
+   "n": 23,
+   "titulo": "La negación en alemán",
+   "nivel": "B1",
+   "puntos": [
+    "Elegir correctamente entre **kein-** y **nicht**.",
+    "Declinar **kein-** según género, número y caso.",
+    "Colocar **nicht** según el elemento que se desea negar.",
+    "Utilizar **nichts, niemand, nie, noch nicht** y **noch nie**.",
+    "Evitar la concordancia negativa incorrecta en alemán estándar.",
+    "Negar conocimientos lingüísticos y acciones realizadas en un idioma."
+   ],
+   "errores": [
+    "**kein-** se declina como **ein-**, no como el artículo determinado.",
+    "El dativo con kein- es normal: mit keinem Auto.",
+    "Usa kein- con sustantivos indefinidos; usa nicht con sustantivos determinados.",
+    "Coloca nicht inmediatamente delante del elemento que quieras contrastar.",
+    "En alemán estándar no se traduce literalmente «no... nadie» como nicht niemand."
+   ]
+  },
+  {
+   "n": 24,
+   "titulo": "Formación de preguntas abiertas",
+   "nivel": "A1",
+   "puntos": [
+    "Formular preguntas abiertas con palabras interrogativas.",
+    "Distinguir **wer, wen, wem** y **wessen** según el caso.",
+    "Preguntar por lugar, origen y destino con **wo, woher** y **wohin**.",
+    "Usar correctamente **wie viel**, **wie viele** y **welch-**.",
+    "Formar preguntas con preposición para personas y cosas.",
+    "Mantener el verbo conjugado en segunda posición."
+   ],
+   "errores": [
+    "En una W-Frage, el verbo conjugado ocupa la segunda posición.",
+    "Si wer es el sujeto, no añadas otro sujeto.",
+    "El caso de una respuesta a wo/wohin/woher depende de la preposición.",
+    "Usa wen para acusativo y wem para dativo.",
+    "**welch-** debe declinarse: welcher, welchen, welchem."
+   ]
+  },
+  {
+   "n": 25,
+   "titulo": "Adverbios de lugar",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer adverbios que responden a **Wo?**, **Wohin?** y **Woher?**.",
+    "Distinguir ubicación, destino y procedencia.",
+    "Utilizar correctamente **hier, da** y **dort**.",
+    "Expresar posiciones relativas: arriba, abajo, delante, detrás, derecha e izquierda.",
+    "Diferenciar **drinnen/draußen** de **innen/außen**.",
+    "Comprender la oposición direccional entre **her** y **hin**."
+   ],
+   "errores": [
+    "Los adverbios no se declinan: hier, dort, draußen.",
+    "**her** indica movimiento hacia el hablante; **hin**, alejándose de él.",
+    "Para una ubicación interior/exterior cotidiana, usa normalmente drinnen/draußen.",
+    "irgendwo significa “en algún lugar”; nirgendwo, “en ninguno”.",
+    "No combines nirgendwo con otra negación en una frase negativa simple."
+   ]
+  },
+  {
+   "n": 26,
+   "titulo": "Adverbios de tiempo",
+   "nivel": "A2",
+   "puntos": [
+    "Reconocer los adverbios temporales más frecuentes del alemán.",
+    "Responder preguntas con **wann?**, **wie lange?**, **wie oft?**, **bis wann?** y **seit wann?**.",
+    "Distinguir expresiones próximas como **bald**, **gleich** y **sofort**.",
+    "Diferenciar **neulich** de **in letzter Zeit** y **früher** de **damals**.",
+    "Expresar que una acción está desarrollándose mediante **gerade**.",
+    "Hablar de hábitos y frecuencia desde **immer** hasta **nie**."
+   ],
+   "errores": [
+    "**morgen / Morgen:** **morgen** con minúscula significa «mañana»; **der Morgen** con mayúscula significa «la mañana».",
+    "**schon / schön:** **schon** significa «ya» y tiene vocal larga /oː/; **schön** significa «bonito» y contiene **ö**.",
+    "**gleich no equivale siempre a bald:** **gleich** suele ser más inmediato que **bald**.",
+    "**sofort** expresa ausencia de espera: no debe traducirse simplemente como «pronto» cuando la intención es «inmediatamente».",
+    "**neulich / in letzter Zeit:** **neulich** suele señalar una ocasión; **in letzter Zeit**, un periodo reciente."
+   ]
+  },
+  {
+   "n": 27,
+   "titulo": "Adverbios de causa y repaso general de adverbios",
+   "nivel": "B1",
+   "puntos": [
+    "Preguntar por una causa mediante **warum?**, **wieso?** y **weshalb?**.",
+    "Expresar consecuencia con **also**, **darum**, **deshalb**, **deswegen**, **dadurch** y **somit**.",
+    "Expresar una consecuencia contraria a lo esperado mediante **trotzdem**.",
+    "Mantener el verbo conjugado en la posición 2 cuando un adverbio ocupa la primera posición.",
+    "Diferenciar conectores causales, consecutivos y concesivos.",
+    "Repasar adverbios de lugar, tiempo, frecuencia, modo y valoración."
+   ],
+   "errores": [
+    "**Verbo en posición 2:** se dice **Deshalb gehe ich**, no *Deshalb ich gehe*.",
+    "**Trotzdem no significa «por eso»:** expresa contraste, no una consecuencia esperable.",
+    "**weil cambia la posición verbal:** **weil ich krank bin**, pero **deshalb bin ich...**",
+    "**also tiene dos usos:** puede significar «así que» o funcionar como «bueno / pues» al comenzar una intervención.",
+    "**wieso** se escribe con una sola palabra."
+   ]
+  },
+  {
+   "n": 28,
+   "titulo": "Adverbios modales",
+   "nivel": "B1",
+   "puntos": [
+    "Identificar adverbios que expresan modo, cantidad, intensidad, valoración y probabilidad.",
+    "Formular preguntas con **wie?**, **wie sehr?**, **wie viel?** y **wie viele?**.",
+    "Diferenciar cantidades contables e incontables.",
+    "Comparar mediante **anders als** y **genauso ... wie**.",
+    "Distinguir **fast / beinahe**, **kaum** y **genug**.",
+    "Expresar gusto con **gern / gerne**."
+   ],
+   "errores": [
+    "**wie viel / wie viele:** usa **wie viel** con incontables y **wie viele** con plurales contables.",
+    "**anders als:** para una diferencia se usa **als**, no **wie**.",
+    "**genauso ... wie:** para igualdad se usa **wie**, no **als**.",
+    "**kaum no es fast:** **kaum** equivale a «apenas»; **fast**, a «casi».",
+    "**genug cambia de posición:** **genug Zeit**, pero **groß genug**."
+   ]
+  },
+  {
+   "n": 29,
+   "titulo": "El imperativo",
+   "nivel": "A2",
+   "puntos": [
+    "Formar el imperativo para **du**, **ihr**, **Sie** y **wir**.",
+    "Dar órdenes, instrucciones, consejos y recomendaciones.",
+    "Formular peticiones corteses con **bitte**.",
+    "Construir propuestas mediante **Lass uns ...** y **Lasst uns ...**.",
+    "Aplicar correctamente el imperativo a verbos separables.",
+    "Reconocer las formas irregulares más importantes: **sei**, **iss**, **gib**, **nimm**, **lies** y **sieh**."
+   ],
+   "errores": [
+    "**du e ihr se omiten:** **Komm!**, no *Komm du!* salvo que se quiera contrastar o enfatizar.",
+    "**Sie permanece:** **Kommen Sie!**, no *Kommen!*, cuando se trata formalmente a alguien.",
+    "**Sie formal va en mayúscula:** **Schreiben Sie Ihre Fragen.**",
+    "**e → i/ie se conserva:** **Iss!**, **Gib!**, **Nimm!**, **Lies!**, **Sieh!**",
+    "**El Umlaut desaparece:** **Fahr!**, no *Fähr!*"
+   ]
+  },
+  {
+   "n": 30,
+   "titulo": "El tiempo verbal Perfekt",
+   "nivel": "B1",
+   "puntos": [
+    "Comprender los usos principales del **Perfekt** en alemán.",
+    "Formar oraciones con **haben / sein + Partizip II**.",
+    "Elegir correctamente entre los auxiliares **haben** y **sein**.",
+    "Formar el **Partizip II** de verbos regulares, irregulares, mixtos, separables e inseparables.",
+    "Colocar el auxiliar conjugado y el participio en las posiciones correctas.",
+    "Formular afirmaciones, negaciones y preguntas en Perfekt."
+   ],
+   "errores": [
+    "**Participio al final:** **Ich habe Deutsch gelernt**, no *Ich habe gelernt Deutsch*.",
+    "**Auxiliar conjugado:** **Ich bin gegangen**, pero **Wir sind gegangen**.",
+    "**No todo movimiento usa sein:** **Ich habe drei Stunden getanzt**.",
+    "**-ieren sin ge-:** **studiert**, no *gestudiert*.",
+    "**Prefijo inseparable sin ge-:** **verstanden**, no *geverstanden*."
+   ]
+  },
+  {
+   "n": 31,
+   "titulo": "El tiempo verbal Plusquamperfekt",
+   "nivel": "B2",
+   "puntos": [
+    "Comprender que el **Plusquamperfekt** expresa una acción anterior a otra acción pasada.",
+    "Formarlo con **hatte / war + Partizip II**.",
+    "Elegir correctamente entre **hatte** y **war**.",
+    "Ordenar dos acontecimientos pasados de forma cronológica.",
+    "Construir oraciones con **nachdem**, **bevor** y **als**.",
+    "Colocar correctamente el verbo en oraciones principales y subordinadas."
+   ],
+   "errores": [
+    "**Plusquamperfekt = pasado anterior:** necesita explícita o implícitamente otro punto de referencia pasado.",
+    "**Auxiliar en Präteritum:** **hatte / war**, no **habe / bin**.",
+    "**Participio al final:** **Ich hatte schon gegessen.**",
+    "**Movimiento con war:** **Sie war gegangen**, no *Sie hatte gegangen*.",
+    "**Subordinada:** **nachdem ich gegessen hatte**, con **hatte** al final."
+   ]
+  },
+  {
+   "n": 32,
+   "titulo": "Los tiempos verbales Futur I y Futur II",
+   "nivel": "B2",
+   "puntos": [
+    "Formar el **Futur I** con **werden + infinitivo**.",
+    "Expresar intenciones, predicciones y suposiciones sobre el presente.",
+    "Reconocer cuándo el alemán prefiere **Präsens + expresión temporal**.",
+    "Formar el **Futur II** con **werden + Partizip II + haben/sein**.",
+    "Expresar una acción que estará terminada en un momento futuro.",
+    "Formular suposiciones sobre acciones pasadas."
+   ],
+   "errores": [
+    "**Infinitivo al final:** **Ich werde morgen arbeiten**, no *Ich werde arbeiten morgen* como orden neutro.",
+    "**werden no significa automáticamente querer:** **Ich werde arbeiten** = trabajaré; **Ich will arbeiten** = quiero trabajar.",
+    "**El Präsens puede expresar futuro:** **Morgen arbeite ich** es completamente correcto.",
+    "**Futur I para suposición presente:** **Er wird wohl schlafen** puede significar «probablemente está durmiendo».",
+    "**Futur II necesita dos elementos finales:** **gemacht haben** o **gegangen sein**."
+   ]
+  },
+  {
+   "n": 33,
+   "titulo": "Verbos separables e inseparables",
+   "nivel": "B2",
+   "puntos": [
+    "Reconocer los prefijos separables e inseparables más frecuentes.",
+    "Colocar el prefijo separable correctamente en oraciones principales.",
+    "Mantener unido el verbo en infinitivo y en oraciones subordinadas.",
+    "Formar el **Partizip II** de ambos tipos de verbo.",
+    "Usar verbos con prefijo en Präsens, Präteritum, Perfekt, Plusquamperfekt y Futur.",
+    "Construir oraciones con verbos modales."
+   ],
+   "errores": [
+    "**Principal:** **Ich stehe früh auf**, con el prefijo al final.",
+    "**Modal:** **Ich muss früh aufstehen**, con el infinitivo unido.",
+    "**Subordinada:** **..., weil ich früh aufstehe**, con el verbo unido al final.",
+    "**Partizip separable:** **aufgestanden**, no *geaufstanden*.",
+    "**Partizip inseparable:** **verstanden**, no *geverstanden*."
+   ]
+  },
+  {
+   "n": 34,
+   "titulo": "Verbos reflexivos",
+   "nivel": "B1",
+   "puntos": [
+    "Comprender cómo funcionan los verbos reflexivos en alemán.",
+    "Elegir el pronombre reflexivo adecuado para cada persona.",
+    "Diferenciar los pronombres reflexivos en Akkusativ y Dativ.",
+    "Reconocer cuándo el reflexivo pasa a Dativ por existir otro objeto en Akkusativ.",
+    "Colocar el pronombre reflexivo correctamente en oraciones simples y subordinadas.",
+    "Conjugar verbos reflexivos en distintos tiempos verbales."
+   ],
+   "errores": [
+    "**Concordancia:** **ich → mich/mir**, **du → dich/dir**, **wir → uns**.",
+    "**Objeto directo presente:** **Ich putze mir die Zähne**, no *Ich putze mich die Zähne*.",
+    "**Artículo, no posesivo:** normalmente **mir die Hände**, no *mir meine Hände*.",
+    "**Tercera persona:** **sich** sirve para singular, plural y **Sie** formal.",
+    "**Posición en Perfekt:** **Ich habe mich beeilt**, no *Ich habe beeilt mich*."
+   ]
+  },
+  {
+   "n": 35,
+   "titulo": "Pronombres reflexivos",
+   "nivel": "A2",
+   "puntos": [
+    "Identificar los pronombres reflexivos alemanes en Akkusativ y Dativ.",
+    "Hacer concordar el pronombre reflexivo con el sujeto.",
+    "Elegir entre **mich / mir** y **dich / dir**.",
+    "Usar Dativ cuando ya existe un objeto en Akkusativ.",
+    "Diferenciar el significado reflexivo del recíproco.",
+    "Reconocer la posible ambigüedad de **uns**, **euch** y **sich**."
+   ],
+   "errores": [
+    "**mich / mir:** **Ich wasche mich**, pero **Ich wasche mir die Hände**.",
+    "**dich / dir:** **Du ziehst dich an**, pero **Du putzt dir die Zähne**.",
+    "**sich es invariable:** vale para **er, sie, es, sie** plural y **Sie** formal.",
+    "**uns y euch:** tienen la misma forma en Akkusativ y Dativ.",
+    "**Concordancia:** se dice **ihr kennt euch**, no *ihr kennt sich*."
+   ]
+  },
+  {
+   "n": 36,
+   "titulo": "Todo sobre la voz pasiva",
+   "nivel": "B2",
+   "puntos": [
+    "Diferenciar una oración activa de una oración pasiva.",
+    "Distinguir **Vorgangspassiv** (pasiva de proceso) y **Zustandspassiv** (pasiva de estado).",
+    "Formar ambos tipos de pasiva en los tiempos verbales principales.",
+    "Transformar una oración activa en pasiva sin cambiar su tiempo verbal.",
+    "Expresar el agente mediante **von + Dativ** y el medio o causa mediante **durch + Akkusativ**.",
+    "Construir la pasiva con verbos modales."
+   ],
+   "errores": [
+    "**Proceso:** **werden + Partizip II**.",
+    "**Estado:** **sein + Partizip II**.",
+    "**Perfekt pasivo:** **ist gemacht worden**, no *ist gemacht geworden*.",
+    "**El objeto acusativo cambia de caso:** **den Mann → der Mann**.",
+    "**El Dativ no asciende:** **Mir wird geholfen**, no *Ich werde geholfen*."
+   ]
+  },
+  {
+   "n": 37,
+   "titulo": "Pronombres interrogativos",
+   "nivel": "B1",
+   "puntos": [
+    "Formular preguntas sobre personas y cosas con **wer, wen, wem, wessen** y **was**.",
+    "Elegir el pronombre interrogativo según el caso: Nominativ, Akkusativ, Dativ o Genitiv.",
+    "Declinar **welcher-** y **was für ein-** según género, número y caso.",
+    "Distinguir entre una elección concreta (**welcher-**) y una pregunta por el tipo o la clase (**was für ein-**)."
+   ],
+   "errores": [
+    "no elijas **wer, wen** o **wem** por la traducción española, sino por el caso exigido por el verbo: **jemanden anrufen** → **Wen?**; **jemandem antworten** → **Wem?**",
+    "**wessen** no lleva apóstrofo y normalmente precede al sustantivo sin artículo: **Wessen Tasche?**",
+    "**welcher-** selecciona una opción identificable; **was für ein-** pregunta por el tipo.",
+    "en **was für ein-**, el caso modifica a **ein-**, no a **was für**: **was für einen Wein**.",
+    "con animales domésticos personificados es habitual preguntar **wer**; **was** también puede aparecer si se los trata simplemente como animales."
+   ]
+  },
+  {
+   "n": 38,
+   "titulo": "Pronombres demostrativos",
+   "nivel": "B2",
+   "puntos": [
+    "Señalar, identificar o destacar personas, objetos e ideas mediante pronombres demostrativos.",
+    "Declinar **dieser-**, **jener-** y **der / die / das** según género, número y caso.",
+    "Emplear la forma invariable **dies** para retomar una idea o una oración completa.",
+    "Diferenciar **derjenige-** (aquel que / la persona que) de **derselbe-** (el mismo).",
+    "Usar demostrativos como pronombres o como determinantes que acompañan a un sustantivo."
+   ],
+   "errores": [
+    "no confundas **derselbe** con **der gleiche**. **Derselbe** significa exactamente el mismo objeto; **der gleiche** puede ser otro objeto del mismo tipo.",
+    "después de una preposición, el demostrativo adopta el caso exigido: **mit der**, **von denen**, **mit denjenigen**.",
+    "el Dativ plural de **die** es **denen**, no *den* cuando funciona como pronombre.",
+    "**dies** es invariable si sustituye una idea completa; para un sustantivo concreto se usa una forma declinada: **dieser / dieses / diese**.",
+    "se escribe **derselbe**, **dieselbe**, **dasselbe**; no *der selbe* ni *das gleiche* si se quiere expresar identidad estricta."
+   ]
+  },
+  {
+   "n": 39,
+   "titulo": "Pronombres indefinidos",
+   "nivel": "B2",
+   "puntos": [
+    "Expresar personas, cosas o cantidades indeterminadas.",
+    "Diferenciar pronombres referidos solo a personas, solo a cosas o a ambos grupos.",
+    "Usar correctamente **man, jemand, niemand, etwas, nichts** y sus variantes con **irgend-**.",
+    "Declinar **all-, einig-, jed-, ein-/kein-, manch-, mehrere-** y el indefinido **welch-**.",
+    "Elegir entre formas cercanas como **jemand / irgendjemand** y **einige / manche / mehrere**."
+   ],
+   "errores": [
+    "**man** lleva una sola *n*; **der Mann, Männer** significa “el hombre”.",
+    "el verbo con **man, jemand** y **niemand** aparece en singular.",
+    "no existe *manen* ni *manem*: las formas que retoman a **man** son **einen** y **einem**.",
+    "**niemand** ya expresa negación; no se añade **nicht** para negar la misma función.",
+    "en plural, la forma positiva pronominal de **ein-** es **welche**, no *eine*."
+   ]
+  },
+  {
+   "n": 40,
+   "titulo": "Oraciones subordinadas: estructura y tipos (Parte 1)",
+   "nivel": "B2",
+   "puntos": [
+    "Reconocer una oración subordinada y colocar el verbo conjugado al final.",
+    "Separar la oración principal y la subordinada mediante una coma.",
+    "Anteponer una subordinada y aplicar la inversión verbo-sujeto en la principal.",
+    "Ordenar correctamente infinitivos, participios, auxiliares y verbos modales.",
+    "Usar verbos separables y no separables dentro de una subordinada.",
+    "Formar subordinadas causales, condicionales, consecutivas y concesivas."
+   ],
+   "errores": [
+    "la coma entre Hauptsatz y Nebensatz es obligatoria.",
+    "no coloques el verbo conjugado en posición 2 dentro de la subordinada: **weil er krank ist**, no *weil er ist krank*.",
+    "si la subordinada va primero, la principal comienza con el verbo: **Wenn du kommst, freue ich mich.**",
+    "el prefijo separable no se desprende dentro de la subordinada: **weil er anruft**, no *weil er ruft an*.",
+    "**da** suele ser más formal o escrito que **weil**, no al revés."
+   ]
+  },
+  {
+   "n": 41,
+   "titulo": "Pronombres relativos",
+   "nivel": "B2",
+   "puntos": [
+    "Unir dos ideas mediante una oración de relativo.",
+    "Elegir el pronombre relativo según género, número y caso.",
+    "Colocar el verbo conjugado al final de la oración relativa.",
+    "Usar **der, die, das**, sus formas declinadas y las alternativas con **welcher-**.",
+    "Expresar posesión mediante **dessen** y **deren**.",
+    "Insertar una relativa en medio de una oración principal usando correctamente las comas."
+   ],
+   "errores": [
+    "son **Relativpronomen**, no *Reflexivpronomen*. Los primeros conectan una relativa; los segundos remiten al sujeto.",
+    "el género y el número proceden del antecedente, pero el caso se decide dentro de la relativa.",
+    "el verbo conjugado va al final: **der die Bank überfallen hat**, no *der hat die Bank überfallen*.",
+    "una relativa incrustada necesita dos comas: **Der Mann, der Max heißt, kommt aus Hamburg.**",
+    "**denen** es Dativ plural; **deren** es Genitiv femenino o plural."
+   ]
+  },
+  {
+   "n": 42,
+   "titulo": "Adverbios relativos",
+   "nivel": "B2",
+   "puntos": [
+    "Formar adverbios relativos mediante **wo(r) + preposición**.",
+    "Usarlos para retomar cosas, ideas, hechos o situaciones completas.",
+    "Mantener el verbo conjugado al final de la oración relativa.",
+    "Transformar adverbios relativos en adverbios interrogativos para formular preguntas.",
+    "Distinguir la referencia a cosas de la referencia a personas."
+   ],
+   "errores": [
+    "añade **-r-** delante de una preposición que empieza por vocal: **worüber**, no *woüber*.",
+    "no uses normalmente **wo(r)-** para una persona: **Mit wem sprichst du?**, no *Womit sprichst du?*",
+    "conserva la preposición exigida por el verbo: **suchen nach → wonach**, **sich freuen über → worüber**.",
+    "en la subordinada el verbo va al final: **wonach der Kunde sucht**.",
+    "**wofür** puede traducirse según el contexto como “para qué”, “por qué” o “para lo cual”; no siempre conviene una traducción literal."
+   ]
+  },
+  {
+   "n": 43,
+   "titulo": "Adverbios conjuntivos",
+   "nivel": "B2",
+   "puntos": [
+    "Conectar dos oraciones principales mediante adverbios conjuntivos.",
+    "Aplicar la inversión cuando el conector ocupa la posición 1.",
+    "Colocar el conector en el campo medio sin alterar la posición 2 del verbo.",
+    "Distinguir relaciones de causa, consecuencia, contraste, adición y alternativa.",
+    "Elegir el conector adecuado según el sentido y el registro."
+   ],
+   "errores": [
+    "después de un adverbio conjuntivo en posición 1 viene el verbo, no el sujeto: **Deshalb gehe ich**, no *Deshalb ich gehe*.",
+    "no envíes el verbo al final; estos conectores unen Hauptsätze.",
+    "**trotzdem** es un adverbio con inversión; **obwohl** es una conjunción subordinante con verbo final.",
+    "**deshalb** expresa consecuencia; **weil** introduce la causa.",
+    "se dice **nichts anderes**, no *nichts anders*, cuando “otra cosa” funciona como sustantivo."
+   ]
+  },
+  {
+   "n": 44,
+   "titulo": "Oraciones subordinadas: tipos (Parte 2)",
+   "nivel": "B1",
+   "puntos": [
+    "Expresar finalidad con **damit** y **um ... zu**.",
+    "Elegir la estructura final según coincidan o no los sujetos.",
+    "Insertar **zu** correctamente en verbos separables.",
+    "Relacionar acontecimientos temporales mediante **als, wenn, bevor, bis, nachdem, seitdem, solange** y **während**.",
+    "Comunicar afirmaciones, pensamientos, emociones y conocimientos mediante **dass**.",
+    "Formar construcciones impersonales con **zu + infinitivo**."
+   ],
+   "errores": [
+    "usa **damit** si cambian los sujetos; **um ... zu** no lleva sujeto propio.",
+    "con verbos separables, **zu** se intercala: **vorzubereiten**, no *zu vorbereiten*.",
+    "**als** se usa para un hecho único pasado; **wenn**, para repeticiones, presente, futuro o condiciones.",
+    "**nachdem** y **seitdem** no son sinónimos exactos: secuencia frente a continuidad desde un punto inicial.",
+    "**dass** lleva doble *s* y coloca el verbo al final."
+   ]
+  },
+  {
+   "n": 45,
+   "titulo": "Preguntas indirectas cerradas",
+   "nivel": "B1",
+   "puntos": [
+    "Transformar preguntas directas de sí/no en preguntas indirectas con **ob**.",
+    "Colocar el verbo conjugado al final de la pregunta indirecta.",
+    "Usar fórmulas introductorias formales e informales.",
+    "Expresar duda, incertidumbre e indiferencia.",
+    "Distinguir **ob** interrogativo de **wenn** condicional o temporal."
+   ],
+   "errores": [
+    "después de **ob**, el verbo conjugado va al final: **ob er kommt**, no *ob kommt er*.",
+    "usa **ob** para “si” interrogativo y **wenn** para “si” condicional.",
+    "la pregunta indirecta va precedida por una coma.",
+    "no todas las frases con **ob** llevan signo de interrogación; depende de la oración principal.",
+    "**ob** no significa “o”; para presentar alternativas se usa **ob ... oder ...**."
+   ]
+  },
+  {
+   "n": 46,
+   "titulo": "Preguntas indirectas abiertas",
+   "nivel": "B1",
+   "puntos": [
+    "Transformar preguntas abiertas directas en preguntas indirectas.",
+    "Conservar la palabra interrogativa como enlace subordinante.",
+    "Colocar el verbo conjugado al final de la pregunta indirecta.",
+    "Elegir correctamente entre **wer, wen, wem, wessen**, interrogativos locales y formas con preposición.",
+    "Ajustar pronombres y perspectiva al reproducir la pregunta de otra persona."
+   ],
+   "errores": [
+    "el verbo conjugado va al final: **wann er kommt**, no *wann kommt er*.",
+    "no añadas **ob** a una pregunta abierta; la propia W-Wort introduce la subordinada.",
+    "distingue **wer, wen, wem** según el caso exigido dentro de la pregunta.",
+    "si **wer** es el sujeto, el verbo va en singular: **wer kommt**.",
+    "al pasar al estilo indirecto, adapta **du / ich / Sie / er / sie** a la nueva perspectiva."
+   ]
+  },
+  {
+   "n": 47,
+   "titulo": "Conjunciones y conectores",
+   "nivel": "B1",
+   "puntos": [
+    "Distinguir oraciones principales (Hauptsätze) y subordinadas (Nebensätze).",
+    "Unir elementos del mismo nivel con conjunciones coordinantes.",
+    "Introducir subordinadas y colocar el verbo conjugado al final.",
+    "Emplear conectores dobles para enumerar, negar, elegir y contrastar.",
+    "Ampliar el vocabulario general del bloque con artículos y plurales correctos."
+   ],
+   "errores": [
+    "**denn** mantiene el verbo en posición 2; **weil** lo coloca al final.",
+    "**sondern** no equivale siempre a “pero”; corrige un elemento previamente negado.",
+    "no añadas otra negación a **weder ... noch**.",
+    "mantén estructuras paralelas a ambos lados de un conector doble.",
+    "el Dativ plural relativo es **denen**, no *den*: **die Kinder, von denen ...**"
+   ]
+  },
+  {
+   "n": 48,
+   "titulo": "Todo sobre el Konjunktiv I",
+   "nivel": "C1",
+   "puntos": [
+    "Comprender la función del Konjunktiv I en el discurso indirecto.",
+    "Formar el paradigma completo de verbos regulares, **sein**, **haben** y **werden**.",
+    "Distinguir las formas inequívocas del Konjunktiv I de las que coinciden con el Indikativ.",
+    "Aplicar formas sustitutivas del Konjunktiv II cuando sea necesario.",
+    "Reproducir declaraciones en presente, pasado y futuro.",
+    "Formar el Vorgangspassiv y el Zustandspassiv en Konjunktiv I."
+   ],
+   "errores": [
+    "el Konjunktiv I no significa que la declaración sea falsa; indica que se reproduce información ajena sin asumirla expresamente.",
+    "todos los verbos forman Konjunktiv I; **sein** no es el único.",
+    "si K I coincide con Indikativ, utiliza K II para mantener inequívoco el discurso indirecto.",
+    "**er habe gesagt** expresa anterioridad; no existe un Präteritum propio de K I.",
+    "en el Perfekt del Vorgangspassiv se usa **worden**, no **geworden**."
+   ]
+  },
+  {
+   "n": 49,
+   "titulo": "Todo sobre el Konjunktiv II",
+   "nivel": "C1",
+   "puntos": [
+    "Expresar deseos, hipótesis, condiciones irreales, consejos y cortesía.",
+    "Formar el Konjunktiv II simple y la construcción **würde + infinitivo**.",
+    "Conjugar auxiliares, modales y verbos de uso frecuente.",
+    "Distinguir irrealidad presente/futura de irrealidad pasada.",
+    "Formar el pasado con verbos modales y Ersatzinfinitiv.",
+    "Aplicar el Konjunktiv II al Vorgangspassiv y al Zustandspassiv."
+   ],
+   "errores": [
+    "no traduzcas mecánicamente cada subjuntivo español con Konjunktiv II; el sistema alemán tiene usos propios.",
+    "usa **hätte/wäre + Partizip II** para la irrealidad pasada, no normalmente **würde + Partizip II + haben/sein**.",
+    "con modales en pasado se emplean dos infinitivos: **hätte arbeiten müssen**.",
+    "en una subordinada con doble infinitivo: **weil er hätte kommen können**.",
+    "se escribe **gegessen**, no *gegesen*."
+   ]
+  },
+  {
+   "n": 50,
+   "titulo": "Las oraciones relativas",
+   "nivel": "B2",
+   "puntos": [
+    "Formar oraciones relativas para describir con precisión a una persona, cosa o situación.",
+    "Seleccionar el pronombre relativo según el género y número del antecedente y según su función dentro de la oración subordinada.",
+    "Usar pronombres relativos en nominativo, acusativo, dativo y genitivo.",
+    "Construir relativas con preposición y distinguir el uso de der/die/das, was, wo y los adverbios pronominales.",
+    "Aplicar la posición final del verbo conjugado en las oraciones relativas."
+   ],
+   "errores": [
+    "**Caso del relativo:** No copies automáticamente el caso del antecedente en la oración principal. Determina la función del relativo dentro de su propia subordinada.",
+    "**No confundir artículo y relativo:** Las formas son parecidas, pero el dativo plural es denen y el genitivo usa dessen/deren.",
+    "**Verbo al final:** Das ist der Mann, den ich gestern gesehen habe, no … den ich habe gestern gesehen.",
+    "**Preposición obligatoria:** Conserva la preposición exigida: mit dem, auf den, für die, von denen.",
+    "**Género gramatical:** das Mädchen es neutro; por eso se dice das Mädchen, dem du eine Rose geschenkt hast."
+   ]
+  },
+  {
+   "n": 51,
+   "titulo": "Oraciones subordinadas con Konjunktiv II",
+   "nivel": "C1",
+   "puntos": [
+    "Construir condiciones irreales o poco probables con wenn y Konjunktiv II.",
+    "Distinguir hipótesis de presente, irreales de pasado y condicionales mixtas.",
+    "Combinar Konjunktiv II en la oración subordinada y en la principal.",
+    "Aplicar correctamente la posición verbal con participios, infinitivos y verbos modales.",
+    "Analizar oraciones complejas formadas por varias subordinadas."
+   ],
+   "errores": [
+    "**No duplicar el sujeto:** Du hättest die Prüfung bestanden, no Du hättest du die Prüfung bestanden.",
+    "**Inversión después de la subordinada:** Wenn ..., wäre ich ..., no Wenn ..., ich wäre ....",
+    "**Irreal de pasado:** Usa hätte/wäre + Partizip II; würde + infinitivo expresa normalmente una hipótesis presente o futura, no sustituye esta construcción.",
+    "**Auxiliar correcto:** wäre gekommen, wäre geblieben, pero hätte gelernt, hätte angerufen.",
+    "**Doble infinitivo modal:** hätte bekommen können, no könnte bekommen gehabt."
+   ]
+  }
+ ]
 }
