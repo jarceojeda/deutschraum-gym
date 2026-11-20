@@ -821,6 +821,20 @@
     "antes": "der Mann + ich kenne ihn",
     "despues": "der Mann, **den** ich kenne"
    }
+  },
+  "md:steigerung": {
+   "titulo": "Komparativ y Superlativ",
+   "errores": [
+    "En comparaciones de igualdad usa **wie**; en superioridad usa **als**.",
+    "Se dice schneller als, no mehr schnell als ni schneller wie en alemán estándar.",
+    "No todos los adjetivos cortos con **a/o/u** reciben umlaut; aprende las formas individualmente."
+   ],
+   "formula": "KOMPARATIV: adj + -er (… als) · SUPERLATIV: am + adj + -sten",
+   "regla": "**Muchos adjetivos cortos llevan umlaut** (alt → älter → am ältesten) y los terminados en -d, -t, -s, -ß, -z añaden -e- (am ältesten, am heißesten). Irregulares: gut → besser → am besten, viel → mehr → am meisten, gern → lieber → am liebsten.",
+   "ejemplo": {
+    "antes": "alt",
+    "despues": "älter · am **ältesten**"
+   }
   }
  }
 }

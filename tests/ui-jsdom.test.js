@@ -536,7 +536,7 @@ function toItem(u, pred, mod, size) {   // juega bien hasta que el ejercicio act
 
 test('D · reglas.json: sólo texto copiado de las hojas y de los errores comunes de las clases, NFC, sin HTML, con ids de concepto reales', () => {
   // ids de concepto: los de concepts.json y los que citan los ítems (p. ej. md:indefinitpronomen está en los datos pero no en concepts.json)
-  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
+  const ids = new Set(CONCEPTS.map(c => c.id)); ['verben', 'artikel', 'deklination', 'praepositionen', 'konnektoren', 'gramatica', 'trampas', 'relativ', 'steigerung'].forEach(m => JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', m + '.json'), 'utf8')).forEach(i => (i.conceptIds || []).forEach(c => ids.add(c))));
   const keys = Object.keys(REGLAS); assert.ok(keys.length >= 50, 'reglas: ' + keys.length);
   keys.forEach(k => {
     const r = REGLAS[k]; assert.ok(ids.has(k), k + ' no es un concepto de concepts.json');
@@ -850,7 +850,8 @@ test('Tablas · dominado: no hay tabla antes de responder; al fallar aparece la 
   u.answer(false);
   const tb = u.q('.fb.bad .fb-table .tbl'); assert.ok(tb, 'tras fallar siempre se ve la tabla');
   const hit = tb.querySelectorAll('td.hit'); assert.ok(hit.length >= 1); assert.ok(/./.test(hit[0].textContent));
-  assert.ok(hit[0].textContent === item.answer || hit[0].textContent === '-' + item.answer || /^ein/.test(hit[0].textContent));
+  const hc = hit[0].textContent.toLowerCase(), an = item.answer.toLowerCase();   // la tabla compara sin mayúsculas («Der» a principio de frase = der)
+  assert.ok(hc === an || hc === '-' + an || /^ein/.test(hc));
   const steps = u.qa('.fb .chain li'); assert.equal(steps.length, 3); assert.match(steps[0].textContent, /Caso/); assert.match(steps[1].textContent, /Casilla/); assert.match(steps[2].textContent, /Forma/);
   assert.ok(tb.querySelector('tr.hitrow'));
 });
@@ -1063,4 +1064,21 @@ test('R · Relativpronomen: Deklination lo sirve con su etiqueta, la tabla de ay
     assert.ok(u.q('.fb.bad table'), 'tabla del pronombre relativo tras fallar'); ok = true;
   }
   assert.ok(ok, 'ningún Relativpronomen servido en 10 semillas');
+});
+
+test('S · Komparativ/Superlativ: Deklination los sirve con su etiqueta y la pista del adjetivo, y tras fallar enseña la explicación y la cápsula', () => {
+  const vistos = {};
+  for (let seed = 160; seed < 175 && Object.keys(vistos).length < 2; seed++) {
+    const u = boot(seed); u.chooseModule('deklination', 30); u.start();
+    for (let i = 0; i < 40 && u.S().screen === 'session'; i++) {
+      const it = u.S().cur.item;
+      if ((it.skill === 'komparativ' || it.skill === 'superlativ') && !vistos[it.skill]) {
+        vistos[it.skill] = true; u.answer(false);
+        assert.equal(u.q('.fb-line').textContent, it.explanation);
+        const cap = u.q('.fb.bad .capsule'); assert.ok(cap && cap.dataset.concept === 'md:steigerung');
+      } else u.answer(true);
+      u.next();
+    }
+  }
+  assert.equal(Object.keys(vistos).length, 2, Object.keys(vistos).join());
 });

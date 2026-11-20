@@ -1,0 +1,2432 @@
+[
+ {
+  "id": "st-komp-schnell",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "schnell",
+  "translation": "",
+  "answer": "schneller",
+  "accept": [
+   "schneller"
+  ],
+  "options": [
+   "schnellste",
+   "schnellsten",
+   "schneller",
+   "schnelle"
+  ],
+  "explanation": "schnell → schneller (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-schnell",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "schnell",
+  "translation": "",
+  "answer": "schnellsten",
+  "accept": [
+   "schnellsten"
+  ],
+  "options": [
+   "schnelle",
+   "schnellster",
+   "schnellsten",
+   "schnellste"
+  ],
+  "explanation": "schnell → am schnellsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-langsam",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "langsam",
+  "translation": "",
+  "answer": "langsamer",
+  "accept": [
+   "langsamer"
+  ],
+  "options": [
+   "langsamer",
+   "langsamere",
+   "langsamsten",
+   "langsame"
+  ],
+  "explanation": "langsam → langsamer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-langsam",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "langsam",
+  "translation": "",
+  "answer": "langsamsten",
+  "accept": [
+   "langsamsten"
+  ],
+  "options": [
+   "langsamster",
+   "langsamsten",
+   "langsam",
+   "langsamer"
+  ],
+  "explanation": "langsam → am langsamsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-schön",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "schön",
+  "translation": "",
+  "answer": "schöner",
+  "accept": [
+   "schöner"
+  ],
+  "options": [
+   "schönste",
+   "schönsten",
+   "schoner",
+   "schöner"
+  ],
+  "explanation": "schön → schöner (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-schön",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "schön",
+  "translation": "",
+  "answer": "schönsten",
+  "accept": [
+   "schönsten"
+  ],
+  "options": [
+   "schön",
+   "schönste",
+   "schönsten",
+   "schonsten"
+  ],
+  "explanation": "schön → am schönsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-billig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "billig",
+  "translation": "",
+  "answer": "billiger",
+  "accept": [
+   "billiger"
+  ],
+  "options": [
+   "billigste",
+   "billiger",
+   "billigsten",
+   "billig"
+  ],
+  "explanation": "billig → billiger (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-billig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "billig",
+  "translation": "",
+  "answer": "billigsten",
+  "accept": [
+   "billigsten"
+  ],
+  "options": [
+   "billigster",
+   "billige",
+   "billig",
+   "billigsten"
+  ],
+  "explanation": "billig → am billigsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-interessant",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "interessant",
+  "translation": "",
+  "answer": "interessanter",
+  "accept": [
+   "interessanter"
+  ],
+  "options": [
+   "interessante",
+   "interessantere",
+   "interessanter",
+   "interessantesten"
+  ],
+  "explanation": "interessant → interessanter (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-interessant",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "interessant",
+  "translation": "",
+  "answer": "interessantesten",
+  "accept": [
+   "interessantesten"
+  ],
+  "options": [
+   "interessanter",
+   "interessant",
+   "interessantesten",
+   "interessanteste"
+  ],
+  "explanation": "interessant → am interessantesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-wichtig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "wichtig",
+  "translation": "",
+  "answer": "wichtiger",
+  "accept": [
+   "wichtiger"
+  ],
+  "options": [
+   "wichtigsten",
+   "wichtigste",
+   "wichtiger",
+   "wichtige"
+  ],
+  "explanation": "wichtig → wichtiger (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-wichtig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "wichtig",
+  "translation": "",
+  "answer": "wichtigsten",
+  "accept": [
+   "wichtigsten"
+  ],
+  "options": [
+   "wichtigste",
+   "wichtigsten",
+   "wichtiger",
+   "wichtige"
+  ],
+  "explanation": "wichtig → am wichtigsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-nett",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "nett",
+  "translation": "",
+  "answer": "netter",
+  "accept": [
+   "netter"
+  ],
+  "options": [
+   "nett",
+   "nette",
+   "netter",
+   "nettesten"
+  ],
+  "explanation": "nett → netter (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-nett",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "nett",
+  "translation": "",
+  "answer": "nettesten",
+  "accept": [
+   "nettesten"
+  ],
+  "options": [
+   "nette",
+   "nettesten",
+   "nettester",
+   "netteste"
+  ],
+  "explanation": "nett → am nettesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-freundlich",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "freundlich",
+  "translation": "",
+  "answer": "freundlicher",
+  "accept": [
+   "freundlicher"
+  ],
+  "options": [
+   "freundlicher",
+   "freundlichsten",
+   "freundlich",
+   "freundlichere"
+  ],
+  "explanation": "freundlich → freundlicher (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-freundlich",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "freundlich",
+  "translation": "",
+  "answer": "freundlichsten",
+  "accept": [
+   "freundlichsten"
+  ],
+  "options": [
+   "freundlicher",
+   "freundlichster",
+   "freundlichste",
+   "freundlichsten"
+  ],
+  "explanation": "freundlich → am freundlichsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-lustig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "lustig",
+  "translation": "",
+  "answer": "lustiger",
+  "accept": [
+   "lustiger"
+  ],
+  "options": [
+   "lustigsten",
+   "lustig",
+   "lustiger",
+   "lustigere"
+  ],
+  "explanation": "lustig → lustiger (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-lustig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "lustig",
+  "translation": "",
+  "answer": "lustigsten",
+  "accept": [
+   "lustigsten"
+  ],
+  "options": [
+   "lustige",
+   "lustigster",
+   "lustig",
+   "lustigsten"
+  ],
+  "explanation": "lustig → am lustigsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-müde",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "müde",
+  "translation": "",
+  "answer": "müder",
+  "accept": [
+   "müder"
+  ],
+  "options": [
+   "müdere",
+   "müdee",
+   "muder",
+   "müder"
+  ],
+  "explanation": "müde → müder (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-müde",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "müde",
+  "translation": "",
+  "answer": "müdesten",
+  "accept": [
+   "müdesten"
+  ],
+  "options": [
+   "mudesten",
+   "müder",
+   "müde",
+   "müdesten"
+  ],
+  "explanation": "müde → am müdesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-laut",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "laut",
+  "translation": "",
+  "answer": "lauter",
+  "accept": [
+   "lauter"
+  ],
+  "options": [
+   "lautesten",
+   "lauteste",
+   "lauter",
+   "laute"
+  ],
+  "explanation": "laut → lauter (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-laut",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "laut",
+  "translation": "",
+  "answer": "lautesten",
+  "accept": [
+   "lautesten"
+  ],
+  "options": [
+   "laute",
+   "lautester",
+   "lautesten",
+   "lauter"
+  ],
+  "explanation": "laut → am lautesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-leise",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "leise",
+  "translation": "",
+  "answer": "leiser",
+  "accept": [
+   "leiser"
+  ],
+  "options": [
+   "leiser",
+   "leiseste",
+   "leiseer",
+   "leisesten"
+  ],
+  "explanation": "leise → leiser (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-leise",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "leise",
+  "translation": "",
+  "answer": "leisesten",
+  "accept": [
+   "leisesten"
+  ],
+  "options": [
+   "leisester",
+   "leiser",
+   "leisesten",
+   "leise"
+  ],
+  "explanation": "leise → am leisesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-breit",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "breit",
+  "translation": "",
+  "answer": "breiter",
+  "accept": [
+   "breiter"
+  ],
+  "options": [
+   "breite",
+   "breitere",
+   "breitesten",
+   "breiter"
+  ],
+  "explanation": "breit → breiter (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-breit",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "breit",
+  "translation": "",
+  "answer": "breitesten",
+  "accept": [
+   "breitesten"
+  ],
+  "options": [
+   "breiteste",
+   "breitester",
+   "breit",
+   "breitesten"
+  ],
+  "explanation": "breit → am breitesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-dünn",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "dünn",
+  "translation": "",
+  "answer": "dünner",
+  "accept": [
+   "dünner"
+  ],
+  "options": [
+   "dünnere",
+   "dünner",
+   "dunner",
+   "dünnsten"
+  ],
+  "explanation": "dünn → dünner (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-dünn",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "dünn",
+  "translation": "",
+  "answer": "dünnsten",
+  "accept": [
+   "dünnsten"
+  ],
+  "options": [
+   "dünn",
+   "dünnsten",
+   "dünnster",
+   "dunnsten"
+  ],
+  "explanation": "dünn → am dünnsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-leicht",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "leicht",
+  "translation": "",
+  "answer": "leichter",
+  "accept": [
+   "leichter"
+  ],
+  "options": [
+   "leichte",
+   "leichtesten",
+   "leichter",
+   "leichtere"
+  ],
+  "explanation": "leicht → leichter (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-leicht",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "leicht",
+  "translation": "",
+  "answer": "leichtesten",
+  "accept": [
+   "leichtesten"
+  ],
+  "options": [
+   "leichtester",
+   "leichter",
+   "leicht",
+   "leichtesten"
+  ],
+  "explanation": "leicht → am leichtesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-schwer",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "schwer",
+  "translation": "",
+  "answer": "schwerer",
+  "accept": [
+   "schwerer"
+  ],
+  "options": [
+   "schwerste",
+   "schwersten",
+   "schwerere",
+   "schwerer"
+  ],
+  "explanation": "schwer → schwerer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-schwer",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "schwer",
+  "translation": "",
+  "answer": "schwersten",
+  "accept": [
+   "schwersten"
+  ],
+  "options": [
+   "schwerer",
+   "schwersten",
+   "schwere",
+   "schwerste"
+  ],
+  "explanation": "schwer → am schwersten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-schwach",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "schwach",
+  "translation": "",
+  "answer": "schwächer",
+  "accept": [
+   "schwächer"
+  ],
+  "options": [
+   "schwache",
+   "schwächer",
+   "schwächste",
+   "schwächsten"
+  ],
+  "explanation": "schwach → schwächer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-schwach",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "schwach",
+  "translation": "",
+  "answer": "schwächsten",
+  "accept": [
+   "schwächsten"
+  ],
+  "options": [
+   "schwächsten",
+   "schwächste",
+   "schwache",
+   "schwach"
+  ],
+  "explanation": "schwach → am schwächsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-groß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "groß",
+  "translation": "",
+  "answer": "größer",
+  "accept": [
+   "größer"
+  ],
+  "options": [
+   "große",
+   "groß",
+   "größer",
+   "größere"
+  ],
+  "explanation": "groß → größer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-groß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "groß",
+  "translation": "",
+  "answer": "größten",
+  "accept": [
+   "größten"
+  ],
+  "options": [
+   "größer",
+   "größte",
+   "großten",
+   "größten"
+  ],
+  "explanation": "groß → am größten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-alt",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "alt",
+  "translation": "",
+  "answer": "älter",
+  "accept": [
+   "älter"
+  ],
+  "options": [
+   "alt",
+   "älter",
+   "älteste",
+   "ältesten"
+  ],
+  "explanation": "alt → älter (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-alt",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "alt",
+  "translation": "",
+  "answer": "ältesten",
+  "accept": [
+   "ältesten"
+  ],
+  "options": [
+   "ältesten",
+   "alte",
+   "alt",
+   "älteste"
+  ],
+  "explanation": "alt → am ältesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-jung",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "jung",
+  "translation": "",
+  "answer": "jünger",
+  "accept": [
+   "jünger"
+  ],
+  "options": [
+   "jung",
+   "jünger",
+   "jüngsten",
+   "jüngste"
+  ],
+  "explanation": "jung → jünger (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-jung",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "jung",
+  "translation": "",
+  "answer": "jüngsten",
+  "accept": [
+   "jüngsten"
+  ],
+  "options": [
+   "jüngster",
+   "jüngsten",
+   "jungsten",
+   "junge"
+  ],
+  "explanation": "jung → am jüngsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-lang",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "lang",
+  "translation": "",
+  "answer": "länger",
+  "accept": [
+   "länger"
+  ],
+  "options": [
+   "langer",
+   "längere",
+   "länger",
+   "lange"
+  ],
+  "explanation": "lang → länger (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-lang",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "lang",
+  "translation": "",
+  "answer": "längsten",
+  "accept": [
+   "längsten"
+  ],
+  "options": [
+   "langsten",
+   "längste",
+   "längsten",
+   "lange"
+  ],
+  "explanation": "lang → am längsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-kurz",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "kurz",
+  "translation": "",
+  "answer": "kürzer",
+  "accept": [
+   "kürzer"
+  ],
+  "options": [
+   "kürzesten",
+   "kürzer",
+   "kurz",
+   "kurze"
+  ],
+  "explanation": "kurz → kürzer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-kurz",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "kurz",
+  "translation": "",
+  "answer": "kürzesten",
+  "accept": [
+   "kürzesten"
+  ],
+  "options": [
+   "kurzesten",
+   "kürzeste",
+   "kurz",
+   "kürzesten"
+  ],
+  "explanation": "kurz → am kürzesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-kalt",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "kalt",
+  "translation": "",
+  "answer": "kälter",
+  "accept": [
+   "kälter"
+  ],
+  "options": [
+   "kälter",
+   "kalter",
+   "kalte",
+   "kalt"
+  ],
+  "explanation": "kalt → kälter (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-kalt",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "kalt",
+  "translation": "",
+  "answer": "kältesten",
+  "accept": [
+   "kältesten"
+  ],
+  "options": [
+   "kältesten",
+   "kalt",
+   "kalte",
+   "kälteste"
+  ],
+  "explanation": "kalt → am kältesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-warm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "warm",
+  "translation": "",
+  "answer": "wärmer",
+  "accept": [
+   "wärmer"
+  ],
+  "options": [
+   "warmer",
+   "wärmer",
+   "warm",
+   "wärmere"
+  ],
+  "explanation": "warm → wärmer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-warm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "warm",
+  "translation": "",
+  "answer": "wärmsten",
+  "accept": [
+   "wärmsten"
+  ],
+  "options": [
+   "wärmer",
+   "wärmsten",
+   "wärmster",
+   "warmsten"
+  ],
+  "explanation": "warm → am wärmsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-stark",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "stark",
+  "translation": "",
+  "answer": "stärker",
+  "accept": [
+   "stärker"
+  ],
+  "options": [
+   "stärker",
+   "stärkste",
+   "starke",
+   "stärkere"
+  ],
+  "explanation": "stark → stärker (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-stark",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "stark",
+  "translation": "",
+  "answer": "stärksten",
+  "accept": [
+   "stärksten"
+  ],
+  "options": [
+   "stärksten",
+   "stärker",
+   "starke",
+   "stärkster"
+  ],
+  "explanation": "stark → am stärksten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-arm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "arm",
+  "translation": "",
+  "answer": "ärmer",
+  "accept": [
+   "ärmer"
+  ],
+  "options": [
+   "arme",
+   "arm",
+   "ärmer",
+   "ärmere"
+  ],
+  "explanation": "arm → ärmer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-arm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "arm",
+  "translation": "",
+  "answer": "ärmsten",
+  "accept": [
+   "ärmsten"
+  ],
+  "options": [
+   "arme",
+   "ärmsten",
+   "ärmste",
+   "ärmster"
+  ],
+  "explanation": "arm → am ärmsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-klug",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "klug",
+  "translation": "",
+  "answer": "klüger",
+  "accept": [
+   "klüger"
+  ],
+  "options": [
+   "klüger",
+   "klügste",
+   "klug",
+   "kluger"
+  ],
+  "explanation": "klug → klüger (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-klug",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "klug",
+  "translation": "",
+  "answer": "klügsten",
+  "accept": [
+   "klügsten"
+  ],
+  "options": [
+   "klügsten",
+   "klugsten",
+   "klüger",
+   "klug"
+  ],
+  "explanation": "klug → am klügsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-dumm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "dumm",
+  "translation": "",
+  "answer": "dümmer",
+  "accept": [
+   "dümmer"
+  ],
+  "options": [
+   "dummer",
+   "dumm",
+   "dümmsten",
+   "dümmer"
+  ],
+  "explanation": "dumm → dümmer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-dumm",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "dumm",
+  "translation": "",
+  "answer": "dümmsten",
+  "accept": [
+   "dümmsten"
+  ],
+  "options": [
+   "dumm",
+   "dümmer",
+   "dummsten",
+   "dümmsten"
+  ],
+  "explanation": "dumm → am dümmsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-süß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "süß",
+  "translation": "",
+  "answer": "süßer",
+  "accept": [
+   "süßer"
+  ],
+  "options": [
+   "süßer",
+   "süßesten",
+   "süß",
+   "süßeste"
+  ],
+  "explanation": "süß → süßer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-süß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "süß",
+  "translation": "",
+  "answer": "süßesten",
+  "accept": [
+   "süßesten"
+  ],
+  "options": [
+   "süßer",
+   "süßester",
+   "süßesten",
+   "sußesten"
+  ],
+  "explanation": "süß → am süßesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-heiß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "heiß",
+  "translation": "",
+  "answer": "heißer",
+  "accept": [
+   "heißer"
+  ],
+  "options": [
+   "heißere",
+   "heißer",
+   "heiß",
+   "heiße"
+  ],
+  "explanation": "heiß → heißer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-heiß",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "heiß",
+  "translation": "",
+  "answer": "heißesten",
+  "accept": [
+   "heißesten"
+  ],
+  "options": [
+   "heißesten",
+   "heiß",
+   "heißer",
+   "heiße"
+  ],
+  "explanation": "heiß → am heißesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-gesund",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "gesund",
+  "translation": "",
+  "answer": "gesünder",
+  "accept": [
+   "gesünder"
+  ],
+  "options": [
+   "gesünder",
+   "gesunde",
+   "gesündere",
+   "gesündesten"
+  ],
+  "explanation": "gesund → gesünder (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-gesund",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "gesund",
+  "translation": "",
+  "answer": "gesündesten",
+  "accept": [
+   "gesündesten"
+  ],
+  "options": [
+   "gesündesten",
+   "gesundesten",
+   "gesündester",
+   "gesündeste"
+  ],
+  "explanation": "gesund → am gesündesten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-teuer",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "teuer",
+  "translation": "",
+  "answer": "teurer",
+  "accept": [
+   "teurer"
+  ],
+  "options": [
+   "teuerste",
+   "teuer",
+   "teuersten",
+   "teurer"
+  ],
+  "explanation": "teuer → teurer (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-teuer",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "teuer",
+  "translation": "",
+  "answer": "teuersten",
+  "accept": [
+   "teuersten"
+  ],
+  "options": [
+   "teuer",
+   "teuerster",
+   "teurer",
+   "teuersten"
+  ],
+  "explanation": "teuer → am teuersten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-dunkel",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "dunkel",
+  "translation": "",
+  "answer": "dunkler",
+  "accept": [
+   "dunkler"
+  ],
+  "options": [
+   "dunklere",
+   "dunkelsten",
+   "dunkel",
+   "dunkler"
+  ],
+  "explanation": "dunkel → dunkler (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-dunkel",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "dunkel",
+  "translation": "",
+  "answer": "dunkelsten",
+  "accept": [
+   "dunkelsten"
+  ],
+  "options": [
+   "dunkelsten",
+   "dunkel",
+   "dunkler",
+   "dunkelster"
+  ],
+  "explanation": "dunkel → am dunkelsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-hell",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "hell",
+  "translation": "",
+  "answer": "heller",
+  "accept": [
+   "heller"
+  ],
+  "options": [
+   "hellsten",
+   "helle",
+   "hellere",
+   "heller"
+  ],
+  "explanation": "hell → heller (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-hell",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "hell",
+  "translation": "",
+  "answer": "hellsten",
+  "accept": [
+   "hellsten"
+  ],
+  "options": [
+   "heller",
+   "hellste",
+   "helle",
+   "hellsten"
+  ],
+  "explanation": "hell → am hellsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-neu",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "neu",
+  "translation": "",
+  "answer": "neuer",
+  "accept": [
+   "neuer"
+  ],
+  "options": [
+   "neue",
+   "neu",
+   "neuer",
+   "neueste"
+  ],
+  "explanation": "neu → neuer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-neu",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "neu",
+  "translation": "",
+  "answer": "neuesten",
+  "accept": [
+   "neuesten"
+  ],
+  "options": [
+   "neueste",
+   "neuer",
+   "neuester",
+   "neuesten"
+  ],
+  "explanation": "neu → am neuesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-klein",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "klein",
+  "translation": "",
+  "answer": "kleiner",
+  "accept": [
+   "kleiner"
+  ],
+  "options": [
+   "kleinsten",
+   "kleine",
+   "kleinere",
+   "kleiner"
+  ],
+  "explanation": "klein → kleiner (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-klein",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "klein",
+  "translation": "",
+  "answer": "kleinsten",
+  "accept": [
+   "kleinsten"
+  ],
+  "options": [
+   "kleinster",
+   "kleiner",
+   "kleinsten",
+   "kleinste"
+  ],
+  "explanation": "klein → am kleinsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-frisch",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "frisch",
+  "translation": "",
+  "answer": "frischer",
+  "accept": [
+   "frischer"
+  ],
+  "options": [
+   "frischere",
+   "frischer",
+   "frischeste",
+   "frische"
+  ],
+  "explanation": "frisch → frischer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-frisch",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "frisch",
+  "translation": "",
+  "answer": "frischesten",
+  "accept": [
+   "frischesten"
+  ],
+  "options": [
+   "frischester",
+   "frische",
+   "frischesten",
+   "frischeste"
+  ],
+  "explanation": "frisch → am frischesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-ruhig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "ruhig",
+  "translation": "",
+  "answer": "ruhiger",
+  "accept": [
+   "ruhiger"
+  ],
+  "options": [
+   "ruhig",
+   "ruhiger",
+   "ruhige",
+   "ruhigere"
+  ],
+  "explanation": "ruhig → ruhiger (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-ruhig",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "ruhig",
+  "translation": "",
+  "answer": "ruhigsten",
+  "accept": [
+   "ruhigsten"
+  ],
+  "options": [
+   "ruhigsten",
+   "ruhigste",
+   "ruhiger",
+   "ruhig"
+  ],
+  "explanation": "ruhig → am ruhigsten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-sauber",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder ist ___ als ich.",
+  "hint": "sauber",
+  "translation": "",
+  "answer": "sauberer",
+  "accept": [
+   "sauberer"
+  ],
+  "options": [
+   "sauberere",
+   "saubere",
+   "sauber",
+   "sauberer"
+  ],
+  "explanation": "sauber → sauberer (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-sauber",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder ist am ___.",
+  "hint": "sauber",
+  "translation": "",
+  "answer": "saubersten",
+  "accept": [
+   "saubersten"
+  ],
+  "options": [
+   "saubersten",
+   "sauberste",
+   "saubere",
+   "sauber"
+  ],
+  "explanation": "sauber → am saubersten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-gut",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder spricht ___ Deutsch als ich.",
+  "hint": "gut",
+  "translation": "",
+  "answer": "besser",
+  "accept": [
+   "besser"
+  ],
+  "options": [
+   "gut",
+   "besser",
+   "besten",
+   "bessere"
+  ],
+  "explanation": "gut → besser (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-gut",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder spricht am ___ Deutsch.",
+  "hint": "gut",
+  "translation": "",
+  "answer": "besten",
+  "accept": [
+   "besten"
+  ],
+  "options": [
+   "besten",
+   "gutesten",
+   "gute",
+   "besser"
+  ],
+  "explanation": "gut → am besten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-viel",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder isst ___ als ich.",
+  "hint": "viel",
+  "translation": "",
+  "answer": "mehr",
+  "accept": [
+   "mehr"
+  ],
+  "options": [
+   "meisten",
+   "mehr",
+   "viele",
+   "mehre"
+  ],
+  "explanation": "viel → mehr (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-viel",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder isst am ___.",
+  "hint": "viel",
+  "translation": "",
+  "answer": "meisten",
+  "accept": [
+   "meisten"
+  ],
+  "options": [
+   "meister",
+   "viele",
+   "meiste",
+   "meisten"
+  ],
+  "explanation": "viel → am meisten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-gern",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder schwimmt ___ als ich.",
+  "hint": "gern",
+  "translation": "",
+  "answer": "lieber",
+  "accept": [
+   "lieber"
+  ],
+  "options": [
+   "liebere",
+   "lieber",
+   "gerner",
+   "gern"
+  ],
+  "explanation": "gern → lieber (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-gern",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder schwimmt am ___.",
+  "hint": "gern",
+  "translation": "",
+  "answer": "liebsten",
+  "accept": [
+   "liebsten"
+  ],
+  "options": [
+   "lieber",
+   "liebste",
+   "gernsten",
+   "liebsten"
+  ],
+  "explanation": "gern → am liebsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-hoch",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Der Berg ist ___ als das Haus.",
+  "hint": "hoch",
+  "translation": "",
+  "answer": "höher",
+  "accept": [
+   "höher"
+  ],
+  "options": [
+   "höher",
+   "hoher",
+   "hoch",
+   "höhere"
+  ],
+  "explanation": "hoch → höher (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-hoch",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Der Berg ist am ___.",
+  "hint": "hoch",
+  "translation": "",
+  "answer": "höchsten",
+  "accept": [
+   "höchsten"
+  ],
+  "options": [
+   "höchsten",
+   "hochsten",
+   "höchster",
+   "höchste"
+  ],
+  "explanation": "hoch → am höchsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-nah",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Die Schule ist ___ als der Bahnhof.",
+  "hint": "nah",
+  "translation": "",
+  "answer": "näher",
+  "accept": [
+   "näher"
+  ],
+  "options": [
+   "naher",
+   "nähere",
+   "nahe",
+   "näher"
+  ],
+  "explanation": "nah → näher (als…). Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-nah",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Die Schule ist am ___.",
+  "hint": "nah",
+  "translation": "",
+  "answer": "nächsten",
+  "accept": [
+   "nächsten"
+  ],
+  "options": [
+   "nahsten",
+   "nah",
+   "nächste",
+   "nächsten"
+  ],
+  "explanation": "nah → am nächsten. Forma irregular o con cambio de vocal.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-komp-früh",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "komparativ",
+  "pool": "komparativ",
+  "prompt": "Mein Bruder steht ___ auf als ich.",
+  "hint": "früh",
+  "translation": "",
+  "answer": "früher",
+  "accept": [
+   "früher"
+  ],
+  "options": [
+   "früher",
+   "früh",
+   "frühere",
+   "früheste"
+  ],
+  "explanation": "früh → früher (als…).",
+  "errorTag": "steigerung:komparativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ },
+ {
+  "id": "st-supe-früh",
+  "module": "deklination",
+  "level": "A2",
+  "type": "cloze",
+  "skill": "superlativ",
+  "pool": "superlativ",
+  "prompt": "Mein Bruder steht am ___ auf.",
+  "hint": "früh",
+  "translation": "",
+  "answer": "frühesten",
+  "accept": [
+   "frühesten"
+  ],
+  "options": [
+   "frühe",
+   "frühesten",
+   "fruhesten",
+   "früheste"
+  ],
+  "explanation": "früh → am frühesten.",
+  "errorTag": "steigerung:superlativ",
+  "conceptIds": [
+   "md:steigerung"
+  ],
+  "source": "gen-steigerung"
+ }
+]
